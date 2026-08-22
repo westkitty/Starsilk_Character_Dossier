@@ -1,7 +1,7 @@
 {
   "source_file": "starsilk_character_dossier.html",
   "source_size_bytes": 614968439,
-  "generated_index_size_bytes": 429016,
+  "generated_index_size_bytes": 468796,
   "total_data_uri_references": 149,
   "unique_binary_assets": 192,
   "duplicate_references_eliminated": 56,
@@ -1453,8 +1453,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "egg-origin-node-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1468,8 +1467,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-01-the-egg.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1483,8 +1481,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "magma-pleuron-concept-art.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1498,8 +1495,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "magma-pleuron-profile-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1513,8 +1509,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "magma-pleuron-cinematic-wide.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1528,8 +1523,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-02-magma-pleuron.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1543,8 +1537,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-03-granithelion.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1558,8 +1551,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "fault-tongue-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1573,8 +1565,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-04-fault-tongue.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1588,8 +1579,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "obsidian-gul-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1603,8 +1593,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-05-obsidian-gul.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1618,8 +1607,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "tremorhound-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1633,8 +1621,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-06-tremorhound.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1648,8 +1635,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "glassspine-archival-concept.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1663,8 +1649,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "glassspine-portrait-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1678,8 +1663,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "glassspine-shardway-panorama.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1693,8 +1677,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-07-glassspine.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1708,8 +1691,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "glasspine-06-ribbon-spine.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1723,8 +1705,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "quarrymind-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1738,8 +1719,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-08-quarrymind.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1753,8 +1733,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "aerokarst-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1768,8 +1747,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-09-aerokarst.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1783,8 +1761,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "cloudmaw-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1798,8 +1775,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-10-cloudmaw.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1813,8 +1789,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "atmantid-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1828,8 +1803,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "weathernode-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1843,8 +1817,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "vortenbray-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1858,8 +1831,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "fumericus-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1873,8 +1845,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1888,8 +1859,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-01-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1903,8 +1873,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-02-bar-khel-overflight.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1918,8 +1887,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-03-portrait.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1933,8 +1901,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-04-climate-polarization.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1948,8 +1915,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-05-aftermath-snowfield.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1963,8 +1929,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-06-serpentine-archival.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1978,8 +1943,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-07-serpentine-over-city.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -1993,8 +1957,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-08-serpentine-portrait.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2008,8 +1971,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-09-serpentine-climate-rift.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2023,8 +1985,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-10-serpentine-low-angle.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2038,8 +1999,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-11-dive-through-storm.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2053,8 +2013,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-12-horizontal-over-sea.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2068,8 +2027,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-13-perched-on-spire.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2083,8 +2041,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-14-emerging-from-cloudwall.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2098,8 +2055,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "skymourn-15-overhead-maelstrom.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2113,8 +2069,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "verdgorge-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2128,8 +2083,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "pollenvault-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2143,8 +2097,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "mycethron-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2158,8 +2111,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "raintaster-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2173,8 +2125,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "terragullet-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2188,8 +2139,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "petalnest-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2203,8 +2153,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "feralseed-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2218,8 +2167,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "solnexus-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2233,8 +2181,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "nullthorn-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2248,8 +2195,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "drakken-nullthorn.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2263,8 +2209,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "lyriboris-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2278,8 +2223,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "helionth-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2293,8 +2237,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "umbrakrael-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2308,8 +2251,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "cinderverge-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2323,8 +2265,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "singularch-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2338,8 +2279,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "redacted-grin-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2353,8 +2293,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "spinal-loop-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2368,8 +2307,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "cradle-exe-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2383,8 +2321,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "foldhowl-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2398,8 +2335,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "manifest-discord-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2413,8 +2349,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "gloryfail-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2428,8 +2363,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "viral-bastion-archival-plate.png",
-        "source_category": "strain-exact",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "strain-exact"
       }
     },
     {
@@ -2443,8 +2377,7 @@
       "match_status": "incident",
       "provenance": {
         "source_basename": "balmera-ridge-incident-plate.png",
-        "source_category": "incident",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "incident"
       }
     },
     {
@@ -2458,8 +2391,7 @@
       "match_status": "incident",
       "provenance": {
         "source_basename": "deimos-vii-fracture-plate.png",
-        "source_category": "incident",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "incident"
       }
     },
     {
@@ -2473,8 +2405,7 @@
       "match_status": "incident",
       "provenance": {
         "source_basename": "blood-eclipse-war-overview-plate.png",
-        "source_category": "lore",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "lore"
       }
     },
     {
@@ -2488,8 +2419,7 @@
       "match_status": "incident",
       "provenance": {
         "source_basename": "blood-rings-plate.png",
-        "source_category": "lore",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "lore"
       }
     },
     {
@@ -2503,8 +2433,7 @@
       "match_status": "incident",
       "provenance": {
         "source_basename": "mother-origin-plate.png",
-        "source_category": "origin",
-        "origin": "MacBook Google Drive / macbook/drakken"
+        "source_category": "origin"
       }
     },
     {
@@ -2518,8 +2447,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-03-54-13.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2533,8 +2461,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-03-54-18.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2548,8 +2475,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-03-58-55.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2563,8 +2489,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-04-00-45.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2578,8 +2503,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-04-05-16.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2593,8 +2517,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok_video_2026-04-10-04-08-17.mp4",
-        "source_category": "brandkit-watermark",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "brandkit-watermark"
       }
     },
     {
@@ -2608,8 +2531,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_worldsvault_board01_panel006_syrrian-four-islands.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2623,8 +2545,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_worldsvault_board01_panel007_nimbus-three-glows.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2638,8 +2559,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "worldsvault_board03_panel025_cirrus-one.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2653,8 +2573,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "worldsvault_board03_panel026_nimbostrata-six.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2668,8 +2587,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s34_altocirrus_mirrored_dawn.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2683,8 +2601,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s35_nimbocastor_singing_storms.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2698,8 +2615,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s36_stratus_quartz_towers.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2713,8 +2629,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s53_contrail_frozen_desert.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2728,8 +2643,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s54_fogbank_mirror_haze.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2743,8 +2657,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s55_vaporous_solid_seas.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2758,8 +2671,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s56_spindrift_wind_nations.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2773,8 +2685,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s57_anemone_coral_clouds.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2788,8 +2699,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s58_nacreous_pearl_memory_rain.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2803,8 +2713,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s59_mistline_breath_continents.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2818,8 +2727,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s60_halitus_ice_oceans_storms.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2833,8 +2741,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s61_prismatic_color_alive.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2848,8 +2755,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s62_driftveil_static_hymns.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2863,8 +2769,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "codec_s63_cirrulite_language_rings.png",
-        "source_category": "worldsvault-template",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "worldsvault-template"
       }
     },
     {
@@ -2878,8 +2783,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok-ff7b1fc0-7614-4238-909e-b59dfdbaf6a9.jpg",
-        "source_category": "shardgod-additional",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "shardgod-additional"
       }
     },
     {
@@ -2893,8 +2797,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "grok-6f1864c0-0a0a-4709-8c2e-e9818b455e40.jpg",
-        "source_category": "shardgod-additional",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "shardgod-additional"
       }
     },
     {
@@ -2908,8 +2811,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "media__1785455749265.png",
-        "source_category": "shardgod-additional",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "shardgod-additional"
       }
     },
     {
@@ -2923,8 +2825,7 @@
       "match_status": "exact",
       "provenance": {
         "source_basename": "storyboard_img_1767211973693.png",
-        "source_category": "shardgod-additional",
-        "origin": "MacBook Google Drive / macbook"
+        "source_category": "shardgod-additional"
       }
     }
   ]
