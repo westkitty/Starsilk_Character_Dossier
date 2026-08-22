@@ -1,0 +1,15 @@
+# Offline Archive Edition — the giant embedded-media source file.
+# This must never enter Git history (see README.md for why).
+starsilk_character_dossier.html
+archive/
+
+# Backup / audit artifacts that may appear during local processing.
+*.zip
+*.zip.part*
+*_before_*.html
+audit-temp*
+audit-output*
+media_vault_fragment.html
+
+# macOS
+.DS_Store

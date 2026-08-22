@@ -1,0 +1,37 @@
+======================================================================
+STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
+======================================================================
+
+[1] DUPLICATE IDS: 0
+
+[2] BROKEN ANCHORS: 0 (of 127 unique #hash hrefs)
+
+[3] LOCAL ASSET PATHS: 93 checked, 0 missing
+
+[4] REMAINING DATA URIS: image=0, video=0
+
+[5] LOCAL MACHINE PATH LEAKS: 0
+
+[6] EXTERNAL RUNTIME DEPENDENCIES (http/https in src/href): 0
+
+[7] SECTION COUNTS: total=138, principal=6, peripheral=45, drakken=56
+
+[8] DRAKKEN VALIDATION: sections=56, missing_id=0, missing_image=0, broken_image_src=0
+
+[9] MEDIA COUNTS: image_refs=170, unique_image_files=88, video_refs=5, unique_video_files=5
+
+[10] WAR CHRONOLOGY: obsolete_17_year_matches=0, 170_year_reference_present=True
+
+[11] WILLIAM OCCURRENCES: 0 (expected 0)
+
+[12] JAVASCRIPT SYNTAX: 1 script block(s) checked, 0 syntax error(s)
+
+[13] SIZE REPORT
+    Original source HTML: 614,968,439 bytes
+    Generated docs/index.html: 429,016 bytes
+    Total docs/ directory: 303,865,436 bytes
+    Total extracted media: 303,393,391 bytes across 93 files
+
+======================================================================
+END OF REPORT
+======================================================================
