@@ -1,0 +1,23 @@
+Starsilk Character Dossier
+===========================
+
+PUBLIC URL:
+https://westkitty.github.io/Starsilk_Character_Dossier/
+
+GOOGLE SITES — FULL PAGE EMBED:
+1. Open the target Google Site.
+2. Pages -> + -> Full page embed
+3. Paste: https://westkitty.github.io/Starsilk_Character_Dossier/
+4. Insert -> Publish
+
+LIVE-SITE HEADER CHECK (2026-08-22):
+- HTTP status: 200
+- X-Frame-Options: not present
+- Content-Security-Policy: not present
+- frame-ancestors: not present
+- Server: GitHub.com (Fastly edge)
+
+GitHub Pages does not send X-Frame-Options or a CSP frame-ancestors
+directive on this response, so nothing on the response itself blocks
+iframe embedding. The page should be embeddable via Google Sites'
+Full page embed as-is.
