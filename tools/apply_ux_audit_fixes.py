@@ -390,11 +390,15 @@ MAIN_SCRIPT = """
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
         const targetId = a.getAttribute('href').slice(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          const heading = target.querySelector('h1, h2, h3, [tabindex]') || target;
-          heading.setAttribute('tabindex', '-1');
-          heading.focus();
+        if (targetId) {
+          setTimeout(() => {
+            const target = document.getElementById(targetId);
+            if (target) {
+              const heading = target.querySelector('h1, h2, h3, [tabindex]') || target;
+              heading.setAttribute('tabindex', '-1');
+              heading.focus();
+            }
+          }, 10);
         }
       });
     });

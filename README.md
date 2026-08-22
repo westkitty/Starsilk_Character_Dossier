@@ -30,25 +30,28 @@ several sections) is stored once and referenced by every place that uses it.
 `docs/asset-manifest.json` records each unique asset (hash, MIME type,
 filename, byte size, reference count).
 
-## Regenerate the Web Edition
+## Build & Finalize Web Edition
 
 ```bash
-python3 tools/extract_embedded_media.py
+./tools/build.sh
 ```
 
-Requires `starsilk_character_dossier.html` to be present locally (it is not
-in Git — keep your own copy).
+Applies UX audit repairs, finalizes manifest metadata, and runs the strict validation gate against all 16 invariant checks.
 
-## Validate
+For a full source extraction (requires `starsilk_character_dossier.html` and optional source environment variables `DRAKKEN_SOURCE_DIR` / `BRANDKIT_SOURCE_DIR`):
 
 ```bash
-python3 tools/validate_web_edition.py
+./tools/build.sh --full-rebuild
 ```
 
-Checks for duplicate IDs, broken anchors, missing local assets, leftover
-data URIs, local-machine path leaks, section/media counts, and canon
-sanity checks (William absent, 170-year Blood Eclipse War chronology).
-Writes `docs/qa-report.txt`.
+## Validate & Release Gate
+
+```bash
+python3 tools/validate_web_edition.py --strict
+.venv/bin/pytest -v tests/test_dossier.py
+```
+
+Enforces structural invariants, manifest consistency, canon regression locks, and full Playwright browser tests across 13 responsive viewports. Writes `docs/qa-report.txt`.
 
 ## Preview locally
 

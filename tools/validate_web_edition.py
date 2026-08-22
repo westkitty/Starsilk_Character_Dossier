@@ -2,9 +2,13 @@
 """Validate the generated Web Edition (docs/) for structural, content, and safety invariants.
 Writes a human-readable report to docs/qa-report.txt and prints a summary.
 
-Supports --strict flag (default in build pipeline) which exits with code 1 upon any invariant violation.
+Supports:
+  --strict: Exits with non-zero code on any invariant violation.
+  --site <dir>: Path to site directory (default: docs).
+  --report <path>: Path to output QA report file (default: docs/qa-report.txt).
 """
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -12,18 +16,15 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ROOT / "docs"
-INDEX = DOCS / "index.html"
-SOURCE = ROOT / "starsilk_character_dossier.html"
-REPORT = DOCS / "qa-report.txt"
-MANIFEST = DOCS / "asset-manifest.json"
 
 LOCAL_PATH_PATTERNS = [
     r"file://",
-    r"/Users/andrew/",
+    r"/Users/",
     r"/mnt/data/",
     r"localhost:",
     r"127\.0\.0\.1:",
+    r"GoogleDrive-",
+    r"MacBook Google Drive",
 ]
 
 BASELINE_UNIQUE_ASSETS = 192
@@ -33,13 +34,22 @@ BASELINE_MEDIA_BYTES = 536251498
 def main() -> int:
     parser = argparse.ArgumentParser(description="Validate Starsilk Character Dossier Web Edition")
     parser.add_argument("--strict", action="store_true", default=False, help="Exit with non-zero code on validation failure")
+    parser.add_argument("--site", default=str(ROOT / "docs"), help="Path to site directory")
+    parser.add_argument("--report", default=None, help="Path to output QA report file")
     args = parser.parse_args()
 
-    if not INDEX.exists():
-        print(f"ERROR: {INDEX} not found. Run extract_embedded_media.py first.", file=sys.stderr)
+    site_dir = Path(args.site).resolve()
+    report_file = Path(args.report).resolve() if args.report else (site_dir / "qa-report.txt")
+    index_file = site_dir / "index.html"
+    source_file = ROOT / "starsilk_character_dossier.html"
+    manifest_file = site_dir / "asset-manifest.json"
+    media_dir = site_dir / "assets" / "media"
+
+    if not index_file.exists():
+        print(f"ERROR: {index_file} not found.", file=sys.stderr)
         return 1
 
-    html = INDEX.read_text(encoding="utf-8", errors="replace")
+    html = index_file.read_text(encoding="utf-8", errors="replace")
     lines = []
     failures = []
 
@@ -89,7 +99,7 @@ def main() -> int:
         if ref.startswith(("http://", "https://", "data:", "#", "mailto:")):
             continue
         checked += 1
-        p = DOCS / ref
+        p = site_dir / ref
         if not p.exists():
             missing_assets.append(ref)
     emit(f"[3] LOCAL ASSET PATHS: {checked} checked, {len(missing_assets)} missing")
@@ -165,7 +175,7 @@ def main() -> int:
             for src in img_srcs:
                 if src.startswith(("http://", "https://", "data:")):
                     continue
-                if not (DOCS / src).exists():
+                if not (site_dir / src).exists():
                     drakken_broken_image += 1
     emit(f"[8] DRAKKEN VALIDATION: sections={len(drakken_sections)}, "
          f"missing_id={drakken_missing_id}, missing_image={drakken_missing_image}, "
@@ -236,10 +246,9 @@ def main() -> int:
     emit()
 
     # 13. Sizes & Media Preservation Baseline
-    source_size = SOURCE.stat().st_size if SOURCE.exists() else None
-    index_size = INDEX.stat().st_size
-    docs_total = sum(f.stat().st_size for f in DOCS.rglob("*") if f.is_file())
-    media_dir = DOCS / "assets" / "media"
+    source_size = source_file.stat().st_size if source_file.exists() else None
+    index_size = index_file.stat().st_size
+    docs_total = sum(f.stat().st_size for f in site_dir.rglob("*") if f.is_file())
     media_total = sum(f.stat().st_size for f in media_dir.rglob("*") if f.is_file()) if media_dir.exists() else 0
     media_count = len([f for f in media_dir.glob("*") if f.is_file()]) if media_dir.exists() else 0
     emit("[13] SIZE REPORT")
@@ -261,12 +270,11 @@ def main() -> int:
         "drk-helionth", "drk-umbrakrael", "drk-cinderverge", "drk-singularch", "drk-redacted-grin",
         "drk-spinal-loop", "cradle-exe", "foldhowl", "manifest-discord", "drk-gloryfail", "drk-viral-bastion",
     ]
-    manifest_path = DOCS / "asset-manifest.json"
     exact_filenames = set()
     manifest_leak_count = 0
-    if manifest_path.exists():
+    if manifest_file.exists():
         try:
-            m_text = manifest_path.read_text(encoding="utf-8")
+            m_text = manifest_file.read_text(encoding="utf-8")
             for pat in LOCAL_PATH_PATTERNS:
                 manifest_leak_count += len(re.findall(pat, m_text))
             manifest = json.loads(m_text)
@@ -293,7 +301,7 @@ def main() -> int:
             art_missing.append((section_id, "no image in section"))
             continue
         for src in img_srcs:
-            if not (DOCS / "assets" / "media" / src).exists():
+            if not (site_dir / "assets" / "media" / src).exists():
                 art_missing.append((section_id, f"broken src {src}"))
         if exact_filenames and not any(s in exact_filenames for s in img_srcs):
             art_not_exact.append(section_id)
@@ -323,12 +331,74 @@ def main() -> int:
             emit(f"[15] DRAKKEN ART IMPORT SUMMARY: unreadable ({e})")
             emit()
 
+    # 16. Manifest Invariants & Consistency Gate
+    manifest_errors = []
+    if not manifest_file.exists():
+        manifest_errors.append("asset-manifest.json not found")
+    else:
+        try:
+            m_text = manifest_file.read_text(encoding="utf-8")
+            manifest_obj = json.loads(m_text)
+            m_assets = manifest_obj.get("assets", [])
+            decl_count = manifest_obj.get("unique_binary_assets")
+            decl_bytes = manifest_obj.get("total_unique_binary_size_bytes")
+
+            disk_files_map = {f.name: f for f in media_dir.glob("*") if f.is_file()} if media_dir.exists() else {}
+            disk_count = len(disk_files_map)
+            disk_bytes = sum(f.stat().st_size for f in disk_files_map.values())
+            sum_m_bytes = sum(a.get("bytes", 0) for a in m_assets)
+
+            if decl_count != len(m_assets):
+                manifest_errors.append(f"declared unique_binary_assets ({decl_count}) != len(assets) ({len(m_assets)})")
+            if len(m_assets) != disk_count:
+                manifest_errors.append(f"manifest assets count ({len(m_assets)}) != disk file count ({disk_count})")
+            if decl_bytes != sum_m_bytes:
+                manifest_errors.append(f"declared total bytes ({decl_bytes}) != sum of asset bytes ({sum_m_bytes})")
+            if sum_m_bytes != disk_bytes:
+                manifest_errors.append(f"manifest sum bytes ({sum_m_bytes}) != disk bytes ({disk_bytes})")
+
+            m_filenames = set()
+            for idx, a in enumerate(m_assets):
+                fn = a.get("filename")
+                if not fn:
+                    manifest_errors.append(f"asset #{idx} missing filename")
+                    continue
+                if fn in m_filenames:
+                    manifest_errors.append(f"duplicate manifest filename: {fn}")
+                m_filenames.add(fn)
+
+                disk_f = disk_files_map.get(fn)
+                if not disk_f:
+                    manifest_errors.append(f"manifest asset missing on disk: {fn}")
+                else:
+                    if a.get("bytes") != disk_f.stat().st_size:
+                        manifest_errors.append(f"asset {fn} byte mismatch: manifest {a.get('bytes')} vs disk {disk_f.stat().st_size}")
+                    if "sha256" in a and a["sha256"]:
+                        actual_sha = hashlib.sha256(disk_f.read_bytes()).hexdigest()
+                        if a["sha256"] != actual_sha:
+                            manifest_errors.append(f"asset {fn} SHA mismatch: manifest {a['sha256']} vs disk {actual_sha}")
+
+            for disk_fn in disk_files_map:
+                if disk_fn not in m_filenames:
+                    manifest_errors.append(f"disk media file not represented in manifest: {disk_fn}")
+
+        except Exception as e:
+            manifest_errors.append(f"manifest JSON parse/read error: {e}")
+
+    emit(f"[16] MANIFEST INVARIANTS: {len(manifest_errors)} error(s)")
+    for me in manifest_errors:
+        emit(f"    - {me}")
+    if manifest_errors:
+        failures.append(f"manifest_invariants ({len(manifest_errors)})")
+    emit()
+
     emit("=" * 70)
     emit("END OF REPORT")
     emit("=" * 70)
 
-    REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"\nReport written to {REPORT}")
+    report_file.parent.mkdir(parents=True, exist_ok=True)
+    report_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"\nReport written to {report_file}")
 
     if failures:
         print(f"\nSTRICT VALIDATION FAILED: {', '.join(failures)}", file=sys.stderr)

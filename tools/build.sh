@@ -47,22 +47,30 @@ if [ "$FULL_REBUILD" = true ]; then
     echo "2. Extracting embedded media from source HTML..."
     python3 tools/extract_embedded_media.py
 
-    echo "3. Importing Drakken Art (if source is readable)..."
+    echo "3. Importing Drakken Art (if source is configured)..."
     DRAKKEN_SRC="${DRAKKEN_SOURCE_DIR:-}"
-    if [ -n "$DRAKKEN_SRC" ] && [ -d "$DRAKKEN_SRC" ]; then
-        python3 tools/import_drakken_art.py --source "$DRAKKEN_SRC" --site docs
-    elif [ -r "/Users/andrew/Library/CloudStorage/GoogleDrive-digitalghosts269@gmail.com/My Drive/macbook/drakken" ]; then
-        python3 tools/import_drakken_art.py --source "/Users/andrew/Library/CloudStorage/GoogleDrive-digitalghosts269@gmail.com/My Drive/macbook/drakken" --site docs
+    if [ -n "$DRAKKEN_SRC" ]; then
+        if [ -d "$DRAKKEN_SRC" ]; then
+            python3 tools/import_drakken_art.py --source "$DRAKKEN_SRC" --site docs
+        else
+            echo "ERROR: DRAKKEN_SOURCE_DIR was specified but directory does not exist: $DRAKKEN_SRC" >&2
+            exit 1
+        fi
     else
-        echo "   Drakken source not mounted/configured; preserving existing extracted/imported assets."
+        echo "   DRAKKEN_SOURCE_DIR is not configured; preserving existing extracted/imported assets."
     fi
 
-    echo "4. Importing BrandKit / WorldsVault / ShardGod Art (if source is readable)..."
+    echo "4. Importing BrandKit / WorldsVault / ShardGod Art (if source is configured)..."
     BRANDKIT_SRC="${BRANDKIT_SOURCE_DIR:-}"
-    if [ -n "$BRANDKIT_SRC" ] && [ -d "$BRANDKIT_SRC" ]; then
-        python3 tools/import_brandkit_worldsvault_shardgod.py --source "$BRANDKIT_SRC" --site docs
+    if [ -n "$BRANDKIT_SRC" ]; then
+        if [ -d "$BRANDKIT_SRC" ]; then
+            python3 tools/import_brandkit_worldsvault_shardgod.py --source "$BRANDKIT_SRC" --site docs
+        else
+            echo "ERROR: BRANDKIT_SOURCE_DIR was specified but directory does not exist: $BRANDKIT_SRC" >&2
+            exit 1
+        fi
     else
-        echo "   BrandKit source not mounted/configured; preserving existing extracted/imported assets."
+        echo "   BRANDKIT_SOURCE_DIR is not configured; preserving existing extracted/imported assets."
     fi
 
     echo "5. Integrating Gap Analysis lore..."

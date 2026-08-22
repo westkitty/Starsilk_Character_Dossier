@@ -155,7 +155,7 @@ def main() -> int:
             "sha256": digest, "mime_type": mime, "filename": filename, "bytes": src.stat().st_size,
             "reference_count": 0, "contexts": [], "logical_identity": identity,
             "match_status": "exact", "provenance": {"source_basename": src.name, "source_category": category,
-                                                       "origin": "MacBook Google Drive / macbook"},
+                                                       "source_archive": "brandkit"},
         }
         assets_by_hash[digest] = asset
         manifest["assets"].append(asset)

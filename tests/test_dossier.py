@@ -2,6 +2,7 @@
 Tests structural invariants, validator gating, idempotency, asset preservation,
 and exercises real browser journeys with Playwright across 13 responsive viewports.
 """
+import hashlib
 import http.server
 import json
 import os
@@ -19,8 +20,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 INDEX = DOCS / "index.html"
 MANIFEST = DOCS / "asset-manifest.json"
+REPORT = DOCS / "qa-report.txt"
 MEDIA_DIR = DOCS / "assets" / "media"
-PORT = 8877
 
 RESPONSIVE_WIDTHS = [320, 375, 430, 620, 768, 950, 951, 1024, 1180, 1280, 1366, 1440, 1920]
 
@@ -68,8 +69,10 @@ def test_strict_validator_passes():
 
 
 def test_strict_validator_gates_errors(tmp_path):
-    """Strict validator must exit non-zero when given an invalid fixture (UX-030)."""
-    # Create an invalid temporary HTML file with a broken anchor and duplicate ID
+    """Strict validator must exit non-zero when given an invalid fixture (UX-030).
+    Ensures negative test leaves checked-in publication files completely untouched.
+    """
+    tmp_report = tmp_path / "temp_failing_qa_report.txt"
     invalid_html = INDEX.read_text(encoding="utf-8").replace(
         '<section class="page cover" data-folio="00" id="cover">',
         '<section class="page cover" data-folio="00" id="cover"><a href="#nonexistentAnchor">Broken</a>'
@@ -77,24 +80,54 @@ def test_strict_validator_gates_errors(tmp_path):
         'id="world"',
         'id="cover"'  # Duplicate ID
     )
-    
-    # Temporarily swap index
-    orig_content = INDEX.read_text(encoding="utf-8")
+
+    orig_index = INDEX.read_text(encoding="utf-8")
+    orig_report = REPORT.read_text(encoding="utf-8") if REPORT.exists() else None
+
     try:
         INDEX.write_text(invalid_html, encoding="utf-8")
         res = subprocess.run(
-            ["python3", str(ROOT / "tools" / "validate_web_edition.py"), "--strict"],
+            ["python3", str(ROOT / "tools" / "validate_web_edition.py"), "--strict", "--report", str(tmp_report)],
             capture_output=True,
             text=True
         )
         assert res.returncode != 0, "Strict validator should fail on duplicate IDs and broken anchors!"
+        assert tmp_report.exists()
+        failing_text = tmp_report.read_text(encoding="utf-8")
+        assert "DUPLICATE IDS: 1" in failing_text
+        assert "BROKEN ANCHORS" in failing_text
     finally:
-        INDEX.write_text(orig_content, encoding="utf-8")
+        INDEX.write_text(orig_index, encoding="utf-8")
+        if orig_report is not None:
+            REPORT.write_text(orig_report, encoding="utf-8")
+
+
+def test_strict_validator_gates_manifest_errors(tmp_path):
+    """Strict validator must fail if manifest has mismatched counts or missing files."""
+    tmp_report = tmp_path / "manifest_fail_report.txt"
+    orig_manifest = MANIFEST.read_text(encoding="utf-8")
+    orig_report = REPORT.read_text(encoding="utf-8") if REPORT.exists() else None
+
+    # Corrupt manifest declared count
+    bad_manifest = json.loads(orig_manifest)
+    bad_manifest["unique_binary_assets"] = 999
+
+    try:
+        MANIFEST.write_text(json.dumps(bad_manifest, indent=2), encoding="utf-8")
+        res = subprocess.run(
+            ["python3", str(ROOT / "tools" / "validate_web_edition.py"), "--strict", "--report", str(tmp_report)],
+            capture_output=True,
+            text=True
+        )
+        assert res.returncode != 0, "Strict validator must fail on manifest count discrepancy!"
+    finally:
+        MANIFEST.write_text(orig_manifest, encoding="utf-8")
+        if orig_report is not None:
+            REPORT.write_text(orig_report, encoding="utf-8")
 
 
 def test_build_pipeline_idempotency():
     """Building twice must produce bit-identical deterministic output (UX-029)."""
-    import hashlib
     def get_hash():
         return hashlib.sha256(INDEX.read_bytes()).hexdigest()
 
@@ -126,6 +159,33 @@ def test_asset_preservation_and_manifest_privacy():
 
     total_bytes = sum(f.stat().st_size for f in media_files)
     assert total_bytes == 536251498, f"Expected 536251498 bytes, got {total_bytes}"
+
+
+def test_manifest_consistency_invariants():
+    """Verify mutual consistency: declared counts, manifest assets, byte sums, and SHA256 checksums."""
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    assets = manifest.get("assets", [])
+    decl_count = manifest.get("unique_binary_assets")
+    decl_bytes = manifest.get("total_unique_binary_size_bytes")
+
+    media_files = {f.name: f for f in MEDIA_DIR.glob("*") if f.is_file()}
+    assert decl_count == len(assets) == len(media_files) == 192
+    assert decl_bytes == sum(a.get("bytes", 0) for a in assets) == sum(f.stat().st_size for f in media_files.values()) == 536251498
+
+    manifest_filenames = set()
+    for a in assets:
+        fn = a["filename"]
+        assert fn not in manifest_filenames, f"Duplicate manifest filename: {fn}"
+        manifest_filenames.add(fn)
+        disk_f = media_files.get(fn)
+        assert disk_f is not None, f"Manifest file missing on disk: {fn}"
+        assert a["bytes"] == disk_f.stat().st_size, f"Byte mismatch for {fn}"
+        if "sha256" in a and a["sha256"]:
+            actual_sha = hashlib.sha256(disk_f.read_bytes()).hexdigest()
+            assert a["sha256"] == actual_sha, f"SHA256 mismatch for {fn}"
+
+    for disk_fn in media_files:
+        assert disk_fn in manifest_filenames, f"Disk file not in manifest: {disk_fn}"
 
 
 def test_canon_regression_locks():
@@ -161,7 +221,7 @@ def test_attachment_initializer_safety(page: Page, local_server):
     errors = []
     page.on("pageerror", lambda err: errors.append(str(err)))
     page.goto(f"{local_server}/index.html")
-    
+
     # Confirm attachment stages are initialized without error
     stages_count = page.locator(".attachment-stage").count()
     assert stages_count == 26, f"Expected 26 attachment stages, got {stages_count}"
@@ -172,11 +232,11 @@ def test_skip_link_accessibility(page: Page, local_server):
     """3. Skip link visibility and focus behavior (UX-011)."""
     page.goto(f"{local_server}/index.html")
     skip_link = page.locator(".skip-link")
-    
+
     # Tab to focus skip link
     page.keyboard.press("Tab")
     expect(skip_link).to_be_focused()
-    
+
     # Activate skip link
     page.keyboard.press("Enter")
     main_el = page.locator("#mainContent")
@@ -184,7 +244,7 @@ def test_skip_link_accessibility(page: Page, local_server):
 
 
 def test_mobile_menu_aria_and_navigation(page: Page, local_server):
-    """4, 5. Mobile menu open/close ARIA sync and post-navigation focus (UX-010, UX-019)."""
+    """4, 5. Mobile menu open/close ARIA sync and post-navigation heading focus (UX-010, UX-019)."""
     page.set_viewport_size({"width": 375, "height": 667})
     page.goto(f"{local_server}/index.html")
 
@@ -206,6 +266,9 @@ def test_mobile_menu_aria_and_navigation(page: Page, local_server):
     expect(menu_toggle).to_have_attribute("aria-expanded", "false")
     expect(index_aside).not_to_have_class(re.compile(r"\bopen\b"))
 
+    target_heading = page.locator("#shard-god").locator("h1, h2, h3").first
+    expect(target_heading).to_be_focused()
+
 
 def test_quick_search_filtering(page: Page, local_server):
     """6. Quick find filter in index (UX-015)."""
@@ -217,7 +280,7 @@ def test_quick_search_filtering(page: Page, local_server):
 
     # Filter for 'Dao'
     search_input.fill("dao")
-    
+
     # Dao link should be visible, while Marcel should be hidden
     dao_link = page.locator('.index nav a[href="#dao"]')
     marcel_link = page.locator('.index nav a[href="#marcel"]')
@@ -316,21 +379,66 @@ def test_clear_cancel_and_confirm(page: Page, local_server, tmp_path):
     expect(canonical_imgs.first).to_have_attribute("src", re.compile(r"^assets/media/"))
 
 
-def test_export_button_label_and_truth(page: Page, local_server):
-    """14. Truthful export button label and companion media description (UX-002, UX-023)."""
+def test_export_action_and_downloaded_html(page: Page, local_server, tmp_path):
+    """14. Truthful export button label and real downloaded HTML verification (UX-002, UX-023)."""
+    page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
+
     export_btn = page.locator("#exportEmbedded")
     expect(export_btn).to_have_text("Export HTML copy")
 
+    # Trigger real download
+    with page.expect_download() as download_info:
+        export_btn.click()
 
-def test_watermark_and_reduced_motion(page: Page, local_server):
-    """15, 16. Reduced motion and watermark video lifecycle (UX-016, UX-027)."""
-    # Emulate reduced motion
+    download = download_info.value
+    assert download.suggested_filename == "starsilk_character_dossier_copy.html"
+
+    export_dest = tmp_path / download.suggested_filename
+    download.save_as(str(export_dest))
+    assert export_dest.exists()
+    assert export_dest.stat().st_size > 50000
+
+    html_content = export_dest.read_text(encoding="utf-8")
+    assert "<!doctype html>" in html_content.lower()
+    assert 'id="cover"' in html_content
+    assert 'id="shard-god"' in html_content
+    assert 'id="marcel"' in html_content
+    # Toolbar and file inputs should be stripped in export
+    assert 'class="asset-file"' not in html_content
+    assert 'class="asset-toolbar"' not in html_content
+
+
+def test_watermark_lifecycle_and_reduced_motion(page: Page, local_server):
+    """15, 16. Watermark video source, visibilitychange lifecycle, and reduced-motion disable (UX-016, UX-027)."""
+    # 1. Reduced motion mode
     page.emulate_media(reduced_motion="reduce")
     page.goto(f"{local_server}/index.html")
-
     watermark = page.locator("#brandkit-watermark")
     expect(watermark).to_be_hidden()
+
+    # 2. Normal motion mode
+    page.emulate_media(reduced_motion="no-preference")
+    page.goto(f"{local_server}/index.html")
+    page.wait_for_load_state("domcontentloaded")
+
+    # Watermark should have a valid media source assigned
+    src_attr = watermark.get_attribute("src")
+    assert src_attr and "assets/media/" in src_attr
+
+    # Test visibilitychange pause/resume lifecycle
+    page.evaluate("""() => {
+        Object.defineProperty(document, 'hidden', { value: true, configurable: true });
+        document.dispatchEvent(new Event('visibilitychange'));
+    }""")
+    is_paused = page.evaluate("() => document.getElementById('brandkit-watermark').paused")
+    assert is_paused is True
+
+    # Resume on visible
+    page.evaluate("""() => {
+        Object.defineProperty(document, 'hidden', { value: false, configurable: true });
+        document.dispatchEvent(new Event('visibilitychange'));
+    }""")
 
 
 def test_desktop_index_scrolling(page: Page, local_server):
@@ -353,18 +461,24 @@ def test_no_sidebar_collision_across_all_viewports(page: Page, local_server, wid
 
     if width > 950:
         index_box = page.locator("#index").bounding_box()
-        main_box = page.locator(".cover").bounding_box()
-        assert index_box is not None and main_box is not None
-        # On desktop, cover content starts to the right of the sidebar
+        assert index_box is not None
         sidebar_right = index_box["x"] + index_box["width"]
-        # The .cover has padding-left >= 18rem (288px) > 256px sidebar right edge
-        # Check computed padding of .cover
+
+        # Assert computed padding clears the sidebar
         pad_left = page.evaluate('() => parseFloat(getComputedStyle(document.querySelector(".page")).paddingLeft)')
         assert pad_left >= 280, f"At width {width}px, padding-left {pad_left}px must be >= 280px to clear sidebar!"
 
+        # Assert real heading bounding boxes start strictly to the right of the sidebar
+        for sec_id in ["cover", "shard-god", "marcel", "kail", "dao"]:
+            sec = page.locator(f"#{sec_id}")
+            heading = sec.locator("h1, h2, .eyebrow").first
+            box = heading.bounding_box()
+            if box:
+                assert box["x"] >= sidebar_right, f"At width {width}px, section #{sec_id} heading at x={box['x']} collides with sidebar right edge {sidebar_right}!"
+
 
 def test_print_stylesheet_rules(page: Page, local_server):
-    """19. Print media stylesheet sanity (UX-022)."""
+    """19. Print media stylesheet sanity and representative content visibility (UX-022)."""
     page.emulate_media(media="print")
     page.goto(f"{local_server}/index.html")
 
@@ -372,3 +486,10 @@ def test_print_stylesheet_rules(page: Page, local_server):
     expect(page.locator("#index")).to_be_hidden()
     expect(page.locator(".asset-toolbar")).to_be_hidden()
     expect(page.locator("#brandkit-watermark")).to_be_hidden()
+
+    # Representative content must remain readable and visible
+    expect(page.locator("#cover h1")).to_be_visible()
+    expect(page.locator(".warn").first).to_be_visible()
+    expect(page.locator("#marcel h2")).to_be_visible()
+    expect(page.locator("#drk-the-egg h2")).to_be_visible()
+    expect(page.locator(".media-shelf").first).to_be_visible()

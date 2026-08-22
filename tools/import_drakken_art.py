@@ -8,7 +8,7 @@ the existing generated site in place.
 
 Usage:
   python3 tools/import_drakken_art.py \
-    --source "/Users/andrew/Library/CloudStorage/GoogleDrive-digitalghosts269@gmail.com/My Drive/macbook/drakken" \
+    --source "/path/to/drakken" \
     --site docs
 """
 import argparse
@@ -272,7 +272,7 @@ def main() -> int:
                 "provenance": {
                     "source_basename": src.name,
                     "source_category": category,
-                    "origin": "MacBook Google Drive / macbook/drakken",
+                    "source_archive": "drakken",
                 },
             }
             assets_by_hash[digest] = asset
