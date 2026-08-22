@@ -1,12 +1,12 @@
 {
   "source_file": "starsilk_character_dossier.html",
   "source_size_bytes": 614968439,
-  "generated_index_size_bytes": 468901,
+  "generated_index_size_bytes": 487581,
   "total_data_uri_references": 149,
-  "unique_binary_assets": 192,
+  "unique_binary_assets": 211,
   "duplicate_references_eliminated": 56,
   "total_decoded_binary_size_bytes": 460906548,
-  "total_unique_binary_size_bytes": 536251498,
+  "total_unique_binary_size_bytes": 586563534,
   "bytes_saved_by_deduplication": 157513157,
   "assets": [
     {
@@ -222,7 +222,7 @@
       "mime_type": "image/png",
       "filename": "215b472c945b203880ff9ff0.png",
       "bytes": 2620242,
-      "reference_count": 8,
+      "reference_count": 2,
       "contexts": [
         {
           "section_id": "gorevault",
@@ -312,7 +312,7 @@
       "mime_type": "image/png",
       "filename": "c1f7ee003b8321b0965ca6d0.png",
       "bytes": 2522670,
-      "reference_count": 8,
+      "reference_count": 2,
       "contexts": [
         {
           "section_id": "lyriboris",
@@ -378,7 +378,7 @@
       "mime_type": "image/png",
       "filename": "67385a1d966c16adabc3653a.png",
       "bytes": 3022334,
-      "reference_count": 8,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-magma-pleuron",
@@ -2441,7 +2441,7 @@
       "mime_type": "video/mp4",
       "filename": "bd9b6b141f0f2d11fadea67a.mp4",
       "bytes": 773762,
-      "reference_count": 2,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2455,7 +2455,7 @@
       "mime_type": "video/mp4",
       "filename": "c629ce1b298593185fb64c6d.mp4",
       "bytes": 2937414,
-      "reference_count": 1,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2469,7 +2469,7 @@
       "mime_type": "video/mp4",
       "filename": "2867ab757325a18d4e86e47d.mp4",
       "bytes": 559734,
-      "reference_count": 1,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2483,7 +2483,7 @@
       "mime_type": "video/mp4",
       "filename": "3e601797a3fa7815a7f18566.mp4",
       "bytes": 834636,
-      "reference_count": 1,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2497,7 +2497,7 @@
       "mime_type": "video/mp4",
       "filename": "299d5b833f56bb9fe42f0eb2.mp4",
       "bytes": 582866,
-      "reference_count": 1,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2511,7 +2511,7 @@
       "mime_type": "video/mp4",
       "filename": "8fc2775c8783e4c873a72558.mp4",
       "bytes": 1213701,
-      "reference_count": 1,
+      "reference_count": 0,
       "contexts": [],
       "logical_identity": "Starsilk strand loop",
       "match_status": "exact",
@@ -2826,6 +2826,291 @@
       "provenance": {
         "source_basename": "storyboard_img_1767211973693.png",
         "source_category": "shardgod-additional"
+      }
+    },
+    {
+      "sha256": "e18e4f9b89bc619de739ba3a56c80f63c0afae7d8a2bebe263ebf277cc3d878f",
+      "mime_type": "image/png",
+      "filename": "e18e4f9b89bc619de739ba3a.png",
+      "bytes": 2758443,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Abyssoriel",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "ancient_leviathan_in_the_abyssal_ruins.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "f80a3e7198c5f5e4d75b6240e5672e84e8c82f863f6e04d11caeca8675d47588",
+      "mime_type": "image/png",
+      "filename": "f80a3e7198c5f5e4d75b6240.png",
+      "bytes": 2315944,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Brinechoir",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "leviathan_over_submerged_ruins.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "dc1302480bd4a637e42efb8bbeea1883dbe8278a5aebb3ccd29dd40c1a6e3db4",
+      "mime_type": "image/png",
+      "filename": "dc1302480bd4a637e42efb8b.png",
+      "bytes": 2751287,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Currenthalo",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "cosmic_storm_over_a_ruined_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "e72f8d2120ef3c2a9179742e92a7f00706ba772769aa4428e6a406f389a0af77",
+      "mime_type": "image/png",
+      "filename": "e72f8d2120ef3c2a9179742e.png",
+      "bytes": 3163731,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Shelfcarver",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "crystal_serpent_emerges_from_shattered_earth.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "64b1432929c11ac027cc6ae64e624c07620da5897bd895a2fa2bc76af2369905",
+      "mime_type": "image/png",
+      "filename": "64b1432929c11ac027cc6ae6.png",
+      "bytes": 3100188,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glacierthroat",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "ice_wyrm_in_a_blizzard_storm.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "7781bfbeae0ec3a5a6a01b3ec8659f35bfc4f35fb719b1d22d37fbc74771579d",
+      "mime_type": "image/png",
+      "filename": "7781bfbeae0ec3a5a6a01b3e.png",
+      "bytes": 2753038,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Veilcurrent",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "ethereal_guardian_of_the_sunken_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "7fc1a31c6d4ffe2b7cd61bf72876f522312ff6765f538d92e03738a850aba479",
+      "mime_type": "image/png",
+      "filename": "7fc1a31c6d4ffe2b7cd61bf7.png",
+      "bytes": 2469285,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Coronaxis",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "celestial_serpent_and_the_summoned_suns.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "5a7633dd67d1f85fef182a8681cff81e7253f4f10c547836e2b3c338699a8ffc",
+      "mime_type": "image/png",
+      "filename": "5a7633dd67d1f85fef182a86.png",
+      "bytes": 2562899,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Ironcant",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "mechanical_dragon_looms_over_dystopian_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "f4c322773f4f8554ab95493e497a42b3e55d4bfd688ba2f5b763e85ca81dcd01",
+      "mime_type": "image/png",
+      "filename": "f4c322773f4f8554ab95493e.png",
+      "bytes": 2751437,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Gridsaint",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "levitating_fortress_over_ruined_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "90bcba2140a4712328e17b1817924b7fe38dc37445a0ddde85dfea756f927464",
+      "mime_type": "image/png",
+      "filename": "90bcba2140a4712328e17b18.png",
+      "bytes": 2335411,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Spiremolt",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "storm_titan_over_a_jagged_landscape.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "116c9e1d9aeee20f058d4d3735bd0a91439ba38124bd5296bd92d9441695e224",
+      "mime_type": "image/png",
+      "filename": "116c9e1d9aeee20f058d4d37.png",
+      "bytes": 2909010,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Roadthorn",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "mecha_dragon_amidst_cosmic_destruction.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "3fafac9eed56fe64645123063ec5afc86b01a7f183dea65255e9a497f340be37",
+      "mime_type": "image/png",
+      "filename": "3fafac9eed56fe6464512306.png",
+      "bytes": 2674353,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Habitarch",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "colossus_above_the_flooded_ruins.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "9689f85510416c67eaa1419d8fced95be74feea461a29a7f97c6663d6fe6be8e",
+      "mime_type": "image/png",
+      "filename": "9689f85510416c67eaa1419d.png",
+      "bytes": 2496606,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Archivore",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "the_celestial_leviathan_over_ruins.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "f8b286334a38b5d4fb83c425516d17a75aa6cdf9b20687ba7c6c37e515d780b5",
+      "mime_type": "image/png",
+      "filename": "f8b286334a38b5d4fb83c425.png",
+      "bytes": 2781565,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Harborhex",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "leviathan_rises_over_ruined_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "6c7a4d712bf16b1fef5851883466de86ca396a9e38f2da51e3cb3d8c3169e33d",
+      "mime_type": "image/png",
+      "filename": "6c7a4d712bf16b1fef585188.png",
+      "bytes": 2865438,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Lexiclast",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "cosmic_biomechanical_serpent_in_a_stormy_sky.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "4761d6a85ad347fd8232ec674534d9ae4484eb6643f7bd9987b228d4ab905604",
+      "mime_type": "image/png",
+      "filename": "4761d6a85ad347fd8232ec67.png",
+      "bytes": 2461841,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Calendarion",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "electric_dragon_over_a_ruined_landscape.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "36bcf0e0d6c11b1a3237afb6cc25cb7926e05932f9c5996f1cababb92079d876",
+      "mime_type": "image/png",
+      "filename": "36bcf0e0d6c11b1a3237afb6.png",
+      "bytes": 2314346,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Crownmute",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "the_guardian_of_the_fiery_temple.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "a66f4ca3b79aa1259679014419678202f8175d3443f70be791584bb53c3e1753",
+      "mime_type": "image/png",
+      "filename": "a66f4ca3b79aa12596790144.png",
+      "bytes": 2539242,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Hymnlock",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "techno_organic_devastation_in_a_ruined_city.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
+      }
+    },
+    {
+      "sha256": "cd77766ed99f17027b4ed748feffc388d11fb90be277cffa156035f6c87bb807",
+      "mime_type": "image/png",
+      "filename": "cd77766ed99f17027b4ed748.png",
+      "bytes": 2307972,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Shrinehunger",
+      "match_status": "archetype",
+      "provenance": {
+        "source_basename": "the_ancient_swamp_guardian_rises.png",
+        "source_category": "archetype-diversification",
+        "source_archive": "drakken"
       }
     }
   ]

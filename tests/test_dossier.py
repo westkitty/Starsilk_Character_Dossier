@@ -131,19 +131,26 @@ def test_build_pipeline_idempotency():
     def get_hash():
         return hashlib.sha256(INDEX.read_bytes()).hexdigest()
 
-    subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
-    subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
+    def run_pipeline():
+        subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "apply_media_presentation_and_collapse.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
+
+    run_pipeline()
     h1 = get_hash()
 
-    subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
-    subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
+    run_pipeline()
     h2 = get_hash()
 
     assert h1 == h2, "Build pipeline is not idempotent!"
 
 
 def test_asset_preservation_and_manifest_privacy():
-    """All 192 assets and 536,251,498 bytes must be preserved with no private leaks (UX-032, UX-033)."""
+    """At least the 192-asset / 536,251,498-byte baseline must be preserved (never shrink), with
+    no private leaks (UX-032, UX-033). The baseline legitimately grew to 211 assets /
+    586,563,534 bytes with the archetype-diversification media coverage pass (19 new,
+    verified, non-duplicate Drakken archival plates); both counts are exact regression
+    locks for the current state, and the floor guards against silent future deletion."""
     assert MANIFEST.exists()
     m_text = MANIFEST.read_text(encoding="utf-8")
     assert "/Users/" not in m_text, "Found /Users/ in asset manifest!"
@@ -152,13 +159,15 @@ def test_asset_preservation_and_manifest_privacy():
 
     data = json.loads(m_text)
     assets = data.get("assets", [])
-    assert len(assets) == 192, f"Expected 192 assets in manifest, got {len(assets)}"
+    assert len(assets) >= 192, f"Baseline regression: expected >= 192 assets in manifest, got {len(assets)}"
+    assert len(assets) == 211, f"Expected 211 assets in manifest, got {len(assets)}"
 
     media_files = [f for f in MEDIA_DIR.glob("*") if f.is_file()]
-    assert len(media_files) == 192, f"Expected 192 files in media directory, got {len(media_files)}"
+    assert len(media_files) == 211, f"Expected 211 files in media directory, got {len(media_files)}"
 
     total_bytes = sum(f.stat().st_size for f in media_files)
-    assert total_bytes == 536251498, f"Expected 536251498 bytes, got {total_bytes}"
+    assert total_bytes >= 536251498, f"Baseline regression: expected >= 536251498 bytes, got {total_bytes}"
+    assert total_bytes == 586563534, f"Expected 586563534 bytes, got {total_bytes}"
 
 
 def test_manifest_consistency_invariants():
@@ -169,8 +178,8 @@ def test_manifest_consistency_invariants():
     decl_bytes = manifest.get("total_unique_binary_size_bytes")
 
     media_files = {f.name: f for f in MEDIA_DIR.glob("*") if f.is_file()}
-    assert decl_count == len(assets) == len(media_files) == 192
-    assert decl_bytes == sum(a.get("bytes", 0) for a in assets) == sum(f.stat().st_size for f in media_files.values()) == 536251498
+    assert decl_count == len(assets) == len(media_files) == 211
+    assert decl_bytes == sum(a.get("bytes", 0) for a in assets) == sum(f.stat().st_size for f in media_files.values()) == 586563534
 
     manifest_filenames = set()
     for a in assets:
@@ -332,6 +341,9 @@ def test_invalid_attachment_error(page: Page, local_server, tmp_path):
     """9. Invalid file upload error alert (UX-006)."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
+    # Attachment stages live inside default-collapsed page sections; open them
+    # first, matching the real "expand a folio, then attach" user flow.
+    page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
 
     # Create dummy text file
     test_txt = tmp_path / "test.txt"
@@ -352,6 +364,9 @@ def test_clear_cancel_and_confirm(page: Page, local_server, tmp_path):
     """11, 12, 13. Clear attachments Cancel and Confirm behaviors (UX-003, UX-004)."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
+    # The attachment stages and the toolbar (#clearImages/#exportEmbedded) live
+    # inside the default-collapsed "archive" page section; open it first.
+    page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
 
     test_img = tmp_path / "test.png"
     test_img.write_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15c4\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82")
@@ -383,6 +398,9 @@ def test_export_action_and_downloaded_html(page: Page, local_server, tmp_path):
     """14. Truthful export button label and real downloaded HTML verification (UX-002, UX-023)."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
+    # The export/clear toolbar lives inside the default-collapsed "archive" page
+    # section; open it first, matching the real user flow.
+    page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
 
     export_btn = page.locator("#exportEmbedded")
     expect(export_btn).to_have_text("Export HTML copy")
@@ -481,6 +499,13 @@ def test_print_stylesheet_rules(page: Page, local_server):
     """19. Print media stylesheet sanity and representative content visibility (UX-022)."""
     page.emulate_media(media="print")
     page.goto(f"{local_server}/index.html")
+    # A native closed <details> renders no collapsed content in print in every
+    # engine, regardless of any CSS override -- the page forces every section
+    # open via a real 'beforeprint' listener (see apply_media_presentation_
+    # and_collapse.py). Playwright's emulate_media() only flips @media print
+    # matching and does not fire that event the way an actual print does, so
+    # dispatch it to faithfully simulate a real print.
+    page.evaluate("window.dispatchEvent(new Event('beforeprint'))")
 
     # Index, toolbar, watermark should be hidden in print
     expect(page.locator("#index")).to_be_hidden()
@@ -493,3 +518,62 @@ def test_print_stylesheet_rules(page: Page, local_server):
     expect(page.locator("#marcel h2")).to_be_visible()
     expect(page.locator("#drk-the-egg h2")).to_be_visible()
     expect(page.locator(".media-shelf").first).to_be_visible()
+
+
+def test_sections_collapsed_by_default(page: Page, local_server):
+    """20. Dossier pages default to collapsed; cover and index stay visible."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    # Cover is not wrapped in a disclosure at all -- always fully visible.
+    expect(page.locator("#cover h1")).to_be_visible()
+    expect(page.locator("#index")).to_be_visible()
+
+    # Representative dossier pages should be collapsed: the summary/title is
+    # visible, but the body content behind it is not, on first load.
+    for sec_id in ("codec", "drk-the-egg", "gorevault", "peripheral-index"):
+        details = page.locator(f"#{sec_id} details.page-disclosure")
+        expect(details).to_have_count(1)
+        assert details.evaluate("el => el.open") is False, f"#{sec_id} should be collapsed by default"
+        expect(page.locator(f"#{sec_id} summary.page-title")).to_be_visible()
+        expect(page.locator(f"#{sec_id} .dossier-grid")).to_be_hidden()
+
+
+def test_section_expand_via_summary_click(page: Page, local_server):
+    """21. Clicking a collapsed section's title summary opens it (keyboard-accessible native <details>)."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    summary = page.locator("#dao summary.page-title")
+    body = page.locator("#dao .dossier-grid")
+    expect(body).to_be_hidden()
+
+    summary.click()
+    expect(body).to_be_visible()
+    assert page.locator("#dao details.page-disclosure").evaluate("el => el.open") is True
+
+    # Click again to collapse it back.
+    summary.click()
+    expect(body).to_be_hidden()
+
+
+def test_anchor_navigation_opens_collapsed_section(page: Page, local_server):
+    """22. Deep-linking to a collapsed section's id (initial load) opens it and scrolls to it."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html#marcel")
+
+    body = page.locator("#marcel .dossier-grid")
+    expect(body).to_be_visible()
+    assert page.locator("#marcel details.page-disclosure").evaluate("el => el.open") is True
+
+    # In-page navigation to another collapsed section (via a real content link)
+    # should likewise open it.
+    page.goto(f"{local_server}/index.html")
+    return_link = page.locator('#drk-abyssoriel a[href="#drakken-registry"]')
+    # Open the containing entry first since its own content (and the link) is otherwise hidden.
+    page.evaluate("document.getElementById('drk-abyssoriel').querySelector('details.page-disclosure').open = true")
+    expect(return_link).to_be_visible()
+    return_link.click()
+    registry_details = page.locator("#drakken-registry details.page-disclosure")
+    expect(registry_details).to_have_count(1)
+    assert registry_details.evaluate("el => el.open") is True

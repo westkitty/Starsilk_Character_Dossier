@@ -136,6 +136,37 @@ KEEP_SECONDARY_PROXY = {
                         "view alongside the archival plate.",
 }
 
+# --------------------------------------------------------------------------
+# Archetype diversification: nineteen kinds previously shared one of three
+# repeated "general visual stand-in" images across their whole archetype
+# cluster (6-7 kinds pointing at the same file). Each gets its own distinct,
+# real, unclaimed image from the same verified source tree so no two kinds
+# render identically; captions stay honest that this is a category-matched
+# stand-in, not a verified exact-identity portrait -- same disclosure
+# convention already used for Gorevault/Ringthroat/the fluxborne default.
+# --------------------------------------------------------------------------
+DIVERSIFY_MAP = {
+    "drk-abyssoriel": {"name": "Abyssoriel", "file": "drakken_all_images_so_far_complete_package/drakken_strains_11_20/ancient_leviathan_in_the_abyssal_ruins.png"},
+    "drk-brinechoir": {"name": "Brinechoir", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/leviathan_over_submerged_ruins.png"},
+    "drk-currenthalo": {"name": "Currenthalo", "file": "drakken_all_images_so_far_complete_package/drakken_strains_11_20/cosmic_storm_over_a_ruined_city.png"},
+    "drk-shelfcarver": {"name": "Shelfcarver", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/crystal_serpent_emerges_from_shattered_earth.png"},
+    "drk-glacierthroat": {"name": "Glacierthroat", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/ice_wyrm_in_a_blizzard_storm.png"},
+    "drk-veilcurrent": {"name": "Veilcurrent", "file": "drakken_all_images_so_far_complete_package/drakken_strains_11_20/ethereal_guardian_of_the_sunken_city.png"},
+    "drk-coronaxis": {"name": "Coronaxis", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/celestial_serpent_and_the_summoned_suns.png"},
+    "drk-ironcant": {"name": "Ironcant", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/mechanical_dragon_looms_over_dystopian_city.png"},
+    "drk-gridsaint": {"name": "Gridsaint", "file": "drakken_all_images_so_far_complete_package/drakken_strains_11_20/levitating_fortress_over_ruined_city.png"},
+    "drk-spiremolt": {"name": "Spiremolt", "file": "drakken_all_images_so_far_complete_package/drakken_strains_11_20/storm_titan_over_a_jagged_landscape.png"},
+    "drk-roadthorn": {"name": "Roadthorn", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/mecha_dragon_amidst_cosmic_destruction.png"},
+    "drk-habitarch": {"name": "Habitarch", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/colossus_above_the_flooded_ruins.png"},
+    "drk-archivore": {"name": "Archivore", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/the_celestial_leviathan_over_ruins.png"},
+    "drk-harborhex": {"name": "Harborhex", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/leviathan_rises_over_ruined_city.png"},
+    "drk-lexiclast": {"name": "Lexiclast", "file": "drakken_all_images_so_far_complete_package/drakken_strains_21_29/cosmic_biomechanical_serpent_in_a_stormy_sky.png"},
+    "drk-calendarion": {"name": "Calendarion", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/electric_dragon_over_a_ruined_landscape.png"},
+    "drk-crownmute": {"name": "Crownmute", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/the_guardian_of_the_fiery_temple.png"},
+    "drk-hymnlock": {"name": "Hymnlock", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/techno_organic_devastation_in_a_ruined_city.png"},
+    "drk-shrinehunger": {"name": "Shrinehunger", "file": "drakken_all_images_so_far_complete_package/drakken_strains_30_39/the_ancient_swamp_guardian_rises.png"},
+}
+
 # incident art: file -> (target section id, display name, caption)
 INCIDENT_MAP = [
     {
@@ -222,6 +253,7 @@ def main() -> int:
         "new_unique_binaries_copied": 0,
         "existing_binaries_reused": 0,
         "ambiguous_files_skipped": 0,
+        "archetype_diversified": 0,
         "missing_source_files": [],
     }
     inventory = []
@@ -368,6 +400,31 @@ def main() -> int:
             section_html_new = section_html[:idx] + new_block + "\n    " + section_html[idx:]
         html = html[:sec_start] + section_html_new + html[sec_end:]
         # Recompute end offset shift for subsequent operations by re-finding on next loop (re.search each time), safe.
+
+    # ---- Archetype diversification: replace shared generic fillers with distinct art ----
+    for section_id, spec in DIVERSIFY_MAP.items():
+        asset = resolve_asset(spec["file"], "archetype-diversification", spec["name"], "archetype")
+        if not asset:
+            continue
+        fig_re = re.compile(
+            r'<figure class="embedded-ref" data-drakken-image="' + re.escape(section_id) + r'">.*?</figure>',
+            re.DOTALL,
+        )
+        m = fig_re.search(html)
+        if not m:
+            print(f"WARNING: diversification figure not found for {section_id}; skipping.")
+            continue
+        new_figure = (
+            f'<figure class="embedded-ref" data-drakken-image="{section_id}">'
+            f'<img loading="lazy" decoding="async" alt="{spec["name"]} Drakken archetype reference art." '
+            f'src="assets/media/{asset["filename"]}"/>'
+            f'<figcaption><b>Archetype reference — dedicated plate</b><span>Unclaimed archival art matched by '
+            f'category rather than exact identity, now assigned uniquely to {spec["name"]} instead of a '
+            f'multi-entry shared placeholder.</span></figcaption></figure>'
+        )
+        html = html[:m.start()] + new_figure + html[m.end():]
+        stats["archetype_diversified"] += 1
+    print(f"Archetype diversification: {stats['archetype_diversified']}/{len(DIVERSIFY_MAP)} kinds given dedicated art.")
 
     # ---- Incident art: insert as an additional dossier-entry after existing visual-ref block ----
     for item in INCIDENT_MAP:

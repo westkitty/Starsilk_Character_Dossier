@@ -1,11 +1,12 @@
 {
   "stats": {
-    "source_files_considered": 71,
+    "source_files_considered": 90,
     "exact_files_accepted": 66,
     "incident_files_accepted": 5,
-    "new_unique_binaries_copied": 71,
-    "existing_binaries_reused": 0,
+    "new_unique_binaries_copied": 19,
+    "existing_binaries_reused": 71,
     "ambiguous_files_skipped": 0,
+    "archetype_diversified": 19,
     "missing_source_files": []
   },
   "files": [
@@ -17,7 +18,7 @@
       "match_status": "exact",
       "sha256": "56dd8a1dd141a08c85c0e37b6575826e1b9f6180220dfee434f5f0d7674f74c0",
       "bytes": 2376619,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "56dd8a1dd141a08c85c0e37b.png"
     },
     {
@@ -28,7 +29,7 @@
       "match_status": "exact",
       "sha256": "d123c13a03b1fb546d1b0ba4213a887694383d605fd9c86d3f022862198f846a",
       "bytes": 2457505,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "d123c13a03b1fb546d1b0ba4.png"
     },
     {
@@ -39,7 +40,7 @@
       "match_status": "exact",
       "sha256": "57cd252bb773a90e96efb600682100e23416c5dc71b85adbe495c6159ae1db49",
       "bytes": 2812125,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "57cd252bb773a90e96efb600.png"
     },
     {
@@ -50,7 +51,7 @@
       "match_status": "exact",
       "sha256": "c5685375d0554cef2e16148c1deba6fe6971e8d979f9f2af14cac1f505b595a2",
       "bytes": 2641141,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "c5685375d0554cef2e16148c.png"
     },
     {
@@ -61,7 +62,7 @@
       "match_status": "exact",
       "sha256": "b9ae874c695ed648137f39509a8e9b440d673ebc7ecd1ad81dd8eed27a510e53",
       "bytes": 2762629,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "b9ae874c695ed648137f3950.png"
     },
     {
@@ -72,7 +73,7 @@
       "match_status": "exact",
       "sha256": "f5ad1985ffebb6c5040cf6670ce80b17ac799159a5b37533fcfaabce7369404d",
       "bytes": 2828803,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f5ad1985ffebb6c5040cf667.png"
     },
     {
@@ -83,7 +84,7 @@
       "match_status": "exact",
       "sha256": "1cc41b333f194157a6b129532c075cbba7d3ef5e6e575670ec5e3ab4c5c00dd0",
       "bytes": 2781223,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "1cc41b333f194157a6b12953.png"
     },
     {
@@ -94,7 +95,7 @@
       "match_status": "exact",
       "sha256": "db230059d2d77abdbc54584cdebdc119fdfcf40a4b3012ae7db794f097d8a479",
       "bytes": 2635203,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "db230059d2d77abdbc54584c.png"
     },
     {
@@ -105,7 +106,7 @@
       "match_status": "exact",
       "sha256": "6bc2a67a8995bc1d5795a9fcc9831c7ebbd41a6b78a08967548a824c6a5d5da1",
       "bytes": 2989485,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "6bc2a67a8995bc1d5795a9fc.png"
     },
     {
@@ -116,7 +117,7 @@
       "match_status": "exact",
       "sha256": "1ce1a78eda1ae769de33c52d3d3ae2c1d3c1765a7b123b0923f73c107b13cca2",
       "bytes": 2411850,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "1ce1a78eda1ae769de33c52d.png"
     },
     {
@@ -127,7 +128,7 @@
       "match_status": "exact",
       "sha256": "25a9ba71bb1f90904c287547cddea380131ceb50f7672a6c66c2b3781b7c4f34",
       "bytes": 2248345,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "25a9ba71bb1f90904c287547.png"
     },
     {
@@ -138,7 +139,7 @@
       "match_status": "exact",
       "sha256": "1faf25142cb4d442eb6265ef90e25411fd2cc7d2b535cad6f996893691524f60",
       "bytes": 2626745,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "1faf25142cb4d442eb6265ef.png"
     },
     {
@@ -149,7 +150,7 @@
       "match_status": "exact",
       "sha256": "b14a30c62129a2a6c26e1dda0e0237c2fd6af7b6f5b6640e91953f4285f1eaff",
       "bytes": 2590390,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "b14a30c62129a2a6c26e1dda.png"
     },
     {
@@ -160,7 +161,7 @@
       "match_status": "exact",
       "sha256": "f02eec5bea1ecd4dfd6a4a5684363dacc352a64a9603a6c126fef335ceee83ad",
       "bytes": 2654408,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f02eec5bea1ecd4dfd6a4a56.png"
     },
     {
@@ -171,7 +172,7 @@
       "match_status": "exact",
       "sha256": "5ae2728da880457769cd4390dc9fd3304c897774183e8f15dc64a7ce5fb76d86",
       "bytes": 2887496,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "5ae2728da880457769cd4390.png"
     },
     {
@@ -182,7 +183,7 @@
       "match_status": "exact",
       "sha256": "61ac25bd45f6040ab3bc778c94bc8f4352118aa31f291fc109c31859db6a2f7f",
       "bytes": 2554451,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "61ac25bd45f6040ab3bc778c.png"
     },
     {
@@ -193,7 +194,7 @@
       "match_status": "exact",
       "sha256": "a709a083f0f16e5ba572e56748d65032472b17e5737020d0b2fbe04962d72139",
       "bytes": 3039946,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "a709a083f0f16e5ba572e567.png"
     },
     {
@@ -204,7 +205,7 @@
       "match_status": "exact",
       "sha256": "cc647c2325913e782c2ca1a97f021475410fd25ec8b7d7006ef8d34891a2cebb",
       "bytes": 3028129,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "cc647c2325913e782c2ca1a9.png"
     },
     {
@@ -215,7 +216,7 @@
       "match_status": "exact",
       "sha256": "594cc74436eb0aec0486655f7bdd3bf88161661781a102e49ab9904ecb6928e4",
       "bytes": 2856539,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "594cc74436eb0aec0486655f.png"
     },
     {
@@ -226,7 +227,7 @@
       "match_status": "exact",
       "sha256": "dd60aa97863840ac41efdf0d5968a91e8ba95e0039ef3db784305965fe1b19a5",
       "bytes": 2317322,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "dd60aa97863840ac41efdf0d.png"
     },
     {
@@ -237,7 +238,7 @@
       "match_status": "exact",
       "sha256": "8c20f1cfa9ab9471287b55d7e05aa42f9ac47bea3cd0c1f6ecaf4692bd39fe5e",
       "bytes": 2788933,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "8c20f1cfa9ab9471287b55d7.png"
     },
     {
@@ -248,7 +249,7 @@
       "match_status": "exact",
       "sha256": "ca9677ca9e54920a11732471df42f03b8fd9163ec4193ae5d6473e56f119cce3",
       "bytes": 2463521,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "ca9677ca9e54920a11732471.png"
     },
     {
@@ -259,7 +260,7 @@
       "match_status": "exact",
       "sha256": "40c35dba2e9178ee198c6ac34012bb0e1f7949af5f9de30fa4bc8d584b53b67c",
       "bytes": 2448328,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "40c35dba2e9178ee198c6ac3.png"
     },
     {
@@ -270,7 +271,7 @@
       "match_status": "exact",
       "sha256": "a88e837a83bf009e283fb1e770f1dba93a14dadc17a6f75d768f96a2575ad923",
       "bytes": 2720474,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "a88e837a83bf009e283fb1e7.png"
     },
     {
@@ -281,7 +282,7 @@
       "match_status": "exact",
       "sha256": "d1353fd8db4f713061fa897cd5ec358172be4b386a4804c4f6e17ff95c913d2a",
       "bytes": 2169318,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "d1353fd8db4f713061fa897c.png"
     },
     {
@@ -292,7 +293,7 @@
       "match_status": "exact",
       "sha256": "c755f60f1af3c2e3cdbb498f2814b32a5b4746e1b1075d7cc6a535373f6a4701",
       "bytes": 2343110,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "c755f60f1af3c2e3cdbb498f.png"
     },
     {
@@ -303,7 +304,7 @@
       "match_status": "exact",
       "sha256": "7211261841fb6f28ccaaf38a74357f2f4ad4b735a722990c48b2fbb881b76f64",
       "bytes": 2672966,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "7211261841fb6f28ccaaf38a.png"
     },
     {
@@ -314,7 +315,7 @@
       "match_status": "exact",
       "sha256": "176fc111b0315ebcb7145a82f5cd734e6a8c6a8209f85163cd7cb6aecb451295",
       "bytes": 2529530,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "176fc111b0315ebcb7145a82.png"
     },
     {
@@ -325,7 +326,7 @@
       "match_status": "exact",
       "sha256": "44a85c89f5e774bc618f22861f362ab4eb349fe9b76dcf4014fece7dc65db02a",
       "bytes": 2874599,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "44a85c89f5e774bc618f2286.png"
     },
     {
@@ -336,7 +337,7 @@
       "match_status": "exact",
       "sha256": "7bb8a136903608150bc7e533d1e7fd35e3a9bc19ff63dcbee816400b1ec0f109",
       "bytes": 2369024,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "7bb8a136903608150bc7e533.png"
     },
     {
@@ -347,7 +348,7 @@
       "match_status": "exact",
       "sha256": "e6339334f03fe88b60d2cefb82a7601db4556e62e0577d184f26199d8231015a",
       "bytes": 3259534,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e6339334f03fe88b60d2cefb.png"
     },
     {
@@ -358,7 +359,7 @@
       "match_status": "exact",
       "sha256": "85ab5120ea3f0144f088d11ca6582a59fffa5d2a1db50328777f25677eef09f4",
       "bytes": 2235239,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "85ab5120ea3f0144f088d11c.png"
     },
     {
@@ -369,7 +370,7 @@
       "match_status": "exact",
       "sha256": "ac18cf50456a0d9823b89dbf8b7fe52297d9bbac50477bf49286c51c6574ff2f",
       "bytes": 2589648,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "ac18cf50456a0d9823b89dbf.png"
     },
     {
@@ -380,7 +381,7 @@
       "match_status": "exact",
       "sha256": "483cff7d4bbf39aa5a42c14952b51f3bcfa9e95eff2b39a262741219e9e8c6f6",
       "bytes": 2476480,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "483cff7d4bbf39aa5a42c149.png"
     },
     {
@@ -391,7 +392,7 @@
       "match_status": "exact",
       "sha256": "d7f213e3eff673bbb01ffe64e756feacd31e546531662dbec5a26c065f978352",
       "bytes": 2833552,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "d7f213e3eff673bbb01ffe64.png"
     },
     {
@@ -402,7 +403,7 @@
       "match_status": "exact",
       "sha256": "df86a9dd0ac0e82e43f1638de050347e0e58141968bc47d77b60a4f8e648a4f0",
       "bytes": 2962378,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "df86a9dd0ac0e82e43f1638d.png"
     },
     {
@@ -413,7 +414,7 @@
       "match_status": "exact",
       "sha256": "999ae3a25847aa58e333551dc46a17512bfc3c4d1202d7d14401b7de11b736a6",
       "bytes": 2519691,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "999ae3a25847aa58e333551d.png"
     },
     {
@@ -424,7 +425,7 @@
       "match_status": "exact",
       "sha256": "7e4463e0631859b221aa6e1e7da9945c4a00319b6abc030de72fb436adba6669",
       "bytes": 2973259,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "7e4463e0631859b221aa6e1e.png"
     },
     {
@@ -435,7 +436,7 @@
       "match_status": "exact",
       "sha256": "1f0d9af2c1264ea63a06ba0a98e96fe0ae77fcfc8ec14c00e21bee4d8692a963",
       "bytes": 2969607,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "1f0d9af2c1264ea63a06ba0a.png"
     },
     {
@@ -446,7 +447,7 @@
       "match_status": "exact",
       "sha256": "f2cde7b98d0fed52f1b6aa740c8e05030471780e7555b6279e5b57ee75970467",
       "bytes": 2641393,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f2cde7b98d0fed52f1b6aa74.png"
     },
     {
@@ -457,7 +458,7 @@
       "match_status": "exact",
       "sha256": "e3e61f6945d5ba44c3672fb854b3a3a5b4f32246c60c64ae5294bd702995e1e5",
       "bytes": 2579020,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e3e61f6945d5ba44c3672fb8.png"
     },
     {
@@ -468,7 +469,7 @@
       "match_status": "exact",
       "sha256": "633627c1e77fa98d40a09bf851ea090eb0ae2da65e869fa766a909a2f1f667c4",
       "bytes": 2650766,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "633627c1e77fa98d40a09bf8.png"
     },
     {
@@ -479,7 +480,7 @@
       "match_status": "exact",
       "sha256": "e08b31ac2c8b069aacbff67141f3aee24516b7b26d4396660a999f5c295ba5b3",
       "bytes": 2636948,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e08b31ac2c8b069aacbff671.png"
     },
     {
@@ -490,7 +491,7 @@
       "match_status": "exact",
       "sha256": "49ebc658af29e513f2897202e19203cccbe97d4b9b51691d58ed3879a00a9dec",
       "bytes": 3149187,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "49ebc658af29e513f2897202.png"
     },
     {
@@ -501,7 +502,7 @@
       "match_status": "exact",
       "sha256": "4973a07091fa1a4e29a86b4add73ecd690fd29c35352e5661e13d3896910f972",
       "bytes": 2895612,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "4973a07091fa1a4e29a86b4a.png"
     },
     {
@@ -512,7 +513,7 @@
       "match_status": "exact",
       "sha256": "f68c210d66f0160034b45817828032797179cf17d8e7247561229b7d3072c1ce",
       "bytes": 2215997,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f68c210d66f0160034b45817.png"
     },
     {
@@ -523,7 +524,7 @@
       "match_status": "exact",
       "sha256": "de25f88601e782e0b15c16a727143d1cb6c120bd7508f39c704bb061e19194d0",
       "bytes": 2893161,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "de25f88601e782e0b15c16a7.png"
     },
     {
@@ -534,7 +535,7 @@
       "match_status": "exact",
       "sha256": "c301f70cce89c671b2579fc37313606e7a397b97c018d86be80aa83a13210f85",
       "bytes": 2463381,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "c301f70cce89c671b2579fc3.png"
     },
     {
@@ -545,7 +546,7 @@
       "match_status": "exact",
       "sha256": "e0fd29f612877517964b28bb038ef0a0a8fdd1206e9467c42729c80cb12a4f9b",
       "bytes": 2812835,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e0fd29f612877517964b28bb.png"
     },
     {
@@ -556,7 +557,7 @@
       "match_status": "exact",
       "sha256": "aea223f094810d4585ad1b2d7ec43835939921ce0c3cf9de13aab74ae76a94e1",
       "bytes": 2789537,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "aea223f094810d4585ad1b2d.png"
     },
     {
@@ -567,7 +568,7 @@
       "match_status": "exact",
       "sha256": "647d09283f9ac6403fb25638208ff9ee0f301f8d44d91a605651843ca4408045",
       "bytes": 3618383,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "647d09283f9ac6403fb25638.png"
     },
     {
@@ -578,7 +579,7 @@
       "match_status": "exact",
       "sha256": "462521159c6d91c4764769b7da60075434febe67ae0832a74a8b3b2a9b9bc2ff",
       "bytes": 3077338,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "462521159c6d91c4764769b7.png"
     },
     {
@@ -589,7 +590,7 @@
       "match_status": "exact",
       "sha256": "38f2567914b196e7fb03d33a42a953b244bb03e6ccaa584423c527fb22b0d1a2",
       "bytes": 2273557,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "38f2567914b196e7fb03d33a.png"
     },
     {
@@ -600,7 +601,7 @@
       "match_status": "exact",
       "sha256": "924eecfbee919a625d89cd015e7456da19e77deb5beadc253bc81251aab6bf0d",
       "bytes": 2653137,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "924eecfbee919a625d89cd01.png"
     },
     {
@@ -611,7 +612,7 @@
       "match_status": "exact",
       "sha256": "b2270a968eed67509f0812c16338d19c2bf591bb5ae122d725e8e1c0df7f92ae",
       "bytes": 2632446,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "b2270a968eed67509f0812c1.png"
     },
     {
@@ -622,7 +623,7 @@
       "match_status": "exact",
       "sha256": "ee5a32efc9891e8717e3a4998c5c83ebf5dd9f1c7bb01e39673854b78abc1a18",
       "bytes": 2962297,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "ee5a32efc9891e8717e3a499.png"
     },
     {
@@ -633,7 +634,7 @@
       "match_status": "exact",
       "sha256": "28e60469a318c43033d2352aebad915a92a28e5254a0c261e5714bb2f9aadbbb",
       "bytes": 2156413,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "28e60469a318c43033d2352a.png"
     },
     {
@@ -644,7 +645,7 @@
       "match_status": "exact",
       "sha256": "11efe751411c002da74d1a5020f409d95e8617ff7239402f61ef5b2a88bafbce",
       "bytes": 2150489,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "11efe751411c002da74d1a50.png"
     },
     {
@@ -655,7 +656,7 @@
       "match_status": "exact",
       "sha256": "3c4251bc15a822bc01cad1c17f9f4f33c50f115c6255edd1eb2a5284e955320d",
       "bytes": 2640910,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "3c4251bc15a822bc01cad1c1.png"
     },
     {
@@ -666,7 +667,7 @@
       "match_status": "exact",
       "sha256": "35b1d548f18e4001da4370a8a9758e3efbcb98f505520e546e3591e4601c7356",
       "bytes": 1338979,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "35b1d548f18e4001da4370a8.png"
     },
     {
@@ -677,7 +678,7 @@
       "match_status": "exact",
       "sha256": "b00d773dc5d2e13da1283ee3d9b3a972967e89962347b30a01122c3ed9e0affb",
       "bytes": 3096947,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "b00d773dc5d2e13da1283ee3.png"
     },
     {
@@ -688,7 +689,7 @@
       "match_status": "exact",
       "sha256": "bfbbe39d13c93fa249a17702c8ecc205546999c7b3ef9eb9ee231b18bc1e73bc",
       "bytes": 2476775,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "bfbbe39d13c93fa249a17702.png"
     },
     {
@@ -699,7 +700,7 @@
       "match_status": "exact",
       "sha256": "e62a6426326c8951111e12857b9cdb628628d7da163c16727fa5236ca51c3c1c",
       "bytes": 2723313,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e62a6426326c8951111e1285.png"
     },
     {
@@ -710,7 +711,7 @@
       "match_status": "exact",
       "sha256": "f25ae4bb07e4c4d6c242832a58d2f7b854594f15af882bda2c104bd8c0af22e6",
       "bytes": 2355559,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f25ae4bb07e4c4d6c242832a.png"
     },
     {
@@ -721,7 +722,7 @@
       "match_status": "exact",
       "sha256": "fc379157f42ba5fd784d289f94d4acf2559cc2d3928b7550c1c0005ea8866b34",
       "bytes": 2795188,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "fc379157f42ba5fd784d289f.png"
     },
     {
@@ -732,8 +733,217 @@
       "match_status": "exact",
       "sha256": "f1805208bf2fc66074daa5a73784f27b117dff5b843c978d5c25b5afa0c64c64",
       "bytes": 2509064,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f1805208bf2fc66074daa5a7.png"
+    },
+    {
+      "source_path": "ancient_leviathan_in_the_abyssal_ruins.png",
+      "basename": "ancient_leviathan_in_the_abyssal_ruins.png",
+      "category": "archetype-diversification",
+      "identity": "Abyssoriel",
+      "match_status": "archetype",
+      "sha256": "e18e4f9b89bc619de739ba3a56c80f63c0afae7d8a2bebe263ebf277cc3d878f",
+      "bytes": 2758443,
+      "result": "copied_new_binary",
+      "filename": "e18e4f9b89bc619de739ba3a.png"
+    },
+    {
+      "source_path": "leviathan_over_submerged_ruins.png",
+      "basename": "leviathan_over_submerged_ruins.png",
+      "category": "archetype-diversification",
+      "identity": "Brinechoir",
+      "match_status": "archetype",
+      "sha256": "f80a3e7198c5f5e4d75b6240e5672e84e8c82f863f6e04d11caeca8675d47588",
+      "bytes": 2315944,
+      "result": "copied_new_binary",
+      "filename": "f80a3e7198c5f5e4d75b6240.png"
+    },
+    {
+      "source_path": "cosmic_storm_over_a_ruined_city.png",
+      "basename": "cosmic_storm_over_a_ruined_city.png",
+      "category": "archetype-diversification",
+      "identity": "Currenthalo",
+      "match_status": "archetype",
+      "sha256": "dc1302480bd4a637e42efb8bbeea1883dbe8278a5aebb3ccd29dd40c1a6e3db4",
+      "bytes": 2751287,
+      "result": "copied_new_binary",
+      "filename": "dc1302480bd4a637e42efb8b.png"
+    },
+    {
+      "source_path": "crystal_serpent_emerges_from_shattered_earth.png",
+      "basename": "crystal_serpent_emerges_from_shattered_earth.png",
+      "category": "archetype-diversification",
+      "identity": "Shelfcarver",
+      "match_status": "archetype",
+      "sha256": "e72f8d2120ef3c2a9179742e92a7f00706ba772769aa4428e6a406f389a0af77",
+      "bytes": 3163731,
+      "result": "copied_new_binary",
+      "filename": "e72f8d2120ef3c2a9179742e.png"
+    },
+    {
+      "source_path": "ice_wyrm_in_a_blizzard_storm.png",
+      "basename": "ice_wyrm_in_a_blizzard_storm.png",
+      "category": "archetype-diversification",
+      "identity": "Glacierthroat",
+      "match_status": "archetype",
+      "sha256": "64b1432929c11ac027cc6ae64e624c07620da5897bd895a2fa2bc76af2369905",
+      "bytes": 3100188,
+      "result": "copied_new_binary",
+      "filename": "64b1432929c11ac027cc6ae6.png"
+    },
+    {
+      "source_path": "ethereal_guardian_of_the_sunken_city.png",
+      "basename": "ethereal_guardian_of_the_sunken_city.png",
+      "category": "archetype-diversification",
+      "identity": "Veilcurrent",
+      "match_status": "archetype",
+      "sha256": "7781bfbeae0ec3a5a6a01b3ec8659f35bfc4f35fb719b1d22d37fbc74771579d",
+      "bytes": 2753038,
+      "result": "copied_new_binary",
+      "filename": "7781bfbeae0ec3a5a6a01b3e.png"
+    },
+    {
+      "source_path": "celestial_serpent_and_the_summoned_suns.png",
+      "basename": "celestial_serpent_and_the_summoned_suns.png",
+      "category": "archetype-diversification",
+      "identity": "Coronaxis",
+      "match_status": "archetype",
+      "sha256": "7fc1a31c6d4ffe2b7cd61bf72876f522312ff6765f538d92e03738a850aba479",
+      "bytes": 2469285,
+      "result": "copied_new_binary",
+      "filename": "7fc1a31c6d4ffe2b7cd61bf7.png"
+    },
+    {
+      "source_path": "mechanical_dragon_looms_over_dystopian_city.png",
+      "basename": "mechanical_dragon_looms_over_dystopian_city.png",
+      "category": "archetype-diversification",
+      "identity": "Ironcant",
+      "match_status": "archetype",
+      "sha256": "5a7633dd67d1f85fef182a8681cff81e7253f4f10c547836e2b3c338699a8ffc",
+      "bytes": 2562899,
+      "result": "copied_new_binary",
+      "filename": "5a7633dd67d1f85fef182a86.png"
+    },
+    {
+      "source_path": "levitating_fortress_over_ruined_city.png",
+      "basename": "levitating_fortress_over_ruined_city.png",
+      "category": "archetype-diversification",
+      "identity": "Gridsaint",
+      "match_status": "archetype",
+      "sha256": "f4c322773f4f8554ab95493e497a42b3e55d4bfd688ba2f5b763e85ca81dcd01",
+      "bytes": 2751437,
+      "result": "copied_new_binary",
+      "filename": "f4c322773f4f8554ab95493e.png"
+    },
+    {
+      "source_path": "storm_titan_over_a_jagged_landscape.png",
+      "basename": "storm_titan_over_a_jagged_landscape.png",
+      "category": "archetype-diversification",
+      "identity": "Spiremolt",
+      "match_status": "archetype",
+      "sha256": "90bcba2140a4712328e17b1817924b7fe38dc37445a0ddde85dfea756f927464",
+      "bytes": 2335411,
+      "result": "copied_new_binary",
+      "filename": "90bcba2140a4712328e17b18.png"
+    },
+    {
+      "source_path": "mecha_dragon_amidst_cosmic_destruction.png",
+      "basename": "mecha_dragon_amidst_cosmic_destruction.png",
+      "category": "archetype-diversification",
+      "identity": "Roadthorn",
+      "match_status": "archetype",
+      "sha256": "116c9e1d9aeee20f058d4d3735bd0a91439ba38124bd5296bd92d9441695e224",
+      "bytes": 2909010,
+      "result": "copied_new_binary",
+      "filename": "116c9e1d9aeee20f058d4d37.png"
+    },
+    {
+      "source_path": "colossus_above_the_flooded_ruins.png",
+      "basename": "colossus_above_the_flooded_ruins.png",
+      "category": "archetype-diversification",
+      "identity": "Habitarch",
+      "match_status": "archetype",
+      "sha256": "3fafac9eed56fe64645123063ec5afc86b01a7f183dea65255e9a497f340be37",
+      "bytes": 2674353,
+      "result": "copied_new_binary",
+      "filename": "3fafac9eed56fe6464512306.png"
+    },
+    {
+      "source_path": "the_celestial_leviathan_over_ruins.png",
+      "basename": "the_celestial_leviathan_over_ruins.png",
+      "category": "archetype-diversification",
+      "identity": "Archivore",
+      "match_status": "archetype",
+      "sha256": "9689f85510416c67eaa1419d8fced95be74feea461a29a7f97c6663d6fe6be8e",
+      "bytes": 2496606,
+      "result": "copied_new_binary",
+      "filename": "9689f85510416c67eaa1419d.png"
+    },
+    {
+      "source_path": "leviathan_rises_over_ruined_city.png",
+      "basename": "leviathan_rises_over_ruined_city.png",
+      "category": "archetype-diversification",
+      "identity": "Harborhex",
+      "match_status": "archetype",
+      "sha256": "f8b286334a38b5d4fb83c425516d17a75aa6cdf9b20687ba7c6c37e515d780b5",
+      "bytes": 2781565,
+      "result": "copied_new_binary",
+      "filename": "f8b286334a38b5d4fb83c425.png"
+    },
+    {
+      "source_path": "cosmic_biomechanical_serpent_in_a_stormy_sky.png",
+      "basename": "cosmic_biomechanical_serpent_in_a_stormy_sky.png",
+      "category": "archetype-diversification",
+      "identity": "Lexiclast",
+      "match_status": "archetype",
+      "sha256": "6c7a4d712bf16b1fef5851883466de86ca396a9e38f2da51e3cb3d8c3169e33d",
+      "bytes": 2865438,
+      "result": "copied_new_binary",
+      "filename": "6c7a4d712bf16b1fef585188.png"
+    },
+    {
+      "source_path": "electric_dragon_over_a_ruined_landscape.png",
+      "basename": "electric_dragon_over_a_ruined_landscape.png",
+      "category": "archetype-diversification",
+      "identity": "Calendarion",
+      "match_status": "archetype",
+      "sha256": "4761d6a85ad347fd8232ec674534d9ae4484eb6643f7bd9987b228d4ab905604",
+      "bytes": 2461841,
+      "result": "copied_new_binary",
+      "filename": "4761d6a85ad347fd8232ec67.png"
+    },
+    {
+      "source_path": "the_guardian_of_the_fiery_temple.png",
+      "basename": "the_guardian_of_the_fiery_temple.png",
+      "category": "archetype-diversification",
+      "identity": "Crownmute",
+      "match_status": "archetype",
+      "sha256": "36bcf0e0d6c11b1a3237afb6cc25cb7926e05932f9c5996f1cababb92079d876",
+      "bytes": 2314346,
+      "result": "copied_new_binary",
+      "filename": "36bcf0e0d6c11b1a3237afb6.png"
+    },
+    {
+      "source_path": "techno_organic_devastation_in_a_ruined_city.png",
+      "basename": "techno_organic_devastation_in_a_ruined_city.png",
+      "category": "archetype-diversification",
+      "identity": "Hymnlock",
+      "match_status": "archetype",
+      "sha256": "a66f4ca3b79aa1259679014419678202f8175d3443f70be791584bb53c3e1753",
+      "bytes": 2539242,
+      "result": "copied_new_binary",
+      "filename": "a66f4ca3b79aa12596790144.png"
+    },
+    {
+      "source_path": "the_ancient_swamp_guardian_rises.png",
+      "basename": "the_ancient_swamp_guardian_rises.png",
+      "category": "archetype-diversification",
+      "identity": "Shrinehunger",
+      "match_status": "archetype",
+      "sha256": "cd77766ed99f17027b4ed748feffc388d11fb90be277cffa156035f6c87bb807",
+      "bytes": 2307972,
+      "result": "copied_new_binary",
+      "filename": "cd77766ed99f17027b4ed748.png"
     },
     {
       "source_path": "balmera-ridge-incident-plate.png",
@@ -743,7 +953,7 @@
       "match_status": "incident",
       "sha256": "77131487824f0919d44825feda8c5de2d1c616ba5c51244b13093f500bfe944d",
       "bytes": 2718693,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "77131487824f0919d44825fe.png"
     },
     {
@@ -754,7 +964,7 @@
       "match_status": "incident",
       "sha256": "2fcb6a5eb7533dcdfd2fca766a60f9a123b85da452829cfc6dfd8a84c2a51c88",
       "bytes": 2553528,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "2fcb6a5eb7533dcdfd2fca76.png"
     },
     {
@@ -765,7 +975,7 @@
       "match_status": "incident",
       "sha256": "36a1a4608262186ae6547d61adea0a00233ed49418e8eef083aaf348dc37be3f",
       "bytes": 2666618,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "36a1a4608262186ae6547d61.png"
     },
     {
@@ -776,7 +986,7 @@
       "match_status": "incident",
       "sha256": "0ab4d1542df260c447aee4c0099385be4bbd9bcb0c50bd065717846c2d454aa0",
       "bytes": 2535275,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "0ab4d1542df260c447aee4c0.png"
     },
     {
@@ -787,7 +997,7 @@
       "match_status": "incident",
       "sha256": "b401945ee296cda48c47cb00bd4976de64d60bfe605039e1a3bd1a714abbcc78",
       "bytes": 3146906,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "b401945ee296cda48c47cb00.png"
     }
   ]
