@@ -148,10 +148,10 @@ HASH_JS = """
     function expandContaining(id){
       var target = document.getElementById(id);
       if(!target) return null;
-      // The id usually lives on the <section>, which is the *parent* of its
-      // <details class="page-disclosure"> (added right after the opening tag) --
-      // so look at direct children first, then fall back to ancestors for ids
-      // that land on something nested inside a details element.
+      // The id usually lives on the section element, which is the *parent*
+      // of its page-disclosure details (added right after the opening tag)
+      // -- so look at direct children first, then fall back to ancestors
+      // for ids that land on something nested inside a details element.
       var page = target.querySelector(':scope > details.page-disclosure') || target.closest('details.page-disclosure');
       if(page && !page.open) page.open = true;
       return target;
@@ -177,7 +177,7 @@ HASH_JS = """
     window.addEventListener('hashchange', handleHash);
     handleHash();
 
-    // Printing a closed native <details> renders nothing for its collapsed
+    // Printing a closed native details element renders nothing for its collapsed
     // content in every current browser engine, regardless of any authored
     // "display:block!important" override on its children (the suppression
     // happens below the CSS cascade, not through an overridable display

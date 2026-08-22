@@ -27,8 +27,14 @@ LOCAL_PATH_PATTERNS = [
     r"MacBook Google Drive",
 ]
 
-BASELINE_UNIQUE_ASSETS = 192
-BASELINE_MEDIA_BYTES = 536251498
+# Regression floor: the historical 192/536,251,498 baseline legitimately grew
+# to 211 assets / 586,563,534 bytes with the archetype-diversification media
+# coverage pass (19 new, verified, non-duplicate Drakken archival plates).
+# Keep this at the current true count so a partial regression (e.g. losing
+# several of the 19 new files while staying above the old floor) is still
+# caught.
+BASELINE_UNIQUE_ASSETS = 211
+BASELINE_MEDIA_BYTES = 586563534
 
 
 def main() -> int:

@@ -3,8 +3,8 @@
     "source_files_considered": 90,
     "exact_files_accepted": 66,
     "incident_files_accepted": 5,
-    "new_unique_binaries_copied": 19,
-    "existing_binaries_reused": 71,
+    "new_unique_binaries_copied": 0,
+    "existing_binaries_reused": 90,
     "ambiguous_files_skipped": 0,
     "archetype_diversified": 19,
     "missing_source_files": []
@@ -744,7 +744,7 @@
       "match_status": "archetype",
       "sha256": "e18e4f9b89bc619de739ba3a56c80f63c0afae7d8a2bebe263ebf277cc3d878f",
       "bytes": 2758443,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e18e4f9b89bc619de739ba3a.png"
     },
     {
@@ -755,7 +755,7 @@
       "match_status": "archetype",
       "sha256": "f80a3e7198c5f5e4d75b6240e5672e84e8c82f863f6e04d11caeca8675d47588",
       "bytes": 2315944,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f80a3e7198c5f5e4d75b6240.png"
     },
     {
@@ -766,7 +766,7 @@
       "match_status": "archetype",
       "sha256": "dc1302480bd4a637e42efb8bbeea1883dbe8278a5aebb3ccd29dd40c1a6e3db4",
       "bytes": 2751287,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "dc1302480bd4a637e42efb8b.png"
     },
     {
@@ -777,7 +777,7 @@
       "match_status": "archetype",
       "sha256": "e72f8d2120ef3c2a9179742e92a7f00706ba772769aa4428e6a406f389a0af77",
       "bytes": 3163731,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "e72f8d2120ef3c2a9179742e.png"
     },
     {
@@ -788,7 +788,7 @@
       "match_status": "archetype",
       "sha256": "64b1432929c11ac027cc6ae64e624c07620da5897bd895a2fa2bc76af2369905",
       "bytes": 3100188,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "64b1432929c11ac027cc6ae6.png"
     },
     {
@@ -799,7 +799,7 @@
       "match_status": "archetype",
       "sha256": "7781bfbeae0ec3a5a6a01b3ec8659f35bfc4f35fb719b1d22d37fbc74771579d",
       "bytes": 2753038,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "7781bfbeae0ec3a5a6a01b3e.png"
     },
     {
@@ -810,7 +810,7 @@
       "match_status": "archetype",
       "sha256": "7fc1a31c6d4ffe2b7cd61bf72876f522312ff6765f538d92e03738a850aba479",
       "bytes": 2469285,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "7fc1a31c6d4ffe2b7cd61bf7.png"
     },
     {
@@ -821,7 +821,7 @@
       "match_status": "archetype",
       "sha256": "5a7633dd67d1f85fef182a8681cff81e7253f4f10c547836e2b3c338699a8ffc",
       "bytes": 2562899,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "5a7633dd67d1f85fef182a86.png"
     },
     {
@@ -832,7 +832,7 @@
       "match_status": "archetype",
       "sha256": "f4c322773f4f8554ab95493e497a42b3e55d4bfd688ba2f5b763e85ca81dcd01",
       "bytes": 2751437,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f4c322773f4f8554ab95493e.png"
     },
     {
@@ -843,7 +843,7 @@
       "match_status": "archetype",
       "sha256": "90bcba2140a4712328e17b1817924b7fe38dc37445a0ddde85dfea756f927464",
       "bytes": 2335411,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "90bcba2140a4712328e17b18.png"
     },
     {
@@ -854,7 +854,7 @@
       "match_status": "archetype",
       "sha256": "116c9e1d9aeee20f058d4d3735bd0a91439ba38124bd5296bd92d9441695e224",
       "bytes": 2909010,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "116c9e1d9aeee20f058d4d37.png"
     },
     {
@@ -865,7 +865,7 @@
       "match_status": "archetype",
       "sha256": "3fafac9eed56fe64645123063ec5afc86b01a7f183dea65255e9a497f340be37",
       "bytes": 2674353,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "3fafac9eed56fe6464512306.png"
     },
     {
@@ -876,7 +876,7 @@
       "match_status": "archetype",
       "sha256": "9689f85510416c67eaa1419d8fced95be74feea461a29a7f97c6663d6fe6be8e",
       "bytes": 2496606,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "9689f85510416c67eaa1419d.png"
     },
     {
@@ -887,7 +887,7 @@
       "match_status": "archetype",
       "sha256": "f8b286334a38b5d4fb83c425516d17a75aa6cdf9b20687ba7c6c37e515d780b5",
       "bytes": 2781565,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "f8b286334a38b5d4fb83c425.png"
     },
     {
@@ -898,7 +898,7 @@
       "match_status": "archetype",
       "sha256": "6c7a4d712bf16b1fef5851883466de86ca396a9e38f2da51e3cb3d8c3169e33d",
       "bytes": 2865438,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "6c7a4d712bf16b1fef585188.png"
     },
     {
@@ -909,7 +909,7 @@
       "match_status": "archetype",
       "sha256": "4761d6a85ad347fd8232ec674534d9ae4484eb6643f7bd9987b228d4ab905604",
       "bytes": 2461841,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "4761d6a85ad347fd8232ec67.png"
     },
     {
@@ -920,7 +920,7 @@
       "match_status": "archetype",
       "sha256": "36bcf0e0d6c11b1a3237afb6cc25cb7926e05932f9c5996f1cababb92079d876",
       "bytes": 2314346,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "36bcf0e0d6c11b1a3237afb6.png"
     },
     {
@@ -931,7 +931,7 @@
       "match_status": "archetype",
       "sha256": "a66f4ca3b79aa1259679014419678202f8175d3443f70be791584bb53c3e1753",
       "bytes": 2539242,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "a66f4ca3b79aa12596790144.png"
     },
     {
@@ -942,7 +942,7 @@
       "match_status": "archetype",
       "sha256": "cd77766ed99f17027b4ed748feffc388d11fb90be277cffa156035f6c87bb807",
       "bytes": 2307972,
-      "result": "copied_new_binary",
+      "result": "reused_existing_binary",
       "filename": "cd77766ed99f17027b4ed748.png"
     },
     {

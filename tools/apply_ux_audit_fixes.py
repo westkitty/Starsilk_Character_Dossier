@@ -26,6 +26,17 @@ Implements findings UX-001 through UX-028:
 - UX-026: Idempotent loading="lazy" and decoding="async" on content images.
 - UX-027: Watermark video lifecycle (respects reduced-motion, pauses when document hidden).
 - UX-028: Context-informed descriptive alt text improvements.
+
+ORDERING NOTE: this script fully replaces the entire <style> block and every
+<script> block trailing the brandkit watermark video (see the final re.sub
+call below) with its own known set, rather than appending to what's there.
+Anything added by a script that runs AFTER this one -- e.g.
+apply_media_presentation_and_collapse.py's CSS additions and its
+end-of-body anchor-expand/print-handling <script> -- will be silently
+deleted if this script is re-run afterward. tools/build.sh's ordering
+(this script, then apply_media_presentation_and_collapse.py, then
+finalize_metadata.py) is the only sanctioned sequence; don't invoke this
+script standalone on an already-fully-built docs/index.html.
 """
 import re
 import sys
@@ -782,6 +793,10 @@ def apply_fixes() -> int:
         content = content.replace(old_alt, new_alt)
 
     # 10. Replace Scripts with clean, scoped scripts (UX-001, UX-003, UX-010, UX-013, UX-015, UX-016, UX-019, UX-027)
+    # NOTE: the second re.sub below deletes ALL <script> blocks trailing the
+    # watermark video, including any added by a later pipeline stage -- see
+    # the module docstring's ORDERING NOTE. Must run before, never after,
+    # apply_media_presentation_and_collapse.py.
     content = re.sub(
         r'<video id="brandkit-watermark"[^>]*></video>(?:\s*<script\b[^>]*>(?:(?!</script>).)*</script>)?',
         f'<video id="brandkit-watermark" muted playsinline aria-hidden="true"></video><script>\n{WATERMARK_SCRIPT}\n</script>',
