@@ -284,6 +284,22 @@ def main() -> int:
     emit("END OF REPORT")
     emit("=" * 70)
 
+
+    failures = []
+    if len(dupes) > 0: failures.append("dupes")
+    if len(broken_anchors) > 0: failures.append("broken_anchors")
+    if len(missing_assets) > 0: failures.append("missing_assets")
+    if img_data_uris > 0 or video_data_uris > 0: failures.append("data_uris")
+    if sum(leaks.values()) > 0: failures.append("leaks")
+    if 'syntax error(s)' in js_result and ' 0 syntax error' not in js_result: failures.append("js_syntax")
+    if len(obsolete_hits) > 0 or not has_170: failures.append("chronology")
+    if len(william_hits) > 0: failures.append("william")
+    
+    if len(failures) > 0:
+        print(f"\nVALIDATION FAILED with categories: {failures}")
+        REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        return 1
+
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"\nReport written to {REPORT}")
     return 0
