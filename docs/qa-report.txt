@@ -24,12 +24,12 @@ STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
 
 [11] WILLIAM OCCURRENCES: 0 (expected 0)
 
-[12] JAVASCRIPT SYNTAX: 2 script block(s) checked, 0 syntax error(s)
+[12] JAVASCRIPT SYNTAX: 3 script block(s) checked, 0 syntax error(s)
 
 [13] SIZE REPORT
     Original source HTML: 614,968,439 bytes
-    Generated docs/index.html: 449,379 bytes
-    Total docs/ directory: 536,795,250 bytes
+    Generated docs/index.html: 456,467 bytes
+    Total docs/ directory: 536,802,338 bytes
     Total extracted media: 536,251,498 bytes across 192 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken, 0 without exact-provenance asset
