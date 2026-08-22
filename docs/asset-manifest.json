@@ -3,10 +3,10 @@
   "source_size_bytes": 614968439,
   "generated_index_size_bytes": 429016,
   "total_data_uri_references": 149,
-  "unique_binary_assets": 93,
+  "unique_binary_assets": 164,
   "duplicate_references_eliminated": 56,
   "total_decoded_binary_size_bytes": 460906548,
-  "total_unique_binary_size_bytes": 303393391,
+  "total_unique_binary_size_bytes": 491902588,
   "bytes_saved_by_deduplication": 157513157,
   "assets": [
     {
@@ -222,7 +222,7 @@
       "mime_type": "image/png",
       "filename": "215b472c945b203880ff9ff0.png",
       "bytes": 2620242,
-      "reference_count": 9,
+      "reference_count": 8,
       "contexts": [
         {
           "section_id": "gorevault",
@@ -267,7 +267,7 @@
       "mime_type": "image/png",
       "filename": "1ad8499d225f83307d11575d.png",
       "bytes": 2728166,
-      "reference_count": 9,
+      "reference_count": 3,
       "contexts": [
         {
           "section_id": "ringthroat",
@@ -312,7 +312,7 @@
       "mime_type": "image/png",
       "filename": "c1f7ee003b8321b0965ca6d0.png",
       "bytes": 2522670,
-      "reference_count": 10,
+      "reference_count": 8,
       "contexts": [
         {
           "section_id": "lyriboris",
@@ -361,7 +361,7 @@
       "mime_type": "image/png",
       "filename": "73881f061d9c2b2a1cdc3e0f.png",
       "bytes": 2508510,
-      "reference_count": 2,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-the-egg",
@@ -378,7 +378,7 @@
       "mime_type": "image/png",
       "filename": "67385a1d966c16adabc3653a.png",
       "bytes": 3022334,
-      "reference_count": 11,
+      "reference_count": 8,
       "contexts": [
         {
           "section_id": "drk-magma-pleuron",
@@ -448,7 +448,7 @@
       "mime_type": "image/png",
       "filename": "85e1b71870122e9be372be5f.png",
       "bytes": 3032401,
-      "reference_count": 3,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-fault-tongue",
@@ -469,7 +469,7 @@
       "mime_type": "image/png",
       "filename": "807ffcd03f539a2d711d9128.png",
       "bytes": 2987267,
-      "reference_count": 2,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-obsidian-gul",
@@ -486,7 +486,7 @@
       "mime_type": "image/png",
       "filename": "5e022e04b705296021c8a6eb.png",
       "bytes": 2822347,
-      "reference_count": 3,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-glassspine",
@@ -507,7 +507,7 @@
       "mime_type": "image/png",
       "filename": "323bd4d5f7f709dd9854b857.png",
       "bytes": 3004417,
-      "reference_count": 2,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-quarrymind",
@@ -524,7 +524,7 @@
       "mime_type": "image/png",
       "filename": "fca8a285bebd37f46ea71812.png",
       "bytes": 2901607,
-      "reference_count": 6,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-aerokarst",
@@ -557,7 +557,7 @@
       "mime_type": "image/png",
       "filename": "dad54876960ff6df6e54d55c.png",
       "bytes": 3166070,
-      "reference_count": 6,
+      "reference_count": 1,
       "contexts": [
         {
           "section_id": "drk-verdgorge",
@@ -590,7 +590,7 @@
       "mime_type": "image/png",
       "filename": "58783ecbc00bea4564aa497e.png",
       "bytes": 2927763,
-      "reference_count": 3,
+      "reference_count": 2,
       "contexts": [
         {
           "section_id": "drk-raintaster",
@@ -1441,6 +1441,1071 @@
           "alt": null
         }
       ]
+    },
+    {
+      "sha256": "56dd8a1dd141a08c85c0e37b6575826e1b9f6180220dfee434f5f0d7674f74c0",
+      "mime_type": "image/png",
+      "filename": "56dd8a1dd141a08c85c0e37b.png",
+      "bytes": 2376619,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "The Egg",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "egg-origin-node-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "d123c13a03b1fb546d1b0ba4213a887694383d605fd9c86d3f022862198f846a",
+      "mime_type": "image/png",
+      "filename": "d123c13a03b1fb546d1b0ba4.png",
+      "bytes": 2457505,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "The Egg",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-01-the-egg.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "57cd252bb773a90e96efb600682100e23416c5dc71b85adbe495c6159ae1db49",
+      "mime_type": "image/png",
+      "filename": "57cd252bb773a90e96efb600.png",
+      "bytes": 2812125,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Magma Pleuron",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "magma-pleuron-concept-art.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "c5685375d0554cef2e16148c1deba6fe6971e8d979f9f2af14cac1f505b595a2",
+      "mime_type": "image/png",
+      "filename": "c5685375d0554cef2e16148c.png",
+      "bytes": 2641141,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Magma Pleuron",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "magma-pleuron-profile-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "b9ae874c695ed648137f39509a8e9b440d673ebc7ecd1ad81dd8eed27a510e53",
+      "mime_type": "image/png",
+      "filename": "b9ae874c695ed648137f3950.png",
+      "bytes": 2762629,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Magma Pleuron",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "magma-pleuron-cinematic-wide.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f5ad1985ffebb6c5040cf6670ce80b17ac799159a5b37533fcfaabce7369404d",
+      "mime_type": "image/png",
+      "filename": "f5ad1985ffebb6c5040cf667.png",
+      "bytes": 2828803,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Magma Pleuron",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-02-magma-pleuron.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "1cc41b333f194157a6b129532c075cbba7d3ef5e6e575670ec5e3ab4c5c00dd0",
+      "mime_type": "image/png",
+      "filename": "1cc41b333f194157a6b12953.png",
+      "bytes": 2781223,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Granithelion",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-03-granithelion.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "db230059d2d77abdbc54584cdebdc119fdfcf40a4b3012ae7db794f097d8a479",
+      "mime_type": "image/png",
+      "filename": "db230059d2d77abdbc54584c.png",
+      "bytes": 2635203,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Fault-Tongue",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "fault-tongue-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "6bc2a67a8995bc1d5795a9fcc9831c7ebbd41a6b78a08967548a824c6a5d5da1",
+      "mime_type": "image/png",
+      "filename": "6bc2a67a8995bc1d5795a9fc.png",
+      "bytes": 2989485,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Fault-Tongue",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-04-fault-tongue.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "1ce1a78eda1ae769de33c52d3d3ae2c1d3c1765a7b123b0923f73c107b13cca2",
+      "mime_type": "image/png",
+      "filename": "1ce1a78eda1ae769de33c52d.png",
+      "bytes": 2411850,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Obsidian Gul",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "obsidian-gul-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "25a9ba71bb1f90904c287547cddea380131ceb50f7672a6c66c2b3781b7c4f34",
+      "mime_type": "image/png",
+      "filename": "25a9ba71bb1f90904c287547.png",
+      "bytes": 2248345,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Obsidian Gul",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-05-obsidian-gul.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "1faf25142cb4d442eb6265ef90e25411fd2cc7d2b535cad6f996893691524f60",
+      "mime_type": "image/png",
+      "filename": "1faf25142cb4d442eb6265ef.png",
+      "bytes": 2626745,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Tremorhound",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "tremorhound-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "b14a30c62129a2a6c26e1dda0e0237c2fd6af7b6f5b6640e91953f4285f1eaff",
+      "mime_type": "image/png",
+      "filename": "b14a30c62129a2a6c26e1dda.png",
+      "bytes": 2590390,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Tremorhound",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-06-tremorhound.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f02eec5bea1ecd4dfd6a4a5684363dacc352a64a9603a6c126fef335ceee83ad",
+      "mime_type": "image/png",
+      "filename": "f02eec5bea1ecd4dfd6a4a56.png",
+      "bytes": 2654408,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glassspine",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "glassspine-archival-concept.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "5ae2728da880457769cd4390dc9fd3304c897774183e8f15dc64a7ce5fb76d86",
+      "mime_type": "image/png",
+      "filename": "5ae2728da880457769cd4390.png",
+      "bytes": 2887496,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glassspine",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "glassspine-portrait-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "61ac25bd45f6040ab3bc778c94bc8f4352118aa31f291fc109c31859db6a2f7f",
+      "mime_type": "image/png",
+      "filename": "61ac25bd45f6040ab3bc778c.png",
+      "bytes": 2554451,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glassspine",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "glassspine-shardway-panorama.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "a709a083f0f16e5ba572e56748d65032472b17e5737020d0b2fbe04962d72139",
+      "mime_type": "image/png",
+      "filename": "a709a083f0f16e5ba572e567.png",
+      "bytes": 3039946,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glassspine",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-07-glassspine.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "cc647c2325913e782c2ca1a97f021475410fd25ec8b7d7006ef8d34891a2cebb",
+      "mime_type": "image/png",
+      "filename": "cc647c2325913e782c2ca1a9.png",
+      "bytes": 3028129,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Glassspine",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "glasspine-06-ribbon-spine.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "594cc74436eb0aec0486655f7bdd3bf88161661781a102e49ab9904ecb6928e4",
+      "mime_type": "image/png",
+      "filename": "594cc74436eb0aec0486655f.png",
+      "bytes": 2856539,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Quarrymind",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "quarrymind-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "dd60aa97863840ac41efdf0d5968a91e8ba95e0039ef3db784305965fe1b19a5",
+      "mime_type": "image/png",
+      "filename": "dd60aa97863840ac41efdf0d.png",
+      "bytes": 2317322,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Quarrymind",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-08-quarrymind.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "8c20f1cfa9ab9471287b55d7e05aa42f9ac47bea3cd0c1f6ecaf4692bd39fe5e",
+      "mime_type": "image/png",
+      "filename": "8c20f1cfa9ab9471287b55d7.png",
+      "bytes": 2788933,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Aerokarst",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "aerokarst-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "ca9677ca9e54920a11732471df42f03b8fd9163ec4193ae5d6473e56f119cce3",
+      "mime_type": "image/png",
+      "filename": "ca9677ca9e54920a11732471.png",
+      "bytes": 2463521,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Aerokarst",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-09-aerokarst.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "40c35dba2e9178ee198c6ac34012bb0e1f7949af5f9de30fa4bc8d584b53b67c",
+      "mime_type": "image/png",
+      "filename": "40c35dba2e9178ee198c6ac3.png",
+      "bytes": 2448328,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cloudmaw",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "cloudmaw-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "a88e837a83bf009e283fb1e770f1dba93a14dadc17a6f75d768f96a2575ad923",
+      "mime_type": "image/png",
+      "filename": "a88e837a83bf009e283fb1e7.png",
+      "bytes": 2720474,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cloudmaw",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-10-cloudmaw.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "d1353fd8db4f713061fa897cd5ec358172be4b386a4804c4f6e17ff95c913d2a",
+      "mime_type": "image/png",
+      "filename": "d1353fd8db4f713061fa897c.png",
+      "bytes": 2169318,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Atmantid",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "atmantid-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "c755f60f1af3c2e3cdbb498f2814b32a5b4746e1b1075d7cc6a535373f6a4701",
+      "mime_type": "image/png",
+      "filename": "c755f60f1af3c2e3cdbb498f.png",
+      "bytes": 2343110,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Weathernode",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "weathernode-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "7211261841fb6f28ccaaf38a74357f2f4ad4b735a722990c48b2fbb881b76f64",
+      "mime_type": "image/png",
+      "filename": "7211261841fb6f28ccaaf38a.png",
+      "bytes": 2672966,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Vortenbray",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "vortenbray-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "176fc111b0315ebcb7145a82f5cd734e6a8c6a8209f85163cd7cb6aecb451295",
+      "mime_type": "image/png",
+      "filename": "176fc111b0315ebcb7145a82.png",
+      "bytes": 2529530,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Fumericus",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "fumericus-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "44a85c89f5e774bc618f22861f362ab4eb349fe9b76dcf4014fece7dc65db02a",
+      "mime_type": "image/png",
+      "filename": "44a85c89f5e774bc618f2286.png",
+      "bytes": 2874599,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "7bb8a136903608150bc7e533d1e7fd35e3a9bc19ff63dcbee816400b1ec0f109",
+      "mime_type": "image/png",
+      "filename": "7bb8a136903608150bc7e533.png",
+      "bytes": 2369024,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-01-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "e6339334f03fe88b60d2cefb82a7601db4556e62e0577d184f26199d8231015a",
+      "mime_type": "image/png",
+      "filename": "e6339334f03fe88b60d2cefb.png",
+      "bytes": 3259534,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-02-bar-khel-overflight.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "85ab5120ea3f0144f088d11ca6582a59fffa5d2a1db50328777f25677eef09f4",
+      "mime_type": "image/png",
+      "filename": "85ab5120ea3f0144f088d11c.png",
+      "bytes": 2235239,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-03-portrait.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "ac18cf50456a0d9823b89dbf8b7fe52297d9bbac50477bf49286c51c6574ff2f",
+      "mime_type": "image/png",
+      "filename": "ac18cf50456a0d9823b89dbf.png",
+      "bytes": 2589648,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-04-climate-polarization.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "483cff7d4bbf39aa5a42c14952b51f3bcfa9e95eff2b39a262741219e9e8c6f6",
+      "mime_type": "image/png",
+      "filename": "483cff7d4bbf39aa5a42c149.png",
+      "bytes": 2476480,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-05-aftermath-snowfield.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "d7f213e3eff673bbb01ffe64e756feacd31e546531662dbec5a26c065f978352",
+      "mime_type": "image/png",
+      "filename": "d7f213e3eff673bbb01ffe64.png",
+      "bytes": 2833552,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-06-serpentine-archival.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "df86a9dd0ac0e82e43f1638de050347e0e58141968bc47d77b60a4f8e648a4f0",
+      "mime_type": "image/png",
+      "filename": "df86a9dd0ac0e82e43f1638d.png",
+      "bytes": 2962378,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-07-serpentine-over-city.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "999ae3a25847aa58e333551dc46a17512bfc3c4d1202d7d14401b7de11b736a6",
+      "mime_type": "image/png",
+      "filename": "999ae3a25847aa58e333551d.png",
+      "bytes": 2519691,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-08-serpentine-portrait.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "7e4463e0631859b221aa6e1e7da9945c4a00319b6abc030de72fb436adba6669",
+      "mime_type": "image/png",
+      "filename": "7e4463e0631859b221aa6e1e.png",
+      "bytes": 2973259,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-09-serpentine-climate-rift.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "1f0d9af2c1264ea63a06ba0a98e96fe0ae77fcfc8ec14c00e21bee4d8692a963",
+      "mime_type": "image/png",
+      "filename": "1f0d9af2c1264ea63a06ba0a.png",
+      "bytes": 2969607,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-10-serpentine-low-angle.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f2cde7b98d0fed52f1b6aa740c8e05030471780e7555b6279e5b57ee75970467",
+      "mime_type": "image/png",
+      "filename": "f2cde7b98d0fed52f1b6aa74.png",
+      "bytes": 2641393,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-11-dive-through-storm.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "e3e61f6945d5ba44c3672fb854b3a3a5b4f32246c60c64ae5294bd702995e1e5",
+      "mime_type": "image/png",
+      "filename": "e3e61f6945d5ba44c3672fb8.png",
+      "bytes": 2579020,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-12-horizontal-over-sea.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "633627c1e77fa98d40a09bf851ea090eb0ae2da65e869fa766a909a2f1f667c4",
+      "mime_type": "image/png",
+      "filename": "633627c1e77fa98d40a09bf8.png",
+      "bytes": 2650766,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-13-perched-on-spire.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "e08b31ac2c8b069aacbff67141f3aee24516b7b26d4396660a999f5c295ba5b3",
+      "mime_type": "image/png",
+      "filename": "e08b31ac2c8b069aacbff671.png",
+      "bytes": 2636948,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-14-emerging-from-cloudwall.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "49ebc658af29e513f2897202e19203cccbe97d4b9b51691d58ed3879a00a9dec",
+      "mime_type": "image/png",
+      "filename": "49ebc658af29e513f2897202.png",
+      "bytes": 3149187,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Skymourn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "skymourn-15-overhead-maelstrom.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "4973a07091fa1a4e29a86b4add73ecd690fd29c35352e5661e13d3896910f972",
+      "mime_type": "image/png",
+      "filename": "4973a07091fa1a4e29a86b4a.png",
+      "bytes": 2895612,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Verdgorge",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "verdgorge-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f68c210d66f0160034b45817828032797179cf17d8e7247561229b7d3072c1ce",
+      "mime_type": "image/png",
+      "filename": "f68c210d66f0160034b45817.png",
+      "bytes": 2215997,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Pollenvault",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "pollenvault-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "de25f88601e782e0b15c16a727143d1cb6c120bd7508f39c704bb061e19194d0",
+      "mime_type": "image/png",
+      "filename": "de25f88601e782e0b15c16a7.png",
+      "bytes": 2893161,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Mycethron",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "mycethron-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "c301f70cce89c671b2579fc37313606e7a397b97c018d86be80aa83a13210f85",
+      "mime_type": "image/png",
+      "filename": "c301f70cce89c671b2579fc3.png",
+      "bytes": 2463381,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Raintaster",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "raintaster-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "e0fd29f612877517964b28bb038ef0a0a8fdd1206e9467c42729c80cb12a4f9b",
+      "mime_type": "image/png",
+      "filename": "e0fd29f612877517964b28bb.png",
+      "bytes": 2812835,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Terragullet",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "terragullet-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "aea223f094810d4585ad1b2d7ec43835939921ce0c3cf9de13aab74ae76a94e1",
+      "mime_type": "image/png",
+      "filename": "aea223f094810d4585ad1b2d.png",
+      "bytes": 2789537,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Petalnest",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "petalnest-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "647d09283f9ac6403fb25638208ff9ee0f301f8d44d91a605651843ca4408045",
+      "mime_type": "image/png",
+      "filename": "647d09283f9ac6403fb25638.png",
+      "bytes": 3618383,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Feralseed",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "feralseed-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "462521159c6d91c4764769b7da60075434febe67ae0832a74a8b3b2a9b9bc2ff",
+      "mime_type": "image/png",
+      "filename": "462521159c6d91c4764769b7.png",
+      "bytes": 3077338,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Solnexus",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "solnexus-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "38f2567914b196e7fb03d33a42a953b244bb03e6ccaa584423c527fb22b0d1a2",
+      "mime_type": "image/png",
+      "filename": "38f2567914b196e7fb03d33a.png",
+      "bytes": 2273557,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nullthorn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "nullthorn-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "924eecfbee919a625d89cd015e7456da19e77deb5beadc253bc81251aab6bf0d",
+      "mime_type": "image/png",
+      "filename": "924eecfbee919a625d89cd01.png",
+      "bytes": 2653137,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nullthorn",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "drakken-nullthorn.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "b2270a968eed67509f0812c16338d19c2bf591bb5ae122d725e8e1c0df7f92ae",
+      "mime_type": "image/png",
+      "filename": "b2270a968eed67509f0812c1.png",
+      "bytes": 2632446,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Lyriboris",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "lyriboris-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "ee5a32efc9891e8717e3a4998c5c83ebf5dd9f1c7bb01e39673854b78abc1a18",
+      "mime_type": "image/png",
+      "filename": "ee5a32efc9891e8717e3a499.png",
+      "bytes": 2962297,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Helionth",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "helionth-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "28e60469a318c43033d2352aebad915a92a28e5254a0c261e5714bb2f9aadbbb",
+      "mime_type": "image/png",
+      "filename": "28e60469a318c43033d2352a.png",
+      "bytes": 2156413,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Umbrakrael",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "umbrakrael-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "11efe751411c002da74d1a5020f409d95e8617ff7239402f61ef5b2a88bafbce",
+      "mime_type": "image/png",
+      "filename": "11efe751411c002da74d1a50.png",
+      "bytes": 2150489,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cinderverge",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "cinderverge-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "3c4251bc15a822bc01cad1c17f9f4f33c50f115c6255edd1eb2a5284e955320d",
+      "mime_type": "image/png",
+      "filename": "3c4251bc15a822bc01cad1c1.png",
+      "bytes": 2640910,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Singularch",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "singularch-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "35b1d548f18e4001da4370a8a9758e3efbcb98f505520e546e3591e4601c7356",
+      "mime_type": "image/png",
+      "filename": "35b1d548f18e4001da4370a8.png",
+      "bytes": 1338979,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Redacted Grin",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "redacted-grin-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "b00d773dc5d2e13da1283ee3d9b3a972967e89962347b30a01122c3ed9e0affb",
+      "mime_type": "image/png",
+      "filename": "b00d773dc5d2e13da1283ee3.png",
+      "bytes": 3096947,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Spinal Loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "spinal-loop-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "bfbbe39d13c93fa249a17702c8ecc205546999c7b3ef9eb9ee231b18bc1e73bc",
+      "mime_type": "image/png",
+      "filename": "bfbbe39d13c93fa249a17702.png",
+      "bytes": 2476775,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cradle.exe",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "cradle-exe-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "e62a6426326c8951111e12857b9cdb628628d7da163c16727fa5236ca51c3c1c",
+      "mime_type": "image/png",
+      "filename": "e62a6426326c8951111e1285.png",
+      "bytes": 2723313,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Foldhowl",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "foldhowl-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f25ae4bb07e4c4d6c242832a58d2f7b854594f15af882bda2c104bd8c0af22e6",
+      "mime_type": "image/png",
+      "filename": "f25ae4bb07e4c4d6c242832a.png",
+      "bytes": 2355559,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Manifest.Discord",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "manifest-discord-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "fc379157f42ba5fd784d289f94d4acf2559cc2d3928b7550c1c0005ea8866b34",
+      "mime_type": "image/png",
+      "filename": "fc379157f42ba5fd784d289f.png",
+      "bytes": 2795188,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Gloryfail",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "gloryfail-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "f1805208bf2fc66074daa5a73784f27b117dff5b843c978d5c25b5afa0c64c64",
+      "mime_type": "image/png",
+      "filename": "f1805208bf2fc66074daa5a7.png",
+      "bytes": 2509064,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Viral Bastion",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "viral-bastion-archival-plate.png",
+        "source_category": "strain-exact",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "77131487824f0919d44825feda8c5de2d1c616ba5c51244b13093f500bfe944d",
+      "mime_type": "image/png",
+      "filename": "77131487824f0919d44825fe.png",
+      "bytes": 2718693,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "The Balmera Ridge Incident",
+      "match_status": "incident",
+      "provenance": {
+        "source_basename": "balmera-ridge-incident-plate.png",
+        "source_category": "incident",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "2fcb6a5eb7533dcdfd2fca766a60f9a123b85da452829cfc6dfd8a84c2a51c88",
+      "mime_type": "image/png",
+      "filename": "2fcb6a5eb7533dcdfd2fca76.png",
+      "bytes": 2553528,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "The Fracture of Deimos VII",
+      "match_status": "incident",
+      "provenance": {
+        "source_basename": "deimos-vii-fracture-plate.png",
+        "source_category": "incident",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "36a1a4608262186ae6547d61adea0a00233ed49418e8eef083aaf348dc37be3f",
+      "mime_type": "image/png",
+      "filename": "36a1a4608262186ae6547d61.png",
+      "bytes": 2666618,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Blood Eclipse War overview",
+      "match_status": "incident",
+      "provenance": {
+        "source_basename": "blood-eclipse-war-overview-plate.png",
+        "source_category": "lore",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "0ab4d1542df260c447aee4c0099385be4bbd9bcb0c50bd065717846c2d454aa0",
+      "mime_type": "image/png",
+      "filename": "0ab4d1542df260c447aee4c0.png",
+      "bytes": 2535275,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Blood Rings",
+      "match_status": "incident",
+      "provenance": {
+        "source_basename": "blood-rings-plate.png",
+        "source_category": "lore",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "b401945ee296cda48c47cb00bd4976de64d60bfe605039e1a3bd1a714abbcc78",
+      "mime_type": "image/png",
+      "filename": "b401945ee296cda48c47cb00.png",
+      "bytes": 3146906,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Mother \u2014 archival pre-coup origin visualization",
+      "match_status": "incident",
+      "provenance": {
+        "source_basename": "mother-origin-plate.png",
+        "source_category": "origin",
+        "origin": "MacBook Google Drive / macbook/drakken"
+      }
     }
   ]
 }

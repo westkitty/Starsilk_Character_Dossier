@@ -4,6 +4,7 @@ Writes a human-readable report to docs/qa-report.txt and prints a summary.
 Exit code is 0 even on findings (this is a report, not a hard gate) unless the
 script itself errors; callers should read the report for PASS/FAIL detail.
 """
+import json
 import re
 import subprocess
 import sys
@@ -214,6 +215,68 @@ def main() -> int:
     emit(f"    Total docs/ directory: {docs_total:,} bytes")
     emit(f"    Total extracted media: {media_total:,} bytes across {media_count} files")
     emit()
+
+    # 14. Drakken art-integration identity assertions
+    DRAKKEN_ART_IDENTITIES = [
+        "drk-the-egg", "drk-magma-pleuron", "drk-granithelion", "drk-fault-tongue", "drk-obsidian-gul",
+        "drk-tremorhound", "drk-glassspine", "drk-quarrymind", "drk-aerokarst", "drk-cloudmaw",
+        "drk-atmantid", "drk-weathernode", "drk-vortenbray", "drk-fumericus", "drk-skymourn",
+        "drk-verdgorge", "drk-pollenvault", "drk-mycethron", "drk-raintaster", "drk-terragullet",
+        "drk-petalnest", "drk-feralseed", "drk-solnexus", "drk-nullthorn", "lyriboris",
+        "drk-helionth", "drk-umbrakrael", "drk-cinderverge", "drk-singularch", "drk-redacted-grin",
+        "drk-spinal-loop", "cradle-exe", "foldhowl", "manifest-discord", "drk-gloryfail", "drk-viral-bastion",
+    ]
+    manifest_path = DOCS / "asset-manifest.json"
+    exact_filenames = set()
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text())
+            exact_filenames = {a["filename"] for a in manifest.get("assets", []) if a.get("match_status") == "exact"}
+        except Exception:
+            pass
+    art_missing = []
+    art_not_exact = []
+    for section_id in DRAKKEN_ART_IDENTITIES:
+        sec_m = re.search(rf'<section\b[^>]*id="{re.escape(section_id)}"', html)
+        if not sec_m:
+            art_missing.append((section_id, "section not found"))
+            continue
+        sec_start = sec_m.start()
+        next_sec = re.search(r"<section\b", html[sec_start + 10:])
+        sec_end = sec_start + 10 + next_sec.start() if next_sec else len(html)
+        section_html = html[sec_start:sec_end]
+        img_srcs = re.findall(r'<img\b[^>]*src="assets/media/([^"]+)"', section_html)
+        if not img_srcs:
+            art_missing.append((section_id, "no image in section"))
+            continue
+        for src in img_srcs:
+            if not (DOCS / "assets" / "media" / src).exists():
+                art_missing.append((section_id, f"broken src {src}"))
+        if exact_filenames and not any(s in exact_filenames for s in img_srcs):
+            art_not_exact.append(section_id)
+    emit(f"[14] DRAKKEN ART IDENTITY ASSERTIONS: {len(DRAKKEN_ART_IDENTITIES)} checked, "
+         f"{len(art_missing)} missing/broken, {len(art_not_exact)} without exact-provenance asset")
+    for sid, reason in art_missing:
+        emit(f"    - MISSING: {sid} ({reason})")
+    for sid in art_not_exact:
+        emit(f"    - NOT EXACT (manifest match_status != 'exact'): {sid}")
+    emit()
+
+    # 15. Import inventory summary (if present, from tools/import_drakken_art.py)
+    inv_path = ROOT / "tools" / "drakken_art_inventory.json"
+    if inv_path.exists():
+        try:
+            inv = json.loads(inv_path.read_text())
+            emit("[15] DRAKKEN ART IMPORT SUMMARY (last run)")
+            for k, v in inv.get("stats", {}).items():
+                if k == "missing_source_files":
+                    emit(f"    missing_source_files: {len(v)}")
+                else:
+                    emit(f"    {k}: {v}")
+            emit()
+        except Exception as e:
+            emit(f"[15] DRAKKEN ART IMPORT SUMMARY: unreadable ({e})")
+            emit()
 
     emit("=" * 70)
     emit("END OF REPORT")

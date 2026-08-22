@@ -6,7 +6,7 @@ STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
 
 [2] BROKEN ANCHORS: 0 (of 127 unique #hash hrefs)
 
-[3] LOCAL ASSET PATHS: 93 checked, 0 missing
+[3] LOCAL ASSET PATHS: 164 checked, 0 missing
 
 [4] REMAINING DATA URIS: image=0, video=0
 
@@ -18,7 +18,7 @@ STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
 
 [8] DRAKKEN VALIDATION: sections=56, missing_id=0, missing_image=0, broken_image_src=0
 
-[9] MEDIA COUNTS: image_refs=170, unique_image_files=88, video_refs=5, unique_video_files=5
+[9] MEDIA COUNTS: image_refs=211, unique_image_files=159, video_refs=5, unique_video_files=5
 
 [10] WAR CHRONOLOGY: obsolete_17_year_matches=0, 170_year_reference_present=True
 
@@ -28,9 +28,20 @@ STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
 
 [13] SIZE REPORT
     Original source HTML: 614,968,439 bytes
-    Generated docs/index.html: 429,016 bytes
-    Total docs/ directory: 303,865,436 bytes
-    Total extracted media: 303,393,391 bytes across 93 files
+    Generated docs/index.html: 442,167 bytes
+    Total docs/ directory: 492,423,878 bytes
+    Total extracted media: 491,902,588 bytes across 164 files
+
+[14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken, 0 without exact-provenance asset
+
+[15] DRAKKEN ART IMPORT SUMMARY (last run)
+    source_files_considered: 71
+    exact_files_accepted: 66
+    incident_files_accepted: 5
+    new_unique_binaries_copied: 71
+    existing_binaries_reused: 0
+    ambiguous_files_skipped: 0
+    missing_source_files: 0
 
 ======================================================================
 END OF REPORT

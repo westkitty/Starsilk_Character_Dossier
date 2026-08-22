@@ -13,3 +13,7 @@ media_vault_fragment.html
 
 # macOS
 .DS_Store
+
+# Python
+__pycache__/
+*.pyc
