@@ -68,6 +68,8 @@ def main() -> int:
     for attr in ["src", "poster"]:
         local_refs |= set(re.findall(rf'{attr}="([^"]+)"', html))
     local_refs |= set(re.findall(r'<link[^>]*href="([^"]+)"', html))
+    # Also catch quoted asset paths inside inline <script> (e.g. a JS clip-rotation array).
+    local_refs |= set(re.findall(r'"(assets/media/[^"]+)"', html))
     missing_assets = []
     checked = 0
     for ref in sorted(local_refs):

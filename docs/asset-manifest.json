@@ -3,10 +3,10 @@
   "source_size_bytes": 614968439,
   "generated_index_size_bytes": 429016,
   "total_data_uri_references": 149,
-  "unique_binary_assets": 164,
+  "unique_binary_assets": 192,
   "duplicate_references_eliminated": 56,
   "total_decoded_binary_size_bytes": 460906548,
-  "total_unique_binary_size_bytes": 491902588,
+  "total_unique_binary_size_bytes": 536251498,
   "bytes_saved_by_deduplication": 157513157,
   "assets": [
     {
@@ -2505,6 +2505,426 @@
         "source_basename": "mother-origin-plate.png",
         "source_category": "origin",
         "origin": "MacBook Google Drive / macbook/drakken"
+      }
+    },
+    {
+      "sha256": "bd9b6b141f0f2d11fadea67a9d097740b30aea6794ac91a31f57a9b385bff57b",
+      "mime_type": "video/mp4",
+      "filename": "bd9b6b141f0f2d11fadea67a.mp4",
+      "bytes": 773762,
+      "reference_count": 2,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-03-54-13.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "c629ce1b298593185fb64c6d3d6dcad8fe52a966ec175908e7067661842dc056",
+      "mime_type": "video/mp4",
+      "filename": "c629ce1b298593185fb64c6d.mp4",
+      "bytes": 2937414,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-03-54-18.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "2867ab757325a18d4e86e47d3038757f83253891658e5fc19a109c6436456448",
+      "mime_type": "video/mp4",
+      "filename": "2867ab757325a18d4e86e47d.mp4",
+      "bytes": 559734,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-03-58-55.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "3e601797a3fa7815a7f185667076b57ea81bbe237166995866ee51270a066ff7",
+      "mime_type": "video/mp4",
+      "filename": "3e601797a3fa7815a7f18566.mp4",
+      "bytes": 834636,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-04-00-45.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "299d5b833f56bb9fe42f0eb23b0e28b3a31154dc2eec7f6d943161cff4f49b7b",
+      "mime_type": "video/mp4",
+      "filename": "299d5b833f56bb9fe42f0eb2.mp4",
+      "bytes": 582866,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-04-05-16.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "8fc2775c8783e4c873a72558f71ddf49294b1563739ce70604bac3372d5e0a2e",
+      "mime_type": "video/mp4",
+      "filename": "8fc2775c8783e4c873a72558.mp4",
+      "bytes": 1213701,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Starsilk strand loop",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok_video_2026-04-10-04-08-17.mp4",
+        "source_category": "brandkit-watermark",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "6574bb00ab1efa0fc8c8bb60cca64ecc66fd3456afe70211bc996ff7eaed15a6",
+      "mime_type": "image/png",
+      "filename": "6574bb00ab1efa0fc8c8bb60.png",
+      "bytes": 89355,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Syrrian IV",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_worldsvault_board01_panel006_syrrian-four-islands.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "8de494b20fc66088ff33c096806c70e84a92486df592a01b2527dcb8c095140a",
+      "mime_type": "image/png",
+      "filename": "8de494b20fc66088ff33c096.png",
+      "bytes": 80402,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nimbus III",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_worldsvault_board01_panel007_nimbus-three-glows.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "30b70e1e1eba64b2eb0c5a5bb0b7b8f58752b6173644583f3f45fab4f50e8949",
+      "mime_type": "image/png",
+      "filename": "30b70e1e1eba64b2eb0c5a5b.png",
+      "bytes": 23289,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cirrus I",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "worldsvault_board03_panel025_cirrus-one.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "279a2b2a92a8d9672138781387db8f1c66fa9954f9aef3aec71a3f7059083eea",
+      "mime_type": "image/png",
+      "filename": "279a2b2a92a8d96721387813.png",
+      "bytes": 21603,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nimbostrata VI",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "worldsvault_board03_panel026_nimbostrata-six.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "a94677167ab6c316b259c3c9f57f16568e5d7c07950be2292079dc5ab6f36798",
+      "mime_type": "image/png",
+      "filename": "a94677167ab6c316b259c3c9.png",
+      "bytes": 2400929,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Altocirrus I",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s34_altocirrus_mirrored_dawn.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "e869421ffa8b8b57ad3eae45a3e733f89ad9d87c5b4ca65ccfe61e99ca240601",
+      "mime_type": "image/png",
+      "filename": "e869421ffa8b8b57ad3eae45.png",
+      "bytes": 2174083,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nimbocastor II",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s35_nimbocastor_singing_storms.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "4d478d7da7b83986aac182672fca6e8dc79280b966aad85eb15050ab4a326426",
+      "mime_type": "image/png",
+      "filename": "4d478d7da7b83986aac18267.png",
+      "bytes": 2570904,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Stratus III",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s36_stratus_quartz_towers.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "2a664e5ce5a9439a506b73f329420b027c358b5e3c338362614d311924cf8767",
+      "mime_type": "image/png",
+      "filename": "2a664e5ce5a9439a506b73f3.png",
+      "bytes": 2773441,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Contrail XX",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s53_contrail_frozen_desert.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "8434d80b5604c5e5e95db3bec67cd9ed270d4dbb555e13551df092142c57e345",
+      "mime_type": "image/png",
+      "filename": "8434d80b5604c5e5e95db3be.png",
+      "bytes": 1954734,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Fogbank XXI",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s54_fogbank_mirror_haze.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "f1fd5e8cf08fb65c205f0ffe7ad747f25c6ee86f2aac49116c9352f736367d15",
+      "mime_type": "image/png",
+      "filename": "f1fd5e8cf08fb65c205f0ffe.png",
+      "bytes": 2553233,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Vaporous XXII",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s55_vaporous_solid_seas.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "51e6465fbcaa776c127273de852036400a30c23f561cf2fcebc73272c8a9cdbd",
+      "mime_type": "image/png",
+      "filename": "51e6465fbcaa776c127273de.png",
+      "bytes": 2523745,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Spindrift XXIII",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s56_spindrift_wind_nations.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "8ad3ebe53f13281f8345e7594905046a0d8c85e9cd92ec21352a71c1a154f2f0",
+      "mime_type": "image/png",
+      "filename": "8ad3ebe53f13281f8345e759.png",
+      "bytes": 2394628,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Anemone XXIV",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s57_anemone_coral_clouds.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "19abded39a2a4486eec2cce6d1473483623a31540f630cda54dfdfbb88648442",
+      "mime_type": "image/png",
+      "filename": "19abded39a2a4486eec2cce6.png",
+      "bytes": 2363623,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Nacreous VI / XXV",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s58_nacreous_pearl_memory_rain.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "19a75c05b963b5adb70965ba332a2a2aa8f0b1ded2f29470b996f20650ae3f3c",
+      "mime_type": "image/png",
+      "filename": "19a75c05b963b5adb70965ba.png",
+      "bytes": 1868438,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Mistline XXVI",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s59_mistline_breath_continents.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "496005af946faaffb26188c7ff72998015ca6866bd6d8f30f16d272047559e32",
+      "mime_type": "image/png",
+      "filename": "496005af946faaffb26188c7.png",
+      "bytes": 2409633,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Halitus XXVII",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s60_halitus_ice_oceans_storms.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "1045e2af710cd0ab588309064efb1bca228a4b0e59726de60976a4942102a09b",
+      "mime_type": "image/png",
+      "filename": "1045e2af710cd0ab58830906.png",
+      "bytes": 2295577,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Prismatic XXVIII",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s61_prismatic_color_alive.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "8303460ce288851810c8dea6f8a0bbe94ce3dd8153ebc0e0cf47d126c0ee5ec2",
+      "mime_type": "image/png",
+      "filename": "8303460ce288851810c8dea6.png",
+      "bytes": 2674356,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Driftveil XXIX",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s62_driftveil_static_hymns.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "100a6b911c0af4e1b21d4495211c5b794a4b6541d6572c7ab47c0d4dd20f0dbb",
+      "mime_type": "image/png",
+      "filename": "100a6b911c0af4e1b21d4495.png",
+      "bytes": 2728397,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Cirrulite XXX",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "codec_s63_cirrulite_language_rings.png",
+        "source_category": "worldsvault-template",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "83e67168131e15d2d12c22cb36e1d998ed2c83a811e677f0c696d31de72d4afa",
+      "mime_type": "image/jpeg",
+      "filename": "83e67168131e15d2d12c22cb.jpg",
+      "bytes": 576124,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Full Turnaround \u2014 Front / Back / Side / Materials",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok-ff7b1fc0-7614-4238-909e-b59dfdbaf6a9.jpg",
+        "source_category": "shardgod-additional",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "b6e5632089cbf37861c73065c75ada6f03152b9cbbbab62b62b640ecfe87e0c6",
+      "mime_type": "image/jpeg",
+      "filename": "b6e5632089cbf37861c73065.jpg",
+      "bytes": 638843,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Expression and Pose Studies",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "grok-6f1864c0-0a0a-4709-8c2e-e9818b455e40.jpg",
+        "source_category": "shardgod-additional",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "fb2ab4bb31b66139e0294c994eebe77a0248d4d9c90e427eef98751cbf68f8c0",
+      "mime_type": "image/png",
+      "filename": "fb2ab4bb31b66139e0294c99.png",
+      "bytes": 318978,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Close Portrait Study",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "media__1785455749265.png",
+        "source_category": "shardgod-additional",
+        "origin": "MacBook Google Drive / macbook"
+      }
+    },
+    {
+      "sha256": "3089b9698ec619d3eac2fee9461dba3ff6b4c45d32ccc4b4275b0143fb7e92e7",
+      "mime_type": "image/png",
+      "filename": "3089b9698ec619d3eac2fee9.png",
+      "bytes": 2012482,
+      "reference_count": 1,
+      "contexts": [],
+      "logical_identity": "Meridian Station \u2014 Structural Breach",
+      "match_status": "exact",
+      "provenance": {
+        "source_basename": "storyboard_img_1767211973693.png",
+        "source_category": "shardgod-additional",
+        "origin": "MacBook Google Drive / macbook"
       }
     }
   ]
