@@ -14,11 +14,12 @@ set -euo pipefail
 #     -> build/worldsvault_publication.py (source-backed cosmic topology explorer)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
 #     -> build/museum_publication.py    (manifest-derived museum object model/viewer)
+#     -> build/offline_publication.py   (narrow installable shell + metadata cache)
 #     -> build/validate.py              (parsed-DOM structural + canon-invariant gate)
 #     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
-# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/chronology/, docs/worldsvault/, docs/entities/, and docs/objects/ are
+# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/chronology/, docs/worldsvault/, docs/entities/, docs/objects/, and the root offline shell files are
 # disposable generated output. Every run rebuilds them from declared source
 # authority; none may become a second canon source of truth.
 #
@@ -114,6 +115,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/entity_publication.py --check
     echo "-> Generating (in-memory) and checking museum object publication..."
     "$PY" build/museum_publication.py --check
+    echo "-> Generating (in-memory) and checking installable offline shell..."
+    "$PY" build/offline_publication.py --check
 else
     echo "-> Generating docs/index.html from src/content/ + src/templates/..."
     "$PY" build/generate.py
@@ -135,13 +138,15 @@ else
     "$PY" build/entity_publication.py
     echo "-> Generating museum object model/viewer from published media provenance..."
     "$PY" build/museum_publication.py
+    echo "-> Generating narrow installable offline shell and metadata cache..."
+    "$PY" build/offline_publication.py
 fi
 
 echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/chronology docs/worldsvault docs/entities docs/objects
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"
