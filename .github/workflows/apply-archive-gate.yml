@@ -1,8 +1,8 @@
 name: Apply archive gate and cover title fix
 
 on:
-  push:
-    branches: [work/archive-gate-title-lock]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: work/archive-gate-title-lock
 
       - name: Trust checkout
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -42,12 +43,7 @@ jobs:
               "    var debounceTimer;\n    searchInput.addEventListener('input', function(){\n      clearTimeout(debounceTimer);\n      var q = searchInput.value.trim();\n      if(q === 'ajd' && typeof setArchiveMode === 'function'){\n        setArchiveMode(true);\n        searchInput.value = '';\n        runSearch('');\n        return;\n      }\n      debounceTimer = setTimeout(function(){ runSearch(q); }, 120);\n    });",
               "search unlock hook",
           )
-          app = replace_once(
-              app,
-              "    var MODE_KEY = 'starsilk-archive-mode';\n",
-              "",
-              "legacy archive storage key",
-          )
+          app = replace_once(app, "    var MODE_KEY = 'starsilk-archive-mode';\n", "", "legacy archive storage key")
           app = replace_once(
               app,
               "      modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';\n      try { localStorage.setItem(MODE_KEY, on ? '1' : '0'); } catch(e){}",
@@ -144,10 +140,7 @@ jobs:
           unlock_count = tests.count(old_unlock)
           if unlock_count != 4:
               raise SystemExit(f"attachment test unlocks: expected 4 legacy clicks, found {unlock_count}")
-          tests = tests.replace(
-              old_unlock,
-              '    page.locator("#dossierSearch").fill("ajd")\n    expect(page.locator("#modeToggle")).to_be_visible()',
-          )
+          tests = tests.replace(old_unlock, '    page.locator("#dossierSearch").fill("ajd")\n    expect(page.locator("#modeToggle")).to_be_visible()')
 
           title_marker = "def test_hero_video_present_and_loops_true_tail"
           title_insert_at = tests.index(title_marker)
@@ -209,11 +202,7 @@ jobs:
               raise SystemExit("expected operational-state revision 6")
           text = text.replace("revision: 6", "revision: 7", 1)
           invariant = "14. The durable off-repository backup is stored in Google Drive folder `Starsilk Canonical Media Recovery - 2026-08-23`; keep its seven ordered transfer chunks plus verification bundle together. Restore only after reassembly and SHA-256 verification of the final recovery ZIP."
-          text = text.replace(
-              invariant,
-              invariant + "\n15. Public Archive Tools remain local-only browser maintenance controls with no repository-write path. They must load locked in Reader mode, require the exact search-field unlock phrase for the current page session, and must not persist an unlocked state across reloads.",
-              1,
-          )
+          text = text.replace(invariant, invariant + "\n15. Public Archive Tools remain local-only browser maintenance controls with no repository-write path. They must load locked in Reader mode, require the exact search-field unlock phrase for the current page session, and must not persist an unlocked state across reloads.", 1)
           run_id = os.environ["GITHUB_RUN_ID"]
           section = f'''\n## Archive Tools access gate and cover title — VERIFIED\n\nGitHub Actions run `{run_id}` applied and verified the bounded frontend change in the pinned Playwright environment before commit:\n\n- Archive Tools are hidden and locked on every load.\n- The exact, case-sensitive search-field phrase activates Archive Tools for the current page session.\n- Reader mode relocks the controls; the old localStorage persistence key is removed and ignored.\n- The public page still has no repository-write path; archive attachments remain browser-local maintenance data rather than canonical lore edits.\n- `Starsilk Compendium` remains one source text node and is verified to render on one line without horizontal overflow at 320, 375, 951, 1024, 1280, and 1920 px viewports.\n- Generated `docs/index.html` was rebuilt from authoritative `src/` sources.\n- Intentional visual baselines were regenerated in the pinned Playwright Linux environment.\n- Full Chromium pytest/Playwright suite passed.\n- Firefox representative journeys passed.\n- WebKit representative journeys passed.\n- `./tools/build.sh --check` and `git diff --check` passed.\n'''
           text = text.replace("\n## Known limitations\n", section + "\n## Known limitations\n", 1)
