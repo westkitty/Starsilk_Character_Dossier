@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   prepare-phase-05:
@@ -41,46 +41,9 @@ jobs:
             tests/test_museum_objects.py \
             -q
 
-      - name: Enforce bounded generated/source change radius
+      - name: Stage and whitelist exact integration/generated state
         run: |
           git checkout -- docs/qa-report.txt || true
-          python3 - <<'PY'
-          import subprocess
-
-          allowed_exact = {
-              'build/machine_publication.py',
-              'src/templates/entity.html.j2',
-              'tools/build.sh',
-              'tests/test_machine_publication.py',
-              'tests/test_cross_browser.py',
-          }
-          allowed_prefixes = (
-              'docs/machine/',
-              'docs/entities/',
-              'docs/relationships/',
-          )
-          allowed_generated_exact = {'docs/index.html', 'docs/llms.txt', 'docs/sitemap.xml'}
-
-          porcelain = subprocess.check_output(['git', 'status', '--porcelain'], text=True).splitlines()
-          unexpected = []
-          for line in porcelain:
-              path = line[3:]
-              if ' -> ' in path:
-                  path = path.split(' -> ', 1)[1]
-              if path in allowed_exact or path in allowed_generated_exact or path.startswith(allowed_prefixes):
-                  continue
-              if path in {'.github/workflows/phase05-generate.yml', 'tools/apply_phase05_integration.py'}:
-                  continue
-              unexpected.append(path)
-          if unexpected:
-              raise SystemExit('unexpected Phase 05 change(s): ' + ', '.join(sorted(set(unexpected))))
-          print('Phase 05 change radius OK')
-          PY
-
-      - name: Commit and push exact generated publication
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             build/machine_publication.py \
             src/templates/entity.html.j2 \
@@ -96,6 +59,7 @@ jobs:
           git diff --cached --check
           python3 - <<'PY'
           import subprocess
+          from pathlib import Path
 
           allowed_exact = {
               'build/machine_publication.py',
@@ -112,7 +76,21 @@ jobs:
           unexpected = [path for path in changed if path not in allowed_exact and not path.startswith(allowed_prefixes)]
           if unexpected:
               raise SystemExit('unexpected staged Phase 05 path(s): ' + ', '.join(unexpected))
+          if not changed:
+              raise SystemExit('no staged Phase 05 integration/generated files')
+          Path('/tmp/phase05-manifest.txt').write_text('\n'.join(changed) + '\n', encoding='utf-8')
           print('staged Phase 05 whitelist OK:', len(changed), 'files')
           PY
-          git commit -m "feat(phase-05): integrate relationship observatory publication"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git diff --cached --binary > /tmp/phase05-generated.patch
+          tar -czf /tmp/phase05-generated.tar.gz -T /tmp/phase05-manifest.txt
+
+      - name: Upload exact validated Phase 05 state
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase05-validated-generated-state
+          path: |
+            /tmp/phase05-manifest.txt
+            /tmp/phase05-generated.patch
+            /tmp/phase05-generated.tar.gz
+          if-no-files-found: error
+          retention-days: 1
