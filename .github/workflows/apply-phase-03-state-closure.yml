@@ -1,0 +1,191 @@
+name: Apply Phase 03 state closure
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  close-state:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Patch durable roadmap and Operational State
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected exactly one replacement target, found {count}")
+              return text.replace(old, new, 1)
+
+          roadmap_path = Path("MUSEUM_AI_ROADMAP.md")
+          roadmap = roadmap_path.read_text(encoding="utf-8")
+          roadmap = replace_once(
+              roadmap,
+              "| 3 | Stable Entity Pages and Permalinks | NOT STARTED | — | begin only in a fresh chat after verifying Phase 2 on current `main` |",
+              "| 3 | Stable Entity Pages and Permalinks | COMPLETE | PR #15; final head `54da12779396175622aab1faafa64fbb4b652c2a`; CI `32640613872` PASS; merged `b7726adc86f967e914616c07b5b4b6179236dbf3`; live proof `32640932505` PASS | none |",
+              "roadmap phase-3 ledger",
+          )
+          roadmap = replace_once(
+              roadmap,
+              "| 4 | Museum Object Model and Media Viewer | NOT STARTED | — | deferred |",
+              "| 4 | Museum Object Model and Media Viewer | NOT STARTED | — | begin only in a fresh chat after verifying Phase 3 on current `main` |",
+              "roadmap phase-4 deferral",
+          )
+          phase3_contract = "### Phase 3 — Stable Entity Pages and Permalinks\n\nGenerate first-class human/shareable entity destinations from existing authority while preserving the complete Compendium, source parity, related media/entities, machine alternatives, and old anchors.\n"
+          phase3_complete = phase3_contract + """
+
+#### Completion record
+
+- starting `main`: `5e8e6d1d43326b43440689b72ce81e4d57a29da9`
+- work branch: `phase-03-entity-permalinks`
+- final validated implementation head: `54da12779396175622aab1faafa64fbb4b652c2a`
+- successful required CI: `32640613872`
+- one bounded implementation repair: `6143bde80d354d70788252cad280edfc1ac33825`
+- repair reason: the pre-existing repo-wide `archive/` ignore rule silently excluded the generated permalink for the authored stable ID `archive`; the repair preserved the local/offline archive ignore while explicitly allowing `docs/entities/archive/index.html` and added a regression proving every authored permalink path is trackable
+- implementation PR: `#15`
+- implementation merge on `main`: `b7726adc86f967e914616c07b5b4b6179236dbf3`
+- execution-only live proof PR: `#16`, closed unmerged
+- successful live proof: run `32640932505`, job `97197796536`
+- canonical human publication: 127 `/entities/<stable-id>/` pages plus `/entities/` index and shared stylesheet
+- per-record machine alternatives: 127 JSON + 127 Markdown files keyed by the same stable IDs
+- declared live surface: 396 URLs; all were served byte-for-byte from merged `docs/`
+- legacy compatibility: every original `/#<stable-id>` Compendium anchor remained present and every entity page linked back to its legacy location
+- repaired collision proof: `/entities/archive/` was live with `data-stable-id="archive"`
+- live public-boundary recheck: 395 downloaded text/machine derivative files passed
+- first exhaustive live-proof attempt encountered a transient CDN HTTP 503; only the proof harness was paced/retried, with no product mutation, and the complete rerun passed
+- Phase 3 did not create museum-object IDs/viewer behavior, chronology-event IDs, WorldsVault IDs, richer relationship semantics, new dependencies, canon prose changes, media-source changes, or a root Compendium redesign
+
+**Completion verdict: VERIFIED.**
+"""
+          roadmap = replace_once(roadmap, phase3_contract, phase3_complete, "roadmap phase-3 completion record")
+          roadmap_path.write_text(roadmap, encoding="utf-8")
+
+          state_path = Path("OPERATIONAL_STATE.md")
+          state = state_path.read_text(encoding="utf-8")
+          state = replace_once(state, "revision: 10", "revision: 11", "state revision")
+          state = replace_once(
+              state,
+              "- Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.\n",
+              "- Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.\n- Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.\n",
+              "state baseline phase-3 merge",
+          )
+          state = replace_once(
+              state,
+              "- `src/machine/AUTHORITY.md` and `src/schema/*` are the authored source surfaces for Phase 2 public authority notes and versioned machine schemas.\n",
+              "- `src/machine/AUTHORITY.md` and `src/schema/*` are the authored source surfaces for Phase 2 public authority notes and versioned machine schemas.\n- `build/entity_publication.py` owns deterministic generation of `docs/entities/`; those permalink pages are public generated derivatives of existing section authority, not a second canon source.\n- Canonical human record destinations are `/entities/<stable-id>/`; original `/#<stable-id>` Compendium anchors remain supported legacy public locations.\n- Per-record machine alternatives are `/machine/entities/<stable-id>.json` and `/machine/entities/<stable-id>.md`, keyed by the same existing stable IDs.\n",
+              "state baseline phase-3 publication surfaces",
+          )
+          state = replace_once(
+              state,
+              "26. Any new public machine URL must be generator-owned, declared in the machine index/sitemap as appropriate, boundary-checked before merge, and independently verified at the live Pages edge when publication changes.\n",
+              "26. Any new public machine URL must be generator-owned, declared in the machine index/sitemap as appropriate, boundary-checked before merge, and independently verified at the live Pages edge when publication changes.\n27. For authored top-level records, the existing section ID remains identity; `/entities/<stable-id>/` is the canonical human permalink and `/#<stable-id>` remains a supported legacy public location.\n28. `docs/entities/` is generator-owned output from `build/entity_publication.py`; hand-editing generated entity pages is not an authority change.\n29. Per-record JSON and Markdown alternatives must derive from the same stable ID and source authority as the human permalink; canonical URL migration must not fork identity.\n30. Entity-page related media may derive only from `docs/asset-manifest.json` section contexts. A media association proves published placement/provenance only and does not create Phase 4 museum-object identity.\n31. Entity-page related-record lists may expose only observed xref `mentions` / `observed-xref` evidence until an explicit semantic authority exists.\n32. The authored stable ID `archive` collides with the repo-wide local `archive/` ignore pattern. Keep the root/offline `archive/` exclusion, but preserve the exact `!docs/entities/archive/` and `!docs/entities/archive/index.html` exceptions plus `tests/test_entity_tracking.py`; deleting them silently drops a canonical permalink.\n33. Generated entity pages must remain static and accessible with no executable JavaScript beyond inert JSON-LD; the complete root Compendium remains the legacy all-in-one destination and its stable anchors must not be removed.\n",
+              "state phase-3 invariants",
+          )
+          phase2_end = "Therefore Phase 2 is **VERIFIED COMPLETE** at repository, CI, merge, and live-publication layers.\n\n## GitHub Pages deployment state — VERIFIED"
+          phase3_state = """Therefore Phase 2 is **VERIFIED COMPLETE** at repository, CI, merge, and live-publication layers.
+
+## Museum + AI Phase 3 stable entity pages — VERIFIED
+
+Phase 3 of 12, **Stable Entity Pages and Permalinks**, is complete.
+
+Repository evidence:
+
+- starting `main`: `5e8e6d1d43326b43440689b72ce81e4d57a29da9`
+- work branch: `phase-03-entity-permalinks`
+- final validated implementation head: `54da12779396175622aab1faafa64fbb4b652c2a`
+- one bounded implementation repair: `6143bde80d354d70788252cad280edfc1ac33825`
+- repair cause: pre-existing `archive/` ignore semantics excluded the generated `archive` stable-ID permalink from Git staging; the fix retained the local archive ignore while unignoring the exact generated permalink and added `tests/test_entity_tracking.py`
+- successful final CI: run `32640613872`
+- implementation PR: `#15`
+- merged to `main`: `b7726adc86f967e914616c07b5b4b6179236dbf3`
+
+Phase 3 verified capabilities:
+
+- `build/entity_publication.py` deterministically generates and checks `docs/entities/`.
+- `/entities/` is a generated human index over all 127 authored top-level stable records.
+- every authored stable ID has a first-class canonical human destination at `/entities/<stable-id>/`.
+- every canonical page derives its published source content from the existing authoritative section fragments; no duplicate canon prose database was introduced.
+- original `/#<stable-id>` Compendium anchors remain present and are linked as legacy locations from entity pages.
+- every record has matching JSON and Markdown alternatives at `/machine/entities/<stable-id>.json` and `/machine/entities/<stable-id>.md`.
+- machine metadata, project JSON-LD, `llms.txt`, Markdown indexes, and sitemap now address the canonical human permalinks while preserving stable ID authority.
+- entity-page related media is derived only from `docs/asset-manifest.json` section contexts.
+- entity-page related records are derived only from observed xref `mentions`; no semantic promotion occurred.
+- entity pages are static, responsive, keyboard-addressable HTML and contain no executable JavaScript beyond inert `application/ld+json` metadata.
+- the root Compendium remained byte-stable during Phase 3 generation and retained all existing stable anchors.
+- no new dependency, canon prose mutation, canonical-media mutation, chronology-event ID, WorldsVault ID, coordinate, richer relationship semantic, or Phase 4 museum-object/viewer implementation was added.
+
+Final CI run `32640613872` on head `54da12779396175622aab1faafa64fbb4b652c2a` passed:
+
+- source build;
+- deterministic committed `docs/` parity for root, machine, and entity publication;
+- strict existing DOM/canon validation;
+- public derivative boundary validation;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite;
+- representative Firefox journeys;
+- representative WebKit journeys.
+
+Live publication was independently verified by execution-only PR #16, closed without merge after proof. The first exhaustive proof attempt hit a transient GitHub Pages HTTP 503 during a deliberate high-rate sweep; no product code changed. The proof harness was paced and given retry handling for transient transport errors. GitHub Actions run `32640932505`, job `97197796536`, then established:
+
+- `LIVE_PHASE3_PROOF_OK entity_pages=127 declared_urls=396 per_record_machine=254 archive=ok legacy_anchors=ok root=ok exact_bytes=ok`;
+- all 396 machine-declared public URLs were live and byte-identical to merged `docs/`;
+- all 127 canonical human permalink pages had the correct stable ID, canonical URL, JSON/Markdown alternates, legacy Compendium location, published source marker, and JSON-LD-only script policy;
+- all 127 original root Compendium section anchors remained live;
+- `/entities/archive/` was live, proving the bounded ignore-collision repair landed correctly;
+- live per-record JSON retained the matching stable ID/canonical URL plus `visibility=public` and `canon_status=unknown`;
+- live relationship output remained `mentions` / `observed-xref` only;
+- live project JSON-LD remained structural `CreativeWork` metadata only;
+- the downloaded live derivative set passed `tools/check_public_boundary.py` across 395 text/machine files.
+
+Therefore Phase 3 is **VERIFIED COMPLETE** at repository, CI, merge, permalink, legacy-compatibility, and live-publication layers.
+
+## GitHub Pages deployment state — VERIFIED"""
+          state = replace_once(state, phase2_end, phase3_state, "state phase-3 verified section")
+          state = replace_once(
+              state,
+              "- Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.\n",
+              "- Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.\n- Phase 3 does not create museum-object identities, fullscreen viewer semantics, or IIIF surfaces; those remain Phase 4 work.\n- The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.\n",
+              "state phase-3 known limitations",
+          )
+          state = replace_once(
+              state,
+              "- Museum + AI program: Phase 3 of 12 — Stable Entity Pages and Permalinks. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.\n",
+              "- Museum + AI program: Phase 4 of 12 — Museum Object Model and Media Viewer. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.\n",
+              "state pending phase",
+          )
+          revision10 = "- Revision 10: completed Museum + AI Phase 2. Added deterministic public machine generation, versioned schemas, 127 section-backed records, 136 observed `mentions` relationships, Markdown alternatives, conservative `CreativeWork` JSON-LD, `llms.txt`, sitemap, authority notes, build integration, public-boundary checks, and exact live-edge verification of all 14 declared URLs; PR #12 passed final Chromium/Firefox/WebKit CI and merged at `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof run `32639347205` passed and proof PR #13 was closed unmerged.\n"
+          revision11 = revision10 + "- Revision 11: completed Museum + AI Phase 3. Added 127 canonical human `/entities/<stable-id>/` pages, the entity index, 254 per-record JSON/Markdown alternatives, manifest-backed related media, observed-xref related-record lists, canonical URL migration, static accessible entity templates, deterministic entity generation/checking, and legacy-anchor preservation. One bounded repair protected the authored `archive` permalink from the repo-wide `archive/` ignore rule. PR #15 passed final Chromium/Firefox/WebKit CI and merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`; exhaustive live proof run `32640932505` verified 396 declared URLs byte-for-byte and proof PR #16 was closed unmerged.\n"
+          state = replace_once(state, revision10, revision11, "state revision log")
+          state_path.write_text(state, encoding="utf-8")
+          PY
+
+      - name: Verify closure diff and commit it
+        run: |
+          set -euo pipefail
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-phase-03-state-closure.yml
+          git add MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md
+          staged="$(git diff --cached --name-only)"
+          printf '%s\n' "$staged"
+          printf '%s\n' "$staged" | grep -Fx '.github/workflows/apply-phase-03-state-closure.yml'
+          printf '%s\n' "$staged" | grep -Fx 'MUSEUM_AI_ROADMAP.md'
+          printf '%s\n' "$staged" | grep -Fx 'OPERATIONAL_STATE.md'
+          if printf '%s\n' "$staged" | grep -Ev '^(\.github/workflows/apply-phase-03-state-closure\.yml|MUSEUM_AI_ROADMAP\.md|OPERATIONAL_STATE\.md)$'; then
+            echo "::error::Unexpected state-closure path."
+            exit 1
+          fi
+          git commit -m "docs(phase-03): record verified operational state"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
