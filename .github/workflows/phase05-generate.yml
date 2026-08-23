@@ -1,0 +1,121 @@
+name: Phase 05 generate relationship publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  prepare-phase-05:
+    if: github.event.pull_request.head.ref == 'phase-05-relationship-observatory'
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Trust worktree and install pinned dependencies
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          python3 -m pip install -r requirements.txt
+
+      - name: Apply bounded source integration
+        run: python3 tools/apply_phase05_integration.py
+
+      - name: Generate and validate exact publication
+        run: |
+          ./tools/build.sh
+          ./tools/build.sh --check
+          git diff --check
+
+      - name: Focused Phase 05 proof
+        run: |
+          python3 -m pytest \
+            tests/test_relationship_observatory.py \
+            tests/test_machine_publication.py \
+            tests/test_entity_permalinks.py \
+            tests/test_museum_objects.py \
+            -q
+
+      - name: Enforce bounded generated/source change radius
+        run: |
+          git checkout -- docs/qa-report.txt || true
+          python3 - <<'PY'
+          import subprocess
+
+          allowed_exact = {
+              'build/machine_publication.py',
+              'src/templates/entity.html.j2',
+              'tools/build.sh',
+              'tests/test_machine_publication.py',
+              'tests/test_cross_browser.py',
+          }
+          allowed_prefixes = (
+              'docs/machine/',
+              'docs/entities/',
+              'docs/relationships/',
+          )
+          allowed_generated_exact = {'docs/index.html', 'docs/llms.txt', 'docs/sitemap.xml'}
+
+          porcelain = subprocess.check_output(['git', 'status', '--porcelain'], text=True).splitlines()
+          unexpected = []
+          for line in porcelain:
+              path = line[3:]
+              if ' -> ' in path:
+                  path = path.split(' -> ', 1)[1]
+              if path in allowed_exact or path in allowed_generated_exact or path.startswith(allowed_prefixes):
+                  continue
+              if path in {'.github/workflows/phase05-generate.yml', 'tools/apply_phase05_integration.py'}:
+                  continue
+              unexpected.append(path)
+          if unexpected:
+              raise SystemExit('unexpected Phase 05 change(s): ' + ', '.join(sorted(set(unexpected))))
+          print('Phase 05 change radius OK')
+          PY
+
+      - name: Commit exact generated publication and remove one-shot machinery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            build/machine_publication.py \
+            src/templates/entity.html.j2 \
+            tools/build.sh \
+            tests/test_machine_publication.py \
+            tests/test_cross_browser.py \
+            docs/index.html \
+            docs/llms.txt \
+            docs/sitemap.xml \
+            docs/machine \
+            docs/entities \
+            docs/relationships
+          git rm .github/workflows/phase05-generate.yml tools/apply_phase05_integration.py
+          git diff --cached --check
+          python3 - <<'PY'
+          import subprocess
+
+          allowed_exact = {
+              '.github/workflows/phase05-generate.yml',
+              'tools/apply_phase05_integration.py',
+              'build/machine_publication.py',
+              'src/templates/entity.html.j2',
+              'tools/build.sh',
+              'tests/test_machine_publication.py',
+              'tests/test_cross_browser.py',
+              'docs/index.html',
+              'docs/llms.txt',
+              'docs/sitemap.xml',
+          }
+          allowed_prefixes = ('docs/machine/', 'docs/entities/', 'docs/relationships/')
+          changed = subprocess.check_output(['git', 'diff', '--cached', '--name-only'], text=True).splitlines()
+          unexpected = [path for path in changed if path not in allowed_exact and not path.startswith(allowed_prefixes)]
+          if unexpected:
+              raise SystemExit('unexpected staged Phase 05 path(s): ' + ', '.join(unexpected))
+          print('staged Phase 05 whitelist OK:', len(changed), 'files')
+          PY
+          git commit -m "feat(phase-05): integrate relationship observatory publication"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
