@@ -675,7 +675,10 @@ def test_content_search_opens_and_highlights_matches(page: Page, local_server):
 
 def test_cover_title_is_starsilk_compendium(page: Page, local_server):
     """26. Cover reads 'Starsilk Compendium' with 'Starsilk' intact as one word,
-    not the old 'STAR' / 'SILK DOSSIER' split, and the tab title matches."""
+    not the old 'STAR' / 'SILK DOSSIER' split, and the tab title matches.
+    'Compendium' is plain text in the same <h1> (not a styled sub-tier
+    <span>), so it renders in the same font, weight, and color as
+    'Starsilk' rather than the old smaller hollow-outlined look."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
 
@@ -686,6 +689,17 @@ def test_cover_title_is_starsilk_compendium(page: Page, local_server):
     assert "Star Silk" not in full_text, "Starsilk must never render as two separate words"
     assert "STARSILK" in full_text.upper().replace("\n", ""), "Starsilk must appear as one unbroken word"
     assert page.title() == "Starsilk — Compendium"
+
+    assert page.locator("#cover h1 span").count() == 0, \
+        "Compendium must not be a separately-styled sub-tier span"
+    style = page.evaluate("""() => {
+        const cs = getComputedStyle(document.querySelector('#cover h1'));
+        return {color: cs.color, fontSize: cs.fontSize, fontWeight: cs.fontWeight};
+    }""")
+    # The h1's own computed style applies uniformly to all of its text,
+    # since there's no nested span carrying a different size/color -- an
+    # opaque color (not the old transparent-fill outline trick) confirms it.
+    assert style["color"] != "rgba(0, 0, 0, 0)" and "transparent" not in style["color"]
 
 
 def test_hero_video_present_and_configured(page: Page, local_server):
@@ -705,6 +719,9 @@ def test_hero_video_present_and_configured(page: Page, local_server):
 
     is_muted = page.evaluate("document.querySelector('#cover video.hero-video').muted")
     assert is_muted is True
+
+    playback_rate = page.evaluate("document.querySelector('#cover video.hero-video').playbackRate")
+    assert playback_rate == 0.25, f"Expected quarter-speed playback, got {playback_rate}"
 
     # Simulate reaching the end: currentTime should jump back into the tail
     # window, not restart at 0.

@@ -34,7 +34,7 @@ INDEX = DOCS / "index.html"
 MANIFEST = DOCS / "asset-manifest.json"
 MEDIA_DIR = DOCS / "assets" / "media"
 
-TITLE_MARKER = "<h1>Starsilk<span>Compendium</span></h1>"
+TITLE_MARKER = "<h1>Starsilk Compendium</h1>"
 HERO_MARKER = 'class="hero-video-wrap"'
 
 CSS_MARKER = "/* Hero video header */"
@@ -54,6 +54,9 @@ HERO_JS = """
   (function(){
     var heroVideo = document.querySelector('.hero-video');
     if(!heroVideo) return;
+    // Slowed to a quarter speed for a calmer ambient feel; persists across
+    // the tail-loop below (seeking/replaying doesn't reset playbackRate).
+    heroVideo.playbackRate = 0.25;
     var TAIL_SECONDS = 2.5;
     var loopToTail = function(){
       if(!heroVideo.duration || !isFinite(heroVideo.duration)) return;
@@ -151,11 +154,21 @@ def apply_css(html: str) -> str:
 def apply_title_rename(html: str) -> str:
     if TITLE_MARKER in html:
         return html
-    old_h1 = "<h1>STAR<span>SILK DOSSIER</span></h1>"
-    if old_h1 not in html:
+    # Either the very original cover heading (a from-scratch full rebuild)
+    # or the already-committed two-tier "Starsilk / Compendium" stacked
+    # form (Compendium smaller and hollow-outlined below Starsilk) this
+    # replaces with a single-tier heading: same font, same color, same
+    # line as "Starsilk" instead of a visually distinct sub-tier.
+    for old_h1 in (
+        "<h1>STAR<span>SILK DOSSIER</span></h1>",
+        "<h1>Starsilk<span>Compendium</span></h1>",
+    ):
+        if old_h1 in html:
+            html = html.replace(old_h1, TITLE_MARKER, 1)
+            break
+    else:
         print("WARNING: cover <h1> not found in expected form; title not renamed.")
         return html
-    html = html.replace(old_h1, TITLE_MARKER, 1)
     old_title_tag = "<title>Starsilk — Character Dossier</title>"
     new_title_tag = "<title>Starsilk — Compendium</title>"
     if old_title_tag in html:

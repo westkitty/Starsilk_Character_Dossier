@@ -28,8 +28,8 @@ STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
 
 [13] SIZE REPORT
     Original source HTML: 614,968,439 bytes
-    Generated docs/index.html: 506,016 bytes
-    Total docs/ directory: 589,573,013 bytes
+    Generated docs/index.html: 506,190 bytes
+    Total docs/ directory: 589,573,187 bytes
     Total extracted media: 588,967,615 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken, 0 without exact-provenance asset
