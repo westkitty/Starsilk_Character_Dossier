@@ -19,8 +19,8 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | Phase | Title | Status | Completion evidence | Blocker / deferred note |
 |---|---|---|---|---|
 | 1 | Foundation, Roadmap, and Publication Boundary | COMPLETE | PR #11; implementation head `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`; CI `32637622651` PASS; merged `ea287f572264eee625708d22b95a2d482b7d8a87` | none |
-| 2 | Machine Publication Layer | NOT STARTED | — | begin only in a fresh chat after verifying Phase 1 on current `main` |
-| 3 | Stable Entity Pages and Permalinks | NOT STARTED | — | deferred |
+| 2 | Machine Publication Layer | COMPLETE | PR #12; final head `e64068a821df51cfb67cdd335007287d64d31fc7`; CI `32639102690` PASS; merged `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof `32639347205` PASS | none |
+| 3 | Stable Entity Pages and Permalinks | NOT STARTED | — | begin only in a fresh chat after verifying Phase 2 on current `main` |
 | 4 | Museum Object Model and Media Viewer | NOT STARTED | — | deferred |
 | 5 | Relationship Observatory | NOT STARTED | — | deferred |
 | 6 | Canon Inspector and Authority UI | NOT STARTED | — | deferred |
@@ -87,6 +87,28 @@ The detailed governing contract is `MUSEUM_AI_FOUNDATION.md` and the v1 metadata
 ### Phase 2 — Machine Publication Layer
 
 Generate deterministic public machine entry points: versioned schemas, project/entity indexes, Markdown alternatives, relationship JSON, sitemap/orientation surfaces, source/authority documentation, and only semantically valid JSON-LD. Verify all public URLs and boundaries live.
+
+#### Completion record
+
+- starting `main`: `55427686853a8f8ee049ad38b01fe92ec097aa20`
+- work branch: `phase-02-machine-publication`
+- primary implementation commit: `d4d73223a2f5975945ad1aa607f1880f0a54936a`
+- one bounded implementation repair: `0f42f2527ac3bef7b1d17e8bb5322363a1f87e0e`
+- repair reason: the focused test incorrectly required `llms.txt` to link to itself; the assertion was corrected without changing publication semantics
+- exact generated-publication commit: `d60b66214598f0263d79d48059d32e715e9699c9`
+- final CI head: `e64068a821df51cfb67cdd335007287d64d31fc7`
+- successful required CI: `32639102690`
+- implementation PR: `#12`
+- implementation merge on `main`: `d23d940ae306017550ef69265f0bea8d64a7c303`
+- execution-only live proof PR: `#13`, closed unmerged
+- successful live proof: run `32639347205`, job `97193914513`
+- machine entity index: 127 authored top-level `src/content/sections.json` records; this is deliberately distinct from the existing DOM validator's 138 rendered `<section>` count
+- observed relationship graph: 136 `mentions` edges, each classified `observed-xref`
+- public machine surface: 14 declared URLs total (site root + 13 text/machine files)
+- live proof result: all 13 non-root files were byte-identical to merged `docs/`; root retained current Compendium markers; downloaded live machine files passed `tools/check_public_boundary.py`
+- Phase 2 did not add entity HTML pages, event IDs, WorldsVault IDs, richer relationship semantics, new dependencies, canon prose, media-source mutations, or public UI redesign
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 3 — Stable Entity Pages and Permalinks
 
