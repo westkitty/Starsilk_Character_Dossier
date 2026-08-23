@@ -3,6 +3,10 @@
 > Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.
 
 Canonical site: https://westkitty.github.io/Starsilk_Character_Dossier/
+Human entity index: https://westkitty.github.io/Starsilk_Character_Dossier/entities/
+Human entity permalink pattern: https://westkitty.github.io/Starsilk_Character_Dossier/entities/<stable-id>/
+Per-entity JSON pattern: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/<stable-id>.json
+Per-entity Markdown pattern: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/<stable-id>.md
 Machine index: https://westkitty.github.io/Starsilk_Character_Dossier/machine/index.json
 Entity index: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.json
 Compendium Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md
@@ -15,6 +19,7 @@ Sitemap: https://westkitty.github.io/Starsilk_Character_Dossier/sitemap.xml
 
 Interpretation rules:
 - Stable IDs are existing published section IDs; do not replace them with display labels.
+- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.
 - `canon_status: unknown` means the current source model does not author a per-section status.
 - `spoiler_level: major` is a conservative publication default, not a canon fact.
 - Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.

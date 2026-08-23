@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/history-media/",
+  "display_label": "The ledger has pictures. The text still governs.",
+  "evidence": [
+    {
+      "class": "authoritative-content",
+      "note": "Published prose/content authority for this section.",
+      "source_ref": "src/content/sections/history-media.body.html"
+    },
+    {
+      "class": "published-media-provenance",
+      "note": "Related media IDs are manifest filenames attached to this section by published context.",
+      "source_ref": "docs/asset-manifest.json"
+    }
+  ],
+  "object_type": "section",
+  "related_media_ids": [
+    "1aeb182b94e78bd638e40389.webp",
+    "6e2c5017f608c8e10b13cbc1.mp4"
+  ],
+  "source_refs": [
+    {
+      "anchor": "history-media",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/history-media.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/history-media.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "history-media",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

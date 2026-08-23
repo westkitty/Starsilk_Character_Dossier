@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/",
+  "display_label": "Marcel",
+  "evidence": [
+    {
+      "class": "authoritative-content",
+      "note": "Published prose/content authority for this section.",
+      "source_ref": "src/content/sections/marcel.body.html"
+    },
+    {
+      "class": "published-media-provenance",
+      "note": "Related media IDs are manifest filenames attached to this section by published context.",
+      "source_ref": "docs/asset-manifest.json"
+    }
+  ],
+  "object_type": "character-section",
+  "related_media_ids": [
+    "87a0ea62e61485bdabaef2d3.webp",
+    "b7f4841c77f5a3f372c9ef77.webp"
+  ],
+  "source_refs": [
+    {
+      "anchor": "marcel",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marcel.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marcel.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "marcel",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}
