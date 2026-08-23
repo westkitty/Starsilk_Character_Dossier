@@ -1,0 +1,111 @@
+name: Phase 9 live Pages proof
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-09-live-proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and Chromium
+        run: |
+          python3 -m pip install -r requirements.txt
+          playwright install --with-deps chromium
+      - name: Prove live Phase 9 bytes, boundary, and authority
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, time, urllib.request
+
+          root = Path.cwd(); out = Path('/tmp/live-phase9'); out.mkdir(parents=True, exist_ok=True)
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          mapping = {
+              'docs/chronology/index.html': 'chronology/',
+              'docs/chronology/chronology.css': 'chronology/chronology.css',
+              'docs/chronology/chronology.js': 'chronology/chronology.js',
+              'docs/chronology/chronology.json': 'chronology/chronology.json',
+              'docs/chronology/chronology.md': 'chronology/chronology.md',
+              'docs/chronology/schema.json': 'chronology/schema.json',
+              'docs/chronology/AUTHORITY.md': 'chronology/AUTHORITY.md',
+              'docs/entities/index.html': 'entities/',
+              'docs/entities/chronology/index.html': 'entities/chronology/',
+              'docs/machine/index.json': 'machine/index.json',
+              'docs/machine/schema/v1/chronology-index.schema.json': 'machine/schema/v1/chronology-index.schema.json',
+              'docs/llms.txt': 'llms.txt',
+              'docs/sitemap.xml': 'sitemap.xml',
+          }
+          last = []
+          for attempt in range(30):
+              mismatches, downloads = [], {}
+              stamp = str(int(time.time() * 1000))
+              for local_rel, remote_rel in mapping.items():
+                  expected = (root / local_rel).read_bytes(); url = base + remote_rel + '?' + 'phase9=' + stamp
+                  try:
+                      request = urllib.request.Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Starsilk-Phase9-Live-Proof'})
+                      with urllib.request.urlopen(request, timeout=30) as response: actual = response.read()
+                  except Exception as exc:
+                      mismatches.append(f'{remote_rel}: {exc}'); continue
+                  downloads[local_rel] = actual
+                  if actual != expected: mismatches.append(f'{remote_rel}: bytes differ expected={len(expected)} actual={len(actual)}')
+              try:
+                  with urllib.request.urlopen(base + '?phase9=' + stamp, timeout=30) as response: live_root = response.read().decode('utf-8')
+                  if 'id="dossierSearch"' not in live_root: mismatches.append('/: complete-Compendium search marker missing')
+              except Exception as exc: mismatches.append(f'/: {exc}')
+              if not mismatches:
+                  for local_rel, data in downloads.items():
+                      target = out / Path(local_rel).relative_to('docs'); target.parent.mkdir(parents=True, exist_ok=True); target.write_bytes(data)
+                  break
+              last = mismatches; print(f'Attempt {attempt + 1}/30 not current: ' + '; '.join(mismatches[:5])); time.sleep(10)
+          else: raise SystemExit('Live Pages never converged to merged Phase 9 bytes: ' + '; '.join(last))
+          chronology = json.loads((out / 'chronology/chronology.json').read_text(encoding='utf-8'))
+          machine = json.loads((out / 'machine/index.json').read_text(encoding='utf-8'))
+          assert chronology['schema'] == 'starsilk-chronology-index/1' and chronology['event_count'] == 27
+          assert all(event['temporal']['absolute_date'] is None for event in chronology['events'])
+          assert [event['temporal']['exact_authored_marker'] for event in chronology['events'] if event['temporal']['certainty'] == 'exact-authored-marker'] == ['Year 0', 'Year 3', 'Years 7–120', 'Year 121', 'Year 170']
+          assert {event['visibility'] for event in chronology['events']} == {'public'}
+          assert {event['canon_status'] for event in chronology['events']} == {'unknown'}
+          assert {event['spoiler_level'] for event in chronology['events']} == {'unknown'}
+          assert machine['endpoints']['chronology'] == base + 'chronology/' and machine['endpoints']['chronology_index'] == base + 'chronology/chronology.json'
+          assert base + 'chronology/chronology.json' in machine['public_urls']
+          assert 'href="../chronology/"' in (out / 'entities/index.html').read_text(encoding='utf-8')
+          assert 'href="../../chronology/"' in (out / 'entities/chronology/index.html').read_text(encoding='utf-8')
+          print(f'LIVE_PHASE9_BYTES_OK events={chronology["event_count"]} exact_files={len(mapping)} exact_markers=5 relative=6 duration=1 unknown=15 status=independent root-search=unchanged')
+          PY
+          python3 tools/check_public_boundary.py /tmp/live-phase9
+      - name: Prove live Phase 9 Chromium behavior
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright, expect
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          with sync_playwright() as p:
+              browser = p.chromium.launch(); page = browser.new_page(viewport={'width': 375, 'height': 812})
+              requests = []; page.on('request', lambda request: requests.append(request.url))
+              page.goto(base + 'chronology/?temporal=exact-authored-marker#event-first-contact', wait_until='networkidle')
+              first = page.locator('#event-first-contact'); expect(first).to_be_visible(); expect(page.locator('#chronologyStatus')).to_contain_text('5 of 27 events')
+              assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+              statuses = page.evaluate("fetch('chronology.json').then(r => r.json()).then(x => x.events.find(e => e.event_id === 'first-contact'))")
+              assert statuses['visibility'] == 'public' and statuses['canon_status'] == 'unknown' and statuses['spoiler_level'] == 'unknown'
+              assert statuses['temporal']['exact_authored_marker'] == 'Year 0' and statuses['temporal']['absolute_date'] is None
+              page.locator('#temporalFilter').select_option('unknown'); expect(first).to_be_hidden()
+              statuses_after = page.evaluate("fetch('chronology.json').then(r => r.json()).then(x => x.events.find(e => e.event_id === 'first-contact'))")
+              assert statuses_after == statuses
+              page.locator('#resetFilters').click(); expect(first).to_be_visible(); expect(page.locator('#visibilityFilter')).to_be_focused()
+              expect(first.locator('a', has_text='Canonical source record')).to_have_attribute('href', base + 'entities/chronology/')
+              expect(first.locator('a', has_text='Complete Compendium anchor')).to_have_attribute('href', base + '#chronology')
+              assert all(url.startswith(base) for url in requests), [url for url in requests if not url.startswith(base)]
+              browser.close()
+          print('LIVE_PHASE9_BROWSER_OK deep-link=ok filter=view-only status=preserved keyboard=ok source-links=ok mobile=ok network=local-origin-only')
+          PY
