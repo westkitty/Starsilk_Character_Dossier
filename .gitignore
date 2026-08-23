@@ -3,6 +3,12 @@
 starsilk_character_dossier.html
 archive/
 
+# Raw hero video source (tools/add_hero_video_and_rebrand.py processes this
+# into a hashed, audio-stripped copy under docs/assets/media/ — that copy
+# is what's committed, not this file).
+starsilk header.mp4
+.hero_video_work/
+
 # Backup / audit artifacts that may appear during local processing.
 *.zip
 *.zip.part*

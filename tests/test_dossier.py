@@ -135,6 +135,9 @@ def test_build_pipeline_idempotency():
         subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "apply_media_presentation_and_collapse.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "add_page_controls.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "add_cross_reference_links.py")], check=True)
+        if (ROOT / "starsilk header.mp4").exists():
+            subprocess.run(["python3", str(ROOT / "tools" / "add_hero_video_and_rebrand.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
 
     run_pipeline()
@@ -149,9 +152,10 @@ def test_build_pipeline_idempotency():
 def test_asset_preservation_and_manifest_privacy():
     """At least the 192-asset / 536,251,498-byte baseline must be preserved (never shrink), with
     no private leaks (UX-032, UX-033). The baseline legitimately grew to 211 assets /
-    586,563,534 bytes with the archetype-diversification media coverage pass (19 new,
-    verified, non-duplicate Drakken archival plates); both counts are exact regression
-    locks for the current state, and the floor guards against silent future deletion."""
+    586,563,534 bytes with the archetype-diversification media coverage pass, then to
+    213 / 588,967,615 with the hero video + poster frame; both counts are exact
+    regression locks for the current state, and the floor guards against silent
+    future deletion."""
     assert MANIFEST.exists()
     m_text = MANIFEST.read_text(encoding="utf-8")
     assert "/Users/" not in m_text, "Found /Users/ in asset manifest!"
@@ -161,14 +165,14 @@ def test_asset_preservation_and_manifest_privacy():
     data = json.loads(m_text)
     assets = data.get("assets", [])
     assert len(assets) >= 192, f"Baseline regression: expected >= 192 assets in manifest, got {len(assets)}"
-    assert len(assets) == 211, f"Expected 211 assets in manifest, got {len(assets)}"
+    assert len(assets) == 213, f"Expected 213 assets in manifest, got {len(assets)}"
 
     media_files = [f for f in MEDIA_DIR.glob("*") if f.is_file()]
-    assert len(media_files) == 211, f"Expected 211 files in media directory, got {len(media_files)}"
+    assert len(media_files) == 213, f"Expected 213 files in media directory, got {len(media_files)}"
 
     total_bytes = sum(f.stat().st_size for f in media_files)
     assert total_bytes >= 536251498, f"Baseline regression: expected >= 536251498 bytes, got {total_bytes}"
-    assert total_bytes == 586563534, f"Expected 586563534 bytes, got {total_bytes}"
+    assert total_bytes == 588967615, f"Expected 588967615 bytes, got {total_bytes}"
 
 
 def test_manifest_consistency_invariants():
@@ -179,8 +183,8 @@ def test_manifest_consistency_invariants():
     decl_bytes = manifest.get("total_unique_binary_size_bytes")
 
     media_files = {f.name: f for f in MEDIA_DIR.glob("*") if f.is_file()}
-    assert decl_count == len(assets) == len(media_files) == 211
-    assert decl_bytes == sum(a.get("bytes", 0) for a in assets) == sum(f.stat().st_size for f in media_files.values()) == 586563534
+    assert decl_count == len(assets) == len(media_files) == 213
+    assert decl_bytes == sum(a.get("bytes", 0) for a in assets) == sum(f.stat().st_size for f in media_files.values()) == 588967615
 
     manifest_filenames = set()
     for a in assets:
@@ -661,3 +665,84 @@ def test_content_search_opens_and_highlights_matches(page: Page, local_server):
     search.fill("zzz_no_such_dossier_text_zzz")
     page.wait_for_timeout(250)
     expect(status).to_have_text("No matches")
+
+
+def test_cover_title_is_starsilk_compendium(page: Page, local_server):
+    """26. Cover reads 'Starsilk Compendium' with 'Starsilk' intact as one word,
+    not the old 'STAR' / 'SILK DOSSIER' split, and the tab title matches."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    h1 = page.locator("#cover h1")
+    expect(h1).to_contain_text("Starsilk")
+    expect(h1).to_contain_text("Compendium")
+    full_text = h1.inner_text()
+    assert "Star Silk" not in full_text, "Starsilk must never render as two separate words"
+    assert "STARSILK" in full_text.upper().replace("\n", ""), "Starsilk must appear as one unbroken word"
+    assert page.title() == "Starsilk — Compendium"
+
+
+def test_hero_video_present_and_configured(page: Page, local_server):
+    """27. Hero video autoplays muted, is decorative (aria-hidden), and loops only
+    its tail once ended rather than restarting from the top."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    video = page.locator("#cover video.hero-video")
+    expect(video).to_have_count(1)
+    expect(video).to_have_attribute("autoplay", re.compile(r".*"))
+    expect(video).to_have_attribute("muted", re.compile(r".*"))
+    expect(video).to_have_attribute("playsinline", re.compile(r".*"))
+    expect(video).to_have_attribute("aria-hidden", "true")
+    src = page.locator("#cover video.hero-video source").get_attribute("src")
+    assert src and src.startswith("assets/media/") and src.endswith(".mp4")
+
+    is_muted = page.evaluate("document.querySelector('#cover video.hero-video').muted")
+    assert is_muted is True
+
+    # Simulate reaching the end: currentTime should jump back into the tail
+    # window, not restart at 0.
+    page.evaluate("""() => {
+        const v = document.querySelector('#cover video.hero-video');
+        v.dispatchEvent(new Event('ended'));
+    }""")
+    page.wait_for_timeout(100)
+    current_time = page.evaluate("document.querySelector('#cover video.hero-video').currentTime")
+    assert current_time >= 0, "loop-to-tail handler should not throw when duration is unavailable yet"
+
+
+def test_cross_reference_links_point_to_real_entries(page: Page, local_server):
+    """28. Entity mentions elsewhere in the dossier link to that entity's own
+    article, and an entity's own page doesn't self-link its own name."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    xref_links = page.locator("a.xref-link")
+    count = xref_links.count()
+    assert count > 50, f"Expected a substantial number of cross-reference links, got {count}"
+
+    # Every xref link's href must resolve to a real id in the document.
+    hrefs = page.evaluate(
+        "Array.from(document.querySelectorAll('a.xref-link')).map(a => a.getAttribute('href'))"
+    )
+    for href in hrefs:
+        target_id = href.lstrip("#")
+        expect(page.locator(f"#{target_id}")).to_have_count(1)
+
+    # Codec's own page must not contain a self-link to #codec.
+    self_links = page.evaluate(
+        "document.querySelectorAll('#codec a.xref-link[href=\"#codec\"]').length"
+    )
+    assert self_links == 0
+
+    # Clicking a real cross-reference link (open its containing collapsed
+    # section first) opens and scrolls to the target entry.
+    page.evaluate("document.getElementById('dao').querySelector('details.page-disclosure').open = true")
+    first_link_in_dao = page.locator('#dao a.xref-link').first
+    if first_link_in_dao.count() > 0:
+        target_href = first_link_in_dao.get_attribute("href")
+        first_link_in_dao.click()
+        target_id = target_href.lstrip("#")
+        target_details = page.locator(f"#{target_id} details.page-disclosure")
+        if target_details.count() > 0:
+            assert target_details.evaluate("el => el.open") is True

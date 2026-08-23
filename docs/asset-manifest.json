@@ -1,12 +1,12 @@
 {
   "source_file": "starsilk_character_dossier.html",
   "source_size_bytes": 614968439,
-  "generated_index_size_bytes": 493371,
+  "generated_index_size_bytes": 501132,
   "total_data_uri_references": 149,
-  "unique_binary_assets": 211,
+  "unique_binary_assets": 213,
   "duplicate_references_eliminated": 56,
   "total_decoded_binary_size_bytes": 460906548,
-  "total_unique_binary_size_bytes": 586563534,
+  "total_unique_binary_size_bytes": 588967615,
   "bytes_saved_by_deduplication": 157513157,
   "assets": [
     {
@@ -3112,6 +3112,32 @@
         "source_category": "archetype-diversification",
         "source_archive": "drakken"
       }
+    },
+    {
+      "sha256": "b3015054b3726a97adbc4a5c0782c97b3ad974e047d83c7cc7466c839f82ca28",
+      "mime_type": "video/mp4",
+      "filename": "b3015054b3726a97adbc4a5c.mp4",
+      "bytes": 2319322,
+      "reference_count": 1,
+      "contexts": [
+        {
+          "section_id": "cover",
+          "alt": "Starsilk hero header \u2014 looping ambient background video."
+        }
+      ]
+    },
+    {
+      "sha256": "09e2837c1e2a76bc1fadccc2d5962ea661e0886c93bb197b16c0e42e33b3c4c2",
+      "mime_type": "image/jpeg",
+      "filename": "09e2837c1e2a76bc1fadccc2.jpg",
+      "bytes": 84759,
+      "reference_count": 1,
+      "contexts": [
+        {
+          "section_id": "cover",
+          "alt": "Starsilk hero header poster frame."
+        }
+      ]
     }
   ]
 }

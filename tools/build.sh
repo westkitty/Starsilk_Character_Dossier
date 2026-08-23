@@ -89,6 +89,16 @@ python3 tools/apply_media_presentation_and_collapse.py
 echo "-> Adding top-of-content controls (expand/collapse all, search, sidebar toggle)..."
 python3 tools/add_page_controls.py
 
+echo "-> Adding cross-reference entity links..."
+python3 tools/add_cross_reference_links.py
+
+echo "-> Adding hero video header and cover rebrand..."
+if [ -f "starsilk header.mp4" ]; then
+    python3 tools/add_hero_video_and_rebrand.py
+else
+    echo "   'starsilk header.mp4' not found at repo root; skipping (already-applied state, if any, is preserved)."
+fi
+
 echo "-> Finalizing and scrubbing metadata (UX-032, UX-033)..."
 python3 tools/finalize_metadata.py
 

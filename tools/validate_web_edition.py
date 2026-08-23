@@ -29,12 +29,12 @@ LOCAL_PATH_PATTERNS = [
 
 # Regression floor: the historical 192/536,251,498 baseline legitimately grew
 # to 211 assets / 586,563,534 bytes with the archetype-diversification media
-# coverage pass (19 new, verified, non-duplicate Drakken archival plates).
-# Keep this at the current true count so a partial regression (e.g. losing
-# several of the 19 new files while staying above the old floor) is still
-# caught.
-BASELINE_UNIQUE_ASSETS = 211
-BASELINE_MEDIA_BYTES = 586563534
+# coverage pass (19 new, verified, non-duplicate Drakken archival plates),
+# then to 213 / 588,967,615 with the hero video + poster frame. Keep this at
+# the current true count so a partial regression (e.g. losing a file while
+# staying above an older floor) is still caught.
+BASELINE_UNIQUE_ASSETS = 213
+BASELINE_MEDIA_BYTES = 588967615
 
 
 def main() -> int:
