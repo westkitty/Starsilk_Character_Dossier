@@ -1,0 +1,393 @@
+{
+  "additional_validator_assertions": {
+    "drakken_art_identity_section_ids": [
+      "drk-the-egg",
+      "drk-magma-pleuron",
+      "drk-granithelion",
+      "drk-fault-tongue",
+      "drk-obsidian-gul",
+      "drk-tremorhound",
+      "drk-glassspine",
+      "drk-quarrymind",
+      "drk-aerokarst",
+      "drk-cloudmaw",
+      "drk-atmantid",
+      "drk-weathernode",
+      "drk-vortenbray",
+      "drk-fumericus",
+      "drk-skymourn",
+      "drk-verdgorge",
+      "drk-pollenvault",
+      "drk-mycethron",
+      "drk-raintaster",
+      "drk-terragullet",
+      "drk-petalnest",
+      "drk-feralseed",
+      "drk-solnexus",
+      "drk-nullthorn",
+      "lyriboris",
+      "drk-helionth",
+      "drk-umbrakrael",
+      "drk-cinderverge",
+      "drk-singularch",
+      "drk-redacted-grin",
+      "drk-spinal-loop",
+      "cradle-exe",
+      "foldhowl",
+      "manifest-discord",
+      "drk-gloryfail",
+      "drk-viral-bastion"
+    ],
+    "principal_names": [
+      "Shard-God Tiger",
+      "Codec",
+      "Dao",
+      "Kail",
+      "Marcel",
+      "Jazen"
+    ],
+    "structural_counts": {
+      "drakken": 56,
+      "peripheral": 45,
+      "principal": 6,
+      "total_sections_min": 138
+    }
+  },
+  "authority_boundary": [
+    "This register is a machine-enforced validation subset extracted from existing authoritative dossier content; it is not the complete Starsilk canon.",
+    "Absence from this register does not imply that a fact is non-canon, false, or available for invention.",
+    "Raw pattern strings are technical machine-validation evidence, not standalone canon prose.",
+    "Generated /canon/ artifacts are public derivatives and do not become editable canon authority."
+  ],
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/",
+  "document_lock_count": 2,
+  "lock_count": 11,
+  "locks": [
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Blood Eclipse War lasts one hundred seventy years, not seventeen.",
+      "enforcement": {
+        "scope_semantics": "Applied to the complete generated Compendium document; positive requirements are evaluated at document scope and prohibitions apply globally.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "blood-eclipse-war-170-years",
+      "positive_requirements": [
+        "170[- ]year|one[- ]hundred[- ]seventy[- ]year"
+      ],
+      "prohibitions": [
+        "\\b17-year\\b",
+        "\\bseventeen-year\\b",
+        "\\b17 years\\b",
+        "\\bseventeen years\\b",
+        "\\bYear 17(?!\\d)"
+      ],
+      "scope": "document",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/",
+        "kind": "complete-compendium-document",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/*.title.html",
+          "src/content/sections/*.body.html"
+        ],
+        "stable_id": null
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "The rejected/obsolete name 'William' must never appear.",
+      "enforcement": {
+        "scope_semantics": "Applied to the complete generated Compendium document; positive requirements are evaluated at document scope and prohibitions apply globally.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "no-william",
+      "positive_requirements": [],
+      "prohibitions": [
+        "(?i)\\bwilliam\\b"
+      ],
+      "scope": "document",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/",
+        "kind": "complete-compendium-document",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/*.title.html",
+          "src/content/sections/*.body.html"
+        ],
+        "stable_id": null
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Dao's integrated buster/mechanical arm remains on the right.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #dao; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "dao-right-arm",
+      "positive_requirements": [
+        "right arm|right mechanical arm"
+      ],
+      "prohibitions": [
+        "(?i)left arm"
+      ],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/dao.body.html"
+        ],
+        "stable_id": "dao"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Dao's eyepatch remains over the left eye.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #dao; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "dao-eyepatch-left",
+      "positive_requirements": [
+        "eyepatch"
+      ],
+      "prohibitions": [
+        "(?i)right eye"
+      ],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/dao.body.html"
+        ],
+        "stable_id": "dao"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Kail's red scarf remains over the mouth/throat in ordinary depiction.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #kail; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "kail-scarf-covers-mouth",
+      "positive_requirements": [
+        "over the mouth",
+        "scarf"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/kail.body.html"
+        ],
+        "stable_id": "kail"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Kail does not gain an ordinary exposed speaking mouth.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #kail; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "kail-no-exposed-mouth",
+      "positive_requirements": [
+        "exposed speaking mouth"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/kail.body.html"
+        ],
+        "stable_id": "kail"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Shard-God Tiger has exactly one tail.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-single-tail",
+      "positive_requirements": [
+        "(?i)single[- ]tail(ed)?"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Shard-God Tiger is digitigrade.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-digitigrade",
+      "positive_requirements": [
+        "(?i)digitigrade"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Shard-God Tiger's body identity remains obsidian.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-obsidian",
+      "positive_requirements": [
+        "(?i)obsidian"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Starsilk's material identity remains cyan/azure luminous edges.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #starsilk-material; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "starsilk-material-azure",
+      "positive_requirements": [
+        "(?i)azure"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/starsilk-material.body.html"
+        ],
+        "stable_id": "starsilk-material"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Marcel's plain wooden staff remains non-magical.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #marcel; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "marcel-staff-non-magical",
+      "positive_requirements": [
+        "no magical properties"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/marcel.body.html"
+        ],
+        "stable_id": "marcel"
+      }
+    }
+  ],
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-canon-lock-register/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
+  "section_lock_count": 9,
+  "source_invariants": "src/canon/invariants.json"
+}

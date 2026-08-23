@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canon Inspector · Starsilk Compendium</title>
+<meta name="description" content="Public machine-enforced canon validation locks for selected Starsilk Compendium facts.">
+<link rel="canonical" href="{{ model.canonical_url|e }}">
+<link rel="alternate" type="application/json" href="canon-locks.json">
+<link rel="alternate" type="text/markdown" href="canon-locks.md">
+<link rel="stylesheet" href="canon-inspector.css">
+</head>
+<body class="canon-shell">
+<a class="skip-link" href="#main">Skip to canon locks</a>
+<header class="canon-bar">
+  <a class="canon-brand" href="../">Starsilk Compendium</a>
+  <nav aria-label="Canon Inspector publication">
+    <a href="../entities/">Entity index</a>
+    <a href="../relationships/">Relationship observatory</a>
+    <a href="canon-locks.json">JSON</a>
+    <a href="canon-locks.md">Markdown</a>
+  </nav>
+</header>
+
+<main id="main" class="canon-main">
+  <header class="canon-hero">
+    <div class="eyebrow">Machine validation authority</div>
+    <h1>Canon Inspector</h1>
+    <p>These are machine-enforced validation locks protecting selected established facts. <strong>They are not the complete Starsilk canon.</strong></p>
+    <p class="canon-boundary">The underlying canon/content authority remains the authored dossier. <code>src/canon/invariants.json</code> is the limited machine-validation authority; this page is a generated public derivative. Absence from this register does not imply non-canon status.</p>
+    <div class="canon-actions" aria-label="Canon Inspector alternatives">
+      <a href="canon-locks.json">Machine-readable JSON</a>
+      <a href="canon-locks.md">Accessible text edition</a>
+      <a href="schema.json">Versioned schema</a>
+      <a href="AUTHORITY.md">Authority rules</a>
+    </div>
+  </header>
+
+  <dl class="canon-stats" aria-label="Canon lock totals">
+    <div><dt>Total enforceable locks</dt><dd>{{ model.lock_count }}</dd></div>
+    <div><dt>Document scoped</dt><dd>{{ model.document_lock_count }}</dd></div>
+    <div><dt>Section scoped</dt><dd>{{ model.section_lock_count }}</dd></div>
+    <div><dt>Validation status</dt><dd>Enforced</dd></div>
+  </dl>
+
+  <section class="canon-reading" aria-labelledby="reading-heading">
+    <h2 id="reading-heading">Authority and scope</h2>
+    <ol>
+      <li><strong>Canon/content authority:</strong> authored dossier content and established section identities.</li>
+      <li><strong>Machine validation authority:</strong> <code>src/canon/invariants.json</code>, enforced by <code>build/validate.py --strict</code>.</li>
+      <li><strong>Public derivative:</strong> this generated register. It provides inspection, not new canon prose.</li>
+    </ol>
+  </section>
+
+  <section class="canon-lock-list" aria-label="Machine-enforced canon locks">
+    {% for lock in model.locks %}
+    <article id="lock-{{ lock.lock_id|e }}" class="canon-lock" data-lock-id="{{ lock.lock_id|e }}" data-scope="{{ lock.scope|e }}">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">{{ lock.scope|e }} lock</div>
+          <h2>{{ lock.description|e }}</h2>
+          <code>{{ lock.lock_id|e }}</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-{{ lock.lock_id|e }}" aria-label="Deep link to {{ lock.lock_id|e }}">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>{{ lock.scope|e }}</code></dd></div>
+        <div><dt>Target</dt><dd><a href="{{ lock.target.canonical_url|e }}">{{ lock.target.kind|replace('-', ' ')|e }}</a>{% if lock.target.stable_id %} <code>{{ lock.target.stable_id|e }}</code>{% endif %}</dd></div>
+        <div><dt>Validation authority</dt><dd><code>{{ lock.authority.machine_validation|e }}</code></dd></div>
+        <div><dt>Enforcement</dt><dd>{{ lock.enforcement.status|replace('-', ' ')|e }}</dd></div>
+      </dl>
+      <p class="canon-semantics">{{ lock.enforcement.scope_semantics|e }}</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3>{% if lock.positive_requirements %}<ul>{% for pattern in lock.positive_requirements %}<li><code>{{ pattern|e }}</code></li>{% endfor %}</ul>{% else %}<p>None.</p>{% endif %}</section>
+          <section><h3>Prohibitions</h3>{% if lock.prohibitions %}<ul>{% for pattern in lock.prohibitions %}<li><code>{{ pattern|e }}</code></li>{% endfor %}</ul>{% else %}<p>None.</p>{% endif %}</section>
+        </div>
+        <p class="canon-source">Underlying canon source references: {% for ref in lock.target.source_refs %}<code>{{ ref|e }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      </details>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section class="canon-additional" aria-labelledby="additional-heading">
+    <div class="eyebrow">Additional strict-validator inputs</div>
+    <h2 id="additional-heading">Supporting invariant checks</h2>
+    <p>These source-backed validator inputs are presented as checks, not as a complete canon ledger or inferred lore.</p>
+    <div class="canon-additional-grid">
+      <section><h3>Structural counts</h3><dl>{% for name, value in model.additional_validator_assertions.structural_counts.items() %}<div><dt>{{ name|replace('_', ' ')|e }}</dt><dd>{{ value }}</dd></div>{% endfor %}</dl></section>
+      <section><h3>Principal-name expectations</h3><ul>{% for value in model.additional_validator_assertions.principal_names %}<li>{{ value|e }}</li>{% endfor %}</ul></section>
+      <section><h3>Drakken art identities</h3><p>{{ model.additional_validator_assertions.drakken_art_identity_section_ids|length }} existing stable section IDs are checked for published artwork.</p><details><summary>View section IDs</summary><ul>{% for value in model.additional_validator_assertions.drakken_art_identity_section_ids %}<li><a href="../entities/{{ value|e }}/"><code>{{ value|e }}</code></a></li>{% endfor %}</ul></details></section>
+    </div>
+  </section>
+</main>
+
+<footer class="canon-footer"><a href="../">Complete Compendium</a><span aria-hidden="true">·</span><a href="../entities/">Entity index</a><span aria-hidden="true">·</span><a href="AUTHORITY.md">Authority boundary</a></footer>
+</body>
+</html>
