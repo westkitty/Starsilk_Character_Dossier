@@ -20,8 +20,10 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-      - name: Install dependencies
-        run: python3 -m pip install -r requirements.txt
+      - name: Install dependencies and focused browser
+        run: |
+          python3 -m pip install -r requirements.txt
+          playwright install --with-deps chromium
       - name: Apply, build, and test with captured log
         id: phase7
         shell: bash
