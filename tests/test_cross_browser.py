@@ -137,3 +137,13 @@ def test_chronology_filter_and_deep_link_journey(page: Page, local_server):
     page.locator("#resetFilters").click()
     expect(page.locator("#event-first-contact")).to_be_visible()
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
+
+def test_worldsvault_topology_keyboard_and_deep_link_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/worldsvault/#node-meridian-station")
+    expect(page.locator("#node-meridian-station")).to_be_visible()
+    page.locator("#node-meridian-station").press("Enter")
+    expect(page.locator("#edge-orbits--meridian-station--virgil")).not_to_have_class("is-muted")
+    expect(page.locator("#node-virgil")).to_have_class(re.compile(r"\bis-connected\b"))
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
