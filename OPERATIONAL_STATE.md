@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 10
+revision: 11
 
 ## Current baseline
 
@@ -13,6 +13,7 @@ revision: 10
 - Live Pages proof PR #4 merged at `5a813a13e13dcaed19f496196de1302572fa9984`.
 - Museum + AI Phase 1 PR #11 merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.
+- Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -23,6 +24,9 @@ revision: 10
 - `src/schema/metadata-record.schema.json` is the v1 metadata wrapper contract; it stores provenance/status/identity metadata and must not become a duplicate canon prose database.
 - `build/machine_publication.py` owns deterministic generation of `docs/machine/`, `docs/llms.txt`, and `docs/sitemap.xml`; those files are public generated derivatives, not lore authority.
 - `src/machine/AUTHORITY.md` and `src/schema/*` are the authored source surfaces for Phase 2 public authority notes and versioned machine schemas.
+- `build/entity_publication.py` owns deterministic generation of `docs/entities/`; those permalink pages are public generated derivatives of existing section authority, not a second canon source.
+- Canonical human record destinations are `/entities/<stable-id>/`; original `/#<stable-id>` Compendium anchors remain supported legacy public locations.
+- Per-record machine alternatives are `/machine/entities/<stable-id>.json` and `/machine/entities/<stable-id>.md`, keyed by the same existing stable IDs.
 
 ## Active invariants
 
@@ -52,6 +56,13 @@ revision: 10
 24. Public relationship output may expose only observed xref `mentions` / `observed-xref` evidence until an explicit semantic authority is authored.
 25. Phase 2 JSON-LD is structural `CreativeWork` / `hasPart` metadata only. Do not type fictional subjects as real `Person` entities or infer unsupported schema.org relationships.
 26. Any new public machine URL must be generator-owned, declared in the machine index/sitemap as appropriate, boundary-checked before merge, and independently verified at the live Pages edge when publication changes.
+27. For authored top-level records, the existing section ID remains identity; `/entities/<stable-id>/` is the canonical human permalink and `/#<stable-id>` remains a supported legacy public location.
+28. `docs/entities/` is generator-owned output from `build/entity_publication.py`; hand-editing generated entity pages is not an authority change.
+29. Per-record JSON and Markdown alternatives must derive from the same stable ID and source authority as the human permalink; canonical URL migration must not fork identity.
+30. Entity-page related media may derive only from `docs/asset-manifest.json` section contexts. A media association proves published placement/provenance only and does not create Phase 4 museum-object identity.
+31. Entity-page related-record lists may expose only observed xref `mentions` / `observed-xref` evidence until an explicit semantic authority exists.
+32. The authored stable ID `archive` collides with the repo-wide local `archive/` ignore pattern. Keep the root/offline `archive/` exclusion, but preserve the exact `!docs/entities/archive/` and `!docs/entities/archive/index.html` exceptions plus `tests/test_entity_tracking.py`; deleting them silently drops a canonical permalink.
+33. Generated entity pages must remain static and accessible with no executable JavaScript beyond inert JSON-LD; the complete root Compendium remains the legacy all-in-one destination and its stable anchors must not be removed.
 
 ## Verified implementation
 
@@ -166,6 +177,61 @@ Live publication was independently verified by execution-only PR #13, which was 
 
 Therefore Phase 2 is **VERIFIED COMPLETE** at repository, CI, merge, and live-publication layers.
 
+## Museum + AI Phase 3 stable entity pages — VERIFIED
+
+Phase 3 of 12, **Stable Entity Pages and Permalinks**, is complete.
+
+Repository evidence:
+
+- starting `main`: `5e8e6d1d43326b43440689b72ce81e4d57a29da9`
+- work branch: `phase-03-entity-permalinks`
+- final validated implementation head: `54da12779396175622aab1faafa64fbb4b652c2a`
+- one bounded implementation repair: `6143bde80d354d70788252cad280edfc1ac33825`
+- repair cause: pre-existing `archive/` ignore semantics excluded the generated `archive` stable-ID permalink from Git staging; the fix retained the local archive ignore while unignoring the exact generated permalink and added `tests/test_entity_tracking.py`
+- successful final CI: run `32640613872`
+- implementation PR: `#15`
+- merged to `main`: `b7726adc86f967e914616c07b5b4b6179236dbf3`
+
+Phase 3 verified capabilities:
+
+- `build/entity_publication.py` deterministically generates and checks `docs/entities/`.
+- `/entities/` is a generated human index over all 127 authored top-level stable records.
+- every authored stable ID has a first-class canonical human destination at `/entities/<stable-id>/`.
+- every canonical page derives its published source content from the existing authoritative section fragments; no duplicate canon prose database was introduced.
+- original `/#<stable-id>` Compendium anchors remain present and are linked as legacy locations from entity pages.
+- every record has matching JSON and Markdown alternatives at `/machine/entities/<stable-id>.json` and `/machine/entities/<stable-id>.md`.
+- machine metadata, project JSON-LD, `llms.txt`, Markdown indexes, and sitemap now address the canonical human permalinks while preserving stable ID authority.
+- entity-page related media is derived only from `docs/asset-manifest.json` section contexts.
+- entity-page related records are derived only from observed xref `mentions`; no semantic promotion occurred.
+- entity pages are static, responsive, keyboard-addressable HTML and contain no executable JavaScript beyond inert `application/ld+json` metadata.
+- the root Compendium remained byte-stable during Phase 3 generation and retained all existing stable anchors.
+- no new dependency, canon prose mutation, canonical-media mutation, chronology-event ID, WorldsVault ID, coordinate, richer relationship semantic, or Phase 4 museum-object/viewer implementation was added.
+
+Final CI run `32640613872` on head `54da12779396175622aab1faafa64fbb4b652c2a` passed:
+
+- source build;
+- deterministic committed `docs/` parity for root, machine, and entity publication;
+- strict existing DOM/canon validation;
+- public derivative boundary validation;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite;
+- representative Firefox journeys;
+- representative WebKit journeys.
+
+Live publication was independently verified by execution-only PR #16, closed without merge after proof. The first exhaustive proof attempt hit a transient GitHub Pages HTTP 503 during a deliberate high-rate sweep; no product code changed. The proof harness was paced and given retry handling for transient transport errors. GitHub Actions run `32640932505`, job `97197796536`, then established:
+
+- `LIVE_PHASE3_PROOF_OK entity_pages=127 declared_urls=396 per_record_machine=254 archive=ok legacy_anchors=ok root=ok exact_bytes=ok`;
+- all 396 machine-declared public URLs were live and byte-identical to merged `docs/`;
+- all 127 canonical human permalink pages had the correct stable ID, canonical URL, JSON/Markdown alternates, legacy Compendium location, published source marker, and JSON-LD-only script policy;
+- all 127 original root Compendium section anchors remained live;
+- `/entities/archive/` was live, proving the bounded ignore-collision repair landed correctly;
+- live per-record JSON retained the matching stable ID/canonical URL plus `visibility=public` and `canon_status=unknown`;
+- live relationship output remained `mentions` / `observed-xref` only;
+- live project JSON-LD remained structural `CreativeWork` metadata only;
+- the downloaded live derivative set passed `tools/check_public_boundary.py` across 395 text/machine files.
+
+Therefore Phase 3 is **VERIFIED COMPLETE** at repository, CI, merge, permalink, legacy-compatibility, and live-publication layers.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -279,10 +345,12 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - No semantic relationship authority currently exists beyond observed xref `mentions` relationships.
 - Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
 - Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.
+- Phase 3 does not create museum-object identities, fullscreen viewer semantics, or IIIF surfaces; those remain Phase 4 work.
+- The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.
 
 ## Pending
 
-- Museum + AI program: Phase 3 of 12 — Stable Entity Pages and Permalinks. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
+- Museum + AI program: Phase 4 of 12 — Museum Object Model and Media Viewer. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
 
 ## Revision log
 
@@ -296,3 +364,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 8: added the Archive-mode `Copy implementation prompt` handoff, locked changed-slot identity to authoritative `data-asset-key` values, required exported local evidence for implementation, and verified clipboard/export behavior plus full browser regressions before commit.
 - Revision 9: completed Museum + AI Phase 1. Added the durable twelve-phase roadmap, authority/stable-identity/publication contract, v1 metadata schema, dependency-free metadata validation, future public-machine boundary checks, focused regression tests, explicit unknown handling, and independent visibility/canon/spoiler semantics; PR #11 passed required Chromium/Firefox/WebKit CI after one bounded test-only repair and merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Revision 10: completed Museum + AI Phase 2. Added deterministic public machine generation, versioned schemas, 127 section-backed records, 136 observed `mentions` relationships, Markdown alternatives, conservative `CreativeWork` JSON-LD, `llms.txt`, sitemap, authority notes, build integration, public-boundary checks, and exact live-edge verification of all 14 declared URLs; PR #12 passed final Chromium/Firefox/WebKit CI and merged at `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof run `32639347205` passed and proof PR #13 was closed unmerged.
+- Revision 11: completed Museum + AI Phase 3. Added 127 canonical human `/entities/<stable-id>/` pages, the entity index, 254 per-record JSON/Markdown alternatives, manifest-backed related media, observed-xref related-record lists, canonical URL migration, static accessible entity templates, deterministic entity generation/checking, and legacy-anchor preservation. One bounded repair protected the authored `archive` permalink from the repo-wide `archive/` ignore rule. PR #15 passed final Chromium/Firefox/WebKit CI and merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`; exhaustive live proof run `32640932505` verified 396 declared URLs byte-for-byte and proof PR #16 was closed unmerged.
