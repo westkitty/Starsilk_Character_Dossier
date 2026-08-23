@@ -105,7 +105,7 @@ echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/entities docs/llms.txt docs/sitemap.xml
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/entities
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"
