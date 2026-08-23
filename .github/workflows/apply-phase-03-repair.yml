@@ -1,0 +1,56 @@
+name: Land Phase 03 bounded repair
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  repair-test-and-land:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Regenerate and validate repaired Phase 3 publication
+        run: ./tools/build.sh
+
+      - name: Focused Phase 3 repair tests
+        run: python3 -m pytest tests/test_machine_publication.py tests/test_entity_permalinks.py tests/test_entity_tracking.py -q
+
+      - name: Protect root Compendium and inspect source diff hygiene
+        run: |
+          git diff --exit-code -- docs/index.html
+          git diff --check origin/main...HEAD -- .gitignore build src tests tools
+
+      - name: Commit repaired generated publication and retire this workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-phase-03-repair.yml
+          git add docs/entities docs/machine docs/llms.txt docs/sitemap.xml
+          git add -f docs/entities/archive/index.html
+          staged="$(git diff --cached --name-only)"
+          printf '%s\n' "$staged"
+          printf '%s\n' "$staged" | grep -Fx '.github/workflows/apply-phase-03-repair.yml'
+          printf '%s\n' "$staged" | grep -Fx 'docs/entities/archive/index.html'
+          if printf '%s\n' "$staged" | grep -Ev '^(\.github/workflows/apply-phase-03-repair\.yml|docs/entities/|docs/machine/|docs/llms\.txt|docs/sitemap\.xml)'; then
+            echo "::error::Unexpected staged path in Phase 3 repair commit."
+            exit 1
+          fi
+          git commit -m "build(phase-03): land archive permalink repair"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
