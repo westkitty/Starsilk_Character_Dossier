@@ -8,7 +8,7 @@ set -euo pipefail
 #     -> build/machine_publication.py   (deterministic public machine derivatives)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
 #     -> build/validate.py              (parsed-DOM structural + canon-invariant gate)
-#     -> tools/check_public_boundary.py (machine-publication privacy/locality gate)
+#     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
 # docs/index.html, docs/machine/, and docs/entities/ are disposable generated
@@ -104,8 +104,8 @@ fi
 echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
-echo "-> Running public machine boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml
+echo "-> Running public derivative boundary gate..."
+"$PY" tools/check_public_boundary.py docs/machine docs/entities docs/llms.txt docs/sitemap.xml
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"
