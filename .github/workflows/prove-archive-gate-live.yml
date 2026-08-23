@@ -1,0 +1,86 @@
+name: Prove archive gate live publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  prove-live:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read current Pages configuration and latest build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_COMMIT: e39dd68b70f28481e0d06aca280bc3d1c9017f38
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error --location \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
+            --output /tmp/pages.json
+          curl --fail-with-body --silent --show-error --location \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds/latest" \
+            --output /tmp/pages-build.json
+          python3 - <<'PY'
+          import json, os
+          with open('/tmp/pages.json', encoding='utf-8') as f:
+              pages = json.load(f)
+          with open('/tmp/pages-build.json', encoding='utf-8') as f:
+              build = json.load(f)
+          source = pages.get('source') or {}
+          print(f"build_type={pages.get('build_type')}")
+          print(f"source_branch={source.get('branch')}")
+          print(f"source_path={source.get('path')}")
+          print(f"html_url={pages.get('html_url')}")
+          print(f"latest_build_status={build.get('status')}")
+          print(f"latest_build_commit={build.get('commit')}")
+          print(f"latest_build_created_at={build.get('created_at')}")
+          print(f"latest_build_updated_at={build.get('updated_at')}")
+          print(f"latest_build_error={(build.get('error') or {}).get('message')}")
+          assert pages.get('build_type') == 'legacy'
+          assert source.get('branch') == 'main'
+          assert source.get('path') == '/docs'
+          assert build.get('status') == 'built'
+          assert build.get('commit') == os.environ['EXPECTED_COMMIT']
+          PY
+
+      - name: Fresh cache-busted live-origin proof
+        env:
+          EXPECTED_COMMIT: e39dd68b70f28481e0d06aca280bc3d1c9017f38
+        run: |
+          set -euo pipefail
+          page_url="$(python3 - <<'PY'
+          import json
+          with open('/tmp/pages.json', encoding='utf-8') as f:
+              print(json.load(f).get('html_url') or '')
+          PY
+          )"
+          test -n "${page_url}"
+          for attempt in $(seq 1 24); do
+            probe="${page_url}?proof=${EXPECTED_COMMIT}&attempt=${attempt}&run=${GITHUB_RUN_ID}"
+            if curl --fail --silent --show-error --location \
+              -H 'Cache-Control: no-cache' \
+              "${probe}" --output /tmp/live.html; then
+              if grep -Fq 'Starsilk Compendium' /tmp/live.html \
+                && grep -Fq 'id="dossierSearch"' /tmp/live.html \
+                && grep -Fq "q === 'ajd'" /tmp/live.html \
+                && grep -Fq 'id="modeToggle" aria-pressed="false" hidden>Archive tools</button>' /tmp/live.html \
+                && grep -Fq '.cover h1{font-size:clamp(1.65rem,7vw,7rem);max-width:none;white-space:nowrap}' /tmp/live.html; then
+                echo "Verified archive gate and single-line title at ${page_url}"
+                exit 0
+              fi
+            fi
+            sleep 5
+          done
+          echo "::error::Live Pages origin did not converge to the merged archive-gate build."
+          head -c 2000 /tmp/live.html || true
+          exit 1
