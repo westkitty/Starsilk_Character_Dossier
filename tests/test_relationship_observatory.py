@@ -2,6 +2,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from bs4 import BeautifulSoup
 from playwright.sync_api import Page, expect
@@ -21,6 +22,10 @@ EXPECTED_FILES = {
 
 def read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def evidence_fragment(url: str) -> str:
+    return urlsplit(url).fragment
 
 
 def test_relationship_publication_file_set_is_exact_and_build_owned():
@@ -78,7 +83,8 @@ def test_relationship_model_is_same_observed_graph_with_evidence_not_semantic_pr
         assert relation["source_url"] == SITE_BASE + f"entities/{source}/"
         assert relation["target_url"] == SITE_BASE + f"entities/{target}/"
         assert relation["source_ref"] == f"src/content/sections/{source}.body.html"
-        assert relation["public_evidence_url"] == SITE_BASE + f"#xref-{source}--{target}"
+        assert relation["public_evidence_url"].startswith(SITE_BASE + "#xref-")
+        assert evidence_fragment(relation["public_evidence_url"])
         assert relation["observed_href"] == f"#{target}"
     assert len(edge_ids) == len(set(edge_ids))
 
@@ -86,26 +92,35 @@ def test_relationship_model_is_same_observed_graph_with_evidence_not_semantic_pr
     for forbidden in ("friend", "enemy", "parent", "child", "creator", "member_of", "caused_by"):
         assert f'"kind": "{forbidden}"' not in rendered
     assert any("semantic relationship" in item.lower() for item in model["unknowns"])
+    assert any("section-subtree" in item.lower() for item in model["unknowns"])
 
 
-def test_every_observatory_edge_resolves_to_exact_generated_compendium_xref():
+def test_every_observatory_edge_resolves_to_exact_generated_compendium_xref_inside_source_subtree():
     model = read_json(REL_DIR / "relationships.json")
     soup = BeautifulSoup((DOCS / "index.html").read_text(encoding="utf-8"), "lxml")
-    evidence_ids = []
+    physical_xrefs = soup.select("a.xref-link[id]")
+    physical_ids = [link.get("id") for link in physical_xrefs]
+
+    assert physical_ids
+    assert len(physical_ids) == len(set(physical_ids))
 
     for relation in model["relationships"]:
         source = relation["source"]
         target = relation["target"]
-        evidence_id = f"xref-{source}--{target}"
-        evidence_ids.append(evidence_id)
+        evidence_id = evidence_fragment(relation["public_evidence_url"])
         matches = soup.find_all("a", id=evidence_id)
         assert len(matches) == 1
         link = matches[0]
+        source_section = soup.find("section", id=source)
+        assert source_section is not None
+        assert link in source_section.find_all("a", class_="xref-link", href=f"#{target}")
         assert "xref-link" in (link.get("class") or [])
         assert link.get("href") == f"#{target}"
-        assert link.get("data-xref-source") == source
         assert link.get("data-xref-target") == target
-    assert len(evidence_ids) == len(set(evidence_ids))
+        assert link.get("data-xref-source")
+
+    evidence_urls = [relation["public_evidence_url"] for relation in model["relationships"]]
+    assert len(set(evidence_urls)) < len(evidence_urls), "section-subtree projection should preserve shared physical evidence"
 
 
 def test_human_observatory_exposes_direction_deep_links_zero_states_and_text_alternative():
@@ -136,6 +151,7 @@ def test_human_observatory_exposes_direction_deep_links_zero_states_and_text_alt
     assert "### Incoming observed mentions" in markdown
     assert "published xref evidence" in markdown
     assert "None observed." in markdown
+    assert "section subtree" in markdown.lower()
 
 
 def test_relationship_schema_and_authority_lock_observed_only_contract():
@@ -152,6 +168,7 @@ def test_relationship_schema_and_authority_lock_observed_only_contract():
     assert "It is not a semantic relationship database" in authority
     assert "kind: mentions" in authority
     assert "evidence_class: observed-xref" in authority
+    assert "section-subtree projection" in authority
     assert "must not guess" in authority
 
 
@@ -176,12 +193,14 @@ def test_relationship_public_boundary_guard_passes_real_outputs():
 
 
 def test_relationship_observatory_runtime_deep_link_and_mobile_layout(page: Page, local_server):
-    edge_id = "mention--codec--dao"
+    model = read_json(REL_DIR / "relationships.json")
+    relation = next(item for item in model["relationships"] if item["source"] == "codec" and item["target"] == "dao")
+    edge_id = relation["edge_id"]
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/relationships/#{edge_id}")
     edge = page.locator(f"#{edge_id}")
     expect(edge).to_be_visible()
-    expect(edge.locator("a", has_text="Published xref evidence")).to_have_attribute("href", SITE_BASE + "#xref-codec--dao")
+    expect(edge.locator("a", has_text="Published xref evidence")).to_have_attribute("href", relation["public_evidence_url"])
     expect(page.locator("#entity-codec")).to_be_visible()
 
     page.set_viewport_size({"width": 375, "height": 812})
