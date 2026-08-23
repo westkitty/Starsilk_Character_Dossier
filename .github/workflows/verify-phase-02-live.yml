@@ -18,7 +18,6 @@ jobs:
           python3 - <<'PY'
           import json
           import time
-          import urllib.error
           import urllib.parse
           import urllib.request
           from pathlib import Path
@@ -44,6 +43,7 @@ jobs:
 
           index_url = BASE + "machine/index.json"
           expected_index = Path("docs/machine/index.json").read_bytes()
+          expected_index_obj = json.loads(expected_index)
           live_index = None
           last_error = None
           for attempt in range(1, 31):
@@ -64,8 +64,9 @@ jobs:
           index = json.loads(live_index)
           urls = index["public_urls"]
           assert index["canonical_url"] == BASE
-          assert index["record_count"] == 138
-          assert len(urls) == len(set(urls)) == 14
+          assert index["record_count"] == expected_index_obj["record_count"]
+          assert urls == expected_index_obj["public_urls"]
+          assert len(urls) == len(set(urls))
           assert urls[0] == BASE
 
           downloaded = {}
@@ -88,8 +89,9 @@ jobs:
               target.write_bytes(data)
 
           entities = json.loads(downloaded[BASE + "machine/entities.json"])
-          assert entities["record_count"] == 138 == len(entities["records"])
-          assert len({record["stable_id"] for record in entities["records"]}) == 138
+          expected_entities = json.loads(Path("docs/machine/entities.json").read_bytes())
+          assert entities["record_count"] == expected_entities["record_count"] == len(entities["records"])
+          assert len({record["stable_id"] for record in entities["records"]}) == entities["record_count"]
           assert all(record["visibility"] == "public" for record in entities["records"])
           assert all(record["canon_status"] == "unknown" for record in entities["records"])
 
@@ -111,7 +113,10 @@ jobs:
           for url in urls:
               assert f"<loc>{url}</loc>" in sitemap
 
-          print(f"LIVE_MACHINE_PROOF_OK urls={len(urls)} exact_machine_files={len(urls)-1}")
+          print(
+              f"LIVE_MACHINE_PROOF_OK urls={len(urls)} "
+              f"records={entities['record_count']} exact_machine_files={len(urls)-1}"
+          )
           PY
 
       - name: Re-run public-boundary gate against downloaded live machine bytes
