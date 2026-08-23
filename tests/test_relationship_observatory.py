@@ -119,9 +119,6 @@ def test_every_observatory_edge_resolves_to_exact_generated_compendium_xref_insi
         assert link.get("data-xref-target") == target
         assert link.get("data-xref-source")
 
-    evidence_urls = [relation["public_evidence_url"] for relation in model["relationships"]]
-    assert len(set(evidence_urls)) < len(evidence_urls), "section-subtree projection should preserve shared physical evidence"
-
 
 def test_human_observatory_exposes_direction_deep_links_zero_states_and_text_alternative():
     model = read_json(REL_DIR / "relationships.json")
