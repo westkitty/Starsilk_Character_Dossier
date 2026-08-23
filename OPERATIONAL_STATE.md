@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 16
+revision: 17
 
 ## Current baseline
 
@@ -19,6 +19,7 @@ revision: 16
 - Museum + AI Phase 6 PR #24 merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`.
 - Museum + AI Phase 7 PR #27 merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`.
 - Museum + AI Phase 8 PR #30 merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`.
+- Museum + AI Phase 9 PR #34 merged at `3ed684897975065d89f5e12c8c15b36f936c0262`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -43,6 +44,8 @@ revision: 16
 - `src/discovery/AUTHORITY.md`, `src/schema/discovery-index.schema.json`, `src/schema/context-packet.schema.json`, and `src/schema/context-packet-index.schema.json` define the Phase 7 discovery/context-packet interpretation boundary.
 - `build/tour_publication.py` owns deterministic generation of `docs/tours/`; that surface is an editorial stable-ID navigation and browser-local convenience derivative, not canon, chronology, relationship, or user-account authority.
 - `src/tours/tours.json` owns stable curated-tour IDs and their existing-navigation-group binding; `src/content/nav.json` remains authority for ordered tour-stop membership. `src/tours/AUTHORITY.md` and `src/schema/tour-index.schema.json` define the Phase 8 interpretation/publication boundary.
+- `build/chronology_publication.py` owns deterministic generation of `docs/chronology/`; the explorer is a public source-backed derivative of `src/chronology/events.json`, not a second canon prose authority.
+- `src/chronology/events.json` establishes Phase 9 publication event IDs only from direct labels in the existing `chronology` source record. `src/chronology/AUTHORITY.md` and `src/schema/chronology-index.schema.json` define the chronology interpretation boundary.
 
 ## Active invariants
 
@@ -109,6 +112,11 @@ revision: 16
 61. User-authored collection names and local history must not enter generated publication, machine indexes, canon/evidence surfaces, or public URLs. Local state is never canon/relationship evidence; clearing site storage removes persistence, and unavailable storage falls back to current-page memory rather than remote persistence.
 62. Phase 8 is additive to the existing human surfaces. Canonical entity pages remain script-free except inert JSON-LD and may only link into the `/tours/` local-library surface; root `dossierSearch`, legacy anchors, museum identities, observed-xref semantics, and Canon Inspector authority boundaries remain intact.
 63. Public tour/machine derivatives must remain deterministic, boundary-checked, and independently verified at the live Pages edge whenever Phase 8 publication changes.
+64. Phase 9 chronology publication may preserve only direct authored labels, exact authored markers, explicit relative markers/relations, and authored durations from the cited chronology source. It must never convert a marker into a fabricated absolute calendar date or infer chronology from source-list order.
+65. Phase 9 `event_id` is a source-backed publication identity established from a direct label; it is neither a claim of authored historical identity nor a substitute for the stable `chronology` source-record ID.
+66. Event visibility, canon status, spoiler level, and temporal certainty are independent. Existing public source visibility does not establish canon; absent structured event canon/spoiler metadata remains `unknown`.
+67. `/chronology/` filters may hide rendered cards only. They must not mutate, omit, or otherwise change chronology JSON status fields or temporal values.
+68. Public chronology/machine derivatives must remain deterministic, boundary-checked, and independently verified at the live Pages edge whenever the chronology publication changes.
 
 ## Verified implementation
 
@@ -525,6 +533,37 @@ Live publication proof established:
 
 Therefore Phase 8 is **VERIFIED COMPLETE** at authority, deterministic generation, privacy/local-state semantics, CI, diff scope, merge, public-boundary, and live-publication layers.
 
+## Museum + AI Phase 9 interactive chronology, canon status, and spoiler views — VERIFIED
+
+Phase 9 of 12, **Interactive Chronology, Canon Status, and Spoiler Views**, is complete.
+
+Repository evidence:
+
+- starting `main`: `31de35ab9f4e0b6ad284c2ce11c4b3da24b4e642`
+- work branch: `phase-09-interactive-chronology`
+- final validated implementation head: `b1de688352db864860e97b2e4103790360065ae5`
+- one bounded pre-commit repair corrected a schema/source-record key mismatch; no event fact, temporal value, or public behavior changed
+- successful required CI: run `32671213475` (Chromium job `97272242223`, Firefox job `97272242125`, WebKit job `97272242054`)
+- implementation PR: `#34`; merged to `main`: `3ed684897975065d89f5e12c8c15b36f936c0262`
+- execution-only live proof PR: `#35`, closed unmerged; successful run `32671419187`, job `97272730778`
+
+Phase 9 verified capabilities:
+
+- `build/chronology_publication.py` deterministically generates/checks seven `/chronology/` artifacts: accessible HTML explorer, CSS, JavaScript, JSON, Markdown, schema copy, and authority note.
+- 27 events derive only from direct labels in `src/content/sections/chronology.body.html`, cited through stable record `chronology` and authored source key `five-phase-canon-chronology`; no source-list order becomes an inferred chronology relation.
+- the temporal model preserves 5 exact authored markers, 6 relative markers, 1 authored 170-year duration, and 15 unknown temporal states. All absolute dates are null.
+- event visibility remains public because the cited source is already public; event-level canon status and spoiler level remain unknown because no structured authority authors them. These dimensions remain independent from temporal certainty.
+- filters are current-view behavior only. The underlying `chronology.json` continues to expose every event and its status/temporal values regardless of a browser filter.
+- machine index, versioned schema directory, `llms.txt`, sitemap, and entity navigation expose the chronology surface without changing root search, entity identity, observed relationship semantics, museum identity, discovery/context packets, or tours/local state.
+
+Live publication proof established:
+
+- `LIVE_PHASE9_BYTES_OK events=27 exact_files=13 exact_markers=5 relative=6 duration=1 unknown=15 status=independent root-search=unchanged` proved byte parity for chronology, machine, orientation, sitemap, and selected entity artifacts.
+- downloaded live artifacts passed `tools/check_public_boundary.py` across 11 text/machine files.
+- `LIVE_PHASE9_BROWSER_OK deep-link=ok filter=view-only status=preserved keyboard=ok source-links=ok mobile=ok network=local-origin-only` proved live Chromium deep links, no JSON mutation from filtering, keyboard focus, source links, 375px layout, and same-origin networking.
+
+Therefore Phase 9 is **VERIFIED COMPLETE** at authority, deterministic generation, source/status/temporal semantics, CI, merge, public-boundary, and live-publication layers. Phase 10 was not started.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -633,7 +672,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 - Google Drive connector transfer ceilings require the durable backup to be stored as verified ordered chunks rather than one 582 MB Drive object. This is a transport constraint, not a content-integrity gap.
 - One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
-- Individual chronology events do not yet have authored stable IDs; Phase 1 deliberately preserves this as unknown rather than deriving IDs from presentation order or guessed labels.
+- Chronology event publication IDs are Phase 9 source-backed derivatives from direct authored labels; they are not authored historical IDs. Unsupported absolute dates, ordering, durations, and event-level canon/spoiler status remain unknown.
 - Many WorldsVault template records do not yet have authored stable IDs; display labels/media references are not silently promoted into permanent object identity.
 - The Relationship Observatory exposes the current 136 observed xref `mentions` edges with source/evidence traceability, but no stronger semantic relationship authority exists; semantic meaning remains unauthored unless a later explicit authority is added.
 - Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
@@ -641,13 +680,13 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Phase 4 museum deep links are fragment routes over one static `/objects/` document, not separate server-side HTML resources.
 - Static IIIF is not part of the current publication; it remains a future option only if later requirements justify tile/deep-zoom/interoperability infrastructure.
 - Phase 4 context links preserve published placement evidence only; richer relationship semantics remain unauthored and belong to Phase 5.
-- The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.
-- Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture chronology-event IDs, WorldsVault record IDs, semantic relationships, dates, or coordinates.
+- The canonical human permalink layer covers only the 127 authored top-level section IDs. Phase 9 chronology fragments are source-backed publication deep links; WorldsVault record IDs remain unknown rather than being inferred.
+- Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture WorldsVault IDs, semantic relationships, dates, or coordinates.
 - Phase 8 browser-local bookmarks/history/progress/collections are intentionally per browser origin/profile and do not sync through an account or server; this privacy/locality constraint is deliberate, not missing canon infrastructure.
 
 ## Pending
 
-- Museum + AI program: Phase 9 of 12 — Interactive Chronology, Canon Status, and Spoiler Views. It has not been started.
+- Museum + AI program: Phase 10 of 12 — WorldsVault Cosmic Topology Explorer. It has not been started.
 
 ## Revision log
 
@@ -667,3 +706,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 14: completed Museum + AI Phase 6. Added the deterministic six-file Canon Inspector, exact 11-lock register, explicit document/section enforcement semantics, technical-pattern labeling, authority/schema alternatives, machine/sitemap/orientation and entity discovery, and focused regression coverage. One bounded wording-only repair preserved an explicit plain-text complete-canon boundary. PR #24 passed final pinned Chromium/Firefox/WebKit CI (`140 passed, 1 skipped`) and merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`; execution-only proof PR #25 was closed unmerged after run `32656422914` proved exact live bytes, public-boundary safety, lock scope/derivation, deep links, discovery, and mobile Chromium behavior. Phase 7 was not started.
 - Revision 15: completed Museum + AI Phase 7. Added deterministic 127-record faceted discovery, 127 compact source-backed AI context packets, 137-file `/discover/` publication, mechanical source excerpts, structural/authored facets, query/facet deep links, keyboard navigation, versioned schemas, machine/sitemap/orientation discovery, and entity-index discovery while preserving the root `dossierSearch`. One bounded test-expectation repair updated the pre-Phase-7 finite machine schema/URL assertions without changing product semantics. PR #27 passed final Chromium/Firefox/WebKit CI run `32658677512` and merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; execution-only proof PR #28 was closed unmerged after run `32658856927` / job `97241822080` proved exact live bytes, public-boundary safety, source/unknown/observed-xref packet semantics, deep links, facets, keyboard behavior, entity discovery, unchanged root search, and mobile Chromium behavior. Phase 8 was not started.
 - Revision 16: completed Museum + AI Phase 8. Added six stable-ID curated routes/29 authored-navigation stops, deterministic `/tours/` human/JSON/schema/authority publication, browser-local bookmarks/recent/history/progress/named collections with clear/fallback behavior, privacy/locality authority rules, machine/sitemap/orientation discovery, and conservative entity/discovery entry points without changing root search or record authority. No implementation repair was needed. PR #30 passed final Chromium/Firefox/WebKit CI run `32659617585` and merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`; execution-only proof PR #31 was closed unmerged after run `32659776026` / job `97244053606` proved exact live bytes, public-boundary safety, exact tour derivation, private-text URL isolation, persistence/clear behavior, origin-local networking, entity discovery, and mobile Chromium behavior. Phase 9 was not started.
+- Revision 17: completed Museum + AI Phase 9. Added deterministic source-backed `/chronology/` human/JSON/Markdown/schema/authority publication for 27 direct-label events, preserving 5 exact authored markers, 6 relative markers, one 170-year authored duration, null absolute dates, and 15 unknown temporal states. Event visibility remains public while canon status and spoiler level remain independently unknown; UI filters are view-only and cannot mutate machine status. One bounded pre-commit schema/source-record key repair was made. PR #34 passed Chromium/Firefox/WebKit CI run `32671213475` and merged at `3ed684897975065d89f5e12c8c15b36f936c0262`; execution-only proof PR #35 was closed unmerged after run `32671419187` / job `97272730778` proved live byte parity, public-boundary safety, deep links, filter/status preservation, keyboard/source-link behavior, mobile layout, and same-origin networking. Phase 10 was not started.

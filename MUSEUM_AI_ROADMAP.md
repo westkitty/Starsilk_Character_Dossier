@@ -26,7 +26,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 6 | Canon Inspector and Authority UI | COMPLETE | PR #24; implementation head `d124b1c3fe8990d0cab2e7308f968ed9027463b6`; CI `32656216440` PASS; merged `5dafd7c7cba11b728c9548b009847ca96e8e756f`; live proof `32656422914` PASS | none |
 | 7 | Faceted Discovery and AI Context Packets | COMPLETE | PR #27; final head `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`; CI `32658677512` PASS; merged `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; live proof `32658856927` PASS | none |
 | 8 | Curated Museum Tours and Local Collections | COMPLETE | PR #30; final head `d2a772baacf606cb6085a84e8378e69d3c19be99`; CI `32659617585` PASS; merged `6520f43574eac8de64d67da77dca19bc99f3eb46`; live proof `32659776026` PASS | none |
-| 9 | Interactive Chronology, Canon Status, and Spoiler Views | NOT STARTED | — | deferred |
+| 9 | Interactive Chronology, Canon Status, and Spoiler Views | COMPLETE | PR #34; final head `b1de688352db864860e97b2e4103790360065ae5`; CI `32671213475` PASS; merged `3ed684897975065d89f5e12c8c15b36f936c0262`; live proof `32671419187` PASS | none |
 | 10 | WorldsVault Cosmic Topology Explorer | NOT STARTED | — | deferred |
 | 11 | Installable Offline Museum | NOT STARTED | — | deferred |
 | 12 | AI Agent Evaluation Harness and Final Integration | NOT STARTED | — | deferred |
@@ -292,6 +292,28 @@ Build stable-ID-based guided tours plus browser-local bookmarks/recent/history/c
 ### Phase 9 — Interactive Chronology, Canon Status, and Spoiler Views
 
 Create a source-backed event model and explorable chronology. Never guess dates. Keep visibility, canon status, and spoiler level separate; preserve status in machine output regardless of human filters.
+
+#### Completion record
+
+- starting `main`: `31de35ab9f4e0b6ad284c2ce11c4b3da24b4e642`
+- work branch: `phase-09-interactive-chronology`
+- final validated implementation head: `b1de688352db864860e97b2e4103790360065ae5`
+- implementation repair passes used: one bounded pre-commit model repair; corrected the top-level source-record key to match the declared schema without changing event facts, temporal values, or public behavior
+- successful required final CI: run `32671213475` (Chromium, Firefox, and WebKit PASS)
+- implementation PR: `#34`
+- implementation merge on `main`: `3ed684897975065d89f5e12c8c15b36f936c0262`
+- execution-only live proof PR: `#35`, closed unmerged
+- successful live proof: run `32671419187`, job `97272730778`
+- source authority: `src/content/sections/chronology.body.html`, existing stable record `chronology`, authored source key `five-phase-canon-chronology`
+- event model: 27 direct authored-label events; 5 exact authored markers (`Year 0`, `Year 3`, `Years 7–120`, `Year 121`, `Year 170`), 6 relative markers, 1 authored duration, and 15 events with unknown temporal certainty; all absolute dates remain null
+- status model: all 27 events retain independent `visibility=public`, `canon_status=unknown`, and `spoiler_level=unknown`; public source visibility does not assert canon and no event spoiler class was invented
+- generated surface: seven deterministic `/chronology/` files (`index.html`, CSS, JS, JSON, Markdown, schema, authority), plus a versioned machine schema, machine index/orientation/sitemap discovery, and conservative entity navigation links
+- validation: deterministic `--check`, strict build, public-boundary pass, focused chronology/machine/cross-browser coverage, pinned Chromium full suite, and Firefox/WebKit journeys all passed; root `dossierSearch`, 127 section identities, museum identities, discovery/context packets, tours/local state, and 136 `mentions` / `observed-xref` relationships remain unchanged
+- live proof established `LIVE_PHASE9_BYTES_OK events=27 exact_files=13 exact_markers=5 relative=6 duration=1 unknown=15 status=independent root-search=unchanged`
+- live browser proof established `LIVE_PHASE9_BROWSER_OK deep-link=ok filter=view-only status=preserved keyboard=ok source-links=ok mobile=ok network=local-origin-only`
+- Phase 10 was not started
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 10 — WorldsVault Cosmic Topology Explorer
 
