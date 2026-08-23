@@ -18,6 +18,7 @@ jobs:
           python3 - <<'PY'
           import json
           import time
+          import urllib.error
           import urllib.parse
           import urllib.request
           from html.parser import HTMLParser
@@ -27,6 +28,7 @@ jobs:
           PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
           OUT = Path("/tmp/starsilk-live-phase3")
           OUT.mkdir(parents=True, exist_ok=True)
+          TRANSIENT_HTTP = {429, 500, 502, 503, 504}
 
           class Probe(HTMLParser):
               def __init__(self):
@@ -53,15 +55,29 @@ jobs:
               sep = "&" if "?" in url else "?"
               return f"{url}{sep}phase03proof={urllib.parse.quote(PROOF + '-' + suffix)}"
 
-          def fetch(url, suffix):
-              request = urllib.request.Request(
-                  cache_bust(url, suffix),
-                  headers={"User-Agent": "Starsilk-Phase-03-Live-Proof"},
-              )
-              with urllib.request.urlopen(request, timeout=30) as response:
-                  if response.status != 200:
-                      raise RuntimeError(f"{url}: HTTP {response.status}")
-                  return response.read()
+          def fetch(url, suffix, attempts=8):
+              request_url = cache_bust(url, suffix)
+              last_error = None
+              for attempt in range(1, attempts + 1):
+                  try:
+                      request = urllib.request.Request(
+                          request_url,
+                          headers={"User-Agent": "Starsilk-Phase-03-Live-Proof"},
+                      )
+                      with urllib.request.urlopen(request, timeout=30) as response:
+                          if response.status != 200:
+                              raise RuntimeError(f"{url}: HTTP {response.status}")
+                          return response.read()
+                  except urllib.error.HTTPError as exc:
+                      last_error = exc
+                      if exc.code not in TRANSIENT_HTTP or attempt == attempts:
+                          raise
+                  except (urllib.error.URLError, TimeoutError) as exc:
+                      last_error = exc
+                      if attempt == attempts:
+                          raise
+                  time.sleep(min(1.25 * attempt, 6.0))
+              raise RuntimeError(f"transient fetch retries exhausted for {url}: {last_error}")
 
           def expected_path_for(url):
               if url == BASE:
@@ -113,11 +129,13 @@ jobs:
               downloaded[url] = data
 
               relative = url.removeprefix(BASE)
-              if not relative:
-                  continue
-              target = OUT / (relative + "index.html" if relative.endswith("/") else relative)
-              target.parent.mkdir(parents=True, exist_ok=True)
-              target.write_bytes(data)
+              if relative:
+                  target = OUT / (relative + "index.html" if relative.endswith("/") else relative)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(data)
+              # The first proof hit a transient 503 during a deliberate 396-URL burst.
+              # Pace the read-only audit so it tests publication instead of CDN burst tolerance.
+              time.sleep(0.10)
 
           # Entity CSS is required by every human page but is not a sitemap target.
           css_url = BASE + "entities/entity.css"
