@@ -50,6 +50,14 @@ def test_relationship_publication_file_set_is_exact_and_build_owned():
     assert "relationship publication outputs match generator output" in proc.stdout
 
 
+def test_relationship_publication_outputs_have_no_trailing_whitespace():
+    for name in EXPECTED_FILES:
+        text = (REL_DIR / name).read_text(encoding="utf-8")
+        assert text.endswith("\n")
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            assert line == line.rstrip(" \t"), f"{name}:{line_number} has trailing whitespace"
+
+
 def test_relationship_model_is_same_observed_graph_with_evidence_not_semantic_promotion():
     model = read_json(REL_DIR / "relationships.json")
     graph = read_json(DOCS / "machine/relationships.json")
