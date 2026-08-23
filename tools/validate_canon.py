@@ -2,9 +2,9 @@
 """Validate candidate text against reusable Starsilk canon invariants.
 
 Default candidate mode checks forbidden patterns only, which is appropriate for
-partial scenes/prompts. --complete additionally requires all positive patterns
-for the selected scope. --section may be repeated to apply section-specific
-locks (for example --section dao).
+partial scenes/prompts. --complete additionally requires positive patterns for
+the selected section scopes. With no --section, --complete means full-document
+completeness and also requires document-level positive patterns.
 """
 import argparse
 import json
@@ -20,9 +20,9 @@ def evaluate(text: str, canon: dict, sections: list[str], complete: bool) -> dic
     violations = []
     checked = []
 
-    def apply(lock: dict, scope: str):
+    def apply(lock: dict, scope: str, require_positive: bool):
         checked.append(lock["id"])
-        if complete:
+        if require_positive:
             for pat in lock.get("must_match", []):
                 if not re.search(pat, text):
                     violations.append({
@@ -42,10 +42,13 @@ def evaluate(text: str, canon: dict, sections: list[str], complete: bool) -> dic
                     "description": lock.get("description", ""),
                 })
 
-    for lock in canon.get("document_locks", []):
-        apply(lock, "document")
-
     wanted = set(sections)
+    # Document prohibitions apply to every candidate. Positive document locks
+    # are required only when validating a complete document, not a fragment
+    # scoped to one or more character/reference sections.
+    for lock in canon.get("document_locks", []):
+        apply(lock, "document", complete and not wanted)
+
     known_sections = {lock.get("section") for lock in canon.get("section_locks", [])}
     unknown = sorted(s for s in wanted if s not in known_sections)
     for section in unknown:
@@ -59,7 +62,7 @@ def evaluate(text: str, canon: dict, sections: list[str], complete: bool) -> dic
 
     for lock in canon.get("section_locks", []):
         if lock.get("section") in wanted:
-            apply(lock, lock["section"])
+            apply(lock, lock["section"], complete)
 
     return {
         "schema": "starsilk-canon-validation/1",
@@ -78,7 +81,7 @@ def main() -> int:
     src.add_argument("--text", help="Literal text to validate")
     ap.add_argument("--canon", default=str(DEFAULT_CANON))
     ap.add_argument("--section", action="append", default=[])
-    ap.add_argument("--complete", action="store_true", help="Require positive must_match locks as well as forbidden-pattern checks")
+    ap.add_argument("--complete", action="store_true", help="Require positive must_match locks for the selected scope")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
