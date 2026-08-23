@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-permissions:
-  contents: write
-
 jobs:
   build-and-validate:
     name: Build, validate, unit + accessibility/network tests (Chromium)
@@ -87,34 +84,3 @@ jobs:
 
       - name: Representative cross-browser journeys
         run: .venv/bin/pytest tests/test_cross_browser.py --browser ${{ matrix.browser }} -q
-
-  close-phase-05-state:
-    name: Temporary Phase 05 state closure
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.ref == 'phase-05-state-closure'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-
-      - name: Apply and validate state closure
-        run: |
-          python3 tools/close_phase05_state.py
-          git diff --check
-          changed="$(git diff --name-only)"
-          test "$changed" = "MUSEUM_AI_ROADMAP.md
-          OPERATIONAL_STATE.md"
-
-      - name: Commit exact state closure
-        run: |
-          if git diff --quiet -- MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md; then
-            echo "No state changes to commit."
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md
-          git diff --cached --check
-          git commit -m "docs(phase-05): close roadmap and operational state"
-          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
