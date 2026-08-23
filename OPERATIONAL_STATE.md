@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 11
+revision: 12
 
 ## Current baseline
 
@@ -14,6 +14,7 @@ revision: 11
 - Museum + AI Phase 1 PR #11 merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.
 - Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.
+- Museum + AI Phase 4 PR #18 merged at `258ce10f9d0d73b22163ae22243b953af99427fc`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -27,6 +28,9 @@ revision: 11
 - `build/entity_publication.py` owns deterministic generation of `docs/entities/`; those permalink pages are public generated derivatives of existing section authority, not a second canon source.
 - Canonical human record destinations are `/entities/<stable-id>/`; original `/#<stable-id>` Compendium anchors remain supported legacy public locations.
 - Per-record machine alternatives are `/machine/entities/<stable-id>.json` and `/machine/entities/<stable-id>.md`, keyed by the same existing stable IDs.
+- `build/museum_publication.py` owns deterministic generation of `docs/objects/`; the museum object register is a public derivative of `docs/asset-manifest.json`, not a second canon or media-provenance authority.
+- The museum human surface is `/objects/`; individual museum deep links are `/objects/#<object-id>`.
+- `src/museum/AUTHORITY.md` and `src/schema/museum-object-index.schema.json` define the Phase 4 object/publication interpretation contract.
 
 ## Active invariants
 
@@ -63,6 +67,17 @@ revision: 11
 31. Entity-page related-record lists may expose only observed xref `mentions` / `observed-xref` evidence until an explicit semantic authority exists.
 32. The authored stable ID `archive` collides with the repo-wide local `archive/` ignore pattern. Keep the root/offline `archive/` exclusion, but preserve the exact `!docs/entities/archive/` and `!docs/entities/archive/index.html` exceptions plus `tests/test_entity_tracking.py`; deleting them silently drops a canonical permalink.
 33. Generated entity pages must remain static and accessible with no executable JavaScript beyond inert JSON-LD; the complete root Compendium remains the legacy all-in-one destination and its stable anchors must not be removed.
+34. `docs/asset-manifest.json` remains the published-media provenance ledger. A Phase 4 museum `object_id` is the published media filename with only the final extension removed; the complete filename remains its provenance source key.
+35. `logical_identity`, `match_status`, provenance, and section contexts are descriptive manifest evidence. They must not replace museum identity, become canon-status fields, or imply stronger semantic relationships.
+36. Missing museum description/context evidence remains explicit unknown state. Do not infer logical identity, alt text, provenance, or relationships from filenames, imagery, adjacent lore, or presentation order.
+37. `docs/objects/` is generator-owned output from `build/museum_publication.py`. Its current generated surface is six text/code files and must not contain copied media binaries or hand-authored canon prose.
+38. `/objects/` must load the 213-record metadata register without requesting `/assets/media/` bytes. Media is on-demand: one selected/deep-linked object creates one media element only.
+39. Museum videos must use user controls, metadata-only preload, and no autoplay. Closing the viewer must pause/unset/remove selected media so playback or downloading does not continue invisibly.
+40. Museum object deep links use `/objects/#<object-id>`. They are stable client-side fragment destinations over one static human museum page, not separate server-side HTML resources.
+41. Museum section contexts prove published placement only and may link to canonical entity pages; they do not establish Phase 5 relationship semantics.
+42. Phase 4 consumes existing `docs/assets/media/` derivatives as-is and must not regenerate, replace, commit, or claim new backup coverage for canonical originals in `media/source/`.
+43. Static IIIF is deliberately not adopted in Phase 4. Re-evaluate only if a later requirement needs tiled deep zoom, region-level annotation, or IIIF interoperability strongly enough to justify new derivative infrastructure.
+44. Public museum derivatives must remain reproducible from the manifest/schema/templates, pass `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the museum publication changes.
 
 ## Verified implementation
 
@@ -232,6 +247,66 @@ Live publication was independently verified by execution-only PR #16, closed wit
 
 Therefore Phase 3 is **VERIFIED COMPLETE** at repository, CI, merge, permalink, legacy-compatibility, and live-publication layers.
 
+## Museum + AI Phase 4 museum object model and media viewer — VERIFIED
+
+Phase 4 of 12, **Museum Object Model and Media Viewer**, is complete.
+
+Repository evidence:
+
+- starting `main`: `06c1acaee9bdb1127df7902d702d8d062b62a40c`
+- work branch: `phase-04-museum-objects`
+- exact generated-publication commit: `bed865afb3195ce972c41b58d4d0eed516a3aa92`
+- final validated implementation head: `0603379d0ea6a364e0d5d608685f38b27f95bfc9`
+- one-shot generation/focused proof: run `32642163782`, job `97200820702`
+- successful final CI: run `32642262682`
+- implementation repair passes used: zero
+- implementation PR: `#18`
+- merged to `main`: `258ce10f9d0d73b22163ae22243b953af99427fc`
+
+Phase 4 verified capabilities:
+
+- `build/museum_publication.py` deterministically generates/checks the complete `docs/objects/` publication from `docs/asset-manifest.json`.
+- the museum register contains exactly 213 records, one for every existing published-media manifest entry.
+- museum `object_id` is derived only by removing the final extension from the published filename; the complete filename remains the manifest provenance identity/source key.
+- `logical_identity`, `match_status`, provenance, and context are preserved exactly as descriptive evidence rather than promoted into new identity, canon, or relationship authority.
+- missing logical identity, context, or authored alt evidence is represented explicitly in `unknowns` rather than inferred.
+- `/objects/` is a responsive human museum register with stable `/objects/#<object-id>` fragment deep links.
+- initial collection load is metadata-only and makes no `/assets/media/` request; selected objects create one media element on demand.
+- image and MP4 objects share the same model; video uses controls, `preload=metadata`, never autoplays, and is removed/cleared when the viewer closes.
+- the viewer uses native `<dialog>` semantics with keyboard/Escape closure, previous/next navigation, focus handling, responsive layout, and optional user-triggered Fullscreen API entry.
+- `docs/objects/objects.json`, `schema.json`, and generated `AUTHORITY.md` provide source-backed machine/interpretation surfaces without duplicating canon prose.
+- the entity index exposes `Browse museum objects`; individual Phase 3 entity pages and their stable identities were not rewritten.
+- the generated museum tree contains no media binaries and consumes existing `docs/assets/media/` files as-is.
+- canonical originals in `media/source/` remain outside Git and unchanged.
+- static IIIF was evaluated and deliberately rejected for this phase because no current deep-zoom, region-annotation, or interoperability requirement justifies tile/derivative infrastructure.
+- root Compendium content, canon sources, `docs/asset-manifest.json`, published media bytes, dependencies, Archive Tools, and Phase 5 semantic relationship scope were not changed.
+
+Final CI run `32642262682` on head `0603379d0ea6a364e0d5d608685f38b27f95bfc9` passed:
+
+- authoritative source build;
+- deterministic committed `docs/` parity including museum publication;
+- strict existing DOM/canon validation;
+- public derivative boundary validation;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite, including Phase 4 object/viewer tests;
+- representative Firefox journeys including museum deep-link/Escape behavior;
+- representative WebKit journeys including museum deep-link/Escape behavior.
+
+Live publication was independently verified by execution-only PR #19, closed without merge after proof. The first browser-proof attempt had already proven all exact live bytes and the public boundary, then failed on a single immediate `inner_text()` equality assertion after the live dialog had opened. The read-only proof harness was changed to Playwright retry-aware assertions; no product bytes changed. GitHub Actions run `32642574092`, job `97201827679`, then established:
+
+- `LIVE_PHASE4_BYTES_OK objects=213 exact_files=9 identity=ok provenance=ok unknowns=ok root=ok`;
+- the changed museum files, entity index, root Compendium, and source asset manifest were byte-identical to merged repository authority at the Pages edge;
+- all 213 live object IDs were unique and exactly followed the filename-stem identity rule;
+- live provenance/context evidence and explicit unknowns remained source-backed and unpromoted;
+- the downloaded live text/object surfaces passed `tools/check_public_boundary.py`;
+- `LIVE_PHASE4_BROWSER_OK metadata_only=ok image=ok video=ok escape=ok teardown=ok discovery=ok`;
+- live `/objects/` rendered 213 records without eager media requests;
+- a live image deep link opened one image, preserved its entity context, and Escape removed the media/cleared the fragment;
+- a live video deep link created one controlled, paused, non-autoplaying metadata-preload video and close removed it;
+- the live entity index exposed the museum discovery link.
+
+Therefore Phase 4 is **VERIFIED COMPLETE** at authority, identity, generation, browser, CI, merge, provenance, source-boundary, and live-publication layers.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -345,12 +420,14 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - No semantic relationship authority currently exists beyond observed xref `mentions` relationships.
 - Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
 - Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.
-- Phase 3 does not create museum-object identities, fullscreen viewer semantics, or IIIF surfaces; those remain Phase 4 work.
+- Phase 4 museum deep links are fragment routes over one static `/objects/` document, not separate server-side HTML resources.
+- Static IIIF is not part of the current publication; it remains a future option only if later requirements justify tile/deep-zoom/interoperability infrastructure.
+- Phase 4 context links preserve published placement evidence only; richer relationship semantics remain unauthored and belong to Phase 5.
 - The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.
 
 ## Pending
 
-- Museum + AI program: Phase 4 of 12 — Museum Object Model and Media Viewer. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
+- Museum + AI program: Phase 5 of 12 — Relationship Observatory. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
 
 ## Revision log
 
@@ -365,3 +442,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 9: completed Museum + AI Phase 1. Added the durable twelve-phase roadmap, authority/stable-identity/publication contract, v1 metadata schema, dependency-free metadata validation, future public-machine boundary checks, focused regression tests, explicit unknown handling, and independent visibility/canon/spoiler semantics; PR #11 passed required Chromium/Firefox/WebKit CI after one bounded test-only repair and merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Revision 10: completed Museum + AI Phase 2. Added deterministic public machine generation, versioned schemas, 127 section-backed records, 136 observed `mentions` relationships, Markdown alternatives, conservative `CreativeWork` JSON-LD, `llms.txt`, sitemap, authority notes, build integration, public-boundary checks, and exact live-edge verification of all 14 declared URLs; PR #12 passed final Chromium/Firefox/WebKit CI and merged at `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof run `32639347205` passed and proof PR #13 was closed unmerged.
 - Revision 11: completed Museum + AI Phase 3. Added 127 canonical human `/entities/<stable-id>/` pages, the entity index, 254 per-record JSON/Markdown alternatives, manifest-backed related media, observed-xref related-record lists, canonical URL migration, static accessible entity templates, deterministic entity generation/checking, and legacy-anchor preservation. One bounded repair protected the authored `archive` permalink from the repo-wide `archive/` ignore rule. PR #15 passed final Chromium/Firefox/WebKit CI and merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`; exhaustive live proof run `32640932505` verified 396 declared URLs byte-for-byte and proof PR #16 was closed unmerged.
+- Revision 12: completed Museum + AI Phase 4. Added a deterministic 213-record manifest-derived museum object model, stable filename-stem object IDs, explicit provenance/unknown semantics, `/objects/` metadata register, on-demand accessible image/video dialog viewer, hash deep links, entity-index discovery, schema/authority publication, build integration, and regression coverage. No implementation repair pass was needed. PR #18 passed final Chromium/Firefox/WebKit CI and merged at `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof run `32642574092` verified exact Pages bytes plus metadata-only/image/video/teardown behavior, and proof PR #19 was closed unmerged. Static IIIF was evaluated and not adopted.

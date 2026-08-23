@@ -21,8 +21,8 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 1 | Foundation, Roadmap, and Publication Boundary | COMPLETE | PR #11; implementation head `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`; CI `32637622651` PASS; merged `ea287f572264eee625708d22b95a2d482b7d8a87` | none |
 | 2 | Machine Publication Layer | COMPLETE | PR #12; final head `e64068a821df51cfb67cdd335007287d64d31fc7`; CI `32639102690` PASS; merged `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof `32639347205` PASS | none |
 | 3 | Stable Entity Pages and Permalinks | COMPLETE | PR #15; final head `54da12779396175622aab1faafa64fbb4b652c2a`; CI `32640613872` PASS; merged `b7726adc86f967e914616c07b5b4b6179236dbf3`; live proof `32640932505` PASS | none |
-| 4 | Museum Object Model and Media Viewer | NOT STARTED | — | begin only in a fresh chat after verifying Phase 3 on current `main` |
-| 5 | Relationship Observatory | NOT STARTED | — | deferred |
+| 4 | Museum Object Model and Media Viewer | COMPLETE | PR #18; final head `0603379d0ea6a364e0d5d608685f38b27f95bfc9`; CI `32642262682` PASS; merged `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof `32642574092` PASS | none |
+| 5 | Relationship Observatory | NOT STARTED | — | begin only in a fresh chat after verifying Phase 4 on current `main` |
 | 6 | Canon Inspector and Authority UI | NOT STARTED | — | deferred |
 | 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |
 | 8 | Curated Museum Tours and Local Collections | NOT STARTED | — | deferred |
@@ -140,6 +140,36 @@ Generate first-class human/shareable entity destinations from existing authority
 ### Phase 4 — Museum Object Model and Media Viewer
 
 Promote existing media identities into provenance-aware museum objects and build an accessible, deep-linkable fullscreen viewer without eager-loading the archive or committing canonical originals. Evaluate static IIIF only if it cleanly fits the static architecture.
+
+#### Completion record
+
+- starting `main`: `06c1acaee9bdb1127df7902d702d8d062b62a40c`
+- work branch: `phase-04-museum-objects`
+- exact generated-publication commit: `bed865afb3195ce972c41b58d4d0eed516a3aa92`
+- final validated implementation head: `0603379d0ea6a364e0d5d608685f38b27f95bfc9`
+- successful one-shot generation/focused proof: run `32642163782`, job `97200820702`
+- successful required final CI: `32642262682`
+- implementation repair passes used: zero
+- implementation PR: `#18`
+- implementation merge on `main`: `258ce10f9d0d73b22163ae22243b953af99427fc`
+- execution-only live proof PR: `#19`, closed unmerged
+- successful live proof: run `32642574092`, job `97201827679`
+- museum object register: 213 records, exactly matching the 213 existing `docs/asset-manifest.json` published-media entries
+- stable object identity: `object_id` is the published filename with only its final extension removed; the complete filename remains the provenance source key
+- generated public museum surface: six `docs/objects/` text/code files (`index.html`, `museum.css`, `museum.js`, `objects.json`, `schema.json`, `AUTHORITY.md`); no media binaries are copied into the museum tree
+- human deep links: `/objects/#<object-id>`; the base register loads metadata only and creates exactly one media element only after selection/deep-link
+- viewer behavior: native dialog, keyboard/Escape closure, previous/next navigation, optional user-triggered browser fullscreen, controlled image/video rendering, no video autoplay, and media teardown on close
+- provenance semantics: `logical_identity`, `match_status`, provenance, and section context remain descriptive manifest evidence and never replace object identity or create stronger relationship/canon claims
+- explicit unknowns are preserved when logical identity, context, or authored alt text is absent
+- entity index now exposes a human `Browse museum objects` entry point; existing entity records, stable IDs, and legacy Compendium anchors remain unchanged
+- static IIIF was evaluated and deliberately not adopted because current requirements need neither tiled deep zoom, region annotation, nor IIIF interoperability; adding it would create unnecessary derivative/distribution infrastructure
+- first live-browser proof attempt used one brittle immediate text assertion after the dialog opened; only the read-only proof harness was changed to Playwright retry-aware assertions, with no product mutation, and the full rerun passed
+- live proof established `LIVE_PHASE4_BYTES_OK objects=213 exact_files=9 identity=ok provenance=ok unknowns=ok root=ok`
+- live browser proof established `LIVE_PHASE4_BROWSER_OK metadata_only=ok image=ok video=ok escape=ok teardown=ok discovery=ok`
+- live downloaded Phase 4 surfaces passed `tools/check_public_boundary.py`
+- Phase 4 did not modify root Compendium content, canon sources, `docs/asset-manifest.json`, `docs/assets/media/`, `media/source/`, dependencies, Phase 3 stable identities, or Phase 5 relationship semantics
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 5 — Relationship Observatory
 
