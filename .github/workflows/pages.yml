@@ -1,4 +1,4 @@
-name: Deploy Compendium to GitHub Pages
+name: Publish Compendium to GitHub Pages
 
 on:
   push:
@@ -48,7 +48,7 @@ jobs:
           print(f"html_url={data.get('html_url')}")
           PY
 
-  deploy:
+  publish:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
@@ -57,7 +57,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.target.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -85,15 +85,38 @@ jobs:
               'build_type': data.get('build_type') or '',
               'source_branch': source.get('branch') or '',
               'source_path': source.get('path') or '',
+              'html_url': data.get('html_url') or '',
           }
+          if values['build_type'] not in {'legacy', 'workflow'}:
+              raise SystemExit(f"Unsupported Pages build_type: {values['build_type']!r}")
           with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
               for key, value in values.items():
                   output.write(f"{key}={value}\n")
           print(f"Pages build_type={values['build_type']}")
           print(f"Pages source={values['source_branch']} {values['source_path']}")
+          print(f"Pages url={values['html_url']}")
           PY
 
-      - name: Request branch-source rebuild when legacy publishing is active
+      - name: Validate legacy source contract
+        if: steps.pages_config.outputs.build_type == 'legacy'
+        env:
+          SOURCE_BRANCH: ${{ steps.pages_config.outputs.source_branch }}
+          SOURCE_PATH: ${{ steps.pages_config.outputs.source_path }}
+        run: |
+          set -euo pipefail
+          if [ "${SOURCE_BRANCH}" != "main" ]; then
+            echo "::error::Legacy Pages is pointed at ${SOURCE_BRANCH}, expected main."
+            exit 1
+          fi
+          case "${SOURCE_PATH}" in
+            /docs|/) ;;
+            *)
+              echo "::error::Legacy Pages source path ${SOURCE_PATH} is unsupported."
+              exit 1
+              ;;
+          esac
+
+      - name: Request legacy branch-source rebuild
         if: steps.pages_config.outputs.build_type == 'legacy'
         env:
           GH_TOKEN: ${{ github.token }}
@@ -112,30 +135,49 @@ jobs:
             cat /tmp/pages-build.json || true
             exit 1
           fi
-          echo "Legacy Pages rebuild requested for the configured source."
+          echo "Legacy Pages rebuild requested for ${GITHUB_REPOSITORY}."
 
-      # `docs/` is the canonical publication payload. The repository-root
-      # index.html is only a compatibility redirect for a legacy main/root
-      # Pages source and is intentionally not uploaded by this workflow.
-      - name: Configure GitHub Pages
+      - name: Configure GitHub Pages workflow deployment
+        if: steps.pages_config.outputs.build_type == 'workflow'
         uses: actions/configure-pages@v5
 
       - name: Upload Compendium site
+        if: steps.pages_config.outputs.build_type == 'workflow'
         uses: actions/upload-pages-artifact@v4
         with:
           path: docs
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy Compendium artifact
+        if: steps.pages_config.outputs.build_type == 'workflow'
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Verify live Compendium identity
+      - name: Resolve live Pages URL
+        id: target
         env:
-          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          CONFIG_URL: ${{ steps.pages_config.outputs.html_url }}
+          DEPLOY_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 18); do
-            probe="${PAGE_URL}?deployment=${GITHUB_SHA}&attempt=${attempt}"
+          page_url="${DEPLOY_URL:-${CONFIG_URL}}"
+          if [ -z "${page_url}" ]; then
+            echo "::error::GitHub Pages did not provide a live site URL."
+            exit 1
+          fi
+          echo "page_url=${page_url}" >> "${GITHUB_OUTPUT}"
+          echo "Verifying ${page_url}"
+
+      - name: Verify live Compendium identity
+        env:
+          PAGE_URL: ${{ steps.target.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 24); do
+            separator='?'
+            case "${PAGE_URL}" in
+              *\?*) separator='&' ;;
+            esac
+            probe="${PAGE_URL}${separator}deployment=${GITHUB_SHA}&attempt=${attempt}"
             if curl --fail --silent --show-error --location \
               -H 'Cache-Control: no-cache' \
               "${probe}" --output /tmp/live.html; then
@@ -148,6 +190,6 @@ jobs:
             fi
             sleep 5
           done
-          echo "::error::Deployment completed but the live Pages endpoint did not converge to the current Compendium markers."
+          echo "::error::Pages publication did not converge to the current Compendium markers."
           head -c 1200 /tmp/live.html || true
           exit 1
