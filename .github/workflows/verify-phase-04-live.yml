@@ -1,0 +1,218 @@
+name: Verify Phase 04 live museum publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pinned Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Prove changed Pages bytes and museum object contract
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
+          OUT = Path("/tmp/starsilk-live-phase4")
+          OUT.mkdir(parents=True, exist_ok=True)
+          TRANSIENT = {429, 500, 502, 503, 504}
+
+          def cache_bust(url, suffix):
+              separator = "&" if "?" in url else "?"
+              token = urllib.parse.quote(PROOF + "-" + suffix)
+              return f"{url}{separator}phase04proof={token}"
+
+          def fetch(url, suffix, attempts=8):
+              request_url = cache_bust(url, suffix)
+              last_error = None
+              for attempt in range(1, attempts + 1):
+                  try:
+                      request = urllib.request.Request(
+                          request_url,
+                          headers={"User-Agent": "Starsilk-Phase-04-Live-Proof"},
+                      )
+                      with urllib.request.urlopen(request, timeout=35) as response:
+                          if response.status != 200:
+                              raise RuntimeError(f"{url}: HTTP {response.status}")
+                          return response.read()
+                  except urllib.error.HTTPError as exc:
+                      last_error = exc
+                      if exc.code not in TRANSIENT or attempt == attempts:
+                          raise
+                  except (urllib.error.URLError, TimeoutError) as exc:
+                      last_error = exc
+                      if attempt == attempts:
+                          raise
+                  time.sleep(min(1.25 * attempt, 6.0))
+              raise RuntimeError(f"fetch retries exhausted for {url}: {last_error}")
+
+          changed = {
+              "": Path("docs/index.html"),
+              "entities/": Path("docs/entities/index.html"),
+              "objects/": Path("docs/objects/index.html"),
+              "objects/museum.css": Path("docs/objects/museum.css"),
+              "objects/museum.js": Path("docs/objects/museum.js"),
+              "objects/objects.json": Path("docs/objects/objects.json"),
+              "objects/schema.json": Path("docs/objects/schema.json"),
+              "objects/AUTHORITY.md": Path("docs/objects/AUTHORITY.md"),
+              "asset-manifest.json": Path("docs/asset-manifest.json"),
+          }
+
+          # Wait until the Pages edge demonstrably serves the merged Phase 4 museum.
+          marker_url = BASE + "objects/"
+          marker_expected = changed["objects/"].read_bytes()
+          last_error = None
+          for attempt in range(1, 49):
+              try:
+                  candidate = fetch(marker_url, f"marker-{attempt}")
+                  if candidate == marker_expected:
+                      break
+                  last_error = RuntimeError("live museum page exists but does not yet match merged docs")
+              except Exception as exc:
+                  last_error = exc
+              if attempt < 48:
+                  time.sleep(5)
+          else:
+              raise RuntimeError(f"Pages did not converge to Phase 4 publication: {last_error}")
+
+          downloaded = {}
+          for number, (relative, path) in enumerate(changed.items()):
+              url = BASE + relative
+              expected = path.read_bytes()
+              live = fetch(url, f"file-{number}")
+              assert live == expected, f"live bytes differ from merged docs: {url}"
+              downloaded[relative] = live
+
+              target = OUT / ("index.html" if relative == "" else (relative + "index.html" if relative.endswith("/") else relative))
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(live)
+              time.sleep(0.15)
+
+          objects = json.loads(downloaded["objects/objects.json"])
+          records = objects["records"]
+          assert objects["schema"] == "starsilk-museum-object-index/1"
+          assert objects["record_count"] == 213 == len(records)
+          assert objects["source_manifest"] == BASE + "asset-manifest.json"
+          ids = [record["object_id"] for record in records]
+          assert len(ids) == len(set(ids)) == 213
+
+          for record in records:
+              filename = record["filename"]
+              stem = filename.rsplit(".", 1)[0]
+              assert record["object_id"] == stem
+              assert record["canonical_url"] == BASE + f"objects/#{stem}"
+              assert record["media_url"] == BASE + "assets/media/" + filename
+              assert record["evidence"]["class"] == "published-media-provenance"
+              assert record["evidence"]["source_ref"] == "docs/asset-manifest.json"
+              assert record["evidence"]["source_key"] == filename
+              for context in record["contexts"]:
+                  assert context["entity_url"] == BASE + f"entities/{context['section_id']}/"
+
+          by_id = {record["object_id"]: record for record in records}
+          assert by_id["0cb9f2fd4623694ffca06f45"]["media_kind"] == "image"
+          assert by_id["2867ab757325a18d4e86e47d"]["media_kind"] == "video"
+          assert by_id["0ab4d1542df260c447aee4c0"]["logical_identity"] == "Blood Rings"
+          assert by_id["0ab4d1542df260c447aee4c0"]["object_id"] != "Blood Rings"
+          assert by_id["0b4e8ad4a9a36b115a126026"]["logical_identity"] is None
+          assert any("No logical identity" in item for item in by_id["0b4e8ad4a9a36b115a126026"]["unknowns"])
+
+          museum_html = downloaded["objects/"].decode("utf-8")
+          assert '<dialog id="objectViewer"' in museum_html
+          assert "<img" not in museum_html
+          assert "<video" not in museum_html
+          assert 'src="museum.js"' in museum_html
+          assert 'href="objects.json"' in museum_html
+
+          entity_index = downloaded["entities/"].decode("utf-8")
+          assert 'href="../objects/">Browse museum objects</a>' in entity_index
+
+          root = downloaded[""].decode("utf-8")
+          assert 'id="dossierSearch"' in root
+          assert "Archive tools" in root
+
+          manifest = json.loads(downloaded["asset-manifest.json"])
+          assert manifest["unique_binary_assets"] == 213
+          assert len(manifest["assets"]) == 213
+
+          print(
+              "LIVE_PHASE4_BYTES_OK "
+              f"objects={len(records)} exact_files={len(changed)} "
+              "identity=ok provenance=ok unknowns=ok root=ok"
+          )
+          PY
+
+      - name: Re-run public-boundary gate over downloaded Phase 04 text surfaces
+        run: |
+          python3 tools/check_public_boundary.py \
+            /tmp/starsilk-live-phase4/objects \
+            /tmp/starsilk-live-phase4/entities/index.html \
+            /tmp/starsilk-live-phase4/index.html
+
+      - name: Prove live museum behavior in Chromium
+        run: |
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          IMAGE_ID = "0cb9f2fd4623694ffca06f45"
+          VIDEO_ID = "2867ab757325a18d4e86e47d"
+
+          with sync_playwright() as playwright:
+              browser = playwright.chromium.launch()
+              page = browser.new_page(viewport={"width": 1280, "height": 800})
+              media_requests = []
+              page.on("request", lambda request: media_requests.append(request.url) if "/assets/media/" in request.url else None)
+
+              page.goto(BASE + "objects/", wait_until="load")
+              page.wait_for_function("document.querySelectorAll('#objectList li').length === 213")
+              assert media_requests == [], f"museum base page eagerly requested media: {media_requests[:5]}"
+              assert "213 of 213 museum objects" in page.locator("#collectionStatus").inner_text()
+
+              page.goto(BASE + "objects/#" + IMAGE_ID, wait_until="load")
+              page.wait_for_selector("#objectViewer[open]")
+              assert page.locator("#viewerId").inner_text() == IMAGE_ID
+              assert page.locator("#viewerMedia img").count() == 1
+              assert page.locator("#viewerMedia video").count() == 0
+              assert page.locator("#viewerContexts a[href='../entities/shard-god/']").count() == 1
+              page.keyboard.press("Escape")
+              page.wait_for_function("!document.querySelector('#objectViewer').open")
+              assert page.locator("#viewerMedia img").count() == 0
+              assert page.url == BASE + "objects/"
+
+              page.goto(BASE + "objects/#" + VIDEO_ID, wait_until="load")
+              page.wait_for_selector("#objectViewer[open]")
+              video = page.locator("#viewerMedia video")
+              assert video.count() == 1
+              assert page.locator("#viewerMedia img").count() == 0
+              assert video.evaluate("element => element.controls") is True
+              assert video.evaluate("element => element.autoplay") is False
+              assert video.evaluate("element => element.paused") is True
+              assert video.get_attribute("preload") == "metadata"
+              page.locator("#closeViewer").click()
+              page.wait_for_function("!document.querySelector('#objectViewer').open")
+              assert page.locator("#viewerMedia video").count() == 0
+              assert page.url == BASE + "objects/"
+
+              page.goto(BASE + "entities/", wait_until="load")
+              assert page.locator("a[href='../objects/']", has_text="Browse museum objects").count() == 1
+
+              browser.close()
+
+          print("LIVE_PHASE4_BROWSER_OK metadata_only=ok image=ok video=ok escape=ok teardown=ok discovery=ok")
+          PY
