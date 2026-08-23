@@ -22,7 +22,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 2 | Machine Publication Layer | COMPLETE | PR #12; final head `e64068a821df51cfb67cdd335007287d64d31fc7`; CI `32639102690` PASS; merged `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof `32639347205` PASS | none |
 | 3 | Stable Entity Pages and Permalinks | COMPLETE | PR #15; final head `54da12779396175622aab1faafa64fbb4b652c2a`; CI `32640613872` PASS; merged `b7726adc86f967e914616c07b5b4b6179236dbf3`; live proof `32640932505` PASS | none |
 | 4 | Museum Object Model and Media Viewer | COMPLETE | PR #18; final head `0603379d0ea6a364e0d5d608685f38b27f95bfc9`; CI `32642262682` PASS; merged `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof `32642574092` PASS | none |
-| 5 | Relationship Observatory | NOT STARTED | — | begin only in a fresh chat after verifying Phase 4 on current `main` |
+| 5 | Relationship Observatory | COMPLETE | PR #21; final head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`; CI `32649254977` PASS; merged `0f31a280eebdbaf68bda9265d3fa54aed806f120`; live proof `32649700329` PASS | none |
 | 6 | Canon Inspector and Authority UI | NOT STARTED | — | deferred |
 | 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |
 | 8 | Curated Museum Tours and Local Collections | NOT STARTED | — | deferred |
@@ -174,6 +174,32 @@ Promote existing media identities into provenance-aware museum objects and build
 ### Phase 5 — Relationship Observatory
 
 Expose source-traceable incoming/outgoing observed relationships with deep links and an accessible text representation. Do not promote mentions into semantic facts.
+
+#### Completion record
+
+- starting `main`: `980823f8e5545d1963e447f213af07cec74658c7`
+- work branch: `phase-05-relationship-observatory`
+- exact generated-publication commit: `e56b2dceb3bd4424f3138229f9212f3aa0c990bc`
+- final validated implementation head: `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`
+- successful required final CI: run `32649254977`
+- implementation PR: `#21`
+- implementation merge on `main`: `0f31a280eebdbaf68bda9265d3fa54aed806f120`
+- execution-only live proof PR: `#22`, closed unmerged
+- successful live proof: run `32649700329`, job `97219258645`
+- relationship observatory: 127 published records and the existing 136 observed `mentions` / `observed-xref` edges; no semantic relationship class was introduced
+- evidence identity: every physical rendered xref has a deterministic public evidence anchor; graph edges cite the first qualifying physical xref inside the established source-section subtree projection
+- canonical human surface: `/relationships/` with stable `#entity-<stable-id>` and `#mention--<source>--<target>` fragments, plus JSON, Markdown, authority, and versioned schema alternatives
+- discovery: canonical entity pages expose the observatory while preserving their existing observed-xref related-record lists and stable identities
+- public observatory is static and script-free; mobile/deep-link behavior is covered by Chromium plus representative Firefox/WebKit CI
+- deterministic generation/checking is owned by `build/relationship_publication.py`; `tools/build.sh --check` includes all five relationship outputs
+- final CI established `135 passed, 1 skipped`, 11 canon locks / 0 violations, 404 public text/machine files boundary-clean, and Chromium/Firefox/WebKit PASS
+- diff-scope verification found no dependency, lockfile, media, deletion, rename, canon-prose, chronology, museum-identity, or Phase 6 changes
+- live proof established `LIVE_PHASE5_BYTES_OK records=127 edges=136 exact_files=11 evidence=xref-codec--dao semantics=observed-only`
+- live public-boundary recheck passed across 10 downloaded text/machine files
+- live Chromium proof established `LIVE_PHASE5_BROWSER_OK edge=ok evidence=ok entity-discovery=ok mobile=ok`
+- one bounded relationship-evidence repair normalized pre-existing as well as newly generated physical xrefs; later test/release-hygiene corrections did not promote or alter relationship semantics
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 6 — Canon Inspector and Authority UI
 
