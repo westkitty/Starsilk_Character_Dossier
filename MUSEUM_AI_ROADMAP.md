@@ -24,7 +24,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 4 | Museum Object Model and Media Viewer | COMPLETE | PR #18; final head `0603379d0ea6a364e0d5d608685f38b27f95bfc9`; CI `32642262682` PASS; merged `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof `32642574092` PASS | none |
 | 5 | Relationship Observatory | COMPLETE | PR #21; final head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`; CI `32649254977` PASS; merged `0f31a280eebdbaf68bda9265d3fa54aed806f120`; live proof `32649700329` PASS | none |
 | 6 | Canon Inspector and Authority UI | COMPLETE | PR #24; implementation head `d124b1c3fe8990d0cab2e7308f968ed9027463b6`; CI `32656216440` PASS; merged `5dafd7c7cba11b728c9548b009847ca96e8e756f`; live proof `32656422914` PASS | none |
-| 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |
+| 7 | Faceted Discovery and AI Context Packets | COMPLETE | PR #27; final head `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`; CI `32658677512` PASS; merged `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; live proof `32658856927` PASS | none |
 | 8 | Curated Museum Tours and Local Collections | NOT STARTED | — | deferred |
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | NOT STARTED | — | deferred |
 | 10 | WorldsVault Cosmic Topology Explorer | NOT STARTED | — | deferred |
@@ -228,6 +228,33 @@ Expose suitable public machine-enforced locks from `src/canon/invariants.json` w
 ### Phase 7 — Faceted Discovery and AI Context Packets
 
 Preserve existing search/navigation behavior while adding structured result classes, facets, excerpts, keyboard/deep-link support, and compact deterministic source-backed context packets.
+
+#### Completion record
+
+- starting `main`: `34846a32eb3ea68d6f58520cc3d36246f0fdb49b`
+- work branch: `phase-07-faceted-discovery`
+- final validated implementation head: `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`
+- one bounded repair commit: `8136b8288632aa340fdf5f4d301316d9a81b44bb`
+- repair reason: Phase 7 legitimately expanded the machine publication schema/URL surface, but two pre-existing Phase 2 tests still asserted the old fixed schema and URL sets; the repair updated only those stale test expectations and did not change discovery behavior, authority semantics, stable identities, canon status, media identity, or relationship meaning
+- successful required final CI: run `32658677512` (Chromium, Firefox, and WebKit PASS)
+- implementation PR: `#27`
+- implementation merge on `main`: `72837ad5595a0380fe45d2aed1ed7cb5521b6432`
+- execution-only live proof PR: `#28`, closed unmerged
+- successful live proof: run `32658856927`, job `97241822080`
+- generated discovery publication: 137 files total under `/discover/` — 10 fixed human/machine/schema/authority assets plus 127 stable-ID context packets
+- discovery register: exactly 127 authored top-level stable records in source order; `result_class` remains structural publication metadata, navigation-group facets derive only from authored `src/content/nav.json`, authored archetypes are copied only when present, and published-media facets derive only from manifest association evidence
+- excerpts are deterministic whitespace-normalized truncations of authored source text; they are retrieval aids, not summaries, interpretations, or new canon prose
+- AI context packets preserve stable identity, source references, visibility, `canon_status`, spoiler publication value, related-media IDs, explicit unknowns, and observed relationship direction; observed relationships remain strictly `kind=mentions` / `evidence_class=observed-xref`
+- the existing complete-Compendium `dossierSearch` and navigation behavior remain separate and unchanged; Phase 7 is an additive discovery surface rather than a root-search replacement
+- human discovery supports query/facet URL state, stable `#result-<stable-id>` deep links, keyboard navigation, reset behavior, and responsive 375px rendering; the entity index exposes a conservative Discover entry point
+- machine discovery adds versioned discovery/context-packet schemas, `/discover/` endpoints, packet URLs, `llms.txt` orientation, and sitemap coverage through the established deterministic machine publisher
+- final diff-scope review found no dependency/lockfile changes, canonical-media changes, authored canon-prose changes, stable-ID renames, museum-object identity changes, semantic relationship promotion, or Phase 8 implementation
+- live proof established `LIVE_PHASE7_BYTES_OK records=127 packets=127 exact_files=15 relationships=observed-only root-search=unchanged`
+- downloaded live proof set passed `tools/check_public_boundary.py` across 13 text/machine files
+- live Chromium proof established `LIVE_PHASE7_BROWSER_OK deep-link=ok facets=ok keyboard=ok entity-discovery=ok mobile=ok`
+- Phase 8 was not started
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 8 — Curated Museum Tours and Local Collections
 
