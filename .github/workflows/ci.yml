@@ -10,16 +10,9 @@ jobs:
   build-and-validate:
     name: Build, validate, unit + accessibility/network tests (Chromium)
     runs-on: ubuntu-latest
-    # Screenshot regression is only meaningfully stable when every run
-    # renders fonts the same way -- text-rendering differs enough between
-    # host OSes that a bare ubuntu-latest runner would drift from the
-    # committed baselines through no real design change of its own. Pinning
-    # the official Playwright container (matching requirements.txt's
-    # playwright version) is Microsoft's own documented fix for this.
-    # NOTE: tests/visual_baselines/ in this repo were captured locally on
-    # macOS; the first run of this job against this container may need a
-    # maintainer to regenerate/commit baselines from *inside* this same
-    # container so future runs compare like-for-like.
+    # Visual references are generated deliberately inside this exact pinned
+    # Playwright container. Visual tests wait for target images to load/decode
+    # before capture, so native lazy loading cannot create false regressions.
     container: mcr.microsoft.com/playwright/python:v1.62.0-noble
     steps:
       - uses: actions/checkout@v4
@@ -28,18 +21,18 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Install Python dependencies
-        run: |
-          python3 -m venv .venv
-          .venv/bin/pip install -r requirements.txt
+        run: python3 -m pip install -r requirements.txt
 
       - name: Build from source (no media regeneration required)
         run: ./tools/build.sh
 
-      - name: Prove the checked-in docs/ matches its declared sources
+      - name: Prove the checked-in deployable docs/ matches its declared sources
         run: |
           ./tools/build.sh --check
-          git diff --exit-code -- docs/ || {
-            echo "::error::Build produced uncommitted differences in docs/ -- the checked-in site and its generator have diverged.";
+          # qa-report.txt records runner capabilities (for example Node availability)
+          # and is validation telemetry, not authoritative deployable source output.
+          git diff --exit-code -- docs/ ':(exclude)docs/qa-report.txt' || {
+            echo "::error::Build produced uncommitted differences in deployable docs/ -- the checked-in site and its generator have diverged.";
             exit 1;
           }
 
@@ -47,7 +40,7 @@ jobs:
         run: git diff --check
 
       - name: Full pytest + Playwright suite (Chromium)
-        run: .venv/bin/pytest tests/ -q
+        run: python3 -m pytest tests/ -q
 
       - name: Upload failed visual-regression captures
         if: failure()

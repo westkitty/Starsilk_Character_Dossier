@@ -915,6 +915,28 @@ def _freeze_decorative_video(page: Page):
     page.wait_for_timeout(100)
 
 
+
+def _wait_for_visual_assets(page: Page, selector: str):
+    """Make visual-regression captures wait for every real image in
+    the target section to load and decode. Hidden attachment
+    placeholders are intentionally excluded."""
+    page.evaluate("""selector => {
+        document.querySelectorAll(`${selector} img`).forEach(img => {
+            if (img.hidden) return;
+            img.loading = 'eager';
+            if (!img.getAttribute('src') && img.dataset.lazySrc) {
+                img.setAttribute('src', img.dataset.lazySrc);
+            }
+        });
+    }""", selector)
+    page.wait_for_function("""selector => Array.from(document.querySelectorAll(`${selector} img`))
+        .filter(img => !img.hidden && (img.getAttribute('src') || img.dataset.lazySrc))
+        .every(img => img.complete && img.naturalWidth > 0)""", arg=selector, timeout=10_000)
+    page.evaluate("""selector => Promise.all(Array.from(document.querySelectorAll(`${selector} img`))
+        .filter(img => !img.hidden && img.complete && img.naturalWidth > 0)
+        .map(img => img.decode().catch(() => undefined)))""", selector)
+    page.wait_for_timeout(50)
+
 def test_visual_cover_desktop(page: Page, local_server):
     page.set_viewport_size({"width": 1280, "height": 900})
     page.goto(f"{local_server}/index.html")
@@ -936,7 +958,7 @@ def test_visual_principal_character_page(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     page.evaluate("document.getElementById('dao').querySelector('details.page-disclosure').open = true")
     page.locator("#dao").scroll_into_view_if_needed()
-    page.wait_for_timeout(200)
+    _wait_for_visual_assets(page, "#dao")
     assert_matches_baseline(page.locator("#dao").screenshot(), "principal-dao.png")
 
 
@@ -945,7 +967,7 @@ def test_visual_drakken_entry(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     page.evaluate("document.getElementById('drk-the-egg').querySelector('details.page-disclosure').open = true")
     page.locator("#drk-the-egg").scroll_into_view_if_needed()
-    page.wait_for_timeout(200)
+    _wait_for_visual_assets(page, "#drk-the-egg")
     assert_matches_baseline(page.locator("#drk-the-egg").screenshot(), "drakken-the-egg.png")
 
 
@@ -954,7 +976,7 @@ def test_visual_peripheral_entry(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     page.evaluate("document.getElementById('peripheral-index').querySelector('details.page-disclosure').open = true")
     page.locator("#peripheral-index").scroll_into_view_if_needed()
-    page.wait_for_timeout(200)
+    _wait_for_visual_assets(page, "#peripheral-index")
     assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png")
 
 
@@ -963,7 +985,7 @@ def test_visual_media_vault(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     page.evaluate("document.getElementById('media-vault').querySelector('details.page-disclosure').open = true")
     page.locator("#media-vault").scroll_into_view_if_needed()
-    page.wait_for_timeout(200)
+    _wait_for_visual_assets(page, "#media-vault")
     assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png")
 
 
