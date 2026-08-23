@@ -1,0 +1,61 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/",
+  "display_label": "Dao",
+  "excerpt": "Core read Skeptical, hesitant and competent. Dao reads ambient code and mediates systems instinctively, but competence encourages guarded self-sufficiency. His most productive character pressure forces him to trust a person when system fluency is insufficient. Capability Innate fluency with ambient code, machine logic…",
+  "excerpt_source_ref": "src/content/sections/dao.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#dao",
+  "navigation_group": "Principal characters",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "archive",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cover",
+      "kail",
+      "marcel",
+      "starbinding",
+      "systems",
+      "trio-gallery"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/dao.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "e947e78027041e109d68912b.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "dao",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/dao.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/dao.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "dao",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

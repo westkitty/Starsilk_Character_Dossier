@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Discovery · {{ project_name }}</title>
+<meta name="description" content="Faceted, source-backed discovery across stable Starsilk Compendium records, with deterministic AI context packets.">
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="alternate" type="application/json" href="discovery.json">
+<link rel="alternate" type="text/markdown" href="discovery.md">
+<link rel="stylesheet" href="discovery.css">
+<script src="discovery.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#results">Skip to results</a>
+<header class="topbar">
+  <a class="brand" href="../">{{ project_name }}</a>
+  <nav aria-label="Discovery publication">
+    <a href="../entities/">Entity index</a>
+    <a href="../relationships/">Relationships</a>
+    <a href="../canon/">Canon Inspector</a>
+    <a href="discovery.json">JSON</a>
+    <a href="context-packets.json">Context packets</a>
+  </nav>
+</header>
+
+<main id="main">
+  <header class="hero">
+    <div class="eyebrow">Phase 7 · source-backed discovery</div>
+    <h1>Faceted discovery</h1>
+    <p class="lede">Search and filter the {{ results|length }} stable top-level Compendium records without replacing the complete Compendium search. Result classes are structural publication metadata; excerpts are mechanical projections of authored source text.</p>
+    <p class="authority-note"><strong>Authority boundary:</strong> search matches, facets, excerpts, and AI context packets are generated discovery aids. They do not create canon facts, change canon status, or promote observed mentions into semantic relationships.</p>
+  </header>
+
+  <section class="filter-panel" aria-labelledby="filter-heading">
+    <div class="filter-heading-row">
+      <div>
+        <div class="eyebrow">Discovery controls</div>
+        <h2 id="filter-heading">Filter stable records</h2>
+      </div>
+      <button id="resetFilters" type="button">Reset</button>
+    </div>
+    <form id="discoveryFilters" autocomplete="off">
+      <label class="search-field">Search label, ID, or excerpt
+        <input id="discoveryQuery" name="q" type="search" inputmode="search" placeholder="Codec, Blood Rings, titan…" aria-describedby="keyboardHelp">
+      </label>
+      <label>Result class
+        <select id="classFacet" name="class">
+          <option value="">All classes</option>
+          {% for facet in facets.result_class %}<option value="{{ facet.value }}">{{ facet.value }} ({{ facet.count }})</option>{% endfor %}
+        </select>
+      </label>
+      <label>Navigation group
+        <select id="groupFacet" name="group">
+          <option value="">All groups</option>
+          {% for facet in facets.navigation_group %}<option value="{{ facet.value }}">{{ facet.label if facet.label is defined else facet.value }} ({{ facet.count }})</option>{% endfor %}
+        </select>
+      </label>
+      <label>Published media
+        <select id="mediaFacet" name="media">
+          <option value="">Any</option>
+          {% for facet in facets.media %}<option value="{{ facet.value }}">{{ "Has media" if facet.value == "with-media" else "No media" }} ({{ facet.count }})</option>{% endfor %}
+        </select>
+      </label>
+      {% if facets.archetype %}
+      <label>Authored archetype
+        <select id="archetypeFacet" name="archetype">
+          <option value="">All archetypes</option>
+          {% for facet in facets.archetype %}<option value="{{ facet.value }}">{{ facet.value }} ({{ facet.count }})</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+    </form>
+    <div class="filter-footer">
+      <p id="discoveryStatus" role="status" aria-live="polite">{{ results|length }} of {{ results|length }} records</p>
+      <p id="keyboardHelp">Keyboard: <kbd>/</kbd> focuses search; <kbd>↑</kbd>/<kbd>↓</kbd> move through visible results; <kbd>Enter</kbd> opens the active record; <kbd>Esc</kbd> clears the query.</p>
+    </div>
+  </section>
+
+  <section id="results" class="results-wrap" aria-labelledby="results-heading">
+    <div class="results-heading-row">
+      <div>
+        <div class="eyebrow">Stable records</div>
+        <h2 id="results-heading">Results</h2>
+      </div>
+      <a href="AUTHORITY.md">Read discovery authority rules</a>
+    </div>
+    <ol id="discoveryResults" class="result-grid">
+      {% for item in results %}
+      <li id="result-{{ item.stable_id }}" class="discovery-result result-class--{{ item.result_class }}" data-stable-id="{{ item.stable_id }}" data-result-class="{{ item.result_class }}" data-navigation-group="{{ item.navigation_group if item.navigation_group else unlisted_group_value }}" data-media="{{ 'with-media' if item.has_media else 'without-media' }}" data-archetype="{{ item.archetype or '' }}" data-search="{{ (item.display_label ~ ' ' ~ item.stable_id ~ ' ' ~ item.excerpt ~ ' ' ~ (item.navigation_group or '') ~ ' ' ~ (item.archetype or ''))|lower }}">
+        <article class="discovery-result-card" data-stable-id="{{ item.stable_id }}">
+          <header>
+            <div class="result-meta">
+              <span class="result-class">{{ item.result_class }}</span>
+              {% if item.navigation_group %}<span>{{ item.navigation_group }}</span>{% else %}<span>Not in authored navigation</span>{% endif %}
+              {% if item.archetype %}<span>archetype: {{ item.archetype }}</span>{% endif %}
+            </div>
+            <div class="result-title-row">
+              <h3><a class="result-link" href="../entities/{{ item.stable_id }}/">{{ item.display_label }}</a></h3>
+              <a class="result-anchor" href="#result-{{ item.stable_id }}" aria-label="Deep link to {{ item.display_label }} result">#</a>
+            </div>
+            <code>{{ item.stable_id }}</code>
+          </header>
+          <p class="excerpt">{{ item.excerpt if item.excerpt else "No authored text excerpt is available for this record." }}</p>
+          <footer>
+            <span>{{ item.media_count }} published media item{{ '' if item.media_count == 1 else 's' }}</span>
+            <a href="packets/{{ item.stable_id }}.json">AI context packet</a>
+            <a href="{{ item.legacy_url }}">Complete Compendium</a>
+          </footer>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+    <p id="emptyState" class="empty-state" hidden>No records match these discovery controls. That is a filter result, not a canon claim.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Generated from established Starsilk Compendium authority. <a href="AUTHORITY.md">Interpretation rules</a> · <a href="schema.json">Discovery schema</a> · <a href="context-packet.schema.json">Context-packet schema</a></p>
+</footer>
+</body>
+</html>

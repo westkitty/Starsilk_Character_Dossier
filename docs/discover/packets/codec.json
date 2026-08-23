@@ -1,0 +1,74 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/",
+  "display_label": "Codec",
+  "excerpt": "Core read Codec is pragmatic, system-literate and anti-hierarchical because he has watched institutions turn catastrophe into procedure. He believes artificial life remains meaningful. He opposes the Shard-God’s moral logic while reproducing a smaller form of unilateral authority through the Starbinding. “It should be…",
+  "excerpt_source_ref": "src/content/sections/codec.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#codec",
+  "navigation_group": "Principal characters",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "archive",
+      "artifacts-factions",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "cosmic-architecture",
+      "cover",
+      "jazen",
+      "kail",
+      "marcel",
+      "marshal-venn",
+      "nialbu",
+      "ontology-horror",
+      "source",
+      "starbinding",
+      "systems",
+      "world"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "dao",
+      "jazen",
+      "kail",
+      "marcel",
+      "nialbu"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "eb35fd45ca321f41171c4c5d.webp",
+    "f0341bf8ea5785a791236f72.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "codec",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/codec.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/codec.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "codec",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

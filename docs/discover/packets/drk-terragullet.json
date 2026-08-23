@@ -1,0 +1,53 @@
+{
+  "archetype": "seedcarrier",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-terragullet/",
+  "display_label": "Terragullet",
+  "excerpt": "Operational role Soil rewriter; consumes and rewrites hostile soil into coded loam. Archetype function Replacement ecology: megaflora, spores, fungi, rain, soil, biomes and mutation. Named historical record The Threshing of Hadran’s Ring — soil was rewritten after genocide and wheat grew in the shapes of the dead.…",
+  "excerpt_source_ref": "src/content/sections/drk-terragullet.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-terragullet",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "canon-ledger",
+      "chronology"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-terragullet.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "67385a1d966c16adabc3653a.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "drk-terragullet",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-terragullet.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-terragullet.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drk-terragullet",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

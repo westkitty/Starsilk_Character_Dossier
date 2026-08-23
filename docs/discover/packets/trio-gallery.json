@@ -1,0 +1,60 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/",
+  "display_label": "Three protagonists under impossible pressure.",
+  "excerpt": "Visual locks carried by this set Kail : bright blue hair, black suit, red scarf fully covering the mouth; exactly one katana when a blade is present. Marcel : olive skin, widow’s peak, rustic green layers, plain wooden staff; any visible energy is blue barcode-stream Starsilk rather than generic aura. Dao : tan young…",
+  "excerpt_source_ref": "src/content/sections/trio-gallery.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#trio-gallery",
+  "navigation_group": "Peripheral & cosmic",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/trio-gallery.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "07bd229255662df45be8153b.webp",
+    "1c70d5c364dc33a4d6511835.webp",
+    "1c9f6823b71d0ee55003ca15.webp",
+    "3c62f9fe351fc2bec2ae2d65.webp",
+    "3ed609d5b3c806b82eb92e0c.webp",
+    "60ab2d5ff9460371b68628dc.webp",
+    "6bcd27744b4e19b907aedfe5.webp",
+    "8c39773527b1c0f8cbff0c13.webp",
+    "9bcb4735eb1fd307e5acb9a8.webp",
+    "d8036b5fb38ba87d329e5d1c.webp",
+    "fcba6f0011e84e989b926cbe.webp",
+    "fd05ff18b37c24ab7b24a631.webp"
+  ],
+  "result_class": "section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "trio-gallery",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/trio-gallery.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/trio-gallery.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "trio-gallery",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

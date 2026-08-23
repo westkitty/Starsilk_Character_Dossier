@@ -1,0 +1,54 @@
+{
+  "archetype": "crust-binder",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fault-tongue/",
+  "display_label": "Fault-Tongue",
+  "excerpt": "Operational role Seismic translator; sings through bedrock to fracture, displace or realign strata. Archetype function Planetary bones: faultlines, lithosphere, glassfields, minerals, seismicity and deep-earth formatting. Named historical record The Singing Crack of Tholus Fort — the fortress split in six directions in…",
+  "excerpt_source_ref": "src/content/sections/drk-fault-tongue.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "canon-ledger",
+      "chronology",
+      "media-vault"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-fault-tongue.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "85e1b71870122e9be372be5f.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "drk-fault-tongue",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-fault-tongue.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-fault-tongue.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drk-fault-tongue",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

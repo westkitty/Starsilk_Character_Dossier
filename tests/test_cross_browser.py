@@ -97,3 +97,16 @@ def test_relationship_observatory_deep_link_journey(page: Page, local_server):
         "href",
         "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-codec--dao",
     )
+
+
+
+def test_faceted_discovery_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/discover/?class=character-section&q=Dao#result-dao")
+    expect(page.locator("#result-dao")).to_be_visible()
+    expect(page.locator("#discoveryStatus")).to_contain_text("1 of 127 records")
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    page.locator("#resetFilters").click()
+    page.locator("#discoveryQuery").fill("Codec")
+    page.keyboard.press("ArrowDown")
+    expect(page.locator("#result-codec .result-link")).to_be_focused()

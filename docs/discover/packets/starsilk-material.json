@@ -1,0 +1,53 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/",
+  "display_label": "Starsilk",
+  "excerpt": "Canonical nature Literal programmable cosmological substance and medium for repeatable reality Macros. Macros are repeatable action-loops embedded into the universe, not metaphorical magic. Starsilk itself is not sentient or sapient. Death remains final. Stars, starlight and Starsilk may retain data, residue or…",
+  "excerpt_source_ref": "src/content/sections/starsilk-material.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material",
+  "navigation_group": "Drakken & blood systems",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/starsilk-material.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "0db864ffeba055a05d60a4fd.webp",
+    "2c5a3128383f8ae47a874fc8.webp",
+    "756b79618837443eadf6ce3b.webp",
+    "9d6c6471a862c12ff08d5abc.webp",
+    "ac49ab9d859a87e948903e35.webp"
+  ],
+  "result_class": "material-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "starsilk-material",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/starsilk-material.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/starsilk-material.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "starsilk-material",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

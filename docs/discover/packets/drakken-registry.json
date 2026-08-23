@@ -1,0 +1,47 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/",
+  "display_label": "The full field register.",
+  "excerpt": "Taxonomy law: formal five-domain hub and expanded operational archive are both retained. They are different indexing layers. This dossier does not silently make the sixty named operational entities into a replacement “35-strain” hub. Genesis Nodes Origin systems: compiled initialization states and the fixed homeworld…",
+  "excerpt_source_ref": "src/content/sections/drakken-registry.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry",
+  "navigation_group": "Drakken & blood systems",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drakken-registry.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "drakken-registry",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drakken-registry.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drakken-registry.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drakken-registry",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

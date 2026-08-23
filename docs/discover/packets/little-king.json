@@ -1,0 +1,48 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/little-king/",
+  "display_label": "The Little King",
+  "excerpt": "Canonical record A mortal ruler who attempted to answer Tiger through traditional armies. The response failed at the category level: Tiger extracted/edited him out of existence. His fate demonstrates the inadequacy of ordinary military sovereignty against reality-editing divine authority. Registry state Domain…",
+  "excerpt_source_ref": "src/content/sections/little-king.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#little-king",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/little-king.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "little-king",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/little-king.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/little-king.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "little-king",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

@@ -1,0 +1,53 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/safi/",
+  "display_label": "Safi",
+  "excerpt": "Canonical record Paired with Jalen as a fixed structural waypoint. Part of the corpse geography Tiger constructs around Meridian Station. The pairing is intentional arrangement, not random drift. Registry state Domain Meridian Station / Orbital Tomb Record Current-message canon Identity Safi Continuity law This folio…",
+  "excerpt_source_ref": "src/content/sections/safi.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#safi",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "jalen",
+      "media-vault"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "jalen"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/safi.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "safi",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/safi.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/safi.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "safi",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

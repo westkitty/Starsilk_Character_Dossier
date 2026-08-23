@@ -1,0 +1,47 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/",
+  "display_label": "Blood Rings",
+  "excerpt": "Canonical definition A Blood Ring is a Drakken-made vitrified biospheric atrocity-structure from the Blood Eclipse War. Conquered populations, blood matter, bone ash, ocean fats, biosphere oils, mineral residue and terraforming compounds are rendered into a crimson glass-state composite, extruded into orbit…",
+  "excerpt_source_ref": "src/content/sections/blood-rings.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings",
+  "navigation_group": "Drakken & blood systems",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/blood-rings.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "blood-rings",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/blood-rings.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/blood-rings.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "blood-rings",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

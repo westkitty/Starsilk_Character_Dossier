@@ -18,6 +18,10 @@ Relationship Observatory Markdown: https://westkitty.github.io/Starsilk_Characte
 Human Canon Inspector: https://westkitty.github.io/Starsilk_Character_Dossier/canon/
 Canon lock register JSON: https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.json
 Canon lock register Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.md
+Human faceted discovery: https://westkitty.github.io/Starsilk_Character_Dossier/discover/
+Discovery JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/discover/discovery.json
+AI context packet register: https://westkitty.github.io/Starsilk_Character_Dossier/discover/context-packets.json
+AI context packet pattern: https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/<stable-id>.json
 JSON-LD: https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld
 Authority and evidence rules: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
 Versioned schemas: https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/
@@ -30,4 +34,5 @@ Interpretation rules:
 - `spoiler_level: major` is a conservative publication default, not a canon fact.
 - Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.
 - The Canon Inspector exposes only a machine-enforced validation subset from `src/canon/invariants.json`; it is not complete canon, and absence from its register does not imply non-canon status.
+- Faceted discovery and AI context packets are generated convenience derivatives: result classes remain structural, excerpts are mechanical source projections, and packet fields never outrank cited source authority.
 - Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.

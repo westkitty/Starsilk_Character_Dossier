@@ -1,0 +1,50 @@
+{
+  "archetype": "fluxborne",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-glacierthroat/",
+  "display_label": "Glacierthroat",
+  "excerpt": "Operational role Cryofluid engine; controls glacial advance, thaw, freshwater sequestration, famine and migration pressure. Archetype function Matter in motion: oceans, rivers, aquifers, cryoseas, slurry, stellar plasma and nebular drift. Visual reference Archetype reference — dedicated plate Unclaimed archival art…",
+  "excerpt_source_ref": "src/content/sections/drk-glacierthroat.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glacierthroat",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-glacierthroat.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "67385a1d966c16adabc3653a.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "drk-glacierthroat",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-glacierthroat.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-glacierthroat.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drk-glacierthroat",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

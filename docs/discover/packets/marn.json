@@ -1,0 +1,48 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marn/",
+  "display_label": "Marn",
+  "excerpt": "Canonical record Civilian intentionally left at Khar Venn as a validation node. The role is not rescue; it is forced witnesshood beneath the newly extruded Blood Ring. Registry state Domain Khar Venn witness Record Current-message canon Identity Marn Continuity law This folio records only supplied details. Unnamed…",
+  "excerpt_source_ref": "src/content/sections/marn.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#marn",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/marn.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "marn",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marn.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marn.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "marn",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

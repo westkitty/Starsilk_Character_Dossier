@@ -1,0 +1,48 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/anika/",
+  "display_label": "Anika",
+  "excerpt": "Canonical record Member of the K-Relic crew transformed into the Shard-God’s living museum of corrected categories after the Syrin genocide. Stationed at the thruster-pier under the imposed category FIRST MOMENT. Her placement is part of a deliberate taxonomy of witnesshood rather than an accidental casualty…",
+  "excerpt_source_ref": "src/content/sections/anika.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#anika",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/anika.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "anika",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/anika.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/anika.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "anika",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

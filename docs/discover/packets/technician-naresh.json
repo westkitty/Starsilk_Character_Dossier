@@ -1,0 +1,50 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/technician-naresh/",
+  "display_label": "Technician Naresh",
+  "excerpt": "Source-backed record Naresh reports that the eastern batteries are responding to the Lyriboris song. His console stops behaving like ordinary code and displays impossible musical notation. He becomes the person who notices the defense grid asking permission to be silenced. His observations make the assault legible as…",
+  "excerpt_source_ref": "src/content/sections/technician-naresh.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#technician-naresh",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "lyriboris"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/technician-naresh.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "technician-naresh",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/technician-naresh.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/technician-naresh.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "technician-naresh",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}
