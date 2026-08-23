@@ -318,39 +318,55 @@ def test_current_section_wayfinding(page: Page, local_server):
     expect(kail_nav).to_have_attribute("aria-current", "location")
 
 
-def test_reader_mode_is_default_and_archive_tools_toggle_works(page: Page, local_server):
-    """Reader/Archive mode separation (item 14): the legacy attachment
-    upload controls are not part of ordinary reading by default."""
+def test_archive_tools_require_search_phrase_and_do_not_persist(page: Page, local_server):
+    """Archive controls stay out of ordinary reading, require the exact
+    search-field phrase, and relock instead of persisting across reloads."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
     page.evaluate("document.getElementById('archive').querySelector('details.page-disclosure').open = true")
 
     mode_toggle = page.locator("#modeToggle")
+    expect(mode_toggle).to_be_hidden()
     expect(mode_toggle).to_have_attribute("aria-pressed", "false")
     expect(mode_toggle).to_have_text("Archive tools")
-    # The file input is a permanently opacity:0 full-stage overlay by
-    # design (a styled native file input), so "visible" per Playwright's
-    # strict visibility rules doesn't apply either way -- check display
-    # directly, which is what reader/archive mode actually toggles.
+    assert "archive-mode" not in page.evaluate("document.documentElement.className")
+
     file_input = page.locator(".attachment-stage .asset-file").first
     assert page.evaluate("getComputedStyle(document.querySelector('.attachment-stage .asset-file')).display") == "none"
 
-    mode_toggle.click()
+    search = page.locator("#dossierSearch")
+    search.fill("AJD")
+    expect(mode_toggle).to_be_hidden()
+    search.fill("aj")
+    expect(mode_toggle).to_be_hidden()
+    search.fill("ajd")
+
+    expect(mode_toggle).to_be_visible()
     expect(mode_toggle).to_have_attribute("aria-pressed", "true")
     expect(mode_toggle).to_have_text("Reader mode")
+    expect(search).to_have_value("")
+    assert "archive-mode" in page.evaluate("document.documentElement.className")
     assert page.evaluate("getComputedStyle(document.querySelector('.attachment-stage .asset-file')).display") != "none"
 
+    mode_toggle.click()
+    expect(mode_toggle).to_be_hidden()
+    expect(mode_toggle).to_have_attribute("aria-pressed", "false")
+    expect(mode_toggle).to_have_text("Archive tools")
+    assert "archive-mode" not in page.evaluate("document.documentElement.className")
+    assert page.evaluate("getComputedStyle(document.querySelector('.attachment-stage .asset-file')).display") == "none"
+
     page.reload()
-    expect(page.locator("#modeToggle")).to_have_attribute("aria-pressed", "true")
-    mode_toggle_after = page.locator("#modeToggle")
-    mode_toggle_after.click()
-    expect(mode_toggle_after).to_have_attribute("aria-pressed", "false")
+    expect(page.locator("#modeToggle")).to_be_hidden()
+    expect(page.locator("#modeToggle")).to_have_attribute("aria-pressed", "false")
+    assert "archive-mode" not in page.evaluate("document.documentElement.className")
+    assert page.evaluate("localStorage.getItem('starsilk-archive-mode')") is None
 
 
 def test_attachment_upload_and_status(page: Page, local_server, tmp_path):
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
-    page.click("#modeToggle")
+    page.locator("#dossierSearch").fill("ajd")
+    expect(page.locator("#modeToggle")).to_be_visible()
     test_img = tmp_path / "test.png"
     test_img.write_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15c4\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82")
     status_el = page.locator("#assetStatus")
@@ -365,7 +381,8 @@ def test_attachment_upload_and_status(page: Page, local_server, tmp_path):
 def test_invalid_attachment_error(page: Page, local_server, tmp_path):
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
-    page.click("#modeToggle")
+    page.locator("#dossierSearch").fill("ajd")
+    expect(page.locator("#modeToggle")).to_be_visible()
     page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
     test_txt = tmp_path / "test.txt"
     test_txt.write_text("not an image")
@@ -381,7 +398,8 @@ def test_invalid_attachment_error(page: Page, local_server, tmp_path):
 def test_clear_cancel_and_confirm(page: Page, local_server, tmp_path):
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
-    page.click("#modeToggle")
+    page.locator("#dossierSearch").fill("ajd")
+    expect(page.locator("#modeToggle")).to_be_visible()
     page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
     test_img = tmp_path / "test.png"
     test_img.write_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15c4\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82")
@@ -404,7 +422,8 @@ def test_clear_cancel_and_confirm(page: Page, local_server, tmp_path):
 def test_export_action_truthfully_labeled_and_downloads(page: Page, local_server, tmp_path):
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
-    page.click("#modeToggle")
+    page.locator("#dossierSearch").fill("ajd")
+    expect(page.locator("#modeToggle")).to_be_visible()
     page.evaluate("document.querySelectorAll('details.page-disclosure').forEach(d => d.open = true)")
     export_btn = page.locator("#exportEmbedded")
     expect(export_btn).to_contain_text("Export HTML copy")
@@ -723,6 +742,23 @@ def test_cover_title_is_starsilk_compendium(page: Page, local_server):
         return {color: cs.color, fontSize: cs.fontSize, fontWeight: cs.fontWeight};
     }""")
     assert style["color"] != "rgba(0, 0, 0, 0)" and "transparent" not in style["color"]
+
+
+@pytest.mark.parametrize("width", [320, 375, 951, 1024, 1280, 1920])
+def test_cover_title_stays_on_one_line(page: Page, local_server, width: int):
+    page.set_viewport_size({"width": width, "height": 800})
+    page.goto(f"{local_server}/index.html")
+    rect_count = page.evaluate("""() => {
+        const h1 = document.querySelector('#cover h1');
+        const range = document.createRange();
+        range.selectNodeContents(h1);
+        return range.getClientRects().length;
+    }""")
+    assert rect_count == 1, f"cover title wrapped at {width}px"
+    box = page.locator("#cover h1").bounding_box()
+    assert box is not None
+    viewport_width = page.evaluate("document.documentElement.clientWidth")
+    assert box["x"] + box["width"] <= viewport_width + 1, f"cover title overflowed at {width}px"
 
 
 def test_hero_video_present_and_loops_true_tail(page: Page, local_server):

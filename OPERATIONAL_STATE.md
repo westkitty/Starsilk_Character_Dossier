@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 6
+revision: 7
 
 ## Current baseline
 
@@ -33,6 +33,7 @@ revision: 6
 12. `.github/workflows/pages.yml` must inspect the active Pages mode before publishing: request a legacy branch-source rebuild when legacy mode is active; use Pages artifact deployment only when workflow mode is active; verify live Compendium markers after publication.
 13. Canonical-media backup claims require exact manifest verification and a tested restore. The current verified recovery package is anchored to historical source commit `97ae39c745933a024791ed75924f2a5d1d7844a5` and current `docs/asset-manifest.json` provenance.
 14. The durable off-repository backup is stored in Google Drive folder `Starsilk Canonical Media Recovery - 2026-08-23`; keep its seven ordered transfer chunks plus verification bundle together. Restore only after reassembly and SHA-256 verification of the final recovery ZIP.
+15. Public Archive Tools remain local-only browser maintenance controls with no repository-write path. They must load locked in Reader mode, require the exact search-field unlock phrase for the current page session, and must not persist an unlocked state across reloads.
 
 ## Verified implementation
 
@@ -132,6 +133,22 @@ All seven Drive chunk files and the verification bundle were downloaded back fro
 
 To restore from Drive: download all seven `starsilk-media-durable-part-XX.zip` wrappers, extract the single raw `starsilk-canonical-media-recovery.zip.part-XX` file from each, concatenate raw parts in numeric order, require final size `582148268` and SHA-256 `1228fad6e2a816e9d60082fe377293a07035aae8f5bda1f2fa5cd584bcf0f58a`, then extract the recovery ZIP and run `python3 tools/media_source_archive.py verify` against its `media-source/` contents.
 
+## Archive Tools access gate and cover title — VERIFIED
+
+GitHub Actions run `32632022530` applied and verified the bounded frontend change in the pinned Playwright environment before commit:
+
+- Archive Tools are hidden and locked on every load.
+- The exact, case-sensitive search-field phrase activates Archive Tools for the current page session.
+- Reader mode relocks the controls; the old localStorage persistence key is removed and ignored.
+- The public page still has no repository-write path; archive attachments remain browser-local maintenance data rather than canonical lore edits.
+- `Starsilk Compendium` remains one source text node and is verified to render on one line without horizontal overflow at 320, 375, 951, 1024, 1280, and 1920 px viewports.
+- Generated `docs/index.html` was rebuilt from authoritative `src/` sources.
+- Intentional visual baselines were regenerated in the pinned Playwright Linux environment.
+- Full Chromium pytest/Playwright suite passed.
+- Firefox representative journeys passed.
+- WebKit representative journeys passed.
+- `./tools/build.sh --check` and `git diff --check` passed.
+
 ## Known limitations
 
 - Google Drive connector transfer ceilings require the durable backup to be stored as verified ordered chunks rather than one 582 MB Drive object. This is a transport constraint, not a content-integrity gap.
@@ -149,3 +166,4 @@ To restore from Drive: download all seven `starsilk-media-durable-part-XX.zip` w
 - Revision 4: recorded PR #1 merge and the then-unresolved Pages edge-verification gap.
 - Revision 5: recorded PRs #2-#4, authoritative Pages configuration `legacy / main / docs`, successful Pages build at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`, and fresh GitHub-runner verification that the public site serves the current Compendium markers.
 - Revision 6: closed the final recovery gap: reconstructed and verified 213/213 canonical originals from Git history, created and restore-tested recovery ZIP `1228fad6...f58a`, stored the backup outside Git in Google Drive, and round-trip SHA-256 verified every Drive transfer chunk plus verification bundle.
+- Revision 7: locked Archive Tools behind the session-only search-field phrase gate, removed persisted archive-mode activation, kept `Starsilk Compendium` on one responsive line, regenerated deployable output/visual baselines, and verified Chromium/Firefox/WebKit behavior before commit.

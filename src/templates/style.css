@@ -42,6 +42,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;ba
 h1,h2,h3,p{margin-top:0}
 h1{font-size:clamp(4rem,9vw,8.5rem);line-height:.79;letter-spacing:-.075em;margin:.8rem 0 1.4rem;max-width:9ch}
 h1 span{display:block;color:transparent;-webkit-text-stroke:1px #98bfd0;font-size:.58em;letter-spacing:-.04em}
+.cover h1{font-size:clamp(1.65rem,7vw,7rem);max-width:none;white-space:nowrap}
 .deck{max-width:46rem;font-size:clamp(1.05rem,2vw,1.45rem);color:#b7c8d3}
 .cover-rule{width:min(42rem,80%);height:1px;background:var(--thread);margin:2rem 0;opacity:.65}
 .tag-row{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -253,6 +254,7 @@ mark.search-hit{background:var(--thread);color:#071018;padding:0 .05em;border-ra
    so ordinary lore reading isn't mixed with editor-style chrome. Already
    attached images and existing archival figures stay visible either way. */
 #modeToggle[aria-pressed="true"]{background:#16324e;border-color:var(--thread)}
+#modeToggle[hidden]{display:none}
 html:not(.archive-mode) .asset-toolbar,html:not(.archive-mode) .attachment-stage .asset-file{display:none}
 html:not(.archive-mode) .attachment-stage{cursor:default;border-style:solid}
 html:not(.archive-mode) .image-empty em{display:none}
