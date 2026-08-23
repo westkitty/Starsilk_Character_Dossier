@@ -160,8 +160,10 @@ def test_project_index_orients_to_all_public_machine_surfaces():
     assert set(index["public_urls"]) == expected_urls
 
     llms = (DOCS / "llms.txt").read_text(encoding="utf-8")
-    for url in index["endpoints"].values():
-        assert url in llms
+    assert index["endpoints"]["orientation"] == SITE_BASE + "llms.txt"
+    for name, url in index["endpoints"].items():
+        if name != "orientation":
+            assert url in llms
     assert "observed-xref" in llms
     assert "do not infer" in llms.lower()
 
