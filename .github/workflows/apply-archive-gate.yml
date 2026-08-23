@@ -62,8 +62,8 @@ jobs:
           shell = shell_path.read_text(encoding="utf-8")
           shell = replace_once(
               shell,
-              '<button type="button" id="modeToggle" class="index-mode-toggle" aria-pressed="false">Archive tools</button>',
-              '<button type="button" id="modeToggle" class="index-mode-toggle" aria-pressed="false" hidden>Archive tools</button>',
+              '<button type="button" id="modeToggle" aria-pressed="false">Archive tools</button>',
+              '<button type="button" id="modeToggle" aria-pressed="false" hidden>Archive tools</button>',
               "archive button hidden-by-default markup",
           )
           shell_path.write_text(shell, encoding="utf-8")
