@@ -134,6 +134,7 @@ def test_build_pipeline_idempotency():
     def run_pipeline():
         subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "apply_media_presentation_and_collapse.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "add_page_controls.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
 
     run_pipeline()
@@ -577,3 +578,86 @@ def test_anchor_navigation_opens_collapsed_section(page: Page, local_server):
     registry_details = page.locator("#drakken-registry details.page-disclosure")
     expect(registry_details).to_have_count(1)
     assert registry_details.evaluate("el => el.open") is True
+
+
+def test_expand_all_and_collapse_all_buttons(page: Page, local_server):
+    """23. Top-of-content Expand all / Collapse all buttons toggle every page-disclosure."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    bodies = [page.locator(f"#{sid} .dossier-grid") for sid in ("codec", "dao", "jazen", "drk-the-egg")]
+    for b in bodies:
+        expect(b).to_be_hidden()
+
+    page.locator("#expandAllBtn").click()
+    for b in bodies:
+        expect(b).to_be_visible()
+    still_closed = page.evaluate(
+        "Array.from(document.querySelectorAll('details.page-disclosure')).filter(d => !d.open).length"
+    )
+    assert still_closed == 0, "Expand all should open every page-disclosure"
+
+    page.locator("#collapseAllBtn").click()
+    for b in bodies:
+        expect(b).to_be_hidden()
+    still_open = page.evaluate(
+        "Array.from(document.querySelectorAll('details.page-disclosure')).filter(d => d.open).length"
+    )
+    assert still_open == 0, "Collapse all should close every page-disclosure"
+
+
+def test_sidebar_collapse_toggle(page: Page, local_server):
+    """24. Sidebar hide/show toggle hides the index and reclaims its layout space, and persists."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    index_aside = page.locator("#index")
+    toggle = page.locator("#sidebarToggle")
+    expect(index_aside).to_be_visible()
+    expect(toggle).to_have_text("Hide index")
+    expect(toggle).to_have_attribute("aria-expanded", "true")
+
+    toggle.click()
+    expect(index_aside).to_be_hidden()
+    expect(toggle).to_have_text("Show index")
+    expect(toggle).to_have_attribute("aria-expanded", "false")
+    pad_left_collapsed = page.evaluate(
+        "parseFloat(getComputedStyle(document.querySelector('.page-controls')).paddingLeft)"
+    )
+    assert pad_left_collapsed < 200, f"Sidebar-collapsed padding-left should reclaim space, got {pad_left_collapsed}px"
+
+    # Persists across reload via localStorage.
+    page.reload()
+    expect(page.locator("#index")).to_be_hidden()
+    expect(page.locator("#sidebarToggle")).to_have_text("Show index")
+
+    # Restore default state so it doesn't leak into other tests via localStorage.
+    page.locator("#sidebarToggle").click()
+    expect(page.locator("#index")).to_be_visible()
+
+
+def test_content_search_opens_and_highlights_matches(page: Page, local_server):
+    """25. Top-of-content search finds real dossier text (not just nav labels), opens and
+    highlights matching sections, and Enter jumps between matches."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    search = page.locator("#contentSearch")
+    status = page.locator("#contentSearchStatus")
+    expect(page.locator("#codec .dossier-grid")).to_be_hidden()
+
+    # "Nacreous VI" is distinctive Codec-page content, not a nav link label.
+    search.fill("Nacreous VI")
+    page.wait_for_timeout(250)
+    expect(page.locator("#codec .dossier-grid")).to_be_visible()
+    expect(page.locator("#codec details.page-disclosure")).to_have_class(re.compile(r"\bsearch-match\b"))
+    expect(status).to_contain_text("match")
+
+    search.fill("")
+    page.wait_for_timeout(250)
+    expect(status).to_have_text("")
+    expect(page.locator("#codec details.page-disclosure")).not_to_have_class(re.compile(r"\bsearch-match\b"))
+
+    search.fill("zzz_no_such_dossier_text_zzz")
+    page.wait_for_timeout(250)
+    expect(status).to_have_text("No matches")

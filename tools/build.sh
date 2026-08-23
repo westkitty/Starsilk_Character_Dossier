@@ -86,6 +86,9 @@ python3 tools/apply_ux_audit_fixes.py
 echo "-> Applying media presentation normalization and default-collapsed sections..."
 python3 tools/apply_media_presentation_and_collapse.py
 
+echo "-> Adding top-of-content controls (expand/collapse all, search, sidebar toggle)..."
+python3 tools/add_page_controls.py
+
 echo "-> Finalizing and scrubbing metadata (UX-032, UX-033)..."
 python3 tools/finalize_metadata.py
 
