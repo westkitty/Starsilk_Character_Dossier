@@ -15,6 +15,7 @@ SCHEMAS = {
     "machine-publication-index.schema.json",
     "entity-index.schema.json",
     "relationship-graph.schema.json",
+    "relationship-observatory.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -176,6 +177,10 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "machine/compendium.md",
         "machine/entities.md",
         "machine/AUTHORITY.md",
+        "relationships/",
+        "relationships/relationships.json",
+        "relationships/relationships.md",
+        "relationships/AUTHORITY.md",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -193,6 +198,9 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         if name != "orientation":
             assert url in llms
     assert SITE_BASE + "entities/" in llms
+    assert SITE_BASE + "relationships/" in llms
+    assert SITE_BASE + "relationships/relationships.json" in llms
+    assert SITE_BASE + "relationships/relationships.md" in llms
     assert "/entities/<stable-id>/" in llms
     assert "legacy" in llms.lower()
     assert "observed-xref" in llms

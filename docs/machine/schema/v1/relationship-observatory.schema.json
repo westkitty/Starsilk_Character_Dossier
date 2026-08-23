@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-observatory.schema.json",
+  "title": "Starsilk relationship observatory v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_url",
+    "project_id",
+    "canonical_url",
+    "relationship_graph_url",
+    "entity_count",
+    "connected_entity_count",
+    "relationship_count",
+    "entities",
+    "relationships",
+    "unknowns"
+  ],
+  "properties": {
+    "schema": {"const": "starsilk-relationship-observatory/1"},
+    "schema_url": {"type": "string", "format": "uri"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "relationship_graph_url": {"type": "string", "format": "uri"},
+    "entity_count": {"type": "integer", "minimum": 0},
+    "connected_entity_count": {"type": "integer", "minimum": 0},
+    "relationship_count": {"type": "integer", "minimum": 0},
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stable_id",
+          "display_label",
+          "canonical_url",
+          "observatory_url",
+          "outgoing_count",
+          "incoming_count"
+        ],
+        "properties": {
+          "stable_id": {"type": "string", "minLength": 1},
+          "display_label": {"type": "string", "minLength": 1},
+          "canonical_url": {"type": "string", "format": "uri"},
+          "observatory_url": {"type": "string", "format": "uri"},
+          "outgoing_count": {"type": "integer", "minimum": 0},
+          "incoming_count": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "edge_id",
+          "source",
+          "target",
+          "kind",
+          "evidence_class",
+          "canonical_url",
+          "source_url",
+          "target_url",
+          "source_ref",
+          "public_evidence_url",
+          "observed_href"
+        ],
+        "properties": {
+          "edge_id": {
+            "type": "string",
+            "pattern": "^mention--[A-Za-z0-9_-]+--[A-Za-z0-9_-]+$"
+          },
+          "source": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "kind": {"const": "mentions"},
+          "evidence_class": {"const": "observed-xref"},
+          "canonical_url": {"type": "string", "format": "uri"},
+          "source_url": {"type": "string", "format": "uri"},
+          "target_url": {"type": "string", "format": "uri"},
+          "source_ref": {"type": "string", "pattern": "^src/content/sections/.+\\.body\\.html$"},
+          "public_evidence_url": {"type": "string", "format": "uri"},
+          "observed_href": {"type": "string", "pattern": "^#[A-Za-z0-9_-]+$"}
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

@@ -23,10 +23,15 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/AUTHORITY.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-observatory.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json",
@@ -418,7 +423,8 @@
     "entity-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
     "machine-publication-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
     "metadata-record": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
-    "relationship-graph": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json"
+    "relationship-graph": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json",
+    "relationship-observatory": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-observatory.schema.json"
   },
   "source_authority": [
     "src/content/sections/*.title.html",

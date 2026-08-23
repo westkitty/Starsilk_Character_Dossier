@@ -82,3 +82,18 @@ def test_museum_object_deep_link_and_escape_journey(page: Page, local_server):
     page.keyboard.press("Escape")
     expect(page.locator("#objectViewer")).to_be_hidden()
     assert page.url == f"{local_server}/objects/"
+
+
+def test_relationship_observatory_deep_link_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 1280, "height": 800})
+    edge_id = "mention--codec--dao"
+    page.goto(f"{local_server}/relationships/#{edge_id}")
+    edge = page.locator(f"#{edge_id}")
+    expect(edge).to_be_visible()
+    expect(edge).to_have_attribute("data-relationship", "mentions")
+    expect(edge).to_have_attribute("data-evidence-class", "observed-xref")
+    expect(page.locator("#entity-codec")).to_be_visible()
+    expect(edge.locator("a", has_text="Published xref evidence")).to_have_attribute(
+        "href",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-codec--dao",
+    )

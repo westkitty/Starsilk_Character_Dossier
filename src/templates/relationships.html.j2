@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relationship Observatory · Starsilk Compendium</title>
+<meta name="description" content="Source-traceable incoming and outgoing cross-reference evidence from the Starsilk Compendium.">
+<link rel="canonical" href="{{ canonical_url|e }}">
+<link rel="alternate" type="application/json" href="relationships.json">
+<link rel="alternate" type="text/markdown" href="relationships.md">
+<link rel="stylesheet" href="relationships.css">
+</head>
+<body class="relationship-shell">
+<a class="skip-link" href="#main">Skip to relationship evidence</a>
+<header class="relationship-bar">
+  <a class="relationship-brand" href="../">Starsilk Compendium</a>
+  <nav aria-label="Relationship publication">
+    <a href="../entities/">Entity index</a>
+    <a href="../objects/">Museum objects</a>
+    <a href="relationships.json">JSON</a>
+    <a href="relationships.md">Markdown</a>
+  </nav>
+</header>
+
+<main id="main" class="relationship-main">
+  <header class="relationship-hero">
+    <div class="eyebrow">Observed cross-reference evidence</div>
+    <h1>Relationship Observatory</h1>
+    <p class="relationship-lede">A directional index of what the published Compendium actually links. <strong>Source → target means the source section mentions the target.</strong> Nothing here asserts friendship, hostility, kinship, allegiance, ownership, authorship, causation, chronology, or any other stronger relationship.</p>
+    <div class="relationship-actions" aria-label="Relationship alternatives">
+      <a href="relationships.json">Machine-readable JSON</a>
+      <a href="relationships.md">Accessible text edition</a>
+      <a href="AUTHORITY.md">Authority & evidence rules</a>
+      <a href="../machine/relationships.json">Underlying observed graph</a>
+    </div>
+  </header>
+
+  <dl class="relationship-stats" aria-label="Observatory totals">
+    <div><dt>Published records</dt><dd>{{ entities|length }}</dd></div>
+    <div><dt>Connected records</dt><dd>{{ connected_count }}</dd></div>
+    <div><dt>Observed edges</dt><dd>{{ relationships|length }}</dd></div>
+    <div><dt>Only edge kind</dt><dd><code>mentions</code></dd></div>
+  </dl>
+
+  <section class="relationship-reading" aria-labelledby="reading-heading">
+    <h2 id="reading-heading">How to read an edge</h2>
+    <p>Every edge is classified <code>mentions / observed-xref</code>. “Published xref evidence” jumps to the exact generated cross-reference in the complete Compendium. The source path identifies the authored section whose publication produced that evidence.</p>
+  </section>
+
+  <section class="relationship-directory-wrap" aria-labelledby="directory-heading">
+    <div class="relationship-section-head">
+      <div>
+        <div class="eyebrow">All stable records</div>
+        <h2 id="directory-heading">Record directory</h2>
+      </div>
+      <p>Zero counts are meaningful: no qualifying generated cross-reference was observed for that direction.</p>
+    </div>
+    <ol class="relationship-directory">
+      {% for entity in entities %}
+      <li>
+        <a href="#entity-{{ entity.stable_id|e }}">
+          <span class="relationship-directory-label">{{ entity.display_label|e }}</span>
+          <code>{{ entity.stable_id|e }}</code>
+          <span class="relationship-counts"><span aria-label="outgoing mentions">out {{ entity.outgoing_count }}</span><span aria-label="incoming mentions">in {{ entity.incoming_count }}</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section class="relationship-records" aria-label="Incoming and outgoing relationship evidence by record">
+    {% for entity in entities %}
+    <article id="entity-{{ entity.stable_id|e }}" class="relationship-record" data-stable-id="{{ entity.stable_id|e }}">
+      <header class="relationship-record-head">
+        <div>
+          <div class="eyebrow">Stable record</div>
+          <h2><a href="{{ entity.canonical_url|e }}">{{ entity.display_label|e }}</a></h2>
+          <code>{{ entity.stable_id|e }}</code>
+        </div>
+        <a class="relationship-deep-link" href="#entity-{{ entity.stable_id|e }}" aria-label="Deep link to {{ entity.display_label|e }} relationship evidence">#</a>
+      </header>
+
+      <div class="relationship-directions">
+        <section aria-labelledby="outgoing-{{ entity.stable_id|e }}">
+          <h3 id="outgoing-{{ entity.stable_id|e }}">Outgoing observed mentions <span>{{ entity.outgoing_count }}</span></h3>
+          {% if outgoing_by_id[entity.stable_id] %}
+          <ol class="relationship-edge-list">
+            {% for edge in outgoing_by_id[entity.stable_id] %}
+            <li id="{{ edge.edge_id|e }}" class="relationship-edge" data-relationship="mentions" data-evidence-class="observed-xref">
+              <div class="relationship-edge-primary"><span class="relationship-kind">mentions</span><a href="{{ edge.target_url|e }}">{{ labels[edge.target]|e }}</a><code>{{ edge.target|e }}</code></div>
+              <div class="relationship-edge-evidence">
+                <a href="{{ edge.public_evidence_url|e }}">Published xref evidence</a>
+                <span>Source <code>{{ edge.source_ref|e }}</code></span>
+                <a href="#{{ edge.edge_id|e }}">Edge link</a>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+          {% else %}
+          <p class="relationship-empty">No outgoing observed mention edge.</p>
+          {% endif %}
+        </section>
+
+        <section aria-labelledby="incoming-{{ entity.stable_id|e }}">
+          <h3 id="incoming-{{ entity.stable_id|e }}">Incoming observed mentions <span>{{ entity.incoming_count }}</span></h3>
+          {% if incoming_by_id[entity.stable_id] %}
+          <ul class="relationship-incoming-list">
+            {% for edge in incoming_by_id[entity.stable_id] %}
+            <li><a href="#{{ edge.edge_id|e }}">{{ labels[edge.source]|e }}</a><code>{{ edge.source|e }}</code><span>mentions this record</span></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="relationship-empty">No incoming observed mention edge.</p>
+          {% endif %}
+        </section>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+</main>
+
+<footer class="relationship-footer">
+  <span>Observed references only. Stronger semantic relationships remain unknown unless separately authored.</span>
+  <a href="../">Complete Compendium</a>
+</footer>
+</body>
+</html>

@@ -12,6 +12,9 @@ Entity index: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Compendium Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md
 Entity Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.md
 Observed relationship graph: https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json
+Human relationship observatory: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/
+Relationship Observatory JSON: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.json
+Relationship Observatory Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.md
 JSON-LD: https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld
 Authority and evidence rules: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
 Versioned schemas: https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/
