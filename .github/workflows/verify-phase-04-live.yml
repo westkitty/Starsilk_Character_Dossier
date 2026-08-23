@@ -167,7 +167,7 @@ jobs:
       - name: Prove live museum behavior in Chromium
         run: |
           python3 - <<'PY'
-          from playwright.sync_api import sync_playwright
+          from playwright.sync_api import expect, sync_playwright
 
           BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
           IMAGE_ID = "0cb9f2fd4623694ffca06f45"
@@ -180,37 +180,38 @@ jobs:
               page.on("request", lambda request: media_requests.append(request.url) if "/assets/media/" in request.url else None)
 
               page.goto(BASE + "objects/", wait_until="load")
-              page.wait_for_function("document.querySelectorAll('#objectList li').length === 213")
+              expect(page.locator("#objectList li")).to_have_count(213)
+              expect(page.locator("#collectionStatus")).to_contain_text("213 of 213 museum objects")
               assert media_requests == [], f"museum base page eagerly requested media: {media_requests[:5]}"
-              assert "213 of 213 museum objects" in page.locator("#collectionStatus").inner_text()
 
               page.goto(BASE + "objects/#" + IMAGE_ID, wait_until="load")
-              page.wait_for_selector("#objectViewer[open]")
-              assert page.locator("#viewerId").inner_text() == IMAGE_ID
-              assert page.locator("#viewerMedia img").count() == 1
-              assert page.locator("#viewerMedia video").count() == 0
-              assert page.locator("#viewerContexts a[href='../entities/shard-god/']").count() == 1
+              expect(page.locator("#objectViewer")).to_be_visible()
+              expect(page.locator("#viewerId")).to_have_text(IMAGE_ID)
+              expect(page.locator("#viewerMedia img")).to_have_count(1)
+              expect(page.locator("#viewerMedia video")).to_have_count(0)
+              expect(page.locator("#viewerContexts a[href='../entities/shard-god/']")).to_have_count(1)
               page.keyboard.press("Escape")
-              page.wait_for_function("!document.querySelector('#objectViewer').open")
-              assert page.locator("#viewerMedia img").count() == 0
-              assert page.url == BASE + "objects/"
+              expect(page.locator("#objectViewer")).to_be_hidden()
+              expect(page.locator("#viewerMedia img")).to_have_count(0)
+              page.wait_for_url(BASE + "objects/")
 
               page.goto(BASE + "objects/#" + VIDEO_ID, wait_until="load")
-              page.wait_for_selector("#objectViewer[open]")
+              expect(page.locator("#objectViewer")).to_be_visible()
+              expect(page.locator("#viewerId")).to_have_text(VIDEO_ID)
               video = page.locator("#viewerMedia video")
-              assert video.count() == 1
-              assert page.locator("#viewerMedia img").count() == 0
+              expect(video).to_have_count(1)
+              expect(page.locator("#viewerMedia img")).to_have_count(0)
               assert video.evaluate("element => element.controls") is True
               assert video.evaluate("element => element.autoplay") is False
               assert video.evaluate("element => element.paused") is True
-              assert video.get_attribute("preload") == "metadata"
+              expect(video).to_have_attribute("preload", "metadata")
               page.locator("#closeViewer").click()
-              page.wait_for_function("!document.querySelector('#objectViewer').open")
-              assert page.locator("#viewerMedia video").count() == 0
-              assert page.url == BASE + "objects/"
+              expect(page.locator("#objectViewer")).to_be_hidden()
+              expect(page.locator("#viewerMedia video")).to_have_count(0)
+              page.wait_for_url(BASE + "objects/")
 
               page.goto(BASE + "entities/", wait_until="load")
-              assert page.locator("a[href='../objects/']", has_text="Browse museum objects").count() == 1
+              expect(page.locator("a[href='../objects/']", has_text="Browse museum objects")).to_have_count(1)
 
               browser.close()
 
