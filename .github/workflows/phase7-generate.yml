@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   generate:
@@ -21,26 +22,80 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: python3 -m pip install -r requirements.txt
-      - name: Apply Phase 7 source patch
-        run: python3 tools/phase7_apply.py
-      - name: Generate and validate deterministic publication
-        run: ./tools/build.sh
-      - name: Focused Phase 7 tests
-        run: python3 -m pytest tests/test_discovery.py -q
-      - name: Deterministic check
-        run: ./tools/build.sh --check
-      - name: Diff whitespace check
-        run: git diff --check
+      - name: Apply, build, and test with captured log
+        id: phase7
+        shell: bash
+        run: |
+          set +e
+          {
+            echo '== APPLY =='
+            python3 tools/phase7_apply.py
+            apply_rc=$?
+            echo "APPLY_RC=$apply_rc"
+            if [ "$apply_rc" -eq 0 ]; then
+              echo '== BUILD =='
+              ./tools/build.sh
+              build_rc=$?
+              echo "BUILD_RC=$build_rc"
+            else
+              build_rc=99
+            fi
+            if [ "$apply_rc" -eq 0 ] && [ "$build_rc" -eq 0 ]; then
+              echo '== FOCUSED TESTS =='
+              python3 -m pytest tests/test_discovery.py -q
+              test_rc=$?
+              echo "TEST_RC=$test_rc"
+            else
+              test_rc=99
+            fi
+            if [ "$apply_rc" -eq 0 ] && [ "$build_rc" -eq 0 ] && [ "$test_rc" -eq 0 ]; then
+              echo '== CHECK =='
+              ./tools/build.sh --check
+              check_rc=$?
+              echo "CHECK_RC=$check_rc"
+            else
+              check_rc=99
+            fi
+            if [ "$apply_rc" -eq 0 ] && [ "$build_rc" -eq 0 ] && [ "$test_rc" -eq 0 ] && [ "$check_rc" -eq 0 ]; then
+              echo '== DIFF CHECK =='
+              git diff --check
+              diff_rc=$?
+              echo "DIFF_RC=$diff_rc"
+            else
+              diff_rc=99
+            fi
+          } 2>&1 | tee phase7-diagnostic.txt
+          apply_rc=$(grep '^APPLY_RC=' phase7-diagnostic.txt | tail -1 | cut -d= -f2)
+          build_rc=$(grep '^BUILD_RC=' phase7-diagnostic.txt | tail -1 | cut -d= -f2)
+          test_rc=$(grep '^TEST_RC=' phase7-diagnostic.txt | tail -1 | cut -d= -f2)
+          check_rc=$(grep '^CHECK_RC=' phase7-diagnostic.txt | tail -1 | cut -d= -f2)
+          diff_rc=$(grep '^DIFF_RC=' phase7-diagnostic.txt | tail -1 | cut -d= -f2)
+          if [ "$apply_rc" = 0 ] && [ "$build_rc" = 0 ] && [ "$test_rc" = 0 ] && [ "$check_rc" = 0 ] && [ "$diff_rc" = 0 ]; then
+            echo 'success=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo 'success=false' >> "$GITHUB_OUTPUT"
+          exit 1
+      - name: Publish failure diagnostic to PR
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo 'Phase 7 temporary execution diagnostic:'
+            echo '```text'
+            tail -n 180 phase7-diagnostic.txt
+            echo '```'
+          } > phase7-comment.md
+          gh pr comment 27 --body-file phase7-comment.md
       - name: Remove temporary execution helpers
+        if: steps.phase7.outputs.success == 'true'
         run: rm tools/phase7_apply.py .github/workflows/phase7-generate.yml
       - name: Commit implementation and generated derivatives
+        if: steps.phase7.outputs.success == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A ':(exclude)docs/qa-report.txt'
-          if git diff --cached --quiet; then
-            echo 'No Phase 7 changes to commit.'
-            exit 0
-          fi
           git commit -m 'Implement Phase 7 faceted discovery'
           git push origin HEAD:phase-07-faceted-discovery
