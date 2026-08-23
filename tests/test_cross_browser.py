@@ -69,3 +69,16 @@ def test_mobile_menu_and_reader_mode(page: Page, local_server):
 
     mode_toggle = page.locator("#modeToggle")
     expect(mode_toggle).to_have_attribute("aria-pressed", "false")
+
+
+def test_museum_object_deep_link_and_escape_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 1280, "height": 800})
+    object_id = "0cb9f2fd4623694ffca06f45"
+    page.goto(f"{local_server}/objects/#{object_id}")
+    expect(page.locator("#objectViewer")).to_be_visible()
+    expect(page.locator("#viewerId")).to_have_text(object_id)
+    expect(page.locator("#viewerMedia img")).to_have_count(1)
+    expect(page.locator("#closeViewer")).to_be_focused()
+    page.keyboard.press("Escape")
+    expect(page.locator("#objectViewer")).to_be_hidden()
+    assert page.url == f"{local_server}/objects/"
