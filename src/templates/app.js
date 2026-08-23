@@ -411,6 +411,12 @@
     searchInput.addEventListener('input', function(){
       clearTimeout(debounceTimer);
       var q = searchInput.value.trim();
+      if(q === 'ajd' && typeof setArchiveMode === 'function'){
+        setArchiveMode(true);
+        searchInput.value = '';
+        runSearch('');
+        return;
+      }
       debounceTimer = setTimeout(function(){ runSearch(q); }, 120);
     });
     searchInput.addEventListener('keydown', function(e){
@@ -460,19 +466,17 @@
   // presented as ordinary public-site reading controls.
   var modeToggle = document.getElementById('modeToggle');
   if(modeToggle){
-    var MODE_KEY = 'starsilk-archive-mode';
     var setArchiveMode = function(on){
       document.documentElement.classList.toggle('archive-mode', on);
       modeToggle.setAttribute('aria-pressed', String(on));
       modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
-      try { localStorage.setItem(MODE_KEY, on ? '1' : '0'); } catch(e){}
+      modeToggle.hidden = !on;
     };
     modeToggle.addEventListener('click', function(){
-      setArchiveMode(!document.documentElement.classList.contains('archive-mode'));
+      setArchiveMode(false);
     });
-    var modeInitial = false;
-    try { modeInitial = localStorage.getItem(MODE_KEY) === '1'; } catch(e){}
-    setArchiveMode(modeInitial);
+    try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}
+    setArchiveMode(false);
   }
 
   // ---------------------------------------------------------------------
