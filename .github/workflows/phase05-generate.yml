@@ -77,7 +77,7 @@ jobs:
           print('Phase 05 change radius OK')
           PY
 
-      - name: Commit exact generated publication and remove one-shot machinery
+      - name: Commit and push exact generated publication
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -93,14 +93,11 @@ jobs:
             docs/machine \
             docs/entities \
             docs/relationships
-          git rm -f --ignore-unmatch .github/workflows/phase05-generate.yml tools/apply_phase05_integration.py
           git diff --cached --check
           python3 - <<'PY'
           import subprocess
 
           allowed_exact = {
-              '.github/workflows/phase05-generate.yml',
-              'tools/apply_phase05_integration.py',
               'build/machine_publication.py',
               'src/templates/entity.html.j2',
               'tools/build.sh',
