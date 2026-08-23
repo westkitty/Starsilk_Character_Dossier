@@ -20,8 +20,8 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 |---|---|---|---|---|
 | 1 | Foundation, Roadmap, and Publication Boundary | COMPLETE | PR #11; implementation head `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`; CI `32637622651` PASS; merged `ea287f572264eee625708d22b95a2d482b7d8a87` | none |
 | 2 | Machine Publication Layer | COMPLETE | PR #12; final head `e64068a821df51cfb67cdd335007287d64d31fc7`; CI `32639102690` PASS; merged `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof `32639347205` PASS | none |
-| 3 | Stable Entity Pages and Permalinks | NOT STARTED | — | begin only in a fresh chat after verifying Phase 2 on current `main` |
-| 4 | Museum Object Model and Media Viewer | NOT STARTED | — | deferred |
+| 3 | Stable Entity Pages and Permalinks | COMPLETE | PR #15; final head `54da12779396175622aab1faafa64fbb4b652c2a`; CI `32640613872` PASS; merged `b7726adc86f967e914616c07b5b4b6179236dbf3`; live proof `32640932505` PASS | none |
+| 4 | Museum Object Model and Media Viewer | NOT STARTED | — | begin only in a fresh chat after verifying Phase 3 on current `main` |
 | 5 | Relationship Observatory | NOT STARTED | — | deferred |
 | 6 | Canon Inspector and Authority UI | NOT STARTED | — | deferred |
 | 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |
@@ -113,6 +113,29 @@ Generate deterministic public machine entry points: versioned schemas, project/e
 ### Phase 3 — Stable Entity Pages and Permalinks
 
 Generate first-class human/shareable entity destinations from existing authority while preserving the complete Compendium, source parity, related media/entities, machine alternatives, and old anchors.
+
+#### Completion record
+
+- starting `main`: `5e8e6d1d43326b43440689b72ce81e4d57a29da9`
+- work branch: `phase-03-entity-permalinks`
+- final validated implementation head: `54da12779396175622aab1faafa64fbb4b652c2a`
+- successful required CI: `32640613872`
+- one bounded implementation repair: `6143bde80d354d70788252cad280edfc1ac33825`
+- repair reason: the pre-existing repo-wide `archive/` ignore rule silently excluded the generated permalink for the authored stable ID `archive`; the repair preserved the local/offline archive ignore while explicitly allowing `docs/entities/archive/index.html` and added a regression proving every authored permalink path is trackable
+- implementation PR: `#15`
+- implementation merge on `main`: `b7726adc86f967e914616c07b5b4b6179236dbf3`
+- execution-only live proof PR: `#16`, closed unmerged
+- successful live proof: run `32640932505`, job `97197796536`
+- canonical human publication: 127 `/entities/<stable-id>/` pages plus `/entities/` index and shared stylesheet
+- per-record machine alternatives: 127 JSON + 127 Markdown files keyed by the same stable IDs
+- declared live surface: 396 URLs; all were served byte-for-byte from merged `docs/`
+- legacy compatibility: every original `/#<stable-id>` Compendium anchor remained present and every entity page linked back to its legacy location
+- repaired collision proof: `/entities/archive/` was live with `data-stable-id="archive"`
+- live public-boundary recheck: 395 downloaded text/machine derivative files passed
+- first exhaustive live-proof attempt encountered a transient CDN HTTP 503; only the proof harness was paced/retried, with no product mutation, and the complete rerun passed
+- Phase 3 did not create museum-object IDs/viewer behavior, chronology-event IDs, WorldsVault IDs, richer relationship semantics, new dependencies, canon prose changes, media-source changes, or a root Compendium redesign
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 4 — Museum Object Model and Media Viewer
 
