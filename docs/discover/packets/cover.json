@@ -1,0 +1,46 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
+  "display_label": "Starsilk Compendium",
+  "excerpt": "Character / canon / visual reference Starsilk Compendium Web Edition Six principal character dossiers, forty-five peripheral character/entity folios, the full expanded Drakken operational register, a five-phase canon chronology, a 120-record granular canon ledger, twenty-one named WorldsVault templates, and the…",
+  "excerpt_source_ref": "src/content/sections/cover.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cover",
+  "navigation_group": "Overview",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cover.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "09e2837c1e2a76bc1fadccc2.webp",
+    "b3015054b3726a97adbc4a5c.mp4"
+  ],
+  "result_class": "section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "cover",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/cover.body.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "cover",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

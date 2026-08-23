@@ -1,0 +1,58 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+  "display_label": "Shard-God Tiger",
+  "excerpt": "Core read Tiger creates Starsilk from the beginning as a betrayal mechanism against the other two gods. He murders Wordstreamer with it, then imprisons NiAlBu in unrendered code inside the Digital Geode. His decisions remain controlled, pragmatic and deliberate; even fear of divine vulnerability becomes ordered cruelty…",
+  "excerpt_source_ref": "src/content/sections/shard-god.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#shard-god",
+  "navigation_group": "Principal characters",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "cover"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "kail",
+      "nialbu",
+      "wordstreamer"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/shard-god.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "0cb9f2fd4623694ffca06f45.webp",
+    "7c7d87d4b3c4ebdf26105e88.webp",
+    "a551049aaf868d58772975ad.webp",
+    "b8d2878fc5065ecb2bb262e2.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "shard-god",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/shard-god.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/shard-god.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "shard-god",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

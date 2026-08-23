@@ -1,0 +1,48 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/eli/",
+  "display_label": "Eli",
+  "excerpt": "Source-backed record Eli carries charm and social ease as a way of evading the growing threat. His smile is designed to last slightly too long once the world begins to turn, making familiar warmth feel unstable. He helps preserve continuity between the comic opening and its horror inversion. Registry state Domain…",
+  "excerpt_source_ref": "src/content/sections/eli.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#eli",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/eli.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "eli",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/eli.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/eli.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "eli",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

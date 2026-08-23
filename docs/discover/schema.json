@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/discovery-index.schema.json",
+  "title": "Starsilk faceted discovery index v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_url", "project_id", "canonical_url", "human_url", "record_count", "result_semantics", "facets", "records"],
+  "properties": {
+    "schema": {"const": "starsilk-discovery-index/1"},
+    "schema_url": {"type": "string", "format": "uri"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "human_url": {"type": "string", "format": "uri"},
+    "record_count": {"type": "integer", "minimum": 0},
+    "result_semantics": {"type": "string", "minLength": 1},
+    "facets": {"type": "object", "additionalProperties": false, "required": ["result_class", "navigation_group", "archetype", "media"], "properties": {"result_class": {"$ref": "#/$defs/facetList"}, "navigation_group": {"$ref": "#/$defs/facetList"}, "archetype": {"$ref": "#/$defs/facetList"}, "media": {"$ref": "#/$defs/facetList"}}},
+    "records": {"type": "array", "items": {"$ref": "#/$defs/result"}}
+  },
+  "$defs": {
+    "facetList": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["value", "count"], "properties": {"value": {"type": "string", "minLength": 1}, "label": {"type": "string", "minLength": 1}, "count": {"type": "integer", "minimum": 0}}}},
+    "result": {"type": "object", "additionalProperties": false, "required": ["stable_id", "display_label", "canonical_url", "legacy_url", "result_class", "navigation_group", "archetype", "excerpt", "excerpt_source_ref", "has_media", "media_count", "context_packet_url"], "properties": {"stable_id": {"type": "string", "minLength": 1}, "display_label": {"type": "string", "minLength": 1}, "canonical_url": {"type": "string", "format": "uri"}, "legacy_url": {"type": "string", "format": "uri"}, "result_class": {"type": "string", "minLength": 1}, "navigation_group": {"type": ["string", "null"]}, "archetype": {"type": ["string", "null"]}, "excerpt": {"type": "string"}, "excerpt_source_ref": {"type": "string", "minLength": 1}, "has_media": {"type": "boolean"}, "media_count": {"type": "integer", "minimum": 0}, "context_packet_url": {"type": "string", "format": "uri"}}}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json",
+  "title": "Starsilk AI context packet index v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "schema_url", "project_id", "canonical_url", "packet_count", "packet_pattern", "packets", "authority_note"],
+  "properties": {
+    "schema": {"const": "starsilk-ai-context-packet-index/1"}, "schema_url": {"type": "string", "format": "uri"}, "project_id": {"const": "starsilk-character-dossier"}, "canonical_url": {"type": "string", "format": "uri"}, "packet_count": {"type": "integer", "minimum": 0}, "packet_pattern": {"type": "string", "minLength": 1},
+    "packets": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["stable_id", "display_label", "packet_url", "canonical_url"], "properties": {"stable_id": {"type": "string", "minLength": 1}, "display_label": {"type": "string", "minLength": 1}, "packet_url": {"type": "string", "format": "uri"}, "canonical_url": {"type": "string", "format": "uri"}}}},
+    "authority_note": {"type": "string", "minLength": 1}
+  }
+}

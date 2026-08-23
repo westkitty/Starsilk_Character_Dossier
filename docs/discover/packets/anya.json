@@ -1,0 +1,52 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/anya/",
+  "display_label": "Anya",
+  "excerpt": "Canonical record Kaelen ’s daughter. Her unreachable memory is a major emotional driver behind Kaelen’s willingness to burn the old stellar order away. She exists in the debate as a reminder that future-making and loss are never purely abstract. Registry state Domain Heliocide debate Record Current-message canon…",
+  "excerpt_source_ref": "src/content/sections/anya.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#anya",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "kaelen"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "kaelen"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/anya.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "anya",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/anya.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/anya.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "anya",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

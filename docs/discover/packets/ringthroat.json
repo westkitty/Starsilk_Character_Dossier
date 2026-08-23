@@ -1,0 +1,55 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/",
+  "display_label": "Ringthroat",
+  "excerpt": "Affinity Pressure / vitrified slurry Threat Omega Timescale Ring extrusion: 6 hours–9 days Terraforming Geo B · Atmo A · Bio C Visual manifestation A towering, column-necked Drakken with a distended throat core glowing red-black beneath translucent armor. Immense stabilizer limbs anchor the body while the upper maw…",
+  "excerpt_source_ref": "src/content/sections/ringthroat.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#ringthroat",
+  "navigation_group": "Drakken & blood systems",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "blood-rings",
+      "canon-ledger",
+      "cover",
+      "media-vault",
+      "systems"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/ringthroat.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "1ad8499d225f83307d11575d.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "ringthroat",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/ringthroat.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/ringthroat.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "ringthroat",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

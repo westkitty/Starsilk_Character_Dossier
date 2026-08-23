@@ -1,0 +1,52 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marshal-venn/",
+  "display_label": "Marshal Venn",
+  "excerpt": "Source-backed record Venn is present in the Nacreous VI command room while Codec models the Pyric titan containment outcomes. He asks whether the lethal macro can be narrowed and is shown that the narrowed model allows the titan to take the weather lattice. He states that planetary-scale lethal containment requires…",
+  "excerpt_source_ref": "src/content/sections/marshal-venn.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#marshal-venn",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "source"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "codec"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/marshal-venn.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "marshal-venn",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marshal-venn.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/marshal-venn.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "marshal-venn",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

@@ -1,0 +1,53 @@
+{
+  "archetype": "atmos-engine",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-vortenbray/",
+  "display_label": "Vortenbray",
+  "excerpt": "Operational role Stormmind tactician; sentient weather-map entity that thinks in pressure zones. Archetype function Planetary breath: atmosphere, pressure, weather, sound, toxins, temperature and climate systems. Named historical record The Airwars of Sector Te — fleeing ships were deleted through vacuum blossoms; the…",
+  "excerpt_source_ref": "src/content/sections/drk-vortenbray.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-vortenbray",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [
+      "canon-ledger",
+      "chronology"
+    ],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-vortenbray.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "fca8a285bebd37f46ea71812.webp"
+  ],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "drk-vortenbray",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-vortenbray.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-vortenbray.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drk-vortenbray",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

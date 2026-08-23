@@ -1,0 +1,50 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/jonah/",
+  "display_label": "Jonah",
+  "excerpt": "Source-backed record Jonah carries the small-scale unease that bridges comedy and dread. His function is not prophecy at Harold ’s scale but the accumulation of practical, unsettling signs that something is wrong. He helps the tonal transition feel causal rather than abrupt. Registry state Domain Syrin-4 opening…",
+  "excerpt_source_ref": "src/content/sections/jonah.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#jonah",
+  "navigation_group": null,
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": [
+      "harold"
+    ]
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/jonah.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "character-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "jonah",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/jonah.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/jonah.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "jonah",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject.",
+    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+  ],
+  "visibility": "public"
+}

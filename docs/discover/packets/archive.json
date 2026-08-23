@@ -1,0 +1,47 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/",
+  "display_label": "Reference art belongs beside the canon it can contradict.",
+  "excerpt": "Image status: the dossier contains an extensive published Media Vault plus principal character and Starsilk reference sheets. The historical attachment bank below remains available for legacy reference slots. Directly embedded reference set The Web Edition includes canonical reference art and Media Vault archives…",
+  "excerpt_source_ref": "src/content/sections/archive.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#archive",
+  "navigation_group": "Reference",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/archive.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [],
+  "result_class": "archive-section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "archive",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/archive.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/archive.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "archive",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

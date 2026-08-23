@@ -1,0 +1,50 @@
+{
+  "archetype": null,
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/history-media/",
+  "display_label": "The ledger has pictures. The text still governs.",
+  "excerpt": "Canon lock: the Blood Eclipse War lasts one hundred seventy years . Any obsolete short-war label visible inside the supplied infographic or video is superseded reference text, not current canon. History of Divine Betrayal and Cosmological Collapse Supplied chronology reference with current-duration correction applied…",
+  "excerpt_source_ref": "src/content/sections/history-media.body.html",
+  "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#history-media",
+  "navigation_group": "Peripheral & cosmic",
+  "observed_relationships": {
+    "evidence_class": "observed-xref",
+    "incoming_stable_ids": [],
+    "kind": "mentions",
+    "outgoing_stable_ids": []
+  },
+  "packet_kind": "entity-context",
+  "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/history-media.json",
+  "project_id": "starsilk-character-dossier",
+  "related_media_ids": [
+    "1aeb182b94e78bd638e40389.webp",
+    "6e2c5017f608c8e10b13cbc1.mp4"
+  ],
+  "result_class": "section",
+  "schema": "starsilk-ai-context-packet/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_refs": [
+    {
+      "anchor": "history-media",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/history-media.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/history-media.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "history-media",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}
