@@ -32,6 +32,13 @@ jobs:
       - name: Regenerate deployable page from authoritative source
         run: ./tools/build.sh
 
+      - name: Upload incident image diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: incident-image-diagnostic
+          path: docs/assets/media/77131487824f0919d44825fe.webp
+          if-no-files-found: error
+
       - name: Regenerate visual references in pinned Chromium environment
         env:
           UPDATE_VISUAL_BASELINES: "1"
