@@ -1,0 +1,205 @@
+name: Close Phase 05 operational state
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  close-state:
+    if: github.event.pull_request.head.ref == 'phase-05-state-closure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Patch Phase 05 roadmap and operational state
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          roadmap_path = Path('MUSEUM_AI_ROADMAP.md')
+          state_path = Path('OPERATIONAL_STATE.md')
+          roadmap = roadmap_path.read_text(encoding='utf-8')
+          state = state_path.read_text(encoding='utf-8')
+
+          if '| 5 | Relationship Observatory | COMPLETE |' in roadmap and 'revision: 13' in state:
+              print('Phase 05 state closure already present; no-op.')
+              raise SystemExit(0)
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one anchor, found {count}')
+              return text.replace(old, new, 1)
+
+          roadmap = replace_once(
+              roadmap,
+              '| 5 | Relationship Observatory | NOT STARTED | — | begin only in a fresh chat after verifying Phase 4 on current `main` |',
+              '| 5 | Relationship Observatory | COMPLETE | PR #21; final head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`; CI `32649254977` PASS; merged `0f31a280eebdbaf68bda9265d3fa54aed806f120`; live proof `32649700329` PASS | none |',
+              'roadmap phase row',
+          )
+
+          old_phase5 = '''### Phase 5 — Relationship Observatory
+
+Expose source-traceable incoming/outgoing observed relationships with deep links and an accessible text representation. Do not promote mentions into semantic facts.
+
+### Phase 6 — Canon Inspector and Authority UI'''
+          new_phase5 = '''### Phase 5 — Relationship Observatory
+
+Expose source-traceable incoming/outgoing observed relationships with deep links and an accessible text representation. Do not promote mentions into semantic facts.
+
+#### Completion record
+
+- starting `main`: `980823f8e5545d1963e447f213af07cec74658c7`
+- work branch: `phase-05-relationship-observatory`
+- exact generated-publication commit: `e56b2dceb3bd4424f3138229f9212f3aa0c990bc`
+- final validated implementation head: `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`
+- successful required final CI: run `32649254977`
+- implementation PR: `#21`
+- implementation merge on `main`: `0f31a280eebdbaf68bda9265d3fa54aed806f120`
+- execution-only live proof PR: `#22`, closed unmerged
+- successful live proof: run `32649700329`, job `97219258645`
+- relationship observatory: 127 published records and the existing 136 observed `mentions` / `observed-xref` edges; no semantic relationship class was introduced
+- evidence identity: every physical rendered xref has a deterministic public evidence anchor; graph edges cite the first qualifying physical xref inside the established source-section subtree projection
+- canonical human surface: `/relationships/` with stable `#entity-<stable-id>` and `#mention--<source>--<target>` fragments, plus JSON, Markdown, authority, and versioned schema alternatives
+- discovery: canonical entity pages expose the observatory while preserving their existing observed-xref related-record lists and stable identities
+- public observatory is static and script-free; mobile/deep-link behavior is covered by Chromium plus representative Firefox/WebKit CI
+- deterministic generation/checking is owned by `build/relationship_publication.py`; `tools/build.sh --check` includes all five relationship outputs
+- final CI established `135 passed, 1 skipped`, 11 canon locks / 0 violations, 404 public text/machine files boundary-clean, and Chromium/Firefox/WebKit PASS
+- diff-scope verification found no dependency, lockfile, media, deletion, rename, canon-prose, chronology, museum-identity, or Phase 6 changes
+- live proof established `LIVE_PHASE5_BYTES_OK records=127 edges=136 exact_files=11 evidence=xref-codec--dao semantics=observed-only`
+- live public-boundary recheck passed across 10 downloaded text/machine files
+- live Chromium proof established `LIVE_PHASE5_BROWSER_OK edge=ok evidence=ok entity-discovery=ok mobile=ok`
+- one bounded relationship-evidence repair normalized pre-existing as well as newly generated physical xrefs; later test/release-hygiene corrections did not promote or alter relationship semantics
+
+**Completion verdict: VERIFIED.**
+
+### Phase 6 — Canon Inspector and Authority UI'''
+          roadmap = replace_once(roadmap, old_phase5, new_phase5, 'roadmap Phase 5 completion section')
+
+          state = replace_once(state, 'revision: 12', 'revision: 13', 'state revision')
+          state = replace_once(
+              state,
+              '- Museum + AI Phase 4 PR #18 merged at `258ce10f9d0d73b22163ae22243b953af99427fc`.',
+              '- Museum + AI Phase 4 PR #18 merged at `258ce10f9d0d73b22163ae22243b953af99427fc`.\n- Museum + AI Phase 5 PR #21 merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`.',
+              'state baseline Phase 5 merge',
+          )
+          state = replace_once(
+              state,
+              '- `src/museum/AUTHORITY.md` and `src/schema/museum-object-index.schema.json` define the Phase 4 object/publication interpretation contract.',
+              '- `src/museum/AUTHORITY.md` and `src/schema/museum-object-index.schema.json` define the Phase 4 object/publication interpretation contract.\n- `build/relationship_publication.py` owns deterministic generation of `docs/relationships/`; that observatory is a public evidence derivative of the existing observed-xref graph, not semantic relationship authority.\n- `src/relationships/AUTHORITY.md` and `src/schema/relationship-observatory.schema.json` define the Phase 5 relationship evidence/publication contract.',
+              'state baseline relationship publication',
+          )
+          state = replace_once(
+              state,
+              '44. Public museum derivatives must remain reproducible from the manifest/schema/templates, pass `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the museum publication changes.\n\n## Verified implementation',
+              '44. Public museum derivatives must remain reproducible from the manifest/schema/templates, pass `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the museum publication changes.\n45. `docs/relationships/` is generator-owned output from `build/relationship_publication.py`; it must remain reproducible from the established observed-xref graph and must not become a semantic relationship database.\n46. The Relationship Observatory may publish only `kind=mentions` with `evidence_class=observed-xref` until explicit semantic authority is authored. Incoming/outgoing direction means citation direction only.\n47. Physical Compendium xrefs must retain deterministic public evidence anchors. Relationship edges may cite the first qualifying rendered xref inside the established source-section subtree projection; this evidence identity must not change the existing 136-edge graph contract.\n48. `/relationships/#entity-<stable-id>` and `/relationships/#mention--<source>--<target>` are stable human fragment destinations over the static observatory. They do not create new entity or relationship identity outside the existing stable IDs and observed edge pair.\n49. Zero incoming/outgoing counts are meaningful evidence states and must remain visible rather than being omitted or filled by inference.\n50. Relationship discovery links on entity pages must not replace canonical entity permalinks, legacy Compendium anchors, or existing observed-xref related-record lists.\n51. Public relationship derivatives must remain script-free where currently generated, pass deterministic build parity and `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the relationship publication changes.\n\n## Verified implementation',
+              'state relationship invariants',
+          )
+
+          phase5_state = '''## Museum + AI Phase 5 relationship observatory — VERIFIED
+
+Phase 5 of 12, **Relationship Observatory**, is complete.
+
+Repository evidence:
+
+- starting `main`: `980823f8e5545d1963e447f213af07cec74658c7`
+- work branch: `phase-05-relationship-observatory`
+- exact generated-publication commit: `e56b2dceb3bd4424f3138229f9212f3aa0c990bc`
+- final validated implementation head: `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`
+- successful required CI: run `32649254977`
+- implementation PR: `#21`
+- merged to `main`: `0f31a280eebdbaf68bda9265d3fa54aed806f120`
+
+Phase 5 verified capabilities:
+
+- `build/relationship_publication.py` deterministically generates/checks the five-file `docs/relationships/` publication.
+- the observatory mirrors exactly 127 authored top-level records and the established 136 observed xref edges.
+- every published edge remains `kind=mentions` and `evidence_class=observed-xref`; no friendship, hostility, kinship, membership, authorship, causation, chronology, location, or other semantic relationship is inferred.
+- incoming/outgoing lists preserve citation direction only.
+- all physical rendered Compendium xrefs receive deterministic evidence anchors; an observatory edge links to the first qualifying physical xref inside its source section subtree, preserving the pre-existing graph projection rather than changing graph counts or semantics.
+- stable human fragments are `/relationships/#entity-<stable-id>` and `/relationships/#mention--<source>--<target>`.
+- `relationships.json`, `relationships.md`, generated `AUTHORITY.md`, and the versioned relationship-observatory schema provide machine/text alternatives and interpretation boundaries.
+- records with no observed connections remain represented with explicit zero counts.
+- canonical entity pages expose a Relationship Observatory discovery link without changing stable record identity or replacing existing observed-xref related-record links.
+- the public observatory is static and contains no executable script.
+- `docs/machine/index.json`, `docs/llms.txt`, and `docs/sitemap.xml` discover the new relationship publication/schema.
+- no dependency, lockfile, media, canonical-original, canon prose, chronology-event identity, WorldsVault identity, museum-object identity, or Phase 6 implementation changed.
+
+The relationship implementation required one bounded evidence-mapping repair after generation proved that the established graph can rely on pre-existing rendered xrefs as well as newly inserted xrefs. The repair normalized evidence identity across all physical xrefs and resolved each edge through its source section subtree without changing the 136-edge graph. Later corrections were limited to test/release mechanics and deterministic right-edge whitespace normalization; they did not alter relationship meaning or promote new semantics.
+
+Final CI run `32649254977` on head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07` passed:
+
+- source build and deterministic `./tools/build.sh --check`;
+- all five relationship outputs reproducible from their generator;
+- strict DOM/canon validation with 11 canon locks and 0 violations;
+- public derivative boundary validation across 404 text/machine files;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite: `135 passed, 1 skipped`;
+- representative Firefox journeys;
+- representative WebKit journeys.
+
+Diff-scope verification against starting `main` found every persistent path explained by the Phase 5 source/templates/tests or their generated `docs/` derivatives. There were no dependency/lockfile changes, media changes, deletions, renames, unrelated configuration changes, or surviving temporary generation/release helpers.
+
+Live publication was independently verified by execution-only PR #22, closed without merge after proof. GitHub Actions run `32649700329`, job `97219258645`, cache-busted the Pages edge and established:
+
+- `LIVE_PHASE5_BYTES_OK records=127 edges=136 exact_files=11 evidence=xref-codec--dao semantics=observed-only`;
+- the selected live root, Codec entity page, all five relationship files, machine index/schema, `llms.txt`, and sitemap were byte-identical to merged `docs/`;
+- the live Codec -> Dao edge retained stable deep link `#mention--codec--dao` and exact physical Compendium evidence anchor `#xref-codec--dao`;
+- all live relationships remained `mentions` / `observed-xref` only;
+- the live observatory remained script-free and retained its explicit interpretation boundary;
+- the downloaded live Phase 5 surfaces passed `tools/check_public_boundary.py` across 10 text/machine files;
+- `LIVE_PHASE5_BROWSER_OK edge=ok evidence=ok entity-discovery=ok mobile=ok` proved the edge fragment, physical evidence fragment, entity discovery link, and 375px no-overflow path in Chromium.
+
+Therefore Phase 5 is **VERIFIED COMPLETE** at authority, evidence identity, deterministic generation, CI, diff scope, merge, and live-publication layers.
+
+'''
+          state = replace_once(
+              state,
+              '## GitHub Pages deployment state — VERIFIED',
+              phase5_state + '## GitHub Pages deployment state — VERIFIED',
+              'state Phase 5 verified section',
+          )
+          state = replace_once(
+              state,
+              '- No semantic relationship authority currently exists beyond observed xref `mentions` relationships.',
+              '- The Relationship Observatory exposes the current 136 observed xref `mentions` edges with source/evidence traceability, but no stronger semantic relationship authority exists; semantic meaning remains unauthored unless a later explicit authority is added.',
+              'state relationship limitation',
+          )
+          state = replace_once(
+              state,
+              '- Museum + AI program: Phase 5 of 12 — Relationship Observatory. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.',
+              '- Museum + AI program: Phase 6 of 12 — Canon Inspector and Authority UI. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.',
+              'state pending phase',
+          )
+          revision12 = '- Revision 12: completed Museum + AI Phase 4. Added a deterministic 213-record manifest-derived museum object model, stable filename-stem object IDs, explicit provenance/unknown semantics, `/objects/` metadata register, on-demand accessible image/video dialog viewer, hash deep links, entity-index discovery, schema/authority publication, build integration, and regression coverage. No implementation repair pass was needed. PR #18 passed final Chromium/Firefox/WebKit CI and merged at `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof run `32642574092` verified exact Pages bytes plus metadata-only/image/video/teardown behavior, and proof PR #19 was closed unmerged. Static IIIF was evaluated and not adopted.'
+          revision13 = '- Revision 13: completed Museum + AI Phase 5. Added the deterministic 127-record/136-edge Relationship Observatory, stable entity/edge fragments, exact physical xref evidence anchors, JSON/Markdown/schema/authority alternatives, entity discovery, build integration, observed-only semantic locks, clean-output regression coverage, and live Pages proof. PR #21 passed final Chromium/Firefox/WebKit CI (`135 passed, 1 skipped`) and merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`; execution-only proof PR #22 was closed unmerged after run `32649700329` proved exact live bytes, public-boundary safety, evidence fragments, entity discovery, and mobile Chromium behavior.'
+          state = replace_once(state, revision12, revision12 + '\n' + revision13, 'state revision log')
+
+          roadmap_path.write_text(roadmap, encoding='utf-8')
+          state_path.write_text(state, encoding='utf-8')
+          print('Patched Phase 05 roadmap and Operational State revision 13.')
+          PY
+
+          git diff --check
+          changed="$(git diff --name-only)"
+          test "$changed" = "MUSEUM_AI_ROADMAP.md
+          OPERATIONAL_STATE.md"
+
+      - name: Commit exact state closure
+        run: |
+          if git diff --quiet -- MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md; then
+            echo "No state changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md
+          git diff --cached --check
+          git commit -m "docs(phase-05): close roadmap and operational state"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
