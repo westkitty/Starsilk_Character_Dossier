@@ -108,22 +108,54 @@ jobs:
             --json | tee dist/restore-verification.json
           python3 -m zipfile -t dist/starsilk-canonical-media-recovery.zip
 
-      - name: Record archive checksum and size
+      - name: Record archive checksum and split for transfer
         run: |
           set -euo pipefail
           sha256sum dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.sha256
           stat --printf='%s bytes\n' dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.size.txt
+          mkdir -p dist/chunks
+          split -b 240M -d -a 2 \
+            dist/starsilk-canonical-media-recovery.zip \
+            dist/chunks/starsilk-canonical-media-recovery.zip.part-
+          sha256sum dist/chunks/* | tee dist/chunks/SHA256SUMS.txt
+          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-00
+          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-01
+          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-02
 
-      - name: Upload verified recovery package
+      - name: Upload recovery chunk 00
         uses: actions/upload-artifact@v4
         with:
-          name: starsilk-canonical-media-recovery
+          name: starsilk-canonical-media-recovery-part-00
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-00
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Upload recovery chunk 01
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-canonical-media-recovery-part-01
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-01
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Upload recovery chunk 02
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-canonical-media-recovery-part-02
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-02
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Upload verification metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-canonical-media-recovery-verification
           path: |
-            dist/starsilk-canonical-media-recovery.zip
             dist/starsilk-canonical-media-recovery.zip.sha256
             dist/starsilk-canonical-media-recovery.zip.size.txt
             dist/historical-reconstruction.json
             dist/source-verification.json
             dist/restore-verification.json
+            dist/chunks/SHA256SUMS.txt
           retention-days: 90
           if-no-files-found: error
