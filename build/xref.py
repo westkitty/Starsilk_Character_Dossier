@@ -18,6 +18,11 @@ SKIP_TAGS = {"script", "style", "a", "h1", "h2", "h3", "summary", "title"}
 H2_RE = re.compile(r"<h2>(.*?)</h2>", re.DOTALL)
 
 
+def xref_anchor_id(source_id: str, target_id: str) -> str:
+    """Stable publication identity for one generated source->target xref."""
+    return f"xref-{source_id}--{target_id}"
+
+
 def collect_entities(sections: list) -> dict:
     """id -> display name, for character-page sections with a resolvable name."""
     entities = {}
@@ -93,7 +98,11 @@ def link_full_document(full_html: str, entities: dict) -> str:
                 break
             s, e, sid, name = best
             piece_out.append(remaining[:s])
-            piece_out.append(f'<a href="#{sid}" class="xref-link">{name}</a>')
+            anchor_id = xref_anchor_id(current_section_id, sid)
+            piece_out.append(
+                f'<a id="{anchor_id}" href="#{sid}" class="xref-link" '
+                f'data-xref-source="{current_section_id}" data-xref-target="{sid}">{name}</a>'
+            )
             linked_in_section.add((current_section_id, sid))
             linked_count += 1
             remaining = remaining[e:]
