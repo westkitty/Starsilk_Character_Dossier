@@ -118,16 +118,16 @@ def stabilize_visual_test_assets(request):
         return
     page = request.getfixturevalue("page")
     page.add_init_script(
-        """selector => {
-            const markEager = () => {
-                document.querySelectorAll(selector + ' img').forEach(img => {
+        f"""() => {{
+            const selector = {selector!r};
+            const markEager = () => {{
+                document.querySelectorAll(selector + ' img').forEach(img => {{
                     img.loading = 'eager';
-                });
-            };
-            new MutationObserver(markEager).observe(document, {childList: true, subtree: true});
-            document.addEventListener('DOMContentLoaded', markEager, {once: true});
-        }""",
-        selector,
+                }});
+            }};
+            new MutationObserver(markEager).observe(document, {{childList: true, subtree: true}});
+            document.addEventListener('DOMContentLoaded', markEager, {{once: true}});
+        }}"""
     )
 
 
