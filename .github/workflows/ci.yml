@@ -8,9 +8,9 @@ on:
 
 jobs:
   # Temporary migration job for PR #1 only. It checks out the actual PR head,
-  # regenerates disposable docs output and visual references inside the exact
-  # pinned Chromium container, commits only those derived files if they changed,
-  # and uploads the references for human inspection. Remove this job before merge.
+  # applies the reviewed visual-test stabilization once, regenerates disposable
+  # docs output and pinned visual references, and commits those synchronized
+  # files if they changed. Remove this job before merge.
   synchronize-generated-evidence:
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
@@ -29,15 +29,64 @@ jobs:
       - name: Install Python dependencies
         run: python3 -m pip install -r requirements.txt
 
+      - name: Apply explicit visual image-settling helper once
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path("tests/test_dossier.py")
+          text = path.read_text(encoding="utf-8")
+
+          if "def _wait_for_visual_assets(" not in text:
+              marker = "\ndef test_visual_cover_desktop(page: Page, local_server):"
+              helper = r'''
+
+          def _wait_for_visual_assets(page: Page, selector: str):
+              """Make visual-regression captures wait for every real image in
+              the target section to load and decode. Hidden attachment
+              placeholders are intentionally excluded."""
+              page.evaluate("""selector => {
+                  document.querySelectorAll(`${selector} img`).forEach(img => {
+                      if (img.hidden) return;
+                      img.loading = 'eager';
+                      if (!img.getAttribute('src') && img.dataset.lazySrc) {
+                          img.setAttribute('src', img.dataset.lazySrc);
+                      }
+                  });
+              }""", selector)
+              page.wait_for_function("""selector => Array.from(document.querySelectorAll(`${selector} img`))
+                  .filter(img => !img.hidden && (img.getAttribute('src') || img.dataset.lazySrc))
+                  .every(img => img.complete && img.naturalWidth > 0)""", selector, timeout=10_000)
+              page.evaluate("""selector => Promise.all(Array.from(document.querySelectorAll(`${selector} img`))
+                  .filter(img => !img.hidden && img.complete && img.naturalWidth > 0)
+                  .map(img => img.decode().catch(() => undefined)))""", selector)
+              page.wait_for_timeout(50)
+          '''
+              if marker not in text:
+                  raise SystemExit("visual-test insertion marker not found")
+              text = text.replace(marker, helper + marker, 1)
+
+          replacements = {
+              'page.wait_for_timeout(200)\n    assert_matches_baseline(page.locator("#dao").screenshot(), "principal-dao.png")':
+                  '_wait_for_visual_assets(page, "#dao")\n    assert_matches_baseline(page.locator("#dao").screenshot(), "principal-dao.png")',
+              'page.wait_for_timeout(200)\n    assert_matches_baseline(page.locator("#drk-the-egg").screenshot(), "drakken-the-egg.png")':
+                  '_wait_for_visual_assets(page, "#drk-the-egg")\n    assert_matches_baseline(page.locator("#drk-the-egg").screenshot(), "drakken-the-egg.png")',
+              'page.wait_for_timeout(200)\n    assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png")':
+                  '_wait_for_visual_assets(page, "#peripheral-index")\n    assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png")',
+              'page.wait_for_timeout(200)\n    assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png")':
+                  '_wait_for_visual_assets(page, "#media-vault")\n    assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png")',
+          }
+          for old, new in replacements.items():
+              if old in text:
+                  text = text.replace(old, new, 1)
+              elif new not in text:
+                  raise SystemExit(f"expected visual-test snippet not found: {old}")
+
+          path.write_text(text, encoding="utf-8")
+          PY
+
       - name: Regenerate deployable page from authoritative source
         run: ./tools/build.sh
-
-      - name: Upload incident image diagnostic
-        uses: actions/upload-artifact@v4
-        with:
-          name: incident-image-diagnostic
-          path: docs/assets/media/77131487824f0919d44825fe.webp
-          if-no-files-found: error
 
       - name: Regenerate visual references in pinned Chromium environment
         env:
@@ -51,18 +100,18 @@ jobs:
           path: tests/visual_baselines/*.png
           if-no-files-found: error
 
-      - name: Commit synchronized derived outputs if changed
+      - name: Commit synchronized source and derived outputs if changed
         env:
           HEAD_BRANCH: ${{ github.head_ref }}
         run: |
-          git add docs/index.html tests/visual_baselines/*.png
+          git add tests/test_dossier.py docs/index.html tests/visual_baselines/*.png
           if git diff --cached --quiet; then
-            echo "Derived outputs already synchronized."
+            echo "Source and derived outputs already synchronized."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "test: synchronize generated page and visual baselines"
+          git commit -m "test: stabilize visual asset settling and baselines"
           git push origin "HEAD:${HEAD_BRANCH}"
 
   build-and-validate:
