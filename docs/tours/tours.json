@@ -1,0 +1,382 @@
+{
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json",
+  "human_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/",
+  "interpretation_rules": [
+    "Tour order is editorial navigation only and does not assert chronology, causality, importance, or semantic relationships.",
+    "Tour stops reference existing stable records and do not duplicate or replace canon prose.",
+    "Bookmarks, recent openings, history, progress, and named collections are browser-local user state and never canon evidence.",
+    "User-authored local collection names are not serialized into public URLs or generated publication."
+  ],
+  "local_state_policy": {
+    "account_required": false,
+    "analytics_or_telemetry": false,
+    "private_text_in_urls": false,
+    "published": false,
+    "scope": "browser-local"
+  },
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-tour-index/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json",
+  "source_ref": "src/tours/tours.json",
+  "tour_count": 6,
+  "tours": [
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-overview",
+      "label": "Overview",
+      "navigation_group": "Overview",
+      "source_refs": [
+        {
+          "anchor": "overview",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Overview",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 3,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
+          "display_label": "Starsilk Compendium",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cover",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "cover"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/",
+          "display_label": "The all is programmable. Meaning is not optional.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#world",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "world"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+          "display_label": "Reality begins as betrayal. The future is built by exclusion.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+          "position": 3,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "chronology"
+        }
+      ],
+      "tour_id": "overview"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-principal-characters",
+      "label": "Principal characters",
+      "navigation_group": "Principal characters",
+      "source_refs": [
+        {
+          "anchor": "principal-characters",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Principal characters",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 6,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+          "display_label": "Shard-God Tiger",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#shard-god",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "shard-god"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/",
+          "display_label": "Codec",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#codec",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "codec"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/",
+          "display_label": "Dao",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#dao",
+          "position": 3,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "dao"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/",
+          "display_label": "Kail",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#kail",
+          "position": 4,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "kail"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/",
+          "display_label": "Marcel",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#marcel",
+          "position": 5,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "marcel"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/",
+          "display_label": "Jazen",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#jazen",
+          "position": 6,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "jazen"
+        }
+      ],
+      "tour_id": "principal-characters"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-drakken-blood-systems",
+      "label": "Drakken & blood systems",
+      "navigation_group": "Drakken & blood systems",
+      "source_refs": [
+        {
+          "anchor": "drakken-blood-systems",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Drakken & blood systems",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 6,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/",
+          "display_label": "Starsilk",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "starsilk-material"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/",
+          "display_label": "Gorevault",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#gorevault",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "gorevault"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/",
+          "display_label": "Ringthroat",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#ringthroat",
+          "position": 3,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "ringthroat"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/",
+          "display_label": "Lyriboris",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#lyriboris",
+          "position": 4,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "lyriboris"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/",
+          "display_label": "The full field register.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry",
+          "position": 5,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drakken-registry"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/",
+          "display_label": "Blood Rings",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings",
+          "position": 6,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "blood-rings"
+        }
+      ],
+      "tour_id": "drakken-blood-systems"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-canon-cosmology",
+      "label": "Canon & cosmology",
+      "navigation_group": "Canon & cosmology",
+      "source_refs": [
+        {
+          "anchor": "canon-cosmology",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Canon & cosmology",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 4,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/",
+          "display_label": "The universe executes the partition.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starbinding",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "starbinding"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/",
+          "display_label": "The universe keeps receipts.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#canon-ledger",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "canon-ledger"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/",
+          "display_label": "Beyond the Siege Wall",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#beyond-wall",
+          "position": 3,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "beyond-wall"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+          "display_label": "What the characters are standing inside.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+          "position": 4,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "systems"
+        }
+      ],
+      "tour_id": "canon-cosmology"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-reference",
+      "label": "Reference",
+      "navigation_group": "Reference",
+      "source_refs": [
+        {
+          "anchor": "reference",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Reference",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 2,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/",
+          "display_label": "Reference art belongs beside the canon it can contradict.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#archive",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "archive"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/",
+          "display_label": "Codec: the architecture of necessary harm.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#source",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "source"
+        }
+      ],
+      "tour_id": "reference"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-peripheral-cosmic",
+      "label": "Peripheral & cosmic",
+      "navigation_group": "Peripheral & cosmic",
+      "source_refs": [
+        {
+          "anchor": "peripheral-cosmic",
+          "kind": "editorial-navigation",
+          "path": "src/tours/tours.json"
+        },
+        {
+          "anchor": "Peripheral & cosmic",
+          "kind": "authoritative-navigation",
+          "path": "src/content/nav.json"
+        }
+      ],
+      "stop_count": 8,
+      "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/peripheral-index/",
+          "display_label": "The universe is not only its leads.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#peripheral-index",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "peripheral-index"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+          "display_label": "Prisons, repositories, scars and places that remember.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "cosmic-architecture"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/worldsvault-templates/",
+          "display_label": "Thirty templates. Twenty-one currently named.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#worldsvault-templates",
+          "position": 3,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "worldsvault-templates"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/",
+          "display_label": "The operating system has moral consequences.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#ontology-horror",
+          "position": 4,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "ontology-horror"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/artifacts-factions/",
+          "display_label": "Tools remember what systems ask them to do.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#artifacts-factions",
+          "position": 5,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "artifacts-factions"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/",
+          "display_label": "Three protagonists under impossible pressure.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#trio-gallery",
+          "position": 6,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "trio-gallery"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/history-media/",
+          "display_label": "The ledger has pictures. The text still governs.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#history-media",
+          "position": 7,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "history-media"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/media-vault/",
+          "display_label": "Media Vault",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#media-vault",
+          "position": 8,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "media-vault"
+        }
+      ],
+      "tour_id": "peripheral-cosmic"
+    }
+  ]
+}

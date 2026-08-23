@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tours & local library · {{ project_name }}</title>
+<meta name="description" content="Stable-ID curated routes through the Starsilk Compendium plus a browser-local bookmarks and collections library.">
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="alternate" type="application/json" href="tours.json">
+<link rel="stylesheet" href="tours.css">
+<script src="tours.js" defer></script>
+</head>
+<body class="tour-shell">
+<a class="skip-link" href="#main">Skip to tours</a>
+<header class="tour-bar">
+  <a class="tour-brand" href="../">{{ project_name }}</a>
+  <nav aria-label="Tour publication">
+    <a href="../entities/">Entity index</a>
+    <a href="../discover/">Discover</a>
+    <a href="../objects/">Museum objects</a>
+    <a href="tours.json">JSON</a>
+  </nav>
+</header>
+
+<main id="main" class="tour-main">
+  <header class="tour-hero">
+    <div class="eyebrow">Phase 8 · stable-ID routes</div>
+    <h1>Curated tours & local library</h1>
+    <p class="tour-lede">Follow editorial routes through existing stable Compendium records, then keep bookmarks, recent openings, history, progress, and named collections locally in this browser.</p>
+    <p class="tour-authority"><strong>Authority boundary:</strong> tour order is navigation, not chronology or relationship evidence. Local library state is personal browser state, not canon. No account, analytics, telemetry, or server write is used.</p>
+  </header>
+
+  <section class="tour-section" aria-labelledby="curated-heading">
+    <div class="section-heading">
+      <div><div class="eyebrow">Curated routes</div><h2 id="curated-heading">Tours</h2></div>
+      <a href="AUTHORITY.md">Interpretation rules</a>
+    </div>
+    <div class="tour-grid">
+      {% for tour in tours %}
+      <article id="tour-{{ tour.tour_id }}" class="tour-card" data-tour-id="{{ tour.tour_id }}">
+        <header>
+          <div><div class="tour-id">{{ tour.tour_id }}</div><h3>{{ tour.label }}</h3></div>
+          <a class="tour-anchor" href="#tour-{{ tour.tour_id }}" aria-label="Deep link to {{ tour.label }} tour">#</a>
+        </header>
+        <p class="tour-progress" id="progress-{{ tour.tour_id }}" role="status">0 of {{ tour.stop_count }} stops completed locally</p>
+        <ol class="tour-stops">
+          {% for stop in tour.stops %}
+          <li id="tour-{{ tour.tour_id }}-stop-{{ stop.position }}" data-stable-id="{{ stop.stable_id }}">
+            <div class="stop-main">
+              <span class="stop-number">{{ stop.position }}</span>
+              <div>
+                <a class="tour-stop-link" data-visit-id="{{ stop.stable_id }}" href="../entities/{{ stop.stable_id }}/">{{ stop.display_label }}</a>
+                <code>{{ stop.stable_id }}</code>
+              </div>
+            </div>
+            <div class="stop-actions">
+              <label><input type="checkbox" data-tour-progress data-tour-id="{{ tour.tour_id }}" data-stable-id="{{ stop.stable_id }}"> Complete</label>
+              <button type="button" data-bookmark-id="{{ stop.stable_id }}">Bookmark</button>
+              <a href="#record-{{ stop.stable_id }}">Library</a>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="localLibrary" class="tour-section local-library" tabindex="-1" aria-labelledby="library-heading">
+    <div class="section-heading">
+      <div><div class="eyebrow">Browser-local state</div><h2 id="library-heading">Your local library</h2></div>
+      <button id="clearLocalData" type="button" class="danger-button">Clear local data</button>
+    </div>
+    <p class="privacy-note">Stored only in this browser profile via local storage when available. Collection names and history are not published and are not placed in public URLs.</p>
+    <p id="localStatus" class="local-status" role="status" aria-live="polite">Local library ready.</p>
+
+    <div class="library-controls">
+      <label>Stable record
+        <select id="libraryRecord">
+          {% for record in records %}<option value="{{ record.stable_id }}">{{ record.display_label }} — {{ record.stable_id }}</option>{% endfor %}
+        </select>
+      </label>
+      <div class="control-actions">
+        <a id="openSelected" href="../entities/{{ records[0].stable_id }}/">Open selected</a>
+        <button id="bookmarkSelected" type="button">Bookmark selected</button>
+      </div>
+      <label>New collection name
+        <input id="collectionName" type="text" maxlength="80" autocomplete="off" placeholder="Private local name">
+      </label>
+      <button id="createCollection" type="button">Create collection</button>
+      <label>Collection
+        <select id="collectionSelect"><option value="">Create a collection first</option></select>
+      </label>
+      <button id="addSelectedToCollection" type="button">Add selected to collection</button>
+    </div>
+
+    <div class="library-grid">
+      <section aria-labelledby="bookmarks-heading"><h3 id="bookmarks-heading">Bookmarks</h3><ul id="bookmarksList" class="local-list"></ul><p id="bookmarksEmpty" class="empty-local">No local bookmarks.</p></section>
+      <section aria-labelledby="recent-heading"><h3 id="recent-heading">Recent openings</h3><ol id="recentList" class="local-list"></ol><p id="recentEmpty" class="empty-local">No locally recorded openings.</p></section>
+      <section aria-labelledby="history-heading"><h3 id="history-heading">Local history</h3><ol id="historyList" class="local-list history-list"></ol><p id="historyEmpty" class="empty-local">No local history.</p></section>
+    </div>
+
+    <section class="collections-wrap" aria-labelledby="collections-heading">
+      <h3 id="collections-heading">Collections</h3>
+      <div id="collectionsList"></div>
+      <p id="collectionsEmpty" class="empty-local">No local collections.</p>
+    </section>
+  </section>
+</main>
+
+<footer class="tour-footer">
+  <p>Generated from stable tour bindings and authored navigation order. <a href="AUTHORITY.md">Authority rules</a> · <a href="schema.json">Tour schema</a></p>
+</footer>
+</body>
+</html>
