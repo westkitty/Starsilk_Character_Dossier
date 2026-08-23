@@ -48,6 +48,52 @@ jobs:
           print(f"html_url={data.get('html_url')}")
           PY
 
+      - name: Read latest GitHub Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error --location \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds/latest" \
+            --output /tmp/pages-build.json
+          python3 - <<'PY'
+          import json
+
+          with open('/tmp/pages-build.json', encoding='utf-8') as handle:
+              data = json.load(handle)
+          print(f"latest_build_status={data.get('status')}")
+          print(f"latest_build_commit={data.get('commit')}")
+          print(f"latest_build_created_at={data.get('created_at')}")
+          print(f"latest_build_updated_at={data.get('updated_at')}")
+          error = data.get('error') or {}
+          print(f"latest_build_error={error.get('message')}")
+          PY
+
+      - name: Verify live Compendium identity from GitHub runner
+        run: |
+          set -euo pipefail
+          page_url="$(python3 - <<'PY'
+          import json
+          with open('/tmp/pages.json', encoding='utf-8') as handle:
+              print(json.load(handle).get('html_url') or '')
+          PY
+          )"
+          if [ -z "${page_url}" ]; then
+            echo "::error::Pages configuration did not expose html_url."
+            exit 1
+          fi
+          probe="${page_url}?pr_probe=${GITHUB_SHA}"
+          curl --fail --silent --show-error --location \
+            -H 'Cache-Control: no-cache' \
+            "${probe}" --output /tmp/live.html
+          grep -Fq 'Starsilk Compendium' /tmp/live.html
+          grep -Fq 'id="dossierSearch"' /tmp/live.html
+          grep -Fq 'Archive tools' /tmp/live.html
+          echo "Verified current Compendium markers at ${page_url}"
+
   publish:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
