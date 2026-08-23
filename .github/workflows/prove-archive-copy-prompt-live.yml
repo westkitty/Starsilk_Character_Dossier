@@ -47,9 +47,9 @@ jobs:
           print('latest_commit=' + str(data.get('commit')))
           print('latest_created_at=' + str(data.get('created_at')))
           print('latest_updated_at=' + str(data.get('updated_at')))
-          err = data.get('error')
-          print('latest_error=' + (json.dumps(err, sort_keys=True) if err else 'None'))
-          sys.exit(0 if data.get('status') == 'built' and data.get('commit') == os.environ['EXPECTED_SHA'] and not err else 1)
+          error_message = (data.get('error') or {}).get('message')
+          print('latest_error=' + (str(error_message) if error_message else 'None'))
+          sys.exit(0 if data.get('status') == 'built' and data.get('commit') == os.environ['EXPECTED_SHA'] and not error_message else 1)
           PY
             then
               matched=1
