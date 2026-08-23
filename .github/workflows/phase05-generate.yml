@@ -93,7 +93,7 @@ jobs:
             docs/machine \
             docs/entities \
             docs/relationships
-          git rm .github/workflows/phase05-generate.yml tools/apply_phase05_integration.py
+          git rm -f --ignore-unmatch .github/workflows/phase05-generate.yml tools/apply_phase05_integration.py
           git diff --cached --check
           python3 - <<'PY'
           import subprocess
