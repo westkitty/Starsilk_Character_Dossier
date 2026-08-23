@@ -1,0 +1,204 @@
+name: Verify Phase 03 live entity publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify every declared live URL and all stable entity destinations
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.parse
+          import urllib.request
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
+          OUT = Path("/tmp/starsilk-live-phase3")
+          OUT.mkdir(parents=True, exist_ok=True)
+
+          class Probe(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.section_ids = set()
+                  self.stable_ids = []
+                  self.canonicals = []
+                  self.alternates = {}
+                  self.scripts = []
+              def handle_starttag(self, tag, attrs):
+                  values = dict(attrs)
+                  if tag == "section" and values.get("id"):
+                      self.section_ids.add(values["id"])
+                  if values.get("data-stable-id"):
+                      self.stable_ids.append(values["data-stable-id"])
+                  if tag == "link" and values.get("rel") == "canonical":
+                      self.canonicals.append(values.get("href"))
+                  if tag == "link" and values.get("rel") == "alternate":
+                      self.alternates[values.get("type")] = values.get("href")
+                  if tag == "script":
+                      self.scripts.append(values.get("type"))
+
+          def cache_bust(url, suffix):
+              sep = "&" if "?" in url else "?"
+              return f"{url}{sep}phase03proof={urllib.parse.quote(PROOF + '-' + suffix)}"
+
+          def fetch(url, suffix):
+              request = urllib.request.Request(
+                  cache_bust(url, suffix),
+                  headers={"User-Agent": "Starsilk-Phase-03-Live-Proof"},
+              )
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  if response.status != 200:
+                      raise RuntimeError(f"{url}: HTTP {response.status}")
+                  return response.read()
+
+          def expected_path_for(url):
+              if url == BASE:
+                  return Path("docs/index.html")
+              relative = url.removeprefix(BASE)
+              if relative.endswith("/"):
+                  return Path("docs") / relative / "index.html"
+              return Path("docs") / relative
+
+          # Wait for one Phase 3 page to prove the legacy Pages edge has converged.
+          marker_url = BASE + "entities/codec/"
+          marker_expected = Path("docs/entities/codec/index.html").read_bytes()
+          last_error = None
+          for attempt in range(1, 41):
+              try:
+                  candidate = fetch(marker_url, f"marker-{attempt}")
+                  if candidate == marker_expected:
+                      break
+                  last_error = RuntimeError("live Codec permalink exists but does not yet match merged docs")
+              except Exception as exc:
+                  last_error = exc
+              if attempt < 40:
+                  time.sleep(5)
+          else:
+              raise RuntimeError(f"Pages did not converge to Phase 3 publication: {last_error}")
+
+          index = json.loads(Path("docs/machine/index.json").read_text(encoding="utf-8"))
+          entity_index = json.loads(Path("docs/machine/entities.json").read_text(encoding="utf-8"))
+          records = entity_index["records"]
+          ids = [record["stable_id"] for record in records]
+          assert len(ids) == len(set(ids)) == entity_index["record_count"] == 127
+          assert "archive" in ids
+
+          # Every URL declared by the machine index must be live and byte-identical
+          # to its merged docs authority. This includes all 127 human permalinks and
+          # all 254 per-record JSON/Markdown alternatives.
+          urls = index["public_urls"]
+          assert len(urls) == len(set(urls))
+          assert BASE in urls
+          assert BASE + "entities/" in urls
+
+          downloaded = {}
+          for number, url in enumerate(urls):
+              expected_path = expected_path_for(url)
+              assert expected_path.is_file(), f"declared live URL has no merged docs file: {url} -> {expected_path}"
+              expected = expected_path.read_bytes()
+              data = fetch(url, f"url-{number}")
+              assert data == expected, f"live bytes differ from merged docs: {url}"
+              downloaded[url] = data
+
+              relative = url.removeprefix(BASE)
+              if not relative:
+                  continue
+              target = OUT / (relative + "index.html" if relative.endswith("/") else relative)
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(data)
+
+          # Entity CSS is required by every human page but is not a sitemap target.
+          css_url = BASE + "entities/entity.css"
+          css_expected = Path("docs/entities/entity.css").read_bytes()
+          css_live = fetch(css_url, "entity-css")
+          assert css_live == css_expected
+          (OUT / "entities/entity.css").write_bytes(css_live)
+
+          # Root Compendium remains the complete legacy destination and all authored
+          # stable anchors must still exist there.
+          root_text = downloaded[BASE].decode("utf-8", errors="strict")
+          assert 'id="dossierSearch"' in root_text
+          assert "Archive tools" in root_text
+          root_probe = Probe()
+          root_probe.feed(root_text)
+          for stable_id in ids:
+              assert stable_id in root_probe.section_ids, f"legacy Compendium anchor missing live: {stable_id}"
+
+          # Inspect all human entity pages independently of byte equality so the proof
+          # records the intended permalink contract, not merely file availability.
+          for record in records:
+              stable_id = record["stable_id"]
+              human_url = BASE + f"entities/{stable_id}/"
+              json_url = BASE + f"machine/entities/{stable_id}.json"
+              md_url = BASE + f"machine/entities/{stable_id}.md"
+              legacy_url = BASE + f"#{stable_id}"
+
+              assert record["canonical_url"] == human_url
+              assert human_url in downloaded
+              assert json_url in downloaded
+              assert md_url in downloaded
+
+              text = downloaded[human_url].decode("utf-8", errors="strict")
+              probe = Probe()
+              probe.feed(text)
+              assert probe.stable_ids == [stable_id], f"wrong or duplicate stable identity on {human_url}"
+              assert probe.canonicals == [human_url], f"wrong canonical on {human_url}"
+              assert probe.alternates == {
+                  "application/json": json_url,
+                  "text/markdown": md_url,
+              }, f"wrong machine alternatives on {human_url}"
+              assert legacy_url in text, f"legacy Compendium location missing on {human_url}"
+              assert "Published source content" in text
+              assert probe.scripts == ["application/ld+json"], f"executable or unexpected scripts on {human_url}"
+
+              detail = json.loads(downloaded[json_url])
+              assert detail["stable_id"] == stable_id
+              assert detail["canonical_url"] == human_url
+              assert detail["visibility"] == "public"
+              assert detail["canon_status"] == "unknown"
+
+          archive_url = BASE + "entities/archive/"
+          assert archive_url in downloaded
+          assert b'data-stable-id="archive"' in downloaded[archive_url]
+
+          # Relationship output remains evidence-limited after the canonical URL move.
+          relationships = json.loads(downloaded[BASE + "machine/relationships.json"])
+          assert relationships["relationship_count"] == len(relationships["relationships"])
+          assert all(item["kind"] == "mentions" for item in relationships["relationships"])
+          assert all(item["evidence_class"] == "observed-xref" for item in relationships["relationships"])
+
+          jsonld = json.loads(downloaded[BASE + "machine/project.jsonld"])
+          assert jsonld["@type"] == "CreativeWork"
+          assert all(part["@type"] == "CreativeWork" for part in jsonld["hasPart"])
+          assert "Person" not in json.dumps(jsonld)
+
+          sitemap = downloaded[BASE + "sitemap.xml"].decode("utf-8")
+          for url in urls:
+              assert f"<loc>{url}</loc>" in sitemap
+
+          print(
+              f"LIVE_PHASE3_PROOF_OK entity_pages={len(records)} "
+              f"declared_urls={len(urls)} per_record_machine={len(records) * 2} "
+              "archive=ok legacy_anchors=ok root=ok exact_bytes=ok"
+          )
+          PY
+
+      - name: Re-run public-boundary gate against downloaded live derivatives
+        run: |
+          python3 tools/check_public_boundary.py \
+            /tmp/starsilk-live-phase3/machine \
+            /tmp/starsilk-live-phase3/entities \
+            /tmp/starsilk-live-phase3/llms.txt \
+            /tmp/starsilk-live-phase3/sitemap.xml
