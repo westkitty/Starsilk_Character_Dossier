@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 15
+revision: 16
 
 ## Current baseline
 
@@ -18,6 +18,7 @@ revision: 15
 - Museum + AI Phase 5 PR #21 merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`.
 - Museum + AI Phase 6 PR #24 merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`.
 - Museum + AI Phase 7 PR #27 merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`.
+- Museum + AI Phase 8 PR #30 merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -40,6 +41,8 @@ revision: 15
 - `src/canon/AUTHORITY.md` and `src/schema/canon-lock-register.schema.json` define the Phase 6 inspection/publication boundary.
 - `build/discovery_publication.py` owns deterministic generation of `docs/discover/`; that surface is a public discovery/context convenience derivative, not canon, relationship, or media-provenance authority.
 - `src/discovery/AUTHORITY.md`, `src/schema/discovery-index.schema.json`, `src/schema/context-packet.schema.json`, and `src/schema/context-packet-index.schema.json` define the Phase 7 discovery/context-packet interpretation boundary.
+- `build/tour_publication.py` owns deterministic generation of `docs/tours/`; that surface is an editorial stable-ID navigation and browser-local convenience derivative, not canon, chronology, relationship, or user-account authority.
+- `src/tours/tours.json` owns stable curated-tour IDs and their existing-navigation-group binding; `src/content/nav.json` remains authority for ordered tour-stop membership. `src/tours/AUTHORITY.md` and `src/schema/tour-index.schema.json` define the Phase 8 interpretation/publication boundary.
 
 ## Active invariants
 
@@ -100,6 +103,12 @@ revision: 15
 55. Phase 7 result classes remain structural publication metadata; navigation-group facets derive only from authored `src/content/nav.json`; archetypes are copied only when authored; media facets derive only from manifest associations; excerpts are mechanical source projections. Search matches, filtering, ranking/order, and no-result states are retrieval behavior only and never create or negate canon facts.
 56. Phase 7 AI context packets must preserve cited source references, stable identity, explicit unknowns, visibility, canon status, spoiler publication value, related-media IDs, and relationship evidence boundaries. Packet relationships remain only `mentions` / `observed-xref`, and generated packets never outrank their cited source authority.
 57. Phase 7 discovery is additive. The existing complete-Compendium `dossierSearch`, navigation behavior, canonical entity permalinks, legacy anchors, museum identities, relationship evidence identities, and Canon Inspector semantics must remain supported unless a later explicit phase contract intentionally changes them.
+58. `docs/tours/` is generator-owned output from `build/tour_publication.py`. Stable tour IDs/bindings derive from `src/tours/tours.json`, while stop membership and order derive only from existing authored `src/content/nav.json` stable IDs; generated tour output must not become a second canon prose database.
+59. Curated tour route membership and ordering are editorial navigation only. They do not prove chronology, causality, importance, faction membership, kinship, location, or any other semantic relationship. Missing lore facts remain unknown.
+60. Phase 8 persistent library data is browser-local user state only: bookmarks, recent openings, timestamped local history, completion progress, and named collections. It requires no account and must not use analytics, telemetry, beacons, server writes, or external runtime services.
+61. User-authored collection names and local history must not enter generated publication, machine indexes, canon/evidence surfaces, or public URLs. Local state is never canon/relationship evidence; clearing site storage removes persistence, and unavailable storage falls back to current-page memory rather than remote persistence.
+62. Phase 8 is additive to the existing human surfaces. Canonical entity pages remain script-free except inert JSON-LD and may only link into the `/tours/` local-library surface; root `dossierSearch`, legacy anchors, museum identities, observed-xref semantics, and Canon Inspector authority boundaries remain intact.
+63. Public tour/machine derivatives must remain deterministic, boundary-checked, and independently verified at the live Pages edge whenever Phase 8 publication changes.
 
 ## Verified implementation
 
@@ -474,6 +483,48 @@ Live publication was independently verified by execution-only PR #28, closed wit
 
 Therefore Phase 7 is **VERIFIED COMPLETE** at authority, deterministic generation, stable identity, context-packet semantics, browser behavior, CI, merge, public-boundary, and live-publication layers.
 
+## Museum + AI Phase 8 curated museum tours and local collections — VERIFIED
+
+Phase 8 of 12, **Curated Museum Tours and Local Collections**, is complete.
+
+Repository evidence:
+
+- starting `main`: `bbb228e21e06883a09210c0e063272a80596190c`
+- work branch: `phase-08-tours-local-collections`
+- primary generated implementation commit: `36e119f5f5a1b7915e8c4600f66cb349daafa100`
+- final validated implementation head: `d2a772baacf606cb6085a84e8378e69d3c19be99`
+- implementation repair passes used: zero
+- successful one-shot implementation/build/focused proof: run `32659489379`
+- successful required CI: run `32659617585` (Chromium, Firefox, WebKit PASS)
+- implementation PR: `#30`
+- merged to `main`: `6520f43574eac8de64d67da77dca19bc99f3eb46`
+- execution-only live proof PR: `#31`, closed unmerged
+- successful live proof: run `32659776026`, job `97244053606`
+
+Phase 8 verified capabilities:
+
+- `build/tour_publication.py` deterministically generates/checks the six-file `docs/tours/` publication.
+- six stable curated-tour IDs bind to the six existing authored navigation groups; 29 tour stops derive exactly from `src/content/nav.json` order and established stable IDs.
+- tour machine records carry stable IDs, display labels, canonical/legacy destinations, source refs, and editorial-navigation authority only; they do not duplicate section body prose, excerpts, per-record canon status, spoiler data, or inferred lore.
+- the human `/tours/` surface provides stable tour fragments plus record-library fragments while keeping canonical record links on `/entities/<stable-id>/`.
+- the browser-local library persists bookmarks, recent openings, timestamped local history, completion progress, and user-named collections with a clear-data control; storage failure degrades to page-session memory.
+- private local names and history are not generated, published, or placed in public URLs; no account, analytics, telemetry, beacon, server-write path, or external runtime service is introduced.
+- local library state is explicitly user preference/state, never canon, chronology, relationship, or evidence authority.
+- existing entity pages remain script-free except inert JSON-LD and expose only conservative links to the tours/local-library surface; the root complete-Compendium search remains unchanged.
+- machine publication now discovers the tour human/JSON/schema/authority endpoints through the existing machine index, versioned schema directory, `llms.txt`, and sitemap.
+- Phase 9 was not started.
+
+Live publication proof established:
+
+- `LIVE_PHASE8_BYTES_OK tours=6 exact_files=13 local_state=browser-only private_urls=clean root-search=unchanged`;
+- selected live entity/discovery/tour/machine/orientation files were byte-identical to merged `docs/`;
+- downloaded live text/machine artifacts passed `tools/check_public_boundary.py` across 11 files;
+- exact principal-character tour order remained `shard-god`, `codec`, `dao`, `kail`, `marcel`, `jazen`;
+- the browser-local policy remained no-account, no-telemetry, unpublished, and private-text-out-of-URLs;
+- `LIVE_PHASE8_BROWSER_OK deep-link=ok bookmark=ok collections=ok progress=ok recent-history=ok entity-discovery=ok mobile=ok network=local-origin-only` proved live persistence/clearing, record navigation, private collection URL isolation, origin-local networking, entity discovery, and 375px no-overflow behavior.
+
+Therefore Phase 8 is **VERIFIED COMPLETE** at authority, deterministic generation, privacy/local-state semantics, CI, diff scope, merge, public-boundary, and live-publication layers.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -592,10 +643,11 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Phase 4 context links preserve published placement evidence only; richer relationship semantics remain unauthored and belong to Phase 5.
 - The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.
 - Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture chronology-event IDs, WorldsVault record IDs, semantic relationships, dates, or coordinates.
+- Phase 8 browser-local bookmarks/history/progress/collections are intentionally per browser origin/profile and do not sync through an account or server; this privacy/locality constraint is deliberate, not missing canon infrastructure.
 
 ## Pending
 
-- Museum + AI program: Phase 8 of 12 — Curated Museum Tours and Local Collections. It has not been started.
+- Museum + AI program: Phase 9 of 12 — Interactive Chronology, Canon Status, and Spoiler Views. It has not been started.
 
 ## Revision log
 
@@ -614,3 +666,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 13: completed Museum + AI Phase 5. Added the deterministic 127-record/136-edge Relationship Observatory, stable entity/edge fragments, exact physical xref evidence anchors, JSON/Markdown/schema/authority alternatives, entity discovery, build integration, observed-only semantic locks, clean-output regression coverage, and live Pages proof. PR #21 passed final Chromium/Firefox/WebKit CI (`135 passed, 1 skipped`) and merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`; execution-only proof PR #22 was closed unmerged after run `32649700329` proved exact live bytes, public-boundary safety, evidence fragments, entity discovery, and mobile Chromium behavior.
 - Revision 14: completed Museum + AI Phase 6. Added the deterministic six-file Canon Inspector, exact 11-lock register, explicit document/section enforcement semantics, technical-pattern labeling, authority/schema alternatives, machine/sitemap/orientation and entity discovery, and focused regression coverage. One bounded wording-only repair preserved an explicit plain-text complete-canon boundary. PR #24 passed final pinned Chromium/Firefox/WebKit CI (`140 passed, 1 skipped`) and merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`; execution-only proof PR #25 was closed unmerged after run `32656422914` proved exact live bytes, public-boundary safety, lock scope/derivation, deep links, discovery, and mobile Chromium behavior. Phase 7 was not started.
 - Revision 15: completed Museum + AI Phase 7. Added deterministic 127-record faceted discovery, 127 compact source-backed AI context packets, 137-file `/discover/` publication, mechanical source excerpts, structural/authored facets, query/facet deep links, keyboard navigation, versioned schemas, machine/sitemap/orientation discovery, and entity-index discovery while preserving the root `dossierSearch`. One bounded test-expectation repair updated the pre-Phase-7 finite machine schema/URL assertions without changing product semantics. PR #27 passed final Chromium/Firefox/WebKit CI run `32658677512` and merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; execution-only proof PR #28 was closed unmerged after run `32658856927` / job `97241822080` proved exact live bytes, public-boundary safety, source/unknown/observed-xref packet semantics, deep links, facets, keyboard behavior, entity discovery, unchanged root search, and mobile Chromium behavior. Phase 8 was not started.
+- Revision 16: completed Museum + AI Phase 8. Added six stable-ID curated routes/29 authored-navigation stops, deterministic `/tours/` human/JSON/schema/authority publication, browser-local bookmarks/recent/history/progress/named collections with clear/fallback behavior, privacy/locality authority rules, machine/sitemap/orientation discovery, and conservative entity/discovery entry points without changing root search or record authority. No implementation repair was needed. PR #30 passed final Chromium/Firefox/WebKit CI run `32659617585` and merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`; execution-only proof PR #31 was closed unmerged after run `32659776026` / job `97244053606` proved exact live bytes, public-boundary safety, exact tour derivation, private-text URL isolation, persistence/clear behavior, origin-local networking, entity discovery, and mobile Chromium behavior. Phase 9 was not started.

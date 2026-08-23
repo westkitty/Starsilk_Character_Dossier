@@ -25,7 +25,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 5 | Relationship Observatory | COMPLETE | PR #21; final head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`; CI `32649254977` PASS; merged `0f31a280eebdbaf68bda9265d3fa54aed806f120`; live proof `32649700329` PASS | none |
 | 6 | Canon Inspector and Authority UI | COMPLETE | PR #24; implementation head `d124b1c3fe8990d0cab2e7308f968ed9027463b6`; CI `32656216440` PASS; merged `5dafd7c7cba11b728c9548b009847ca96e8e756f`; live proof `32656422914` PASS | none |
 | 7 | Faceted Discovery and AI Context Packets | COMPLETE | PR #27; final head `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`; CI `32658677512` PASS; merged `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; live proof `32658856927` PASS | none |
-| 8 | Curated Museum Tours and Local Collections | NOT STARTED | — | deferred |
+| 8 | Curated Museum Tours and Local Collections | COMPLETE | PR #30; final head `d2a772baacf606cb6085a84e8378e69d3c19be99`; CI `32659617585` PASS; merged `6520f43574eac8de64d67da77dca19bc99f3eb46`; live proof `32659776026` PASS | none |
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | NOT STARTED | — | deferred |
 | 10 | WorldsVault Cosmic Topology Explorer | NOT STARTED | — | deferred |
 | 11 | Installable Offline Museum | NOT STARTED | — | deferred |
@@ -259,6 +259,35 @@ Preserve existing search/navigation behavior while adding structured result clas
 ### Phase 8 — Curated Museum Tours and Local Collections
 
 Build stable-ID-based guided tours plus browser-local bookmarks/recent/history/collections. No account, analytics, telemetry, duplicated canon prose, or private text in public URLs by default.
+
+#### Completion record
+
+- starting `main`: `bbb228e21e06883a09210c0e063272a80596190c`
+- work branch: `phase-08-tours-local-collections`
+- primary generated implementation commit: `36e119f5f5a1b7915e8c4600f66cb349daafa100`
+- final validated implementation head: `d2a772baacf606cb6085a84e8378e69d3c19be99`
+- implementation repair passes used: zero
+- one-shot implementation/build/focused-proof run: `32659489379` PASS
+- successful required final CI: run `32659617585` (Chromium, Firefox, and WebKit PASS)
+- implementation PR: `#30`
+- implementation merge on `main`: `6520f43574eac8de64d67da77dca19bc99f3eb46`
+- execution-only live proof PR: `#31`, closed unmerged
+- successful live proof: run `32659776026`, job `97244053606`
+- generated public tour surface: six deterministic files under `/tours/` (`index.html`, `tours.css`, `tours.js`, `tours.json`, `schema.json`, `AUTHORITY.md`)
+- curated route source: six stable tour IDs in `src/tours/tours.json`; each binds only to an existing authored `src/content/nav.json` navigation group, producing 29 ordered stable-record stops without duplicating canon prose
+- tour semantics remain editorial navigation only: route membership/order does not assert chronology, causality, importance, faction membership, kinship, or other semantic relationships
+- browser-local library supports bookmarks, recent openings, timestamped local history, per-tour completion progress, and user-named collections via origin-local storage; storage failure falls back to page-session memory
+- privacy guarantees: no account/sign-in, analytics, telemetry, beacon, server write, or external runtime request; user-authored collection names/history are not published and local private text is never serialized into public URLs
+- local bookmarks, history, collections, and completion marks are user state only and never canon or relationship evidence
+- entity and discovery surfaces expose conservative `/tours/` / `#record-<stable-id>` entry points while canonical entity permalinks, legacy anchors, script-free entity-page behavior, root `dossierSearch`, museum identities, relationship evidence, and Canon Inspector semantics remain intact
+- machine publication adds the versioned tour-index schema, `/tours/` endpoints, `llms.txt` orientation, sitemap coverage, and `src/tours/tours.json` source declaration through the existing deterministic publisher
+- final diff-scope review found no dependency/lockfile changes, canonical-media changes, authored canon-prose changes, stable-ID renames, museum-object identity changes, relationship-semantic promotion, or Phase 9 implementation
+- live proof established `LIVE_PHASE8_BYTES_OK tours=6 exact_files=13 local_state=browser-only private_urls=clean root-search=unchanged`
+- downloaded live proof set passed `tools/check_public_boundary.py` across 11 text/machine files
+- live Chromium proof established `LIVE_PHASE8_BROWSER_OK deep-link=ok bookmark=ok collections=ok progress=ok recent-history=ok entity-discovery=ok mobile=ok network=local-origin-only`
+- Phase 9 was not started
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 9 — Interactive Chronology, Canon Status, and Spoiler Views
 
