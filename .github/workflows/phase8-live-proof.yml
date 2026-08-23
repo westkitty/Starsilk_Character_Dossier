@@ -1,0 +1,188 @@
+name: Phase 8 live Pages proof
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-08-live-proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and Chromium
+        run: |
+          python3 -m pip install -r requirements.txt
+          playwright install --with-deps chromium
+      - name: Prove live Phase 8 bytes, authority, and machine discovery
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, time, urllib.request
+
+          root = Path.cwd()
+          out = Path('/tmp/live-phase8')
+          out.mkdir(parents=True, exist_ok=True)
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          mapping = {
+              'docs/entities/index.html': 'entities/',
+              'docs/entities/codec/index.html': 'entities/codec/',
+              'docs/discover/index.html': 'discover/',
+              'docs/tours/index.html': 'tours/',
+              'docs/tours/tours.css': 'tours/tours.css',
+              'docs/tours/tours.js': 'tours/tours.js',
+              'docs/tours/tours.json': 'tours/tours.json',
+              'docs/tours/schema.json': 'tours/schema.json',
+              'docs/tours/AUTHORITY.md': 'tours/AUTHORITY.md',
+              'docs/machine/index.json': 'machine/index.json',
+              'docs/machine/schema/v1/tour-index.schema.json': 'machine/schema/v1/tour-index.schema.json',
+              'docs/llms.txt': 'llms.txt',
+              'docs/sitemap.xml': 'sitemap.xml',
+          }
+
+          last = []
+          for attempt in range(30):
+              mismatches = []
+              downloads = {}
+              stamp = str(int(time.time() * 1000))
+              for local_rel, remote_rel in mapping.items():
+                  expected = (root / local_rel).read_bytes()
+                  url = base + remote_rel + ('&' if '?' in remote_rel else '?') + 'phase8=' + stamp
+                  request = urllib.request.Request(url, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Starsilk-Phase8-Live-Proof'})
+                  try:
+                      with urllib.request.urlopen(request, timeout=30) as response:
+                          actual = response.read()
+                  except Exception as exc:
+                      mismatches.append(f'{remote_rel}: {exc}')
+                      continue
+                  downloads[local_rel] = actual
+                  if actual != expected:
+                      mismatches.append(f'{remote_rel}: bytes differ expected={len(expected)} actual={len(actual)}')
+              try:
+                  root_request = urllib.request.Request(base + '?phase8=' + stamp, headers={'Cache-Control': 'no-cache', 'User-Agent': 'Starsilk-Phase8-Live-Proof'})
+                  with urllib.request.urlopen(root_request, timeout=30) as response:
+                      live_root = response.read().decode('utf-8')
+                  if 'id="dossierSearch"' not in live_root:
+                      mismatches.append('/: complete-Compendium search marker missing')
+              except Exception as exc:
+                  mismatches.append(f'/: {exc}')
+
+              if not mismatches:
+                  for local_rel, data in downloads.items():
+                      target = out / Path(local_rel).relative_to('docs')
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      target.write_bytes(data)
+                  break
+              last = mismatches
+              print(f'Attempt {attempt + 1}/30 not current: ' + '; '.join(mismatches[:5]))
+              time.sleep(10)
+          else:
+              raise SystemExit('Live Pages never converged to merged Phase 8 bytes: ' + '; '.join(last))
+
+          tours = json.loads((out / 'tours/tours.json').read_text(encoding='utf-8'))
+          machine = json.loads((out / 'machine/index.json').read_text(encoding='utf-8'))
+          entity_index = (out / 'entities/index.html').read_text(encoding='utf-8')
+          codec = (out / 'entities/codec/index.html').read_text(encoding='utf-8')
+          discovery = (out / 'discover/index.html').read_text(encoding='utf-8')
+          authority = (out / 'tours/AUTHORITY.md').read_text(encoding='utf-8')
+          rendered = json.dumps(tours)
+
+          assert tours['schema'] == 'starsilk-tour-index/1'
+          assert tours['tour_count'] == 6
+          assert [tour['tour_id'] for tour in tours['tours']] == [
+              'overview', 'principal-characters', 'drakken-blood-systems',
+              'canon-cosmology', 'reference', 'peripheral-cosmic'
+          ]
+          principal = next(tour for tour in tours['tours'] if tour['tour_id'] == 'principal-characters')
+          assert [stop['stable_id'] for stop in principal['stops']] == ['shard-god', 'codec', 'dao', 'kail', 'marcel', 'jazen']
+          assert tours['local_state_policy'] == {
+              'scope': 'browser-local',
+              'account_required': False,
+              'analytics_or_telemetry': False,
+              'published': False,
+              'private_text_in_urls': False,
+          }
+          for forbidden in ('"body_html"', '"excerpt"', '"canon_status"', '"spoiler_level"'):
+              assert forbidden not in rendered
+          assert machine['endpoints']['tours'] == base + 'tours/'
+          assert machine['endpoints']['tour_index'] == base + 'tours/tours.json'
+          assert base + 'tours/' in machine['public_urls']
+          assert base + 'tours/tours.json' in machine['public_urls']
+          assert 'href="../tours/"' in entity_index
+          assert 'href="../../tours/#record-codec"' in codec
+          assert 'href="../tours/"' in discovery
+          assert 'Tour order is navigation order only' in authority
+          assert 'never serialized into public URLs' in authority
+          assert 'no analytics, telemetry, beacon, or server write' in authority
+
+          print(f'LIVE_PHASE8_BYTES_OK tours={tours["tour_count"]} exact_files={len(mapping)} local_state=browser-only private_urls=clean root-search=unchanged')
+          PY
+          python3 tools/check_public_boundary.py /tmp/live-phase8
+      - name: Prove live Phase 8 browser-local behavior
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import time
+          from playwright.sync_api import sync_playwright, expect
+
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          private_name = 'Private Proof Collection ' + str(int(time.time()))
+          requests = []
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page(viewport={'width': 375, 'height': 812})
+              page.on('request', lambda request: requests.append(request.url))
+              page.goto(base + 'tours/#tour-principal-characters', wait_until='networkidle')
+              page.evaluate('localStorage.clear()')
+              page.reload(wait_until='networkidle')
+              expect(page.locator('#tour-principal-characters')).to_be_visible()
+              assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+
+              page.locator('#libraryRecord').select_option('codec')
+              page.locator('#bookmarkSelected').click()
+              expect(page.locator('#bookmarksList')).to_contain_text('Codec')
+
+              page.locator('#collectionName').fill(private_name)
+              page.locator('#createCollection').click()
+              expect(page.locator('#collectionSelect')).to_contain_text(private_name)
+              page.locator('#addSelectedToCollection').click()
+              expect(page.locator('#collectionsList')).to_contain_text(private_name)
+              expect(page.locator('#collectionsList')).to_contain_text('Codec')
+              assert private_name not in page.url
+
+              checkbox = page.locator('#tour-principal-characters input[data-tour-progress]').first
+              checkbox.check()
+              page.reload(wait_until='networkidle')
+              expect(page.locator('#bookmarksList')).to_contain_text('Codec')
+              expect(page.locator('#collectionsList')).to_contain_text(private_name)
+              expect(page.locator('#tour-principal-characters input[data-tour-progress]').first).to_be_checked()
+
+              page.locator('#libraryRecord').select_option('codec')
+              page.locator('#openSelected').click()
+              expect(page).to_have_url(base + 'entities/codec/')
+              expect(page.locator('a[href="../../tours/#record-codec"]')).to_be_visible()
+              page.go_back(wait_until='networkidle')
+              expect(page.locator('#recentList')).to_contain_text('Codec')
+              expect(page.locator('#historyList')).to_contain_text('Codec')
+
+              page.goto(base + 'tours/#record-codec', wait_until='networkidle')
+              expect(page.locator('#libraryRecord')).to_have_value('codec')
+              assert private_name not in page.url
+              assert all(url.startswith(base) for url in requests), [url for url in requests if not url.startswith(base)]
+              page.locator('#clearLocalData').click()
+              expect(page.locator('#bookmarksEmpty')).to_be_visible()
+              expect(page.locator('#collectionsEmpty')).to_be_visible()
+              browser.close()
+
+          print('LIVE_PHASE8_BROWSER_OK deep-link=ok bookmark=ok collections=ok progress=ok recent-history=ok entity-discovery=ok mobile=ok network=local-origin-only')
+          PY
