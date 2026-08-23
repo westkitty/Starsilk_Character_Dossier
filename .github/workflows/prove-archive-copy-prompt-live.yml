@@ -69,12 +69,12 @@ jobs:
           matched=0
           for attempt in $(seq 1 30); do
             proof="${live}?proof=${EXPECTED_SHA}-${GITHUB_RUN_ID}-${attempt}"
-            html="$(curl -fsSL -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' "$proof")"
-            if printf '%s' "$html" | grep -Fq 'Starsilk Compendium' \
-              && printf '%s' "$html" | grep -Fq 'id="copyImplementationPrompt"' \
-              && printf '%s' "$html" | grep -Fq 'Copy implementation prompt' \
-              && printf '%s' "$html" | grep -Fq 'Implement my browser-local Archive Tools changes in the Starsilk Compendium repository.' \
-              && printf '%s' "$html" | grep -Fq 'Never substitute DOM position for that identity'; then
+            curl -fsSL -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' "$proof" -o /tmp/live.html
+            if grep -Fq 'Starsilk Compendium' /tmp/live.html \
+              && grep -Fq 'id="copyImplementationPrompt"' /tmp/live.html \
+              && grep -Fq 'Copy implementation prompt' /tmp/live.html \
+              && grep -Fq 'Implement my browser-local Archive Tools changes in the Starsilk Compendium repository.' /tmp/live.html \
+              && grep -Fq 'Never substitute DOM position for that identity' /tmp/live.html; then
               echo "live_url=$proof"
               echo 'live_marker_starsilk_compendium=PASS'
               echo 'live_marker_copy_button=PASS'
@@ -85,4 +85,9 @@ jobs:
             fi
             sleep 5
           done
-          test "$matched" -eq 1
+          if [ "$matched" -ne 1 ]; then
+            echo '::error::Live page markers did not converge.'
+            grep -F 'copyImplementationPrompt' /tmp/live.html | head -n 3 || true
+            grep -F 'Implement my browser-local Archive Tools changes' /tmp/live.html | head -n 3 || true
+            exit 1
+          fi
