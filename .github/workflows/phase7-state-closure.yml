@@ -1,0 +1,93 @@
+name: Phase 7 state closure
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  close-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-07-state-closure
+          fetch-depth: 0
+      - name: Record verified Phase 7 completion
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              text = path.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one anchor, found {count}: {old[:100]!r}')
+              path.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          roadmap = Path('MUSEUM_AI_ROADMAP.md')
+          replace_once(
+              roadmap,
+              '| 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |',
+              '| 7 | Faceted Discovery and AI Context Packets | COMPLETE | PR #27; final head `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`; CI `32658677512` PASS; merged `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; live proof `32658856927` PASS | none |',
+          )
+          phase7 = '''### Phase 7 — Faceted Discovery and AI Context Packets\n\nPreserve existing search/navigation behavior while adding structured result classes, facets, excerpts, keyboard/deep-link support, and compact deterministic source-backed context packets.\n\n#### Completion record\n\n- starting `main`: `34846a32eb3ea68d6f58520cc3d36246f0fdb49b`\n- work branch: `phase-07-faceted-discovery`\n- final validated implementation head: `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`\n- one bounded repair commit: `8136b8288632aa340fdf5f4d301316d9a81b44bb`\n- repair reason: Phase 7 legitimately expanded the machine publication schema/URL surface, but two pre-existing Phase 2 tests still asserted the old fixed schema and URL sets; the repair updated only those stale test expectations and did not change discovery behavior, authority semantics, stable identities, canon status, media identity, or relationship meaning\n- successful required final CI: run `32658677512` (Chromium, Firefox, and WebKit PASS)\n- implementation PR: `#27`\n- implementation merge on `main`: `72837ad5595a0380fe45d2aed1ed7cb5521b6432`\n- execution-only live proof PR: `#28`, closed unmerged\n- successful live proof: run `32658856927`, job `97241822080`\n- generated discovery publication: 137 files total under `/discover/` — 10 fixed human/machine/schema/authority assets plus 127 stable-ID context packets\n- discovery register: exactly 127 authored top-level stable records in source order; `result_class` remains structural publication metadata, navigation-group facets derive only from authored `src/content/nav.json`, authored archetypes are copied only when present, and published-media facets derive only from manifest association evidence\n- excerpts are deterministic whitespace-normalized truncations of authored source text; they are retrieval aids, not summaries, interpretations, or new canon prose\n- AI context packets preserve stable identity, source references, visibility, `canon_status`, spoiler publication value, related-media IDs, explicit unknowns, and observed relationship direction; observed relationships remain strictly `kind=mentions` / `evidence_class=observed-xref`\n- the existing complete-Compendium `dossierSearch` and navigation behavior remain separate and unchanged; Phase 7 is an additive discovery surface rather than a root-search replacement\n- human discovery supports query/facet URL state, stable `#result-<stable-id>` deep links, keyboard navigation, reset behavior, and responsive 375px rendering; the entity index exposes a conservative Discover entry point\n- machine discovery adds versioned discovery/context-packet schemas, `/discover/` endpoints, packet URLs, `llms.txt` orientation, and sitemap coverage through the established deterministic machine publisher\n- final diff-scope review found no dependency/lockfile changes, canonical-media changes, authored canon-prose changes, stable-ID renames, museum-object identity changes, semantic relationship promotion, or Phase 8 implementation\n- live proof established `LIVE_PHASE7_BYTES_OK records=127 packets=127 exact_files=15 relationships=observed-only root-search=unchanged`\n- downloaded live proof set passed `tools/check_public_boundary.py` across 13 text/machine files\n- live Chromium proof established `LIVE_PHASE7_BROWSER_OK deep-link=ok facets=ok keyboard=ok entity-discovery=ok mobile=ok`\n- Phase 8 was not started\n\n**Completion verdict: VERIFIED.**\n'''
+          replace_once(
+              roadmap,
+              '### Phase 7 — Faceted Discovery and AI Context Packets\n\nPreserve existing search/navigation behavior while adding structured result classes, facets, excerpts, keyboard/deep-link support, and compact deterministic source-backed context packets.\n',
+              phase7,
+          )
+
+          state = Path('OPERATIONAL_STATE.md')
+          replace_once(state, 'revision: 14', 'revision: 15')
+          replace_once(
+              state,
+              '- Museum + AI Phase 6 PR #24 merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`.\n',
+              '- Museum + AI Phase 6 PR #24 merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`.\n- Museum + AI Phase 7 PR #27 merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`.\n',
+          )
+          replace_once(
+              state,
+              '- `src/canon/AUTHORITY.md` and `src/schema/canon-lock-register.schema.json` define the Phase 6 inspection/publication boundary.\n',
+              '- `src/canon/AUTHORITY.md` and `src/schema/canon-lock-register.schema.json` define the Phase 6 inspection/publication boundary.\n- `build/discovery_publication.py` owns deterministic generation of `docs/discover/`; that surface is a public discovery/context convenience derivative, not canon, relationship, or media-provenance authority.\n- `src/discovery/AUTHORITY.md`, `src/schema/discovery-index.schema.json`, `src/schema/context-packet.schema.json`, and `src/schema/context-packet-index.schema.json` define the Phase 7 discovery/context-packet interpretation boundary.\n',
+          )
+          invariants = '''53. Canon Inspector document locks apply to the complete generated Compendium, while section locks apply only to their declared stable section. Raw validator patterns are technical evidence, not standalone canon prose; generated `/canon/` artifacts must pass public-boundary and independent live-edge checks.\n54. `docs/discover/` is generator-owned output from `build/discovery_publication.py`. It is an additive discovery/context derivative over established stable records and must not become canon/content authority, semantic relationship authority, media-provenance authority, or an editable duplicate lore database.\n55. Phase 7 result classes remain structural publication metadata; navigation-group facets derive only from authored `src/content/nav.json`; archetypes are copied only when authored; media facets derive only from manifest associations; excerpts are mechanical source projections. Search matches, filtering, ranking/order, and no-result states are retrieval behavior only and never create or negate canon facts.\n56. Phase 7 AI context packets must preserve cited source references, stable identity, explicit unknowns, visibility, canon status, spoiler publication value, related-media IDs, and relationship evidence boundaries. Packet relationships remain only `mentions` / `observed-xref`, and generated packets never outrank their cited source authority.\n57. Phase 7 discovery is additive. The existing complete-Compendium `dossierSearch`, navigation behavior, canonical entity permalinks, legacy anchors, museum identities, relationship evidence identities, and Canon Inspector semantics must remain supported unless a later explicit phase contract intentionally changes them.\n'''
+          replace_once(
+              state,
+              '53. Canon Inspector document locks apply to the complete generated Compendium, while section locks apply only to their declared stable section. Raw validator patterns are technical evidence, not standalone canon prose; generated `/canon/` artifacts must pass public-boundary and independent live-edge checks.\n',
+              invariants,
+          )
+
+          phase7_state = '''## Museum + AI Phase 7 faceted discovery and AI context packets — VERIFIED\n\nPhase 7 of 12, **Faceted Discovery and AI Context Packets**, is complete.\n\nRepository evidence:\n\n- starting `main`: `34846a32eb3ea68d6f58520cc3d36246f0fdb49b`\n- work branch: `phase-07-faceted-discovery`\n- final validated implementation head: `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`\n- one bounded repair commit: `8136b8288632aa340fdf5f4d301316d9a81b44bb`\n- repair reason: two pre-existing machine-publication tests still encoded the pre-Phase-7 finite schema/URL set; only those expectations were expanded to the legitimate Phase 7 surface, with no product-semantic change\n- successful required CI: run `32658677512`\n- implementation PR: `#27`\n- merged to `main`: `72837ad5595a0380fe45d2aed1ed7cb5521b6432`\n- execution-only live proof PR: `#28`, closed unmerged\n- successful live proof: run `32658856927`, job `97241822080`\n\nPhase 7 verified capabilities:\n\n- `build/discovery_publication.py` deterministically generates/checks `docs/discover/`.\n- the discovery register contains exactly 127 authored top-level stable records and preserves existing stable IDs/canonical entity destinations.\n- the generated surface contains 137 files: 10 fixed discovery/index/schema/authority assets plus 127 per-record JSON context packets.\n- the human `/discover/` surface supports structured result classes, authored navigation-group facets, authored archetype facets where available, published-media presence facets, deterministic source excerpts, query/facet URL state, stable result fragments, keyboard result movement, and mobile layout.\n- excerpts are mechanical whitespace-normalized truncations of authored source content, not generated summaries or new canon prose.\n- every context packet is a compact source-backed convenience derivative preserving the existing record's visibility, `canon_status`, spoiler publication value, related media, source refs, explicit unknowns, and observed-xref direction.\n- relationship data remains only `kind=mentions` / `evidence_class=observed-xref`; Phase 7 introduces no friendship, hostility, kinship, causation, chronology, location, or other semantic relationship authority.\n- `docs/machine/index.json`, versioned schemas, `llms.txt`, and sitemap discover the Phase 7 human/machine surfaces and packet URLs.\n- the entity index exposes a Discover entry point without replacing canonical entity permalinks or legacy Compendium anchors.\n- the existing root `dossierSearch` and complete-Compendium navigation remain unchanged and separately supported.\n- no dependency, lockfile, canonical-media, authored canon-prose, museum-object identity, or stable section identity changed; Phase 8 was not started.\n\nFinal required CI run `32658677512` passed the normal repository matrix, including Chromium and representative Firefox/WebKit journeys. The final diff was clean under `git diff --check`, deterministic build/check parity passed, strict canon validation remained 11 locks / 0 violations, and the public derivative boundary gate included the new discovery surface.\n\nLive publication was independently verified by execution-only PR #28, closed without merge after proof. GitHub Actions run `32658856927`, job `97241822080`, established:\n\n- `LIVE_PHASE7_BYTES_OK records=127 packets=127 exact_files=15 relationships=observed-only root-search=unchanged`;\n- 15 selected live root/entity/discovery/machine/orientation files were byte-identical to the merged `docs/` authority;\n- the downloaded live proof set passed `tools/check_public_boundary.py` across 13 text/machine files;\n- Dao's packet retained `canon_status=unknown` and `mentions` / `observed-xref` relationship evidence only;\n- the root still contained `id="dossierSearch"`, proving the complete-Compendium search was not replaced;\n- `LIVE_PHASE7_BROWSER_OK deep-link=ok facets=ok keyboard=ok entity-discovery=ok mobile=ok` proved query/facet restoration, stable result deep linking, keyboard result navigation, entity discovery, and 375px no-overflow behavior.\n\nTherefore Phase 7 is **VERIFIED COMPLETE** at authority, deterministic generation, stable identity, context-packet semantics, browser behavior, CI, merge, public-boundary, and live-publication layers.\n\n'''
+          replace_once(
+              state,
+              '## GitHub Pages deployment state — VERIFIED\n',
+              phase7_state + '## GitHub Pages deployment state — VERIFIED\n',
+          )
+          replace_once(
+              state,
+              '- The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.\n',
+              '- The canonical human permalink layer covers only the 127 authored top-level section IDs. Unauthored chronology-event and WorldsVault record IDs remain unknown rather than being inferred.\n- Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture chronology-event IDs, WorldsVault record IDs, semantic relationships, dates, or coordinates.\n',
+          )
+          replace_once(
+              state,
+              '- Museum + AI program: Phase 7 of 12 — Faceted Discovery and AI Context Packets. It has not been started.\n',
+              '- Museum + AI program: Phase 8 of 12 — Curated Museum Tours and Local Collections. It has not been started.\n',
+          )
+          replace_once(
+              state,
+              '- Revision 14: completed Museum + AI Phase 6. Added the deterministic six-file Canon Inspector, exact 11-lock register, explicit document/section enforcement semantics, technical-pattern labeling, authority/schema alternatives, machine/sitemap/orientation and entity discovery, and focused regression coverage. One bounded wording-only repair preserved an explicit plain-text complete-canon boundary. PR #24 passed final pinned Chromium/Firefox/WebKit CI (`140 passed, 1 skipped`) and merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`; execution-only proof PR #25 was closed unmerged after run `32656422914` proved exact live bytes, public-boundary safety, lock scope/derivation, deep links, discovery, and mobile Chromium behavior. Phase 7 was not started.\n',
+              '- Revision 14: completed Museum + AI Phase 6. Added the deterministic six-file Canon Inspector, exact 11-lock register, explicit document/section enforcement semantics, technical-pattern labeling, authority/schema alternatives, machine/sitemap/orientation and entity discovery, and focused regression coverage. One bounded wording-only repair preserved an explicit plain-text complete-canon boundary. PR #24 passed final pinned Chromium/Firefox/WebKit CI (`140 passed, 1 skipped`) and merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`; execution-only proof PR #25 was closed unmerged after run `32656422914` proved exact live bytes, public-boundary safety, lock scope/derivation, deep links, discovery, and mobile Chromium behavior. Phase 7 was not started.\n- Revision 15: completed Museum + AI Phase 7. Added deterministic 127-record faceted discovery, 127 compact source-backed AI context packets, 137-file `/discover/` publication, mechanical source excerpts, structural/authored facets, query/facet deep links, keyboard navigation, versioned schemas, machine/sitemap/orientation discovery, and entity-index discovery while preserving the root `dossierSearch`. One bounded test-expectation repair updated the pre-Phase-7 finite machine schema/URL assertions without changing product semantics. PR #27 passed final Chromium/Firefox/WebKit CI run `32658677512` and merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; execution-only proof PR #28 was closed unmerged after run `32658856927` / job `97241822080` proved exact live bytes, public-boundary safety, source/unknown/observed-xref packet semantics, deep links, facets, keyboard behavior, entity discovery, unchanged root search, and mobile Chromium behavior. Phase 8 was not started.\n',
+          )
+          PY
+          rm .github/workflows/phase7-state-closure.yml
+          git diff --check
+      - name: Commit state closure
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md .github/workflows/phase7-state-closure.yml
+          git commit -m 'Record Phase 7 verified completion'
+          git push origin HEAD:phase-07-state-closure
