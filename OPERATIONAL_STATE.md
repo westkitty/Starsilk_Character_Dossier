@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 12
+revision: 13
 
 ## Current baseline
 
@@ -15,6 +15,7 @@ revision: 12
 - Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.
 - Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.
 - Museum + AI Phase 4 PR #18 merged at `258ce10f9d0d73b22163ae22243b953af99427fc`.
+- Museum + AI Phase 5 PR #21 merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -31,6 +32,8 @@ revision: 12
 - `build/museum_publication.py` owns deterministic generation of `docs/objects/`; the museum object register is a public derivative of `docs/asset-manifest.json`, not a second canon or media-provenance authority.
 - The museum human surface is `/objects/`; individual museum deep links are `/objects/#<object-id>`.
 - `src/museum/AUTHORITY.md` and `src/schema/museum-object-index.schema.json` define the Phase 4 object/publication interpretation contract.
+- `build/relationship_publication.py` owns deterministic generation of `docs/relationships/`; that observatory is a public evidence derivative of the existing observed-xref graph, not semantic relationship authority.
+- `src/relationships/AUTHORITY.md` and `src/schema/relationship-observatory.schema.json` define the Phase 5 relationship evidence/publication contract.
 
 ## Active invariants
 
@@ -78,6 +81,13 @@ revision: 12
 42. Phase 4 consumes existing `docs/assets/media/` derivatives as-is and must not regenerate, replace, commit, or claim new backup coverage for canonical originals in `media/source/`.
 43. Static IIIF is deliberately not adopted in Phase 4. Re-evaluate only if a later requirement needs tiled deep zoom, region-level annotation, or IIIF interoperability strongly enough to justify new derivative infrastructure.
 44. Public museum derivatives must remain reproducible from the manifest/schema/templates, pass `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the museum publication changes.
+45. `docs/relationships/` is generator-owned output from `build/relationship_publication.py`; it must remain reproducible from the established observed-xref graph and must not become a semantic relationship database.
+46. The Relationship Observatory may publish only `kind=mentions` with `evidence_class=observed-xref` until explicit semantic authority is authored. Incoming/outgoing direction means citation direction only.
+47. Physical Compendium xrefs must retain deterministic public evidence anchors. Relationship edges may cite the first qualifying rendered xref inside the established source-section subtree projection; this evidence identity must not change the existing 136-edge graph contract.
+48. `/relationships/#entity-<stable-id>` and `/relationships/#mention--<source>--<target>` are stable human fragment destinations over the static observatory. They do not create new entity or relationship identity outside the existing stable IDs and observed edge pair.
+49. Zero incoming/outgoing counts are meaningful evidence states and must remain visible rather than being omitted or filled by inference.
+50. Relationship discovery links on entity pages must not replace canonical entity permalinks, legacy Compendium anchors, or existing observed-xref related-record lists.
+51. Public relationship derivatives must remain script-free where currently generated, pass deterministic build parity and `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the relationship publication changes.
 
 ## Verified implementation
 
@@ -307,6 +317,62 @@ Live publication was independently verified by execution-only PR #19, closed wit
 
 Therefore Phase 4 is **VERIFIED COMPLETE** at authority, identity, generation, browser, CI, merge, provenance, source-boundary, and live-publication layers.
 
+## Museum + AI Phase 5 relationship observatory — VERIFIED
+
+Phase 5 of 12, **Relationship Observatory**, is complete.
+
+Repository evidence:
+
+- starting `main`: `980823f8e5545d1963e447f213af07cec74658c7`
+- work branch: `phase-05-relationship-observatory`
+- exact generated-publication commit: `e56b2dceb3bd4424f3138229f9212f3aa0c990bc`
+- final validated implementation head: `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`
+- successful required CI: run `32649254977`
+- implementation PR: `#21`
+- merged to `main`: `0f31a280eebdbaf68bda9265d3fa54aed806f120`
+
+Phase 5 verified capabilities:
+
+- `build/relationship_publication.py` deterministically generates/checks the five-file `docs/relationships/` publication.
+- the observatory mirrors exactly 127 authored top-level records and the established 136 observed xref edges.
+- every published edge remains `kind=mentions` and `evidence_class=observed-xref`; no friendship, hostility, kinship, membership, authorship, causation, chronology, location, or other semantic relationship is inferred.
+- incoming/outgoing lists preserve citation direction only.
+- all physical rendered Compendium xrefs receive deterministic evidence anchors; an observatory edge links to the first qualifying physical xref inside its source section subtree, preserving the pre-existing graph projection rather than changing graph counts or semantics.
+- stable human fragments are `/relationships/#entity-<stable-id>` and `/relationships/#mention--<source>--<target>`.
+- `relationships.json`, `relationships.md`, generated `AUTHORITY.md`, and the versioned relationship-observatory schema provide machine/text alternatives and interpretation boundaries.
+- records with no observed connections remain represented with explicit zero counts.
+- canonical entity pages expose a Relationship Observatory discovery link without changing stable record identity or replacing existing observed-xref related-record links.
+- the public observatory is static and contains no executable script.
+- `docs/machine/index.json`, `docs/llms.txt`, and `docs/sitemap.xml` discover the new relationship publication/schema.
+- no dependency, lockfile, media, canonical-original, canon prose, chronology-event identity, WorldsVault identity, museum-object identity, or Phase 6 implementation changed.
+
+The relationship implementation required one bounded evidence-mapping repair after generation proved that the established graph can rely on pre-existing rendered xrefs as well as newly inserted xrefs. The repair normalized evidence identity across all physical xrefs and resolved each edge through its source section subtree without changing the 136-edge graph. Later corrections were limited to test/release mechanics and deterministic right-edge whitespace normalization; they did not alter relationship meaning or promote new semantics.
+
+Final CI run `32649254977` on head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07` passed:
+
+- source build and deterministic `./tools/build.sh --check`;
+- all five relationship outputs reproducible from their generator;
+- strict DOM/canon validation with 11 canon locks and 0 violations;
+- public derivative boundary validation across 404 text/machine files;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite: `135 passed, 1 skipped`;
+- representative Firefox journeys;
+- representative WebKit journeys.
+
+Diff-scope verification against starting `main` found every persistent path explained by the Phase 5 source/templates/tests or their generated `docs/` derivatives. There were no dependency/lockfile changes, media changes, deletions, renames, unrelated configuration changes, or surviving temporary generation/release helpers.
+
+Live publication was independently verified by execution-only PR #22, closed without merge after proof. GitHub Actions run `32649700329`, job `97219258645`, cache-busted the Pages edge and established:
+
+- `LIVE_PHASE5_BYTES_OK records=127 edges=136 exact_files=11 evidence=xref-codec--dao semantics=observed-only`;
+- the selected live root, Codec entity page, all five relationship files, machine index/schema, `llms.txt`, and sitemap were byte-identical to merged `docs/`;
+- the live Codec -> Dao edge retained stable deep link `#mention--codec--dao` and exact physical Compendium evidence anchor `#xref-codec--dao`;
+- all live relationships remained `mentions` / `observed-xref` only;
+- the live observatory remained script-free and retained its explicit interpretation boundary;
+- the downloaded live Phase 5 surfaces passed `tools/check_public_boundary.py` across 10 text/machine files;
+- `LIVE_PHASE5_BROWSER_OK edge=ok evidence=ok entity-discovery=ok mobile=ok` proved the edge fragment, physical evidence fragment, entity discovery link, and 375px no-overflow path in Chromium.
+
+Therefore Phase 5 is **VERIFIED COMPLETE** at authority, evidence identity, deterministic generation, CI, diff scope, merge, and live-publication layers.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -417,7 +483,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
 - Individual chronology events do not yet have authored stable IDs; Phase 1 deliberately preserves this as unknown rather than deriving IDs from presentation order or guessed labels.
 - Many WorldsVault template records do not yet have authored stable IDs; display labels/media references are not silently promoted into permanent object identity.
-- No semantic relationship authority currently exists beyond observed xref `mentions` relationships.
+- The Relationship Observatory exposes the current 136 observed xref `mentions` edges with source/evidence traceability, but no stronger semantic relationship authority exists; semantic meaning remains unauthored unless a later explicit authority is added.
 - Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
 - Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.
 - Phase 4 museum deep links are fragment routes over one static `/objects/` document, not separate server-side HTML resources.
@@ -427,7 +493,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Museum + AI program: Phase 5 of 12 — Relationship Observatory. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
+- Museum + AI program: Phase 6 of 12 — Canon Inspector and Authority UI. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
 
 ## Revision log
 
@@ -443,3 +509,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 10: completed Museum + AI Phase 2. Added deterministic public machine generation, versioned schemas, 127 section-backed records, 136 observed `mentions` relationships, Markdown alternatives, conservative `CreativeWork` JSON-LD, `llms.txt`, sitemap, authority notes, build integration, public-boundary checks, and exact live-edge verification of all 14 declared URLs; PR #12 passed final Chromium/Firefox/WebKit CI and merged at `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof run `32639347205` passed and proof PR #13 was closed unmerged.
 - Revision 11: completed Museum + AI Phase 3. Added 127 canonical human `/entities/<stable-id>/` pages, the entity index, 254 per-record JSON/Markdown alternatives, manifest-backed related media, observed-xref related-record lists, canonical URL migration, static accessible entity templates, deterministic entity generation/checking, and legacy-anchor preservation. One bounded repair protected the authored `archive` permalink from the repo-wide `archive/` ignore rule. PR #15 passed final Chromium/Firefox/WebKit CI and merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`; exhaustive live proof run `32640932505` verified 396 declared URLs byte-for-byte and proof PR #16 was closed unmerged.
 - Revision 12: completed Museum + AI Phase 4. Added a deterministic 213-record manifest-derived museum object model, stable filename-stem object IDs, explicit provenance/unknown semantics, `/objects/` metadata register, on-demand accessible image/video dialog viewer, hash deep links, entity-index discovery, schema/authority publication, build integration, and regression coverage. No implementation repair pass was needed. PR #18 passed final Chromium/Firefox/WebKit CI and merged at `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof run `32642574092` verified exact Pages bytes plus metadata-only/image/video/teardown behavior, and proof PR #19 was closed unmerged. Static IIIF was evaluated and not adopted.
+- Revision 13: completed Museum + AI Phase 5. Added the deterministic 127-record/136-edge Relationship Observatory, stable entity/edge fragments, exact physical xref evidence anchors, JSON/Markdown/schema/authority alternatives, entity discovery, build integration, observed-only semantic locks, clean-output regression coverage, and live Pages proof. PR #21 passed final Chromium/Firefox/WebKit CI (`135 passed, 1 skipped`) and merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`; execution-only proof PR #22 was closed unmerged after run `32649700329` proved exact live bytes, public-boundary safety, evidence fragments, entity discovery, and mobile Chromium behavior.
