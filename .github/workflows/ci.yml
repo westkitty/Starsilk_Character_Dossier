@@ -33,11 +33,13 @@ jobs:
       - name: Build from source (no media regeneration required)
         run: ./tools/build.sh
 
-      - name: Prove the checked-in docs/ matches its declared sources
+      - name: Prove the checked-in deployable docs/ matches its declared sources
         run: |
           ./tools/build.sh --check
-          git diff --exit-code -- docs/ || {
-            echo "::error::Build produced uncommitted differences in docs/ -- the checked-in site and its generator have diverged.";
+          # qa-report.txt records runner capabilities (for example Node availability)
+          # and is validation telemetry, not authoritative deployable source output.
+          git diff --exit-code -- docs/ ':(exclude)docs/qa-report.txt' || {
+            echo "::error::Build produced uncommitted differences in deployable docs/ -- the checked-in site and its generator have diverged.";
             exit 1;
           }
 
