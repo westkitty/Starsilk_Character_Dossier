@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   prepare-phase-05:
@@ -18,21 +18,35 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
+      - name: Detect already-landed generated state
+        id: gate
+        run: |
+          if [ -f docs/relationships/index.html ]; then
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+            echo "Phase 05 generated state is already present; no-op."
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Trust worktree and install pinned dependencies
+        if: steps.gate.outputs.needed == 'true'
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           python3 -m pip install -r requirements.txt
 
       - name: Apply bounded source integration
+        if: steps.gate.outputs.needed == 'true'
         run: python3 tools/apply_phase05_integration.py
 
       - name: Generate and validate exact publication
+        if: steps.gate.outputs.needed == 'true'
         run: |
           ./tools/build.sh
           ./tools/build.sh --check
           git diff --check
 
       - name: Focused Phase 05 proof
+        if: steps.gate.outputs.needed == 'true'
         run: |
           python3 -m pytest \
             tests/test_relationship_observatory.py \
@@ -42,6 +56,7 @@ jobs:
             -q
 
       - name: Stage exact integration and generated files
+        if: steps.gate.outputs.needed == 'true'
         run: |
           git checkout -- docs/qa-report.txt || true
           git add \
@@ -60,6 +75,7 @@ jobs:
           git diff --cached --name-only
 
       - name: Whitelist staged Phase 05 paths
+        if: steps.gate.outputs.needed == 'true'
         run: |
           python3 - <<'PY'
           import subprocess
@@ -87,12 +103,14 @@ jobs:
           PY
 
       - name: Export exact staged Git patch
+        if: steps.gate.outputs.needed == 'true'
         run: |
           git diff --cached --binary > /tmp/phase05-generated.patch
           test -s /tmp/phase05-generated.patch
           wc -c /tmp/phase05-generated.patch /tmp/phase05-manifest.txt
 
       - name: Upload exact validated Phase 05 state
+        if: steps.gate.outputs.needed == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: phase05-validated-generated-state
@@ -101,3 +119,11 @@ jobs:
             /tmp/phase05-generated.patch
           if-no-files-found: error
           retention-days: 1
+
+      - name: Commit and publish exact validated Phase 05 state
+        if: steps.gate.outputs.needed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(phase-05): publish relationship observatory"
+          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
