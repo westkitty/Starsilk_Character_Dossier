@@ -43,6 +43,11 @@ def json_text(value: object) -> str:
     return json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
 
 
+def clean_text(value: str) -> str:
+    """Return deterministic text with no right-edge whitespace."""
+    return "\n".join(line.rstrip(" \t") for line in value.splitlines()).rstrip() + "\n"
+
+
 def evidence_link_for_edge(soup: BeautifulSoup, source: str, target: str):
     """Resolve one exact physical xref that proves an existing graph edge.
 
@@ -169,9 +174,9 @@ def build_markdown(model: dict, labels: dict[str, str], outgoing_by_id: dict[str
         "",
         "Every edge is `mentions / observed-xref`. Source -> target means only that the source section subtree contains the generated cross-reference to the target. No stronger semantic relationship is implied.",
         "",
-        f"Published records: {model['entity_count']}  ",
-        f"Connected records: {model['connected_entity_count']}  ",
-        f"Observed edges: {model['relationship_count']}",
+        f"- Published records: {model['entity_count']}",
+        f"- Connected records: {model['connected_entity_count']}",
+        f"- Observed edges: {model['relationship_count']}",
         "",
     ]
     for entity in model["entities"]:
@@ -180,10 +185,10 @@ def build_markdown(model: dict, labels: dict[str, str], outgoing_by_id: dict[str
             [
                 f"## {entity['display_label']} (`{stable_id}`)",
                 "",
-                f"Entity: {entity['canonical_url']}  ",
-                f"Observatory deep link: {entity['observatory_url']}  ",
-                f"Outgoing observed mentions: {entity['outgoing_count']}  ",
-                f"Incoming observed mentions: {entity['incoming_count']}",
+                f"- Entity: {entity['canonical_url']}",
+                f"- Observatory deep link: {entity['observatory_url']}",
+                f"- Outgoing observed mentions: {entity['outgoing_count']}",
+                f"- Incoming observed mentions: {entity['incoming_count']}",
                 "",
                 "### Outgoing observed mentions",
                 "",
@@ -214,7 +219,7 @@ def build_markdown(model: dict, labels: dict[str, str], outgoing_by_id: dict[str
             "The observatory preserves citation direction and exact xref evidence only. The established graph treats xrefs within a source section subtree as evidence for that source, so several source edges can share one physical xref anchor. Semantic relationship meaning remains unknown unless a separate explicit authority is introduced in a later phase.",
         ]
     )
-    return "\n".join(lines).rstrip() + "\n"
+    return clean_text("\n".join(lines))
 
 
 def render_outputs() -> dict[str, str]:
@@ -230,7 +235,7 @@ def render_outputs() -> dict[str, str]:
     relationship_css = (TEMPLATES_DIR / "relationships.css").read_text(encoding="utf-8").rstrip()
     authority = (SOURCE_DIR / "AUTHORITY.md").read_text(encoding="utf-8").rstrip() + "\n"
 
-    return {
+    outputs = {
         "index.html": template.render(
             canonical_url=model["canonical_url"],
             entities=model["entities"],
@@ -245,6 +250,7 @@ def render_outputs() -> dict[str, str]:
         "relationships.md": build_markdown(model, labels, outgoing_by_id, incoming_by_id),
         "AUTHORITY.md": authority,
     }
+    return {relative: clean_text(content) for relative, content in outputs.items()}
 
 
 def actual_files() -> set[str]:
