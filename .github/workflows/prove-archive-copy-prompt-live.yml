@@ -1,0 +1,88 @@
+name: Prove Archive implementation handoff live
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  prove-live:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Pages configuration and merged build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: f885a18cade0d81e02c0d7ed52ff2d9549521bd3
+        shell: bash
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}"
+          auth=(-H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28")
+
+          config="$(curl -fsSL "${auth[@]}" "${api}/pages")"
+          CONFIG_JSON="$config" python3 - <<'PY'
+          import json, os
+          data = json.loads(os.environ['CONFIG_JSON'])
+          source = data.get('source') or {}
+          print('build_type=' + str(data.get('build_type')))
+          print('source_branch=' + str(source.get('branch')))
+          print('source_path=' + str(source.get('path')))
+          if data.get('build_type') != 'legacy':
+              raise SystemExit('Expected legacy Pages build type')
+          if source.get('branch') != 'main' or source.get('path') != '/docs':
+              raise SystemExit('Expected Pages source main /docs')
+          PY
+
+          matched=0
+          for attempt in $(seq 1 30); do
+            latest="$(curl -fsSL "${auth[@]}" "${api}/pages/builds/latest")"
+            export LATEST_JSON="$latest" EXPECTED_SHA
+            if python3 - <<'PY'
+          import json, os, sys
+          data = json.loads(os.environ['LATEST_JSON'])
+          print('latest_status=' + str(data.get('status')))
+          print('latest_commit=' + str(data.get('commit')))
+          print('latest_created_at=' + str(data.get('created_at')))
+          print('latest_updated_at=' + str(data.get('updated_at')))
+          err = data.get('error')
+          print('latest_error=' + (json.dumps(err, sort_keys=True) if err else 'None'))
+          sys.exit(0 if data.get('status') == 'built' and data.get('commit') == os.environ['EXPECTED_SHA'] and not err else 1)
+          PY
+            then
+              matched=1
+              break
+            fi
+            sleep 5
+          done
+          test "$matched" -eq 1
+
+      - name: Verify cache-busted live page markers
+        env:
+          EXPECTED_SHA: f885a18cade0d81e02c0d7ed52ff2d9549521bd3
+        shell: bash
+        run: |
+          set -euo pipefail
+          live="https://westkitty.github.io/Starsilk_Character_Dossier/"
+          matched=0
+          for attempt in $(seq 1 30); do
+            proof="${live}?proof=${EXPECTED_SHA}-${GITHUB_RUN_ID}-${attempt}"
+            html="$(curl -fsSL -H 'Cache-Control: no-cache' -H 'Pragma: no-cache' "$proof")"
+            if printf '%s' "$html" | grep -Fq 'Starsilk Compendium' \
+              && printf '%s' "$html" | grep -Fq 'id="copyImplementationPrompt"' \
+              && printf '%s' "$html" | grep -Fq 'Copy implementation prompt' \
+              && printf '%s' "$html" | grep -Fq 'Implement my browser-local Archive Tools changes in the Starsilk Compendium repository.' \
+              && printf '%s' "$html" | grep -Fq 'Never substitute DOM position for that identity'; then
+              echo "live_url=$proof"
+              echo 'live_marker_starsilk_compendium=PASS'
+              echo 'live_marker_copy_button=PASS'
+              echo 'live_marker_implementation_prompt=PASS'
+              echo 'live_marker_stable_identity_rule=PASS'
+              matched=1
+              break
+            fi
+            sleep 5
+          done
+          test "$matched" -eq 1
