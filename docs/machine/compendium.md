@@ -1,6 +1,7 @@
 # Starsilk Compendium — machine Markdown edition
 
 Canonical site: https://westkitty.github.io/Starsilk_Character_Dossier/
+Human entity index: https://westkitty.github.io/Starsilk_Character_Dossier/entities/
 Machine index: https://westkitty.github.io/Starsilk_Character_Dossier/machine/index.json
 Authority: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
 
@@ -9,7 +10,10 @@ This is a deterministic text alternative generated from the authoritative sectio
 ## Starsilk Compendium
 
 Stable ID: `cover`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#cover  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#cover  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.md  
 Source: `src/content/sections/cover.body.html`
 
 Related published media IDs: `09e2837c1e2a76bc1fadccc2.webp`, `b3015054b3726a97adbc4a5c.mp4`
@@ -23,7 +27,10 @@ Shard-God Tiger Codec Dao Kail Marcel Jazen Gorevault Ringthroat Lyriboris Expan
 ## The all is programmable. Meaning is not optional.
 
 Stable ID: `world`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#world  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#world  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/world.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/world.md  
 Source: `src/content/sections/world.body.html`
 
 ### Core cosmology
@@ -47,7 +54,10 @@ The Hookshot Network introduces a more material scale of travel: ships connect, 
 ## Reality begins as betrayal. The future is built by exclusion.
 
 Stable ID: `chronology`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#chronology  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#chronology  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/chronology.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/chronology.md  
 Source: `src/content/sections/chronology.body.html`
 
 ### Phase I — The Primordial Era & The Foundational Betrayals
@@ -97,7 +107,10 @@ Canonical duration: the Blood Eclipse War lasts one hundred seventy years.
 ## Shard-God Tiger
 
 Stable ID: `shard-god`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#shard-god  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#shard-god  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shard-god.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shard-god.md  
 Source: `src/content/sections/shard-god.body.html`
 
 Related published media IDs: `0cb9f2fd4623694ffca06f45.webp`, `7c7d87d4b3c4ebdf26105e88.webp`, `a551049aaf868d58772975ad.webp`, `b8d2878fc5065ecb2bb262e2.webp`
@@ -144,7 +157,10 @@ These sheets are visual anchors, not independent canon generators. Effect labels
 ## Codec
 
 Stable ID: `codec`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#codec  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#codec  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/codec.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/codec.md  
 Source: `src/content/sections/codec.body.html`
 
 Related published media IDs: `eb35fd45ca321f41171c4c5d.webp`, `f0341bf8ea5785a791236f72.webp`
@@ -207,7 +223,10 @@ Attach the matching project art below. Once attached, the image is stored as a d
 ## Dao
 
 Stable ID: `dao`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#dao  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#dao  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/dao.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/dao.md  
 Source: `src/content/sections/dao.body.html`
 
 Related published media IDs: `e947e78027041e109d68912b.webp`
@@ -239,7 +258,10 @@ yellow black steel
 ## Kail
 
 Stable ID: `kail`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#kail  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#kail  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kail.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kail.md  
 Source: `src/content/sections/kail.body.html`
 
 Related published media IDs: `2ca43dd7199fb129f50e51d4.webp`, `7a656f8e9de61e444f1506b3.webp`
@@ -278,7 +300,10 @@ black scarf hair
 ## Marcel
 
 Stable ID: `marcel`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#marcel  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#marcel  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marcel.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marcel.md  
 Source: `src/content/sections/marcel.body.html`
 
 Related published media IDs: `87a0ea62e61485bdabaef2d3.webp`, `b7f4841c77f5a3f372c9ef77.webp`
@@ -334,7 +359,10 @@ His loyalty is real. Its foundation is not.
 ## Jazen
 
 Stable ID: `jazen`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#jazen  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#jazen  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jazen.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jazen.md  
 Source: `src/content/sections/jazen.body.html`
 
 ### Core record
@@ -354,7 +382,10 @@ Relational axis: Jazen is central to Codec. Codec becomes central to the fate of
 ## Starsilk
 
 Stable ID: `starsilk-material`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/starsilk-material.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/starsilk-material.md  
 Source: `src/content/sections/starsilk-material.body.html`
 
 Related published media IDs: `0db864ffeba055a05d60a4fd.webp`, `2c5a3128383f8ae47a874fc8.webp`, `756b79618837443eadf6ce3b.webp`, `9d6c6471a862c12ff08d5abc.webp`, `ac49ab9d859a87e948903e35.webp`
@@ -393,7 +424,10 @@ Visual prohibition: do not replace Starsilk with generic glowing rope, wire, neo
 ## Gorevault
 
 Stable ID: `gorevault`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#gorevault  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#gorevault  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/gorevault.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/gorevault.md  
 Source: `src/content/sections/gorevault.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -424,7 +458,10 @@ The Tally Fields of Rhem Vor: after the world fell, Gorevaults crossed the conti
 ## Ringthroat
 
 Stable ID: `ringthroat`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#ringthroat  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#ringthroat  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ringthroat.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ringthroat.md  
 Source: `src/content/sections/ringthroat.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -456,7 +493,10 @@ The Closing of Fallenstar Prime: witnesses first mistook the red columns for sto
 ## Lyriboris
 
 Stable ID: `lyriboris`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#lyriboris  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#lyriboris  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/lyriboris.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/lyriboris.md  
 Source: `src/content/sections/lyriboris.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -480,7 +520,10 @@ Incident rule: the horror is not random malfunction. Everything fails according 
 ## The full field register.
 
 Stable ID: `drakken-registry`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drakken-registry.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drakken-registry.md  
 Source: `src/content/sections/drakken-registry.body.html`
 
 Taxonomy law: formal five-domain hub and expanded operational archive are both retained. They are different indexing layers. This dossier does not silently make the sixty named operational entities into a replacement “35-strain” hub.
@@ -515,7 +558,10 @@ Redacted Grin Forbidden subroutine; erases causality, testimony and records. Spi
 ## The Egg
 
 Stable ID: `drk-the-egg`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-the-egg  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-the-egg  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-the-egg.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-the-egg.md  
 Source: `src/content/sections/drk-the-egg.body.html`
 
 Related published media IDs: `73881f061d9c2b2a1cdc3e0f.webp`
@@ -540,7 +586,10 @@ Return to Drakken field register
 ## Magma Pleuron
 
 Stable ID: `drk-magma-pleuron`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-magma-pleuron  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-magma-pleuron/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-magma-pleuron  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-magma-pleuron.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-magma-pleuron.md  
 Source: `src/content/sections/drk-magma-pleuron.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -567,7 +616,10 @@ Return to Drakken field register
 ## Granithelion
 
 Stable ID: `drk-granithelion`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-granithelion  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-granithelion/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-granithelion  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-granithelion.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-granithelion.md  
 Source: `src/content/sections/drk-granithelion.body.html`
 
 Related published media IDs: `551e7fe0c8dd9873fb56ccf1.webp`
@@ -590,7 +642,10 @@ Return to Drakken field register
 ## Fault-Tongue
 
 Stable ID: `drk-fault-tongue`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fault-tongue/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-fault-tongue.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-fault-tongue.md  
 Source: `src/content/sections/drk-fault-tongue.body.html`
 
 Related published media IDs: `85e1b71870122e9be372be5f.webp`
@@ -615,7 +670,10 @@ Return to Drakken field register
 ## Obsidian Gul
 
 Stable ID: `drk-obsidian-gul`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-obsidian-gul  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-obsidian-gul/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-obsidian-gul  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-obsidian-gul.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-obsidian-gul.md  
 Source: `src/content/sections/drk-obsidian-gul.body.html`
 
 Related published media IDs: `807ffcd03f539a2d711d9128.webp`
@@ -640,7 +698,10 @@ Return to Drakken field register
 ## Tremorhound
 
 Stable ID: `drk-tremorhound`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-tremorhound  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-tremorhound/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-tremorhound  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-tremorhound.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-tremorhound.md  
 Source: `src/content/sections/drk-tremorhound.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -665,7 +726,10 @@ Return to Drakken field register
 ## Glassspine
 
 Stable ID: `drk-glassspine`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glassspine  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-glassspine/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glassspine  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-glassspine.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-glassspine.md  
 Source: `src/content/sections/drk-glassspine.body.html`
 
 Related published media IDs: `5e022e04b705296021c8a6eb.webp`
@@ -691,7 +755,10 @@ Return to Drakken field register
 ## Quarrymind
 
 Stable ID: `drk-quarrymind`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-quarrymind  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-quarrymind/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-quarrymind  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-quarrymind.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-quarrymind.md  
 Source: `src/content/sections/drk-quarrymind.body.html`
 
 Related published media IDs: `323bd4d5f7f709dd9854b857.webp`
@@ -714,7 +781,10 @@ Return to Drakken field register
 ## Aerokarst
 
 Stable ID: `drk-aerokarst`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-aerokarst  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-aerokarst/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-aerokarst  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-aerokarst.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-aerokarst.md  
 Source: `src/content/sections/drk-aerokarst.body.html`
 
 Related published media IDs: `fca8a285bebd37f46ea71812.webp`
@@ -737,7 +807,10 @@ Return to Drakken field register
 ## Cloudmaw
 
 Stable ID: `drk-cloudmaw`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cloudmaw  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-cloudmaw/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cloudmaw  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-cloudmaw.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-cloudmaw.md  
 Source: `src/content/sections/drk-cloudmaw.body.html`
 
 Related published media IDs: `fca8a285bebd37f46ea71812.webp`
@@ -762,7 +835,10 @@ Return to Drakken field register
 ## Atmantid
 
 Stable ID: `drk-atmantid`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-atmantid  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-atmantid/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-atmantid  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-atmantid.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-atmantid.md  
 Source: `src/content/sections/drk-atmantid.body.html`
 
 Related published media IDs: `fca8a285bebd37f46ea71812.webp`
@@ -784,7 +860,10 @@ Return to Drakken field register
 ## Weathernode
 
 Stable ID: `drk-weathernode`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-weathernode  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-weathernode/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-weathernode  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-weathernode.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-weathernode.md  
 Source: `src/content/sections/drk-weathernode.body.html`
 
 Related published media IDs: `fca8a285bebd37f46ea71812.webp`
@@ -806,7 +885,10 @@ Return to Drakken field register
 ## Vortenbray
 
 Stable ID: `drk-vortenbray`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-vortenbray  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-vortenbray/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-vortenbray  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-vortenbray.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-vortenbray.md  
 Source: `src/content/sections/drk-vortenbray.body.html`
 
 Related published media IDs: `fca8a285bebd37f46ea71812.webp`
@@ -830,7 +912,10 @@ Return to Drakken field register
 ## Fumericus
 
 Stable ID: `drk-fumericus`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fumericus  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fumericus/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fumericus  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-fumericus.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-fumericus.md  
 Source: `src/content/sections/drk-fumericus.body.html`
 
 Related published media IDs: `5e022e04b705296021c8a6eb.webp`
@@ -852,7 +937,10 @@ Return to Drakken field register
 ## Skymourn
 
 Stable ID: `drk-skymourn`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-skymourn  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-skymourn/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-skymourn  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-skymourn.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-skymourn.md  
 Source: `src/content/sections/drk-skymourn.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -889,7 +977,10 @@ Return to Drakken field register
 ## Verdgorge
 
 Stable ID: `drk-verdgorge`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-verdgorge  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-verdgorge/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-verdgorge  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-verdgorge.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-verdgorge.md  
 Source: `src/content/sections/drk-verdgorge.body.html`
 
 Related published media IDs: `dad54876960ff6df6e54d55c.webp`
@@ -911,7 +1002,10 @@ Return to Drakken field register
 ## Pollenvault
 
 Stable ID: `drk-pollenvault`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-pollenvault  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-pollenvault/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-pollenvault  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-pollenvault.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-pollenvault.md  
 Source: `src/content/sections/drk-pollenvault.body.html`
 
 Related published media IDs: `dad54876960ff6df6e54d55c.webp`
@@ -933,7 +1027,10 @@ Return to Drakken field register
 ## Mycethron
 
 Stable ID: `drk-mycethron`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-mycethron  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-mycethron/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-mycethron  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-mycethron.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-mycethron.md  
 Source: `src/content/sections/drk-mycethron.body.html`
 
 Related published media IDs: `dad54876960ff6df6e54d55c.webp`
@@ -955,7 +1052,10 @@ Return to Drakken field register
 ## Raintaster
 
 Stable ID: `drk-raintaster`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-raintaster  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-raintaster/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-raintaster  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-raintaster.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-raintaster.md  
 Source: `src/content/sections/drk-raintaster.body.html`
 
 Related published media IDs: `58783ecbc00bea4564aa497e.webp`
@@ -977,7 +1077,10 @@ Return to Drakken field register
 ## Terragullet
 
 Stable ID: `drk-terragullet`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-terragullet  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-terragullet/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-terragullet  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-terragullet.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-terragullet.md  
 Source: `src/content/sections/drk-terragullet.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1001,7 +1104,10 @@ Return to Drakken field register
 ## Petalnest
 
 Stable ID: `drk-petalnest`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-petalnest  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-petalnest/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-petalnest  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-petalnest.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-petalnest.md  
 Source: `src/content/sections/drk-petalnest.body.html`
 
 Related published media IDs: `dad54876960ff6df6e54d55c.webp`
@@ -1023,7 +1129,10 @@ Return to Drakken field register
 ## Feralseed
 
 Stable ID: `drk-feralseed`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-feralseed  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-feralseed/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-feralseed  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-feralseed.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-feralseed.md  
 Source: `src/content/sections/drk-feralseed.body.html`
 
 Related published media IDs: `dad54876960ff6df6e54d55c.webp`
@@ -1045,7 +1154,10 @@ Return to Drakken field register
 ## Abyssoriel
 
 Stable ID: `drk-abyssoriel`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-abyssoriel  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-abyssoriel/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-abyssoriel  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-abyssoriel.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-abyssoriel.md  
 Source: `src/content/sections/drk-abyssoriel.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1067,7 +1179,10 @@ Return to Drakken field register
 ## Brinechoir
 
 Stable ID: `drk-brinechoir`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-brinechoir  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-brinechoir/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-brinechoir  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-brinechoir.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-brinechoir.md  
 Source: `src/content/sections/drk-brinechoir.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1089,7 +1204,10 @@ Return to Drakken field register
 ## Currenthalo
 
 Stable ID: `drk-currenthalo`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-currenthalo  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-currenthalo/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-currenthalo  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-currenthalo.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-currenthalo.md  
 Source: `src/content/sections/drk-currenthalo.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1111,7 +1229,10 @@ Return to Drakken field register
 ## Shelfcarver
 
 Stable ID: `drk-shelfcarver`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shelfcarver  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-shelfcarver/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shelfcarver  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-shelfcarver.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-shelfcarver.md  
 Source: `src/content/sections/drk-shelfcarver.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1133,7 +1254,10 @@ Return to Drakken field register
 ## Glacierthroat
 
 Stable ID: `drk-glacierthroat`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glacierthroat  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-glacierthroat/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glacierthroat  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-glacierthroat.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-glacierthroat.md  
 Source: `src/content/sections/drk-glacierthroat.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1155,7 +1279,10 @@ Return to Drakken field register
 ## Veilcurrent
 
 Stable ID: `drk-veilcurrent`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-veilcurrent  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-veilcurrent/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-veilcurrent  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-veilcurrent.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-veilcurrent.md  
 Source: `src/content/sections/drk-veilcurrent.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1177,7 +1304,10 @@ Return to Drakken field register
 ## Coronaxis
 
 Stable ID: `drk-coronaxis`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-coronaxis  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-coronaxis/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-coronaxis  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-coronaxis.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-coronaxis.md  
 Source: `src/content/sections/drk-coronaxis.body.html`
 
 Related published media IDs: `67385a1d966c16adabc3653a.webp`
@@ -1199,7 +1329,10 @@ Return to Drakken field register
 ## Solnexus
 
 Stable ID: `drk-solnexus`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-solnexus  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-solnexus/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-solnexus  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-solnexus.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-solnexus.md  
 Source: `src/content/sections/drk-solnexus.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1223,7 +1356,10 @@ Return to Drakken field register
 ## Nullthorn
 
 Stable ID: `drk-nullthorn`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-nullthorn  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-nullthorn/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-nullthorn  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-nullthorn.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-nullthorn.md  
 Source: `src/content/sections/drk-nullthorn.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1246,7 +1382,10 @@ Return to Drakken field register
 ## Helionth
 
 Stable ID: `drk-helionth`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-helionth  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-helionth/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-helionth  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-helionth.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-helionth.md  
 Source: `src/content/sections/drk-helionth.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1268,7 +1407,10 @@ Return to Drakken field register
 ## Umbrakrael
 
 Stable ID: `drk-umbrakrael`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-umbrakrael  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-umbrakrael/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-umbrakrael  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-umbrakrael.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-umbrakrael.md  
 Source: `src/content/sections/drk-umbrakrael.body.html`
 
 Related published media IDs: `9075e7c96ba558dbf2a0f6b6.webp`
@@ -1291,7 +1433,10 @@ Return to Drakken field register
 ## Cinderverge
 
 Stable ID: `drk-cinderverge`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cinderverge  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-cinderverge/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cinderverge  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-cinderverge.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-cinderverge.md  
 Source: `src/content/sections/drk-cinderverge.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1313,7 +1458,10 @@ Return to Drakken field register
 ## Singularch
 
 Stable ID: `drk-singularch`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-singularch  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-singularch/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-singularch  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-singularch.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-singularch.md  
 Source: `src/content/sections/drk-singularch.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1335,7 +1483,10 @@ Return to Drakken field register
 ## Ironcant
 
 Stable ID: `drk-ironcant`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-ironcant  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-ironcant/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-ironcant  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-ironcant.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-ironcant.md  
 Source: `src/content/sections/drk-ironcant.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1357,7 +1508,10 @@ Return to Drakken field register
 ## Gridsaint
 
 Stable ID: `drk-gridsaint`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gridsaint  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gridsaint/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gridsaint  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gridsaint.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gridsaint.md  
 Source: `src/content/sections/drk-gridsaint.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1379,7 +1533,10 @@ Return to Drakken field register
 ## Spiremolt
 
 Stable ID: `drk-spiremolt`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spiremolt  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spiremolt/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spiremolt  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spiremolt.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spiremolt.md  
 Source: `src/content/sections/drk-spiremolt.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1401,7 +1558,10 @@ Return to Drakken field register
 ## Roadthorn
 
 Stable ID: `drk-roadthorn`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-roadthorn  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-roadthorn/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-roadthorn  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-roadthorn.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-roadthorn.md  
 Source: `src/content/sections/drk-roadthorn.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1423,7 +1583,10 @@ Return to Drakken field register
 ## Habitarch
 
 Stable ID: `drk-habitarch`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-habitarch  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-habitarch/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-habitarch  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-habitarch.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-habitarch.md  
 Source: `src/content/sections/drk-habitarch.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1445,7 +1608,10 @@ Return to Drakken field register
 ## Archivore
 
 Stable ID: `drk-archivore`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-archivore  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-archivore/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-archivore  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-archivore.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-archivore.md  
 Source: `src/content/sections/drk-archivore.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1467,7 +1633,10 @@ Return to Drakken field register
 ## Harborhex
 
 Stable ID: `drk-harborhex`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-harborhex  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-harborhex/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-harborhex  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-harborhex.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-harborhex.md  
 Source: `src/content/sections/drk-harborhex.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1489,7 +1658,10 @@ Return to Drakken field register
 ## Lexiclast
 
 Stable ID: `drk-lexiclast`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-lexiclast  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-lexiclast/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-lexiclast  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-lexiclast.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-lexiclast.md  
 Source: `src/content/sections/drk-lexiclast.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1511,7 +1683,10 @@ Return to Drakken field register
 ## Calendarion
 
 Stable ID: `drk-calendarion`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-calendarion  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-calendarion/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-calendarion  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-calendarion.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-calendarion.md  
 Source: `src/content/sections/drk-calendarion.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1533,7 +1708,10 @@ Return to Drakken field register
 ## Dreamtaxon
 
 Stable ID: `drk-dreamtaxon`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-dreamtaxon  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-dreamtaxon/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-dreamtaxon  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-dreamtaxon.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-dreamtaxon.md  
 Source: `src/content/sections/drk-dreamtaxon.body.html`
 
 Related published media IDs: `58783ecbc00bea4564aa497e.webp`
@@ -1555,7 +1733,10 @@ Return to Drakken field register
 ## Crownmute
 
 Stable ID: `drk-crownmute`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-crownmute  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-crownmute/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-crownmute  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-crownmute.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-crownmute.md  
 Source: `src/content/sections/drk-crownmute.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1577,7 +1758,10 @@ Return to Drakken field register
 ## Hymnlock
 
 Stable ID: `drk-hymnlock`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-hymnlock  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-hymnlock/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-hymnlock  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-hymnlock.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-hymnlock.md  
 Source: `src/content/sections/drk-hymnlock.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1599,7 +1783,10 @@ Return to Drakken field register
 ## Memorialvein
 
 Stable ID: `drk-memorialvein`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-memorialvein  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-memorialvein/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-memorialvein  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-memorialvein.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-memorialvein.md  
 Source: `src/content/sections/drk-memorialvein.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1621,7 +1808,10 @@ Return to Drakken field register
 ## Shrinehunger
 
 Stable ID: `drk-shrinehunger`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shrinehunger  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-shrinehunger/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shrinehunger  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-shrinehunger.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-shrinehunger.md  
 Source: `src/content/sections/drk-shrinehunger.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1643,7 +1833,10 @@ Return to Drakken field register
 ## Redacted Grin
 
 Stable ID: `drk-redacted-grin`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-redacted-grin  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-redacted-grin/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-redacted-grin  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-redacted-grin.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-redacted-grin.md  
 Source: `src/content/sections/drk-redacted-grin.body.html`
 
 Related published media IDs: `c1f7ee003b8321b0965ca6d0.webp`
@@ -1665,7 +1858,10 @@ Return to Drakken field register
 ## Spinal Loop
 
 Stable ID: `drk-spinal-loop`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spinal-loop  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spinal-loop/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spinal-loop  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spinal-loop.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spinal-loop.md  
 Source: `src/content/sections/drk-spinal-loop.body.html`
 
 Related published media IDs: `85e1b71870122e9be372be5f.webp`
@@ -1687,7 +1883,10 @@ Return to Drakken field register
 ## Gloryfail
 
 Stable ID: `drk-gloryfail`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gloryfail  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gloryfail  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gloryfail.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gloryfail.md  
 Source: `src/content/sections/drk-gloryfail.body.html`
 
 Related published media IDs: `1ad8499d225f83307d11575d.webp`
@@ -1709,7 +1908,10 @@ Return to Drakken field register
 ## Viral Bastion
 
 Stable ID: `drk-viral-bastion`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-viral-bastion  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-viral-bastion/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#drk-viral-bastion  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-viral-bastion.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-viral-bastion.md  
 Source: `src/content/sections/drk-viral-bastion.body.html`
 
 Related published media IDs: `215b472c945b203880ff9ff0.webp`
@@ -1731,7 +1933,10 @@ Return to Drakken field register
 ## Blood Rings
 
 Stable ID: `blood-rings`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/blood-rings.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/blood-rings.md  
 Source: `src/content/sections/blood-rings.body.html`
 
 ### Canonical definition
@@ -1771,7 +1976,10 @@ Hard visual law: not a clean Saturn ring, asteroid belt, decorative crystal halo
 ## The universe executes the partition.
 
 Stable ID: `starbinding`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#starbinding  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#starbinding  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/starbinding.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/starbinding.md  
 Source: `src/content/sections/starbinding.body.html`
 
 ### Chronology lock
@@ -1808,7 +2016,10 @@ The line recurs through Blood Rings, the Siege Wall, Starbinding, and the post-W
 ## The universe keeps receipts.
 
 Stable ID: `canon-ledger`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#canon-ledger  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#canon-ledger  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/canon-ledger.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/canon-ledger.md  
 Source: `src/content/sections/canon-ledger.body.html`
 
 120 discrete records 10 canon domains 170 years Blood Eclipse War Y170 Aureal Gate terminus
@@ -2186,7 +2397,10 @@ Codec accepts aid, asks Marcel to answer through Wordstream, directs Dao to remo
 ## Beyond the Siege Wall
 
 Stable ID: `beyond-wall`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#beyond-wall  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#beyond-wall  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/beyond-wall.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/beyond-wall.md  
 Source: `src/content/sections/beyond-wall.body.html`
 
 ### Crossing and discovery
@@ -2237,7 +2451,10 @@ Continuity lock: Codec’s first substantive post-Wall Drakken contact is the ci
 ## What the characters are standing inside.
 
 Stable ID: `systems`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#systems  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#systems  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/systems.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/systems.md  
 Source: `src/content/sections/systems.body.html`
 
 ### Drakken / Mother
@@ -2268,7 +2485,10 @@ Wartime deployment doctrine built on the Hookshot Network’s blink gates — li
 ## The universe is not only its leads.
 
 Stable ID: `peripheral-index`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#peripheral-index  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/peripheral-index/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#peripheral-index  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/peripheral-index.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/peripheral-index.md  
 Source: `src/content/sections/peripheral-index.body.html`
 
 ### Original Triumvirate
@@ -2305,7 +2525,10 @@ Harold The herald Mara — Syrin-4 Market warmth / practical denial Tomas Civic 
 ## Wordstreamer
 
 Stable ID: `wordstreamer`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#wordstreamer  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#wordstreamer  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/wordstreamer.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/wordstreamer.md  
 Source: `src/content/sections/wordstreamer.body.html`
 
 ### Canonical record
@@ -2324,7 +2547,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## NiAlBu
 
 Stable ID: `nialbu`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#nialbu  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#nialbu  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nialbu.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nialbu.md  
 Source: `src/content/sections/nialbu.body.html`
 
 ### Canonical record
@@ -2343,7 +2569,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Anika
 
 Stable ID: `anika`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#anika  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/anika/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#anika  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anika.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anika.md  
 Source: `src/content/sections/anika.body.html`
 
 ### Canonical record
@@ -2360,7 +2589,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Jory
 
 Stable ID: `jory`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#jory  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/jory/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#jory  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jory.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jory.md  
 Source: `src/content/sections/jory.body.html`
 
 ### Canonical record
@@ -2377,7 +2609,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Selim
 
 Stable ID: `selim`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#selim  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/selim/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#selim  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/selim.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/selim.md  
 Source: `src/content/sections/selim.body.html`
 
 ### Canonical record
@@ -2394,7 +2629,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Vessa
 
 Stable ID: `vessa`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#vessa  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/vessa/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#vessa  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/vessa.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/vessa.md  
 Source: `src/content/sections/vessa.body.html`
 
 ### Canonical record
@@ -2411,7 +2649,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Orin
 
 Stable ID: `orin`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#orin  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/orin/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#orin  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/orin.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/orin.md  
 Source: `src/content/sections/orin.body.html`
 
 ### Canonical record
@@ -2428,7 +2669,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Mael
 
 Stable ID: `mael`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#mael  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mael/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mael  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mael.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mael.md  
 Source: `src/content/sections/mael.body.html`
 
 ### Canonical record
@@ -2445,7 +2689,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Sera
 
 Stable ID: `sera-inventory`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#sera-inventory  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/sera-inventory/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#sera-inventory  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sera-inventory.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sera-inventory.md  
 Source: `src/content/sections/sera-inventory.body.html`
 
 ### Canonical record
@@ -2462,7 +2709,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Hesh
 
 Stable ID: `hesh`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#hesh  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/hesh/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#hesh  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/hesh.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/hesh.md  
 Source: `src/content/sections/hesh.body.html`
 
 ### Canonical record
@@ -2479,7 +2729,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Mara
 
 Stable ID: `mara`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#mara  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mara/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mara  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara.md  
 Source: `src/content/sections/mara.body.html`
 
 ### Canonical record
@@ -2496,7 +2749,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Rin
 
 Stable ID: `rin`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#rin  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/rin/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#rin  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rin.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rin.md  
 Source: `src/content/sections/rin.body.html`
 
 ### Canonical record
@@ -2513,7 +2769,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Kira
 
 Stable ID: `kira`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#kira  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/kira/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#kira  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kira.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kira.md  
 Source: `src/content/sections/kira.body.html`
 
 ### Canonical record
@@ -2530,7 +2789,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Jalen
 
 Stable ID: `jalen`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#jalen  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/jalen/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#jalen  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jalen.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jalen.md  
 Source: `src/content/sections/jalen.body.html`
 
 ### Canonical record
@@ -2547,7 +2809,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Safi
 
 Stable ID: `safi`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#safi  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/safi/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#safi  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/safi.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/safi.md  
 Source: `src/content/sections/safi.body.html`
 
 ### Canonical record
@@ -2564,7 +2829,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Kaelen
 
 Stable ID: `kaelen`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#kaelen  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/kaelen/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#kaelen  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kaelen.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kaelen.md  
 Source: `src/content/sections/kaelen.body.html`
 
 ### Canonical record
@@ -2581,7 +2849,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Lyra
 
 Stable ID: `lyra`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#lyra  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyra/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#lyra  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/lyra.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/lyra.md  
 Source: `src/content/sections/lyra.body.html`
 
 ### Canonical record
@@ -2598,7 +2869,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Rhys
 
 Stable ID: `rhys`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#rhys  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/rhys/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#rhys  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rhys.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rhys.md  
 Source: `src/content/sections/rhys.body.html`
 
 ### Canonical record
@@ -2615,7 +2889,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Anya
 
 Stable ID: `anya`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#anya  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/anya/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#anya  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anya.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anya.md  
 Source: `src/content/sections/anya.body.html`
 
 ### Canonical record
@@ -2632,7 +2909,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Sela Orrin
 
 Stable ID: `sela-orrin`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#sela-orrin  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/sela-orrin/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#sela-orrin  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sela-orrin.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sela-orrin.md  
 Source: `src/content/sections/sela-orrin.body.html`
 
 ### Canonical record
@@ -2649,7 +2929,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Marn
 
 Stable ID: `marn`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#marn  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/marn/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#marn  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marn.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marn.md  
 Source: `src/content/sections/marn.body.html`
 
 ### Canonical record
@@ -2665,7 +2948,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Joss
 
 Stable ID: `joss`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#joss  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/joss/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#joss  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/joss.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/joss.md  
 Source: `src/content/sections/joss.body.html`
 
 ### Canonical record
@@ -2681,7 +2967,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Reth
 
 Stable ID: `reth`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#reth  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/reth/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#reth  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/reth.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/reth.md  
 Source: `src/content/sections/reth.body.html`
 
 ### Canonical record
@@ -2697,7 +2986,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Iven
 
 Stable ID: `iven`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#iven  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/iven/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#iven  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/iven.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/iven.md  
 Source: `src/content/sections/iven.body.html`
 
 ### Canonical record
@@ -2713,7 +3005,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Unnamed Child
 
 Stable ID: `khar-venn-child`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#khar-venn-child  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/khar-venn-child/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#khar-venn-child  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/khar-venn-child.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/khar-venn-child.md  
 Source: `src/content/sections/khar-venn-child.body.html`
 
 ### Canonical record
@@ -2730,7 +3025,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Archivist Nyle Quarth
 
 Stable ID: `nyle-quarth`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#nyle-quarth  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#nyle-quarth  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nyle-quarth.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nyle-quarth.md  
 Source: `src/content/sections/nyle-quarth.body.html`
 
 ### Canonical record
@@ -2747,7 +3045,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Mother
 
 Stable ID: `mother`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#mother  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mother  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.md  
 Source: `src/content/sections/mother.body.html`
 
 ### Canonical record
@@ -2769,7 +3070,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Foldhowl
 
 Stable ID: `foldhowl`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md  
 Source: `src/content/sections/foldhowl.body.html`
 
 ### Canonical record
@@ -2788,7 +3092,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Manifest.discord
 
 Stable ID: `manifest-discord`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.md  
 Source: `src/content/sections/manifest-discord.body.html`
 
 ### Canonical record
@@ -2807,7 +3114,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Cradle.exe
 
 Stable ID: `cradle-exe`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.md  
 Source: `src/content/sections/cradle-exe.body.html`
 
 ### Canonical record
@@ -2826,7 +3136,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## The Shardlings
 
 Stable ID: `shardlings`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#shardlings  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#shardlings  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shardlings.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shardlings.md  
 Source: `src/content/sections/shardlings.body.html`
 
 ### Canonical record
@@ -2843,7 +3156,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Allkept
 
 Stable ID: `allkept`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#allkept  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/allkept/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#allkept  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/allkept.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/allkept.md  
 Source: `src/content/sections/allkept.body.html`
 
 ### Canonical record
@@ -2870,7 +3186,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## The Little King
 
 Stable ID: `little-king`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#little-king  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/little-king/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#little-king  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/little-king.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/little-king.md  
 Source: `src/content/sections/little-king.body.html`
 
 ### Canonical record
@@ -2887,7 +3206,10 @@ This folio records only supplied details. Unnamed motives, dates, appearances an
 ## Marshal Venn
 
 Stable ID: `marshal-venn`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#marshal-venn  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/marshal-venn/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#marshal-venn  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marshal-venn.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marshal-venn.md  
 Source: `src/content/sections/marshal-venn.body.html`
 
 ### Source-backed record
@@ -2905,7 +3227,10 @@ No appearance, private motive or later fate is specified in the supplied record.
 ## Administrator Pell
 
 Stable ID: `administrator-pell`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#administrator-pell  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/administrator-pell/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#administrator-pell  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/administrator-pell.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/administrator-pell.md  
 Source: `src/content/sections/administrator-pell.body.html`
 
 ### Source-backed record
@@ -2923,7 +3248,10 @@ Pell is a witness and administrator, not a secret expert on Drakken resonance. T
 ## Technician Naresh
 
 Stable ID: `technician-naresh`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#technician-naresh  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/technician-naresh/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#technician-naresh  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/technician-naresh.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/technician-naresh.md  
 Source: `src/content/sections/technician-naresh.body.html`
 
 ### Source-backed record
@@ -2941,7 +3269,10 @@ Naresh’s later outcome, appearance and personal history are not specified. Do 
 ## Captain Serr
 
 Stable ID: `captain-serr`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#captain-serr  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/captain-serr/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#captain-serr  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/captain-serr.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/captain-serr.md  
 Source: `src/content/sections/captain-serr.body.html`
 
 ### Source-backed record
@@ -2959,7 +3290,10 @@ The supplied story defines the assault and her immediate fate; it does not provi
 ## Harold
 
 Stable ID: `harold`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#harold  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/harold/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#harold  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/harold.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/harold.md  
 Source: `src/content/sections/harold.body.html`
 
 ### Source-backed record
@@ -2976,7 +3310,10 @@ This is a project-source ensemble role. No extra powers, ancestry, combat class 
 ## Mara — Syrin-4
 
 Stable ID: `mara-syrin4`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#mara-syrin4  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mara-syrin4/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mara-syrin4  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara-syrin4.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara-syrin4.md  
 Source: `src/content/sections/mara-syrin4.body.html`
 
 ### Source-backed record
@@ -2993,7 +3330,10 @@ Do not conflate this Mara with the Meridian Station casualty already catalogued 
 ## Tomas
 
 Stable ID: `tomas`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#tomas  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/tomas/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#tomas  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/tomas.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/tomas.md  
 Source: `src/content/sections/tomas.body.html`
 
 ### Source-backed record
@@ -3010,7 +3350,10 @@ No special combat ability or survival outcome is established by the source mater
 ## Jonah
 
 Stable ID: `jonah`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#jonah  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/jonah/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#jonah  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jonah.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jonah.md  
 Source: `src/content/sections/jonah.body.html`
 
 ### Source-backed record
@@ -3027,7 +3370,10 @@ Keep Jonah grounded in the ensemble role supplied; do not promote him into a hid
 ## Clara
 
 Stable ID: `clara`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#clara  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/clara/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#clara  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/clara.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/clara.md  
 Source: `src/content/sections/clara.body.html`
 
 ### Source-backed record
@@ -3044,7 +3390,10 @@ The source fixes her ensemble function, not a formal office title beyond the aut
 ## Eli
 
 Stable ID: `eli`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#eli  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/eli/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#eli  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/eli.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/eli.md  
 Source: `src/content/sections/eli.body.html`
 
 ### Source-backed record
@@ -3061,7 +3410,10 @@ No additional powers, affiliations or post-collapse history are established.
 ## Ruth
 
 Stable ID: `ruth-syrin4`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#ruth-syrin4  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/ruth-syrin4/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#ruth-syrin4  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ruth-syrin4.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ruth-syrin4.md  
 Source: `src/content/sections/ruth-syrin4.body.html`
 
 ### Source-backed record
@@ -3078,7 +3430,10 @@ This Ruth is tied to the Syrin-4 prologue source. No later biography is supplied
 ## Kail’s Mother
 
 Stable ID: `kails-mother`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#kails-mother  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/kails-mother/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#kails-mother  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kails-mother.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kails-mother.md  
 Source: `src/content/sections/kails-mother.body.html`
 
 ### Source-backed record
@@ -3095,7 +3450,10 @@ Her personal name, appearance, occupation and wider biography are not supplied. 
 ## Prisons, repositories, scars and places that remember.
 
 Stable ID: `cosmic-architecture`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cosmic-architecture.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cosmic-architecture.md  
 Source: `src/content/sections/cosmic-architecture.body.html`
 
 ### WorldsVault
@@ -3132,7 +3490,10 @@ Architecture is never merely backdrop. It is where custody becomes landscape.
 ## Thirty templates. Twenty-one currently named.
 
 Stable ID: `worldsvault-templates`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#worldsvault-templates  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/worldsvault-templates/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#worldsvault-templates  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/worldsvault-templates.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/worldsvault-templates.md  
 Source: `src/content/sections/worldsvault-templates.body.html`
 
 Syrrian IV Ground repels adhesion; airborne islands over an atmospheric sea.
@@ -3160,7 +3521,10 @@ Stratus III Sky-Architecture: vertical metropolises constructed from transparent
 ## The operating system has moral consequences.
 
 Stable ID: `ontology-horror`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#ontology-horror  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#ontology-horror  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ontology-horror.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ontology-horror.md  
 Source: `src/content/sections/ontology-horror.body.html`
 
 ### Starsilk / the medium
@@ -3195,7 +3559,10 @@ The Administration uses access to food and the requirement to ask for it as popu
 ## Tools remember what systems ask them to do.
 
 Stable ID: `artifacts-factions`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#artifacts-factions  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/artifacts-factions/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#artifacts-factions  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/artifacts-factions.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/artifacts-factions.md  
 Source: `src/content/sections/artifacts-factions.body.html`
 
 ### Physical artifacts
@@ -3247,7 +3614,10 @@ The Administration response to Allkept is extermination through subtraction: des
 ## Three protagonists under impossible pressure.
 
 Stable ID: `trio-gallery`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#trio-gallery  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#trio-gallery  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/trio-gallery.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/trio-gallery.md  
 Source: `src/content/sections/trio-gallery.body.html`
 
 Related published media IDs: `07bd229255662df45be8153b.webp`, `1c70d5c364dc33a4d6511835.webp`, `1c9f6823b71d0ee55003ca15.webp`, `3c62f9fe351fc2bec2ae2d65.webp`, `3ed609d5b3c806b82eb92e0c.webp`, `60ab2d5ff9460371b68628dc.webp`, `6bcd27744b4e19b907aedfe5.webp`, `8c39773527b1c0f8cbff0c13.webp`, `9bcb4735eb1fd307e5acb9a8.webp`, `d8036b5fb38ba87d329e5d1c.webp`, `fcba6f0011e84e989b926cbe.webp`, `fd05ff18b37c24ab7b24a631.webp`
@@ -3274,7 +3644,10 @@ Related published media IDs: `07bd229255662df45be8153b.webp`, `1c70d5c364dc33a4d
 ## The ledger has pictures. The text still governs.
 
 Stable ID: `history-media`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#history-media  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/history-media/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#history-media  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/history-media.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/history-media.md  
 Source: `src/content/sections/history-media.body.html`
 
 Related published media IDs: `1aeb182b94e78bd638e40389.webp`, `6e2c5017f608c8e10b13cbc1.mp4`
@@ -3287,7 +3660,10 @@ The film is stored inside this HTML as an offline data asset. The one-hundred-se
 ## Media Vault
 
 Stable ID: `media-vault`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#media-vault  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/media-vault/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#media-vault  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/media-vault.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/media-vault.md  
 Source: `src/content/sections/media-vault.body.html`
 
 Related published media IDs: `0b4e8ad4a9a36b115a126026.webp`, `0e7950506e3f8d6f6c7108bb.webp`, `122e297ab7d32bdb8b1d0e59.webp`, `145de05eccd44c2d6985ebf0.webp`, `1ad8499d225f83307d11575d.webp`, `206e223925953c37908b9bbd.webp`, `215b472c945b203880ff9ff0.webp`, `2314e78c3185048c0067920c.webp`, `27c72cdec39f17cd42f2c15d.webp`, `281847670f6c1e88c4868a31.webp`, `323bd4d5f7f709dd9854b857.webp`, `361520b5b662bdd00e367178.webp`, `3963e49fd7c5c2da037e5c27.webp`, `3ccef90720b3ce85311c807b.webp`, `3db67771d1d129a3f743f3f2.webp`, `4e9fd6e358f721a1d3b5e171.webp`, `4f2bb7fc3cb54ab952cbd837.webp`, `50e4a3fec4344bcec26fdc14.webp`, `5284bc4b6ba115973e668b1e.webp`, `551e7fe0c8dd9873fb56ccf1.webp`, `58783ecbc00bea4564aa497e.webp`, `589f544a458b89a488318916.webp`, `5abcf2564e35e0c5a0fe1fda.webp`, `5c6efb1ece7c7250332269a1.webp`, `5e022e04b705296021c8a6eb.webp`, `62a8cd579893247656802a43.webp`, `649dcd5e2b491d8aab58352f.webp`, `6722595aa55c94e1368220d9.webp`, `67385a1d966c16adabc3653a.webp`, `6780fd9268d678610ec58ab0.mp4`, `67dbd2c12b0bceb9b28f4eff.webp`, `6e5dfc45bcfa93004794722f.webp`, `6fde67d7467fd104ee178dd7.webp`, `727766275c13aa2b52802bfe.webp`, `73881f061d9c2b2a1cdc3e0f.webp`, `79b1c2a6487529e12b5075a5.webp`, `807ffcd03f539a2d711d9128.webp`, `82086e81ef5b52bf1ad70d3c.webp`, `82c639ea87ac0313e73bb141.webp`, `83484189cf6da54390a00c62.webp`, `848bbd72105f108dd4aa962b.webp`, `85e1b71870122e9be372be5f.webp`, `8718971453a15e18d3a41a5d.webp`, `8790d08b478bc45a329b37a2.webp`, `9075e7c96ba558dbf2a0f6b6.webp`, `9260a8861496a30d8548140e.webp`, `9611ce5ed600941465a07068.webp`, `975d18b9ccb52f453b2305a5.webp`, `a114187979694bfe17334ec6.webp`, `a76f7d67be78c3778f596f89.mp4`, `ad36028ee8a2581055b0c1e5.webp`, `c1f7ee003b8321b0965ca6d0.webp`, `c5cccb4a121970a88fdc21f2.mp4`, `ca6539d70ee71e8019f6e426.webp`, `ce1539e2fdec33916afd7878.webp`, `dad54876960ff6df6e54d55c.webp`, `e61e63d76b983ca6b5ccac5e.webp`, `e70fe9c9536866d58203c6b1.webp`, `e8362fdb9c7fe9bf3852a26e.mp4`, `ec610c53cf996fdcdb924b88.webp`, `f4658a7fd76672e436182dd7.webp`, `f9b8645fabec025fd83ded00.webp`, `fca8a285bebd37f46ea71812.webp`
@@ -3366,7 +3742,10 @@ This vault is deliberately broad. Approved references can be used directly for c
 ## Reference art belongs beside the canon it can contradict.
 
 Stable ID: `archive`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#archive  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#archive  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/archive.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/archive.md  
 Source: `src/content/sections/archive.body.html`
 
 Image status: the dossier contains an extensive published Media Vault plus principal character and Starsilk reference sheets. The historical attachment bank below remains available for legacy reference slots.
@@ -3425,7 +3804,10 @@ This in-browser export downloads the current page as one HTML file that still ne
 ## Codec: the architecture of necessary harm.
 
 Stable ID: `source`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/#source  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#source  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/source.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/source.md  
 Source: `src/content/sections/source.body.html`
 
 “Tiger saved us from the Drakken.”

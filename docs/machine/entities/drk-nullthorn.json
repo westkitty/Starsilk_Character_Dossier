@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-nullthorn/",
+  "display_label": "Nullthorn",
+  "evidence": [
+    {
+      "class": "authoritative-content",
+      "note": "Published prose/content authority for this section.",
+      "source_ref": "src/content/sections/drk-nullthorn.body.html"
+    },
+    {
+      "class": "published-media-provenance",
+      "note": "Related media IDs are manifest filenames attached to this section by published context.",
+      "source_ref": "docs/asset-manifest.json"
+    }
+  ],
+  "object_type": "character-section",
+  "related_media_ids": [
+    "1ad8499d225f83307d11575d.webp"
+  ],
+  "source_refs": [
+    {
+      "anchor": "drk-nullthorn",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-nullthorn.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/drk-nullthorn.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "drk-nullthorn",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}

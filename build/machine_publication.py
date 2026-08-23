@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Generate the deterministic public machine-publication layer.
 
-Phase 2 publishes source-backed machine views without creating a second canon
-prose authority. The entire docs/machine/ directory is generated output owned
-by this script. Top-level docs/llms.txt and docs/sitemap.xml are also owned by
-this script.
+The machine layer is a source-backed derivative, never a second canon prose
+authority. Phase 3 promotes existing top-level section identities to stable
+human permalinks while preserving their legacy Compendium anchors and adds a
+per-record JSON/Markdown alternative for every authored section ID.
+
+The entire docs/machine/ directory is generated output owned by this script.
+Top-level docs/llms.txt and docs/sitemap.xml are also owned by this script.
 
 Usage: python3 build/machine_publication.py [--check]
   --check   render every owned output in memory and fail if committed output
@@ -50,6 +53,22 @@ SCHEMA_FILES = (
 
 def canonical(relative: str = "") -> str:
     return urljoin(SITE_BASE, relative)
+
+
+def entity_permalink(stable_id: str) -> str:
+    return canonical(f"entities/{stable_id}/")
+
+
+def legacy_anchor(stable_id: str) -> str:
+    return f"{SITE_BASE}#{stable_id}"
+
+
+def entity_json_url(stable_id: str) -> str:
+    return canonical(f"machine/entities/{stable_id}.json")
+
+
+def entity_markdown_url(stable_id: str) -> str:
+    return canonical(f"machine/entities/{stable_id}.md")
 
 
 def json_text(value: object) -> str:
@@ -140,7 +159,7 @@ def build_entity_records(sections: list, manifest: dict) -> list[dict]:
             "object_type": structural_type(section),
             "display_label": section_label(section),
             "aliases": [],
-            "canonical_url": canonical(f"#{section.id}"),
+            "canonical_url": entity_permalink(section.id),
             "source_refs": source_refs,
             "visibility": "public",
             "canon_status": "unknown",
@@ -175,13 +194,7 @@ MARKDOWN_CONTAINERS = {"div", "article", "section", "aside"}
 
 
 def markdown_blocks(body_html: str) -> list[str]:
-    """Produce a readable loss-minimizing text projection of authored HTML.
-
-    Block tags retain simple Markdown structure. Custom card/grid markup that
-    contains no standard block descendants is emitted from its deepest generic
-    container so text is not silently dropped merely because presentation uses
-    div/span structures.
-    """
+    """Produce a readable loss-minimizing text projection of authored HTML."""
     soup = BeautifulSoup(body_html, "html.parser")
     blocks: list[str] = []
     for node in soup.find_all(True):
@@ -231,6 +244,7 @@ def build_compendium_markdown(sections: list, records: list[dict]) -> str:
         f"# {PROJECT_NAME} — machine Markdown edition",
         "",
         f"Canonical site: {SITE_BASE}",
+        f"Human entity index: {canonical('entities/')}",
         f"Machine index: {canonical('machine/index.json')}",
         f"Authority: {canonical('machine/AUTHORITY.md')}",
         "",
@@ -245,6 +259,9 @@ def build_compendium_markdown(sections: list, records: list[dict]) -> str:
                 "",
                 f"Stable ID: `{section.id}`  ",
                 f"Canonical: {record['canonical_url']}  ",
+                f"Legacy Compendium location: {legacy_anchor(section.id)}  ",
+                f"Machine JSON: {entity_json_url(section.id)}  ",
+                f"Machine Markdown: {entity_markdown_url(section.id)}  ",
                 f"Source: `src/content/sections/{section.id}.body.html`",
                 "",
             ]
@@ -263,7 +280,7 @@ def build_entities_markdown(records: list[dict]) -> str:
     lines = [
         f"# {PROJECT_NAME} — entity index",
         "",
-        "This index addresses existing published sections by their stable section IDs. The structural type is not an ontological claim. Relationship semantics are published separately and remain `mentions` unless an explicit semantic authority is added later.",
+        "This index addresses existing published sections by their stable section IDs. Canonical URLs are first-class human permalink pages; the original Compendium anchors remain valid legacy locations. Structural type is not an ontological claim. Relationship semantics remain `mentions` unless an explicit semantic authority is added later.",
         "",
         "| Stable ID | Label | Structural type | Canon status | Media | Canonical |",
         "|---|---|---|---|---:|---|",
@@ -276,7 +293,45 @@ def build_entities_markdown(records: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def public_urls() -> list[str]:
+def build_entity_markdown(section, record: dict, relationships: dict, labels: dict[str, str]) -> str:
+    stable_id = record["stable_id"]
+    outgoing = [item for item in relationships.get("outgoing", {}).get(stable_id, []) if item in labels]
+    incoming = [item for item in relationships.get("backlinks", {}).get(stable_id, []) if item in labels]
+    lines = [
+        f"# {record['display_label']}",
+        "",
+        f"Stable ID: `{stable_id}`  ",
+        f"Canonical: {record['canonical_url']}  ",
+        f"Legacy Compendium location: {legacy_anchor(stable_id)}  ",
+        f"Machine JSON: {entity_json_url(stable_id)}  ",
+        f"Structural type: `{record['object_type']}`  ",
+        f"Canon status: `{record['canon_status']}`  ",
+        f"Spoiler level: `{record['spoiler_level']}`",
+        "",
+        f"Source: `src/content/sections/{stable_id}.body.html`",
+        "",
+    ]
+    if record["related_media_ids"]:
+        lines.append("## Related published media")
+        lines.append("")
+        lines.extend(f"- `{item}`" for item in record["related_media_ids"])
+        lines.append("")
+    if outgoing:
+        lines.append("## Observed mentions")
+        lines.append("")
+        lines.extend(f"- [{labels[item]}]({entity_permalink(item)}) — `{item}`" for item in outgoing)
+        lines.append("")
+    if incoming:
+        lines.append("## Mentioned by")
+        lines.append("")
+        lines.extend(f"- [{labels[item]}]({entity_permalink(item)}) — `{item}`" for item in incoming)
+        lines.append("")
+    lines.extend(["## Published source content", ""])
+    lines.extend(markdown_blocks(section.body_html))
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def public_urls(records: list[dict]) -> list[str]:
     paths = [
         "llms.txt",
         "sitemap.xml",
@@ -288,10 +343,22 @@ def public_urls() -> list[str]:
         "machine/entities.md",
         "machine/AUTHORITY.md",
     ] + [f"machine/schema/v1/{name}" for name in SCHEMA_FILES]
-    return [SITE_BASE] + [canonical(path) for path in paths]
+    urls = [SITE_BASE] + [canonical(path) for path in paths] + [canonical("entities/")]
+    for record in records:
+        stable_id = record["stable_id"]
+        urls.extend(
+            [
+                record["canonical_url"],
+                entity_json_url(stable_id),
+                entity_markdown_url(stable_id),
+            ]
+        )
+    if len(urls) != len(set(urls)):
+        raise RuntimeError("duplicate public URL generated")
+    return urls
 
 
-def build_project_index(record_count: int, relationship_count: int) -> dict:
+def build_project_index(records: list[dict], relationship_count: int) -> dict:
     schema_urls = {name.removesuffix(".schema.json"): canonical(f"machine/schema/v1/{name}") for name in SCHEMA_FILES}
     return {
         "schema": "starsilk-machine-publication/1",
@@ -310,9 +377,9 @@ def build_project_index(record_count: int, relationship_count: int) -> dict:
             "sitemap": canonical("sitemap.xml"),
         },
         "schemas": schema_urls,
-        "record_count": record_count,
+        "record_count": len(records),
         "relationship_count": relationship_count,
-        "public_urls": public_urls(),
+        "public_urls": public_urls(records),
         "source_authority": [
             "src/content/sections/*.title.html",
             "src/content/sections/*.body.html",
@@ -352,7 +419,7 @@ def build_jsonld(records: list[dict]) -> dict:
 
 def build_llms_text(index: dict) -> str:
     e = index["endpoints"]
-    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n"""
+    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nHuman entity index: {canonical('entities/')}\nHuman entity permalink pattern: {canonical('entities/<stable-id>/')}\nPer-entity JSON pattern: {canonical('machine/entities/<stable-id>.json')}\nPer-entity Markdown pattern: {canonical('machine/entities/<stable-id>.md')}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n"""
 
 
 def build_sitemap(urls: list[str]) -> str:
@@ -371,7 +438,8 @@ def render_outputs() -> dict[str, str]:
     manifest = load_manifest()
     records = build_entity_records(sections, manifest)
     relationships = build_relationships()
-    index = build_project_index(len(records), relationships.get("relationship_count", 0))
+    labels = {record["stable_id"]: record["display_label"] for record in records}
+    index = build_project_index(records, relationships.get("relationship_count", 0))
 
     entity_index = {
         "schema": "starsilk-entity-index/1",
@@ -393,6 +461,10 @@ def render_outputs() -> dict[str, str]:
         "llms.txt": build_llms_text(index),
         "sitemap.xml": build_sitemap(index["public_urls"]),
     }
+    for section, record in zip(sections, records):
+        stable_id = record["stable_id"]
+        outputs[f"machine/entities/{stable_id}.json"] = json_text(record)
+        outputs[f"machine/entities/{stable_id}.md"] = build_entity_markdown(section, record, relationships, labels)
     for name in SCHEMA_FILES:
         outputs[f"machine/schema/v1/{name}"] = (SCHEMA_DIR / name).read_text(encoding="utf-8").rstrip() + "\n"
     return outputs

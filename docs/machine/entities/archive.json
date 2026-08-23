@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "canon_status": "unknown",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/",
+  "display_label": "Reference art belongs beside the canon it can contradict.",
+  "evidence": [
+    {
+      "class": "authoritative-content",
+      "note": "Published prose/content authority for this section.",
+      "source_ref": "src/content/sections/archive.body.html"
+    }
+  ],
+  "object_type": "archive-section",
+  "related_media_ids": [],
+  "source_refs": [
+    {
+      "anchor": "archive",
+      "kind": "authoritative-content",
+      "path": "src/content/sections.json"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/archive.body.html"
+    },
+    {
+      "kind": "authoritative-content",
+      "path": "src/content/sections/archive.title.html"
+    }
+  ],
+  "spoiler_level": "major",
+  "stable_id": "archive",
+  "unknowns": [
+    "Per-section canon status is not authored by the current source model.",
+    "Per-section spoiler classification is not authored; major is a conservative publication default.",
+    "object_type describes the published section structure and is not an ontological claim about the subject."
+  ],
+  "visibility": "public"
+}
