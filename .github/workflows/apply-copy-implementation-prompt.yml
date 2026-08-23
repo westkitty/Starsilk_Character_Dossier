@@ -47,47 +47,21 @@ jobs:
 
           app_path = Path("src/templates/app.js")
           app = app_path.read_text(encoding="utf-8")
-
-          old_mode = '''  var modeToggle = document.getElementById('modeToggle');
-          if(modeToggle){
-            var setArchiveMode = function(on){
-              document.documentElement.classList.toggle('archive-mode', on);
-              modeToggle.setAttribute('aria-pressed', String(on));
-              modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
-              modeToggle.hidden = !on;
-            };
-            modeToggle.addEventListener('click', function(){
-              setArchiveMode(false);
-            });
-            try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}
-            setArchiveMode(false);
-          }
-          '''
-          new_mode = '''  var modeToggle = document.getElementById('modeToggle');
-          var copyPromptBtn = document.getElementById('copyImplementationPrompt');
-          var copyPromptStatus = document.getElementById('copyPromptStatus');
-          if(modeToggle){
-            var setArchiveMode = function(on){
-              document.documentElement.classList.toggle('archive-mode', on);
-              modeToggle.setAttribute('aria-pressed', String(on));
-              modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
-              modeToggle.hidden = !on;
-              if(copyPromptBtn) copyPromptBtn.hidden = !on;
-              if(!on && copyPromptStatus) copyPromptStatus.textContent = '';
-            };
-            modeToggle.addEventListener('click', function(){
-              setArchiveMode(false);
-            });
-            try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}
-            setArchiveMode(false);
-          }
-          '''
-          old_mode = "\n".join(line[10:] if line.startswith("          ") else line for line in old_mode.splitlines()) + "\n"
-          new_mode = "\n".join(line[10:] if line.startswith("          ") else line for line in new_mode.splitlines()) + "\n"
-          app = replace_once(app, old_mode, new_mode, "archive mode copy-prompt visibility")
+          app = replace_once(
+              app,
+              "  var modeToggle = document.getElementById('modeToggle');\n",
+              "  var modeToggle = document.getElementById('modeToggle');\n  var copyPromptBtn = document.getElementById('copyImplementationPrompt');\n  var copyPromptStatus = document.getElementById('copyPromptStatus');\n",
+              "copy prompt control lookup",
+          )
+          app = replace_once(
+              app,
+              "      modeToggle.hidden = !on;\n",
+              "      modeToggle.hidden = !on;\n      if(copyPromptBtn) copyPromptBtn.hidden = !on;\n      if(!on && copyPromptStatus) copyPromptStatus.textContent = '';\n",
+              "copy prompt archive visibility",
+          )
 
           old_stage_init = "  var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));\n  var assetStatus = document.getElementById('assetStatus');\n  var ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];\n"
-          new_stage_init = '''  var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));
+          new_stage_init = """  var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));
           var assetStatus = document.getElementById('assetStatus');
           var ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];
           var localFileMeta = new WeakMap();
@@ -115,17 +89,15 @@ jobs:
               hidden: img ? img.hidden : true
             };
           });
-          '''
+          """
           new_stage_init = "\n".join(line[10:] if line.startswith("          ") else line for line in new_stage_init.splitlines()) + "\n"
           app = replace_once(app, old_stage_init, new_stage_init, "archive stage baseline state")
-
           app = replace_once(
               app,
               "    clearInlineError(stage);\n    var reader = new FileReader();",
               "    clearInlineError(stage);\n    localFileMeta.set(stage, {name: file.name || '', type: file.type || '', bytes: file.size || 0});\n    var reader = new FileReader();",
               "local attachment metadata capture",
           )
-
           app = replace_once(
               app,
               "        var input = stage.querySelector('.asset-file');\n        if(input) input.value = '';\n        clearInlineError(stage);",
@@ -133,8 +105,7 @@ jobs:
               "clear local attachment metadata",
           )
 
-          before_unload = "  window.addEventListener('beforeunload', function(e){\n"
-          prompt_block = '''  function collectLocalArchiveChanges(){
+          prompt_block = """  function collectLocalArchiveChanges(){
             var changes = [];
             stages.forEach(function(stage, index){
               var initial = initialStageState[index];
@@ -232,22 +203,19 @@ jobs:
             });
           }
 
-          '''
+          """
           prompt_block = "\n".join(line[10:] if line.startswith("          ") else line for line in prompt_block.splitlines()) + "\n"
-          app = replace_once(app, before_unload, prompt_block + before_unload, "implementation prompt behavior")
-
+          app = replace_once(app, "  window.addEventListener('beforeunload', function(e){\n", prompt_block + "  window.addEventListener('beforeunload', function(e){\n", "implementation prompt behavior")
           app = replace_once(
               app,
               "      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded').forEach(function(n){ n.remove(); });",
               "      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded, #copyImplementationPrompt, #copyPromptStatus').forEach(function(n){ n.remove(); });",
               "export strips implementation prompt controls",
           )
-
           app_path.write_text(app, encoding="utf-8")
 
           tests_path = Path("tests/test_dossier.py")
           tests = tests_path.read_text(encoding="utf-8")
-
           tests = replace_once(
               tests,
               "    mode_toggle = page.locator(\"#modeToggle\")\n    expect(mode_toggle).to_be_hidden()",
@@ -274,13 +242,13 @@ jobs:
           )
 
           insert_marker = "def test_invalid_attachment_error(page: Page, local_server, tmp_path):\n"
-          copy_test = '''def test_copy_implementation_prompt_captures_local_change_manifest(page: Page, local_server, tmp_path):
-              page.add_init_script("""() => {
+          copy_test = """def test_copy_implementation_prompt_captures_local_change_manifest(page: Page, local_server, tmp_path):
+              page.add_init_script("""
                   Object.defineProperty(navigator, 'clipboard', {
                       configurable: true,
                       value: { writeText: (text) => { window.__copiedImplementationPrompt = text; return Promise.resolve(); } }
                   });
-              }""")
+              """)
               page.set_viewport_size({"width": 1280, "height": 800})
               page.goto(f"{local_server}/index.html")
               page.locator("#dossierSearch").fill("ajd")
@@ -298,10 +266,10 @@ jobs:
               prompt = page.evaluate("window.__copiedImplementationPrompt")
               assert isinstance(prompt, str)
               assert "https://github.com/westkitty/Starsilk_Character_Dossier" in prompt
-              assert '"asset_key": "asset-19"' in prompt
-              assert '"title": "Administration allocation facility"' in prompt
-              assert '"action": "attach"' in prompt
-              assert '"name": "handoff-test.png"' in prompt
+              assert '\"asset_key\": \"asset-19\"' in prompt
+              assert '\"title\": \"Administration allocation facility\"' in prompt
+              assert '\"action\": \"attach\"' in prompt
+              assert '\"name\": \"handoff-test.png\"' in prompt
               assert "starsilk_character_dossier_copy.html" in prompt
               assert "Do not hand-edit docs/index.html" in prompt
               assert "Stage only the intended files" in prompt
@@ -310,10 +278,9 @@ jobs:
               assert "lands on main" in prompt
 
 
-          '''
+          """
           copy_test = "\n".join(line[10:] if line.startswith("          ") else line for line in copy_test.splitlines()) + "\n"
           tests = replace_once(tests, insert_marker, copy_test + insert_marker, "copy implementation prompt regression test")
-
           tests = replace_once(
               tests,
               "    assert 'class=\"asset-toolbar\"' not in html_content\n",
