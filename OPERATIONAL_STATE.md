@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 5
+revision: 6
 
 ## Current baseline
 
@@ -31,6 +31,8 @@ revision: 5
 10. Repository merge state, Pages configuration, Pages build execution, and live-edge content are separate proof states. Never infer one from another.
 11. Current GitHub Pages authority is the observed repository setting `build_type=legacy`, source branch `main`, source path `/docs`. Do not assume workflow-mode publishing unless a future Pages API read proves `build_type=workflow`.
 12. `.github/workflows/pages.yml` must inspect the active Pages mode before publishing: request a legacy branch-source rebuild when legacy mode is active; use Pages artifact deployment only when workflow mode is active; verify live Compendium markers after publication.
+13. Canonical-media backup claims require exact manifest verification and a tested restore. The current verified recovery package is anchored to historical source commit `97ae39c745933a024791ed75924f2a5d1d7844a5` and current `docs/asset-manifest.json` provenance.
+14. The durable off-repository backup is stored in Google Drive folder `Starsilk Canonical Media Recovery - 2026-08-23`; keep its seven ordered transfer chunks plus verification bundle together. Restore only after reassembly and SHA-256 verification of the final recovery ZIP.
 
 ## Verified implementation
 
@@ -89,15 +91,55 @@ GitHub Actions proof run `32627553716`, job `97165136754`, executed from a fresh
   - `id="dossierSearch"`
   - `Archive tools`
 
-Therefore the hosted GitHub Pages site is now **verified current**, not merely configured or assumed current. Earlier stale responses from the external public-web reader were cache artifacts and must not override the authoritative Pages build record plus independent fresh runner fetch.
+Therefore the hosted GitHub Pages site is **verified current**.
+
+## Canonical media recovery state — VERIFIED RESTORABLE AND DURABLY STORED
+
+One-time recovery PR #5 reconstructed the canonical source media from the pre-optimization repository snapshot at commit `97ae39c745933a024791ed75924f2a5d1d7844a5` without merging recovery machinery into production.
+
+GitHub Actions recovery runs proved:
+
+- current manifest expected: 213 canonical source files;
+- reconstructed: 213;
+- missing: 0;
+- mismatched byte counts/SHA-256: 0;
+- extras: 0;
+- `tools/media_source_archive.py verify`: 213/213 valid;
+- guarded recovery package creation succeeded;
+- isolated extraction of the produced ZIP succeeded;
+- verification of the restored extracted set: 213/213 valid;
+- ZIP integrity test passed.
+
+Verified recovery ZIP identity:
+
+- filename: `starsilk-canonical-media-recovery.zip`
+- size: `582148268` bytes
+- SHA-256: `1228fad6e2a816e9d60082fe377293a07035aae8f5bda1f2fa5cd584bcf0f58a`
+
+The exact ZIP was also reassembled inside the ChatGPT execution runtime from transfer chunks and matched the same size and SHA-256; archive integrity passed there independently.
+
+### Durable external copy
+
+Google Drive folder:
+
+- name: `Starsilk Canonical Media Recovery - 2026-08-23`
+- folder ID: `16mSC5uufIW5zGnM__c4x1lFpidXjdGrg`
+- URL: `https://drive.google.com/drive/folders/16mSC5uufIW5zGnM__c4x1lFpidXjdGrg`
+
+Because connector ingress is capped below the full archive size, the durable copy is stored as seven ordered GitHub-artifact wrapper ZIPs containing contiguous 80 MiB raw recovery-ZIP chunks (`part-00` through `part-06`) plus `starsilk-media-durable-verification.zip` containing source verification, restore verification, archive size/checksum, and chunk checksums.
+
+All seven Drive chunk files and the verification bundle were downloaded back from Google Drive after upload. Their SHA-256 values matched the GitHub-produced artifact digests exactly. Therefore the off-repository Drive copy is byte-verified end to end, not merely reported present.
+
+To restore from Drive: download all seven `starsilk-media-durable-part-XX.zip` wrappers, extract the single raw `starsilk-canonical-media-recovery.zip.part-XX` file from each, concatenate raw parts in numeric order, require final size `582148268` and SHA-256 `1228fad6e2a816e9d60082fe377293a07035aae8f5bda1f2fa5cd584bcf0f58a`, then extract the recovery ZIP and run `python3 tools/media_source_archive.py verify` against its `media-source/` contents.
 
 ## Known limitations
 
-- An independently stored canonical-media recovery ZIP cannot be created from Git alone because `media/source/` is intentionally absent from the repository. The verification/packaging path is implemented and tested, but the actual archive remains pending until run where canonical originals are mounted.
+- Google Drive connector transfer ceilings require the durable backup to be stored as verified ordered chunks rather than one 582 MB Drive object. This is a transport constraint, not a content-integrity gap.
+- One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
 
 ## Pending
 
-- Run `python3 tools/media_source_archive.py package` on a machine containing the real `media/source/`, then store the resulting ZIP on durable storage outside this repository.
+- None for the canon-infrastructure / hosted-site / canonical-media-recovery upgrade batch.
 
 ## Revision log
 
@@ -106,3 +148,4 @@ Therefore the hosted GitHub Pages site is now **verified current**, not merely c
 - Revision 3: recorded CI environment/parity repairs, pinned visual-baseline migration, hidden-placeholder fix, and successful final read-only validation run `32622800992`.
 - Revision 4: recorded PR #1 merge and the then-unresolved Pages edge-verification gap.
 - Revision 5: recorded PRs #2-#4, authoritative Pages configuration `legacy / main / docs`, successful Pages build at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`, and fresh GitHub-runner verification that the public site serves the current Compendium markers.
+- Revision 6: closed the final recovery gap: reconstructed and verified 213/213 canonical originals from Git history, created and restore-tested recovery ZIP `1228fad6...f58a`, stored the backup outside Git in Google Drive, and round-trip SHA-256 verified every Drive transfer chunk plus verification bundle.
