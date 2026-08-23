@@ -2,15 +2,16 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 4
+revision: 5
 
 ## Current baseline
 
 - Repository default branch: `main`.
-- Pull request #1, `Add canon infrastructure surfaces`, was merged on 2026-08-23 at merge commit `6185a26e7f62adda5df3a4c053d3c192f9d9468e`.
-- Current Pages-deployment commit before this state-only update: `ee9b5eeffefff093bfe6a716d817c27f2286dfb4` (`fix: deploy Compendium docs explicitly to GitHub Pages`).
-- Verified implementation head before merge: `2480789e3a69eee6d8352123288df43a21d4ed9d`.
-- Publication architecture: `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
+- Canon-infrastructure PR #1 merged at `6185a26e7f62adda5df3a4c053d3c192f9d9468e`.
+- Pages source-compatibility PR #2 merged at `6c57256b32a6f75f1857919dba3015851e738f97`.
+- Pages source-aware self-heal PR #3 merged at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`.
+- Live Pages proof PR #4 merged at `5a813a13e13dcaed19f496196de1302572fa9984`.
+- Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
 - `docs/asset-manifest.json` is the published-media provenance ledger.
@@ -27,11 +28,13 @@ revision: 4
 7. Full-document positive canon locks must not be incorrectly required inside a section-scoped fragment; global prohibitions still apply everywhere.
 8. Visual regression references belong to the pinned Playwright Linux environment; visual captures must wait for target images to load and decode rather than depending on lazy-load timing.
 9. HTML `hidden` semantics must remain effective even when component CSS sets `display` on the same element.
-10. Repository merge state, Pages deployment configuration, deployment execution, and live-edge content are separate proof states. Never infer the latter from the former.
+10. Repository merge state, Pages configuration, Pages build execution, and live-edge content are separate proof states. Never infer one from another.
+11. Current GitHub Pages authority is the observed repository setting `build_type=legacy`, source branch `main`, source path `/docs`. Do not assume workflow-mode publishing unless a future Pages API read proves `build_type=workflow`.
+12. `.github/workflows/pages.yml` must inspect the active Pages mode before publishing: request a legacy branch-source rebuild when legacy mode is active; use Pages artifact deployment only when workflow mode is active; verify live Compendium markers after publication.
 
 ## Verified implementation
 
-GitHub Actions run `32622800992` completed with all required jobs passing on implementation head `2480789e3a69eee6d8352123288df43a21d4ed9d` in the final read-only workflow:
+GitHub Actions run `32622800992` completed with all required jobs passing on implementation head `2480789e3a69eee6d8352123288df43a21d4ed9d` in the final read-only infrastructure workflow:
 
 - Chromium: build from source passed.
 - Chromium: `./tools/build.sh --check` passed.
@@ -40,36 +43,53 @@ GitHub Actions run `32622800992` completed with all required jobs passing on imp
 - Chromium: full pytest + Playwright suite passed, including committed visual regressions.
 - Firefox representative journeys passed.
 - WebKit representative journeys passed.
-- No visual-baseline regeneration, auto-commit, or write permission existed in this verification workflow.
 
-Verified implementation includes:
+Verified infrastructure includes:
 
 - `tools/media_source_archive.py`: verifies canonical originals against provenance and packages a recovery archive only after complete verification.
 - `tools/build_relationship_graph.py`: emits an observed entity mention/backlink graph from published xref links.
 - `tools/validate_canon.py`: candidate/complete reusable canon validation with corrected document-vs-section completeness scope.
 - `tests/test_infrastructure_tools.py`: regression coverage for all three infrastructure surfaces.
 - Visual regression tests explicitly wait for non-hidden target images to load/decode before element screenshots.
-- Visual baselines were regenerated in the pinned Playwright Chromium container and visually inspected before acceptance.
-- The generated site preserves native `[hidden]` behavior, fixing the Dao unattached-image placeholder regression without changing production lazy-loading semantics.
-- `docs/.nojekyll` marks `/docs` as static GitHub Pages output.
+- The generated site preserves native `[hidden]` behavior for intentionally unattached images.
 - CI uses the pinned Playwright container's Python directly instead of attempting an unavailable Debian `venv` bootstrap.
 
-## Pages deployment state
+## GitHub Pages deployment state — VERIFIED
 
-### Confirmed
+### Authoritative configuration
 
-- PR #1 is merged into `main`.
-- `main/docs/index.html` is the current Compendium build and contains the identity markers `Starsilk — Compendium`, `Starsilk Compendium`, the `Archive tools` control, and unified `dossierSearch` search UI.
-- Commit `ee9b5eeffefff093bfe6a716d817c27f2286dfb4` added `.github/workflows/pages.yml` with an explicit GitHub Pages artifact deployment: checkout -> `actions/configure-pages@v5` -> `actions/upload-pages-artifact@v4` for `docs` -> `actions/deploy-pages@v4`.
-- The workflow triggers on `main` changes to `docs/**` or to `.github/workflows/pages.yml`, and also supports manual dispatch.
+GitHub Actions diagnostic run `32627339040`, job `97164575182`, read the repository Pages API directly and established:
 
-### Currently unverifiable from this runtime
+- `build_type=legacy`
+- `source_branch=main`
+- `source_path=/docs`
+- `html_url=https://westkitty.github.io/Starsilk_Character_Dossier/`
 
-- The connector does not expose the push-triggered Pages workflow run or the repository Pages deployment record for commit `ee9b5eeffefff093bfe6a716d817c27f2286dfb4`.
-- The available public-web reader still returns an older Character Dossier snapshot (`Starsilk — Character Dossier`, `Filter sections...`, `STAR SILK DOSSIER`), but that reader is cache-ambiguous and does not expose a crawl timestamp precise enough to prove current edge state.
-- Direct origin retrieval from the execution container is unavailable because outbound DNS/network access to the Pages host is blocked.
+This disproved the earlier hypothesis that the site needed to be switched to GitHub Actions. The actual production source is branch-based `main / docs`.
 
-Therefore: repository implementation and deployment configuration are fixed and confirmed; actual current GitHub Pages edge convergence must remain `currently-unverifiable` rather than being promoted to `verified` from cached evidence.
+### Publication repair
+
+- PR #2 added a root compatibility redirect, included `index.html` in Pages workflow trigger coverage, and touched `docs/.nojekyll` so legacy branch publication could be retriggered without changing Compendium content.
+- PR #3 made `.github/workflows/pages.yml` source-aware. When Pages reports `legacy`, it validates the configured branch/path and requests a Pages branch-source rebuild through the GitHub Pages API. If a future configuration reports `workflow`, it uses `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages` instead.
+- PR #3 passed Chromium, Firefox, and WebKit CI before merge.
+- PR #4 retained read-only Pages configuration/build diagnostics and a cache-busted live-site proof path; its ordinary Chromium, Firefox, and WebKit CI also passed before merge.
+
+### Authoritative build and live-edge proof
+
+GitHub Actions proof run `32627553716`, job `97165136754`, executed from a fresh GitHub-hosted Ubuntu runner and established all of the following on 2026-08-23:
+
+- Pages configuration remained `legacy / main / docs`.
+- Latest GitHub Pages build status: `built`.
+- Latest Pages build commit: `a84a3440c0178ad256bbd5994392bb0d4caf5dde`.
+- Latest build created: `2026-08-23T08:08:59Z`.
+- Latest build updated: `2026-08-23T08:09:28Z`.
+- Latest build error: none.
+- A cache-busted fetch of `https://westkitty.github.io/Starsilk_Character_Dossier/` from the GitHub runner succeeded and contained all required current-build markers:
+  - `Starsilk Compendium`
+  - `id="dossierSearch"`
+  - `Archive tools`
+
+Therefore the hosted GitHub Pages site is now **verified current**, not merely configured or assumed current. Earlier stale responses from the external public-web reader were cache artifacts and must not override the authoritative Pages build record plus independent fresh runner fetch.
 
 ## Known limitations
 
@@ -77,12 +97,12 @@ Therefore: repository implementation and deployment configuration are fixed and 
 
 ## Pending
 
-- Obtain one authoritative uncached read of `https://westkitty.github.io/Starsilk_Character_Dossier/` or a GitHub Pages deployment record and confirm it contains the current Compendium identity markers from `main/docs/index.html`.
 - Run `python3 tools/media_source_archive.py package` on a machine containing the real `media/source/`, then store the resulting ZIP on durable storage outside this repository.
 
 ## Revision log
 
 - Revision 1: initialized canon-infrastructure state.
 - Revision 2: recorded PR #1, corrected canon-validation scope semantics, and preserved CI as pending rather than verified.
-- Revision 3: recorded the CI environment/parity repairs, pinned visual-baseline migration, hidden-placeholder fix, and successful final read-only validation run `32622800992` on implementation head `2480789e3a69eee6d8352123288df43a21d4ed9d`.
-- Revision 4: recorded PR #1 merge, explicit Pages deployment workflow commit `ee9b5eeffefff093bfe6a716d817c27f2286dfb4`, current deployable identity markers, and the remaining cache/network limitation preventing an authoritative live-edge verification.
+- Revision 3: recorded CI environment/parity repairs, pinned visual-baseline migration, hidden-placeholder fix, and successful final read-only validation run `32622800992`.
+- Revision 4: recorded PR #1 merge and the then-unresolved Pages edge-verification gap.
+- Revision 5: recorded PRs #2-#4, authoritative Pages configuration `legacy / main / docs`, successful Pages build at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`, and fresh GitHub-runner verification that the public site serves the current Compendium markers.
