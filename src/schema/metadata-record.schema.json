@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "starsilk://schema/metadata-record/1",
+  "title": "Starsilk metadata record v1",
+  "description": "Metadata wrapper for a source-backed Starsilk entity, object, event, concept, section, or other addressable subject. This schema describes provenance and publication state; it does not duplicate canonical prose.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stable_id",
+    "object_type",
+    "display_label",
+    "aliases",
+    "canonical_url",
+    "source_refs",
+    "visibility",
+    "canon_status",
+    "spoiler_level",
+    "related_media_ids",
+    "evidence",
+    "unknowns"
+  ],
+  "properties": {
+    "stable_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "object_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Descriptive type such as character, place, system, faction, event, concept, media-object, or section. New types must not silently change an existing stable_id's identity."
+    },
+    "display_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "canonical_url": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Resolvable current public location. Identity is stable_id, not the URL; later permalink migrations must preserve old public anchors/aliases."
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "kind"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "anchor": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "authoritative-content",
+              "canon-lock",
+              "published-media-provenance",
+              "observed-xref",
+              "explicit-semantic-authority",
+              "generated-derivative",
+              "historical-source",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["public", "private"]
+    },
+    "canon_status": {
+      "type": "string",
+      "enum": ["canon", "development", "historical", "speculative", "unknown"]
+    },
+    "spoiler_level": {
+      "type": "string",
+      "enum": ["none", "minor", "major"]
+    },
+    "related_media_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["class", "source_ref"],
+        "properties": {
+          "class": {
+            "type": "string",
+            "enum": [
+              "authoritative-content",
+              "canon-lock",
+              "published-media-provenance",
+              "observed-xref",
+              "explicit-semantic-authority",
+              "generated-derivative",
+              "historical-source",
+              "unknown"
+            ]
+          },
+          "source_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Explicit unresolved facts. An empty array means no unknowns are declared for this record, not that the project knows everything about the subject."
+    }
+  }
+}
