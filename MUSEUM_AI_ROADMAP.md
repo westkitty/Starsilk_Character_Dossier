@@ -18,8 +18,8 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 
 | Phase | Title | Status | Completion evidence | Blocker / deferred note |
 |---|---|---|---|---|
-| 1 | Foundation, Roadmap, and Publication Boundary | IN PROGRESS | pending CI/merge | none |
-| 2 | Machine Publication Layer | NOT STARTED | — | deferred until Phase 1 is verified on `main` |
+| 1 | Foundation, Roadmap, and Publication Boundary | COMPLETE | PR #11; implementation head `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`; CI `32637622651` PASS; merged `ea287f572264eee625708d22b95a2d482b7d8a87` | none |
+| 2 | Machine Publication Layer | NOT STARTED | — | begin only in a fresh chat after verifying Phase 1 on current `main` |
 | 3 | Stable Entity Pages and Permalinks | NOT STARTED | — | deferred |
 | 4 | Museum Object Model and Media Viewer | NOT STARTED | — | deferred |
 | 5 | Relationship Observatory | NOT STARTED | — | deferred |
@@ -59,7 +59,7 @@ Observed current identities that are already suitable for preservation:
 - legacy archive `data-asset-key` identifiers;
 - media filenames/hashes/provenance identities in `docs/asset-manifest.json`.
 
-Observed gaps that must remain explicit rather than guessed in Phase 1:
+Observed gaps that remain explicit rather than guessed:
 
 - individual chronology-event IDs are not authored in the current chronology prose;
 - many WorldsVault records have display labels/media references but no authored stable record ID;
@@ -67,6 +67,20 @@ Observed gaps that must remain explicit rather than guessed in Phase 1:
 - later museum object IDs must derive from stable asset/media authority rather than decorative ordering.
 
 The detailed governing contract is `MUSEUM_AI_FOUNDATION.md` and the v1 metadata schema is `src/schema/metadata-record.schema.json`.
+
+### Completion record
+
+- starting `main`: `f885a18cade0d81e02c0d7ed52ff2d9549521bd3`
+- work branch: `phase-01-foundation`
+- primary implementation commit: `b8e60a9577108ad3b339dcc1b39a319e7b0db562`
+- bounded repair commit: `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`
+- repair reason: one new assertion compared required contract wording case-sensitively; the repair made that wording assertion case-insensitive without weakening the contract or changing implementation behavior
+- successful CI run: `32637622651`
+- PR: `#11`
+- implementation merge on `main`: `ea287f572264eee625708d22b95a2d482b7d8a87`
+- public `docs/` output changed: no
+- Pages/publication rebuild required by Phase 1: no
+- files introduced: `MUSEUM_AI_FOUNDATION.md`, `MUSEUM_AI_ROADMAP.md`, `src/schema/metadata-record.schema.json`, `tools/validate_metadata_contract.py`, `tools/check_public_boundary.py`, `tests/test_museum_foundation.py`
 
 ## Remaining phase contracts
 

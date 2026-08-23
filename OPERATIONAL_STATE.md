@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 8
+revision: 9
 
 ## Current baseline
 
@@ -11,11 +11,15 @@ revision: 8
 - Pages source-compatibility PR #2 merged at `6c57256b32a6f75f1857919dba3015851e738f97`.
 - Pages source-aware self-heal PR #3 merged at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`.
 - Live Pages proof PR #4 merged at `5a813a13e13dcaed19f496196de1302572fa9984`.
+- Museum + AI Phase 1 PR #11 merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
 - `docs/asset-manifest.json` is the published-media provenance ledger.
 - `media/source/` contains canonical original media and is intentionally not committed.
+- `MUSEUM_AI_ROADMAP.md` is the durable twelve-phase plan/progress ledger; it does not override observed repository reality.
+- `MUSEUM_AI_FOUNDATION.md` is the Phase 1 authority/identity/publication contract for future machine derivatives.
+- `src/schema/metadata-record.schema.json` is the v1 metadata wrapper contract; it stores provenance/status/identity metadata and must not become a duplicate canon prose database.
 
 ## Active invariants
 
@@ -35,6 +39,11 @@ revision: 8
 14. The durable off-repository backup is stored in Google Drive folder `Starsilk Canonical Media Recovery - 2026-08-23`; keep its seven ordered transfer chunks plus verification bundle together. Restore only after reassembly and SHA-256 verification of the final recovery ZIP.
 15. Public Archive Tools remain local-only browser maintenance controls with no repository-write path. They must load locked in Reader mode, require the exact search-field unlock phrase for the current page session, and must not persist an unlocked state across reloads.
 16. Archive implementation handoff prompts must bind every changed legacy slot to its stable `data-asset-key` captured from authoritative archive markup. Browser-local attachment data is evidence, not canonical repo state, and implementation still requires the exported HTML copy or original local files.
+17. Existing section IDs/public anchors, xref targets, authored `data-source-key` values, legacy `data-asset-key` values, and media provenance identities are stable identities. Later views may add canonical URLs/aliases but must not casually rename or orphan these identities.
+18. Visibility (`public`/`private`), canon status (`canon`/`development`/`historical`/`speculative`/`unknown`), and spoiler level (`none`/`minor`/`major`) are independent dimensions and must never be collapsed into one another.
+19. Unknown is a first-class machine state. Missing event IDs, dates, coordinates, semantic relationships, or other unauthored facts must remain unknown rather than being plausibly invented.
+20. Observed xref edges prove only `mentions`/references. Stronger relationship semantics require explicit authored semantic authority and source evidence.
+21. Future public machine exports must pass `tools/check_public_boundary.py` and retain source/evidence references. JavaScript hiding, Archive mode, `ajd`, robots metadata, and agent-orientation files are not privacy controls.
 
 ## Verified implementation
 
@@ -57,6 +66,44 @@ Verified infrastructure includes:
 - Visual regression tests explicitly wait for non-hidden target images to load/decode before element screenshots.
 - The generated site preserves native `[hidden]` behavior for intentionally unattached images.
 - CI uses the pinned Playwright container's Python directly instead of attempting an unavailable Debian `venv` bootstrap.
+
+## Museum + AI Phase 1 foundation — VERIFIED
+
+Phase 1 of 12, **Foundation, Roadmap, and Publication Boundary**, is complete.
+
+Repository evidence:
+
+- starting `main`: `f885a18cade0d81e02c0d7ed52ff2d9549521bd3`
+- work branch: `phase-01-foundation`
+- primary implementation commit: `b8e60a9577108ad3b339dcc1b39a319e7b0db562`
+- one bounded repair commit: `45ce3ae4e8cea26f29c46d221bc7539274ee1fb3`
+- PR: `#11`
+- successful required CI: run `32637622651`
+- implementation merged to `main`: `ea287f572264eee625708d22b95a2d482b7d8a87`
+
+The first CI run exposed one new-test-only defect: a case-sensitive assertion demanded lowercase `do not` while the governing contract correctly used sentence-initial `Do not`. The single allowed repair made that assertion case-insensitive. It did not weaken the requirement or alter implementation behavior. The repaired head then passed all required CI jobs.
+
+Phase 1 verified capabilities:
+
+- `MUSEUM_AI_ROADMAP.md` now owns the twelve planned phases, order, status, completion evidence, blockers, and explicit deferrals.
+- `MUSEUM_AI_FOUNDATION.md` defines the authority hierarchy, stable-identity policy, public/private boundary, independent canon/spoiler dimensions, relationship-evidence rules, and explicit unknown handling.
+- `src/schema/metadata-record.schema.json` defines the v1 metadata contract for stable ID, object type, label, aliases, canonical URL, source references, visibility, canon status, spoiler level, related media IDs, evidence classification, and unknowns.
+- `tools/validate_metadata_contract.py` validates the project metadata contract and candidate records using only the Python standard library; no new dependency was added.
+- `tools/check_public_boundary.py` rejects obvious private visibility, credentials, local filesystem paths, and localhost/private-runtime leakage from future public machine exports.
+- `tests/test_museum_foundation.py` locks schema behavior, publication-boundary behavior, uniqueness/consistency of existing section/navigation IDs, the existing chronology source key, archive asset-key uniqueness, and the rule that generated relationship edges remain `mentions`.
+- No existing canon prose, source section, template, media file, generated `docs/` publication file, dependency, or public UI was changed.
+
+CI run `32637622651` verified on the repaired implementation head:
+
+- source build passed;
+- strict existing validation/canon gate passed;
+- generated `docs/` parity passed;
+- `git diff --check` passed;
+- full Chromium pytest + Playwright suite passed;
+- Firefox representative journeys passed;
+- WebKit representative journeys passed.
+
+Because Phase 1 did not change `docs/` or introduce a public machine artifact, a GitHub Pages rebuild/live-edge publication proof was not required for this phase. The previously verified Pages authority remains `legacy / main /docs` unless a future authoritative read proves otherwise.
 
 ## GitHub Pages deployment state — VERIFIED
 
@@ -93,7 +140,7 @@ GitHub Actions proof run `32627553716`, job `97165136754`, executed from a fresh
   - `id="dossierSearch"`
   - `Archive tools`
 
-Therefore the hosted GitHub Pages site is **verified current**.
+Therefore the hosted GitHub Pages site is **verified current** for the public content represented by that proof state.
 
 ## Canonical media recovery state — VERIFIED RESTORABLE AND DURABLY STORED
 
@@ -166,10 +213,13 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 - Google Drive connector transfer ceilings require the durable backup to be stored as verified ordered chunks rather than one 582 MB Drive object. This is a transport constraint, not a content-integrity gap.
 - One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
+- Individual chronology events do not yet have authored stable IDs; Phase 1 deliberately preserves this as unknown rather than deriving IDs from presentation order or guessed labels.
+- Many WorldsVault template records do not yet have authored stable IDs; display labels/media references are not silently promoted into permanent object identity.
+- No semantic relationship authority currently exists beyond observed xref `mentions` relationships.
 
 ## Pending
 
-- None for the canon-infrastructure / hosted-site / canonical-media-recovery upgrade batch.
+- Museum + AI program: Phase 2 of 12 — Machine Publication Layer. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
 
 ## Revision log
 
@@ -181,3 +231,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 6: closed the final recovery gap: reconstructed and verified 213/213 canonical originals from Git history, created and restore-tested recovery ZIP `1228fad6...f58a`, stored the backup outside Git in Google Drive, and round-trip SHA-256 verified every Drive transfer chunk plus verification bundle.
 - Revision 7: locked Archive Tools behind the session-only search-field phrase gate, removed persisted archive-mode activation, kept `Starsilk Compendium` on one responsive line, regenerated deployable output/visual baselines, and verified Chromium/Firefox/WebKit behavior before commit.
 - Revision 8: added the Archive-mode `Copy implementation prompt` handoff, locked changed-slot identity to authoritative `data-asset-key` values, required exported local evidence for implementation, and verified clipboard/export behavior plus full browser regressions before commit.
+- Revision 9: completed Museum + AI Phase 1. Added the durable twelve-phase roadmap, authority/stable-identity/publication contract, v1 metadata schema, dependency-free metadata validation, future public-machine boundary checks, focused regression tests, explicit unknown handling, and independent visibility/canon/spoiler semantics; PR #11 passed required Chromium/Firefox/WebKit CI after one bounded test-only repair and merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
