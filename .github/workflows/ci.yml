@@ -56,7 +56,7 @@ jobs:
               }""", selector)
               page.wait_for_function("""selector => Array.from(document.querySelectorAll(`${selector} img`))
                   .filter(img => !img.hidden && (img.getAttribute('src') || img.dataset.lazySrc))
-                  .every(img => img.complete && img.naturalWidth > 0)""", selector, timeout=10_000)
+                  .every(img => img.complete && img.naturalWidth > 0)""", arg=selector, timeout=10_000)
               page.evaluate("""selector => Promise.all(Array.from(document.querySelectorAll(`${selector} img`))
                   .filter(img => !img.hidden && img.complete && img.naturalWidth > 0)
                   .map(img => img.decode().catch(() => undefined)))""", selector)
