@@ -184,9 +184,13 @@ jobs:
         run: python3 -m pytest tests/ -q
 
       - name: Firefox representative journeys
+        env:
+          HOME: /root
         run: python3 -m pytest tests/test_cross_browser.py --browser firefox -q
 
       - name: WebKit representative journeys
+        env:
+          HOME: /root
         run: python3 -m pytest tests/test_cross_browser.py --browser webkit -q
 
       - name: Record verified operational state
