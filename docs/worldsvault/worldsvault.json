@@ -1,0 +1,521 @@
+{
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.json",
+  "edge_count": 6,
+  "edges": [
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-contains--worldsvault--extinct-template-set",
+      "certainty": "direct-authored",
+      "edge_id": "contains--worldsvault--extinct-template-set",
+      "relation": "contains",
+      "relation_class": "direct-authored-topology",
+      "source": "worldsvault",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "WorldsVault",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "extinct-template-set",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-seeds--extinct-template-set--partition",
+      "certainty": "direct-authored",
+      "edge_id": "seeds--extinct-template-set--partition",
+      "relation": "seeds",
+      "relation_class": "direct-authored-topology",
+      "source": "extinct-template-set",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "WorldsVault",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "partition",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-contains--siege-wall--drakken-domain",
+      "certainty": "direct-authored",
+      "edge_id": "contains--siege-wall--drakken-domain",
+      "relation": "contains",
+      "relation_class": "direct-authored-topology",
+      "source": "siege-wall",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "The Locking of the Siege Wall",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_id": "chronology"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "drakken-domain",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-located-in--mother--aureal-nebula",
+      "certainty": "direct-authored",
+      "edge_id": "located-in--mother--aureal-nebula",
+      "relation": "located-in",
+      "relation_class": "direct-authored-topology",
+      "source": "mother",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Drakken / Mother",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "aureal-nebula",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-orbits--meridian-station--virgil",
+      "certainty": "direct-authored",
+      "edge_id": "orbits--meridian-station--virgil",
+      "relation": "orbits",
+      "relation_class": "direct-authored-topology",
+      "source": "meridian-station",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+        "heading": "Stations, fortresses & outposts",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+        "path": "src/content/sections/cosmic-architecture.body.html",
+        "source_key": null,
+        "stable_id": "cosmic-architecture"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "virgil",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#edge-uses--codified-waves--hookshot-network",
+      "certainty": "direct-authored",
+      "edge_id": "uses--codified-waves--hookshot-network",
+      "relation": "uses",
+      "relation_class": "direct-authored-topology",
+      "source": "codified-waves",
+      "source_evidence": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Codified Waves",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "target": "hookshot-network",
+      "unknowns": [
+        "This direct relation does not establish coordinates, distance, direction, route geometry, extent, chronology, or additional membership.",
+        "Per-edge canon status and spoiler level are not authored."
+      ]
+    }
+  ],
+  "human_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/",
+  "interpretation_rules": [
+    "Every node and edge cites a direct authored source statement; generated topology never outranks that source.",
+    "Publication-derived IDs are deterministic display-label derivatives, not newly authored permanent identities.",
+    "Layout is non-canonical rendering order only. It never encodes or exports cosmic coordinates or spatial precision.",
+    "Visibility, canon status, spoiler level, and certainty remain separate fields. Public source visibility does not establish canon status."
+  ],
+  "node_count": 11,
+  "nodes": [
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-worldsvault",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "WorldsVault",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "repository-and-reconstruction",
+        "rendering_order": 1
+      },
+      "node_class": "repository",
+      "node_id": "worldsvault",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+        "heading": "WorldsVault",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+        "path": "src/content/sections/cosmic-architecture.body.html",
+        "source_key": null,
+        "stable_id": "cosmic-architecture"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-extinct-template-set",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Thirty extinct-civilization planetary templates",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "repository-and-reconstruction",
+        "rendering_order": 2
+      },
+      "node_class": "template-set",
+      "node_id": "extinct-template-set",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "WorldsVault",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-partition",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "The Partition",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "repository-and-reconstruction",
+        "rendering_order": 3
+      },
+      "node_class": "parallel-reality",
+      "node_id": "partition",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "The Partition",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-siege-wall",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Siege Wall",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "containment",
+        "rendering_order": 1
+      },
+      "node_class": "containment-boundary",
+      "node_id": "siege-wall",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+        "heading": "Siege Wall",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+        "path": "src/content/sections/cosmic-architecture.body.html",
+        "source_key": null,
+        "stable_id": "cosmic-architecture"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-drakken-domain",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Drakken domain",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "containment",
+        "rendering_order": 2
+      },
+      "node_class": "regional-domain",
+      "node_id": "drakken-domain",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "The Locking of the Siege Wall",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_id": "chronology"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-mother",
+      "certainty": "direct-authored",
+      "identity_status": "existing-authored-stable-id",
+      "label": "Mother",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "aureal",
+        "rendering_order": 1
+      },
+      "node_class": "homeworld",
+      "node_id": "mother",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Drakken / Mother",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-aureal-nebula",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Aureal Nebula",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "aureal",
+        "rendering_order": 2
+      },
+      "node_class": "nebula",
+      "node_id": "aureal-nebula",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Drakken / Mother",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-meridian-station",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Meridian Station",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "meridian",
+        "rendering_order": 1
+      },
+      "node_class": "orbital-station",
+      "node_id": "meridian-station",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+        "heading": "Stations, fortresses & outposts",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+        "path": "src/content/sections/cosmic-architecture.body.html",
+        "source_key": null,
+        "stable_id": "cosmic-architecture"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-virgil",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Virgil",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "meridian",
+        "rendering_order": 2
+      },
+      "node_class": "gas-giant",
+      "node_id": "virgil",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/",
+        "heading": "Stations, fortresses & outposts",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cosmic-architecture",
+        "path": "src/content/sections/cosmic-architecture.body.html",
+        "source_key": null,
+        "stable_id": "cosmic-architecture"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-hookshot-network",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Hookshot Network",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "travel",
+        "rendering_order": 1
+      },
+      "node_class": "travel-infrastructure",
+      "node_id": "hookshot-network",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Hookshot Network",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/#node-codified-waves",
+      "certainty": "direct-authored",
+      "identity_status": "publication-derived",
+      "label": "Codified Waves",
+      "layout": {
+        "coordinate_status": "non-canonical rendering order only",
+        "rendering_group": "travel",
+        "rendering_order": 2
+      },
+      "node_class": "deployment-doctrine",
+      "node_id": "codified-waves",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
+        "heading": "Codified Waves",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
+        "path": "src/content/sections/systems.body.html",
+        "source_key": null,
+        "stable_id": "systems"
+      },
+      "status": {
+        "canon_status": "unknown",
+        "spoiler_level": "unknown",
+        "visibility": "public"
+      },
+      "unknowns": [
+        "No authored coordinates, distances, directions, route geometry, or complete spatial extent is published for this node.",
+        "The layout field is non-canonical rendering order only and does not state cosmic position.",
+        "Per-node canon status and spoiler level are not authored."
+      ]
+    }
+  ],
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-worldsvault-topology/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json",
+  "unknowns": [
+    "The authored source does not provide a complete cosmic map, coordinates, distances, directions, route geometry, or system extent.",
+    "Thirty WorldsVault template display labels exist in authored source, but they are not all promoted to permanent authored IDs or positioned in a map.",
+    "The existing 136 mentions / observed-xref edges remain a distinct citation graph and are not topology relations."
+  ]
+}

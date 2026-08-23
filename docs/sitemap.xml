@@ -36,6 +36,11 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/AUTHORITY.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/AUTHORITY.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json</loc></url>
@@ -47,6 +52,7 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json</loc></url>

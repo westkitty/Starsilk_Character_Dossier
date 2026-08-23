@@ -55,6 +55,7 @@ SCHEMA_FILES = (
     "context-packet-index.schema.json",
     "tour-index.schema.json",
     "chronology-index.schema.json",
+    "worldsvault-topology.schema.json",
 )
 
 
@@ -375,6 +376,11 @@ def public_urls(records: list[dict]) -> list[str]:
         "chronology/chronology.md",
         "chronology/schema.json",
         "chronology/AUTHORITY.md",
+        "worldsvault/",
+        "worldsvault/worldsvault.json",
+        "worldsvault/worldsvault.md",
+        "worldsvault/schema.json",
+        "worldsvault/AUTHORITY.md",
     ] + [f"machine/schema/v1/{name}" for name in SCHEMA_FILES]
     urls = [SITE_BASE] + [canonical(path) for path in paths] + [canonical("entities/")]
     for record in records:
@@ -412,6 +418,8 @@ def build_project_index(records: list[dict], relationship_count: int) -> dict:
             "tour_index": canonical("tours/tours.json"),
             "chronology": canonical("chronology/"),
             "chronology_index": canonical("chronology/chronology.json"),
+            "worldsvault": canonical("worldsvault/"),
+            "worldsvault_topology": canonical("worldsvault/worldsvault.json"),
             "jsonld": canonical("machine/project.jsonld"),
             "compendium_markdown": canonical("machine/compendium.md"),
             "entity_markdown": canonical("machine/entities.md"),
@@ -431,11 +439,13 @@ def build_project_index(records: list[dict], relationship_count: int) -> dict:
             "src/canon/invariants.json",
             "src/tours/tours.json",
             "src/chronology/events.json",
+            "src/worldsvault/topology.json",
             "docs/asset-manifest.json",
         ],
         "unknowns": [
             "Chronology event publication IDs are source-backed Phase 9 derivatives; absolute dates and unsupported relationships remain unknown.",
-            "Many WorldsVault record IDs remain unauthored.",
+            "WorldsVault topology publication IDs are deterministic source-label derivatives; they are not authored permanent identities.",
+            "WorldsVault coordinates, distances, directions, route geometry, and complete spatial extent remain unauthored.",
             "Semantic relations beyond observed xref mentions remain unauthored.",
         ],
     }
@@ -503,7 +513,7 @@ def render_outputs() -> dict[str, str]:
         "machine/compendium.md": build_compendium_markdown(sections, records),
         "machine/entities.md": build_entities_markdown(records),
         "machine/AUTHORITY.md": (MACHINE_SOURCE_DIR / "AUTHORITY.md").read_text(encoding="utf-8").rstrip() + "\n",
-        "llms.txt": build_llms_text(index).rstrip() + f"\nHuman interactive chronology: {index['endpoints']['chronology']}\nChronology JSON index: {index['endpoints']['chronology_index']}\n- Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.\n",
+        "llms.txt": build_llms_text(index).rstrip() + f"\nHuman interactive chronology: {index['endpoints']['chronology']}\nChronology JSON index: {index['endpoints']['chronology_index']}\n- Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.\nHuman WorldsVault cosmic topology explorer: {index['endpoints']['worldsvault']}\nWorldsVault topology JSON: {index['endpoints']['worldsvault_topology']}\n- WorldsVault publication IDs are deterministic source-label derivatives, not authored permanent identities. Topology layout is non-canonical rendering order only; coordinates, distances, directions, route geometry, and unsupported semantic relations remain unknown.\n",
         "sitemap.xml": build_sitemap(index["public_urls"]),
     }
     for section, record in zip(sections, records):

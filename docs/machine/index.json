@@ -17,7 +17,9 @@
     "relationships": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
     "sitemap": "https://westkitty.github.io/Starsilk_Character_Dossier/sitemap.xml",
     "tour_index": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json",
-    "tours": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/"
+    "tours": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/",
+    "worldsvault": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/",
+    "worldsvault_topology": "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.json"
   },
   "name": "Starsilk Compendium",
   "project_id": "starsilk-character-dossier",
@@ -58,6 +60,11 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/AUTHORITY.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/AUTHORITY.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
@@ -69,6 +76,7 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json",
@@ -594,7 +602,8 @@
     "metadata-record": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
     "relationship-graph": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json",
     "relationship-observatory": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-observatory.schema.json",
-    "tour-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json"
+    "tour-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json",
+    "worldsvault-topology": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json"
   },
   "source_authority": [
     "src/content/sections/*.title.html",
@@ -604,11 +613,13 @@
     "src/canon/invariants.json",
     "src/tours/tours.json",
     "src/chronology/events.json",
+    "src/worldsvault/topology.json",
     "docs/asset-manifest.json"
   ],
   "unknowns": [
     "Chronology event publication IDs are source-backed Phase 9 derivatives; absolute dates and unsupported relationships remain unknown.",
-    "Many WorldsVault record IDs remain unauthored.",
+    "WorldsVault topology publication IDs are deterministic source-label derivatives; they are not authored permanent identities.",
+    "WorldsVault coordinates, distances, directions, route geometry, and complete spatial extent remain unauthored.",
     "Semantic relations beyond observed xref mentions remain unauthored."
   ]
 }
