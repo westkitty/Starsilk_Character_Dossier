@@ -838,12 +838,40 @@ def test_opening_reveal_animation(page: Page, local_server):
     controls, and cover text fade in afterward rather than all popping in
     at once, and prefers-reduced-motion skips the hidden state entirely."""
     page.set_viewport_size({"width": 1280, "height": 800})
+    # Instrument actual event timestamps (via an init script that runs
+    # before any page JS) rather than assuming wall-clock offsets from
+    # page.goto() -- goto() itself can take a variable amount of time to
+    # resolve, so "N ms after goto() returns" isn't a reliable proxy for
+    # "N ms after the video started playing".
+    page.add_init_script("""
+        window.__revealTiming = {};
+        const origRemove = DOMTokenList.prototype.remove;
+        DOMTokenList.prototype.remove = function(...tokens) {
+            if (this === document.documentElement.classList && tokens.includes('pre-reveal')) {
+                window.__revealTiming.revealedAt = performance.now();
+            }
+            return origRemove.apply(this, tokens);
+        };
+        document.addEventListener('DOMContentLoaded', () => {
+            const v = document.querySelector('.hero-video');
+            if (v) v.addEventListener('playing', () => {
+                if (window.__revealTiming.playingAt === undefined) {
+                    window.__revealTiming.playingAt = performance.now();
+                }
+            });
+        });
+    """)
     page.goto(f"{local_server}/index.html")
+    page.wait_for_function("window.__revealTiming && window.__revealTiming.revealedAt !== undefined")
+    timing = page.evaluate("window.__revealTiming")
+    assert timing.get("playingAt") is not None, "hero video should have fired 'playing'"
+    delay = timing["revealedAt"] - timing["playingAt"]
+    assert delay >= 950, f"reveal should wait ~1s after 'playing' before bringing in the rest of the site, got {delay:.0f}ms"
 
-    # Within the ~1.2s safety window (video 'playing' event normally fires
-    # much sooner), the reveal must have happened and everything settled
-    # to full opacity.
-    page.wait_for_timeout(1500)
+    # pre-reveal is now off, but the CSS fade/rise transition (up to ~0.6s,
+    # staggered up to ~0.48s further for the last element) still needs time
+    # to actually finish before opacity settles at 1.
+    page.wait_for_timeout(1200)
     state = page.evaluate("""() => ({
         preReveal: document.documentElement.classList.contains('pre-reveal'),
         indexOpacity: parseFloat(getComputedStyle(document.getElementById('index')).opacity),

@@ -2904,15 +2904,19 @@ html:not(.pre-reveal) .cover .tag-row{transition-delay:.48s}
       revealed = true;
       html.classList.remove('pre-reveal');
     }
+    // Let the video play alone a beat longer before the rest of the site
+    // fades in, on top of however long it took to actually start playing.
+    var EXTRA_DELAY_MS = 1000;
+    function delayedReveal(){ setTimeout(reveal, EXTRA_DELAY_MS); }
     var heroVideo = document.querySelector('.hero-video');
     if(heroVideo){
-      heroVideo.addEventListener('playing', reveal, {once:true});
-      heroVideo.addEventListener('error', reveal, {once:true});
+      heroVideo.addEventListener('playing', delayedReveal, {once:true});
+      heroVideo.addEventListener('error', delayedReveal, {once:true});
     }
-    // Safety net: never block the site open for more than ~1.2s even if
-    // autoplay is blocked, the video errors silently, there is no hero
-    // video at all, or 'playing' never fires for some other reason.
-    setTimeout(reveal, 1200);
+    // Safety net: never block the site open for more than ~1.2s (plus the
+    // same extra beat above) even if autoplay is blocked, the video errors
+    // silently, there is no hero video at all, or 'playing' never fires.
+    setTimeout(reveal, 1200 + EXTRA_DELAY_MS);
     if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) reveal();
   })();
 </script>
