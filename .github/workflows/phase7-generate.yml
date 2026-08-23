@@ -1,15 +1,14 @@
 name: Phase 7 generate and validate
 
 on:
-  push:
-    branches: [phase-07-faceted-discovery]
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   generate:
-    if: ${{ !startsWith(github.event.head_commit.message, 'Implement Phase 7 faceted discovery') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
