@@ -41,7 +41,7 @@ jobs:
             tests/test_museum_objects.py \
             -q
 
-      - name: Stage and whitelist exact integration/generated state
+      - name: Stage exact integration and generated files
         run: |
           git checkout -- docs/qa-report.txt || true
           git add \
@@ -57,6 +57,10 @@ jobs:
             docs/entities \
             docs/relationships
           git diff --cached --check
+          git diff --cached --name-only
+
+      - name: Whitelist staged Phase 05 paths
+        run: |
           python3 - <<'PY'
           import subprocess
           from pathlib import Path
@@ -81,8 +85,12 @@ jobs:
           Path('/tmp/phase05-manifest.txt').write_text('\n'.join(changed) + '\n', encoding='utf-8')
           print('staged Phase 05 whitelist OK:', len(changed), 'files')
           PY
+
+      - name: Export exact staged Git patch
+        run: |
           git diff --cached --binary > /tmp/phase05-generated.patch
-          tar -czf /tmp/phase05-generated.tar.gz -T /tmp/phase05-manifest.txt
+          test -s /tmp/phase05-generated.patch
+          wc -c /tmp/phase05-generated.patch /tmp/phase05-manifest.txt
 
       - name: Upload exact validated Phase 05 state
         uses: actions/upload-artifact@v4
@@ -91,6 +99,5 @@ jobs:
           path: |
             /tmp/phase05-manifest.txt
             /tmp/phase05-generated.patch
-            /tmp/phase05-generated.tar.gz
           if-no-files-found: error
           retention-days: 1
