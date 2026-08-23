@@ -1,5 +1,6 @@
 """Shared fixtures for the Starsilk Compendium test suite."""
 import http.server
+import os
 import re
 import socketserver
 import threading
@@ -94,16 +95,52 @@ def local_server():
     server.shutdown()
 
 
+# Visual screenshots often capture an entire element, including content far
+# below the viewport. Browser-native lazy loading does not fetch those images
+# merely because Playwright asks for an element screenshot. The old macOS
+# baselines therefore depended on incidental cache/timing state. For visual
+# tests only, mark images in the target section eager before the document load
+# event so page.goto(...), which waits for load, produces a stable fully-painted
+# target. Ordinary tests retain the site's real lazy-loading behavior.
+_VISUAL_EAGER_SCOPES = {
+    "test_visual_principal_character_page": "#dao",
+    "test_visual_drakken_entry": "#drk-the-egg",
+    "test_visual_peripheral_entry": "#peripheral-index",
+    "test_visual_media_vault": "#media-vault",
+}
+
+
+@pytest.fixture(autouse=True)
+def stabilize_visual_test_assets(request):
+    base_name = request.node.name.split("[")[0]
+    selector = _VISUAL_EAGER_SCOPES.get(base_name)
+    if not selector:
+        return
+    page = request.getfixturevalue("page")
+    page.add_init_script(
+        """selector => {
+            const markEager = () => {
+                document.querySelectorAll(selector + ' img').forEach(img => {
+                    img.loading = 'eager';
+                });
+            };
+            new MutationObserver(markEager).observe(document, {childList: true, subtree: true});
+            document.addEventListener('DOMContentLoaded', markEager, {once: true});
+        }""",
+        selector,
+    )
+
+
 VISUAL_BASELINES = Path(__file__).resolve().parent / "visual_baselines"
 
 
 def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float = 0.05):
-    """Hand-rolled screenshot-regression comparison (pytest-playwright's
-    Python API has no built-in to_have_screenshot() -- that's a JS
-    @playwright/test-only feature). Baselines live in
-    tests/visual_baselines/; if one doesn't exist yet it's created from
-    this run (bootstrap) and the check passes. Delete/replace a baseline
-    deliberately after an intentional design change."""
+    """Hand-rolled screenshot-regression comparison.
+
+    Set UPDATE_VISUAL_BASELINES=1 only in the pinned baseline-rendering
+    environment to deliberately replace references. Normal test runs never
+    rewrite an existing baseline and fail on meaningful differences.
+    """
     from io import BytesIO
 
     from PIL import Image, ImageChops
@@ -112,9 +149,15 @@ def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float =
     baseline_path = VISUAL_BASELINES / name
     current = Image.open(BytesIO(png_bytes)).convert("RGB")
 
-    if not baseline_path.exists():
+    if os.environ.get("UPDATE_VISUAL_BASELINES") == "1":
         current.save(baseline_path)
         return
+
+    if not baseline_path.exists():
+        raise AssertionError(
+            f"{name}: baseline missing. Regenerate references deliberately with "
+            "UPDATE_VISUAL_BASELINES=1 in the pinned visual-test environment."
+        )
 
     baseline = Image.open(baseline_path).convert("RGB")
     if baseline.size != current.size:
