@@ -1,0 +1,183 @@
+name: Verify Phase 06 live Canon Inspector publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pinned Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Prove live Phase 06 bytes and Canon Inspector contract
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
+          OUT = Path("/tmp/starsilk-live-phase6")
+          OUT.mkdir(parents=True, exist_ok=True)
+          TRANSIENT = {429, 500, 502, 503, 504}
+
+          def cache_bust(url, suffix):
+              separator = "&" if "?" in url else "?"
+              return f"{url}{separator}phase06proof={urllib.parse.quote(PROOF + '-' + suffix)}"
+
+          def fetch(url, suffix, attempts=8):
+              last_error = None
+              for attempt in range(1, attempts + 1):
+                  try:
+                      request = urllib.request.Request(cache_bust(url, suffix), headers={"User-Agent": "Starsilk-Phase-06-Live-Proof"})
+                      with urllib.request.urlopen(request, timeout=35) as response:
+                          if response.status != 200:
+                              raise RuntimeError(f"{url}: HTTP {response.status}")
+                          return response.read()
+                  except urllib.error.HTTPError as exc:
+                      last_error = exc
+                      if exc.code not in TRANSIENT or attempt == attempts:
+                          raise
+                  except (urllib.error.URLError, TimeoutError) as exc:
+                      last_error = exc
+                      if attempt == attempts:
+                          raise
+                  time.sleep(min(1.25 * attempt, 6.0))
+              raise RuntimeError(f"fetch retries exhausted for {url}: {last_error}")
+
+          changed = {
+              "": Path("docs/index.html"),
+              "entities/dao/": Path("docs/entities/dao/index.html"),
+              "canon/": Path("docs/canon/index.html"),
+              "canon/canon-inspector.css": Path("docs/canon/canon-inspector.css"),
+              "canon/canon-locks.json": Path("docs/canon/canon-locks.json"),
+              "canon/canon-locks.md": Path("docs/canon/canon-locks.md"),
+              "canon/schema.json": Path("docs/canon/schema.json"),
+              "canon/AUTHORITY.md": Path("docs/canon/AUTHORITY.md"),
+              "machine/index.json": Path("docs/machine/index.json"),
+              "machine/schema/v1/canon-lock-register.schema.json": Path("docs/machine/schema/v1/canon-lock-register.schema.json"),
+              "llms.txt": Path("docs/llms.txt"),
+              "sitemap.xml": Path("docs/sitemap.xml"),
+          }
+
+          marker_expected = changed["canon/"].read_bytes()
+          last_error = None
+          for attempt in range(1, 49):
+              try:
+                  if fetch(BASE + "canon/", f"marker-{attempt}") == marker_expected:
+                      break
+                  last_error = RuntimeError("live Canon Inspector exists but does not match merged docs")
+              except Exception as exc:
+                  last_error = exc
+              if attempt < 48:
+                  time.sleep(5)
+          else:
+              raise RuntimeError(f"Pages did not converge to Phase 06 publication: {last_error}")
+
+          downloaded = {}
+          for number, (relative, path) in enumerate(changed.items()):
+              url = BASE + relative
+              live = fetch(url, f"file-{number}")
+              assert live == path.read_bytes(), f"live bytes differ from merged docs: {url}"
+              downloaded[relative] = live
+              target = OUT / ("index.html" if relative == "" else (relative + "index.html" if relative.endswith("/") else relative))
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(live)
+              time.sleep(0.15)
+
+          source = json.loads(Path("src/canon/invariants.json").read_text(encoding="utf-8"))
+          model = json.loads(downloaded["canon/canon-locks.json"])
+          source_locks = source["document_locks"] + source["section_locks"]
+          assert model["schema"] == "starsilk-canon-lock-register/1"
+          assert model["schema_url"] == BASE + "machine/schema/v1/canon-lock-register.schema.json"
+          assert model["canonical_url"] == BASE + "canon/"
+          assert model["source_invariants"] == "src/canon/invariants.json"
+          assert model["lock_count"] == len(source_locks) == 11
+          assert model["document_lock_count"] == len(source["document_locks"]) == 2
+          assert model["section_lock_count"] == len(source["section_locks"]) == 9
+          assert [item["lock_id"] for item in model["locks"]] == [item["id"] for item in source_locks]
+          for item, lock in zip(model["locks"], source_locks):
+              assert item["description"] == lock["description"]
+              assert item["positive_requirements"] == lock.get("must_match", [])
+              assert item["prohibitions"] == lock.get("must_not_match", [])
+              assert item["authority"]["machine_validation"] == "src/canon/invariants.json"
+              assert item["enforcement"]["status"] == "enforced-on-generated-compendium-validation"
+          assert model["additional_validator_assertions"] == {
+              "structural_counts": source["counts"],
+              "principal_names": source["principal_names"],
+              "drakken_art_identity_section_ids": source["drakken_art_identities"],
+          }
+
+          inspector = downloaded["canon/"].decode("utf-8")
+          assert "They are not the complete Starsilk canon." in inspector
+          assert "Absence from this register does not imply non-canon status." in inspector
+          assert 'id="lock-dao-right-arm"' in inspector
+          assert 'data-scope="document"' in inspector
+          assert 'data-scope="section"' in inspector
+          assert "Raw patterns are implementation evidence" in inspector
+          assert "<script" not in inspector.lower()
+          assert 'href="../../canon/"' in downloaded["entities/dao/"].decode("utf-8")
+
+          markdown = downloaded["canon/canon-locks.md"].decode("utf-8")
+          authority = downloaded["canon/AUTHORITY.md"].decode("utf-8")
+          assert "not the complete Starsilk canon" in markdown
+          assert "Machine validation patterns" in markdown
+          assert "Absence from the public register" in authority
+          assert "Document locks run over the complete generated document" in authority
+
+          index = json.loads(downloaded["machine/index.json"])
+          assert index["endpoints"]["canon_inspector"] == BASE + "canon/"
+          assert index["endpoints"]["canon_lock_register"] == BASE + "canon/canon-locks.json"
+          assert BASE + "canon/" in index["public_urls"]
+          assert BASE + "canon/canon-locks.json" in downloaded["llms.txt"].decode("utf-8")
+          assert BASE + "canon/schema.json" in downloaded["sitemap.xml"].decode("utf-8")
+          assert 'id="dossierSearch"' in downloaded[""].decode("utf-8")
+
+          print(f"LIVE_PHASE6_BYTES_OK locks={model['lock_count']} document={model['document_lock_count']} section={model['section_lock_count']} exact_files={len(changed)} boundary=complete")
+          PY
+
+      - name: Re-run public-boundary gate over downloaded Phase 06 surfaces
+        run: |
+          python3 tools/check_public_boundary.py \
+            /tmp/starsilk-live-phase6/canon \
+            /tmp/starsilk-live-phase6/entities/dao/index.html \
+            /tmp/starsilk-live-phase6/machine/index.json \
+            /tmp/starsilk-live-phase6/machine/schema/v1/canon-lock-register.schema.json \
+            /tmp/starsilk-live-phase6/llms.txt \
+            /tmp/starsilk-live-phase6/sitemap.xml \
+            /tmp/starsilk-live-phase6/index.html
+
+      - name: Prove live Canon Inspector deep links in Chromium
+        run: |
+          python3 - <<'PY'
+          from playwright.sync_api import expect, sync_playwright
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          with sync_playwright() as playwright:
+              browser = playwright.chromium.launch()
+              page = browser.new_page(viewport={"width": 1280, "height": 800})
+              page.goto(BASE + "canon/#lock-dao-right-arm", wait_until="load")
+              expect(page.locator("#lock-dao-right-arm")).to_be_visible()
+              expect(page.locator("#lock-dao-right-arm a", has_text="published section")).to_have_attribute("href", BASE + "entities/dao/")
+              expect(page.locator("#lock-dao-right-arm details")).to_have_count(1)
+              page.goto(BASE + "entities/dao/", wait_until="load")
+              expect(page.locator("a[href='../../canon/']", has_text="Canon Inspector")).to_have_count(1)
+              page.set_viewport_size({"width": 375, "height": 812})
+              page.goto(BASE + "canon/#lock-dao-right-arm", wait_until="load")
+              expect(page.locator("#lock-dao-right-arm")).to_be_visible()
+              assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+              browser.close()
+          print("LIVE_PHASE6_BROWSER_OK deep-link=ok entity-discovery=ok mobile=ok")
+          PY
