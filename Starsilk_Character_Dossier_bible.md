@@ -100,3 +100,35 @@ Proof-state boundary after the repair:
 - **Currently unverifiable from this runtime:** the uncached current GitHub Pages edge. The available public-web reader continues to return an older Character Dossier snapshot, but that reader is cache-ambiguous and cannot be forced to refresh; direct origin access is blocked from the execution container.
 
 Do not collapse these states. A merged repository and a configured deploy workflow are not sufficient evidence that a particular edge response has converged. Promote Pages to verified only after an authoritative uncached read or GitHub Pages deployment record confirms the current Compendium markers.
+
+## 2026-08-23 — GitHub Pages source diagnosis and verified live repair
+
+The earlier hypothesis that repository Settings needed to be switched to GitHub Actions was tested rather than assumed. A read-only GitHub Actions diagnostic queried the repository Pages API directly. Run `32627339040`, job `97164575182`, reported the actual production configuration:
+
+- `build_type=legacy`
+- `source_branch=main`
+- `source_path=/docs`
+- `html_url=https://westkitty.github.io/Starsilk_Character_Dossier/`
+
+Therefore the actual production site was and remains branch-based `main / docs`; switching to workflow mode was not required to fix the stale publication.
+
+Three bounded publication repairs followed:
+
+1. PR #2, merged at `6c57256b32a6f75f1857919dba3015851e738f97`, added a repository-root compatibility redirect for a possible root source, expanded Pages workflow trigger coverage, and touched `docs/.nojekyll` to force a legacy docs-source rebuild without changing Compendium content.
+2. PR #3, merged at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`, made `.github/workflows/pages.yml` inspect the active Pages `build_type`. In legacy mode it validates the source and explicitly requests a GitHub Pages branch-source rebuild; in workflow mode it uses the Pages artifact deployment path. Publication refuses to report success until live Compendium markers appear.
+3. PR #4, merged at `5a813a13e13dcaed19f496196de1302572fa9984`, retained read-only Pages configuration/build diagnostics and a cache-busted live-site proof check for future regressions.
+
+All three browser lanes passed before the publication workflow changes were merged: Chromium full pytest/Playwright, Firefox representative journeys, and WebKit representative journeys.
+
+Final deployment proof came from GitHub Actions run `32627553716`, job `97165136754`, on a fresh GitHub-hosted Ubuntu runner. It established:
+
+- active source still `legacy / main / docs`;
+- latest Pages build status `built`;
+- latest Pages build commit `a84a3440c0178ad256bbd5994392bb0d4caf5dde`;
+- build created `2026-08-23T08:08:59Z` and updated `2026-08-23T08:09:28Z`;
+- no Pages build error;
+- a cache-busted fetch of the real public URL contained all three current-build markers: `Starsilk Compendium`, `id="dossierSearch"`, and `Archive tools`.
+
+This closes the stale-hosted-site incident. The public GitHub Pages deployment is **verified current**. Earlier stale responses from the external web reader were cache artifacts and are superseded by the authoritative Pages build record plus the fresh GitHub-runner fetch.
+
+Durable rule: do not infer GitHub Pages mode from the existence of a workflow file. Read the Pages API first; then use the publication path that matches the observed `build_type` and verify the live endpoint independently.
