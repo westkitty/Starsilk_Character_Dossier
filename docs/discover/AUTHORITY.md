@@ -1,6 +1,6 @@
 # Starsilk faceted discovery and AI context packets — authority boundary
 
-`docs/discover/` is generated Phase 7 publication. It is a discovery convenience layer, not canon/content authority, relationship authority, media-provenance authority, or a second editable lore database.
+`docs/discover/` is generated Phase 7 publication. It is a discovery convenience layer, not canon/content authority, relationship authority, media-provenance authority, or a second editable lore database. The existing complete-Compendium search remains separate and unchanged.
 
 Authority remains upstream:
 
