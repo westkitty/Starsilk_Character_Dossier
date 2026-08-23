@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
+  "title": "Starsilk machine publication index v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_url",
+    "project_id",
+    "name",
+    "canonical_url",
+    "endpoints",
+    "schemas",
+    "record_count",
+    "relationship_count",
+    "public_urls",
+    "source_authority",
+    "unknowns"
+  ],
+  "properties": {
+    "schema": {"const": "starsilk-machine-publication/1"},
+    "schema_url": {"type": "string", "format": "uri"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "name": {"type": "string", "minLength": 1},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "endpoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["entity_index", "relationships", "jsonld", "compendium_markdown", "entity_markdown", "authority", "orientation", "sitemap"],
+      "properties": {
+        "entity_index": {"type": "string", "format": "uri"},
+        "relationships": {"type": "string", "format": "uri"},
+        "jsonld": {"type": "string", "format": "uri"},
+        "compendium_markdown": {"type": "string", "format": "uri"},
+        "entity_markdown": {"type": "string", "format": "uri"},
+        "authority": {"type": "string", "format": "uri"},
+        "orientation": {"type": "string", "format": "uri"},
+        "sitemap": {"type": "string", "format": "uri"}
+      }
+    },
+    "schemas": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string", "format": "uri"}
+    },
+    "record_count": {"type": "integer", "minimum": 0},
+    "relationship_count": {"type": "integer", "minimum": 0},
+    "public_urls": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "format": "uri"}
+    },
+    "source_authority": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "unknowns": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

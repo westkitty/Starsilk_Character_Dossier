@@ -1,0 +1,54 @@
+{
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/",
+  "endpoints": {
+    "authority": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
+    "compendium_markdown": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md",
+    "entity_index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.json",
+    "entity_markdown": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.md",
+    "jsonld": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld",
+    "orientation": "https://westkitty.github.io/Starsilk_Character_Dossier/llms.txt",
+    "relationships": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
+    "sitemap": "https://westkitty.github.io/Starsilk_Character_Dossier/sitemap.xml"
+  },
+  "name": "Starsilk Compendium",
+  "project_id": "starsilk-character-dossier",
+  "public_urls": [
+    "https://westkitty.github.io/Starsilk_Character_Dossier/",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/llms.txt",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/sitemap.xml",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/index.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json"
+  ],
+  "record_count": 127,
+  "relationship_count": 136,
+  "schema": "starsilk-machine-publication/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
+  "schemas": {
+    "entity-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
+    "machine-publication-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
+    "metadata-record": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
+    "relationship-graph": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json"
+  },
+  "source_authority": [
+    "src/content/sections/*.title.html",
+    "src/content/sections/*.body.html",
+    "src/content/sections.json",
+    "src/content/nav.json",
+    "src/canon/invariants.json",
+    "docs/asset-manifest.json"
+  ],
+  "unknowns": [
+    "Individual chronology-event IDs remain unauthored.",
+    "Many WorldsVault record IDs remain unauthored.",
+    "Semantic relations beyond observed xref mentions remain unauthored."
+  ]
+}
