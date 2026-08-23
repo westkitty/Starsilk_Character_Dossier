@@ -16,10 +16,6 @@ jobs:
     # committed baselines through no real design change of its own. Pinning
     # the official Playwright container (matching requirements.txt's
     # playwright version) is Microsoft's own documented fix for this.
-    # NOTE: tests/visual_baselines/ in this repo were captured locally on
-    # macOS; the first run of this job against this container may need a
-    # maintainer to regenerate/commit baselines from *inside* this same
-    # container so future runs compare like-for-like.
     container: mcr.microsoft.com/playwright/python:v1.62.0-noble
     steps:
       - uses: actions/checkout@v4
@@ -45,6 +41,23 @@ jobs:
 
       - name: git diff --check (no whitespace-corrupt diffs)
         run: git diff --check
+
+      # One-shot migration step for this branch: render references inside the
+      # exact pinned Linux container that owns visual-regression comparisons.
+      # These candidates are inspected and committed, then this capture step
+      # is removed before merge. UPDATE_VISUAL_BASELINES is never set in the
+      # normal final CI path.
+      - name: Capture pinned visual baseline candidates
+        env:
+          UPDATE_VISUAL_BASELINES: "1"
+        run: python3 -m pytest tests/test_dossier.py -q -k 'test_visual_'
+
+      - name: Upload pinned visual baseline candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baseline-candidates
+          path: tests/visual_baselines/*.png
+          if-no-files-found: error
 
       - name: Full pytest + Playwright suite (Chromium)
         run: python3 -m pytest tests/ -q
