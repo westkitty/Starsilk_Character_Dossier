@@ -27,7 +27,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 7 | Faceted Discovery and AI Context Packets | COMPLETE | PR #27; final head `c9d7bc811ae4d62fc492aefbe197cf4c785de71f`; CI `32658677512` PASS; merged `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; live proof `32658856927` PASS | none |
 | 8 | Curated Museum Tours and Local Collections | COMPLETE | PR #30; final head `d2a772baacf606cb6085a84e8378e69d3c19be99`; CI `32659617585` PASS; merged `6520f43574eac8de64d67da77dca19bc99f3eb46`; live proof `32659776026` PASS | none |
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | COMPLETE | PR #34; final head `b1de688352db864860e97b2e4103790360065ae5`; CI `32671213475` PASS; merged `3ed684897975065d89f5e12c8c15b36f936c0262`; live proof `32671419187` PASS | none |
-| 10 | WorldsVault Cosmic Topology Explorer | NOT STARTED | — | deferred |
+| 10 | WorldsVault Cosmic Topology Explorer | COMPLETE | PR #36; implementation `9c713c7`; CI `32673667684` PASS; merged `9b05fe5`; live proof `32673946000` PASS | none |
 | 11 | Installable Offline Museum | NOT STARTED | — | deferred |
 | 12 | AI Agent Evaluation Harness and Final Integration | NOT STARTED | — | deferred |
 
