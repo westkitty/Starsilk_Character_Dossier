@@ -28,9 +28,7 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Install Python dependencies
-        run: |
-          python3 -m venv .venv
-          .venv/bin/pip install -r requirements.txt
+        run: python3 -m pip install -r requirements.txt
 
       - name: Build from source (no media regeneration required)
         run: ./tools/build.sh
@@ -47,7 +45,7 @@ jobs:
         run: git diff --check
 
       - name: Full pytest + Playwright suite (Chromium)
-        run: .venv/bin/pytest tests/ -q
+        run: python3 -m pytest tests/ -q
 
       - name: Upload failed visual-regression captures
         if: failure()
