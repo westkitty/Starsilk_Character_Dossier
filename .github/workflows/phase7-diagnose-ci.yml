@@ -1,0 +1,47 @@
+name: Phase 7 CI diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  diagnose-chromium:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - run: python3 -m pip install -r requirements.txt
+      - name: Run build/check/full suite and capture output
+        shell: bash
+        run: |
+          set +e
+          {
+            echo '== BUILD =='
+            ./tools/build.sh
+            echo "BUILD_RC=$?"
+            echo '== CHECK =='
+            ./tools/build.sh --check
+            echo "CHECK_RC=$?"
+            echo '== DOCS DIFF =='
+            git diff --exit-code -- docs/ ':(exclude)docs/qa-report.txt'
+            echo "DOCS_DIFF_RC=$?"
+            echo '== PYTEST =='
+            python3 -m pytest tests/ -q
+            echo "PYTEST_RC=$?"
+          } 2>&1 | tee phase7-ci-diagnostic.txt
+          exit 0
+      - name: Comment diagnostic
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo 'Phase 7 full Chromium CI diagnostic:'
+            echo '```text'
+            tail -n 350 phase7-ci-diagnostic.txt
+            echo '```'
+          } > comment.md
+          gh pr comment 27 --body-file comment.md
