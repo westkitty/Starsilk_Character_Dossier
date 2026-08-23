@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json",
+  "title": "Starsilk observed relationship graph v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "source", "entity_count", "relationship_count", "entities", "relationships", "backlinks", "outgoing"],
+  "properties": {
+    "schema": {"const": "starsilk-entity-relationships/1"},
+    "source": {"type": "string", "format": "uri"},
+    "entity_count": {"type": "integer", "minimum": 0},
+    "relationship_count": {"type": "integer", "minimum": 0},
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target", "kind", "evidence_class"],
+        "properties": {
+          "source": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "kind": {"const": "mentions"},
+          "evidence_class": {"const": "observed-xref"}
+        }
+      }
+    },
+    "backlinks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {"type": "string", "minLength": 1}
+      }
+    },
+    "outgoing": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

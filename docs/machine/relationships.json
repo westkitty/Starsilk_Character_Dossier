@@ -1,0 +1,1709 @@
+{
+  "backlinks": {
+    "administrator-pell": [],
+    "allkept": [
+      "artifacts-factions"
+    ],
+    "anika": [],
+    "anya": [
+      "kaelen"
+    ],
+    "captain-serr": [],
+    "clara": [],
+    "codec": [
+      "archive",
+      "artifacts-factions",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "cosmic-architecture",
+      "cover",
+      "jazen",
+      "kail",
+      "marcel",
+      "marshal-venn",
+      "nialbu",
+      "ontology-horror",
+      "source",
+      "starbinding",
+      "systems",
+      "world"
+    ],
+    "cradle-exe": [],
+    "dao": [
+      "archive",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cover",
+      "kail",
+      "marcel",
+      "starbinding",
+      "systems",
+      "trio-gallery"
+    ],
+    "drk-abyssoriel": [],
+    "drk-aerokarst": [],
+    "drk-archivore": [],
+    "drk-atmantid": [],
+    "drk-brinechoir": [],
+    "drk-calendarion": [],
+    "drk-cinderverge": [
+      "artifacts-factions"
+    ],
+    "drk-cloudmaw": [
+      "canon-ledger",
+      "chronology"
+    ],
+    "drk-coronaxis": [],
+    "drk-crownmute": [],
+    "drk-currenthalo": [],
+    "drk-dreamtaxon": [],
+    "drk-fault-tongue": [
+      "canon-ledger",
+      "chronology",
+      "media-vault"
+    ],
+    "drk-feralseed": [],
+    "drk-fumericus": [],
+    "drk-glacierthroat": [],
+    "drk-glassspine": [],
+    "drk-gloryfail": [],
+    "drk-granithelion": [
+      "media-vault"
+    ],
+    "drk-gridsaint": [],
+    "drk-habitarch": [],
+    "drk-harborhex": [],
+    "drk-helionth": [],
+    "drk-hymnlock": [],
+    "drk-ironcant": [],
+    "drk-lexiclast": [],
+    "drk-magma-pleuron": [],
+    "drk-memorialvein": [],
+    "drk-mycethron": [],
+    "drk-nullthorn": [],
+    "drk-obsidian-gul": [
+      "canon-ledger",
+      "chronology",
+      "media-vault"
+    ],
+    "drk-petalnest": [],
+    "drk-pollenvault": [
+      "media-vault"
+    ],
+    "drk-quarrymind": [
+      "media-vault"
+    ],
+    "drk-raintaster": [
+      "media-vault"
+    ],
+    "drk-redacted-grin": [],
+    "drk-roadthorn": [],
+    "drk-shelfcarver": [],
+    "drk-shrinehunger": [],
+    "drk-singularch": [],
+    "drk-skymourn": [],
+    "drk-solnexus": [
+      "canon-ledger",
+      "chronology",
+      "drk-coronaxis"
+    ],
+    "drk-spinal-loop": [],
+    "drk-spiremolt": [],
+    "drk-terragullet": [
+      "canon-ledger",
+      "chronology"
+    ],
+    "drk-the-egg": [],
+    "drk-tremorhound": [],
+    "drk-umbrakrael": [
+      "media-vault"
+    ],
+    "drk-veilcurrent": [],
+    "drk-verdgorge": [],
+    "drk-viral-bastion": [],
+    "drk-vortenbray": [
+      "canon-ledger",
+      "chronology"
+    ],
+    "drk-weathernode": [],
+    "eli": [],
+    "foldhowl": [
+      "cosmic-architecture"
+    ],
+    "gorevault": [
+      "blood-rings",
+      "canon-ledger",
+      "cover",
+      "media-vault",
+      "systems"
+    ],
+    "harold": [
+      "clara",
+      "jonah",
+      "ruth-syrin4"
+    ],
+    "hesh": [
+      "media-vault"
+    ],
+    "iven": [],
+    "jalen": [
+      "media-vault",
+      "safi"
+    ],
+    "jazen": [
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cover",
+      "marcel",
+      "source",
+      "starbinding",
+      "systems"
+    ],
+    "jonah": [],
+    "jory": [],
+    "joss": [],
+    "kaelen": [
+      "anya"
+    ],
+    "kail": [
+      "archive",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cover",
+      "kails-mother",
+      "marcel",
+      "shard-god",
+      "starbinding",
+      "systems",
+      "trio-gallery"
+    ],
+    "kails-mother": [],
+    "khar-venn-child": [],
+    "kira": [
+      "media-vault"
+    ],
+    "little-king": [],
+    "lyra": [
+      "rhys"
+    ],
+    "lyriboris": [
+      "administrator-pell",
+      "canon-ledger",
+      "captain-serr",
+      "chronology",
+      "cover",
+      "technician-naresh"
+    ],
+    "mael": [],
+    "manifest-discord": [],
+    "mara": [
+      "mara-syrin4",
+      "media-vault",
+      "rin"
+    ],
+    "mara-syrin4": [],
+    "marcel": [
+      "archive",
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cover",
+      "kail",
+      "ontology-horror",
+      "starbinding",
+      "systems",
+      "trio-gallery",
+      "wordstreamer"
+    ],
+    "marn": [],
+    "marshal-venn": [
+      "source"
+    ],
+    "mother": [],
+    "nialbu": [
+      "artifacts-factions",
+      "canon-ledger",
+      "chronology",
+      "codec",
+      "cosmic-architecture",
+      "ontology-horror",
+      "shard-god",
+      "starbinding",
+      "systems"
+    ],
+    "nyle-quarth": [],
+    "orin": [],
+    "reth": [],
+    "rhys": [
+      "lyra"
+    ],
+    "rin": [
+      "mara",
+      "media-vault"
+    ],
+    "ringthroat": [
+      "blood-rings",
+      "canon-ledger",
+      "cover",
+      "media-vault",
+      "systems"
+    ],
+    "ruth-syrin4": [],
+    "safi": [
+      "jalen",
+      "media-vault"
+    ],
+    "sela-orrin": [],
+    "selim": [],
+    "sera-inventory": [],
+    "shard-god": [
+      "cover"
+    ],
+    "shardlings": [],
+    "technician-naresh": [],
+    "tomas": [],
+    "vessa": [],
+    "wordstreamer": [
+      "beyond-wall",
+      "canon-ledger",
+      "chronology",
+      "cosmic-architecture",
+      "mother",
+      "nialbu",
+      "shard-god",
+      "systems"
+    ]
+  },
+  "entities": [
+    {
+      "id": "administrator-pell",
+      "name": "Administrator Pell"
+    },
+    {
+      "id": "allkept",
+      "name": "Allkept"
+    },
+    {
+      "id": "anika",
+      "name": "Anika"
+    },
+    {
+      "id": "anya",
+      "name": "Anya"
+    },
+    {
+      "id": "captain-serr",
+      "name": "Captain Serr"
+    },
+    {
+      "id": "clara",
+      "name": "Clara"
+    },
+    {
+      "id": "codec",
+      "name": "Codec"
+    },
+    {
+      "id": "cradle-exe",
+      "name": "Cradle.exe"
+    },
+    {
+      "id": "dao",
+      "name": "Dao"
+    },
+    {
+      "id": "drk-abyssoriel",
+      "name": "Abyssoriel"
+    },
+    {
+      "id": "drk-aerokarst",
+      "name": "Aerokarst"
+    },
+    {
+      "id": "drk-archivore",
+      "name": "Archivore"
+    },
+    {
+      "id": "drk-atmantid",
+      "name": "Atmantid"
+    },
+    {
+      "id": "drk-brinechoir",
+      "name": "Brinechoir"
+    },
+    {
+      "id": "drk-calendarion",
+      "name": "Calendarion"
+    },
+    {
+      "id": "drk-cinderverge",
+      "name": "Cinderverge"
+    },
+    {
+      "id": "drk-cloudmaw",
+      "name": "Cloudmaw"
+    },
+    {
+      "id": "drk-coronaxis",
+      "name": "Coronaxis"
+    },
+    {
+      "id": "drk-crownmute",
+      "name": "Crownmute"
+    },
+    {
+      "id": "drk-currenthalo",
+      "name": "Currenthalo"
+    },
+    {
+      "id": "drk-dreamtaxon",
+      "name": "Dreamtaxon"
+    },
+    {
+      "id": "drk-fault-tongue",
+      "name": "Fault-Tongue"
+    },
+    {
+      "id": "drk-feralseed",
+      "name": "Feralseed"
+    },
+    {
+      "id": "drk-fumericus",
+      "name": "Fumericus"
+    },
+    {
+      "id": "drk-glacierthroat",
+      "name": "Glacierthroat"
+    },
+    {
+      "id": "drk-glassspine",
+      "name": "Glassspine"
+    },
+    {
+      "id": "drk-gloryfail",
+      "name": "Gloryfail"
+    },
+    {
+      "id": "drk-granithelion",
+      "name": "Granithelion"
+    },
+    {
+      "id": "drk-gridsaint",
+      "name": "Gridsaint"
+    },
+    {
+      "id": "drk-habitarch",
+      "name": "Habitarch"
+    },
+    {
+      "id": "drk-harborhex",
+      "name": "Harborhex"
+    },
+    {
+      "id": "drk-helionth",
+      "name": "Helionth"
+    },
+    {
+      "id": "drk-hymnlock",
+      "name": "Hymnlock"
+    },
+    {
+      "id": "drk-ironcant",
+      "name": "Ironcant"
+    },
+    {
+      "id": "drk-lexiclast",
+      "name": "Lexiclast"
+    },
+    {
+      "id": "drk-magma-pleuron",
+      "name": "Magma Pleuron"
+    },
+    {
+      "id": "drk-memorialvein",
+      "name": "Memorialvein"
+    },
+    {
+      "id": "drk-mycethron",
+      "name": "Mycethron"
+    },
+    {
+      "id": "drk-nullthorn",
+      "name": "Nullthorn"
+    },
+    {
+      "id": "drk-obsidian-gul",
+      "name": "Obsidian Gul"
+    },
+    {
+      "id": "drk-petalnest",
+      "name": "Petalnest"
+    },
+    {
+      "id": "drk-pollenvault",
+      "name": "Pollenvault"
+    },
+    {
+      "id": "drk-quarrymind",
+      "name": "Quarrymind"
+    },
+    {
+      "id": "drk-raintaster",
+      "name": "Raintaster"
+    },
+    {
+      "id": "drk-redacted-grin",
+      "name": "Redacted Grin"
+    },
+    {
+      "id": "drk-roadthorn",
+      "name": "Roadthorn"
+    },
+    {
+      "id": "drk-shelfcarver",
+      "name": "Shelfcarver"
+    },
+    {
+      "id": "drk-shrinehunger",
+      "name": "Shrinehunger"
+    },
+    {
+      "id": "drk-singularch",
+      "name": "Singularch"
+    },
+    {
+      "id": "drk-skymourn",
+      "name": "Skymourn"
+    },
+    {
+      "id": "drk-solnexus",
+      "name": "Solnexus"
+    },
+    {
+      "id": "drk-spinal-loop",
+      "name": "Spinal Loop"
+    },
+    {
+      "id": "drk-spiremolt",
+      "name": "Spiremolt"
+    },
+    {
+      "id": "drk-terragullet",
+      "name": "Terragullet"
+    },
+    {
+      "id": "drk-the-egg",
+      "name": "The Egg"
+    },
+    {
+      "id": "drk-tremorhound",
+      "name": "Tremorhound"
+    },
+    {
+      "id": "drk-umbrakrael",
+      "name": "Umbrakrael"
+    },
+    {
+      "id": "drk-veilcurrent",
+      "name": "Veilcurrent"
+    },
+    {
+      "id": "drk-verdgorge",
+      "name": "Verdgorge"
+    },
+    {
+      "id": "drk-viral-bastion",
+      "name": "Viral Bastion"
+    },
+    {
+      "id": "drk-vortenbray",
+      "name": "Vortenbray"
+    },
+    {
+      "id": "drk-weathernode",
+      "name": "Weathernode"
+    },
+    {
+      "id": "eli",
+      "name": "Eli"
+    },
+    {
+      "id": "foldhowl",
+      "name": "Foldhowl"
+    },
+    {
+      "id": "gorevault",
+      "name": "Gorevault"
+    },
+    {
+      "id": "harold",
+      "name": "Harold"
+    },
+    {
+      "id": "hesh",
+      "name": "Hesh"
+    },
+    {
+      "id": "iven",
+      "name": "Iven"
+    },
+    {
+      "id": "jalen",
+      "name": "Jalen"
+    },
+    {
+      "id": "jazen",
+      "name": "Jazen"
+    },
+    {
+      "id": "jonah",
+      "name": "Jonah"
+    },
+    {
+      "id": "jory",
+      "name": "Jory"
+    },
+    {
+      "id": "joss",
+      "name": "Joss"
+    },
+    {
+      "id": "kaelen",
+      "name": "Kaelen"
+    },
+    {
+      "id": "kail",
+      "name": "Kail"
+    },
+    {
+      "id": "kails-mother",
+      "name": "Kail’s Mother"
+    },
+    {
+      "id": "khar-venn-child",
+      "name": "Unnamed Child"
+    },
+    {
+      "id": "kira",
+      "name": "Kira"
+    },
+    {
+      "id": "little-king",
+      "name": "The Little King"
+    },
+    {
+      "id": "lyra",
+      "name": "Lyra"
+    },
+    {
+      "id": "lyriboris",
+      "name": "Lyriboris"
+    },
+    {
+      "id": "mael",
+      "name": "Mael"
+    },
+    {
+      "id": "manifest-discord",
+      "name": "Manifest.discord"
+    },
+    {
+      "id": "mara",
+      "name": "Mara"
+    },
+    {
+      "id": "mara-syrin4",
+      "name": "Mara — Syrin-4"
+    },
+    {
+      "id": "marcel",
+      "name": "Marcel"
+    },
+    {
+      "id": "marn",
+      "name": "Marn"
+    },
+    {
+      "id": "marshal-venn",
+      "name": "Marshal Venn"
+    },
+    {
+      "id": "mother",
+      "name": "Mother"
+    },
+    {
+      "id": "nialbu",
+      "name": "NiAlBu"
+    },
+    {
+      "id": "nyle-quarth",
+      "name": "Archivist Nyle Quarth"
+    },
+    {
+      "id": "orin",
+      "name": "Orin"
+    },
+    {
+      "id": "reth",
+      "name": "Reth"
+    },
+    {
+      "id": "rhys",
+      "name": "Rhys"
+    },
+    {
+      "id": "rin",
+      "name": "Rin"
+    },
+    {
+      "id": "ringthroat",
+      "name": "Ringthroat"
+    },
+    {
+      "id": "ruth-syrin4",
+      "name": "Ruth"
+    },
+    {
+      "id": "safi",
+      "name": "Safi"
+    },
+    {
+      "id": "sela-orrin",
+      "name": "Sela Orrin"
+    },
+    {
+      "id": "selim",
+      "name": "Selim"
+    },
+    {
+      "id": "sera-inventory",
+      "name": "Sera"
+    },
+    {
+      "id": "shard-god",
+      "name": "Shard-God Tiger"
+    },
+    {
+      "id": "shardlings",
+      "name": "The Shardlings"
+    },
+    {
+      "id": "technician-naresh",
+      "name": "Technician Naresh"
+    },
+    {
+      "id": "tomas",
+      "name": "Tomas"
+    },
+    {
+      "id": "vessa",
+      "name": "Vessa"
+    },
+    {
+      "id": "wordstreamer",
+      "name": "Wordstreamer"
+    }
+  ],
+  "entity_count": 107,
+  "outgoing": {
+    "administrator-pell": [
+      "lyriboris"
+    ],
+    "allkept": [],
+    "anika": [],
+    "anya": [
+      "kaelen"
+    ],
+    "captain-serr": [
+      "lyriboris"
+    ],
+    "clara": [
+      "harold"
+    ],
+    "codec": [
+      "dao",
+      "jazen",
+      "kail",
+      "marcel",
+      "nialbu"
+    ],
+    "cradle-exe": [],
+    "dao": [],
+    "drk-abyssoriel": [],
+    "drk-aerokarst": [],
+    "drk-archivore": [],
+    "drk-atmantid": [],
+    "drk-brinechoir": [],
+    "drk-calendarion": [],
+    "drk-cinderverge": [],
+    "drk-cloudmaw": [],
+    "drk-coronaxis": [
+      "drk-solnexus"
+    ],
+    "drk-crownmute": [],
+    "drk-currenthalo": [],
+    "drk-dreamtaxon": [],
+    "drk-fault-tongue": [],
+    "drk-feralseed": [],
+    "drk-fumericus": [],
+    "drk-glacierthroat": [],
+    "drk-glassspine": [],
+    "drk-gloryfail": [],
+    "drk-granithelion": [],
+    "drk-gridsaint": [],
+    "drk-habitarch": [],
+    "drk-harborhex": [],
+    "drk-helionth": [],
+    "drk-hymnlock": [],
+    "drk-ironcant": [],
+    "drk-lexiclast": [],
+    "drk-magma-pleuron": [],
+    "drk-memorialvein": [],
+    "drk-mycethron": [],
+    "drk-nullthorn": [],
+    "drk-obsidian-gul": [],
+    "drk-petalnest": [],
+    "drk-pollenvault": [],
+    "drk-quarrymind": [],
+    "drk-raintaster": [],
+    "drk-redacted-grin": [],
+    "drk-roadthorn": [],
+    "drk-shelfcarver": [],
+    "drk-shrinehunger": [],
+    "drk-singularch": [],
+    "drk-skymourn": [],
+    "drk-solnexus": [],
+    "drk-spinal-loop": [],
+    "drk-spiremolt": [],
+    "drk-terragullet": [],
+    "drk-the-egg": [],
+    "drk-tremorhound": [],
+    "drk-umbrakrael": [],
+    "drk-veilcurrent": [],
+    "drk-verdgorge": [],
+    "drk-viral-bastion": [],
+    "drk-vortenbray": [],
+    "drk-weathernode": [],
+    "eli": [],
+    "foldhowl": [],
+    "gorevault": [],
+    "harold": [],
+    "hesh": [],
+    "iven": [],
+    "jalen": [
+      "safi"
+    ],
+    "jazen": [
+      "codec"
+    ],
+    "jonah": [
+      "harold"
+    ],
+    "jory": [],
+    "joss": [],
+    "kaelen": [
+      "anya"
+    ],
+    "kail": [
+      "codec",
+      "dao",
+      "marcel"
+    ],
+    "kails-mother": [
+      "kail"
+    ],
+    "khar-venn-child": [],
+    "kira": [],
+    "little-king": [],
+    "lyra": [
+      "rhys"
+    ],
+    "lyriboris": [],
+    "mael": [],
+    "manifest-discord": [],
+    "mara": [
+      "rin"
+    ],
+    "mara-syrin4": [
+      "mara"
+    ],
+    "marcel": [
+      "codec",
+      "dao",
+      "jazen",
+      "kail"
+    ],
+    "marn": [],
+    "marshal-venn": [
+      "codec"
+    ],
+    "mother": [
+      "wordstreamer"
+    ],
+    "nialbu": [
+      "codec",
+      "wordstreamer"
+    ],
+    "nyle-quarth": [],
+    "orin": [],
+    "reth": [],
+    "rhys": [
+      "lyra"
+    ],
+    "rin": [
+      "mara"
+    ],
+    "ringthroat": [],
+    "ruth-syrin4": [
+      "harold"
+    ],
+    "safi": [
+      "jalen"
+    ],
+    "sela-orrin": [],
+    "selim": [],
+    "sera-inventory": [],
+    "shard-god": [
+      "kail",
+      "nialbu",
+      "wordstreamer"
+    ],
+    "shardlings": [],
+    "technician-naresh": [
+      "lyriboris"
+    ],
+    "tomas": [],
+    "vessa": [],
+    "wordstreamer": [
+      "marcel"
+    ]
+  },
+  "relationship_count": 136,
+  "relationships": [
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "administrator-pell",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "anya",
+      "target": "kaelen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "archive",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "archive",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "archive",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "archive",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "artifacts-factions",
+      "target": "allkept"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "artifacts-factions",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "artifacts-factions",
+      "target": "drk-cinderverge"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "artifacts-factions",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "beyond-wall",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "beyond-wall",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "beyond-wall",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "beyond-wall",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "beyond-wall",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "blood-rings",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "blood-rings",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-cloudmaw"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-fault-tongue"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-obsidian-gul"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-solnexus"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-terragullet"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "drk-vortenbray"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "canon-ledger",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "captain-serr",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-cloudmaw"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-fault-tongue"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-obsidian-gul"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-solnexus"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-terragullet"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "drk-vortenbray"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "chronology",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "clara",
+      "target": "harold"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "codec",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "codec",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "codec",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "codec",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "codec",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cosmic-architecture",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cosmic-architecture",
+      "target": "foldhowl"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cosmic-architecture",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cosmic-architecture",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "shard-god"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "drk-coronaxis",
+      "target": "drk-solnexus"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "jalen",
+      "target": "safi"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "jazen",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "jonah",
+      "target": "harold"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "kaelen",
+      "target": "anya"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "kail",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "kail",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "kail",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "kails-mother",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "lyra",
+      "target": "rhys"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "mara",
+      "target": "rin"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "mara-syrin4",
+      "target": "mara"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "marcel",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "marcel",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "marcel",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "marcel",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "marshal-venn",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-fault-tongue"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-granithelion"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-obsidian-gul"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-pollenvault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-quarrymind"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-raintaster"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "drk-umbrakrael"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "hesh"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "jalen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "kira"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "mara"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "rin"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "media-vault",
+      "target": "safi"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "mother",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "nialbu",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "nialbu",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "ontology-horror",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "ontology-horror",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "ontology-horror",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "rhys",
+      "target": "lyra"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "rin",
+      "target": "mara"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "ruth-syrin4",
+      "target": "harold"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "safi",
+      "target": "jalen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "shard-god",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "shard-god",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "shard-god",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "source",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "source",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "source",
+      "target": "marshal-venn"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "starbinding",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "systems",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "technician-naresh",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "trio-gallery",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "trio-gallery",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "trio-gallery",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "wordstreamer",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "world",
+      "target": "codec"
+    }
+  ],
+  "schema": "starsilk-entity-relationships/1",
+  "source": "https://westkitty.github.io/Starsilk_Character_Dossier/"
+}
