@@ -1,0 +1,55 @@
+name: Apply Phase 02 machine publication
+
+on:
+  push:
+    branches: [phase-02-machine-publication]
+    paths:
+      - "build/machine_publication.py"
+      - "src/machine/**"
+      - "src/schema/**"
+      - "tools/build.sh"
+      - "tests/test_machine_publication.py"
+      - ".github/workflows/apply-phase-02-machine-publication.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-02-machine-publication
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install repository dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Generate and validate Phase 2 publication
+        run: ./tools/build.sh
+
+      - name: Focused Phase 2 tests
+        run: python3 -m pytest tests/test_machine_publication.py -q
+
+      - name: Diff hygiene
+        run: git diff --check
+
+      - name: Commit generated publication and remove one-shot workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-phase-02-machine-publication.yml
+          git add docs/
+          git diff --cached --exit-code && {
+            echo "::error::Phase 2 generation produced no staged output changes.";
+            exit 1;
+          } || true
+          git commit -m "build(phase-02): publish machine derivatives"
+          git push origin HEAD:phase-02-machine-publication

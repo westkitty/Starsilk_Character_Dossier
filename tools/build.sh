@@ -4,14 +4,15 @@ set -euo pipefail
 # Starsilk Compendium — Authoritative Build Pipeline
 #
 #   versioned canonical source (src/content/, src/templates/)
-#     -> build/generate.py        (deterministic template render -> docs/index.html)
-#     -> build/validate.py        (parsed-DOM structural + canon-invariant gate)
+#     -> build/generate.py              (deterministic template render -> docs/index.html)
+#     -> build/machine_publication.py   (deterministic public machine derivatives)
+#     -> build/validate.py              (parsed-DOM structural + canon-invariant gate)
+#     -> tools/check_public_boundary.py (machine-publication privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
-# docs/index.html is disposable generated output. Every run rebuilds it from
-# src/content/ + src/templates/ from scratch -- there is no in-place
-# mutation and no script-ordering hazard between stages. This default mode
-# needs nothing beyond what a fresh `git clone` already has.
+# docs/index.html and docs/machine/ are disposable generated output. Every run
+# rebuilds them from declared source authority; they must never become a second
+# canon source of truth.
 #
 # Published media (docs/assets/media/, docs/asset-manifest.json) is itself
 # committed, generated output -- regenerating it from media/source/ is a
@@ -21,17 +22,15 @@ set -euo pipefail
 # offline-archive source file.
 #
 # Usage:
-#   ./tools/build.sh                    Render docs/index.html from src/content/
-#                                        + strict validation. No large local
-#                                        files required; safe from a fresh clone.
+#   ./tools/build.sh                    Render docs/index.html and the public
+#                                        machine layer + strict validation.
 #   ./tools/build.sh --regenerate-media  Also re-derive docs/assets/media/ +
 #                                        docs/asset-manifest.json from
 #                                        media/source/ (requires that
 #                                        directory to exist locally; slow).
-#   ./tools/build.sh --check             Do not write docs/index.html; fail if
-#                                        the generator's output would differ
-#                                        from what's already committed
-#                                        (release-gate / CI use).
+#   ./tools/build.sh --check             Do not write generated publication;
+#                                        fail if generator output would differ
+#                                        from what is already committed.
 
 REGENERATE_MEDIA=false
 CHECK_ONLY=false
@@ -86,15 +85,22 @@ else
 fi
 
 if [ "$CHECK_ONLY" = true ]; then
-    echo "-> Generating (in-memory) and checking against committed docs/index.html..."
+    echo "-> Generating (in-memory) and checking docs/index.html..."
     "$PY" build/generate.py --check
+    echo "-> Generating (in-memory) and checking public machine publication..."
+    "$PY" build/machine_publication.py --check
 else
     echo "-> Generating docs/index.html from src/content/ + src/templates/..."
     "$PY" build/generate.py
+    echo "-> Generating public machine publication from declared authority..."
+    "$PY" build/machine_publication.py
 fi
 
 echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
+
+echo "-> Running public machine boundary gate..."
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"
