@@ -1,0 +1,129 @@
+name: Build canonical media recovery archive
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/recover-canonical-media.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout full repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct canonical originals from pre-optimization history
+        env:
+          HISTORICAL_COMMIT: 97ae39c745933a024791ed75924f2a5d1d7844a5
+        run: |
+          set -euo pipefail
+          rm -rf media/source
+          mkdir -p media/source dist
+          git checkout "${HISTORICAL_COMMIT}" -- docs/assets/media
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import shutil
+          from pathlib import Path
+
+          manifest = json.loads(Path('docs/asset-manifest.json').read_text(encoding='utf-8'))
+          expected = {}
+          for asset in manifest.get('assets', []):
+              name = asset.get('source_filename')
+              digest = asset.get('source_sha256')
+              size = asset.get('source_bytes')
+              if name and digest:
+                  expected[name] = {'sha256': digest, 'bytes': size}
+
+          old_dir = Path('docs/assets/media')
+          source_dir = Path('media/source')
+          missing = []
+          mismatched = []
+
+          for name, meta in sorted(expected.items()):
+              src = old_dir / name
+              if not src.is_file():
+                  missing.append(name)
+                  continue
+              actual_size = src.stat().st_size
+              h = hashlib.sha256()
+              with src.open('rb') as fh:
+                  for chunk in iter(lambda: fh.read(1024 * 1024), b''):
+                      h.update(chunk)
+              actual_sha = h.hexdigest()
+              if actual_size != meta['bytes'] or actual_sha != meta['sha256']:
+                  mismatched.append({
+                      'file': name,
+                      'expected_bytes': meta['bytes'],
+                      'actual_bytes': actual_size,
+                      'expected_sha256': meta['sha256'],
+                      'actual_sha256': actual_sha,
+                  })
+                  continue
+              shutil.copy2(src, source_dir / name)
+
+          report = {
+              'historical_commit': '97ae39c745933a024791ed75924f2a5d1d7844a5',
+              'expected_count': len(expected),
+              'reconstructed_count': len(list(source_dir.iterdir())),
+              'missing': missing,
+              'mismatched': mismatched,
+          }
+          Path('dist/historical-reconstruction.json').write_text(
+              json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(report, indent=2, sort_keys=True))
+          if missing or mismatched or report['reconstructed_count'] != len(expected):
+              raise SystemExit('historical reconstruction did not exactly match current provenance')
+          PY
+
+      - name: Verify reconstructed canonical source set
+        run: |
+          set -euo pipefail
+          python3 tools/media_source_archive.py verify --json | tee dist/source-verification.json
+
+      - name: Package verified recovery ZIP
+        run: |
+          set -euo pipefail
+          python3 tools/media_source_archive.py package \
+            --out dist/starsilk-canonical-media-recovery.zip
+
+      - name: Test archive restore in isolation
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/starsilk-recovery-test
+          mkdir -p /tmp/starsilk-recovery-test
+          python3 -m zipfile -e dist/starsilk-canonical-media-recovery.zip /tmp/starsilk-recovery-test
+          python3 tools/media_source_archive.py verify \
+            --manifest /tmp/starsilk-recovery-test/asset-manifest.json \
+            --source-dir /tmp/starsilk-recovery-test/media-source \
+            --json | tee dist/restore-verification.json
+          python3 -m zipfile -t dist/starsilk-canonical-media-recovery.zip
+
+      - name: Record archive checksum and size
+        run: |
+          set -euo pipefail
+          sha256sum dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.sha256
+          stat --printf='%s bytes\n' dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.size.txt
+
+      - name: Upload verified recovery package
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-canonical-media-recovery
+          path: |
+            dist/starsilk-canonical-media-recovery.zip
+            dist/starsilk-canonical-media-recovery.zip.sha256
+            dist/starsilk-canonical-media-recovery.zip.size.txt
+            dist/historical-reconstruction.json
+            dist/source-verification.json
+            dist/restore-verification.json
+          retention-days: 90
+          if-no-files-found: error
