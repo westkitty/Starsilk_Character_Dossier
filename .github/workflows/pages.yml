@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "index.html"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -27,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # `docs/` is the canonical publication payload. The repository-root
+      # index.html is only a compatibility redirect for a legacy main/root
+      # Pages source and is intentionally not uploaded by this workflow.
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
