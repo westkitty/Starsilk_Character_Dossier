@@ -562,7 +562,25 @@ Live publication proof established:
 - downloaded live artifacts passed `tools/check_public_boundary.py` across 11 text/machine files.
 - `LIVE_PHASE9_BROWSER_OK deep-link=ok filter=view-only status=preserved keyboard=ok source-links=ok mobile=ok network=local-origin-only` proved live Chromium deep links, no JSON mutation from filtering, keyboard focus, source links, 375px layout, and same-origin networking.
 
-Therefore Phase 9 is **VERIFIED COMPLETE** at authority, deterministic generation, source/status/temporal semantics, CI, merge, public-boundary, and live-publication layers. Phase 10 was not started.
+Therefore Phase 9 is **VERIFIED COMPLETE** at authority, deterministic generation, source/status/temporal semantics, CI, merge, public-boundary, and live-publication layers.
+
+## Museum + AI Phase 10 WorldsVault Cosmic Topology Explorer — VERIFIED
+
+Phase 10 of 12 is complete.
+
+- starting main: eeb01b3695d5c289786293b8a8204085817120b8; implementation commit: 9c713c7591fd8fb350faff5605cbdb961e233efa
+- implementation PR #36 merged at 9b05fe5873e171b63399558215189436213ae62f after CI run 32673667684 passed Chromium job 97278239393, Firefox job 97278239466, and WebKit job 97278239455.
+- deterministic WorldsVault publication: seven files under /worldsvault/ (human explorer, CSS/JS, JSON, Markdown, schema, and authority) sourced from 11 cited nodes and 6 direct authored semantic edges.
+- direct relations only: WorldsVault contains the extinct template set; the set seeds the Partition; the Siege Wall contains the Drakken domain; Mother is in the Aureal Nebula; Meridian Station orbits Virgil; Codified Waves uses the Hookshot Network.
+- mother reuses its authored stable ID. Other node and edge IDs are explicit deterministic publication derivatives, not new authored permanent identities.
+- each record exposes cited source path/stable record/heading/source key where authored, direct-authored certainty, public visibility, unknown canon status/spoiler level, explicit unknowns, and separate non-canonical layout group/order. No coordinates, distances, directions, route geometry, spatial extent, membership, or complete map was invented.
+- the 127 existing stable records and 136 mentions / observed-xref edges remain unchanged and separate from topology evidence. The 30 WorldsVault template display labels are not silently promoted to permanent IDs or map positions.
+- the explorer includes node/edge fragments, source cards, complete textual equivalent, keyboard selection/clear behavior, responsive mobile layout, JSON/Markdown/schema/authority alternatives, and same-origin-only behavior. Machine index, schema, llms orientation, sitemap, public-boundary declarations, and entity navigation discover it.
+- focused topology/machine/cross-browser coverage passed 26 tests with deterministic build/check, strict validation, boundary validation, and diff check. The macOS full suite had seven known visual-baseline mismatches on unchanged root captures; hosted pinned Chromium passed the complete suite.
+- live proof PR #37 was execution-only and closed without merge. Initial run 32673848241 reached the live page and found only an overescaped proof regex; no product bytes changed. One harness-only repair followed.
+- repaired proof run 32673946000 established LIVE_PHASE10_BYTES_OK for nodes=11, edges=6, 14 exact merged surfaces, machine/sitemap/orientation/entity discovery/root parity, and public-boundary safety; LIVE_PHASE10_BROWSER_OK confirmed the Meridian deep link, keyboard edge selection, text equivalent, source availability, 375px layout, and same-origin networking.
+
+Therefore Phase 10 is **VERIFIED COMPLETE** at authority, deterministic generation, topology semantics, identity/unknown boundaries, CI, merge, public boundary, accessibility, and live publication layers. Phase 11 was not started.
 
 ## GitHub Pages deployment state — VERIFIED
 
@@ -686,7 +704,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Museum + AI program: Phase 10 of 12 — WorldsVault Cosmic Topology Explorer. It has not been started.
+- Museum + AI program: Phase 11 of 12 — Installable Offline Museum. It has not been started.
 
 ## Revision log
 
@@ -707,3 +725,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 15: completed Museum + AI Phase 7. Added deterministic 127-record faceted discovery, 127 compact source-backed AI context packets, 137-file `/discover/` publication, mechanical source excerpts, structural/authored facets, query/facet deep links, keyboard navigation, versioned schemas, machine/sitemap/orientation discovery, and entity-index discovery while preserving the root `dossierSearch`. One bounded test-expectation repair updated the pre-Phase-7 finite machine schema/URL assertions without changing product semantics. PR #27 passed final Chromium/Firefox/WebKit CI run `32658677512` and merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`; execution-only proof PR #28 was closed unmerged after run `32658856927` / job `97241822080` proved exact live bytes, public-boundary safety, source/unknown/observed-xref packet semantics, deep links, facets, keyboard behavior, entity discovery, unchanged root search, and mobile Chromium behavior. Phase 8 was not started.
 - Revision 16: completed Museum + AI Phase 8. Added six stable-ID curated routes/29 authored-navigation stops, deterministic `/tours/` human/JSON/schema/authority publication, browser-local bookmarks/recent/history/progress/named collections with clear/fallback behavior, privacy/locality authority rules, machine/sitemap/orientation discovery, and conservative entity/discovery entry points without changing root search or record authority. No implementation repair was needed. PR #30 passed final Chromium/Firefox/WebKit CI run `32659617585` and merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`; execution-only proof PR #31 was closed unmerged after run `32659776026` / job `97244053606` proved exact live bytes, public-boundary safety, exact tour derivation, private-text URL isolation, persistence/clear behavior, origin-local networking, entity discovery, and mobile Chromium behavior. Phase 9 was not started.
 - Revision 17: completed Museum + AI Phase 9. Added deterministic source-backed `/chronology/` human/JSON/Markdown/schema/authority publication for 27 direct-label events, preserving 5 exact authored markers, 6 relative markers, one 170-year authored duration, null absolute dates, and 15 unknown temporal states. Event visibility remains public while canon status and spoiler level remain independently unknown; UI filters are view-only and cannot mutate machine status. One bounded pre-commit schema/source-record key repair was made. PR #34 passed Chromium/Firefox/WebKit CI run `32671213475` and merged at `3ed684897975065d89f5e12c8c15b36f936c0262`; execution-only proof PR #35 was closed unmerged after run `32671419187` / job `97272730778` proved live byte parity, public-boundary safety, deep links, filter/status preservation, keyboard/source-link behavior, mobile layout, and same-origin networking. Phase 10 was not started.
+- Revision 18: completed Museum + AI Phase 10. Added deterministic seven-file WorldsVault topology publication from 11 source-cited nodes and 6 direct-authored edges, explicit publication-derived identity, separate non-canonical layout, independent public/unknown/unknown status, accessible text/keyboard/mobile behavior, and machine/schema/sitemap/entity discovery. Existing stable IDs, observed-xref mentions, and unauthored template positions remained unchanged. PR #36 passed CI run `32673667684` and merged at `9b05fe5873e171b63399558215189436213ae62f`. Execution-only proof PR #37 closed unmerged after repaired proof run `32673946000` proved byte parity, boundary safety, deep links, keyboard behavior, text equivalent, mobile layout, source links, and same-origin networking. Phase 11 was not started.

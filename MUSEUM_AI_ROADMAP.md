@@ -311,13 +311,31 @@ Create a source-backed event model and explorable chronology. Never guess dates.
 - validation: deterministic `--check`, strict build, public-boundary pass, focused chronology/machine/cross-browser coverage, pinned Chromium full suite, and Firefox/WebKit journeys all passed; root `dossierSearch`, 127 section identities, museum identities, discovery/context packets, tours/local state, and 136 `mentions` / `observed-xref` relationships remain unchanged
 - live proof established `LIVE_PHASE9_BYTES_OK events=27 exact_files=13 exact_markers=5 relative=6 duration=1 unknown=15 status=independent root-search=unchanged`
 - live browser proof established `LIVE_PHASE9_BROWSER_OK deep-link=ok filter=view-only status=preserved keyboard=ok source-links=ok mobile=ok network=local-origin-only`
-- Phase 10 was not started
+- Phase 10 remained planned at the time of this Phase 9 closure
 
 **Completion verdict: VERIFIED.**
 
 ### Phase 10 — WorldsVault Cosmic Topology Explorer
 
 Represent supported topology without inventing coordinates or spatial precision. Reuse relationship primitives and provide an accessible non-visual equivalent.
+
+#### Completion record
+
+- starting main: eeb01b3695d5c289786293b8a8204085817120b8
+- implementation commit: 9c713c7591fd8fb350faff5605cbdb961e233efa; merged by PR #36 at 9b05fe5873e171b63399558215189436213ae62f
+- required CI passed in run 32673667684: Chromium 97278239393, Firefox 97278239466, and WebKit 97278239455
+- execution-only proof PR #37 was closed unmerged; repaired proof run 32673946000 passed
+- deterministic publication: seven /worldsvault/ files for the human explorer, CSS/JS, JSON, Markdown, schema, and authority boundary
+- topology: 11 source-cited nodes and 6 direct authored edges. Existing mother reuses an authored stable ID; all other node/edge IDs are marked deterministic publication derivatives, never new authored permanent identity.
+- every node/edge carries direct source, certainty, independent public/unknown/unknown status, unknowns, and separate non-canonical layout group/order. No coordinates, distance, direction, route geometry, complete map, or spatial precision was invented.
+- the 127 stable records, 136 observed mentions / observed-xref edges, and 30 WorldsVault template display labels remain distinct from topology identity and relation authority.
+- the explorer has node/edge deep links, cited sources, a complete textual equivalent, keyboard selection, mobile/no-overflow behavior, JSON/Markdown/schema/authority alternatives, and same-origin-only client behavior.
+- machine orientation, versioned schema, sitemap, public boundary declarations, and entity navigation discover the surface.
+- focused coverage passed 26 tests with deterministic build/check, strict validator, public-boundary, and diff checks. Local full-suite visual failures were seven known macOS root-capture baseline mismatches; hosted pinned Chromium passed the full suite.
+- live proof established exact bytes for 14 selected merged surfaces, public-boundary safety, deep link, keyboard relation selection, text equivalent, source links, 375px layout, and same-origin networking.
+- Phase 11 was not started.
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 11 — Installable Offline Museum
 
