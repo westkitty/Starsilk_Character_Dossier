@@ -38,8 +38,8 @@ jobs:
           app = app_path.read_text(encoding="utf-8")
           app = replace_once(
               app,
-              "  searchInput.addEventListener('input', function(){\n    runSearch(this.value.trim());\n  });",
-              "  searchInput.addEventListener('input', function(){\n    var value = this.value.trim();\n    if(value === 'ajd' && typeof setArchiveMode === 'function'){\n      setArchiveMode(true);\n      this.value = '';\n      runSearch('');\n      return;\n    }\n    runSearch(value);\n  });",
+              "    var debounceTimer;\n    searchInput.addEventListener('input', function(){\n      clearTimeout(debounceTimer);\n      var q = searchInput.value.trim();\n      debounceTimer = setTimeout(function(){ runSearch(q); }, 120);\n    });",
+              "    var debounceTimer;\n    searchInput.addEventListener('input', function(){\n      clearTimeout(debounceTimer);\n      var q = searchInput.value.trim();\n      if(q === 'ajd' && typeof setArchiveMode === 'function'){\n        setArchiveMode(true);\n        searchInput.value = '';\n        runSearch('');\n        return;\n      }\n      debounceTimer = setTimeout(function(){ runSearch(q); }, 120);\n    });",
               "search unlock hook",
           )
           app = replace_once(
@@ -50,14 +50,14 @@ jobs:
           )
           app = replace_once(
               app,
-              "    modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';\n    try { localStorage.setItem(MODE_KEY, on ? '1' : '0'); } catch(e){}",
-              "    modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';\n    modeToggle.hidden = !on;",
+              "      modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';\n      try { localStorage.setItem(MODE_KEY, on ? '1' : '0'); } catch(e){}",
+              "      modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';\n      modeToggle.hidden = !on;",
               "archive visibility/persistence",
           )
           app = replace_once(
               app,
-              "  modeToggle.addEventListener('click', function(){\n    setArchiveMode(!document.documentElement.classList.contains('archive-mode'));\n  });\n  try {\n    setArchiveMode(localStorage.getItem(MODE_KEY) === '1');\n  } catch(e) {\n    setArchiveMode(false);\n  }",
-              "  modeToggle.addEventListener('click', function(){\n    setArchiveMode(false);\n  });\n  try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}\n  setArchiveMode(false);",
+              "    modeToggle.addEventListener('click', function(){\n      setArchiveMode(!document.documentElement.classList.contains('archive-mode'));\n    });\n    var modeInitial = false;\n    try { modeInitial = localStorage.getItem(MODE_KEY) === '1'; } catch(e){}\n    setArchiveMode(modeInitial);",
+              "    modeToggle.addEventListener('click', function(){\n      setArchiveMode(false);\n    });\n    try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}\n    setArchiveMode(false);",
               "archive toggle and startup lock",
           )
           app_path.write_text(app, encoding="utf-8")
@@ -137,7 +137,6 @@ jobs:
 
 
           '''
-          # Keep the replacement at top-level indentation.
           replacement = "\n".join(line[10:] if line.startswith("          ") else line for line in replacement.splitlines()) + "\n"
           tests = tests[:start] + replacement + tests[end:]
 
