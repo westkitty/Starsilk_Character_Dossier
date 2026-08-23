@@ -75,7 +75,7 @@ jobs:
               expect(page.locator("#node-meridian-station")).to_be_visible()
               page.locator("#node-meridian-station").press("Enter")
               expect(page.locator("#edge-orbits--meridian-station--virgil")).not_to_have_class("is-muted")
-              expect(page.locator("#node-virgil")).to_have_class(__import__("re").compile(r"\\bis-connected\\b"))
+              expect(page.locator("#node-virgil")).to_have_class(__import__("re").compile(r"\bis-connected\b"))
               assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
               assert page.locator("#text-heading").is_visible()
               assert all(url.startswith(site) for url in requests), requests
