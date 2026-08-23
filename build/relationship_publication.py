@@ -29,7 +29,6 @@ PROJECT_ID = "starsilk-character-dossier"
 sys.path.insert(0, str(ROOT / "build"))
 import generate  # noqa: E402
 import machine_publication as machine  # noqa: E402
-import xref  # noqa: E402
 
 
 def edge_id(source_id: str, target_id: str) -> str:
@@ -42,6 +41,31 @@ def source_ref(source_id: str) -> str:
 
 def json_text(value: object) -> str:
     return json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+
+
+def evidence_link_for_edge(soup: BeautifulSoup, source: str, target: str):
+    """Resolve one exact physical xref that proves an existing graph edge.
+
+    The established graph treats an xref anywhere in a source section subtree
+    as observed evidence for that source. Nested/ancestor source records can
+    therefore share the same physical xref. We preserve that v1 behavior and
+    cite the first qualifying rendered xref in document order.
+    """
+    source_section = soup.find("section", id=source)
+    if source_section is None:
+        raise RuntimeError(f"relationship source section {source!r} is missing from docs/index.html")
+    matches = source_section.find_all("a", class_="xref-link", href=f"#{target}")
+    if not matches:
+        raise RuntimeError(f"observed graph edge {source!r} -> {target!r} has no qualifying rendered xref evidence")
+    link = matches[0]
+    evidence_anchor = link.get("id")
+    if not evidence_anchor:
+        raise RuntimeError(f"qualifying xref for {source!r} -> {target!r} lacks a stable evidence anchor")
+    if link.get("data-xref-target") != target:
+        raise RuntimeError(f"evidence anchor {evidence_anchor!r} lost target identity for {target!r}")
+    if not link.get("data-xref-source"):
+        raise RuntimeError(f"evidence anchor {evidence_anchor!r} lacks physical source identity")
+    return link
 
 
 def build_model() -> tuple[dict, dict[str, str], dict[str, list[dict]], dict[str, list[dict]]]:
@@ -69,18 +93,8 @@ def build_model() -> tuple[dict, dict[str, str], dict[str, list[dict]], dict[str
         if relation.get("kind") != "mentions" or relation.get("evidence_class") != "observed-xref":
             raise RuntimeError(f"unsupported relationship semantics for {source!r} -> {target!r}")
 
-        evidence_anchor = xref.xref_anchor_id(source, target)
-        matches = soup.find_all("a", id=evidence_anchor)
-        if len(matches) != 1:
-            raise RuntimeError(f"expected exactly one published xref evidence anchor {evidence_anchor!r}, found {len(matches)}")
-        link = matches[0]
-        if "xref-link" not in (link.get("class") or []):
-            raise RuntimeError(f"evidence anchor {evidence_anchor!r} is not an xref link")
-        if link.get("href") != f"#{target}":
-            raise RuntimeError(f"evidence anchor {evidence_anchor!r} targets {link.get('href')!r}, expected #{target}")
-        if link.get("data-xref-source") != source or link.get("data-xref-target") != target:
-            raise RuntimeError(f"evidence anchor {evidence_anchor!r} lost source/target identity")
-
+        link = evidence_link_for_edge(soup, source, target)
+        evidence_anchor = link["id"]
         item = {
             "edge_id": edge_id(source, target),
             "source": source,
@@ -132,6 +146,7 @@ def build_model() -> tuple[dict, dict[str, str], dict[str, list[dict]], dict[str
         "relationships": relationships,
         "unknowns": [
             "Observed xref mentions do not establish semantic relationship meaning beyond reference.",
+            "The established v1 graph is a section-subtree projection, so multiple ancestor/source edges can cite the same physical rendered xref evidence.",
             "No friendship, hostility, kinship, allegiance, ownership, authorship, causation, chronology, location, or membership relation is inferred.",
             "Unauthored chronology-event and WorldsVault record identities remain outside this relationship model.",
         ],
@@ -152,7 +167,7 @@ def build_markdown(model: dict, labels: dict[str, str], outgoing_by_id: dict[str
         f"Underlying observed graph: {model['relationship_graph_url']}",
         f"Authority: {machine.canonical('relationships/AUTHORITY.md')}",
         "",
-        "Every edge is `mentions / observed-xref`. Source -> target means only that the source section contains the generated cross-reference to the target. No stronger semantic relationship is implied.",
+        "Every edge is `mentions / observed-xref`. Source -> target means only that the source section subtree contains the generated cross-reference to the target. No stronger semantic relationship is implied.",
         "",
         f"Published records: {model['entity_count']}  ",
         f"Connected records: {model['connected_entity_count']}  ",
@@ -196,7 +211,7 @@ def build_markdown(model: dict, labels: dict[str, str], outgoing_by_id: dict[str
         [
             "## Interpretation boundary",
             "",
-            "The observatory preserves citation direction and exact xref evidence only. Semantic relationship meaning remains unknown unless a separate explicit authority is introduced in a later phase.",
+            "The observatory preserves citation direction and exact xref evidence only. The established graph treats xrefs within a source section subtree as evidence for that source, so several source edges can share one physical xref anchor. Semantic relationship meaning remains unknown unless a separate explicit authority is introduced in a later phase.",
         ]
     )
     return "\n".join(lines).rstrip() + "\n"
