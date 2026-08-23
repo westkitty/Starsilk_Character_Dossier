@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 permissions:
-  pull-requests: write
+  contents: read
 
 jobs:
   diagnose-chromium:
@@ -34,14 +34,9 @@ jobs:
             echo "PYTEST_RC=$?"
           } 2>&1 | tee phase7-ci-diagnostic.txt
           exit 0
-      - name: Comment diagnostic
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          {
-            echo 'Phase 7 full Chromium CI diagnostic:'
-            echo '```text'
-            tail -n 350 phase7-ci-diagnostic.txt
-            echo '```'
-          } > comment.md
-          gh pr comment 27 --body-file comment.md
+      - name: Upload diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase7-ci-diagnostic
+          path: phase7-ci-diagnostic.txt
+          if-no-files-found: error
