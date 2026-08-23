@@ -1,17 +1,21 @@
-name: Produce Phase 02 machine publication artifact
+name: Land Phase 02 generated publication
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  generate-artifact:
+  generate-test-and-land:
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -30,13 +34,23 @@ jobs:
       - name: Diff hygiene
         run: git diff --check
 
-      - name: Upload generated machine publication
-        uses: actions/upload-artifact@v4
-        with:
-          name: phase-02-generated-publication
-          path: |
-            docs/machine/
-            docs/llms.txt
-            docs/sitemap.xml
-          if-no-files-found: error
-          retention-days: 1
+      - name: Commit exact generated publication and retire this one-shot workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-phase-02-machine-publication.yml
+          git add docs/machine docs/llms.txt docs/sitemap.xml
+          git diff --cached --check
+          staged="$(git diff --cached --name-only)"
+          printf '%s\n' "$staged"
+          printf '%s\n' "$staged" | grep -Fx '.github/workflows/apply-phase-02-machine-publication.yml'
+          printf '%s\n' "$staged" | grep -Fx 'docs/llms.txt'
+          printf '%s\n' "$staged" | grep -Fx 'docs/sitemap.xml'
+          printf '%s\n' "$staged" | grep -Fx 'docs/machine/index.json'
+          if printf '%s\n' "$staged" | grep -Ev '^(\.github/workflows/apply-phase-02-machine-publication\.yml|docs/llms\.txt|docs/sitemap\.xml|docs/machine/)'; then
+            echo "::error::Unexpected staged path in generated-publication landing commit."
+            exit 1
+          fi
+          git commit -m "build(phase-02): publish verified machine derivatives"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
