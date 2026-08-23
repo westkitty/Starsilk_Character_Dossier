@@ -1,0 +1,131 @@
+name: Phase 7 live Pages proof
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-07-live-proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies and Chromium
+        run: |
+          python3 -m pip install -r requirements.txt
+          playwright install --with-deps chromium
+      - name: Prove live Phase 7 bytes and semantics
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, time, urllib.request, urllib.parse
+
+          root = Path.cwd()
+          out = Path('/tmp/live-phase7')
+          out.mkdir(parents=True, exist_ok=True)
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          mapping = {
+              'docs/index.html': '',
+              'docs/entities/index.html': 'entities/',
+              'docs/discover/index.html': 'discover/',
+              'docs/discover/discovery.css': 'discover/discovery.css',
+              'docs/discover/discovery.js': 'discover/discovery.js',
+              'docs/discover/discovery.json': 'discover/discovery.json',
+              'docs/discover/context-packets.json': 'discover/context-packets.json',
+              'docs/discover/packets/dao.json': 'discover/packets/dao.json',
+              'docs/discover/AUTHORITY.md': 'discover/AUTHORITY.md',
+              'docs/discover/schema.json': 'discover/schema.json',
+              'docs/discover/context-packet.schema.json': 'discover/context-packet.schema.json',
+              'docs/discover/context-packet-index.schema.json': 'discover/context-packet-index.schema.json',
+              'docs/machine/index.json': 'machine/index.json',
+              'docs/llms.txt': 'llms.txt',
+              'docs/sitemap.xml': 'sitemap.xml',
+          }
+
+          last = None
+          for attempt in range(24):
+              mismatches = []
+              downloads = {}
+              stamp = str(int(time.time() * 1000))
+              for local_rel, remote_rel in mapping.items():
+                  expected = (root / local_rel).read_bytes()
+                  url = base + remote_rel
+                  sep = '&' if '?' in url else '?'
+                  req = urllib.request.Request(url + sep + 'phase7=' + stamp, headers={'Cache-Control':'no-cache','User-Agent':'Starsilk-Phase7-Live-Proof'})
+                  try:
+                      with urllib.request.urlopen(req, timeout=30) as response:
+                          actual = response.read()
+                  except Exception as exc:
+                      mismatches.append(f'{remote_rel or "/"}: {exc}')
+                      continue
+                  downloads[local_rel] = actual
+                  if actual != expected:
+                      mismatches.append(f'{remote_rel or "/"}: bytes differ expected={len(expected)} actual={len(actual)}')
+              if not mismatches:
+                  for local_rel, data in downloads.items():
+                      target = out / Path(local_rel).relative_to('docs')
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      target.write_bytes(data)
+                  break
+              last = mismatches
+              print(f'Attempt {attempt+1}/24 not current: ' + '; '.join(mismatches[:5]))
+              time.sleep(10)
+          else:
+              raise SystemExit('Live Pages never converged to merged Phase 7 bytes: ' + '; '.join(last or []))
+
+          discovery = json.loads((out/'discover/discovery.json').read_text())
+          packets = json.loads((out/'discover/context-packets.json').read_text())
+          dao = json.loads((out/'discover/packets/dao.json').read_text())
+          machine = json.loads((out/'machine/index.json').read_text())
+          root_html = (out/'index.html').read_text()
+          entity_index = (out/'entities/index.html').read_text()
+          authority = (out/'discover/AUTHORITY.md').read_text()
+
+          assert discovery['record_count'] == 127
+          assert len(discovery['records']) == 127
+          assert packets['packet_count'] == 127
+          assert dao['stable_id'] == 'dao'
+          assert dao['canon_status'] == 'unknown'
+          assert dao['observed_relationships']['kind'] == 'mentions'
+          assert dao['observed_relationships']['evidence_class'] == 'observed-xref'
+          assert machine['endpoints']['discovery'] == base + 'discover/'
+          assert base + 'discover/packets/dao.json' in machine['public_urls']
+          assert 'id="dossierSearch"' in root_html
+          assert 'href="../discover/"' in entity_index
+          assert 'Packets never outrank their cited sources' in authority
+          assert 'complete-Compendium search remains separate and unchanged' in authority
+          print(f'LIVE_PHASE7_BYTES_OK records={discovery["record_count"]} packets={packets["packet_count"]} exact_files={len(mapping)} relationships=observed-only root-search=unchanged')
+          PY
+          python3 tools/check_public_boundary.py /tmp/live-phase7
+      - name: Prove live discovery browser behavior
+        run: |
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright, expect
+          base = 'https://westkitty.github.io/Starsilk_Character_Dossier/'
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page(viewport={'width': 375, 'height': 812})
+              page.goto(base + 'discover/?class=character-section&q=Dao#result-dao', wait_until='networkidle')
+              expect(page.locator('#result-dao')).to_be_visible()
+              expect(page.locator('#discoveryStatus')).to_contain_text('1 of 127 records')
+              expect(page.locator('#discoveryQuery')).to_have_value('Dao')
+              expect(page.locator('#classFacet')).to_have_value('character-section')
+              assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+              page.locator('#resetFilters').click()
+              expect(page.locator('#discoveryStatus')).to_contain_text('127 of 127 records')
+              page.locator('#discoveryQuery').fill('Codec')
+              page.keyboard.press('ArrowDown')
+              expect(page.locator('#result-codec .result-link')).to_be_focused()
+              page.goto(base + 'entities/', wait_until='networkidle')
+              expect(page.locator('a[href="../discover/"]')).to_be_visible()
+              browser.close()
+          print('LIVE_PHASE7_BROWSER_OK deep-link=ok facets=ok keyboard=ok entity-discovery=ok mobile=ok')
+          PY
