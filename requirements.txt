@@ -1,0 +1,17 @@
+# Pinned build/test/validation toolchain for the Starsilk Compendium.
+# Install into a virtualenv: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+# Then: .venv/bin/playwright install --with-deps chromium firefox webkit
+#
+# System dependency (not pip-installable): ffmpeg + cwebp on PATH, required
+# by build/media_pipeline.py to generate optimized web derivatives from
+# media/source/. On macOS: brew install ffmpeg webp
+# Without them, media_pipeline.py falls back to publishing sources unchanged
+# (still correct, just not size-optimized) rather than failing.
+
+beautifulsoup4==4.15.0
+lxml==6.1.2
+Jinja2==3.1.6
+Pillow==12.3.0
+pytest==9.1.1
+pytest-playwright==0.9.0
+playwright==1.62.0

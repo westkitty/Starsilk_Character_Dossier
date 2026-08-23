@@ -1,0 +1,1119 @@
+{
+  "sections": [
+    {
+      "id": "cover",
+      "classes": "page cover",
+      "attrs": {
+        "data-folio": "00"
+      },
+      "has_disclosure": false
+    },
+    {
+      "id": "world",
+      "classes": "page",
+      "attrs": {
+        "data-folio": "01"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "chronology",
+      "classes": "page chronology-page",
+      "attrs": {
+        "data-folio": "02",
+        "data-source-key": "five-phase-canon-chronology"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "shard-god",
+      "classes": "page character-page tiger",
+      "attrs": {
+        "data-folio": "03"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "codec",
+      "classes": "page character-page codec",
+      "attrs": {
+        "data-folio": "04"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "dao",
+      "classes": "page character-page dao",
+      "attrs": {
+        "data-folio": "05"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "kail",
+      "classes": "page character-page kail",
+      "attrs": {
+        "data-folio": "06"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "marcel",
+      "classes": "page character-page marcel",
+      "attrs": {
+        "data-folio": "07"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "jazen",
+      "classes": "page character-page jazen",
+      "attrs": {
+        "data-folio": "08"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "starsilk-material",
+      "classes": "page material-page",
+      "attrs": {
+        "data-folio": "09"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "gorevault",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "10"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "ringthroat",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "11"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "lyriboris",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "12"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drakken-registry",
+      "classes": "page drakken-registry-page",
+      "attrs": {
+        "data-folio": "12A"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-the-egg",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "genesis",
+        "data-folio": "D01"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-magma-pleuron",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D02"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-granithelion",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D03"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-fault-tongue",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D04"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-obsidian-gul",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D05"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-tremorhound",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D06"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-glassspine",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D07"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-quarrymind",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "crust-binder",
+        "data-folio": "D08"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-aerokarst",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D09"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-cloudmaw",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D10"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-atmantid",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D11"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-weathernode",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D12"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-vortenbray",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D13"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-fumericus",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D14"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-skymourn",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "atmos-engine",
+        "data-folio": "D15"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-verdgorge",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D16"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-pollenvault",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D17"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-mycethron",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D18"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-raintaster",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D19"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-terragullet",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D20"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-petalnest",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D21"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-feralseed",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "seedcarrier",
+        "data-folio": "D22"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-abyssoriel",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D23"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-brinechoir",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D24"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-currenthalo",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D25"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-shelfcarver",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D26"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-glacierthroat",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D27"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-veilcurrent",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D28"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-coronaxis",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "fluxborne",
+        "data-folio": "D29"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-solnexus",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D30"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-nullthorn",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D31"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-helionth",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D32"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-umbrakrael",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D33"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-cinderverge",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D34"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-singularch",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "orbital-wyrm",
+        "data-folio": "D35"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-ironcant",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D36"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-gridsaint",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D37"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-spiremolt",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D38"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-roadthorn",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D39"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-habitarch",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D40"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-archivore",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D41"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-harborhex",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "civiformer",
+        "data-folio": "D42"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-lexiclast",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D43"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-calendarion",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D44"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-dreamtaxon",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D45"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-crownmute",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D46"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-hymnlock",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D47"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-memorialvein",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D48"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-shrinehunger",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "noosphere-cantor",
+        "data-folio": "D49"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-redacted-grin",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "glitch-touched",
+        "data-folio": "D50"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-spinal-loop",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "glitch-touched",
+        "data-folio": "D51"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-gloryfail",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "glitch-touched",
+        "data-folio": "D52"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "drk-viral-bastion",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-archetype": "glitch-touched",
+        "data-folio": "D53"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "blood-rings",
+      "classes": "page blood-page",
+      "attrs": {
+        "data-folio": "13"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "starbinding",
+      "classes": "page starbinding-page",
+      "attrs": {
+        "data-folio": "14"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "canon-ledger",
+      "classes": "page canon-ledger-page",
+      "attrs": {
+        "data-folio": "15"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "beyond-wall",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "15A"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "systems",
+      "classes": "page",
+      "attrs": {
+        "data-folio": "16"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "peripheral-index",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "19"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "wordstreamer",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P01",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "nialbu",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P02",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "anika",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P03",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "jory",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P04",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "selim",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P05",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "vessa",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P06",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "orin",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P07",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "mael",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P08",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "sera-inventory",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P09",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "hesh",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P10",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "mara",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P11",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "rin",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P12",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "kira",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P13",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "jalen",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P14",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "safi",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P15",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "kaelen",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P16",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "lyra",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P17",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "rhys",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P18",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "anya",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P19",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "sela-orrin",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P20",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "marn",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P21",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "joss",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P22",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "reth",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P23",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "iven",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P24",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "khar-venn-child",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P25",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "nyle-quarth",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P26",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "mother",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P27",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "foldhowl",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P28",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "manifest-discord",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P29",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "cradle-exe",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P30",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "shardlings",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P31",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "allkept",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P32",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "little-king",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P33",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "marshal-venn",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P34",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "administrator-pell",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P35",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "technician-naresh",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P36",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "captain-serr",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P37",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "harold",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P38",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "mara-syrin4",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P39",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "tomas",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P40",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "jonah",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P41",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "clara",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P42",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "eli",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P43",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "ruth-syrin4",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P44",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "kails-mother",
+      "classes": "page character-page peripheral-page",
+      "attrs": {
+        "data-folio": "P45",
+        "style": "--accent:#70e7ff"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "cosmic-architecture",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "20"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "worldsvault-templates",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "21"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "ontology-horror",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "22"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "artifacts-factions",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "23"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "trio-gallery",
+      "classes": "page peripheral-page gallery-wide",
+      "attrs": {
+        "data-folio": "24"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "history-media",
+      "classes": "page peripheral-page",
+      "attrs": {
+        "data-folio": "25"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "media-vault",
+      "classes": "page media-vault-page",
+      "attrs": {
+        "data-folio": "26"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "archive",
+      "classes": "page asset-bank",
+      "attrs": {
+        "data-folio": "17"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "source",
+      "classes": "page source-text",
+      "attrs": {
+        "data-folio": "18"
+      },
+      "has_disclosure": true
+    }
+  ]
+}

@@ -1,13 +1,26 @@
 # Offline Archive Edition — the giant embedded-media source file.
-# This must never enter Git history (see README.md for why).
+# This must never enter Git history (see README.md for why). Not read by
+# any normal build step; only build/migrate_legacy.py (a one-time,
+# not-part-of-the-build import script) ever touches it.
 starsilk_character_dossier.html
 archive/
 
-# Raw hero video source (tools/add_hero_video_and_rebrand.py processes this
-# into a hashed, audio-stripped copy under docs/assets/media/ — that copy
-# is what's committed, not this file).
+# Canonical original media (pre-optimization). Same rationale as the
+# offline archive above: these are large, locally-held originals that
+# media/manifest.json under docs/ traces back to via source_sha256 /
+# source_filename, and every file here that predates this convention is
+# still recoverable, byte-for-byte and unrewritten, from Git history at
+# earlier commits of docs/assets/media/. Not read by any published page;
+# only build/media_pipeline.py (source -> optimized derivative) reads it.
+media/source/
+
+# Superseded by media/source/ (unused by the current build; kept locally
+# only if present).
 starsilk header.mp4
 .hero_video_work/
+
+# Portable release packages (tools/package_release.py output).
+dist/
 
 # Backup / audit artifacts that may appear during local processing.
 *.zip
@@ -17,9 +30,14 @@ audit-temp*
 audit-output*
 media_vault_fragment.html
 
+# Build intermediates
+.media_pipeline_tmp/
+
 # macOS
 .DS_Store
 
 # Python
 __pycache__/
 *.pyc
+.pytest_cache/
+.venv/

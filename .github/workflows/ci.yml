@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-validate:
+    name: Build, validate, unit + accessibility/network tests (Chromium)
+    runs-on: ubuntu-latest
+    # Screenshot regression is only meaningfully stable when every run
+    # renders fonts the same way -- text-rendering differs enough between
+    # host OSes that a bare ubuntu-latest runner would drift from the
+    # committed baselines through no real design change of its own. Pinning
+    # the official Playwright container (matching requirements.txt's
+    # playwright version) is Microsoft's own documented fix for this.
+    # NOTE: tests/visual_baselines/ in this repo were captured locally on
+    # macOS; the first run of this job against this container may need a
+    # maintainer to regenerate/commit baselines from *inside* this same
+    # container so future runs compare like-for-like.
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trust the checked-out worktree (containerized job)
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install Python dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Build from source (no media regeneration required)
+        run: ./tools/build.sh
+
+      - name: Prove the checked-in docs/ matches its declared sources
+        run: |
+          ./tools/build.sh --check
+          git diff --exit-code -- docs/ || {
+            echo "::error::Build produced uncommitted differences in docs/ -- the checked-in site and its generator have diverged.";
+            exit 1;
+          }
+
+      - name: git diff --check (no whitespace-corrupt diffs)
+        run: git diff --check
+
+      - name: Full pytest + Playwright suite (Chromium)
+        run: .venv/bin/pytest tests/ -q
+
+      - name: Upload failed visual-regression captures
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-failures
+          path: tests/visual_baselines/FAILED-*.png
+          if-no-files-found: ignore
+
+  cross-browser:
+    name: Representative journeys (Firefox, WebKit)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Playwright browser (${{ matrix.browser }})
+        run: .venv/bin/playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Build from source
+        run: ./tools/build.sh
+
+      - name: Representative cross-browser journeys
+        run: .venv/bin/pytest tests/test_cross_browser.py --browser ${{ matrix.browser }} -q

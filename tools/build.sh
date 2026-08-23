@@ -1,30 +1,57 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Starsilk Character Dossier — Authoritative Build Pipeline (UX-029)
+# Starsilk Compendium — Authoritative Build Pipeline
 #
-# Modes:
-#   1. Default: Checked-in Web Edition finalization & validation
-#      ./tools/build.sh
+#   versioned canonical source (src/content/, src/templates/)
+#     -> build/generate.py        (deterministic template render -> docs/index.html)
+#     -> build/validate.py        (parsed-DOM structural + canon-invariant gate)
+#     -> GitHub Pages (main / docs)
 #
-#   2. Full source rebuild (opt-in):
-#      ./tools/build.sh --full-rebuild
-#      Optional environment variables / flags for asset sources:
-#        DRAKKEN_SOURCE_DIR="/path/to/drakken"
-#        BRANDKIT_SOURCE_DIR="/path/to/brandkit"
+# docs/index.html is disposable generated output. Every run rebuilds it from
+# src/content/ + src/templates/ from scratch -- there is no in-place
+# mutation and no script-ordering hazard between stages. This default mode
+# needs nothing beyond what a fresh `git clone` already has.
+#
+# Published media (docs/assets/media/, docs/asset-manifest.json) is itself
+# committed, generated output -- regenerating it from media/source/ is a
+# separate, opt-in, much slower step (media/source/ holds large canonical
+# originals and is intentionally *not* committed; see .gitignore and
+# README.md), analogous to how this project has always treated its giant
+# offline-archive source file.
+#
+# Usage:
+#   ./tools/build.sh                    Render docs/index.html from src/content/
+#                                        + strict validation. No large local
+#                                        files required; safe from a fresh clone.
+#   ./tools/build.sh --regenerate-media  Also re-derive docs/assets/media/ +
+#                                        docs/asset-manifest.json from
+#                                        media/source/ (requires that
+#                                        directory to exist locally; slow).
+#   ./tools/build.sh --check             Do not write docs/index.html; fail if
+#                                        the generator's output would differ
+#                                        from what's already committed
+#                                        (release-gate / CI use).
 
-MODE="finalize"
-FULL_REBUILD=false
+REGENERATE_MEDIA=false
+CHECK_ONLY=false
 
 for arg in "$@"; do
     case "$arg" in
-        --full-rebuild)
-            FULL_REBUILD=true
-            MODE="full"
+        --regenerate-media)
+            REGENERATE_MEDIA=true
+            ;;
+        --check)
+            CHECK_ONLY=true
             ;;
         --help|-h)
-            echo "Usage: ./tools/build.sh [--full-rebuild]"
+            echo "Usage: ./tools/build.sh [--regenerate-media] [--check]"
             exit 0
+            ;;
+        *)
+            echo "ERROR: unknown option: $arg" >&2
+            echo "Usage: ./tools/build.sh [--regenerate-media] [--check]" >&2
+            exit 1
             ;;
     esac
 done
@@ -32,84 +59,42 @@ done
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
+PY="python3"
+if [ -x ".venv/bin/python3" ]; then
+    PY=".venv/bin/python3"
+fi
+
 echo "======================================================================"
-echo "STARSILK CHARACTER DOSSIER — CANONICAL BUILD PIPELINE"
-echo "Mode: $MODE"
+echo "STARSILK COMPENDIUM — BUILD PIPELINE"
 echo "======================================================================"
 
-if [ "$FULL_REBUILD" = true ]; then
-    echo "1. Full rebuild requested. Checking source dossier..."
-    if [ ! -f "starsilk_character_dossier.html" ]; then
-        echo "ERROR: starsilk_character_dossier.html not found. Cannot perform full source rebuild." >&2
+if [ "$REGENERATE_MEDIA" = true ]; then
+    echo "-> Media pipeline: source -> optimized web derivatives (--regenerate-media)..."
+    if [ ! -d "media/source" ]; then
+        echo "ERROR: media/source/ not found. It holds large canonical originals and is" >&2
+        echo "       intentionally not committed to Git (see README.md); populate it locally" >&2
+        echo "       before requesting a media regeneration." >&2
         exit 1
     fi
-
-    echo "2. Extracting embedded media from source HTML..."
-    python3 tools/extract_embedded_media.py
-
-    echo "3. Importing Drakken Art (if source is configured)..."
-    DRAKKEN_SRC="${DRAKKEN_SOURCE_DIR:-}"
-    if [ -n "$DRAKKEN_SRC" ]; then
-        if [ -d "$DRAKKEN_SRC" ]; then
-            python3 tools/import_drakken_art.py --source "$DRAKKEN_SRC" --site docs
-        else
-            echo "ERROR: DRAKKEN_SOURCE_DIR was specified but directory does not exist: $DRAKKEN_SRC" >&2
-            exit 1
-        fi
-    else
-        echo "   DRAKKEN_SOURCE_DIR is not configured; preserving existing extracted/imported assets."
-    fi
-
-    echo "4. Importing BrandKit / WorldsVault / ShardGod Art (if source is configured)..."
-    BRANDKIT_SRC="${BRANDKIT_SOURCE_DIR:-}"
-    if [ -n "$BRANDKIT_SRC" ]; then
-        if [ -d "$BRANDKIT_SRC" ]; then
-            python3 tools/import_brandkit_worldsvault_shardgod.py --source "$BRANDKIT_SRC" --site docs
-        else
-            echo "ERROR: BRANDKIT_SOURCE_DIR was specified but directory does not exist: $BRANDKIT_SRC" >&2
-            exit 1
-        fi
-    else
-        echo "   BRANDKIT_SOURCE_DIR is not configured; preserving existing extracted/imported assets."
-    fi
-
-    echo "5. Integrating Gap Analysis lore..."
-    python3 tools/gap_analysis_integration.py
-
-    echo "6. Applying UI/UX Polish Pass..."
-    python3 tools/ui_ux_polish_pass.py
-fi
-
-echo "-> Applying UX audit fixes (UX-001 through UX-028)..."
-python3 tools/apply_ux_audit_fixes.py
-
-echo "-> Applying media presentation normalization and default-collapsed sections..."
-python3 tools/apply_media_presentation_and_collapse.py
-
-echo "-> Lazy-loading videos inside collapsed sections..."
-python3 tools/lazy_load_collapsed_videos.py
-
-echo "-> Adding top-of-content controls (expand/collapse all, search, sidebar toggle)..."
-python3 tools/add_page_controls.py
-
-echo "-> Adding cross-reference entity links..."
-python3 tools/add_cross_reference_links.py
-
-echo "-> Adding hero video header and cover rebrand..."
-if [ -f "starsilk header.mp4" ]; then
-    python3 tools/add_hero_video_and_rebrand.py
+    "$PY" build/media_pipeline.py
 else
-    echo "   'starsilk header.mp4' not found at repo root; skipping (already-applied state, if any, is preserved)."
+    if [ ! -f "docs/asset-manifest.json" ]; then
+        echo "ERROR: docs/asset-manifest.json missing. Run with --regenerate-media first" >&2
+        echo "       (requires media/source/ locally), or restore it from Git." >&2
+        exit 1
+    fi
 fi
 
-echo "-> Adding opening reveal animation (hero video first, then the rest of the site)..."
-python3 tools/add_opening_reveal_animation.py
+if [ "$CHECK_ONLY" = true ]; then
+    echo "-> Generating (in-memory) and checking against committed docs/index.html..."
+    "$PY" build/generate.py --check
+else
+    echo "-> Generating docs/index.html from src/content/ + src/templates/..."
+    "$PY" build/generate.py
+fi
 
-echo "-> Finalizing and scrubbing metadata (UX-032, UX-033)..."
-python3 tools/finalize_metadata.py
-
-echo "-> Running strict validation gate (UX-030)..."
-python3 tools/validate_web_edition.py --strict
+echo "-> Running strict validation gate..."
+"$PY" build/validate.py --strict
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"

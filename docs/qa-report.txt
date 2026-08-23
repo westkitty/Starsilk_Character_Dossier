@@ -1,50 +1,39 @@
 ======================================================================
-STARSILK CHARACTER DOSSIER — WEB EDITION QA REPORT
+STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 ======================================================================
 
 [1] DUPLICATE IDS: 0
 
 [2] BROKEN ANCHORS: 0 (of 128 unique #hash hrefs)
 
-[3] LOCAL ASSET PATHS: 213 checked, 0 missing
+[3] LOCAL ASSET PATHS: 208 checked, 0 missing
 
-[4] REMAINING DATA URIS: image=0, video=0
+[4] REMAINING DATA URIS: 0
 
 [5] LOCAL MACHINE PATH LEAKS: 0
 
-[6] EXTERNAL RUNTIME DEPENDENCIES (http/https in src/href): 0
+[6] EXTERNAL RUNTIME DEPENDENCIES: 0
 
 [7] SECTION COUNTS: total=138, principal=6, peripheral=45, drakken=56
 
-[8] DRAKKEN VALIDATION: sections=56, missing_id=0, missing_image=0, broken_image_src=0
+[8] DISCLOSURE (<summary>) SEMANTICS: 0 error(s)
 
-[9] MEDIA COUNTS: image_refs=233, unique_image_files=200, video_refs=7, unique_video_files=12
+[9] MEDIA COUNTS: image_refs=233, video_refs=7
 
-[10] WAR CHRONOLOGY: obsolete_17_year_matches=0, 170_year_reference_present=True
+[10-11] CANON INVARIANTS: 11 lock(s) checked, 0 violation(s)
 
-[11] WILLIAM OCCURRENCES: 0 (expected 0)
-
-[12] JAVASCRIPT SYNTAX: 4 script block(s) checked, 0 syntax error(s)
+[12] JAVASCRIPT SYNTAX: 1 script block(s), 0 syntax error(s)
 
 [13] SIZE REPORT
-    Original source HTML: 614,968,439 bytes
-    Generated docs/index.html: 506,480 bytes
-    Total docs/ directory: 589,573,477 bytes
-    Total extracted media: 588,967,615 bytes across 213 files
+    Generated docs/index.html: 514,683 bytes
+    Total docs/ directory: 73,847,994 bytes
+    Total published media: 73,201,453 bytes across 213 files
 
-[14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken, 0 without exact-provenance asset
+[14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken
 
-[15] DRAKKEN ART IMPORT SUMMARY (last run)
-    source_files_considered: 90
-    exact_files_accepted: 66
-    incident_files_accepted: 5
-    new_unique_binaries_copied: 0
-    existing_binaries_reused: 90
-    ambiguous_files_skipped: 0
-    archetype_diversified: 19
-    missing_source_files: 0
+[15] (not applicable: one-time import tooling has been retired)
 
-[16] MANIFEST INVARIANTS: 0 error(s)
+[16] MANIFEST INVARIANTS (identity/provenance-based): 0 error(s)
 
 ======================================================================
 END OF REPORT
