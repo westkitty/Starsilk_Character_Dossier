@@ -118,9 +118,12 @@ def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float =
 
     baseline = Image.open(baseline_path).convert("RGB")
     if baseline.size != current.size:
+        diff_path = VISUAL_BASELINES / f"FAILED-{name}"
+        current.save(diff_path)
         raise AssertionError(
             f"{name}: baseline size {baseline.size} != current size {current.size} "
-            f"(viewport/layout changed -- update the baseline deliberately if intended)"
+            f"(viewport/layout changed -- update the baseline deliberately if intended). "
+            f"Current render saved to {diff_path} for inspection."
         )
 
     diff = ImageChops.difference(baseline, current)
