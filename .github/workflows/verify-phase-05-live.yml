@@ -1,0 +1,222 @@
+name: Verify Phase 05 live relationship publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pinned Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Prove live Phase 05 bytes and relationship evidence contract
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
+          OUT = Path("/tmp/starsilk-live-phase5")
+          OUT.mkdir(parents=True, exist_ok=True)
+          TRANSIENT = {429, 500, 502, 503, 504}
+
+          def cache_bust(url, suffix):
+              separator = "&" if "?" in url else "?"
+              token = urllib.parse.quote(PROOF + "-" + suffix)
+              return f"{url}{separator}phase05proof={token}"
+
+          def fetch(url, suffix, attempts=8):
+              request_url = cache_bust(url, suffix)
+              last_error = None
+              for attempt in range(1, attempts + 1):
+                  try:
+                      request = urllib.request.Request(
+                          request_url,
+                          headers={"User-Agent": "Starsilk-Phase-05-Live-Proof"},
+                      )
+                      with urllib.request.urlopen(request, timeout=35) as response:
+                          if response.status != 200:
+                              raise RuntimeError(f"{url}: HTTP {response.status}")
+                          return response.read()
+                  except urllib.error.HTTPError as exc:
+                      last_error = exc
+                      if exc.code not in TRANSIENT or attempt == attempts:
+                          raise
+                  except (urllib.error.URLError, TimeoutError) as exc:
+                      last_error = exc
+                      if attempt == attempts:
+                          raise
+                  time.sleep(min(1.25 * attempt, 6.0))
+              raise RuntimeError(f"fetch retries exhausted for {url}: {last_error}")
+
+          changed = {
+              "": Path("docs/index.html"),
+              "entities/codec/": Path("docs/entities/codec/index.html"),
+              "relationships/": Path("docs/relationships/index.html"),
+              "relationships/relationships.css": Path("docs/relationships/relationships.css"),
+              "relationships/relationships.json": Path("docs/relationships/relationships.json"),
+              "relationships/relationships.md": Path("docs/relationships/relationships.md"),
+              "relationships/AUTHORITY.md": Path("docs/relationships/AUTHORITY.md"),
+              "machine/index.json": Path("docs/machine/index.json"),
+              "machine/schema/v1/relationship-observatory.schema.json": Path("docs/machine/schema/v1/relationship-observatory.schema.json"),
+              "llms.txt": Path("docs/llms.txt"),
+              "sitemap.xml": Path("docs/sitemap.xml"),
+          }
+
+          # Wait until the Pages edge demonstrably serves the merged Phase 5 observatory.
+          marker_url = BASE + "relationships/"
+          marker_expected = changed["relationships/"].read_bytes()
+          last_error = None
+          for attempt in range(1, 49):
+              try:
+                  candidate = fetch(marker_url, f"marker-{attempt}")
+                  if candidate == marker_expected:
+                      break
+                  last_error = RuntimeError("live relationship page exists but does not yet match merged docs")
+              except Exception as exc:
+                  last_error = exc
+              if attempt < 48:
+                  time.sleep(5)
+          else:
+              raise RuntimeError(f"Pages did not converge to Phase 5 publication: {last_error}")
+
+          downloaded = {}
+          for number, (relative, path) in enumerate(changed.items()):
+              url = BASE + relative
+              expected = path.read_bytes()
+              live = fetch(url, f"file-{number}")
+              assert live == expected, f"live bytes differ from merged docs: {url}"
+              downloaded[relative] = live
+
+              target = OUT / ("index.html" if relative == "" else (relative + "index.html" if relative.endswith("/") else relative))
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(live)
+              time.sleep(0.15)
+
+          model = json.loads(downloaded["relationships/relationships.json"])
+          assert model["schema"] == "starsilk-relationship-observatory/1"
+          assert model["entity_count"] == 127
+          assert model["relationship_count"] == 136
+          assert len(model["entities"]) == 127
+          assert len(model["relationships"]) == 136
+          assert all(item["kind"] == "mentions" for item in model["relationships"])
+          assert all(item["evidence_class"] == "observed-xref" for item in model["relationships"])
+
+          relation = next(
+              item for item in model["relationships"]
+              if item["source"] == "codec" and item["target"] == "dao"
+          )
+          assert relation["edge_id"] == "mention--codec--dao"
+          assert relation["canonical_url"] == BASE + "relationships/#mention--codec--dao"
+          assert relation["source_url"] == BASE + "entities/codec/"
+          assert relation["target_url"] == BASE + "entities/dao/"
+          assert relation["public_evidence_url"].startswith(BASE + "#xref-")
+          evidence_id = relation["public_evidence_url"].split("#", 1)[1]
+
+          root = downloaded[""].decode("utf-8")
+          assert f'id="{evidence_id}"' in root
+          assert 'data-xref-target="dao"' in root
+          assert 'id="dossierSearch"' in root
+          assert "Archive tools" in root
+
+          observatory = downloaded["relationships/"].decode("utf-8")
+          assert "Relationship Observatory" in observatory
+          assert 'id="mention--codec--dao"' in observatory
+          assert 'id="entity-codec"' in observatory
+          assert 'data-relationship="mentions"' in observatory
+          assert 'data-evidence-class="observed-xref"' in observatory
+          assert "Published xref evidence" in observatory
+          assert "Nothing here asserts friendship" in observatory
+          assert "<script" not in observatory.lower()
+
+          codec = downloaded["entities/codec/"].decode("utf-8")
+          assert 'href="../../relationships/"' in codec
+          assert "Relationship observatory" in codec
+
+          markdown = downloaded["relationships/relationships.md"].decode("utf-8")
+          authority = downloaded["relationships/AUTHORITY.md"].decode("utf-8")
+          assert "Every edge is `mentions / observed-xref`" in markdown
+          assert "It is not a semantic relationship database" in authority
+
+          machine_index = json.loads(downloaded["machine/index.json"])
+          machine_index_text = json.dumps(machine_index)
+          assert "relationships/" in machine_index_text
+          assert "relationship-observatory.schema.json" in machine_index_text
+
+          assert "relationships/" in downloaded["llms.txt"].decode("utf-8")
+          assert BASE + "relationships/" in downloaded["sitemap.xml"].decode("utf-8")
+
+          print(
+              "LIVE_PHASE5_BYTES_OK "
+              f"records={model['entity_count']} edges={model['relationship_count']} "
+              f"exact_files={len(changed)} evidence={evidence_id} semantics=observed-only"
+          )
+          PY
+
+      - name: Re-run public-boundary gate over downloaded Phase 05 surfaces
+        run: |
+          python3 tools/check_public_boundary.py \
+            /tmp/starsilk-live-phase5/relationships \
+            /tmp/starsilk-live-phase5/entities/codec/index.html \
+            /tmp/starsilk-live-phase5/machine/index.json \
+            /tmp/starsilk-live-phase5/machine/schema/v1/relationship-observatory.schema.json \
+            /tmp/starsilk-live-phase5/llms.txt \
+            /tmp/starsilk-live-phase5/sitemap.xml \
+            /tmp/starsilk-live-phase5/index.html
+
+      - name: Prove live relationship deep links in Chromium
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from playwright.sync_api import expect, sync_playwright
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          model = json.loads(Path("docs/relationships/relationships.json").read_text(encoding="utf-8"))
+          relation = next(
+              item for item in model["relationships"]
+              if item["source"] == "codec" and item["target"] == "dao"
+          )
+          evidence_id = relation["public_evidence_url"].split("#", 1)[1]
+
+          with sync_playwright() as playwright:
+              browser = playwright.chromium.launch()
+              page = browser.new_page(viewport={"width": 1280, "height": 800})
+
+              page.goto(BASE + "relationships/#mention--codec--dao", wait_until="load")
+              expect(page.locator("#mention--codec--dao")).to_be_visible()
+              expect(page.locator("#entity-codec")).to_be_visible()
+              expect(page.locator("#mention--codec--dao a", has_text="Published xref evidence")).to_have_attribute(
+                  "href", relation["public_evidence_url"]
+              )
+
+              page.goto(relation["public_evidence_url"], wait_until="load")
+              expect(page.locator(f"#{evidence_id}")).to_be_visible()
+              expect(page.locator(f"#{evidence_id}")).to_have_attribute("href", "#dao")
+              expect(page.locator(f"#{evidence_id}")).to_have_attribute("data-xref-target", "dao")
+
+              page.goto(BASE + "entities/codec/", wait_until="load")
+              expect(page.locator("a[href='../../relationships/']", has_text="Relationship observatory")).to_have_count(1)
+
+              page.set_viewport_size({"width": 375, "height": 812})
+              page.goto(BASE + "relationships/#entity-codec", wait_until="load")
+              expect(page.locator("#entity-codec")).to_be_visible()
+              assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
+              browser.close()
+
+          print("LIVE_PHASE5_BROWSER_OK edge=ok evidence=ok entity-discovery=ok mobile=ok")
+          PY
