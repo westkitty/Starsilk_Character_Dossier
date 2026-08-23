@@ -4,6 +4,8 @@
     "authority": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
     "canon_inspector": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/",
     "canon_lock_register": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.json",
+    "chronology": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/",
+    "chronology_index": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json",
     "compendium_markdown": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md",
     "context_packet_index": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/context-packets.json",
     "discovery": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/",
@@ -51,6 +53,11 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/tours/schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/tours/AUTHORITY.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/AUTHORITY.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
@@ -61,6 +68,7 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json",
@@ -577,6 +585,7 @@
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
   "schemas": {
     "canon-lock-register": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
+    "chronology-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
     "context-packet": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
     "context-packet-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json",
     "discovery-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/discovery-index.schema.json",
@@ -594,10 +603,11 @@
     "src/content/nav.json",
     "src/canon/invariants.json",
     "src/tours/tours.json",
+    "src/chronology/events.json",
     "docs/asset-manifest.json"
   ],
   "unknowns": [
-    "Individual chronology-event IDs remain unauthored.",
+    "Chronology event publication IDs are source-backed Phase 9 derivatives; absolute dates and unsupported relationships remain unknown.",
     "Many WorldsVault record IDs remain unauthored.",
     "Semantic relations beyond observed xref mentions remain unauthored."
   ]

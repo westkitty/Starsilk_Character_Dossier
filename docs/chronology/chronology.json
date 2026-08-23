@@ -1,0 +1,847 @@
+{
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json",
+  "event_count": 27,
+  "events": [
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-initialization-reality",
+      "event_id": "initialization-reality",
+      "label": "The Initialization of Reality",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase I — The Primordial Era & The Foundational Betrayals",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-triarchic-order",
+      "event_id": "triarchic-order",
+      "label": "The Triarchic Order",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase I — The Primordial Era & The Foundational Betrayals",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-forging-starsilk",
+      "event_id": "forging-starsilk",
+      "label": "The Forging of Starsilk",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase I — The Primordial Era & The Foundational Betrayals",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-primordial-betrayal",
+      "event_id": "primordial-betrayal",
+      "label": "The Primordial Betrayal",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase I — The Primordial Era & The Foundational Betrayals",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-imprisonment-nialbu",
+      "event_id": "imprisonment-nialbu",
+      "label": "The Imprisonment of NiAlBu",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase I — The Primordial Era & The Foundational Betrayals",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-growth-mother",
+      "event_id": "growth-mother",
+      "label": "The Growth of Mother",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase II — The Pre-War Era & The Great Misunderstanding",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-compilation-drakken",
+      "event_id": "compilation-drakken",
+      "label": "The Compilation of the Drakken",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase II — The Pre-War Era & The Great Misunderstanding",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-descent-eggs",
+      "event_id": "descent-eggs",
+      "label": "The Descent of the Eggs",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase II — The Pre-War Era & The Great Misunderstanding",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-great-misunderstanding",
+      "event_id": "great-misunderstanding",
+      "label": "The Great Misunderstanding",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase II — The Pre-War Era & The Great Misunderstanding",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-blood-eclipse-war",
+      "event_id": "blood-eclipse-war",
+      "label": "The Blood Eclipse War",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "authored-duration",
+        "duration": {
+          "authored_text": "one hundred seventy years",
+          "unit": "years",
+          "value": 170
+        },
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-first-contact",
+      "event_id": "first-contact",
+      "label": "First Contact",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "exact-authored-marker",
+        "duration": null,
+        "exact_authored_marker": "Year 0",
+        "relative_marker": "Blood Eclipse War"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-standard-conquest",
+      "event_id": "standard-conquest",
+      "label": "The Standard of Conquest",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "exact-authored-marker",
+        "duration": null,
+        "exact_authored_marker": "Year 3",
+        "relative_marker": "Blood Eclipse War"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-long-attrition",
+      "event_id": "long-attrition",
+      "label": "The Long Attrition",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "exact-authored-marker",
+        "duration": null,
+        "exact_authored_marker": "Years 7–120",
+        "relative_marker": "Blood Eclipse War"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-siege-ruby-eclipse",
+      "event_id": "siege-ruby-eclipse",
+      "label": "The Siege of the Ruby Eclipse",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "exact-authored-marker",
+        "duration": null,
+        "exact_authored_marker": "Year 121",
+        "relative_marker": "Blood Eclipse War"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-collapse-aureal-gate",
+      "event_id": "collapse-aureal-gate",
+      "label": "The Collapse at the Aureal Gate",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "exact-authored-marker",
+        "duration": null,
+        "exact_authored_marker": "Year 170",
+        "relative_marker": "Blood Eclipse War"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-halven-heliocide",
+      "event_id": "halven-heliocide",
+      "label": "The Hal’Ven Heliocide",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase III — The Blood Eclipse War: The One-Hundred-Seventy-Year Atrocity",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-locking-siege-wall",
+      "event_id": "locking-siege-wall",
+      "label": "The Locking of the Siege Wall",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase IV — The Post-War Era & Catastrophic Aftermath",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [
+          "blood-eclipse-war"
+        ],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "Post-War Era"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-postwar-protocols",
+      "event_id": "postwar-protocols",
+      "label": "The Postwar Protocols",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase IV — The Post-War Era & Catastrophic Aftermath",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [
+          "blood-eclipse-war"
+        ],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "Post-War Era"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-first-dirt",
+      "event_id": "first-dirt",
+      "label": "The First Dirt",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase IV — The Post-War Era & Catastrophic Aftermath",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [
+          "blood-eclipse-war"
+        ],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "31 days post-war"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-syrin-genocide",
+      "event_id": "syrin-genocide",
+      "label": "The Syrin Genocide",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase IV — The Post-War Era & Catastrophic Aftermath",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [
+          "blood-eclipse-war"
+        ],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "Post-War Era"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-spire-event",
+      "event_id": "spire-event",
+      "label": "The Spire Event",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-accidental-dive-kail",
+      "event_id": "accidental-dive-kail",
+      "label": "The Accidental Dive of Kail",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-breach-zentrum",
+      "event_id": "breach-zentrum",
+      "label": "The Breach at Zentrum",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [
+          "accidental-dive-kail"
+        ],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "256 years later"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-worldsvault-breach",
+      "event_id": "worldsvault-breach",
+      "label": "The WorldsVault Breach",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "relative-authored-marker",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": "Late Act IV"
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-starbinding-climax",
+      "event_id": "starbinding-climax",
+      "label": "The Starbinding Climax",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-reconstruction",
+      "event_id": "reconstruction",
+      "label": "The Reconstruction",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    },
+    {
+      "canon_status": "unknown",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/#event-codec-decompilation",
+      "event_id": "codec-decompilation",
+      "label": "Codec’s Decompilation",
+      "source": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+        "heading": "Phase V — The Modern Era & The Great Starbinding Flashpoint",
+        "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+        "path": "src/content/sections/chronology.body.html",
+        "source_key": "five-phase-canon-chronology",
+        "stable_record_id": "chronology"
+      },
+      "spoiler_level": "unknown",
+      "status_provenance": {
+        "canon_status": "no structured event canon status is authored",
+        "spoiler_level": "no structured event spoiler level is authored",
+        "visibility": "existing public source record"
+      },
+      "temporal": {
+        "absolute_date": null,
+        "after_event_ids": [],
+        "before_event_ids": [],
+        "certainty": "unknown",
+        "duration": null,
+        "exact_authored_marker": null,
+        "relative_marker": null
+      },
+      "visibility": "public"
+    }
+  ],
+  "human_url": "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/",
+  "interpretation_rules": [
+    "Each event is a direct label from the cited authored chronology source; generated chronology data never outranks that source.",
+    "Absolute dates remain null because the source does not author a universal calendar date for these events.",
+    "Exact markers retain their authored relative text and are not converted into calendar dates or inferred ordering.",
+    "Visibility, canon status, spoiler level, and temporal certainty are independent fields. Explorer filters only change the current rendered view."
+  ],
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-chronology-index/1",
+  "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
+  "source_record": {
+    "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/",
+    "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#chronology",
+    "path": "src/content/sections/chronology.body.html",
+    "source_key": "five-phase-canon-chronology",
+    "stable_id": "chronology"
+  }
+}

@@ -125,3 +125,15 @@ def test_curated_tours_local_library_journey(page: Page, local_server):
     expect(page.locator("#bookmarksList")).to_contain_text("Codec")
     page.reload()
     expect(page.locator("#bookmarksList")).to_contain_text("Codec")
+
+
+def test_chronology_filter_and_deep_link_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/chronology/?temporal=exact-authored-marker#event-first-contact")
+    expect(page.locator("#event-first-contact")).to_be_visible()
+    expect(page.locator("#chronologyStatus")).to_contain_text("5 of 27 events")
+    page.locator("#temporalFilter").select_option("unknown")
+    expect(page.locator("#event-first-contact")).to_be_hidden()
+    page.locator("#resetFilters").click()
+    expect(page.locator("#event-first-contact")).to_be_visible()
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
