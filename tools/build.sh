@@ -7,13 +7,14 @@ set -euo pipefail
 #     -> build/generate.py              (deterministic Compendium -> docs/index.html)
 #     -> build/machine_publication.py   (deterministic public machine derivatives)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
+#     -> build/museum_publication.py    (manifest-derived museum object model/viewer)
 #     -> build/validate.py              (parsed-DOM structural + canon-invariant gate)
 #     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
-# docs/index.html, docs/machine/, and docs/entities/ are disposable generated
-# output. Every run rebuilds them from declared source authority; none may
-# become a second canon source of truth.
+# docs/index.html, docs/machine/, docs/entities/, and docs/objects/ are
+# disposable generated output. Every run rebuilds them from declared source
+# authority; none may become a second canon source of truth.
 #
 # Published media (docs/assets/media/, docs/asset-manifest.json) is itself
 # committed, generated output -- regenerating it from media/source/ is a
@@ -24,7 +25,8 @@ set -euo pipefail
 #
 # Usage:
 #   ./tools/build.sh                    Render the Compendium, machine layer,
-#                                        entity permalinks + strict validation.
+#                                        entity permalinks, museum objects +
+#                                        strict validation.
 #   ./tools/build.sh --regenerate-media  Also re-derive docs/assets/media/ +
 #                                        docs/asset-manifest.json from
 #                                        media/source/ (requires that
@@ -92,6 +94,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/machine_publication.py --check
     echo "-> Generating (in-memory) and checking stable entity permalinks..."
     "$PY" build/entity_publication.py --check
+    echo "-> Generating (in-memory) and checking museum object publication..."
+    "$PY" build/museum_publication.py --check
 else
     echo "-> Generating docs/index.html from src/content/ + src/templates/..."
     "$PY" build/generate.py
@@ -99,13 +103,15 @@ else
     "$PY" build/machine_publication.py
     echo "-> Generating stable entity permalinks from declared authority..."
     "$PY" build/entity_publication.py
+    echo "-> Generating museum object model/viewer from published media provenance..."
+    "$PY" build/museum_publication.py
 fi
 
 echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/entities
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/entities docs/objects
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"
