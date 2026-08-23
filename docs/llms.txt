@@ -39,3 +39,6 @@ Interpretation rules:
 - Faceted discovery and AI context packets are generated convenience derivatives: result classes remain structural, excerpts are mechanical source projections, and packet fields never outrank cited source authority.
 - Curated tours are editorial stable-ID navigation only; browser-local bookmarks, recent/history, progress, and user-named collections are not published, are not canon evidence, and private local text is not serialized into public URLs.
 - Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.
+Human interactive chronology: https://westkitty.github.io/Starsilk_Character_Dossier/chronology/
+Chronology JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json
+- Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.

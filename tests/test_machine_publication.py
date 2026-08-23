@@ -21,6 +21,7 @@ SCHEMAS = {
     "context-packet.schema.json",
     "context-packet-index.schema.json",
     "tour-index.schema.json",
+    "chronology-index.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -203,6 +204,11 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "tours/tours.json",
         "tours/schema.json",
         "tours/AUTHORITY.md",
+        "chronology/",
+        "chronology/chronology.json",
+        "chronology/chronology.md",
+        "chronology/schema.json",
+        "chronology/AUTHORITY.md",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -235,6 +241,9 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
     assert SITE_BASE + "tours/" in llms
     assert SITE_BASE + "tours/tours.json" in llms
     assert "browser-local" in llms
+    assert index["endpoints"]["chronology"] == SITE_BASE + "chronology/"
+    assert index["endpoints"]["chronology_index"] == SITE_BASE + "chronology/chronology.json"
+    assert SITE_BASE + "chronology/" in llms
 
 
 def test_sitemap_matches_declared_public_urls():
