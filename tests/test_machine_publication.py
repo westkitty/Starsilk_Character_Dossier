@@ -16,6 +16,7 @@ SCHEMAS = {
     "entity-index.schema.json",
     "relationship-graph.schema.json",
     "relationship-observatory.schema.json",
+    "canon-lock-register.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -181,6 +182,11 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "relationships/relationships.json",
         "relationships/relationships.md",
         "relationships/AUTHORITY.md",
+        "canon/",
+        "canon/canon-locks.json",
+        "canon/canon-locks.md",
+        "canon/schema.json",
+        "canon/AUTHORITY.md",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -201,10 +207,14 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
     assert SITE_BASE + "relationships/" in llms
     assert SITE_BASE + "relationships/relationships.json" in llms
     assert SITE_BASE + "relationships/relationships.md" in llms
+    assert SITE_BASE + "canon/" in llms
+    assert SITE_BASE + "canon/canon-locks.json" in llms
+    assert SITE_BASE + "canon/canon-locks.md" in llms
     assert "/entities/<stable-id>/" in llms
     assert "legacy" in llms.lower()
     assert "observed-xref" in llms
     assert "do not infer" in llms.lower()
+    assert "not complete canon" in llms.lower()
 
 
 def test_sitemap_matches_declared_public_urls():

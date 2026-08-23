@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
+  "title": "Starsilk canon lock register v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_url", "project_id", "canonical_url", "source_invariants", "lock_count", "document_lock_count", "section_lock_count", "locks", "additional_validator_assertions", "authority_boundary"],
+  "properties": {
+    "schema": {"const": "starsilk-canon-lock-register/1"},
+    "schema_url": {"type": "string", "format": "uri"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "source_invariants": {"const": "src/canon/invariants.json"},
+    "lock_count": {"type": "integer", "minimum": 0},
+    "document_lock_count": {"type": "integer", "minimum": 0},
+    "section_lock_count": {"type": "integer", "minimum": 0},
+    "locks": {"type": "array", "items": {"$ref": "#/$defs/lock"}},
+    "additional_validator_assertions": {"$ref": "#/$defs/additionalAssertions"},
+    "authority_boundary": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {
+    "patterns": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "stable_id", "canonical_url", "source_refs"],
+      "properties": {
+        "kind": {"enum": ["complete-compendium-document", "published-section"]},
+        "stable_id": {"type": ["string", "null"]},
+        "canonical_url": {"type": "string", "format": "uri"},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "enforcement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validator", "status", "scope_semantics"],
+      "properties": {
+        "validator": {"const": "build/validate.py --strict"},
+        "status": {"const": "enforced-on-generated-compendium-validation"},
+        "scope_semantics": {"type": "string", "minLength": 1}
+      }
+    },
+    "lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lock_id", "description", "scope", "target", "positive_requirements", "prohibitions", "authority", "enforcement"],
+      "properties": {
+        "lock_id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+        "description": {"type": "string", "minLength": 1},
+        "scope": {"enum": ["document", "section"]},
+        "target": {"$ref": "#/$defs/target"},
+        "positive_requirements": {"$ref": "#/$defs/patterns"},
+        "prohibitions": {"$ref": "#/$defs/patterns"},
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["canon_content", "machine_validation", "public_derivative"],
+          "properties": {
+            "canon_content": {"type": "string", "minLength": 1},
+            "machine_validation": {"const": "src/canon/invariants.json"},
+            "public_derivative": {"const": "generated /canon/ publication"}
+          }
+        },
+        "enforcement": {"$ref": "#/$defs/enforcement"}
+      }
+    },
+    "additionalAssertions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["structural_counts", "principal_names", "drakken_art_identity_section_ids"],
+      "properties": {
+        "structural_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "principal_names": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "drakken_art_identity_section_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

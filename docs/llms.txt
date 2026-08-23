@@ -15,6 +15,9 @@ Observed relationship graph: https://westkitty.github.io/Starsilk_Character_Doss
 Human relationship observatory: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/
 Relationship Observatory JSON: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.json
 Relationship Observatory Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.md
+Human Canon Inspector: https://westkitty.github.io/Starsilk_Character_Dossier/canon/
+Canon lock register JSON: https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.json
+Canon lock register Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.md
 JSON-LD: https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld
 Authority and evidence rules: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
 Versioned schemas: https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/
@@ -26,4 +29,5 @@ Interpretation rules:
 - `canon_status: unknown` means the current source model does not author a per-section status.
 - `spoiler_level: major` is a conservative publication default, not a canon fact.
 - Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.
+- The Canon Inspector exposes only a machine-enforced validation subset from `src/canon/invariants.json`; it is not complete canon, and absence from its register does not imply non-canon status.
 - Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.
