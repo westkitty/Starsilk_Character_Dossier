@@ -47,7 +47,6 @@ jobs:
           source_dir = Path('media/source')
           missing = []
           mismatched = []
-
           for name, meta in sorted(expected.items()):
               src = old_dir / name
               if not src.is_file():
@@ -60,13 +59,7 @@ jobs:
                       h.update(chunk)
               actual_sha = h.hexdigest()
               if actual_size != meta['bytes'] or actual_sha != meta['sha256']:
-                  mismatched.append({
-                      'file': name,
-                      'expected_bytes': meta['bytes'],
-                      'actual_bytes': actual_size,
-                      'expected_sha256': meta['sha256'],
-                      'actual_sha256': actual_sha,
-                  })
+                  mismatched.append({'file': name, 'expected_bytes': meta['bytes'], 'actual_bytes': actual_size, 'expected_sha256': meta['sha256'], 'actual_sha256': actual_sha})
                   continue
               shutil.copy2(src, source_dir / name)
 
@@ -77,9 +70,7 @@ jobs:
               'missing': missing,
               'mismatched': mismatched,
           }
-          Path('dist/historical-reconstruction.json').write_text(
-              json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8'
-          )
+          Path('dist/historical-reconstruction.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8')
           print(json.dumps(report, indent=2, sort_keys=True))
           if missing or mismatched or report['reconstructed_count'] != len(expected):
               raise SystemExit('historical reconstruction did not exactly match current provenance')
@@ -93,8 +84,7 @@ jobs:
       - name: Package verified recovery ZIP
         run: |
           set -euo pipefail
-          python3 tools/media_source_archive.py package \
-            --out dist/starsilk-canonical-media-recovery.zip
+          python3 tools/media_source_archive.py package --out dist/starsilk-canonical-media-recovery.zip
 
       - name: Test archive restore in isolation
         run: |
@@ -102,54 +92,74 @@ jobs:
           rm -rf /tmp/starsilk-recovery-test
           mkdir -p /tmp/starsilk-recovery-test
           python3 -m zipfile -e dist/starsilk-canonical-media-recovery.zip /tmp/starsilk-recovery-test
-          python3 tools/media_source_archive.py verify \
-            --manifest /tmp/starsilk-recovery-test/asset-manifest.json \
-            --source-dir /tmp/starsilk-recovery-test/media-source \
-            --json | tee dist/restore-verification.json
+          python3 tools/media_source_archive.py verify --manifest /tmp/starsilk-recovery-test/asset-manifest.json --source-dir /tmp/starsilk-recovery-test/media-source --json | tee dist/restore-verification.json
           python3 -m zipfile -t dist/starsilk-canonical-media-recovery.zip
 
-      - name: Record archive checksum and split for transfer
+      - name: Record archive checksum and split for durable transfer
         run: |
           set -euo pipefail
           sha256sum dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.sha256
           stat --printf='%s bytes\n' dist/starsilk-canonical-media-recovery.zip | tee dist/starsilk-canonical-media-recovery.zip.size.txt
           mkdir -p dist/chunks
-          split -b 240M -d -a 2 \
-            dist/starsilk-canonical-media-recovery.zip \
-            dist/chunks/starsilk-canonical-media-recovery.zip.part-
+          split -b 80M -d -a 2 dist/starsilk-canonical-media-recovery.zip dist/chunks/starsilk-canonical-media-recovery.zip.part-
           sha256sum dist/chunks/* | tee dist/chunks/SHA256SUMS.txt
-          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-00
-          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-01
-          test -f dist/chunks/starsilk-canonical-media-recovery.zip.part-02
+          for n in 00 01 02 03 04 05 06; do test -f "dist/chunks/starsilk-canonical-media-recovery.zip.part-${n}"; done
+          test "$(find dist/chunks -name 'starsilk-canonical-media-recovery.zip.part-*' | wc -l)" -eq 7
 
-      - name: Upload recovery chunk 00
+      - name: Upload durable chunk 00
         uses: actions/upload-artifact@v4
         with:
-          name: starsilk-canonical-media-recovery-part-00
+          name: starsilk-media-durable-part-00
           path: dist/chunks/starsilk-canonical-media-recovery.zip.part-00
           retention-days: 90
           if-no-files-found: error
-
-      - name: Upload recovery chunk 01
+      - name: Upload durable chunk 01
         uses: actions/upload-artifact@v4
         with:
-          name: starsilk-canonical-media-recovery-part-01
+          name: starsilk-media-durable-part-01
           path: dist/chunks/starsilk-canonical-media-recovery.zip.part-01
           retention-days: 90
           if-no-files-found: error
-
-      - name: Upload recovery chunk 02
+      - name: Upload durable chunk 02
         uses: actions/upload-artifact@v4
         with:
-          name: starsilk-canonical-media-recovery-part-02
+          name: starsilk-media-durable-part-02
           path: dist/chunks/starsilk-canonical-media-recovery.zip.part-02
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload durable chunk 03
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-media-durable-part-03
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-03
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload durable chunk 04
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-media-durable-part-04
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-04
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload durable chunk 05
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-media-durable-part-05
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-05
+          retention-days: 90
+          if-no-files-found: error
+      - name: Upload durable chunk 06
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-media-durable-part-06
+          path: dist/chunks/starsilk-canonical-media-recovery.zip.part-06
           retention-days: 90
           if-no-files-found: error
 
       - name: Upload verification metadata
         uses: actions/upload-artifact@v4
         with:
-          name: starsilk-canonical-media-recovery-verification
+          name: starsilk-media-durable-verification
           path: |
             dist/starsilk-canonical-media-recovery.zip.sha256
             dist/starsilk-canonical-media-recovery.zip.size.txt
