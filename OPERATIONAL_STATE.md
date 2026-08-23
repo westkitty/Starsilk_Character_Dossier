@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 9
+revision: 10
 
 ## Current baseline
 
@@ -12,6 +12,7 @@ revision: 9
 - Pages source-aware self-heal PR #3 merged at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`.
 - Live Pages proof PR #4 merged at `5a813a13e13dcaed19f496196de1302572fa9984`.
 - Museum + AI Phase 1 PR #11 merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
+- Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -20,6 +21,8 @@ revision: 9
 - `MUSEUM_AI_ROADMAP.md` is the durable twelve-phase plan/progress ledger; it does not override observed repository reality.
 - `MUSEUM_AI_FOUNDATION.md` is the Phase 1 authority/identity/publication contract for future machine derivatives.
 - `src/schema/metadata-record.schema.json` is the v1 metadata wrapper contract; it stores provenance/status/identity metadata and must not become a duplicate canon prose database.
+- `build/machine_publication.py` owns deterministic generation of `docs/machine/`, `docs/llms.txt`, and `docs/sitemap.xml`; those files are public generated derivatives, not lore authority.
+- `src/machine/AUTHORITY.md` and `src/schema/*` are the authored source surfaces for Phase 2 public authority notes and versioned machine schemas.
 
 ## Active invariants
 
@@ -44,6 +47,11 @@ revision: 9
 19. Unknown is a first-class machine state. Missing event IDs, dates, coordinates, semantic relationships, or other unauthored facts must remain unknown rather than being plausibly invented.
 20. Observed xref edges prove only `mentions`/references. Stronger relationship semantics require explicit authored semantic authority and source evidence.
 21. Future public machine exports must pass `tools/check_public_boundary.py` and retain source/evidence references. JavaScript hiding, Archive mode, `ajd`, robots metadata, and agent-orientation files are not privacy controls.
+22. `docs/machine/`, `docs/llms.txt`, and `docs/sitemap.xml` are generator-owned derivatives. They must remain reproducible from declared source authority and must not be hand-promoted into a second canon database.
+23. The Phase 2 entity index mirrors the 127 authored top-level records in `src/content/sections.json`. The existing validator's 138 rendered `<section>` count is a different DOM-level invariant; neither count should be forced to equal the other.
+24. Public relationship output may expose only observed xref `mentions` / `observed-xref` evidence until an explicit semantic authority is authored.
+25. Phase 2 JSON-LD is structural `CreativeWork` / `hasPart` metadata only. Do not type fictional subjects as real `Person` entities or infer unsupported schema.org relationships.
+26. Any new public machine URL must be generator-owned, declared in the machine index/sitemap as appropriate, boundary-checked before merge, and independently verified at the live Pages edge when publication changes.
 
 ## Verified implementation
 
@@ -104,6 +112,59 @@ CI run `32637622651` verified on the repaired implementation head:
 - WebKit representative journeys passed.
 
 Because Phase 1 did not change `docs/` or introduce a public machine artifact, a GitHub Pages rebuild/live-edge publication proof was not required for this phase. The previously verified Pages authority remains `legacy / main /docs` unless a future authoritative read proves otherwise.
+
+## Museum + AI Phase 2 machine publication — VERIFIED
+
+Phase 2 of 12, **Machine Publication Layer**, is complete.
+
+Repository evidence:
+
+- starting `main`: `55427686853a8f8ee049ad38b01fe92ec097aa20`
+- work branch: `phase-02-machine-publication`
+- primary implementation commit: `d4d73223a2f5975945ad1aa607f1880f0a54936a`
+- one bounded implementation repair: `0f42f2527ac3bef7b1d17e8bb5322363a1f87e0e`
+- exact generated-publication commit: `d60b66214598f0263d79d48059d32e715e9699c9`
+- final validation head: `e64068a821df51cfb67cdd335007287d64d31fc7`
+- successful CI: run `32639102690`
+- PR: `#12`
+- merged to `main`: `d23d940ae306017550ef69265f0bea8d64a7c303`
+
+Phase 2 verified capabilities:
+
+- `build/machine_publication.py` deterministically generates and checks the complete Phase 2 public machine surface.
+- `tools/build.sh` now owns both human HTML and machine-publication generation/checking, followed by strict canon/DOM validation and the public-boundary gate.
+- `docs/machine/index.json` is the finite public orientation/index surface.
+- `docs/machine/entities.json` contains 127 records, exactly matching authored top-level `src/content/sections.json` IDs in source order. This intentionally differs from the existing DOM validator's 138 rendered `<section>` count.
+- `docs/machine/relationships.json` contains 136 observed xref relationships and exposes only `kind=mentions` with `evidence_class=observed-xref`.
+- `docs/machine/project.jsonld` describes the Compendium and section resources using conservative structural `CreativeWork` / `hasPart` semantics only.
+- `docs/machine/compendium.md` and `docs/machine/entities.md` provide deterministic Markdown alternatives.
+- public v1 schemas are copied byte-for-byte from authored `src/schema/` sources into `docs/machine/schema/v1/`.
+- `docs/llms.txt`, `docs/sitemap.xml`, and generated `docs/machine/AUTHORITY.md` provide orientation, URL discovery, authority, evidence, unknown-state, and interpretation rules.
+- no chronology-event IDs, WorldsVault record IDs, coordinates, richer semantic relationships, per-section canon statuses, or other unauthored facts were invented.
+- no public Compendium UI, canon prose, media source, dependency set, or Phase 3 entity-page surface was changed.
+
+Final CI run `32639102690` on head `e64068a821df51cfb67cdd335007287d64d31fc7` passed:
+
+- source build;
+- deterministic committed `docs/` parity, including machine publication;
+- strict existing DOM/canon validation;
+- public machine-boundary validation;
+- `git diff --check`;
+- full Chromium pytest + Playwright suite;
+- representative Firefox journeys;
+- representative WebKit journeys.
+
+Live publication was independently verified by execution-only PR #13, which was closed without merge after proof. GitHub Actions run `32639347205`, job `97193914513`, fetched the cache-busted GitHub Pages edge and established:
+
+- `LIVE_MACHINE_PROOF_OK urls=14 records=127 exact_machine_files=13`;
+- all 13 non-root declared public machine/text files were byte-identical to the merged `docs/` files;
+- the root still contained the current `dossierSearch` and `Archive tools` markers;
+- live entity records retained `visibility=public` and `canon_status=unknown`;
+- live relationship edges remained `mentions` / `observed-xref` only;
+- live JSON-LD remained `CreativeWork`-only structural metadata;
+- the downloaded live publication passed `tools/check_public_boundary.py` across 13 text/machine files.
+
+Therefore Phase 2 is **VERIFIED COMPLETE** at repository, CI, merge, and live-publication layers.
 
 ## GitHub Pages deployment state — VERIFIED
 
@@ -216,10 +277,12 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Individual chronology events do not yet have authored stable IDs; Phase 1 deliberately preserves this as unknown rather than deriving IDs from presentation order or guessed labels.
 - Many WorldsVault template records do not yet have authored stable IDs; display labels/media references are not silently promoted into permanent object identity.
 - No semantic relationship authority currently exists beyond observed xref `mentions` relationships.
+- Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
+- Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.
 
 ## Pending
 
-- Museum + AI program: Phase 2 of 12 — Machine Publication Layer. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
+- Museum + AI program: Phase 3 of 12 — Stable Entity Pages and Permalinks. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
 
 ## Revision log
 
@@ -232,3 +295,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 7: locked Archive Tools behind the session-only search-field phrase gate, removed persisted archive-mode activation, kept `Starsilk Compendium` on one responsive line, regenerated deployable output/visual baselines, and verified Chromium/Firefox/WebKit behavior before commit.
 - Revision 8: added the Archive-mode `Copy implementation prompt` handoff, locked changed-slot identity to authoritative `data-asset-key` values, required exported local evidence for implementation, and verified clipboard/export behavior plus full browser regressions before commit.
 - Revision 9: completed Museum + AI Phase 1. Added the durable twelve-phase roadmap, authority/stable-identity/publication contract, v1 metadata schema, dependency-free metadata validation, future public-machine boundary checks, focused regression tests, explicit unknown handling, and independent visibility/canon/spoiler semantics; PR #11 passed required Chromium/Firefox/WebKit CI after one bounded test-only repair and merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
+- Revision 10: completed Museum + AI Phase 2. Added deterministic public machine generation, versioned schemas, 127 section-backed records, 136 observed `mentions` relationships, Markdown alternatives, conservative `CreativeWork` JSON-LD, `llms.txt`, sitemap, authority notes, build integration, public-boundary checks, and exact live-edge verification of all 14 declared URLs; PR #12 passed final Chromium/Firefox/WebKit CI and merged at `d23d940ae306017550ef69265f0bea8d64a7c303`; live proof run `32639347205` passed and proof PR #13 was closed unmerged.
