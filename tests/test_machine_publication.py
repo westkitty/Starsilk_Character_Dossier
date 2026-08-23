@@ -17,6 +17,9 @@ SCHEMAS = {
     "relationship-graph.schema.json",
     "relationship-observatory.schema.json",
     "canon-lock-register.schema.json",
+    "discovery-index.schema.json",
+    "context-packet.schema.json",
+    "context-packet-index.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -187,6 +190,14 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "canon/canon-locks.md",
         "canon/schema.json",
         "canon/AUTHORITY.md",
+        "discover/",
+        "discover/discovery.json",
+        "discover/discovery.md",
+        "discover/context-packets.json",
+        "discover/schema.json",
+        "discover/context-packet.schema.json",
+        "discover/context-packet-index.schema.json",
+        "discover/AUTHORITY.md",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -195,6 +206,7 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
             f"{SITE_BASE}entities/{stable_id}/",
             f"{SITE_BASE}machine/entities/{stable_id}.json",
             f"{SITE_BASE}machine/entities/{stable_id}.md",
+            f"{SITE_BASE}discover/packets/{stable_id}.json",
         }
     assert set(index["public_urls"]) == expected_urls
 
