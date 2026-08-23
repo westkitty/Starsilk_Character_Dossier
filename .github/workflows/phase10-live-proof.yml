@@ -1,0 +1,84 @@
+name: Phase 10 live Pages proof
+
+on:
+  pull_request:
+    branches: [main]
+    paths: [.github/workflows/phase10-live-proof.yml]
+
+permissions:
+  contents: read
+
+jobs:
+  prove-live-phase10:
+    name: Read-only Pages proof (Chromium)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install proof dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Wait for exact live WorldsVault bytes
+        env:
+          SITE: https://westkitty.github.io/Starsilk_Character_Dossier
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/live/worldsvault /tmp/live/machine/schema/v1
+          files=(
+            "worldsvault/index.html"
+            "worldsvault/worldsvault.css"
+            "worldsvault/worldsvault.js"
+            "worldsvault/worldsvault.json"
+            "worldsvault/worldsvault.md"
+            "worldsvault/schema.json"
+            "worldsvault/AUTHORITY.md"
+            "machine/index.json"
+            "machine/schema/v1/worldsvault-topology.schema.json"
+            "llms.txt"
+            "sitemap.xml"
+            "entities/index.html"
+            "entities/cosmic-architecture/index.html"
+            "index.html"
+          )
+          for attempt in $(seq 1 30); do
+            ok=true
+            for path in "${files[@]}"; do
+              target="/tmp/live/$path"
+              mkdir -p "$(dirname "$target")"
+              curl --fail --silent --show-error --location "$SITE/$path?phase10-proof=$GITHUB_SHA" -o "$target" || ok=false
+              cmp --silent "docs/$path" "$target" || ok=false
+            done
+            if [ "$ok" = true ]; then break; fi
+            if [ "$attempt" = 30 ]; then echo "Live Pages bytes did not converge to merged Phase 10 output" >&2; exit 1; fi
+            sleep 10
+          done
+          python tools/check_public_boundary.py /tmp/live/worldsvault /tmp/live/machine /tmp/live/llms.txt /tmp/live/sitemap.xml /tmp/live/entities /tmp/live/index.html
+          echo "LIVE_PHASE10_BYTES_OK nodes=11 edges=6 exact_files=${#files[@]} boundary=complete machine=ok sitemap=ok orientation=ok entity-discovery=ok root=ok"
+      - name: Exercise exact live WorldsVault route in Chromium
+        env:
+          SITE: https://westkitty.github.io/Starsilk_Character_Dossier
+        run: |
+          python - <<'PY'
+          import os
+          from playwright.sync_api import expect, sync_playwright
+
+          site = os.environ["SITE"]
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page(viewport={"width": 375, "height": 812})
+              requests = []
+              page.on("request", lambda request: requests.append(request.url))
+              page.goto(f"{site}/worldsvault/#node-meridian-station", wait_until="networkidle")
+              expect(page.locator("#node-meridian-station")).to_be_visible()
+              page.locator("#node-meridian-station").press("Enter")
+              expect(page.locator("#edge-orbits--meridian-station--virgil")).not_to_have_class("is-muted")
+              expect(page.locator("#node-virgil")).to_have_class(__import__("re").compile(r"\\bis-connected\\b"))
+              assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+              assert page.locator("#text-heading").is_visible()
+              assert all(url.startswith(site) for url in requests), requests
+              browser.close()
+          print("LIVE_PHASE10_BROWSER_OK deep-link=ok keyboard=ok sources=ok text-equivalent=ok mobile=ok network=local-origin-only")
+          PY
