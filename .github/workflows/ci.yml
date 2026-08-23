@@ -7,15 +7,60 @@ on:
     branches: [main]
 
 jobs:
+  # Temporary migration job for PR #1 only. It checks out the actual PR head,
+  # regenerates disposable docs output and visual references inside the exact
+  # pinned Chromium container, commits only those derived files if they changed,
+  # and uploads the references for human inspection. Remove this job before merge.
+  synchronize-generated-evidence:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Trust the checked-out worktree
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Regenerate deployable page from authoritative source
+        run: ./tools/build.sh
+
+      - name: Regenerate visual references in pinned Chromium environment
+        env:
+          UPDATE_VISUAL_BASELINES: "1"
+        run: python3 -m pytest tests/test_dossier.py -q -k 'test_visual_'
+
+      - name: Upload visual references for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baseline-candidates
+          path: tests/visual_baselines/*.png
+          if-no-files-found: error
+
+      - name: Commit synchronized derived outputs if changed
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        run: |
+          git add docs/index.html tests/visual_baselines/*.png
+          if git diff --cached --quiet; then
+            echo "Derived outputs already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "test: synchronize generated page and visual baselines"
+          git push origin "HEAD:${HEAD_BRANCH}"
+
   build-and-validate:
     name: Build, validate, unit + accessibility/network tests (Chromium)
     runs-on: ubuntu-latest
-    # Screenshot regression is only meaningfully stable when every run
-    # renders fonts the same way -- text-rendering differs enough between
-    # host OSes that a bare ubuntu-latest runner would drift from the
-    # committed baselines through no real design change of its own. Pinning
-    # the official Playwright container (matching requirements.txt's
-    # playwright version) is Microsoft's own documented fix for this.
     container: mcr.microsoft.com/playwright/python:v1.62.0-noble
     steps:
       - uses: actions/checkout@v4
@@ -29,16 +74,6 @@ jobs:
       - name: Build from source (no media regeneration required)
         run: ./tools/build.sh
 
-      # Temporary source-sync evidence: upload the page produced by the real
-      # generator so the branch can commit that exact disposable output.
-      # Removed before merge after docs/index.html is synchronized.
-      - name: Upload regenerated page candidate
-        uses: actions/upload-artifact@v4
-        with:
-          name: regenerated-page-candidate
-          path: docs/index.html
-          if-no-files-found: error
-
       - name: Prove the checked-in deployable docs/ matches its declared sources
         run: |
           ./tools/build.sh --check
@@ -51,23 +86,6 @@ jobs:
 
       - name: git diff --check (no whitespace-corrupt diffs)
         run: git diff --check
-
-      # One-shot migration step for this branch: render references inside the
-      # exact pinned Linux container that owns visual-regression comparisons.
-      # These candidates are inspected and committed, then this capture step
-      # is removed before merge. UPDATE_VISUAL_BASELINES is never set in the
-      # normal final CI path.
-      - name: Capture pinned visual baseline candidates
-        env:
-          UPDATE_VISUAL_BASELINES: "1"
-        run: python3 -m pytest tests/test_dossier.py -q -k 'test_visual_'
-
-      - name: Upload pinned visual baseline candidates
-        uses: actions/upload-artifact@v4
-        with:
-          name: visual-baseline-candidates
-          path: tests/visual_baselines/*.png
-          if-no-files-found: error
 
       - name: Full pytest + Playwright suite (Chromium)
         run: python3 -m pytest tests/ -q
