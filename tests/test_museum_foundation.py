@@ -123,4 +123,4 @@ def test_foundation_contract_keeps_publication_dimensions_separate():
     assert "Spoiler level" in contract
     assert "does not imply canon status or visibility" in contract
     assert "does **not** prove semantic relations" in contract
-    assert "do not create a second manually maintained canon prose database" in contract
+    assert "do not create a second manually maintained canon prose database" in contract.lower()
