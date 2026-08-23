@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% if mode == "record" %}
+<title>{{ record.display_label }} · {{ project_name }}</title>
+<meta name="description" content="{{ record.display_label }} in the Starsilk Compendium. Stable record {{ record.stable_id }}.">
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="alternate" type="application/json" href="{{ json_url }}">
+<link rel="alternate" type="text/markdown" href="{{ markdown_url }}">
+{% else %}
+<title>Entity index · {{ project_name }}</title>
+<meta name="description" content="Stable, shareable destinations for the published Starsilk Compendium records.">
+<link rel="canonical" href="{{ canonical_url }}">
+{% endif %}
+<link rel="stylesheet" href="{% if mode == 'record' %}../{% endif %}entity.css">
+<script type="application/ld+json">{{ jsonld }}</script>
+</head>
+<body class="entity-shell">
+<a class="skip-link" href="#main">Skip to record</a>
+<header class="entity-bar">
+  <a class="entity-brand" href="{% if mode == 'record' %}../../{% else %}../{% endif %}">{{ project_name }}</a>
+  <nav aria-label="Entity publication">
+    <a href="{% if mode == 'record' %}../{% endif %}">Entity index</a>
+    <a href="{% if mode == 'record' %}../../machine/entities.json{% else %}../machine/entities.json{% endif %}">Machine index</a>
+  </nav>
+</header>
+
+{% if mode == "record" %}
+<main id="main" class="entity-main">
+  <article class="entity-permalink {{ public_classes }}" data-stable-id="{{ record.stable_id }}">
+    <header class="entity-identity">
+      <div>
+        <div class="eyebrow">Stable Compendium record</div>
+        <div class="entity-stable-id">{{ record.stable_id }}</div>
+      </div>
+      <div class="entity-actions" aria-label="Record destinations">
+        <a href="{{ legacy_url }}">Open in complete Compendium</a>
+        <a href="{{ json_url }}">JSON</a>
+        <a href="{{ markdown_url }}">Markdown</a>
+      </div>
+    </header>
+
+    {% if title_html %}
+    <div class="page-title entity-source-title">{{ title_html }}</div>
+    {% else %}
+    <div class="entity-fallback-title"><h1>{{ record.display_label }}</h1></div>
+    {% endif %}
+
+    <dl class="entity-facts" aria-label="Publication metadata">
+      <div><dt>Stable ID</dt><dd><code>{{ record.stable_id }}</code></dd></div>
+      <div><dt>Structural type</dt><dd>{{ record.object_type }}</dd></div>
+      <div><dt>Canon status</dt><dd>{{ record.canon_status }}</dd></div>
+      <div><dt>Spoiler level</dt><dd>{{ record.spoiler_level }}</dd></div>
+    </dl>
+
+    <section class="entity-source-wrap" aria-labelledby="published-source-heading">
+      <h2 id="published-source-heading" class="entity-section-label">Published source content</h2>
+      <div id="entitySource" class="entity-source {{ public_classes }}">{{ body_html }}</div>
+    </section>
+
+    {% if media or outgoing or incoming %}
+    <aside class="entity-context" aria-label="Record context">
+      {% if media %}
+      <section class="entity-context-section" aria-labelledby="media-heading">
+        <h2 id="media-heading">Related published media</h2>
+        <ul class="entity-media-list">
+          {% for item in media %}
+          <li>
+            {% if item.is_image %}<img loading="lazy" decoding="async" src="{{ item.url }}" alt="{{ item.alt }}">{% endif %}
+            <div><a data-media-id="{{ item.id }}" href="{{ item.url }}">{{ item.id }}</a><span>{{ item.mime_type }}</span></div>
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if outgoing %}
+      <section class="entity-context-section" aria-labelledby="mentions-heading">
+        <h2 id="mentions-heading">Observed mentions</h2>
+        <p class="entity-evidence-note">Cross-references observed in the published Compendium; no stronger relationship is implied.</p>
+        <ul class="entity-related-list">
+          {% for item in outgoing %}<li><a data-relationship="mentions" href="{{ item.url }}">{{ item.label }}</a><code>{{ item.stable_id }}</code></li>{% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if incoming %}
+      <section class="entity-context-section" aria-labelledby="backlinks-heading">
+        <h2 id="backlinks-heading">Mentioned by</h2>
+        <p class="entity-evidence-note">Incoming cross-references observed in the published Compendium.</p>
+        <ul class="entity-related-list">
+          {% for item in incoming %}<li><a data-relationship="mentioned-by" href="{{ item.url }}">{{ item.label }}</a><code>{{ item.stable_id }}</code></li>{% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+    </aside>
+    {% endif %}
+
+    <footer class="entity-footer">
+      <a href="{{ legacy_url }}">Complete Compendium location</a>
+      <span aria-hidden="true">·</span>
+      <a href="../">All stable records</a>
+    </footer>
+  </article>
+</main>
+{% else %}
+<main id="main" class="entity-main entity-index-page">
+  <header class="entity-index-head">
+    <div class="eyebrow">Stable destinations</div>
+    <h1>Entity index</h1>
+    <p>First-class public destinations for the {{ records|length }} authored top-level records in the Compendium. Record identity follows the stable ID, not the display label.</p>
+  </header>
+  <ol class="entity-index-grid">
+    {% for record in records %}
+    <li>
+      <a href="{{ record.stable_id }}/">
+        <span class="entity-index-label">{{ record.display_label }}</span>
+        <code>{{ record.stable_id }}</code>
+        <span class="entity-index-type">{{ record.object_type }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</main>
+{% endif %}
+</body>
+</html>
