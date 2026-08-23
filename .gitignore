@@ -5,6 +5,12 @@
 starsilk_character_dossier.html
 archive/
 
+# The authored stable section ID `archive` has a generated public permalink.
+# Keep the local/offline archive exclusion above while allowing this exact
+# deterministic publication path to enter the committed docs/ tree.
+!docs/entities/archive/
+!docs/entities/archive/index.html
+
 # Canonical original media (pre-optimization). Same rationale as the
 # offline archive above: these are large, locally-held originals that
 # media/manifest.json under docs/ traces back to via source_sha256 /
