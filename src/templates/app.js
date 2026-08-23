@@ -465,12 +465,16 @@
   // functional, just tucked behind an explicit toggle rather than
   // presented as ordinary public-site reading controls.
   var modeToggle = document.getElementById('modeToggle');
+  var copyPromptBtn = document.getElementById('copyImplementationPrompt');
+  var copyPromptStatus = document.getElementById('copyPromptStatus');
   if(modeToggle){
     var setArchiveMode = function(on){
       document.documentElement.classList.toggle('archive-mode', on);
       modeToggle.setAttribute('aria-pressed', String(on));
       modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
       modeToggle.hidden = !on;
+      if(copyPromptBtn) copyPromptBtn.hidden = !on;
+      if(!on && copyPromptStatus) copyPromptStatus.textContent = '';
     };
     modeToggle.addEventListener('click', function(){
       setArchiveMode(false);
@@ -485,6 +489,21 @@
   var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));
   var assetStatus = document.getElementById('assetStatus');
   var ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];
+  var localFileMeta = new WeakMap();
+var initialStageState = new WeakMap();
+stages.forEach(function(stage, index){
+  var record = stage.closest('[data-asset-key]');
+  var numberEl = stage.querySelector('.asset-number');
+  var titleEl = record ? record.querySelector('figcaption b') : null;
+  var img = stage.querySelector('img');
+  initialStageState.set(stage, {
+    slot: numberEl ? numberEl.textContent.trim() : String(index + 1),
+    asset_key: record ? (record.getAttribute('data-asset-key') || '') : '',
+    title: titleEl ? titleEl.textContent.trim() : (stage.getAttribute('aria-label') || '').replace(/^Attach image for /, ''),
+    src: img ? (img.getAttribute('src') || '') : '',
+    hidden: img ? img.hidden : true
+  });
+});
 
   function attachedCount(){
     return stages.filter(function(s){
@@ -517,6 +536,7 @@
       return;
     }
     clearInlineError(stage);
+    localFileMeta.set(stage, {name: file.name || '', type: file.type || '', bytes: file.size || 0});
     var reader = new FileReader();
     reader.onload = function(){
       var img = stage.querySelector('img');
@@ -557,9 +577,112 @@
         if(empty) empty.hidden = false;
         var input = stage.querySelector('.asset-file');
         if(input) input.value = '';
+        localFileMeta.delete(stage);
         clearInlineError(stage);
       });
       refreshStatus();
+    });
+  }
+
+  function collectLocalArchiveChanges(){
+    var changes = [];
+    stages.forEach(function(stage){
+      var initial = initialStageState.get(stage);
+      if(!initial) return;
+      var img = stage.querySelector('img');
+      var currentSrc = img ? (img.getAttribute('src') || '') : '';
+      var currentHidden = img ? img.hidden : true;
+      if(currentSrc === initial.src && currentHidden === initial.hidden) return;
+      var meta = localFileMeta.get(stage) || null;
+      var currentVisible = !!(currentSrc && !currentHidden);
+      var initialVisible = !!(initial.src && !initial.hidden);
+      changes.push({
+        slot: initial.slot,
+        asset_key: initial.asset_key || null,
+        title: initial.title,
+        identity_status: initial.asset_key ? 'stable' : 'missing',
+        action: currentVisible ? (initialVisible ? 'replace' : 'attach') : 'clear',
+        local_file: meta ? {name: meta.name, type: meta.type, bytes: meta.bytes} : null,
+        initial_src: initial.src || null
+      });
+    });
+    return changes;
+  }
+
+  function buildImplementationPrompt(changes){
+    var manifest = JSON.stringify(changes, null, 2);
+    var unresolved = changes.filter(function(change){ return !change.asset_key; });
+    return [
+      'Implement my browser-local Archive Tools changes in the Starsilk Compendium repository.',
+      '',
+      'Repository: https://github.com/westkitty/Starsilk_Character_Dossier',
+      'Target production branch: main',
+      '',
+      'REALITY / AUTHORITY RULES',
+      '- Inspect the current repository state before editing. Do not assume this prompt is newer than main.',
+      '- Preserve the deterministic authority flow: src/content/ + src/templates/ -> build/generate.py -> docs/index.html -> build/validate.py.',
+      '- Do not hand-edit docs/index.html as authoritative source.',
+      '- Preserve src/canon/invariants.json as the canon-lock authority and docs/asset-manifest.json as published-media provenance.',
+      '- Archive Tools are browser-local maintenance controls. This prompt is a handoff request, not evidence that GitHub was already changed.',
+      '- Every changed legacy slot must retain the stable asset_key listed in the manifest. Never substitute DOM position for that identity.',
+      '',
+      'LOCAL CHANGE MANIFEST',
+      manifest,
+      '',
+      'REQUIRED LOCAL EVIDENCE',
+      '- I must also attach the locally exported starsilk_character_dossier_copy.html from Archive Tools, or the original local image files named in the manifest. The exported HTML is evidence only, not canonical source.',
+      '- The export contains locally attached images as data URIs. If the export/files are missing or a listed change cannot be recovered from them, stop and ask me for the missing evidence. Do not fabricate media or infer unseen edits.',
+      '- If any manifest item has identity_status "missing" or no asset_key, do not implement that item. Stop and report the unresolved identity.',
+      '- Treat only the manifest plus supplied local export/files as authorization for local Archive Tools changes. Preserve unrelated canon, prose, media, layout, behavior, and infrastructure.',
+      '',
+      'IMPLEMENTATION TASK',
+      '1. Compare the supplied local export against the current generated site and identify only the manifest-listed Archive Tools changes.',
+      '2. Resolve every change by its stable asset_key and title, then map it back to authoritative source files and the existing media/provenance pipeline. Do not target a slot only by ordinal DOM position.',
+      '3. Do not commit data-URI images as the final media architecture. If canonical original media changes, preserve the external media/source recovery model and do not claim durable recovery is complete unless that obligation is actually satisfied.',
+      '4. Rebuild generated output from authoritative sources and run the canon/build validators plus relevant browser regression tests.',
+      '5. Inspect the final diff and verify that only authorized changes and required generated/provenance outputs changed.',
+      '6. Stage only the intended files, commit with a descriptive message, and push. If a branch/PR is required, complete that path so the verified result lands on main.',
+      '7. Report the final commit SHA, files changed, validation results, and any evidence or backup obligation that remains unverified.',
+      '',
+      unresolved.length ? 'BLOCKED: ' + unresolved.length + ' changed slot(s) lack stable asset identity. Do not implement them.' : ('Detected browser-local Archive Tools changes: ' + changes.length + '.')
+    ].join('\n');
+  }
+
+  function fallbackCopyText(text){
+    return new Promise(function(resolve, reject){
+      var field = document.createElement('textarea');
+      field.value = text;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      var copied = false;
+      try { copied = document.execCommand('copy'); } catch(e){}
+      field.remove();
+      if(copied) resolve();
+      else reject(new Error('Clipboard copy was not permitted by this browser.'));
+    });
+  }
+
+  function copyPlainText(text){
+    if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+      return navigator.clipboard.writeText(text).catch(function(){ return fallbackCopyText(text); });
+    }
+    return fallbackCopyText(text);
+  }
+
+  if(copyPromptBtn){
+    copyPromptBtn.addEventListener('click', function(){
+      var changes = collectLocalArchiveChanges();
+      var prompt = buildImplementationPrompt(changes);
+      copyPlainText(prompt).then(function(){
+        if(copyPromptStatus) copyPromptStatus.textContent = 'Implementation prompt copied. ' + changes.length + ' local change' + (changes.length === 1 ? '' : 's') + ' detected.';
+        copyPromptBtn.textContent = 'Prompt copied';
+        setTimeout(function(){ copyPromptBtn.textContent = 'Copy implementation prompt'; }, 1800);
+      }).catch(function(){
+        if(copyPromptStatus) copyPromptStatus.textContent = 'Could not copy the implementation prompt. Check clipboard permission and try again.';
+      });
     });
   }
 
@@ -577,7 +700,7 @@
   if(exportBtn){
     exportBtn.addEventListener('click', function(){
       var clone = document.documentElement.cloneNode(true);
-      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded').forEach(function(n){ n.remove(); });
+      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded, #copyImplementationPrompt, #copyPromptStatus').forEach(function(n){ n.remove(); });
       var tb = clone.querySelector('.asset-toolbar');
       if(tb) tb.remove();
       clone.querySelectorAll('.attachment-stage').forEach(function(s){
