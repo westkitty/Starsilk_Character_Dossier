@@ -1,0 +1,384 @@
+name: Apply archive implementation prompt handoff
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-verify:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: work/archive-copy-implementation-prompt
+
+      - name: Trust checkout
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply bounded source and regression-test changes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"{label}: expected exactly one match, found {count}")
+              return text.replace(old, new, 1)
+
+          shell_path = Path("src/templates/shell.html.j2")
+          shell = shell_path.read_text(encoding="utf-8")
+          shell = replace_once(
+              shell,
+              '<button type="button" id="modeToggle" aria-pressed="false" hidden>Archive tools</button><div class="page-controls-search">',
+              '<button type="button" id="modeToggle" aria-pressed="false" hidden>Archive tools</button><button type="button" id="copyImplementationPrompt" hidden>Copy implementation prompt</button><span id="copyPromptStatus" class="visually-hidden" role="status" aria-live="polite"></span><div class="page-controls-search">',
+              "archive copy-prompt top control",
+          )
+          shell_path.write_text(shell, encoding="utf-8")
+
+          app_path = Path("src/templates/app.js")
+          app = app_path.read_text(encoding="utf-8")
+
+          old_mode = '''  var modeToggle = document.getElementById('modeToggle');
+          if(modeToggle){
+            var setArchiveMode = function(on){
+              document.documentElement.classList.toggle('archive-mode', on);
+              modeToggle.setAttribute('aria-pressed', String(on));
+              modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
+              modeToggle.hidden = !on;
+            };
+            modeToggle.addEventListener('click', function(){
+              setArchiveMode(false);
+            });
+            try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}
+            setArchiveMode(false);
+          }
+          '''
+          new_mode = '''  var modeToggle = document.getElementById('modeToggle');
+          var copyPromptBtn = document.getElementById('copyImplementationPrompt');
+          var copyPromptStatus = document.getElementById('copyPromptStatus');
+          if(modeToggle){
+            var setArchiveMode = function(on){
+              document.documentElement.classList.toggle('archive-mode', on);
+              modeToggle.setAttribute('aria-pressed', String(on));
+              modeToggle.textContent = on ? 'Reader mode' : 'Archive tools';
+              modeToggle.hidden = !on;
+              if(copyPromptBtn) copyPromptBtn.hidden = !on;
+              if(!on && copyPromptStatus) copyPromptStatus.textContent = '';
+            };
+            modeToggle.addEventListener('click', function(){
+              setArchiveMode(false);
+            });
+            try { localStorage.removeItem('starsilk-archive-mode'); } catch(e){}
+            setArchiveMode(false);
+          }
+          '''
+          old_mode = "\n".join(line[10:] if line.startswith("          ") else line for line in old_mode.splitlines()) + "\n"
+          new_mode = "\n".join(line[10:] if line.startswith("          ") else line for line in new_mode.splitlines()) + "\n"
+          app = replace_once(app, old_mode, new_mode, "archive mode copy-prompt visibility")
+
+          old_stage_init = "  var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));\n  var assetStatus = document.getElementById('assetStatus');\n  var ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];\n"
+          new_stage_init = '''  var stages = Array.prototype.slice.call(document.querySelectorAll('.attachment-stage'));
+          var assetStatus = document.getElementById('assetStatus');
+          var ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/webp', 'image/gif'];
+          var localFileMeta = new WeakMap();
+
+          function stageIdentity(stage, index){
+            var record = stage.closest ? stage.closest('.reference-record') : null;
+            var titleEl = record ? record.querySelector('figcaption b') : null;
+            var key = record ? record.getAttribute('data-asset-key') : '';
+            var fallback = stage.getAttribute('aria-label') || ('Legacy reference slot ' + (index + 1));
+            return {
+              slot: index + 1,
+              asset_key: key || ('slot-' + (index + 1)),
+              title: titleEl ? titleEl.textContent.trim() : fallback.replace(/^Attach image for /, '')
+            };
+          }
+
+          var initialStageState = stages.map(function(stage, index){
+            var img = stage.querySelector('img');
+            var identity = stageIdentity(stage, index);
+            return {
+              slot: identity.slot,
+              asset_key: identity.asset_key,
+              title: identity.title,
+              src: img ? (img.getAttribute('src') || '') : '',
+              hidden: img ? img.hidden : true
+            };
+          });
+          '''
+          new_stage_init = "\n".join(line[10:] if line.startswith("          ") else line for line in new_stage_init.splitlines()) + "\n"
+          app = replace_once(app, old_stage_init, new_stage_init, "archive stage baseline state")
+
+          app = replace_once(
+              app,
+              "    clearInlineError(stage);\n    var reader = new FileReader();",
+              "    clearInlineError(stage);\n    localFileMeta.set(stage, {name: file.name || '', type: file.type || '', bytes: file.size || 0});\n    var reader = new FileReader();",
+              "local attachment metadata capture",
+          )
+
+          app = replace_once(
+              app,
+              "        var input = stage.querySelector('.asset-file');\n        if(input) input.value = '';\n        clearInlineError(stage);",
+              "        var input = stage.querySelector('.asset-file');\n        if(input) input.value = '';\n        localFileMeta.delete(stage);\n        clearInlineError(stage);",
+              "clear local attachment metadata",
+          )
+
+          before_unload = "  window.addEventListener('beforeunload', function(e){\n"
+          prompt_block = '''  function collectLocalArchiveChanges(){
+            var changes = [];
+            stages.forEach(function(stage, index){
+              var initial = initialStageState[index];
+              var img = stage.querySelector('img');
+              var currentSrc = img ? (img.getAttribute('src') || '') : '';
+              var currentHidden = img ? img.hidden : true;
+              if(currentSrc === initial.src && currentHidden === initial.hidden) return;
+
+              var identity = stageIdentity(stage, index);
+              var meta = localFileMeta.get(stage) || null;
+              var currentVisible = !!(currentSrc && !currentHidden);
+              var initialVisible = !!(initial.src && !initial.hidden);
+              var action = currentVisible ? (initialVisible ? 'replace' : 'attach') : 'clear';
+              changes.push({
+                slot: identity.slot,
+                asset_key: identity.asset_key,
+                title: identity.title,
+                action: action,
+                local_file: meta ? {name: meta.name, type: meta.type, bytes: meta.bytes} : null,
+                initial_src: initial.src || null
+              });
+            });
+            return changes;
+          }
+
+          function buildImplementationPrompt(changes){
+            var manifest = JSON.stringify(changes, null, 2);
+            return [
+              'Implement my browser-local Archive Tools changes in the Starsilk Compendium repository.',
+              '',
+              'Repository: https://github.com/westkitty/Starsilk_Character_Dossier',
+              'Target production branch: main',
+              '',
+              'REALITY / AUTHORITY RULES',
+              '- Establish the current repository state before editing. Do not assume this prompt is newer than main.',
+              '- Preserve the deterministic authority flow: src/content/ + src/templates/ -> build/generate.py -> docs/index.html -> build/validate.py.',
+              '- Do not hand-edit docs/index.html as authoritative source.',
+              '- Preserve src/canon/invariants.json as the canon-lock authority and docs/asset-manifest.json as published-media provenance.',
+              '- Archive Tools are browser-local maintenance controls; this prompt is a handoff request, not evidence that GitHub was already changed.',
+              '',
+              'LOCAL CHANGE MANIFEST',
+              manifest,
+              '',
+              'EVIDENCE I MUST PROVIDE',
+              '- I will attach the locally exported starsilk_character_dossier_copy.html from Archive Tools. It is evidence only, not canonical source.',
+              '- That exported HTML contains locally attached images as data URIs. If it is missing, or if the listed changes cannot be recovered from it, stop and ask me to attach the export or the original image files. Do not fabricate missing media or infer unseen changes.',
+              '- Treat only the manifest above plus the supplied local export/files as authorization for browser-local changes. Preserve unrelated canon, prose, media, layout, behavior, and project infrastructure.',
+              '',
+              'IMPLEMENTATION TASK',
+              '1. Compare the supplied local export against the current generated site and identify only the manifest-listed Archive Tools changes.',
+              '2. Map each accepted change back to the authoritative source files and the existing media/provenance pipeline. Do not commit data-URI images as the final media architecture.',
+              '3. If new canonical original media is required, preserve the project rule that canonical originals live outside Git under the media/source recovery model; do not claim durable recovery is complete unless that external-source obligation is actually satisfied.',
+              '4. Rebuild generated output from authoritative sources and run the repository canon/build validators plus relevant browser regression tests.',
+              '5. Inspect the final diff and verify that only authorized changes and required generated/provenance outputs changed.',
+              '6. Stage only the intended files, commit with a descriptive message, and push. If the environment requires a branch/PR, complete that path so the verified result lands on main.',
+              '7. Report the final commit SHA, files changed, validation results, and any evidence or backup obligation that remains unverified.',
+              '',
+              changes.length ? 'There are ' + changes.length + ' browser-local Archive Tools change(s) in this manifest.' : 'No browser-local attachment changes are currently detected. Do not change canon/media from this prompt alone.'
+            ].join('\n');
+          }
+
+          function fallbackCopyText(text){
+            return new Promise(function(resolve, reject){
+              var field = document.createElement('textarea');
+              field.value = text;
+              field.setAttribute('readonly', '');
+              field.style.position = 'fixed';
+              field.style.opacity = '0';
+              document.body.appendChild(field);
+              field.select();
+              var copied = false;
+              try { copied = document.execCommand('copy'); } catch(e){}
+              field.remove();
+              if(copied) resolve();
+              else reject(new Error('Clipboard copy was not permitted by this browser.'));
+            });
+          }
+
+          function copyPlainText(text){
+            if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+              return navigator.clipboard.writeText(text).catch(function(){ return fallbackCopyText(text); });
+            }
+            return fallbackCopyText(text);
+          }
+
+          if(copyPromptBtn){
+            copyPromptBtn.addEventListener('click', function(){
+              var changes = collectLocalArchiveChanges();
+              var prompt = buildImplementationPrompt(changes);
+              copyPlainText(prompt).then(function(){
+                if(copyPromptStatus) copyPromptStatus.textContent = 'Implementation prompt copied. ' + changes.length + ' local change' + (changes.length === 1 ? '' : 's') + ' detected.';
+              }).catch(function(){
+                if(copyPromptStatus) copyPromptStatus.textContent = 'Could not copy the implementation prompt. Check clipboard permission and try again.';
+              });
+            });
+          }
+
+          '''
+          prompt_block = "\n".join(line[10:] if line.startswith("          ") else line for line in prompt_block.splitlines()) + "\n"
+          app = replace_once(app, before_unload, prompt_block + before_unload, "implementation prompt behavior")
+
+          app = replace_once(
+              app,
+              "      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded').forEach(function(n){ n.remove(); });",
+              "      clone.querySelectorAll('.asset-file, .attachment-error, #clearImages, #exportEmbedded, #copyImplementationPrompt, #copyPromptStatus').forEach(function(n){ n.remove(); });",
+              "export strips implementation prompt controls",
+          )
+
+          app_path.write_text(app, encoding="utf-8")
+
+          tests_path = Path("tests/test_dossier.py")
+          tests = tests_path.read_text(encoding="utf-8")
+
+          tests = replace_once(
+              tests,
+              "    mode_toggle = page.locator(\"#modeToggle\")\n    expect(mode_toggle).to_be_hidden()",
+              "    mode_toggle = page.locator(\"#modeToggle\")\n    copy_prompt = page.locator(\"#copyImplementationPrompt\")\n    expect(mode_toggle).to_be_hidden()\n    expect(copy_prompt).to_be_hidden()",
+              "copy prompt hidden in reader mode",
+          )
+          tests = replace_once(
+              tests,
+              "    expect(mode_toggle).to_be_visible()\n    expect(mode_toggle).to_have_attribute(\"aria-pressed\", \"true\")",
+              "    expect(mode_toggle).to_be_visible()\n    expect(copy_prompt).to_be_visible()\n    expect(copy_prompt).to_have_text(\"Copy implementation prompt\")\n    expect(mode_toggle).to_have_attribute(\"aria-pressed\", \"true\")",
+              "copy prompt visible in archive mode",
+          )
+          tests = replace_once(
+              tests,
+              "    mode_toggle.click()\n    expect(mode_toggle).to_be_hidden()",
+              "    mode_toggle.click()\n    expect(mode_toggle).to_be_hidden()\n    expect(copy_prompt).to_be_hidden()",
+              "copy prompt relocks with reader mode",
+          )
+          tests = replace_once(
+              tests,
+              "    page.reload()\n    expect(page.locator(\"#modeToggle\")).to_be_hidden()",
+              "    page.reload()\n    expect(page.locator(\"#modeToggle\")).to_be_hidden()\n    expect(page.locator(\"#copyImplementationPrompt\")).to_be_hidden()",
+              "copy prompt hidden after reload",
+          )
+
+          insert_marker = "def test_invalid_attachment_error(page: Page, local_server, tmp_path):\n"
+          copy_test = '''def test_copy_implementation_prompt_captures_local_change_manifest(page: Page, local_server, tmp_path):
+              page.add_init_script("""() => {
+                  Object.defineProperty(navigator, 'clipboard', {
+                      configurable: true,
+                      value: { writeText: (text) => { window.__copiedImplementationPrompt = text; return Promise.resolve(); } }
+                  });
+              }""")
+              page.set_viewport_size({"width": 1280, "height": 800})
+              page.goto(f"{local_server}/index.html")
+              page.locator("#dossierSearch").fill("ajd")
+              copy_btn = page.locator("#copyImplementationPrompt")
+              expect(copy_btn).to_be_visible()
+
+              test_img = tmp_path / "handoff-test.png"
+              test_img.write_bytes(b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x06\x00\x00\x00\x1f\x15c4\x00\x00\x00\nIDATx\x9cc\x00\x01\x00\x00\x05\x00\x01\r\n-\xb4\x00\x00\x00\x00IEND\xaeB`\x82")
+              page.locator(".attachment-stage .asset-file").first.set_input_files(str(test_img))
+              copy_btn.click()
+
+              status = page.locator("#copyPromptStatus")
+              expect(status).to_contain_text("Implementation prompt copied")
+              expect(status).to_contain_text("1 local change detected")
+              prompt = page.evaluate("window.__copiedImplementationPrompt")
+              assert isinstance(prompt, str)
+              assert "https://github.com/westkitty/Starsilk_Character_Dossier" in prompt
+              assert '"asset_key": "asset-19"' in prompt
+              assert '"title": "Administration allocation facility"' in prompt
+              assert '"action": "attach"' in prompt
+              assert '"name": "handoff-test.png"' in prompt
+              assert "starsilk_character_dossier_copy.html" in prompt
+              assert "Do not hand-edit docs/index.html" in prompt
+              assert "Stage only the intended files" in prompt
+              assert "commit with a descriptive message" in prompt
+              assert "push" in prompt
+              assert "lands on main" in prompt
+
+
+          '''
+          copy_test = "\n".join(line[10:] if line.startswith("          ") else line for line in copy_test.splitlines()) + "\n"
+          tests = replace_once(tests, insert_marker, copy_test + insert_marker, "copy implementation prompt regression test")
+
+          tests = replace_once(
+              tests,
+              "    assert 'class=\"asset-toolbar\"' not in html_content\n",
+              "    assert 'class=\"asset-toolbar\"' not in html_content\n    assert 'id=\"copyImplementationPrompt\"' not in html_content\n    assert 'id=\"copyPromptStatus\"' not in html_content\n",
+              "export strips copy prompt controls test",
+          )
+          tests_path.write_text(tests, encoding="utf-8")
+          PY
+
+      - name: Build generated site from authoritative sources
+        run: ./tools/build.sh
+
+      - name: Verify deterministic deployable output
+        run: |
+          ./tools/build.sh --check
+          git diff --check
+
+      - name: Full Chromium regression suite
+        run: python3 -m pytest tests/ -q
+
+      - name: Firefox representative journeys
+        env:
+          HOME: /root
+        run: python3 -m pytest tests/test_cross_browser.py --browser firefox -q
+
+      - name: WebKit representative journeys
+        env:
+          HOME: /root
+        run: python3 -m pytest tests/test_cross_browser.py --browser webkit -q
+
+      - name: Record verified operational state
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+
+          path = Path("OPERATIONAL_STATE.md")
+          text = path.read_text(encoding="utf-8")
+          if "revision: 7" not in text:
+              raise SystemExit("expected operational-state revision 7")
+          text = text.replace("revision: 7", "revision: 8", 1)
+          invariant = "15. Public Archive Tools remain local-only browser maintenance controls with no repository-write path. They must load locked in Reader mode, require the exact search-field unlock phrase for the current page session, and must not persist an unlocked state across reloads."
+          text = text.replace(invariant, invariant + "\n16. The Archive Tools implementation handoff is evidence-only: its Copy implementation prompt control must appear only in Archive mode, derive a manifest from current browser-local attachment differences, require the exported local HTML or original files as evidence, preserve the source/build/canon/media authority model, and never imply that copying a prompt wrote to GitHub.", 1)
+          run_id = os.environ["GITHUB_RUN_ID"]
+          section = f'''\n## Archive implementation prompt handoff — VERIFIED\n\nGitHub Actions run `{run_id}` implemented and verified the archive-only handoff control before commit:\n\n- `Copy implementation prompt` is hidden in Reader mode and visible only after the existing exact `ajd` Archive Tools unlock.\n- Relocking to Reader mode or reloading hides the handoff control again.\n- The copied prompt includes the repository target, authority rules, a generated manifest of browser-local attachment differences, the exported-HTML evidence requirement, preservation constraints, validation requirements, and explicit stage/commit/push instructions.\n- Local file metadata is used only to describe the current handoff manifest; local image bytes remain browser-local unless the user explicitly exports the HTML snapshot or supplies the original files.\n- The prompt explicitly forbids treating `docs/index.html` or a data-URI export as canonical source and preserves the external canonical-media recovery obligation.\n- Exported HTML copies strip the Copy implementation prompt control/status from the exported artifact.\n- Generated `docs/index.html` was rebuilt from authoritative `src/` sources.\n- Full Chromium pytest/Playwright suite passed.\n- Firefox representative journeys passed.\n- WebKit representative journeys passed.\n- `./tools/build.sh --check` and `git diff --check` passed.\n'''
+          text = text.replace("\n## Known limitations\n", section + "\n## Known limitations\n", 1)
+          text = text.replace(
+              "- One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.\n",
+              "- One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.\n- Archive attachment changes are not automatically persisted in browser storage. The exported HTML copy is the local evidence snapshot; implementation tools still need that export or the original local files to recover image bytes.\n",
+              1,
+          )
+          text = text.rstrip() + "\n- Revision 8: added an Archive-mode-only Copy implementation prompt handoff that captures the current local attachment-change manifest, requires exported/local evidence, preserves repository authority, and directs a repo-aware implementation tool through validation, staging, commit, and push.\n"
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Remove one-time workflow and stage commit push verified change set
+        shell: bash
+        run: |
+          git checkout -- docs/qa-report.txt || true
+          rm -f .github/workflows/apply-copy-implementation-prompt.yml
+          git diff --check
+          git status --short
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: add archive implementation prompt handoff"
+          git push origin HEAD:work/archive-copy-implementation-prompt
