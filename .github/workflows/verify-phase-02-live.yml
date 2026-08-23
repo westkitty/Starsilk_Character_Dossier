@@ -1,0 +1,122 @@
+name: Verify Phase 02 live machine publication
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify every declared Pages URL against merged docs
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
+          PROOF = "${{ github.run_id }}-${{ github.run_attempt }}"
+          OUT = Path("/tmp/starsilk-live-machine")
+          OUT.mkdir(parents=True, exist_ok=True)
+
+          def cache_bust(url, suffix):
+              sep = "&" if "?" in url else "?"
+              return f"{url}{sep}phase02proof={urllib.parse.quote(PROOF + '-' + suffix)}"
+
+          def fetch(url, suffix):
+              req = urllib.request.Request(
+                  cache_bust(url, suffix),
+                  headers={"User-Agent": "Starsilk-Phase-02-Live-Proof"},
+              )
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  if response.status != 200:
+                      raise RuntimeError(f"{url}: HTTP {response.status}")
+                  return response.read()
+
+          index_url = BASE + "machine/index.json"
+          expected_index = Path("docs/machine/index.json").read_bytes()
+          live_index = None
+          last_error = None
+          for attempt in range(1, 31):
+              try:
+                  candidate = fetch(index_url, f"index-{attempt}")
+                  parsed = json.loads(candidate)
+                  if candidate == expected_index and parsed.get("schema") == "starsilk-machine-publication/1":
+                      live_index = candidate
+                      break
+                  last_error = RuntimeError("live index exists but does not yet match merged docs")
+              except Exception as exc:
+                  last_error = exc
+              if attempt < 30:
+                  time.sleep(5)
+          if live_index is None:
+              raise RuntimeError(f"Pages did not converge to Phase 2 machine index: {last_error}")
+
+          index = json.loads(live_index)
+          urls = index["public_urls"]
+          assert index["canonical_url"] == BASE
+          assert index["record_count"] == 138
+          assert len(urls) == len(set(urls)) == 14
+          assert urls[0] == BASE
+
+          downloaded = {}
+          for n, url in enumerate(urls):
+              data = fetch(url, f"url-{n}")
+              downloaded[url] = data
+              if url == BASE:
+                  text = data.decode("utf-8", errors="replace")
+                  assert "id=\"dossierSearch\"" in text
+                  assert "Archive tools" in text
+                  continue
+
+              relative = url.removeprefix(BASE)
+              expected_path = Path("docs") / relative
+              assert expected_path.is_file(), f"declared URL has no merged docs file: {relative}"
+              expected = expected_path.read_bytes()
+              assert data == expected, f"live bytes differ from merged docs: {url}"
+              target = OUT / relative
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(data)
+
+          entities = json.loads(downloaded[BASE + "machine/entities.json"])
+          assert entities["record_count"] == 138 == len(entities["records"])
+          assert len({record["stable_id"] for record in entities["records"]}) == 138
+          assert all(record["visibility"] == "public" for record in entities["records"])
+          assert all(record["canon_status"] == "unknown" for record in entities["records"])
+
+          relations = json.loads(downloaded[BASE + "machine/relationships.json"])
+          assert relations["relationship_count"] == len(relations["relationships"])
+          assert all(item["kind"] == "mentions" for item in relations["relationships"])
+          assert all(item["evidence_class"] == "observed-xref" for item in relations["relationships"])
+
+          jsonld = json.loads(downloaded[BASE + "machine/project.jsonld"])
+          assert jsonld["@type"] == "CreativeWork"
+          assert all(part["@type"] == "CreativeWork" for part in jsonld["hasPart"])
+          assert "Person" not in json.dumps(jsonld)
+
+          llms = downloaded[BASE + "llms.txt"].decode("utf-8")
+          assert "observed-xref" in llms
+          assert "do not infer" in llms.lower()
+
+          sitemap = downloaded[BASE + "sitemap.xml"].decode("utf-8")
+          for url in urls:
+              assert f"<loc>{url}</loc>" in sitemap
+
+          print(f"LIVE_MACHINE_PROOF_OK urls={len(urls)} exact_machine_files={len(urls)-1}")
+          PY
+
+      - name: Re-run public-boundary gate against downloaded live machine bytes
+        run: |
+          python3 tools/check_public_boundary.py \
+            /tmp/starsilk-live-machine/machine \
+            /tmp/starsilk-live-machine/llms.txt \
+            /tmp/starsilk-live-machine/sitemap.xml
