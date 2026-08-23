@@ -1,42 +1,53 @@
-name: Phase 7 CI diagnostic
+name: Phase 7 bounded repair
 
 on:
   pull_request:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  diagnose-chromium:
+  repair:
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
     steps:
       - uses: actions/checkout@v4
-      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - run: python3 -m pip install -r requirements.txt
-      - name: Run build/check/full suite and capture output
+        with:
+          ref: phase-07-faceted-discovery
+          fetch-depth: 0
+      - name: Update stale machine-publication expectations for Phase 7 surface
         shell: bash
         run: |
-          set +e
-          {
-            echo '== BUILD =='
-            ./tools/build.sh
-            echo "BUILD_RC=$?"
-            echo '== CHECK =='
-            ./tools/build.sh --check
-            echo "CHECK_RC=$?"
-            echo '== DOCS DIFF =='
-            git diff --exit-code -- docs/ ':(exclude)docs/qa-report.txt'
-            echo "DOCS_DIFF_RC=$?"
-            echo '== PYTEST =='
-            python3 -m pytest tests/ -q
-            echo "PYTEST_RC=$?"
-          } 2>&1 | tee phase7-ci-diagnostic.txt
-          exit 0
-      - name: Upload diagnostic
-        uses: actions/upload-artifact@v4
-        with:
-          name: phase7-ci-diagnostic
-          path: phase7-ci-diagnostic.txt
-          if-no-files-found: error
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('tests/test_machine_publication.py')
+          text = path.read_text(encoding='utf-8')
+          replacements = [
+              (
+                  '    "canon-lock-register.schema.json",\n}',
+                  '    "canon-lock-register.schema.json",\n    "discovery-index.schema.json",\n    "context-packet.schema.json",\n    "context-packet-index.schema.json",\n}',
+              ),
+              (
+                  '        "canon/AUTHORITY.md",\n    } | {f"machine/schema/v1/{name}" for name in SCHEMAS}',
+                  '        "canon/AUTHORITY.md",\n        "discover/",\n        "discover/discovery.json",\n        "discover/discovery.md",\n        "discover/context-packets.json",\n        "discover/schema.json",\n        "discover/context-packet.schema.json",\n        "discover/context-packet-index.schema.json",\n        "discover/AUTHORITY.md",\n    } | {f"machine/schema/v1/{name}" for name in SCHEMAS}',
+              ),
+              (
+                  '            f"{SITE_BASE}machine/entities/{stable_id}.md",\n        }',
+                  '            f"{SITE_BASE}machine/entities/{stable_id}.md",\n            f"{SITE_BASE}discover/packets/{stable_id}.json",\n        }',
+              ),
+          ]
+          for old, new in replacements:
+              if text.count(old) != 1:
+                  raise SystemExit(f'expected exactly one repair anchor, got {text.count(old)}: {old!r}')
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+          rm .github/workflows/phase7-diagnose-ci.yml
+          git diff --check
+      - name: Commit bounded repair
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tests/test_machine_publication.py .github/workflows/phase7-diagnose-ci.yml
+          git commit -m 'Repair Phase 7 machine publication expectations'
+          git push origin HEAD:phase-07-faceted-discovery
