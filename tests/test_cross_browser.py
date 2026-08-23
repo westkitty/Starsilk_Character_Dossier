@@ -110,3 +110,18 @@ def test_faceted_discovery_journey(page: Page, local_server):
     page.locator("#discoveryQuery").fill("Codec")
     page.keyboard.press("ArrowDown")
     expect(page.locator("#result-codec .result-link")).to_be_focused()
+
+
+
+def test_curated_tours_local_library_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/tours/#tour-principal-characters")
+    page.evaluate("localStorage.clear()")
+    page.reload()
+    expect(page.locator("#tour-principal-characters")).to_be_visible()
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    page.locator("#libraryRecord").select_option("codec")
+    page.locator("#bookmarkSelected").click()
+    expect(page.locator("#bookmarksList")).to_contain_text("Codec")
+    page.reload()
+    expect(page.locator("#bookmarksList")).to_contain_text("Codec")

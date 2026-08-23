@@ -1,0 +1,11 @@
+{
+  "schema": "starsilk-curated-tour-source/1",
+  "tours": [
+    {"tour_id": "overview", "navigation_group": "Overview"},
+    {"tour_id": "principal-characters", "navigation_group": "Principal characters"},
+    {"tour_id": "drakken-blood-systems", "navigation_group": "Drakken & blood systems"},
+    {"tour_id": "canon-cosmology", "navigation_group": "Canon & cosmology"},
+    {"tour_id": "reference", "navigation_group": "Reference"},
+    {"tour_id": "peripheral-cosmic", "navigation_group": "Peripheral & cosmic"}
+  ]
+}

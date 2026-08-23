@@ -19,6 +19,7 @@
     <a href="../entities/">Entity index</a>
     <a href="../relationships/">Relationships</a>
     <a href="../canon/">Canon Inspector</a>
+    <a href="../tours/">Tours & local library</a>
     <a href="discovery.json">JSON</a>
     <a href="context-packets.json">Context packets</a>
   </nav>
@@ -105,6 +106,7 @@
           <footer>
             <span>{{ item.media_count }} published media item{{ '' if item.media_count == 1 else 's' }}</span>
             <a href="packets/{{ item.stable_id }}.json">AI context packet</a>
+            <a href="../tours/#record-{{ item.stable_id }}">Local library</a>
             <a href="{{ item.legacy_url }}">Complete Compendium</a>
           </footer>
         </article>

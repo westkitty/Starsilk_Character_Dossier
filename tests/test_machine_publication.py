@@ -20,6 +20,7 @@ SCHEMAS = {
     "discovery-index.schema.json",
     "context-packet.schema.json",
     "context-packet-index.schema.json",
+    "tour-index.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -198,6 +199,10 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "discover/context-packet.schema.json",
         "discover/context-packet-index.schema.json",
         "discover/AUTHORITY.md",
+        "tours/",
+        "tours/tours.json",
+        "tours/schema.json",
+        "tours/AUTHORITY.md",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -227,6 +232,9 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
     assert "observed-xref" in llms
     assert "do not infer" in llms.lower()
     assert "not complete canon" in llms.lower()
+    assert SITE_BASE + "tours/" in llms
+    assert SITE_BASE + "tours/tours.json" in llms
+    assert "browser-local" in llms
 
 
 def test_sitemap_matches_declared_public_urls():
