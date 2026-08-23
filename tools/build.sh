@@ -86,6 +86,9 @@ python3 tools/apply_ux_audit_fixes.py
 echo "-> Applying media presentation normalization and default-collapsed sections..."
 python3 tools/apply_media_presentation_and_collapse.py
 
+echo "-> Lazy-loading videos inside collapsed sections..."
+python3 tools/lazy_load_collapsed_videos.py
+
 echo "-> Adding top-of-content controls (expand/collapse all, search, sidebar toggle)..."
 python3 tools/add_page_controls.py
 
@@ -98,6 +101,9 @@ if [ -f "starsilk header.mp4" ]; then
 else
     echo "   'starsilk header.mp4' not found at repo root; skipping (already-applied state, if any, is preserved)."
 fi
+
+echo "-> Adding opening reveal animation (hero video first, then the rest of the site)..."
+python3 tools/add_opening_reveal_animation.py
 
 echo "-> Finalizing and scrubbing metadata (UX-032, UX-033)..."
 python3 tools/finalize_metadata.py

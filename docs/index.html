@@ -265,11 +265,27 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
 .cover .eyebrow,.cover h1,.cover .edition-label,.cover .deck,.cover .cover-rule,.cover .tag-row{position:relative;z-index:2}
 @media(prefers-reduced-motion: reduce){.hero-video{display:none}.hero-video-wrap{background:#07101b}}
 @media print{.hero-video-wrap{display:none!important}}
+
+/* Opening reveal: hero video first, then the rest of the site */
+#index,.cover .eyebrow,.cover h1,.cover .edition-label,.cover .deck,.cover .cover-rule,.cover .tag-row{opacity:1;transform:translateY(0);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.page-controls{opacity:1;transition:opacity .6s cubic-bezier(.16,1,.3,1)}
+html.pre-reveal #index,html.pre-reveal .cover .eyebrow,html.pre-reveal .cover h1,html.pre-reveal .cover .edition-label,html.pre-reveal .cover .deck,html.pre-reveal .cover .cover-rule,html.pre-reveal .cover .tag-row{opacity:0;transform:translateY(14px);transition:none}
+html.pre-reveal .page-controls{opacity:0;transition:none}
+html:not(.pre-reveal) .page-controls{transition-delay:.05s}
+html:not(.pre-reveal) #index{transition-delay:.1s}
+html:not(.pre-reveal) .cover .eyebrow{transition-delay:.12s}
+html:not(.pre-reveal) .cover h1{transition-delay:.18s}
+html:not(.pre-reveal) .cover .edition-label{transition-delay:.28s}
+html:not(.pre-reveal) .cover .deck{transition-delay:.34s}
+html:not(.pre-reveal) .cover .cover-rule{transition-delay:.42s}
+html:not(.pre-reveal) .cover .tag-row{transition-delay:.48s}
+@media(prefers-reduced-motion: reduce){html.pre-reveal #index,html.pre-reveal .page-controls,html.pre-reveal .cover .eyebrow,html.pre-reveal .cover h1,html.pre-reveal .cover .edition-label,html.pre-reveal .cover .deck,html.pre-reveal .cover .cover-rule,html.pre-reveal .cover .tag-row{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <a href="#mainContent" class="skip-link">Skip to dossier content</a>
 
+<script data-role="pre-reveal-gate">document.documentElement.classList.add('pre-reveal');</script>
 <video id="brandkit-watermark" muted playsinline aria-hidden="true"></video><script>
 (function(){
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1982,7 +1998,7 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
   <div class="media-stack">
     <div class="media-note"><b>Canon lock:</b> the Blood Eclipse War lasts <b>one hundred seventy years</b>. Any obsolete short-war label visible inside the supplied infographic or video is superseded reference text, not current canon.</div>
     <figure class="media-figure"><img loading="lazy" decoding="async" src="assets/media/1aeb182b94e78bd638e40389.png" alt="Starsilk history infographic spanning the primordial era, Blood Eclipse War, Siege Wall and Starbinding; printed short-war labels are superseded by the current one-hundred-seventy-year canon."><figcaption><b>History of Divine Betrayal and Cosmological Collapse</b><span>Supplied chronology reference with current-duration correction applied by the surrounding dossier text.</span></figcaption></figure>
-    <article class="dossier-entry"><h3>Embedded chronology film</h3><video class="media-video" controls preload="metadata" aria-label="Starsilk Divine Collapse chronology film"><source src="assets/media/6e2c5017f608c8e10b13cbc1.mp4" type="video/mp4">This browser cannot play the embedded chronology video.</video><p class="subtle" style="margin:.75rem 0 0">The film is stored inside this HTML as an offline data asset. The one-hundred-seventy-year duration lock governs any stale in-frame wording.</p></article>
+    <article class="dossier-entry"><h3>Embedded chronology film</h3><video class="media-video" controls preload="metadata" aria-label="Starsilk Divine Collapse chronology film"><source data-lazy-src="assets/media/6e2c5017f608c8e10b13cbc1.mp4" type="video/mp4">This browser cannot play the embedded chronology video.</video><p class="subtle" style="margin:.75rem 0 0">The film is stored inside this HTML as an offline data asset. The one-hundred-seventy-year duration lock governs any stale in-frame wording.</p></article>
   </div>
 </details></section>
 
@@ -2037,7 +2053,7 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
 <figure class="reference-record media-item" id="media-orbital-survivor-06"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/a114187979694bfe17334ec6.png" alt="Survivor visual lock — Turnaround Lock"></div><figcaption><strong>Survivor visual lock — Turnaround Lock</strong><span>Approved survivor design reference; no identity is inferred beyond the source label.</span></figcaption></figure>
 </div></details>
 <details open class="media-shelf"><summary>Orbital Tomb — motion study <span>1 video</span><span class="chevron" aria-hidden="true"></span></summary><div class="ref-grid media-ref-grid">
-<figure class="reference-record media-item media-video" id="media-orbital-video-01"><video controls preload="metadata" playsinline src="assets/media/6780fd9268d678610ec58ab0.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Orbital Tomb motion study</strong><span>Motion reference only. The six-month destruction remains sequential and causally real; recurrence in orbit is not time travel.</span></figcaption></figure>
+<figure class="reference-record media-item media-video" id="media-orbital-video-01"><video controls preload="metadata" playsinline data-lazy-src="assets/media/6780fd9268d678610ec58ab0.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Orbital Tomb motion study</strong><span>Motion reference only. The six-month destruction remains sequential and causally real; recurrence in orbit is not time travel.</span></figcaption></figure>
 </div></details>
 <details open class="media-shelf blood-shelf"><summary>Blood Ring — visual formation studies <span>9 images + 1 video</span><span class="chevron" aria-hidden="true"></span></summary><div class="ref-grid media-ref-grid">
 <figure class="reference-record media-item" id="media-blood-study-01"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/50e4a3fec4344bcec26fdc14.png" alt="Blood Ring study 01"></div><figcaption><strong>Blood Ring study 01</strong><span>Visual process study. Current canon governs: solid vitrified red-black ring material, <a href="#gorevault" class="xref-link">Gorevault</a> feedstock processing and <a href="#ringthroat" class="xref-link">Ringthroat</a> orbital extrusion.</span></figcaption></figure>
@@ -2049,7 +2065,7 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
 <figure class="reference-record media-item" id="media-blood-study-07"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/6722595aa55c94e1368220d9.png" alt="Blood Ring study 07"></div><figcaption><strong>Blood Ring study 07</strong><span>Visual process study. Current canon governs: solid vitrified red-black ring material, Gorevault feedstock processing and Ringthroat orbital extrusion.</span></figcaption></figure>
 <figure class="reference-record media-item" id="media-blood-study-08"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/e70fe9c9536866d58203c6b1.png" alt="Blood Ring study 08"></div><figcaption><strong>Blood Ring study 08</strong><span>Visual process study. Current canon governs: solid vitrified red-black ring material, Gorevault feedstock processing and Ringthroat orbital extrusion.</span></figcaption></figure>
 <figure class="reference-record media-item" id="media-blood-study-09"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/145de05eccd44c2d6985ebf0.png" alt="Blood Ring study 09"></div><figcaption><strong>Blood Ring study 09</strong><span>Visual process study. Current canon governs: solid vitrified red-black ring material, Gorevault feedstock processing and Ringthroat orbital extrusion.</span></figcaption></figure>
-<figure class="reference-record media-item media-video" id="media-blood-video-01"><video controls preload="metadata" playsinline src="assets/media/c5cccb4a121970a88fdc21f2.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Blood Ring motion study</strong><span>Embedded motion reference for Blood Ring scale and orbital presentation; physical canon overrides any luminous-halo artifact in the study.</span></figcaption></figure>
+<figure class="reference-record media-item media-video" id="media-blood-video-01"><video controls preload="metadata" playsinline data-lazy-src="assets/media/c5cccb4a121970a88fdc21f2.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Blood Ring motion study</strong><span>Embedded motion reference for Blood Ring scale and orbital presentation; physical canon overrides any luminous-halo artifact in the study.</span></figcaption></figure>
 </div></details>
 <details open class="media-shelf drakken-shelf"><summary>Drakken — public-information & occupation archive <span>10 images</span><span class="chevron" aria-hidden="true"></span></summary><div class="ref-grid media-ref-grid">
 <figure class="reference-record media-item" id="media-drakken-public-01"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/551e7fe0c8dd9873fb56ccf1.png" alt="Granithelion — Settling Day"></div><figcaption><strong><a href="#drk-granithelion" class="xref-link">Granithelion</a> — Settling Day</strong><span>Historical broadcast/design study. It does not by itself establish a restorative post-war policy.</span></figcaption></figure>
@@ -2071,8 +2087,8 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
 </div></details>
 <details open class="media-shelf"><summary>Shard-God — additional visual & motion studies <span>1 image + 2 videos</span><span class="chevron" aria-hidden="true"></span></summary><div class="ref-grid media-ref-grid">
 <figure class="reference-record media-item" id="media-shard-legacy-01"><div class="image-stage"><img loading="lazy" decoding="async" src="assets/media/62a8cd579893247656802a43.png" alt="Shard-God containment study"></div><figcaption><strong>Shard-God containment study</strong><span>Legacy concept image. Current Shard-God canon remains authoritative where the study conflicts.</span></figcaption></figure>
-<figure class="reference-record media-item media-video" id="media-shard-video-01"><video controls preload="metadata" playsinline src="assets/media/e8362fdb9c7fe9bf3852a26e.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Shard-God motion study A</strong><span>Motion reference only; current morphology and behavioral law govern.</span></figcaption></figure>
-<figure class="reference-record media-item media-video" id="media-shard-video-02"><video controls preload="metadata" playsinline src="assets/media/a76f7d67be78c3778f596f89.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Shard-God motion study B</strong><span>Motion reference only; current morphology and behavioral law govern.</span></figcaption></figure>
+<figure class="reference-record media-item media-video" id="media-shard-video-01"><video controls preload="metadata" playsinline data-lazy-src="assets/media/e8362fdb9c7fe9bf3852a26e.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Shard-God motion study A</strong><span>Motion reference only; current morphology and behavioral law govern.</span></figcaption></figure>
+<figure class="reference-record media-item media-video" id="media-shard-video-02"><video controls preload="metadata" playsinline data-lazy-src="assets/media/a76f7d67be78c3778f596f89.mp4">Embedded video unavailable in this browser.</video><figcaption><strong>Shard-God motion study B</strong><span>Motion reference only; current morphology and behavioral law govern.</span></figcaption></figure>
 </div></details>
 <article class="dossier-entry media-index-note"><h3>Archive use</h3><p>This vault is deliberately broad. Approved references can be used directly for continuity. Historical studies remain useful for composition, atmosphere, scale and propaganda language but never outrank current character locks, chronology or ontological law.</p></article>
 </details></section>
@@ -2718,6 +2734,51 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
     });
   })();
 
+  // Lazy-load collapsed videos on open
+  (function(){
+    function activate(scope){
+      scope.querySelectorAll('video[data-lazy-src]').forEach(function(v){
+        v.src = v.getAttribute('data-lazy-src');
+        v.removeAttribute('data-lazy-src');
+        v.load();
+      });
+      scope.querySelectorAll('source[data-lazy-src]').forEach(function(s){
+        s.src = s.getAttribute('data-lazy-src');
+        s.removeAttribute('data-lazy-src');
+        var v = s.closest('video');
+        if(v) v.load();
+      });
+    }
+    // Deliberately NOT also activating already-open details on initial load:
+    // media-shelf elements default open in their *own* markup, but that
+    // doesn't mean they're actually visible -- they're routinely nested
+    // inside a still-closed page-disclosure, which hides them via
+    // display:none regardless of their own open state. Relying only on the
+    // 'toggle' event (which fires whether .open was set by a real click or
+    // by JS, e.g. Expand All or anchor-navigation auto-open) means a video
+    // only activates once something has genuinely just become visible.
+    // When an ancestor page-disclosure opens, activate(d) below finds and
+    // activates any already-open nested shelf's videos too, since
+    // querySelectorAll searches all descendants regardless of depth.
+    //
+    // Belt and suspenders: browsers can fire 'toggle' for a <details open>
+    // that was simply parsed with that attribute already present (observed
+    // directly, reproducibly, for the statically-open media-shelf elements
+    // -- not just a theoretical concern), even though its own containing
+    // page-disclosure is still closed and hides it. Native <details>
+    // hiding of non-summary content is NOT plain CSS display:none as far
+    // as offsetParent is concerned -- offsetParent came back non-null for
+    // a shelf confirmed (via closest()) to have a closed ancestor, so that
+    // check doesn't work here. Walk the ancestor chain explicitly instead:
+    // not truly visible if any containing <details> (there's exactly one
+    // level of this in practice: page-disclosure) is closed.
+    document.querySelectorAll('details').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(d.open && !d.closest('details:not([open])')) activate(d);
+      });
+    });
+  })();
+
   // Top-of-content controls: expand/collapse all, content search, sidebar toggle
   (function(){
     var expandAllBtn = document.getElementById('expandAllBtn');
@@ -2828,6 +2889,28 @@ details.page-disclosure.search-match{outline:2px solid var(--thread);outline-off
       heroVideo.pause();
       heroVideo.removeAttribute('autoplay');
     }
+  })();
+
+  // Opening reveal: show the rest of the site once the hero video is playing
+  (function(){
+    var html = document.documentElement;
+    if(!html.classList.contains('pre-reveal')) return;
+    var revealed = false;
+    function reveal(){
+      if(revealed) return;
+      revealed = true;
+      html.classList.remove('pre-reveal');
+    }
+    var heroVideo = document.querySelector('.hero-video');
+    if(heroVideo){
+      heroVideo.addEventListener('playing', reveal, {once:true});
+      heroVideo.addEventListener('error', reveal, {once:true});
+    }
+    // Safety net: never block the site open for more than ~1.2s even if
+    // autoplay is blocked, the video errors silently, there is no hero
+    // video at all, or 'playing' never fires for some other reason.
+    setTimeout(reveal, 1200);
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) reveal();
   })();
 </script>
 </body></html>

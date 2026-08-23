@@ -134,10 +134,12 @@ def test_build_pipeline_idempotency():
     def run_pipeline():
         subprocess.run(["python3", str(ROOT / "tools" / "apply_ux_audit_fixes.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "apply_media_presentation_and_collapse.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "lazy_load_collapsed_videos.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "add_page_controls.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "add_cross_reference_links.py")], check=True)
         if (ROOT / "starsilk header.mp4").exists():
             subprocess.run(["python3", str(ROOT / "tools" / "add_hero_video_and_rebrand.py")], check=True)
+        subprocess.run(["python3", str(ROOT / "tools" / "add_opening_reveal_animation.py")], check=True)
         subprocess.run(["python3", str(ROOT / "tools" / "finalize_metadata.py")], check=True)
 
     run_pipeline()
@@ -581,7 +583,11 @@ def test_anchor_navigation_opens_collapsed_section(page: Page, local_server):
     return_link.click()
     registry_details = page.locator("#drakken-registry details.page-disclosure")
     expect(registry_details).to_have_count(1)
-    assert registry_details.evaluate("el => el.open") is True
+    # The hashchange event that opens it fires asynchronously after the
+    # click, so poll rather than asserting immediately.
+    page.wait_for_function(
+        "document.querySelector('#drakken-registry details.page-disclosure').open === true"
+    )
 
 
 def test_expand_all_and_collapse_all_buttons(page: Page, local_server):
@@ -746,3 +752,98 @@ def test_cross_reference_links_point_to_real_entries(page: Page, local_server):
         target_details = page.locator(f"#{target_id} details.page-disclosure")
         if target_details.count() > 0:
             assert target_details.evaluate("el => el.open") is True
+
+
+def test_collapsed_videos_lazy_load(page: Page):
+    """29. Videos inside default-collapsed sections must not be fetched until
+    their section is actually opened (was previously ~76MB of eager,
+    invisible downloads on every page load, including a 48MB file).
+
+    Uses its own dedicated, freshly-started server rather than the shared
+    session-scoped `local_server` fixture: socketserver.ThreadingTCPServer
+    was observed, after enough prior requests have been handled by the same
+    server instance (i.e. after the other ~40 tests ahead of this one in
+    the suite), to occasionally misattribute an in-flight response to a
+    different connection -- reproduced deterministically with two entirely
+    separate browser *processes* against a well-used server instance, and
+    absent against either a freshly-started server or the real production
+    CDN. That's a quirk of Python's threaded dev server under sustained
+    reuse, not a real browser or site behavior, so a clean server sidesteps
+    it instead of chasing it in application code that doesn't have the bug.
+    """
+    server = QuietThreadingServer(("127.0.0.1", 0), QuietHandler)
+    port = server.server_address[1]
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    time.sleep(0.1)
+    try:
+        local_server = f"http://127.0.0.1:{port}"
+        page.set_viewport_size({"width": 1280, "height": 800})
+        requests = []
+        page.on("request", lambda req: requests.append(req.url.rsplit("/", 1)[-1]) if req.url.endswith(".mp4") else None)
+
+        # The 5 specific videos lazy_load_collapsed_videos.py converts --
+        # these, and only these, must never be requested before their
+        # section opens.
+        LAZY_VIDEO_HASHES = {
+            "6e2c5017f608c8e10b13cbc1.mp4", "6780fd9268d678610ec58ab0.mp4",
+            "c5cccb4a121970a88fdc21f2.mp4", "e8362fdb9c7fe9bf3852a26e.mp4",
+            "a76f7d67be78c3778f596f89.mp4",
+        }
+        page.goto(f"{local_server}/index.html")
+        # The watermark deliberately rotates through several background
+        # clips over time (pre-existing, unrelated behavior) -- unlike the
+        # lazy-loaded gallery videos above, that never fully goes
+        # network-idle, so wait a bounded, generous window instead.
+        page.wait_for_timeout(1500)
+        early = list(requests)
+        unexpected = [r for r in early if r in LAZY_VIDEO_HASHES]
+        assert not unexpected, f"Video(s) fetched before their section opened: {unexpected}"
+
+        # A stable selector (by id, not by the data-lazy-src attribute this
+        # test verifies gets removed) so the same element keeps resolving
+        # after that attribute changes.
+        media_vault_video = page.locator("#media-orbital-video-01 video")
+        assert media_vault_video.get_attribute("data-lazy-src") is not None, "should start lazy (unactivated)"
+
+        page.evaluate("document.getElementById('media-vault').querySelector('details.page-disclosure').open = true")
+        page.wait_for_function(
+            "!document.querySelector('#media-orbital-video-01 video').hasAttribute('data-lazy-src')"
+        )
+        assert media_vault_video.get_attribute("src"), "real src should be set once the section opens"
+        assert len(requests) > len(early), "opening the section should trigger the deferred video fetch"
+    finally:
+        server.shutdown()
+
+
+def test_opening_reveal_animation(page: Page, local_server):
+    """30. The hero video is the first thing visible; the sidebar, top
+    controls, and cover text fade in afterward rather than all popping in
+    at once, and prefers-reduced-motion skips the hidden state entirely."""
+    page.set_viewport_size({"width": 1280, "height": 800})
+    page.goto(f"{local_server}/index.html")
+
+    # Within the ~1.2s safety window (video 'playing' event normally fires
+    # much sooner), the reveal must have happened and everything settled
+    # to full opacity.
+    page.wait_for_timeout(1500)
+    state = page.evaluate("""() => ({
+        preReveal: document.documentElement.classList.contains('pre-reveal'),
+        indexOpacity: parseFloat(getComputedStyle(document.getElementById('index')).opacity),
+        h1Opacity: parseFloat(getComputedStyle(document.querySelector('#cover h1')).opacity),
+        controlsOpacity: parseFloat(getComputedStyle(document.querySelector('.page-controls')).opacity),
+    })""")
+    assert state["preReveal"] is False
+    assert state["indexOpacity"] == 1
+    assert state["h1Opacity"] == 1
+    assert state["controlsOpacity"] == 1
+
+    # Reduced motion: content must never actually be hidden, even transiently.
+    page.emulate_media(reduced_motion="reduce")
+    page.goto(f"{local_server}/index.html")
+    immediate = page.evaluate("""() => ({
+        indexOpacity: parseFloat(getComputedStyle(document.getElementById('index')).opacity),
+        h1Opacity: parseFloat(getComputedStyle(document.querySelector('#cover h1')).opacity),
+    })""")
+    assert immediate["indexOpacity"] == 1
+    assert immediate["h1Opacity"] == 1
