@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 13
+revision: 14
 
 ## Current baseline
 
@@ -16,6 +16,7 @@ revision: 13
 - Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.
 - Museum + AI Phase 4 PR #18 merged at `258ce10f9d0d73b22163ae22243b953af99427fc`.
 - Museum + AI Phase 5 PR #21 merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`.
+- Museum + AI Phase 6 PR #24 merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -34,6 +35,8 @@ revision: 13
 - `src/museum/AUTHORITY.md` and `src/schema/museum-object-index.schema.json` define the Phase 4 object/publication interpretation contract.
 - `build/relationship_publication.py` owns deterministic generation of `docs/relationships/`; that observatory is a public evidence derivative of the existing observed-xref graph, not semantic relationship authority.
 - `src/relationships/AUTHORITY.md` and `src/schema/relationship-observatory.schema.json` define the Phase 5 relationship evidence/publication contract.
+- `build/canon_publication.py` owns deterministic generation of `docs/canon/`; that inspector is a public derivative of `src/canon/invariants.json`, not complete canon or a second editable canon authority.
+- `src/canon/AUTHORITY.md` and `src/schema/canon-lock-register.schema.json` define the Phase 6 inspection/publication boundary.
 
 ## Active invariants
 
@@ -88,6 +91,8 @@ revision: 13
 49. Zero incoming/outgoing counts are meaningful evidence states and must remain visible rather than being omitted or filled by inference.
 50. Relationship discovery links on entity pages must not replace canonical entity permalinks, legacy Compendium anchors, or existing observed-xref related-record lists.
 51. Public relationship derivatives must remain script-free where currently generated, pass deterministic build parity and `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the relationship publication changes.
+52. `docs/canon/` is generator-owned output from `build/canon_publication.py`. It may expose only machine-enforced locks and additional strict-validator inputs derived from `src/canon/invariants.json`; absence from the register never implies non-canon status.
+53. Canon Inspector document locks apply to the complete generated Compendium, while section locks apply only to their declared stable section. Raw validator patterns are technical evidence, not standalone canon prose; generated `/canon/` artifacts must pass public-boundary and independent live-edge checks.
 
 ## Verified implementation
 
@@ -373,6 +378,51 @@ Live publication was independently verified by execution-only PR #22, closed wit
 
 Therefore Phase 5 is **VERIFIED COMPLETE** at authority, evidence identity, deterministic generation, CI, diff scope, merge, and live-publication layers.
 
+## Museum + AI Phase 6 Canon Inspector and Authority UI — VERIFIED
+
+Phase 6 of 12, **Canon Inspector and Authority UI**, is complete.
+
+Repository evidence:
+
+- starting `main`: `0013e72cc8d3ca471f5ed2b1a71be96cc988469d`
+- work branch: `phase-06-canon-inspector`
+- primary implementation commit: `d124b1c3fe8990d0cab2e7308f968ed9027463b6`
+- one bounded repair: wording-only authority-note repair that removed Markdown emphasis from the explicit complete-canon boundary; no lock data, enforcement behavior, or public scope changed
+- successful required CI: run `32656216440`
+- implementation PR: `#24`
+- merged to `main`: `5dafd7c7cba11b728c9548b009847ca96e8e756f`
+- execution-only live proof PR: `#25`, closed unmerged
+- successful live proof: run `32656422914`, job `97235761397`
+
+Phase 6 verified capabilities:
+
+- `build/canon_publication.py` deterministically generates/checks the six-file `docs/canon/` publication: static inspector HTML/CSS, lock-register JSON/Markdown, schema, and authority note.
+- all 11 public lock records derive from `src/canon/invariants.json` in source order: 2 document locks and 9 section locks. Structural counts, principal-name expectations, and 36 Drakken art-identity section IDs remain explicitly labeled additional strict-validator inputs.
+- each record preserves lock ID, source description, scope, declared target, positive requirements, prohibitions, source references, machine-validation authority, validator status, and actual document-versus-section enforcement semantics.
+- the human inspector is static and accessible without executable JavaScript; it has stable `#lock-<lock-id>` deep links, explicit technical-pattern disclosures, and links to established public entity material where a lock targets a section.
+- the authority boundary is explicit on human, JSON, Markdown, and authority surfaces: authored dossier content remains canon/content authority; `src/canon/invariants.json` is the limited machine-validation authority; generated `/canon/` is a public derivative. Absence from the register does not imply a fact is non-canon, false, or available for invention.
+- machine discovery adds `/canon/` to the generated machine index, `llms.txt`, sitemap, versioned schema set, and conservative entity-page discovery links.
+- no dependency, canonical-media, authored canon-prose, stable section ID, museum-object identity, or observed `mentions` / `observed-xref` relationship semantic changed. Phase 7 was not started.
+
+Final CI run `32656216440` passed:
+
+- source build and deterministic `./tools/build.sh --check`, including six Canon Inspector outputs;
+- strict validator: 11 locks checked, 0 violations;
+- public derivative boundary check across 410 text/machine files;
+- `git diff --check`;
+- pinned Chromium full suite: `140 passed, 1 skipped` including committed visual baselines;
+- representative Firefox and WebKit journeys: `7 passed` each.
+
+Live publication was independently verified by execution-only PR #25, closed without merge after proof. GitHub Actions run `32656422914`, job `97235761397`, cache-busted the Pages edge and established:
+
+- `LIVE_PHASE6_BYTES_OK locks=11 document=2 section=9 exact_files=12 boundary=complete`;
+- the selected root, Dao entity page, all six Canon Inspector files, machine index/schema, `llms.txt`, and sitemap were byte-identical to merged `docs/`;
+- each live lock remained an exact invariant-file derivative, with document/section scope, counts, additional validator inputs, authority boundary, and no script promotion intact;
+- downloaded live artifacts passed `tools/check_public_boundary.py` across 11 text/machine files;
+- `LIVE_PHASE6_BROWSER_OK deep-link=ok entity-discovery=ok mobile=ok` proved the Dao lock fragment, entity discovery link, and 375px no-overflow path in live Chromium.
+
+Therefore Phase 6 is **VERIFIED COMPLETE** at authority, deterministic generation, scope semantics, CI, merge, and live-publication layers.
+
 ## GitHub Pages deployment state — VERIFIED
 
 ### Authoritative configuration
@@ -493,7 +543,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Museum + AI program: Phase 6 of 12 — Canon Inspector and Authority UI. It must begin only in a fresh chat after re-reading `MUSEUM_AI_ROADMAP.md`, this Operational State, current `main`, and relevant CI/publication state.
+- Museum + AI program: Phase 7 of 12 — Faceted Discovery and AI Context Packets. It has not been started.
 
 ## Revision log
 
@@ -510,3 +560,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 11: completed Museum + AI Phase 3. Added 127 canonical human `/entities/<stable-id>/` pages, the entity index, 254 per-record JSON/Markdown alternatives, manifest-backed related media, observed-xref related-record lists, canonical URL migration, static accessible entity templates, deterministic entity generation/checking, and legacy-anchor preservation. One bounded repair protected the authored `archive` permalink from the repo-wide `archive/` ignore rule. PR #15 passed final Chromium/Firefox/WebKit CI and merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`; exhaustive live proof run `32640932505` verified 396 declared URLs byte-for-byte and proof PR #16 was closed unmerged.
 - Revision 12: completed Museum + AI Phase 4. Added a deterministic 213-record manifest-derived museum object model, stable filename-stem object IDs, explicit provenance/unknown semantics, `/objects/` metadata register, on-demand accessible image/video dialog viewer, hash deep links, entity-index discovery, schema/authority publication, build integration, and regression coverage. No implementation repair pass was needed. PR #18 passed final Chromium/Firefox/WebKit CI and merged at `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof run `32642574092` verified exact Pages bytes plus metadata-only/image/video/teardown behavior, and proof PR #19 was closed unmerged. Static IIIF was evaluated and not adopted.
 - Revision 13: completed Museum + AI Phase 5. Added the deterministic 127-record/136-edge Relationship Observatory, stable entity/edge fragments, exact physical xref evidence anchors, JSON/Markdown/schema/authority alternatives, entity discovery, build integration, observed-only semantic locks, clean-output regression coverage, and live Pages proof. PR #21 passed final Chromium/Firefox/WebKit CI (`135 passed, 1 skipped`) and merged at `0f31a280eebdbaf68bda9265d3fa54aed806f120`; execution-only proof PR #22 was closed unmerged after run `32649700329` proved exact live bytes, public-boundary safety, evidence fragments, entity discovery, and mobile Chromium behavior.
+- Revision 14: completed Museum + AI Phase 6. Added the deterministic six-file Canon Inspector, exact 11-lock register, explicit document/section enforcement semantics, technical-pattern labeling, authority/schema alternatives, machine/sitemap/orientation and entity discovery, and focused regression coverage. One bounded wording-only repair preserved an explicit plain-text complete-canon boundary. PR #24 passed final pinned Chromium/Firefox/WebKit CI (`140 passed, 1 skipped`) and merged at `5dafd7c7cba11b728c9548b009847ca96e8e756f`; execution-only proof PR #25 was closed unmerged after run `32656422914` proved exact live bytes, public-boundary safety, lock scope/derivation, deep links, discovery, and mobile Chromium behavior. Phase 7 was not started.

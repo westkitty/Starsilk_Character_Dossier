@@ -23,7 +23,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 3 | Stable Entity Pages and Permalinks | COMPLETE | PR #15; final head `54da12779396175622aab1faafa64fbb4b652c2a`; CI `32640613872` PASS; merged `b7726adc86f967e914616c07b5b4b6179236dbf3`; live proof `32640932505` PASS | none |
 | 4 | Museum Object Model and Media Viewer | COMPLETE | PR #18; final head `0603379d0ea6a364e0d5d608685f38b27f95bfc9`; CI `32642262682` PASS; merged `258ce10f9d0d73b22163ae22243b953af99427fc`; live proof `32642574092` PASS | none |
 | 5 | Relationship Observatory | COMPLETE | PR #21; final head `72cf3f42f2014e2bc7a6d408f366185a7f5e7d07`; CI `32649254977` PASS; merged `0f31a280eebdbaf68bda9265d3fa54aed806f120`; live proof `32649700329` PASS | none |
-| 6 | Canon Inspector and Authority UI | NOT STARTED | — | deferred |
+| 6 | Canon Inspector and Authority UI | COMPLETE | PR #24; implementation head `d124b1c3fe8990d0cab2e7308f968ed9027463b6`; CI `32656216440` PASS; merged `5dafd7c7cba11b728c9548b009847ca96e8e756f`; live proof `32656422914` PASS | none |
 | 7 | Faceted Discovery and AI Context Packets | NOT STARTED | — | deferred |
 | 8 | Curated Museum Tours and Local Collections | NOT STARTED | — | deferred |
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | NOT STARTED | — | deferred |
@@ -204,6 +204,26 @@ Expose source-traceable incoming/outgoing observed relationships with deep links
 ### Phase 6 — Canon Inspector and Authority UI
 
 Expose suitable public machine-enforced locks from `src/canon/invariants.json` with precise authority/status labeling. Never imply the invariant file is the entirety of Starsilk canon.
+
+#### Completion record
+
+- starting `main`: `0013e72cc8d3ca471f5ed2b1a71be96cc988469d`
+- work branch: `phase-06-canon-inspector`
+- primary implementation commit: `d124b1c3fe8990d0cab2e7308f968ed9027463b6`
+- one bounded implementation repair: wording-only authority-note repair; removed Markdown emphasis so the explicit “not the complete Starsilk canon” boundary remains machine-readable without changing lock data or enforcement behavior
+- successful required CI: run `32656216440` (`140 passed, 1 skipped`; Chromium, Firefox, and WebKit PASS)
+- implementation PR: `#24`
+- implementation merge on `main`: `5dafd7c7cba11b728c9548b009847ca96e8e756f`
+- execution-only live proof PR: `#25`, closed unmerged
+- successful live proof: run `32656422914`, job `97235761397`
+- generated public Canon Inspector: `/canon/` with static human HTML, JSON, Markdown, schema, and authority alternatives; all 11 public lock records derive in source order from `src/canon/invariants.json`
+- scope/evidence guarantees: 2 document locks retain complete-document positive requirements and global prohibitions; 9 section locks retain their declared stable-section targets; raw regex strings are labeled technical validation patterns rather than canon prose
+- authority guarantee: the inspector distinguishes authored canon/content authority, `src/canon/invariants.json` machine-validation authority, and generated public derivative; absence from the register explicitly does not imply non-canon status
+- discovery/identity guarantees: `/canon/` is listed in the machine index, `llms.txt`, and sitemap; entity pages link to it; existing section IDs, 136 `mentions` / `observed-xref` edges, museum object identities, canonical media, and authored canon prose remain unchanged
+- validation: deterministic six-file Canon Inspector parity; strict validator 11 locks / 0 violations; public boundary 410 files; `git diff --check`; live byte proof across 12 selected files; downloaded live boundary pass across 11 text/machine files; live Chromium deep-link, entity-discovery, and 375px no-overflow proof
+- Phase 7 was not started
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 7 — Faceted Discovery and AI Context Packets
 
