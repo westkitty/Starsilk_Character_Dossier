@@ -48,6 +48,7 @@ SCHEMA_FILES = (
     "machine-publication-index.schema.json",
     "entity-index.schema.json",
     "relationship-graph.schema.json",
+    "relationship-observatory.schema.json",
 )
 
 
@@ -342,6 +343,10 @@ def public_urls(records: list[dict]) -> list[str]:
         "machine/compendium.md",
         "machine/entities.md",
         "machine/AUTHORITY.md",
+        "relationships/",
+        "relationships/relationships.json",
+        "relationships/relationships.md",
+        "relationships/AUTHORITY.md",
     ] + [f"machine/schema/v1/{name}" for name in SCHEMA_FILES]
     urls = [SITE_BASE] + [canonical(path) for path in paths] + [canonical("entities/")]
     for record in records:
@@ -419,7 +424,7 @@ def build_jsonld(records: list[dict]) -> dict:
 
 def build_llms_text(index: dict) -> str:
     e = index["endpoints"]
-    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nHuman entity index: {canonical('entities/')}\nHuman entity permalink pattern: {canonical('entities/<stable-id>/')}\nPer-entity JSON pattern: {canonical('machine/entities/<stable-id>.json')}\nPer-entity Markdown pattern: {canonical('machine/entities/<stable-id>.md')}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n"""
+    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nHuman entity index: {canonical('entities/')}\nHuman entity permalink pattern: {canonical('entities/<stable-id>/')}\nPer-entity JSON pattern: {canonical('machine/entities/<stable-id>.json')}\nPer-entity Markdown pattern: {canonical('machine/entities/<stable-id>.md')}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nHuman relationship observatory: {canonical('relationships/')}\nRelationship Observatory JSON: {canonical('relationships/relationships.json')}\nRelationship Observatory Markdown: {canonical('relationships/relationships.md')}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n"""
 
 
 def build_sitemap(urls: list[str]) -> str:

@@ -10,10 +10,15 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/compendium.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/relationships/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/relationships/AUTHORITY.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-graph.schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/relationship-observatory.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json</loc></url>
