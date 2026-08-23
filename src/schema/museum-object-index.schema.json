@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/schema.json",
+  "title": "Starsilk museum object index v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_url",
+    "project_id",
+    "canonical_url",
+    "human_index",
+    "source_manifest",
+    "identity_rule",
+    "record_count",
+    "records",
+    "interpretation_rules"
+  ],
+  "properties": {
+    "schema": {"const": "starsilk-museum-object-index/1"},
+    "schema_url": {"type": "string", "format": "uri"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "canonical_url": {"type": "string", "format": "uri"},
+    "human_index": {"type": "string", "format": "uri"},
+    "source_manifest": {"type": "string", "format": "uri"},
+    "identity_rule": {"type": "string", "minLength": 1},
+    "record_count": {"type": "integer", "minimum": 0},
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/object"}
+    },
+    "interpretation_rules": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["filename", "sha256", "bytes"],
+      "properties": {
+        "filename": {"type": ["string", "null"]},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "bytes": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_id", "alt", "entity_url"],
+      "properties": {
+        "section_id": {"type": "string", "minLength": 1},
+        "alt": {"type": ["string", "null"]},
+        "entity_url": {"type": "string", "format": "uri"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "source_ref", "source_key", "identity_basis"],
+      "properties": {
+        "class": {"const": "published-media-provenance"},
+        "source_ref": {"const": "docs/asset-manifest.json"},
+        "source_key": {"type": "string", "minLength": 1},
+        "identity_basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "object": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_id",
+        "filename",
+        "canonical_url",
+        "media_url",
+        "media_kind",
+        "mime_type",
+        "sha256",
+        "bytes",
+        "source",
+        "logical_identity",
+        "match_status",
+        "provenance",
+        "contexts",
+        "evidence",
+        "unknowns"
+      ],
+      "properties": {
+        "object_id": {"type": "string", "minLength": 1, "pattern": "^[^./\\\\]+$"},
+        "filename": {"type": "string", "minLength": 3},
+        "canonical_url": {"type": "string", "format": "uri-reference"},
+        "media_url": {"type": "string", "format": "uri"},
+        "media_kind": {"enum": ["image", "video", "other"]},
+        "mime_type": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "bytes": {"type": ["integer", "null"], "minimum": 0},
+        "source": {"$ref": "#/$defs/source"},
+        "logical_identity": {"type": ["string", "null"]},
+        "match_status": {"type": ["string", "null"]},
+        "provenance": {"type": ["object", "null"], "additionalProperties": true},
+        "contexts": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/context"}
+        },
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "unknowns": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
