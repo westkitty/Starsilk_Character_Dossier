@@ -70,3 +70,33 @@ Verification evidence:
 - The accepted Media Vault baseline shows its image galleries populated rather than partially photographed during lazy loading.
 
 Deployment remains a separate proof state: this work is not complete until PR #1 is merged and the public GitHub Pages URL is observed serving the current Compendium build.
+
+## 2026-08-23 — Merge and explicit GitHub Pages deployment path
+
+PR #1 was merged at `6185a26e7f62adda5df3a4c053d3c192f9d9468e` on 2026-08-23. This promotes the verified infrastructure, CI repairs, visual-baseline migration, and generated Compendium output into `main`.
+
+A follow-up `main` commit, `ee9b5eeffefff093bfe6a716d817c27f2286dfb4` (`fix: deploy Compendium docs explicitly to GitHub Pages`), added `.github/workflows/pages.yml`. The workflow explicitly deploys the repository's `docs/` directory using the supported GitHub Pages artifact path:
+
+- `actions/checkout@v4`
+- `actions/configure-pages@v5`
+- `actions/upload-pages-artifact@v4` with `path: docs`
+- `actions/deploy-pages@v4`
+
+It has `pages: write` and `id-token: write`, targets the `github-pages` environment, triggers when `main` changes `docs/**` or the Pages workflow itself, and supports manual dispatch.
+
+Current `main/docs/index.html` contains the intended deployment identity markers:
+
+- document title `Starsilk — Compendium`;
+- cover heading `Starsilk Compendium`;
+- `Archive tools` mode control;
+- unified search field `dossierSearch` with `Search dossier…`.
+
+Proof-state boundary after the repair:
+
+- **Confirmed:** implementation passed the final read-only CI run before merge.
+- **Confirmed:** PR #1 is merged.
+- **Confirmed:** current `main` contains the intended generated Compendium output and an explicit GitHub Pages deployment workflow.
+- **Currently unverifiable from this runtime:** the exact push-triggered Pages deployment run/result for `ee9b5eeffefff093bfe6a716d817c27f2286dfb4`; the GitHub connector available here does not expose that record.
+- **Currently unverifiable from this runtime:** the uncached current GitHub Pages edge. The available public-web reader continues to return an older Character Dossier snapshot, but that reader is cache-ambiguous and cannot be forced to refresh; direct origin access is blocked from the execution container.
+
+Do not collapse these states. A merged repository and a configured deploy workflow are not sufficient evidence that a particular edge response has converged. Promote Pages to verified only after an authoritative uncached read or GitHub Pages deployment record confirms the current Compendium markers.
