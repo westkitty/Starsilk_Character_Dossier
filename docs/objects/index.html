@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Museum objects · Starsilk Compendium</title>
+<meta name="description" content="Provenance-aware browser for the published media collection of the Starsilk Compendium.">
+<link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/objects/">
+<link rel="alternate" type="application/json" href="https://westkitty.github.io/Starsilk_Character_Dossier/objects/objects.json">
+<link rel="stylesheet" href="museum.css">
+<script src="museum.js" defer></script>
+</head>
+<body class="museum-shell">
+<a class="skip-link" href="#main">Skip to museum collection</a>
+<header class="museum-bar">
+  <a class="museum-brand" href="../">Starsilk Compendium</a>
+  <nav aria-label="Museum publication">
+    <a href="../entities/">Entity index</a>
+    <a href="objects.json">Object JSON</a>
+    <a href="AUTHORITY.md">Authority</a>
+  </nav>
+</header>
+
+<main id="main" class="museum-main" tabindex="-1">
+  <header class="museum-intro">
+    <div class="eyebrow">Published media collection</div>
+    <h1>Museum objects</h1>
+    <p>Browse 213 published media objects without loading the archive itself. Object identity follows the media manifest; descriptions and provenance appear only where the manifest records them.</p>
+    <dl class="museum-summary" aria-label="Collection summary">
+      <div><dt>Objects</dt><dd>213</dd></div>
+      <div><dt>Identity</dt><dd>Published media ID</dd></div>
+      <div><dt>Media loading</dt><dd>On selection</dd></div>
+    </dl>
+  </header>
+
+  <section class="museum-browser" aria-labelledby="browser-heading">
+    <div class="museum-browser-head">
+      <div>
+        <div class="eyebrow">Collection register</div>
+        <h2 id="browser-heading">Find an object</h2>
+      </div>
+      <form class="museum-search" role="search" onsubmit="return false">
+        <label for="objectSearch">Filter museum objects</label>
+        <input id="objectSearch" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Name, ID, source, context…">
+      </form>
+    </div>
+    <div id="collectionStatus" class="museum-status" role="status" aria-live="polite">Loading collection metadata…</div>
+    <ol id="objectList" class="museum-object-list" aria-label="Museum objects"></ol>
+    <div id="collectionError" class="museum-error" role="alert" hidden></div>
+    <noscript><p class="museum-error">The interactive museum viewer requires JavaScript. The source-backed collection remains available in <a href="objects.json">object JSON</a> and the <a href="../asset-manifest.json">published media manifest</a>.</p></noscript>
+  </section>
+</main>
+
+<dialog id="objectViewer" class="museum-viewer" aria-labelledby="viewerTitle">
+  <div class="viewer-shell">
+    <header class="viewer-bar">
+      <div class="viewer-heading">
+        <div class="eyebrow">Museum object <code id="viewerId"></code></div>
+        <h2 id="viewerTitle">Museum object</h2>
+      </div>
+      <div class="viewer-controls" aria-label="Viewer controls">
+        <button id="previousObject" type="button">Previous</button>
+        <button id="nextObject" type="button">Next</button>
+        <button id="fullscreenObject" type="button">Fullscreen</button>
+        <button id="closeViewer" class="viewer-close" type="button">Close</button>
+      </div>
+    </header>
+
+    <div class="viewer-body">
+      <section class="viewer-media-panel" aria-labelledby="viewerMediaHeading">
+        <h3 id="viewerMediaHeading" class="sr-only">Published media</h3>
+        <div id="viewerMedia" class="viewer-media"></div>
+        <p id="viewerMediaNote" class="viewer-media-note"></p>
+      </section>
+
+      <aside class="viewer-record" aria-label="Object record">
+        <section aria-labelledby="record-heading">
+          <div class="eyebrow">Provenance record</div>
+          <h3 id="record-heading">Published evidence</h3>
+          <dl id="viewerFacts" class="viewer-facts"></dl>
+        </section>
+        <section aria-labelledby="context-heading">
+          <h3 id="context-heading">Published contexts</h3>
+          <ul id="viewerContexts" class="viewer-contexts"></ul>
+        </section>
+        <section aria-labelledby="unknown-heading">
+          <h3 id="unknown-heading">Explicit unknowns</h3>
+          <ul id="viewerUnknowns" class="viewer-unknowns"></ul>
+        </section>
+        <div class="viewer-links">
+          <a id="openMedia" href="../" target="_blank" rel="noopener">Open media file</a>
+          <a id="openObjectJson" href="objects.json">Collection JSON</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</dialog>
+</body>
+</html>
