@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 20
+revision: 21
 
 ## Current baseline
 
@@ -20,6 +20,7 @@ revision: 20
 - Museum + AI Phase 7 PR #27 merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`.
 - Museum + AI Phase 8 PR #30 merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`.
 - Museum + AI Phase 9 PR #34 merged at `3ed684897975065d89f5e12c8c15b36f936c0262`.
+- Visual-coverage work unit PR #47 (`repair/visual-coverage-provenance`) is source/build/docs verified at revision 21: clean read-only CI run `32738410496` passed Chromium, Firefox, and WebKit on implementation head `e81aacafac80de3542ce1c466de8b8df2434bfce`. Merge state, Pages publication, and live-edge content remain separate proof states under invariant 10.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -98,7 +99,7 @@ revision: 20
 44. Public museum derivatives must remain reproducible from the manifest/schema/templates, pass `tools/check_public_boundary.py`, and receive independent live Pages verification whenever the museum publication changes.
 45. `docs/relationships/` is generator-owned output from `build/relationship_publication.py`; it must remain reproducible from the established observed-xref graph and must not become a semantic relationship database.
 46. The Relationship Observatory may publish only `kind=mentions` with `evidence_class=observed-xref` until explicit semantic authority is authored. Incoming/outgoing direction means citation direction only.
-47. Physical Compendium xrefs must retain deterministic public evidence anchors. Relationship edges may cite the first qualifying rendered xref inside the established source-section subtree projection; this evidence identity must not change the existing 136-edge graph contract.
+47. Physical Compendium xrefs must retain deterministic public evidence anchors. Relationship edges may cite the first qualifying rendered xref inside the established source-section subtree projection; edge identity and observed-xref semantics are stable, while the generated relationship count is derived from authored xrefs rather than frozen as a historical literal. The verified PR #47 output remains at the pre-change source-derived 138 observed `mentions` edges.
 48. `/relationships/#entity-<stable-id>` and `/relationships/#mention--<source>--<target>` are stable human fragment destinations over the static observatory. They do not create new entity or relationship identity outside the existing stable IDs and observed edge pair.
 49. Zero incoming/outgoing counts are meaningful evidence states and must remain visible rather than being omitted or filled by inference.
 50. Relationship discovery links on entity pages must not replace canonical entity permalinks, legacy Compendium anchors, or existing observed-xref related-record lists.
@@ -122,6 +123,19 @@ revision: 20
 68. Public chronology/machine derivatives must remain deterministic, boundary-checked, and independently verified at the live Pages edge whenever the chronology publication changes.
 69. The root page and every public system page must share one unified museum navigation (`src/templates/_museum_nav.html.j2`) carrying the `data-museum-shell="unified"` marker. Adding a future public system requires adding it to that shared partial, not a page-local one-off header.
 70. The root museum entrance is presentation over the existing Compendium, not a second content or authority surface. It must not invent canon, relationships, chronology, or WorldsVault facts; its statistics must remain derived from existing source/generated data; and the full, unabridged Compendium plus every legacy `/#stable-id` anchor must remain intact below it.
+71. `src/content/visual-coverage.json` is presentation-only fallback placement authority for authored top-level records that lack a visible authored image. Every referenced `source_filename` must already exist in `docs/asset-manifest.json`; the map cannot create canon, media provenance, semantic relationships, dates, locations, identities, or unauthored appearances.
+72. Every one of the 127 authored top-level records must retain locally resolvable image coverage on both the complete Compendium and its canonical `/entities/<stable-id>/` page. Existing authored visuals take precedence; fallbacks are additive only for image-less authored bodies. The cover may satisfy this contract through the existing local poster frame attached to its hero video.
+73. Character context fallbacks must explicitly state that they are not portraits so unknown appearance remains unknown. Fallback presentation must not create `.xref-link` evidence or alter the observed-xref relationship graph; manifest-derived `related_media_ids` remain governed by invariant 30.
+74. Visual-coverage completion must not add or replace canonical media binaries, write back to `media/source/`, or weaken provenance checks. Any deliberately changed visual-regression baseline must be generated and immediately re-compared inside the pinned Playwright Linux environment before merge.
+
+## Visual coverage completion — VERIFIED ON PR #47
+
+- Implementation head `e81aacafac80de3542ce1c466de8b8df2434bfce` passed clean read-only CI run `32738410496`: deterministic build/check and deployable `docs/` parity, `git diff --check`, full Chromium pytest + Playwright, Firefox, and WebKit all passed.
+- Strict validation on the completed publication reports 0 duplicate IDs, 0 broken anchors, 0 missing local assets, 0 data URIs, 0 local machine-path leaks, 0 external runtime dependencies, 16 canon locks with 0 violations, 36 Drakken identity assertions with 0 failures, and 0 manifest-invariant errors.
+- The visual-coverage regression contract requires all 127 authored records to have locally resolvable image coverage on both root and canonical entity pages, while preserving source-text authority and explicit unknown appearances.
+- The generated relationship graph remains at 138 source-derived `kind=mentions` / `evidence_class=observed-xref` edges; fallback captions are regression-locked against creating relationship evidence.
+- No new media binary is introduced by the visual-coverage map. The one changed peripheral visual baseline was regenerated in the pinned Playwright Linux container and immediately re-compared successfully.
+- PR merge state and live GitHub Pages publication are intentionally not inferred from this verification record; they require separate proof under invariant 10.
 
 ## Verified implementation
 
