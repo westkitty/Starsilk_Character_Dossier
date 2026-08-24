@@ -1,0 +1,59 @@
+name: Temporary — update visual regression baselines
+
+# One-shot, manually-triggered helper for the unified-museum-shell
+# integration branch. Visual baselines must be captured inside the exact
+# pinned Playwright container CI uses (see ci.yml) so macOS/local font
+# rendering never becomes the reference. This workflow exists only to
+# regenerate the seven baselines whose layout legitimately changed when
+# the root Compendium became the unified museum shell, and is removed
+# again once that commit lands (see git history for the established
+# "temporarily enable / remove temporary runner" pattern this repo uses
+# for this exact kind of one-time pinned-environment operation).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-baselines:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Trust the checked-out worktree (containerized job)
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Build from source
+        run: ./tools/build.sh
+
+      - name: Regenerate only the visual-regression baselines
+        run: |
+          UPDATE_VISUAL_BASELINES=1 python3 -m pytest tests/test_dossier.py -q \
+            -k "test_visual_cover_desktop or test_visual_cover_mobile or test_visual_principal_character_page or test_visual_drakken_entry or test_visual_peripheral_entry or test_visual_media_vault or test_visual_reduced_motion"
+
+      - name: Commit updated baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tests/visual_baselines/
+          if git diff --cached --quiet; then
+            echo "No baseline changes to commit."
+          else
+            git commit -m "chore(phase-12): regenerate visual baselines for unified museum shell
+
+Captured inside the pinned Playwright container (mcr.microsoft.com/playwright/python:v1.62.0-noble),
+matching the reference environment CI uses. The layout of the root page legitimately changed --
+a museum entrance now sits above the Compendium -- so these seven screenshots' dimensions/content
+changed accordingly. No other files touched.
+
+Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
