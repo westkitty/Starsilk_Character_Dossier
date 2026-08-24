@@ -1,0 +1,94 @@
+name: Verify source-aware Pages publisher
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/pages-publisher-proof.yml"
+
+jobs:
+  prove-publisher:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      pages: read
+    env:
+      EXPECTED_MAIN_SHA: acf7a97b9872d6baf9d6c40f1fca03401671c263
+    steps:
+      - name: Wait for exact merge-triggered Pages workflow run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 60); do
+            curl --fail-with-body --silent --show-error --location \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/pages.yml/runs?event=push&branch=main&per_page=20" \
+              --output /tmp/pages-runs.json
+            state="$(python3 - <<'PY'
+          import json, os
+          data = json.load(open('/tmp/pages-runs.json', encoding='utf-8'))
+          expected = os.environ['EXPECTED_MAIN_SHA']
+          matches = [run for run in data.get('workflow_runs', []) if run.get('head_sha') == expected]
+          if not matches:
+              print('missing')
+          else:
+              run = matches[0]
+              print(f"{run.get('status')}:{run.get('conclusion') or ''}:{run.get('id')}")
+          PY
+          )"
+            echo "Publisher proof attempt ${attempt}: ${state}"
+            case "${state}" in
+              completed:success:*)
+                echo "Exact Pages publisher run succeeded for ${EXPECTED_MAIN_SHA}."
+                exit 0
+                ;;
+              completed:*:*)
+                echo "::error::Exact Pages publisher run finished unsuccessfully: ${state}"
+                exit 1
+                ;;
+            esac
+            sleep 5
+          done
+          echo "::error::No successful Pages publisher run appeared for ${EXPECTED_MAIN_SHA}."
+          exit 1
+
+      - name: Re-prove visual coverage at public edge
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error --location \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
+            --output /tmp/pages.json
+          page_url="$(python3 -c "import json; print(json.load(open('/tmp/pages.json')).get('html_url') or '')")"
+          base_url="${page_url%/}"
+          stamp="${GITHUB_SHA}-$(date +%s)"
+          curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+            "${base_url}/?publisher_probe=${stamp}" --output /tmp/root.html
+          curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+            "${base_url}/entities/sela-orrin/?publisher_probe=${stamp}" --output /tmp/sela.html
+          curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+            "${base_url}/relationships/relationships.json?publisher_probe=${stamp}" --output /tmp/relationships.json
+          grep -Fq 'data-visual-coverage="fallback"' /tmp/root.html
+          grep -Fq 'Khar Venn — Blood Ring witness context' /tmp/root.html
+          grep -Fq 'data-visual-coverage="fallback"' /tmp/sela.html
+          grep -Fqi 'not a portrait' /tmp/sela.html
+          python3 - <<'PY'
+          import json
+          data = json.load(open('/tmp/relationships.json', encoding='utf-8'))
+          rel = data.get('relationships', [])
+          assert data.get('entity_count') == 127
+          assert data.get('relationship_count') == 138
+          assert len(rel) == 138
+          assert all(item.get('kind') == 'mentions' and item.get('evidence_class') == 'observed-xref' for item in rel)
+          print('FINAL LIVE PROOF: root fallback PASS')
+          print('FINAL LIVE PROOF: Sela non-portrait PASS')
+          print('FINAL LIVE PROOF: 127 entities / 138 observed mentions PASS')
+          PY
