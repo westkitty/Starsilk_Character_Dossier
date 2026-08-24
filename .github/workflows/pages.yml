@@ -72,7 +72,7 @@ jobs:
           print(f"latest_build_error={error.get('message')}")
           PY
 
-      - name: Verify live Compendium identity from GitHub runner
+      - name: Verify current live Compendium identity from GitHub runner
         run: |
           set -euo pipefail
           page_url="$(python3 - <<'PY'
@@ -92,13 +92,13 @@ jobs:
           grep -Fq 'Starsilk Compendium' /tmp/live.html
           grep -Fq 'id="dossierSearch"' /tmp/live.html
           grep -Fq 'Archive tools' /tmp/live.html
-          echo "Verified current Compendium markers at ${page_url}"
+          echo "Verified current Compendium identity at ${page_url}"
 
   publish:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
     environment:
@@ -107,6 +107,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Inspect active Pages source
         id: pages_config
@@ -183,6 +185,37 @@ jobs:
           fi
           echo "Legacy Pages rebuild requested for ${GITHUB_REPOSITORY}."
 
+      - name: Wait for exact legacy Pages source commit
+        if: steps.pages_config.outputs.build_type == 'legacy'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 48); do
+            curl --fail-with-body --silent --show-error --location \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds/latest" \
+              --output /tmp/pages-build-latest.json
+            build_status="$(python3 -c "import json; print(json.load(open('/tmp/pages-build-latest.json')).get('status') or '')")"
+            build_commit="$(python3 -c "import json; print(json.load(open('/tmp/pages-build-latest.json')).get('commit') or '')")"
+            echo "Pages build attempt ${attempt}: status=${build_status} commit=${build_commit}"
+            if [ "${build_commit}" = "${GITHUB_SHA}" ] && [ "${build_status}" = "built" ]; then
+              echo "Exact Pages build completed for ${GITHUB_SHA}."
+              exit 0
+            fi
+            if [ "${build_commit}" = "${GITHUB_SHA}" ] && [ "${build_status}" = "errored" ]; then
+              echo "::error::Pages build errored for ${GITHUB_SHA}."
+              cat /tmp/pages-build-latest.json
+              exit 1
+            fi
+            sleep 5
+          done
+          echo "::error::Pages never reported a built deployment for exact source commit ${GITHUB_SHA}."
+          cat /tmp/pages-build-latest.json || true
+          exit 1
+
       - name: Configure GitHub Pages workflow deployment
         if: steps.pages_config.outputs.build_type == 'workflow'
         uses: actions/configure-pages@v5
@@ -213,29 +246,103 @@ jobs:
           echo "page_url=${page_url}" >> "${GITHUB_OUTPUT}"
           echo "Verifying ${page_url}"
 
-      - name: Verify live Compendium identity
+      - name: Verify exact visual-coverage publication at live edge
+        id: live_proof
         env:
           PAGE_URL: ${{ steps.target.outputs.page_url }}
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 24); do
-            separator='?'
-            case "${PAGE_URL}" in
-              *\?*) separator='&' ;;
-            esac
-            probe="${PAGE_URL}${separator}deployment=${GITHUB_SHA}&attempt=${attempt}"
-            if curl --fail --silent --show-error --location \
-              -H 'Cache-Control: no-cache' \
-              "${probe}" --output /tmp/live.html; then
-              if grep -Fq 'Starsilk Compendium' /tmp/live.html \
-                && grep -Fq 'id="dossierSearch"' /tmp/live.html \
-                && grep -Fq 'Archive tools' /tmp/live.html; then
-                echo "Verified current Compendium markers at ${PAGE_URL}"
-                exit 0
+          base_url="${PAGE_URL%/}"
+          for attempt in $(seq 1 48); do
+            root_probe="${base_url}/?deployment=${GITHUB_SHA}&attempt=${attempt}"
+            sela_probe="${base_url}/entities/sela-orrin/?deployment=${GITHUB_SHA}&attempt=${attempt}"
+            rel_probe="${base_url}/relationships/relationships.json?deployment=${GITHUB_SHA}&attempt=${attempt}"
+
+            root_ok=0
+            sela_ok=0
+            rel_ok=0
+
+            if curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+              "${root_probe}" --output /tmp/live-root.html; then
+              if grep -Fq 'Starsilk Compendium' /tmp/live-root.html \
+                && grep -Fq 'id="dossierSearch"' /tmp/live-root.html \
+                && grep -Fq 'data-visual-coverage="fallback"' /tmp/live-root.html \
+                && grep -Fq 'Khar Venn — Blood Ring witness context' /tmp/live-root.html; then
+                root_ok=1
               fi
+            fi
+
+            if curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+              "${sela_probe}" --output /tmp/live-sela.html; then
+              if grep -Fq 'data-visual-coverage="fallback"' /tmp/live-sela.html \
+                && grep -Fqi 'not a portrait' /tmp/live-sela.html \
+                && grep -Fq 'Khar Venn — Blood Ring witness context' /tmp/live-sela.html; then
+                sela_ok=1
+              fi
+            fi
+
+            if curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
+              "${rel_probe}" --output /tmp/live-relationships.json; then
+              if python3 -c "import json; d=json.load(open('/tmp/live-relationships.json')); assert d.get('entity_count') == 127; assert d.get('relationship_count') == 138; r=d.get('relationships', []); assert len(r) == 138; assert all(x.get('kind') == 'mentions' and x.get('evidence_class') == 'observed-xref' for x in r)"; then
+                rel_ok=1
+              fi
+            fi
+
+            echo "Live proof attempt ${attempt}: root=${root_ok} sela=${sela_ok} relationships=${rel_ok}"
+            if [ "${root_ok}" = 1 ] && [ "${sela_ok}" = 1 ] && [ "${rel_ok}" = 1 ]; then
+              echo "Verified exact visual-coverage publication at ${PAGE_URL}"
+              echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "${GITHUB_OUTPUT}"
+              exit 0
             fi
             sleep 5
           done
-          echo "::error::Pages publication did not converge to the current Compendium markers."
-          head -c 1200 /tmp/live.html || true
+          echo "::error::Pages publication never converged to the exact visual-coverage contract."
+          grep -n -m 1 'Khar Venn' /tmp/live-root.html || true
+          grep -n -m 1 'not a portrait' /tmp/live-sela.html || true
+          head -c 1200 /tmp/live-relationships.json || true
           exit 1
+
+      - name: Record durable live-publication certificate
+        env:
+          BUILD_TYPE: ${{ steps.pages_config.outputs.build_type }}
+          SOURCE_BRANCH: ${{ steps.pages_config.outputs.source_branch }}
+          SOURCE_PATH: ${{ steps.pages_config.outputs.source_path }}
+          PAGE_URL: ${{ steps.target.outputs.page_url }}
+          VERIFIED_AT: ${{ steps.live_proof.outputs.verified_at }}
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          current_main="$(git rev-parse origin/main)"
+          if [ "${current_main}" != "${GITHUB_SHA}" ]; then
+            echo "A newer main commit exists (${current_main}); skipping certificate write for ${GITHUB_SHA}."
+            exit 0
+          fi
+          cat > LIVE_PUBLICATION_STATE.md <<EOF
+          # LIVE_PUBLICATION_STATE
+
+          project: Starsilk Character Dossier
+          verified_source_commit: ${GITHUB_SHA}
+          verified_at_utc: ${VERIFIED_AT}
+          pages_build_type: ${BUILD_TYPE}
+          pages_source_branch: ${SOURCE_BRANCH}
+          pages_source_path: ${SOURCE_PATH}
+          live_url: ${PAGE_URL}
+
+          ## Verified live contract
+
+          - Root Compendium exposes source-backed visual fallback coverage.
+          - Sela Orrin renders Khar Venn Blood Ring context explicitly as not a portrait.
+          - Canonical entity count is 127.
+          - Observed relationship count is 138.
+          - Every published relationship remains kind=mentions with evidence_class=observed-xref.
+          - This certificate is written only after the exact Pages source commit reports built and the cache-busted public edge passes all checks above.
+          EOF
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add LIVE_PUBLICATION_STATE.md
+          if git diff --cached --quiet; then
+            echo "Live-publication certificate already current."
+            exit 0
+          fi
+          git commit -m "docs: record live Pages publication proof"
+          git push origin HEAD:main
