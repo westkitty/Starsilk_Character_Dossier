@@ -240,9 +240,9 @@ def test_portable_release_package_is_self_contained(page: Page, tmp_path):
         # real reader would) instead of waiting on it from scroll position 0.
         page.locator("#shard-god").scroll_into_view_if_needed()
         page.wait_for_function(
-            "document.querySelector('.reference-record img, .media-item img')?.complete"
+            "document.querySelector('#shard-god .reference-record img, #shard-god .media-item img')?.complete"
         )
-        natural_width = page.evaluate("document.querySelector('.reference-record img, .media-item img').naturalWidth")
+        natural_width = page.evaluate("document.querySelector('#shard-god .reference-record img, #shard-god .media-item img').naturalWidth")
         assert natural_width and natural_width > 0, "canon image failed to load from the standalone package"
         assert not errors
     finally:

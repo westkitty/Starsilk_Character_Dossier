@@ -97,7 +97,12 @@ def test_entity_pages_preserve_authoritative_source_text():
         page = entity_page(stable_id)
         published = page.find(id="entitySource")
         assert published is not None
-        assert " ".join(published.stripped_strings) == source
+        presentation = BeautifulSoup(str(published), "html.parser")
+        for fallback in presentation.select('[data-visual-coverage="fallback"]'):
+            fallback.decompose()
+        published_source = presentation.find(id="entitySource")
+        assert published_source is not None
+        assert " ".join(published_source.stripped_strings) == source
 
 
 def test_root_compendium_retains_every_original_stable_anchor():
