@@ -28,7 +28,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 8 | Curated Museum Tours and Local Collections | COMPLETE | PR #30; final head `d2a772baacf606cb6085a84e8378e69d3c19be99`; CI `32659617585` PASS; merged `6520f43574eac8de64d67da77dca19bc99f3eb46`; live proof `32659776026` PASS | none |
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | COMPLETE | PR #34; final head `b1de688352db864860e97b2e4103790360065ae5`; CI `32671213475` PASS; merged `3ed684897975065d89f5e12c8c15b36f936c0262`; live proof `32671419187` PASS | none |
 | 10 | WorldsVault Cosmic Topology Explorer | COMPLETE | PR #36; implementation `9c713c7`; CI `32673667684` PASS; merged `9b05fe5`; live proof `32673946000` PASS | none |
-| 11 | Installable Offline Museum | NOT STARTED | — | deferred |
+| 11 | Installable Offline Museum | COMPLETE | PR #38; implementation `5768362`; CI `32675229686` PASS; merged `457d522`; Pages build and live shell/metadata/media-boundary proof PASS | none |
 | 12 | AI Agent Evaluation Harness and Final Integration | NOT STARTED | — | deferred |
 
 ## Phase 1 — Foundation, Roadmap, and Publication Boundary
@@ -339,7 +339,17 @@ Represent supported topology without inventing coordinates or spatial precision.
 
 ### Phase 11 — Installable Offline Museum
 
-Add install/offline support with shell/metadata first and media on demand. Do not pre-cache the archive. Keep service-worker scope inside the project and provide explicit cache clearing/failure handling.
+Completed at merge `457d5226b03a5ae1a2d58278ed6af850a532c73e`.
+
+- `build/offline_publication.py` deterministically generates six root deployment artifacts from `src/offline/` and `src/templates/`: web manifest, project-scoped service worker, client controller, offline fallback, styling, and icon.
+- The precache is deliberately limited to the root reading shell and public JSON metadata (under 2 MB). `docs/assets/media/` is neither precached nor runtime-cached; it remains on demand.
+- The manifest starts at `./` and the client registers `service-worker.js` with `scope: './'`, keeping control inside the GitHub Pages project path.
+- The root has an accessible live status region and an explicit `Clear offline cache` control. Unsupported registration, partial cache population, and clearing failures preserve ordinary network browsing and report their state.
+- Offline navigation returns cached `index.html` at the project root and the purpose-built fallback page for unknown/unavailable routes.
+- PR #38 CI run `32675229686` passed the full Chromium suite and Firefox/WebKit representative journeys after one bounded visual-reference update using the pinned runner captures. Merge CI run `32675377118` also passed; GitHub Pages built merged commit `457d522` successfully.
+- Live verification established byte parity for `index.html`, `manifest.webmanifest`, `service-worker.js`, `offline-client.js`, `offline.html`, and `offline.css`; a real HTTPS Chromium session verified project scope, shell/metadata-only cache contents, no media cache entries, cached-root offline navigation, and explicit fallback navigation.
+
+**Completion verdict: VERIFIED.**
 
 ### Phase 12 — AI Agent Evaluation Harness and Final Integration
 

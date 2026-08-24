@@ -580,7 +580,21 @@ Phase 10 of 12 is complete.
 - live proof PR #37 was execution-only and closed without merge. Initial run 32673848241 reached the live page and found only an overescaped proof regex; no product bytes changed. One harness-only repair followed.
 - repaired proof run 32673946000 established LIVE_PHASE10_BYTES_OK for nodes=11, edges=6, 14 exact merged surfaces, machine/sitemap/orientation/entity discovery/root parity, and public-boundary safety; LIVE_PHASE10_BROWSER_OK confirmed the Meridian deep link, keyboard edge selection, text equivalent, source availability, 375px layout, and same-origin networking.
 
-Therefore Phase 10 is **VERIFIED COMPLETE** at authority, deterministic generation, topology semantics, identity/unknown boundaries, CI, merge, public boundary, accessibility, and live publication layers. Phase 11 was not started.
+Therefore Phase 10 is **VERIFIED COMPLETE** at authority, deterministic generation, topology semantics, identity/unknown boundaries, CI, merge, public boundary, accessibility, and live publication layers.
+
+## Museum + AI Phase 11 Installable Offline Museum — VERIFIED
+
+Phase 11 of 12 is complete.
+
+- implementation commit: `5768362`; PR #38 merged to `main` at `457d5226b03a5ae1a2d58278ed6af850a532c73e`.
+- `build/offline_publication.py` owns and deterministically checks six generated root artifacts: manifest, project-scoped service worker, client, fallback HTML/CSS, and icon. The root shell supplies installation metadata plus accessible cache status/clear controls.
+- the worker precaches only the reading shell and selected public JSON indexes (under 2 MB). `docs/assets/media/` is explicitly excluded from the precache and worker cache writes, so all 213 published media assets remain on demand.
+- registration uses `scope: './'`; installed start and worker scope remain inside the repository Pages path. Failed/partial cache work and clear errors leave normal network browsing usable and are reported through the root status region.
+- offline navigation has two deliberately separate outcomes: the project root serves cached `index.html`; unavailable/unknown routes serve the explicit fallback page.
+- first PR CI run `32675003892` passed all functional tests but exposed four intentional visual reference changes from the new root controls. A single bounded repair replaced only those four references with the pinned CI runner captures. Required PR CI run `32675229686` then passed Chromium job `97282054859`, Firefox job `97282054918`, and WebKit job `97282054919`; merge CI run `32675377118` passed as well.
+- GitHub Pages built merge `457d522` successfully. Live byte parity passed for `index.html`, manifest, worker, client, fallback HTML, and fallback CSS. A real live HTTPS Chromium session established exact project scope, shell/metadata-only cache contents, absence of `/assets/media/` cache entries, cached-root offline behavior, and explicit fallback behavior.
+
+Therefore Phase 11 is **VERIFIED COMPLETE** at deterministic generation, bounded offline policy, project scope, cache-clearing/failure behavior, CI, merge, Pages publication, and live browser layers. Phase 12 has not been started.
 
 ## GitHub Pages deployment state — VERIFIED
 
@@ -704,7 +718,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Museum + AI program: Phase 11 of 12 — Installable Offline Museum. It has not been started.
+- Museum + AI program: Phase 12 of 12 — AI Agent Evaluation Harness and Final Integration. It has not been started.
 
 ## Revision log
 
@@ -726,3 +740,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 16: completed Museum + AI Phase 8. Added six stable-ID curated routes/29 authored-navigation stops, deterministic `/tours/` human/JSON/schema/authority publication, browser-local bookmarks/recent/history/progress/named collections with clear/fallback behavior, privacy/locality authority rules, machine/sitemap/orientation discovery, and conservative entity/discovery entry points without changing root search or record authority. No implementation repair was needed. PR #30 passed final Chromium/Firefox/WebKit CI run `32659617585` and merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`; execution-only proof PR #31 was closed unmerged after run `32659776026` / job `97244053606` proved exact live bytes, public-boundary safety, exact tour derivation, private-text URL isolation, persistence/clear behavior, origin-local networking, entity discovery, and mobile Chromium behavior. Phase 9 was not started.
 - Revision 17: completed Museum + AI Phase 9. Added deterministic source-backed `/chronology/` human/JSON/Markdown/schema/authority publication for 27 direct-label events, preserving 5 exact authored markers, 6 relative markers, one 170-year authored duration, null absolute dates, and 15 unknown temporal states. Event visibility remains public while canon status and spoiler level remain independently unknown; UI filters are view-only and cannot mutate machine status. One bounded pre-commit schema/source-record key repair was made. PR #34 passed Chromium/Firefox/WebKit CI run `32671213475` and merged at `3ed684897975065d89f5e12c8c15b36f936c0262`; execution-only proof PR #35 was closed unmerged after run `32671419187` / job `97272730778` proved live byte parity, public-boundary safety, deep links, filter/status preservation, keyboard/source-link behavior, mobile layout, and same-origin networking. Phase 10 was not started.
 - Revision 18: completed Museum + AI Phase 10. Added deterministic seven-file WorldsVault topology publication from 11 source-cited nodes and 6 direct-authored edges, explicit publication-derived identity, separate non-canonical layout, independent public/unknown/unknown status, accessible text/keyboard/mobile behavior, and machine/schema/sitemap/entity discovery. Existing stable IDs, observed-xref mentions, and unauthored template positions remained unchanged. PR #36 passed CI run `32673667684` and merged at `9b05fe5873e171b63399558215189436213ae62f`. Execution-only proof PR #37 closed unmerged after repaired proof run `32673946000` proved byte parity, boundary safety, deep links, keyboard behavior, text equivalent, mobile layout, source links, and same-origin networking. Phase 11 was not started.
+- Revision 19: completed Museum + AI Phase 11. Added deterministic six-file installable offline publication with root manifest/client UI, project-relative service-worker scope, under-2-MB shell/metadata precache, strict on-demand media boundary, cache clear/failure reporting, cached-root and explicit fallback navigation, focused browser coverage, and a bounded pinned visual-reference refresh. PR #38 CI run `32675229686` passed Chromium/Firefox/WebKit, merged at `457d5226b03a5ae1a2d58278ed6af850a532c73e`, and live Pages proof established byte parity plus real HTTPS worker/cache/offline behavior. Phase 12 was not started.
