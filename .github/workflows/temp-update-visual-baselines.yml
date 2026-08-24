@@ -47,13 +47,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No baseline changes to commit."
           else
-            git commit -m "chore(phase-12): regenerate visual baselines for unified museum shell
-
-Captured inside the pinned Playwright container (mcr.microsoft.com/playwright/python:v1.62.0-noble),
-matching the reference environment CI uses. The layout of the root page legitimately changed --
-a museum entrance now sits above the Compendium -- so these seven screenshots' dimensions/content
-changed accordingly. No other files touched.
-
-Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+            git commit -m "chore(phase-12): regenerate visual baselines for unified museum shell" \
+              -m "Captured inside the pinned Playwright container, matching the CI reference environment. Root page layout legitimately changed (museum entrance now sits above the Compendium), so these seven screenshots changed accordingly. No other files touched."
             git push origin HEAD:${{ github.ref_name }}
           fi
