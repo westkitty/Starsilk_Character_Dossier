@@ -109,8 +109,17 @@ jobs:
           python3 tools/one_shot_entrance_patch.py
           python3 - <<'PY'
           from pathlib import Path
-          path = Path('src/templates/style.css')
-          path.write_text(path.read_text(encoding='utf-8').rstrip() + '\n', encoding='utf-8')
+          style = Path('src/templates/style.css')
+          style.write_text(style.read_text(encoding='utf-8').rstrip() + '\n', encoding='utf-8')
+          test = Path('tests/test_entrance_intrusion.py')
+          text = test.read_text(encoding='utf-8')
+          open_wrapper = 'f"""() => {{\n'
+          close_wrapper = '        }}"""\n    )'
+          if open_wrapper not in text or close_wrapper not in text:
+              raise RuntimeError('intrusion test init-script wrapper markers missing')
+          text = text.replace(open_wrapper, 'f"""\n', 1)
+          text = text.replace(close_wrapper, '        """\n    )', 1)
+          test.write_text(text, encoding='utf-8')
           PY
 
       - name: Rebuild and verify generated publication
