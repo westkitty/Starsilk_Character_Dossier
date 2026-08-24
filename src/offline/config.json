@@ -1,0 +1,29 @@
+{
+  "schema": "starsilk-offline-museum/1",
+  "name": "Starsilk Compendium",
+  "short_name": "Starsilk",
+  "description": "A source-backed Starsilk reference compendium with a small offline shell and metadata cache.",
+  "theme_color": "#05070d",
+  "background_color": "#05070d",
+  "media_policy": "on-demand-never-service-worker-cached",
+  "precache": [
+    "index.html",
+    "offline.html",
+    "offline.css",
+    "offline-client.js",
+    "offline-icon.svg",
+    "manifest.webmanifest",
+    "asset-manifest.json",
+    "machine/index.json",
+    "machine/entities.json",
+    "machine/relationships.json",
+    "relationships/relationships.json",
+    "canon/canon-locks.json",
+    "discover/discovery.json",
+    "discover/context-packets.json",
+    "tours/tours.json",
+    "chronology/chronology.json",
+    "worldsvault/worldsvault.json",
+    "objects/objects.json"
+  ]
+}

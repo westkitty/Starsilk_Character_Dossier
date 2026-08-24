@@ -1,0 +1,19 @@
+{
+  "background_color": "#05070d",
+  "description": "A source-backed Starsilk reference compendium with a small offline shell and metadata cache.",
+  "display": "standalone",
+  "icons": [
+    {
+      "purpose": "any maskable",
+      "sizes": "192x192",
+      "src": "offline-icon.svg",
+      "type": "image/svg+xml"
+    }
+  ],
+  "id": "./",
+  "name": "Starsilk Compendium",
+  "scope": "./",
+  "short_name": "Starsilk",
+  "start_url": "./",
+  "theme_color": "#05070d"
+}

@@ -241,6 +241,7 @@ html.sidebar-collapsed .index{display:none}
 @media(min-width:951px){html.sidebar-collapsed .page{padding-left:var(--page-pad)}}
 .page-controls button{min-height:44px;padding:.5rem 1rem;background:#102234;border:1px solid #2b4966;color:#d9f3ff;border-radius:4px;font:700 .75rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;flex:0 0 auto}
 .page-controls button:hover,.page-controls button:focus-visible{background:#16324e;border-color:var(--thread);outline:none}
+.offline-status{color:var(--muted);font-size:.72rem;line-height:1.25;flex:1 1 14rem;max-width:31rem}.offline-status[data-state="ready"]{color:var(--green)}.offline-status[data-state="degraded"],.offline-status[data-state="error"]{color:var(--yellow)}
 .page-controls-search{display:flex;align-items:center;gap:.5rem;flex:1 1 14rem;min-width:10rem}
 .page-controls-search input{width:100%;min-height:44px;padding:.5rem .75rem;background:#0a121c;border:1px solid #223347;color:#e6f3fb;border-radius:4px;font-size:.85rem}
 .page-controls-search input:focus-visible{outline:2px solid var(--thread);outline-offset:1px}
