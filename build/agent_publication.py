@@ -138,11 +138,16 @@ def integration_report(fixtures: dict) -> dict:
         all_relationships_are_mentions(relationships),
         f"relationships={relationships.get('relationship_count')} kind=mentions evidence=observed-xref",
     )
+    media_parity = (
+        objects.get("record_count") == len(object_records) == len(asset_records)
+        and asset_manifest.get("unique_binary_assets") == len(asset_records)
+        and all(record.get("evidence", {}).get("source_ref") == "docs/asset-manifest.json" for record in object_records)
+        and {record.get("filename") for record in object_records} == {asset.get("filename") for asset in asset_records}
+    )
     add(
         "media-provenance-parity",
-        objects.get("record_count") == len(object_records) == len(asset_records) == 213
-        and all(record.get("evidence", {}).get("source_ref") == "docs/asset-manifest.json" for record in object_records),
-        f"objects={objects.get('record_count')} manifest_assets={len(asset_records)} expected=213",
+        media_parity,
+        f"objects={objects.get('record_count')} manifest_assets={len(asset_records)} declared_assets={asset_manifest.get('unique_binary_assets')}",
     )
     add(
         "chronology-unknowns-preserved",
