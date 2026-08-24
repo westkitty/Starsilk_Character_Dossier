@@ -54,7 +54,14 @@ def sha256_of(path: Path) -> str:
 
 
 def load_legacy_metadata() -> dict:
-    """filename -> subset of legacy manifest fields worth carrying forward."""
+    """Return legacy metadata addressable by both source and published name.
+
+    Image optimization commonly changes ``foo.png`` into ``foo.webp``. Older
+    versions keyed carried metadata only by the published filename and later
+    looked it up by the source filename, silently dropping contexts and
+    provenance on regeneration. Index both identities so regeneration is
+    lossless across format conversion.
+    """
     if not MANIFEST_FILE.exists():
         return {}
     try:
@@ -62,11 +69,11 @@ def load_legacy_metadata() -> dict:
     except Exception:
         return {}
     out = {}
-    for a in data.get("assets", []):
-        fn = a.get("filename")
-        if not fn:
-            continue
-        out[fn] = {k: v for k, v in a.items() if k in LEGACY_MANIFEST_KEYS}
+    for asset in data.get("assets", []):
+        metadata = {k: v for k, v in asset.items() if k in LEGACY_MANIFEST_KEYS}
+        for key in (asset.get("source_filename"), asset.get("filename")):
+            if key:
+                out[key] = metadata
     return out
 
 
@@ -178,7 +185,7 @@ def main() -> int:
             "source_sha256": source_sha,
             "source_bytes": source_bytes,
         }
-        entry.update(legacy.get(src.name, {}))
+        entry.update(legacy.get(src.name, legacy.get(published_path.name, {})))
         assets.append(entry)
 
     shutil.rmtree(tmp_dir, ignore_errors=True)
