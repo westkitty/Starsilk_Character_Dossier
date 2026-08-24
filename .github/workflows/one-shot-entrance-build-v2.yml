@@ -1,0 +1,73 @@
+name: One-shot Starsilk entrance build v2
+
+on:
+  push:
+    branches: [canon/wordstreaming-post-wall-hardening]
+
+permissions:
+  contents: write
+
+jobs:
+  implement-generate-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: canon/wordstreaming-post-wall-hardening
+          fetch-depth: 0
+
+      - name: Trust worktree
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply bounded entrance implementation
+        run: python3 tools/one_shot_entrance_patch.py
+
+      - name: Rebuild generated publication
+        run: |
+          ./tools/build.sh
+          ./tools/build.sh --check
+          git diff --check
+
+      - name: Focused entrance and preserved-behavior checks
+        run: |
+          python3 -m pytest tests/test_entrance_intrusion.py -q
+          python3 -m pytest \
+            tests/test_dossier.py::test_no_content_blocking_gate \
+            tests/test_dossier.py::test_cover_title_is_starsilk_compendium \
+            tests/test_dossier.py::test_cover_title_stays_on_one_line \
+            tests/test_dossier.py::test_watermark_pauses_while_cover_dominant \
+            tests/test_unified_museum_shell.py \
+            -q
+
+      - name: Refresh intentional root visual references only
+        env:
+          UPDATE_VISUAL_BASELINES: "1"
+        run: |
+          python3 -m pytest \
+            tests/test_dossier.py::test_visual_cover_desktop \
+            tests/test_dossier.py::test_visual_cover_mobile \
+            tests/test_dossier.py::test_visual_reduced_motion \
+            -q
+
+      - name: Recheck after visual reference update
+        run: |
+          ./tools/build.sh --check
+          python3 -m pytest tests/test_entrance_intrusion.py -q
+          git diff --check
+
+      - name: Commit generated source-aligned implementation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src docs tests
+          if git diff --cached --quiet; then
+            echo "No implementation changes to commit."
+            exit 0
+          fi
+          git commit -m "feat: make the Starsilk entrance canon-first [generated]"
+          git push origin HEAD:canon/wordstreaming-post-wall-hardening
