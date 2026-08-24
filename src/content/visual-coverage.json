@@ -30,9 +30,9 @@
       "sections": ["drakken-registry", "nyle-quarth"],
       "source_filename": "56dd8a1dd141a08c85c0e37b.png",
       "role": "context",
-      "title": "The Egg — Drakken archive context",
-      "alt": "The Egg archival plate used as Drakken registry and archive context; not a portrait of Archivist Nyle Quarth.",
-      "note": "Drakken archival context; for Nyle Quarth this is not a portrait and does not establish his appearance."
+      "title": "Drakken archive — origin-node context",
+      "alt": "Drakken origin-node archival plate used as registry and archive context.",
+      "note": "Drakken archival context, not a portrait; it does not establish the named archivist's appearance."
     },
     {
       "sections": ["blood-rings"],
@@ -64,7 +64,7 @@
       "role": "context",
       "title": "Original Triumvirate — historical context",
       "alt": "General Starsilk historical context plate for an Original Triumvirate folio; not a portrait of the named subject.",
-      "note": "Context plate, not a portrait. It must not be used to infer Wordstreamer or NiAlBu appearance."
+      "note": "Context plate, not a portrait. It must not be used to infer either named subject's appearance."
     },
     {
       "sections": ["anika", "jory", "selim", "vessa", "orin", "mael", "sera-inventory"],
@@ -150,9 +150,9 @@
       "sections": ["administrator-pell", "technician-naresh", "captain-serr"],
       "source_filename": "b2270a968eed67509f0812c1.png",
       "role": "context",
-      "title": "The Hushing of Shail-9 — Lyriboris context",
-      "alt": "Lyriboris archival plate used as incident context for a Shail-9 witness folio; not a portrait of the named witness.",
-      "note": "Incident-antagonist context only; it does not portray Pell, Naresh, or Serr."
+      "title": "The Hushing of Shail-9 — antagonist context",
+      "alt": "Archival antagonist plate used as incident context for a Shail-9 witness folio; not a portrait of the named witness.",
+      "note": "Incident-antagonist context only; it does not portray the named Administration witnesses."
     },
     {
       "sections": ["harold", "mara-syrin4", "tomas", "jonah", "clara", "eli", "ruth-syrin4", "kails-mother"],
