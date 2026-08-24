@@ -100,7 +100,7 @@ def all_relationships_are_mentions(payload: dict) -> bool:
 def integration_report(fixtures: dict) -> dict:
     machine = load_json(DOCS / "machine" / "index.json")
     entities = load_json(DOCS / "machine" / "entities.json")
-    relationships = load_json(DOCS / "machine" / "relationships.json")
+    relationships = load_json(DOCS / "relationships" / "relationships.json")
     objects = load_json(DOCS / "objects" / "objects.json")
     asset_manifest = load_json(DOCS / "asset-manifest.json")
     packets = load_json(DOCS / "discover" / "context-packets.json")
