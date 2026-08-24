@@ -3,6 +3,8 @@ name: Phase 12 live Pages proof
 on:
   push:
     branches: [phase-12-live-proof]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
