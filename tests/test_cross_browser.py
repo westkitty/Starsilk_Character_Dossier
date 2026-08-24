@@ -9,6 +9,16 @@ import re
 from playwright.sync_api import Page, expect
 
 
+def test_unified_museum_shell_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 1280, "height": 900})
+    page.goto(f"{local_server}/index.html")
+    expect(page.locator('body[data-museum-shell="unified"]')).to_be_visible()
+    expect(page.locator("a.museum-module[href='objects/']")).to_be_visible()
+    page.locator("a.museum-module[href='objects/']").click()
+    expect(page.locator('header.museum-nav[data-museum-shell="unified"]')).to_be_visible()
+    expect(page.locator(".museum-nav-links a[aria-current='page']")).to_have_text("Museum objects")
+
+
 def test_nav_and_disclosure_journey(page: Page, local_server):
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")

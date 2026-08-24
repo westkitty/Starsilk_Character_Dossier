@@ -12,10 +12,10 @@
 </head>
 <body class="museum-shell">
 <a class="skip-link" href="#main">Skip to museum collection</a>
+{% set nav_root = '../' %}{% set nav_current = 'objects' %}{% include "_museum_nav.html.j2" %}
 <header class="museum-bar">
   <a class="museum-brand" href="../">{{ project_name|e }}</a>
-  <nav aria-label="Museum publication">
-    <a href="../entities/">Entity index</a>
+  <nav aria-label="Museum object publication formats">
     <a href="objects.json">Object JSON</a>
     <a href="AUTHORITY.md">Authority</a>
   </nav>

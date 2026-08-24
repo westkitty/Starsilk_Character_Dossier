@@ -12,11 +12,10 @@
 </head>
 <body class="canon-shell">
 <a class="skip-link" href="#main">Skip to canon locks</a>
+{% set nav_root = '../' %}{% set nav_current = 'canon' %}{% include "_museum_nav.html.j2" %}
 <header class="canon-bar">
   <a class="canon-brand" href="../">Starsilk Compendium</a>
-  <nav aria-label="Canon Inspector publication">
-    <a href="../entities/">Entity index</a>
-    <a href="../relationships/">Relationship observatory</a>
+  <nav aria-label="Canon Inspector publication formats">
     <a href="canon-locks.json">JSON</a>
     <a href="canon-locks.md">Markdown</a>
   </nav>

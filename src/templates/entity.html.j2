@@ -19,17 +19,10 @@
 </head>
 <body class="entity-shell">
 <a class="skip-link" href="#main">Skip to record</a>
+{% set nav_root = '../../' if mode == 'record' else '../' %}{% set nav_current = 'entities' %}{% include "_museum_nav.html.j2" %}
 <header class="entity-bar">
-  <a class="entity-brand" href="{% if mode == 'record' %}../../{% else %}../{% endif %}">{{ project_name|e }}</a>
-  <nav aria-label="Entity publication">
-    <a href="{% if mode == 'record' %}../{% endif %}">Entity index</a>
-    <a href="{% if mode == 'record' %}../../machine/entities.json{% else %}../machine/entities.json{% endif %}">Machine index</a>
-    <a href="{% if mode == 'record' %}../../relationships/{% else %}../relationships/{% endif %}">Relationship observatory</a>
-    <a href="{% if mode == 'record' %}../../canon/{% else %}../canon/{% endif %}">Canon Inspector</a>
-    <a href="{% if mode == 'record' %}../../tours/#record-{{ record.stable_id|e }}{% else %}../tours/{% endif %}">Tours & local library</a>
-    <a href="{% if mode == 'record' %}../../chronology/{% else %}../chronology/{% endif %}">Chronology</a>
-    <a href="{% if mode == 'record' %}../../worldsvault/{% else %}../worldsvault/{% endif %}">WorldsVault topology</a>
-  </nav>
+  <a class="entity-brand" href="{{ nav_root }}">{{ project_name|e }}</a>
+  <nav aria-label="Entity record formats">{% if mode == 'record' %}<a href="../">Entity index</a><a href="{{ json_url|e }}">JSON</a><a href="{{ markdown_url|e }}">Markdown</a><a href="../../tours/#record-{{ record.stable_id|e }}">Local library</a>{% else %}<a href="../machine/entities.json">Machine index</a>{% endif %}</nav>
 </header>
 
 {% if mode == "record" %}
