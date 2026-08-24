@@ -132,3 +132,53 @@ Final deployment proof came from GitHub Actions run `32627553716`, job `97165136
 This closes the stale-hosted-site incident. The public GitHub Pages deployment is **verified current**. Earlier stale responses from the external web reader were cache artifacts and are superseded by the authoritative Pages build record plus the fresh GitHub-runner fetch.
 
 Durable rule: do not infer GitHub Pages mode from the existence of a workflow file. Read the Pages API first; then use the publication path that matches the observed `build_type` and verify the live endpoint independently.
+
+## 2026-08-24 — Museum + AI program complete: Phase 12 final root-integration repair
+
+Baseline: `main` at `75e75dc` (Phase 12 Part A -- the agent evaluation harness, PR #39 -- already merged at `3431f14941f20a0105ac70275360d6aaa07f6014`, with formal state closure still open).
+
+Purpose preserved: the Starsilk Compendium/Museum remains one deterministic static publication generated from versioned source; no canon prose was rewritten, no stable ID changed, no relationship/chronology/WorldsVault fact was invented, and media provenance was untouched.
+
+The problem: Phases 3-10 had built eight real public museum systems (`/discover/`, `/entities/`, `/objects/`, `/relationships/`, `/canon/`, `/tours/`, `/chronology/`, `/worldsvault/`), and Phase 12 Part A had published an agent evaluation harness on top of them -- but the root page (`/`) still rendered as the original dossier-only Compendium shell. A visitor opening `/` had no visible way to discover that any of those eight systems existed. That is a real integration defect, not a missing feature: every system worked in isolation but the project did not present as one museum.
+
+Implemented change group (branch `fix/unified-museum-final-integration`, PR #42):
+
+1. Shared navigation
+   - Added `src/templates/_museum_nav.html.j2`, one Jinja partial included by the root shell and all eight secondary system templates plus entity records. Each template sets `nav_root`/`nav_current` before the include; no build-script (`build/*.py`) changes were needed for this, since every generator already shares the same `src/templates/` Jinja loader.
+   - Replaced each system's previously inconsistent, partial local header nav (some linked to three sibling systems, some to none) with the same complete ten-destination navigation everywhere, plus a secondary Data/AI panel.
+2. Root museum entrance
+   - Added a hero, eight visitor-facing exploration cards (one per system), a Data/AI strip, and a lead-in section to `src/templates/shell.html.j2`, all ahead of the unchanged, unabridged Compendium.
+   - Added `load_museum_stats()` to `build/generate.py`: every hero statistic (record count, museum object count, cross-reference count, chronology event count, tour count, canon lock count) is computed from existing source/generated files at build time, never hand-written.
+   - Marked the shell `data-museum-shell="unified"` on the root `<body>` and on every page's rendered nav header, as a deterministic, test-checked integration marker.
+3. Visitor-facing cleanup
+   - Normalized "Phase 7"/"Phase 8" eyebrow labels on Discover/Tours to plain museum language. Internal documents (this ledger, the roadmap, operational state) still record full phase history; that is presentation cleanup, not a canon or record change.
+4. Layout fixes found during verification
+   - The fixed dossier sidebar (`.index`) and the new nav bar both anchored near the top-left corner; fixed the sidebar's `top`/`max-height` to clear the nav bar at every breakpoint, and gave the nav a compact two-row, horizontally-scrolling mobile layout instead of letting ten links wrap unbounded.
+   - Removed a `.museum-entrance{isolation:isolate}` rule that had trapped the nav's `z-index` inside its own stacking context, which let the fixed sidebar visually cover the new nav bar on narrow viewports.
+5. Test repairs (three, all caused by the cover section legitimately no longer being the first thing in the viewport)
+   - `test_watermark_pauses_while_cover_dominant`: the ambient watermark now correctly plays at initial load (the hero, not the cover, is on screen) and pauses once the reader actually scrolls to the cover -- updated the test to assert the new, correct sequence rather than the old load-time assumption.
+   - `test_portable_release_package_is_self_contained`: a natively lazy-loaded canon image sits far enough below the fold now that it needs an explicit scroll to trigger browser lazy-loading, matching real reader behavior -- added that scroll before the wait.
+   - `test_cover_title_is_starsilk_compendium`: updated the expected `<title>` from `Starsilk — Compendium` to `Starsilk Museum & Compendium`.
+6. New coverage
+   - Added `tests/test_unified_museum_shell.py`: marker presence, full navigation coverage from the root, exploration cards, derived-not-hardcoded hero statistics, every system resolving on disk and carrying the same shell with a working "back to home" link, entity records also carrying the shell, and no external runtime dependency in the shared nav -- plus two Chromium browser journeys.
+   - Added a unified-shell journey to `tests/test_cross_browser.py`, run on Chromium, Firefox, and WebKit.
+
+Visual regression baselines for the seven screenshots whose layout legitimately changed (`cover-desktop`, `cover-mobile`, `cover-reduced-motion`, `drakken-the-egg`, `media-vault`, `peripheral-index`, `principal-dao`) were regenerated inside the exact pinned CI Playwright container (`mcr.microsoft.com/playwright/python:v1.62.0-noble`), via a temporary `workflow_dispatch` runner added, triggered, and then removed once its commit landed -- following this repository's own established pattern (see the immediately preceding chore commits on `main`) for one-time pinned-environment operations rather than trusting locally-captured macOS screenshots as references.
+
+Verification before merge:
+
+- `./tools/build.sh` and `./tools/build.sh --check` -- deterministic, clean.
+- `.venv/bin/python3 build/validate.py --strict` -- 0 violations (duplicate ids, broken anchors, local asset paths, data URIs, path leaks, external dependencies, section counts, disclosure semantics, JS syntax, canon invariants, Drakken art identities, manifest invariants all clean).
+- `tools/check_public_boundary.py` over every generated public surface -- OK, 576 files.
+- `git diff --check` -- clean.
+- Full pytest suite: 180 passed (Chromium), including the two new test files.
+- `tests/test_cross_browser.py` on Chromium, Firefox, and WebKit -- all passed.
+- PR #42 CI run `32682068700` -- all three required jobs (Chromium build+validate+test, Firefox journeys, WebKit journeys) passed green.
+
+Merge and live publication:
+
+- PR #42 merged at `e2950ec0645f699fcd311f891129e7b558285476`.
+- GitHub Pages built that commit (`pages/builds/1170882630`, status `built`, matching `last-modified` header on the live response).
+- Independent cache-busted live verification confirmed the unified-shell marker, hero navigation, and derived statistics at `https://westkitty.github.io/Starsilk_Character_Dossier/`, and HTTP 200 with the same marker at `/discover/`, `/entities/`, `/objects/`, `/relationships/`, `/canon/`, `/tours/`, `/chronology/`, `/worldsvault/`, and a representative entity record (`/entities/codec/`).
+
+This closes the Museum + AI program. All twelve phases are now `COMPLETE` with inspectable evidence (see `MUSEUM_AI_ROADMAP.md`); `OPERATIONAL_STATE.md` revision 20 records the same closure. There is no Phase 13 -- further work on this project is ordinary maintenance against the finished museum, not a new program phase.

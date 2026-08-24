@@ -29,7 +29,7 @@ It records **desired/planned work and phase progress**. `OPERATIONAL_STATE.md` r
 | 9 | Interactive Chronology, Canon Status, and Spoiler Views | COMPLETE | PR #34; final head `b1de688352db864860e97b2e4103790360065ae5`; CI `32671213475` PASS; merged `3ed684897975065d89f5e12c8c15b36f936c0262`; live proof `32671419187` PASS | none |
 | 10 | WorldsVault Cosmic Topology Explorer | COMPLETE | PR #36; implementation `9c713c7`; CI `32673667684` PASS; merged `9b05fe5`; live proof `32673946000` PASS | none |
 | 11 | Installable Offline Museum | COMPLETE | PR #38; implementation `5768362`; CI `32675229686` PASS; merged `457d522`; Pages build and live shell/metadata/media-boundary proof PASS | none |
-| 12 | AI Agent Evaluation Harness and Final Integration | NOT STARTED | — | deferred |
+| 12 | AI Agent Evaluation Harness and Final Integration | COMPLETE | PR #39; implementation head `6c7eed86f60ce1eb36d4b53b29f8776b356fbf0`; CI `32676564639` PASS; merged `3431f14941f20a0105ac70275360d6aaa07f6014`; live proof PR #40, run `32676803602`, job `97286337702` PASS; integration certificate `docs/agents/integration.json` 10/10 checks pass; evaluation contract 13/13 categories, 7 penalties. Final root-integration repair: PR #42; branch `fix/unified-museum-final-integration`; CI `32682068700` PASS (Chromium + Firefox + WebKit); merged `e2950ec0645f699fcd311f891129e7b558285476`; live Pages verified on the merged commit | none |
 
 ## Phase 1 — Foundation, Roadmap, and Publication Boundary
 
@@ -355,6 +355,31 @@ Completed at merge `457d5226b03a5ae1a2d58278ed6af850a532c73e`.
 
 Publish agent guidance and reusable source-grounded evaluation fixtures, then verify the finished system across authority, machine endpoints, museum UX, accessibility, privacy, browsers, offline behavior, generated/source parity, and GitHub Pages publication. Fix integration defects only; do not redesign.
 
+Completed at merge `3431f14941f20a0105ac70275360d6aaa07f6014` (implementation), then closed out at merge `e2950ec0645f699fcd311f891129e7b558285476` (final root-integration repair).
+
+**Part A — Agent evaluation harness (PR #39).**
+
+- `src/agents/AUTHORITY.md` and `src/agents/evaluation-fixtures.json` define the vendor-neutral, source-grounded evaluation contract (13 required categories, 7 explicit penalties).
+- `build/agent_publication.py` deterministically generates `docs/agents/AGENT_GUIDE.md`, `docs/agents/evaluation.json`, `docs/agents/evaluation.md`, `docs/agents/integration.json`, and `docs/agents/schema.json`.
+- `docs/agents/integration.json` is a deterministic structural integration certificate (explicitly not a substitute for CI/browser/live-Pages/public-boundary/source-authority proof) checking stable-entity identity, context-packet parity, relationship evidence boundary, media provenance parity, chronology/topology unknown-preservation, tour local-state boundary, offline project scope, and agent entry points: 10/10 checks pass.
+- CI run `32676564639` passed on implementation head `6c7eed86f60ce1eb36d4b53b29f8776b356fbf0`; merge run and live-proof PR #40 (run `32676803602`, job `97286337702`) both passed.
+
+**Part B — Final root-integration repair (PR #42).**
+
+Part A shipped every planned Phase 12 system, but left a real integration defect: the root page (`/`) still rendered as the pre-museum, dossier-only Compendium shell, with no visible navigation into any of the eight public systems built across Phases 3–10. A visitor opening `/` had no way to discover that `/discover/`, `/entities/`, `/objects/`, `/relationships/`, `/canon/`, `/tours/`, `/chronology/`, and `/worldsvault/` existed.
+
+- Added `src/templates/_museum_nav.html.j2`, a single shared Jinja navigation partial included by the root shell and all eight secondary system templates plus entity records -- one consistent header (Museum Home, Compendium, Discover, Entities, Museum objects, Relationships, Canon Inspector, Tours, Chronology, WorldsVault, plus a secondary Data/AI panel) everywhere, replacing each page's previously inconsistent ad hoc local nav. No new build-script code was needed; each template sets its own `nav_root`/`nav_current` before the include.
+- Added a real museum entrance to `shell.html.j2`: hero, visitor-facing exploration cards for every system, a Data/AI strip, and a lead-in to the unabridged Compendium that continues unchanged below it. Every hero statistic is computed in `build/generate.py` from existing source/generated data (`sections.json`, `docs/asset-manifest.json`, `src/tours/tours.json`, `src/chronology/events.json`, `src/canon/invariants.json`) -- never hand-maintained.
+- The shell carries a deterministic `data-museum-shell="unified"` marker (root `<body>` and every page's unified nav header), tested in `tests/test_unified_museum_shell.py`.
+- Normalized visitor-facing "Phase N" eyebrow labels on Discover and Tours to plain museum language; this roadmap and other internal records still record phase history in full.
+- The full Compendium, legacy `/#stable-id` anchors, dossier search, expand/collapse, Archive Tools, print/export, and every existing system's own authority boundaries are unchanged.
+- Visual regression baselines for the seven screenshots whose layout legitimately changed were regenerated inside the pinned CI Playwright container via a one-shot `workflow_dispatch` runner, then that temporary workflow was removed once its commit landed (mirroring this repository's established pattern for one-time pinned-environment operations).
+- PR #42 CI run `32682068700` passed the full Chromium suite (180 tests) plus Firefox and WebKit representative journeys. Merged at `e2950ec0645f699fcd311f891129e7b558285476`; GitHub Pages built that commit (`pages/builds/1170882630`, status `built`) and live verification confirmed the unified shell marker, hero navigation, and correct HTTP 200 responses at `/`, `/discover/`, `/entities/`, `/objects/`, `/relationships/`, `/canon/`, `/tours/`, `/chronology/`, and `/worldsvault/`.
+
+**Completion verdict: VERIFIED.**
+
 ## Program completion rule
 
 The program is complete only when all twelve rows above are `COMPLETE` with inspectable completion evidence. A planning document, code presence, PR, commit, push, or running CI job alone is never completion.
+
+**Program status: COMPLETE.** All twelve phases are `COMPLETE` with inspectable evidence in the ledger above, and the Phase 12 final root-integration repair (PR #42) closed the one remaining defect -- the root page not visibly presenting the finished museum. There is no Phase 13; further work is ordinary maintenance, not a new program phase.
