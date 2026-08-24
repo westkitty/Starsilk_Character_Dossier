@@ -19,7 +19,8 @@
       "ontology-horror",
       "shard-god",
       "starbinding",
-      "systems"
+      "systems",
+      "wordstreamer"
     ],
     "kind": "mentions",
     "outgoing_stable_ids": [

@@ -1,6 +1,6 @@
 {
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/",
-  "connected_entity_count": 62,
+  "connected_entity_count": 65,
   "entities": [
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
@@ -111,13 +111,13 @@
       "display_label": "The full field register.",
       "incoming_count": 0,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-drakken-registry",
-      "outgoing_count": 0,
+      "outgoing_count": 1,
       "stable_id": "drakken-registry"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/",
       "display_label": "The Egg",
-      "incoming_count": 0,
+      "incoming_count": 2,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-drk-the-egg",
       "outgoing_count": 0,
       "stable_id": "drk-the-egg"
@@ -591,13 +591,13 @@
       "display_label": "Wordstreamer",
       "incoming_count": 10,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-wordstreamer",
-      "outgoing_count": 1,
+      "outgoing_count": 2,
       "stable_id": "wordstreamer"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/",
       "display_label": "NiAlBu",
-      "incoming_count": 9,
+      "incoming_count": 10,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nialbu",
       "outgoing_count": 2,
       "stable_id": "nialbu"
@@ -791,7 +791,7 @@
       "display_label": "Archivist Nyle Quarth",
       "incoming_count": 0,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nyle-quarth",
-      "outgoing_count": 0,
+      "outgoing_count": 1,
       "stable_id": "nyle-quarth"
     },
     {
@@ -1021,7 +1021,7 @@
   ],
   "entity_count": 127,
   "project_id": "starsilk-character-dossier",
-  "relationship_count": 138,
+  "relationship_count": 141,
   "relationship_graph_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
   "relationships": [
     {
@@ -1896,6 +1896,19 @@
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--drakken-registry--drk-the-egg",
+      "edge_id": "mention--drakken-registry--drk-the-egg",
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "observed_href": "#drk-the-egg",
+      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-drakken-registry--drk-the-egg",
+      "source": "drakken-registry",
+      "source_ref": "src/content/sections/drakken-registry.body.html",
+      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/",
+      "target": "drk-the-egg",
+      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--drk-coronaxis--drk-solnexus",
       "edge_id": "mention--drk-coronaxis--drk-solnexus",
       "evidence_class": "observed-xref",
@@ -2364,6 +2377,19 @@
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--nyle-quarth--drk-the-egg",
+      "edge_id": "mention--nyle-quarth--drk-the-egg",
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "observed_href": "#drk-the-egg",
+      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-nyle-quarth--drk-the-egg",
+      "source": "nyle-quarth",
+      "source_ref": "src/content/sections/nyle-quarth.body.html",
+      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/",
+      "target": "drk-the-egg",
+      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--codec",
       "edge_id": "mention--ontology-horror--codec",
       "evidence_class": "observed-xref",
@@ -2804,6 +2830,19 @@
       "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/",
       "target": "marcel",
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--wordstreamer--nialbu",
+      "edge_id": "mention--wordstreamer--nialbu",
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "observed_href": "#nialbu",
+      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-wordstreamer--nialbu",
+      "source": "wordstreamer",
+      "source_ref": "src/content/sections/wordstreamer.body.html",
+      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/",
+      "target": "nialbu",
+      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--world--codec",

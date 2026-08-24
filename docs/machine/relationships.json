@@ -116,7 +116,10 @@
       "canon-ledger",
       "chronology"
     ],
-    "drk-the-egg": [],
+    "drk-the-egg": [
+      "drakken-registry",
+      "nyle-quarth"
+    ],
     "drk-tremorhound": [],
     "drk-umbrakrael": [
       "media-vault"
@@ -236,7 +239,8 @@
       "ontology-horror",
       "shard-god",
       "starbinding",
-      "systems"
+      "systems",
+      "wordstreamer"
     ],
     "nyle-quarth": [],
     "orin": [],
@@ -854,7 +858,9 @@
       "codec",
       "wordstreamer"
     ],
-    "nyle-quarth": [],
+    "nyle-quarth": [
+      "drk-the-egg"
+    ],
     "orin": [],
     "reth": [],
     "rhys": [
@@ -885,10 +891,11 @@
     "tomas": [],
     "vessa": [],
     "wordstreamer": [
-      "marcel"
+      "marcel",
+      "nialbu"
     ]
   },
-  "relationship_count": 138,
+  "relationship_count": 141,
   "relationships": [
     {
       "evidence_class": "observed-xref",
@@ -1295,6 +1302,12 @@
     {
       "evidence_class": "observed-xref",
       "kind": "mentions",
+      "source": "drakken-registry",
+      "target": "drk-the-egg"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
       "source": "drk-coronaxis",
       "target": "drk-solnexus"
     },
@@ -1511,6 +1524,12 @@
     {
       "evidence_class": "observed-xref",
       "kind": "mentions",
+      "source": "nyle-quarth",
+      "target": "drk-the-egg"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
       "source": "ontology-horror",
       "target": "codec"
     },
@@ -1711,6 +1730,12 @@
       "kind": "mentions",
       "source": "wordstreamer",
       "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "wordstreamer",
+      "target": "nialbu"
     },
     {
       "evidence_class": "observed-xref",

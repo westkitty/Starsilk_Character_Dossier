@@ -13,6 +13,7 @@ Source: `src/content/sections/wordstreamer.body.html`
 ## Observed mentions
 
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`
+- [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) — `nialbu`
 
 ## Mentioned by
 
