@@ -117,6 +117,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/museum_publication.py --check
     echo "-> Generating (in-memory) and checking installable offline shell..."
     "$PY" build/offline_publication.py --check
+    echo "-> Generating (in-memory) and checking agent evaluation + final integration..."
+    "$PY" build/agent_publication.py --check
 else
     echo "-> Generating docs/index.html from src/content/ + src/templates/..."
     "$PY" build/generate.py
@@ -140,13 +142,15 @@ else
     "$PY" build/museum_publication.py
     echo "-> Generating narrow installable offline shell and metadata cache..."
     "$PY" build/offline_publication.py
+    echo "-> Generating agent evaluation + final integration certificate..."
+    "$PY" build/agent_publication.py
 fi
 
 echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"

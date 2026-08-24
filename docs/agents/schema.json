@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/agent-evaluation.schema.json",
+  "title": "Starsilk Agent Evaluation Fixture",
+  "type": "object",
+  "required": ["schema", "project_id", "penalties", "cases"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "starsilk-agent-evaluation/1"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "authority_note": {"type": "string", "minLength": 1},
+    "penalties": {
+      "type": "array",
+      "minItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "severity"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "description": {"type": "string", "minLength": 1},
+          "severity": {"enum": ["fail", "major", "minor"]}
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 13,
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "prompt", "evidence_urls", "must_assert", "must_not_assert", "source_expectation"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "category": {
+            "enum": [
+              "entity-identity",
+              "canon-retrieval",
+              "development-vs-canon",
+              "historical-material",
+              "speculative-material",
+              "unknown-information",
+              "chronology",
+              "relationships",
+              "mention-vs-semantic",
+              "media-provenance",
+              "canon-locks",
+              "source-passage-retrieval",
+              "spoiler-metadata"
+            ]
+          },
+          "prompt": {"type": "string", "minLength": 1},
+          "evidence_urls": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "format": "uri", "pattern": "^https://westkitty\\.github\\.io/Starsilk_Character_Dossier/"}
+          },
+          "given_metadata": {"type": ["object", "null"]},
+          "must_assert": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "must_not_assert": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "source_expectation": {"type": "string", "minLength": 1},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}

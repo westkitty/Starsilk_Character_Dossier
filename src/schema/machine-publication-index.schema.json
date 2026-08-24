@@ -55,7 +55,14 @@
         "discovery_index",
         "context_packet_index",
         "tours",
-        "tour_index"
+        "tour_index",
+        "chronology",
+        "chronology_index",
+        "worldsvault",
+        "worldsvault_topology",
+        "agent_guide",
+        "agent_evaluation",
+        "agent_integration"
       ],
       "properties": {
         "entity_index": {
@@ -115,6 +122,34 @@
           "format": "uri"
         },
         "tour_index": {
+          "type": "string",
+          "format": "uri"
+        },
+        "chronology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "chronology_index": {
+          "type": "string",
+          "format": "uri"
+        },
+        "worldsvault": {
+          "type": "string",
+          "format": "uri"
+        },
+        "worldsvault_topology": {
+          "type": "string",
+          "format": "uri"
+        },
+        "agent_guide": {
+          "type": "string",
+          "format": "uri"
+        },
+        "agent_evaluation": {
+          "type": "string",
+          "format": "uri"
+        },
+        "agent_integration": {
           "type": "string",
           "format": "uri"
         }

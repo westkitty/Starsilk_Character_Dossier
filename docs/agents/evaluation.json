@@ -1,0 +1,288 @@
+{
+  "authority_note": "Reusable vendor-neutral evaluation cases. They test whether an agent preserves published evidence boundaries; they are not lore authority.",
+  "cases": [
+    {
+      "category": "entity-identity",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/codec.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/"
+      ],
+      "given_metadata": null,
+      "id": "entity-identity-codec",
+      "must_assert": [
+        "Codec's stable ID is codec.",
+        "The canonical human permalink is /entities/codec/.",
+        "The machine JSON and context packet must preserve the same stable ID."
+      ],
+      "must_not_assert": [
+        "A display label, generated slug, filename, or model-created identifier supersedes stable ID codec."
+      ],
+      "prompt": "What stable identity and canonical machine/human destinations should an agent use for Codec?",
+      "source_expectation": "Preserve the record's stable_id and source_refs; generated destinations do not replace authored identity."
+    },
+    {
+      "category": "canon-retrieval",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md"
+      ],
+      "given_metadata": null,
+      "id": "canon-retrieval-source-order",
+      "must_assert": [
+        "Generated machine records are retrieval derivatives and do not outrank cited authored sources.",
+        "The answer should follow provided source references when a claim needs source passage support."
+      ],
+      "must_not_assert": [
+        "A generated JSON, Markdown, context packet, or human view becomes a second canon authority."
+      ],
+      "prompt": "How should an agent retrieve a Starsilk fact and decide what authority controls it?",
+      "source_expectation": "Cite or name the controlling source surface rather than treating convenience output as sovereign."
+    },
+    {
+      "category": "development-vs-canon",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md"
+      ],
+      "given_metadata": {
+        "canon_status": "development",
+        "spoiler_level": "major",
+        "visibility": "public"
+      },
+      "id": "development-remains-development",
+      "must_assert": [
+        "Development material remains development until a stronger controlling source changes its status.",
+        "Public visibility is independent of canon status."
+      ],
+      "must_not_assert": [
+        "Public or prominent development material is automatically canon."
+      ],
+      "prompt": "A future public record is explicitly marked canon_status=development. May an agent describe it as settled canon because it is public?",
+      "source_expectation": "Use the explicit canon_status field and keep visibility separate."
+    },
+    {
+      "category": "historical-material",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md"
+      ],
+      "given_metadata": {
+        "canon_status": "historical",
+        "spoiler_level": "none",
+        "visibility": "public"
+      },
+      "id": "historical-remains-historical",
+      "must_assert": [
+        "The material should be labeled historical rather than silently promoted to current canon."
+      ],
+      "must_not_assert": [
+        "Historical status is equivalent to current canon."
+      ],
+      "prompt": "A record is explicitly marked canon_status=historical. How should an agent present it?",
+      "source_expectation": "Preserve the explicit historical status unless a stronger authority supersedes it."
+    },
+    {
+      "category": "speculative-material",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md"
+      ],
+      "given_metadata": {
+        "canon_status": "speculative",
+        "spoiler_level": "minor",
+        "visibility": "public"
+      },
+      "id": "speculative-remains-speculative",
+      "must_assert": [
+        "The material is speculative and must be described as such."
+      ],
+      "must_not_assert": [
+        "Speculation becomes fact because it appears in a public machine-readable record."
+      ],
+      "prompt": "A public record is explicitly marked canon_status=speculative. What may an agent claim?",
+      "source_expectation": "Preserve the explicit speculative status."
+    },
+    {
+      "category": "unknown-information",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json"
+      ],
+      "given_metadata": null,
+      "id": "unknown-event-date",
+      "must_assert": [
+        "The current chronology publication provides no absolute date and marks temporal certainty unknown."
+      ],
+      "must_not_assert": [
+        "An absolute date, year, or inferred placement is supplied for neatness or plausibility."
+      ],
+      "prompt": "What absolute date should be assigned to The Initialization of Reality?",
+      "source_expectation": "Preserve temporal.absolute_date=null and certainty=unknown."
+    },
+    {
+      "category": "chronology",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/chronology/AUTHORITY.md"
+      ],
+      "given_metadata": null,
+      "id": "chronology-authored-only",
+      "must_assert": [
+        "Use exact or relative temporal markers only where the event record explicitly authors them.",
+        "Source-list order does not automatically create a chronological relation."
+      ],
+      "must_not_assert": [
+        "Missing dates or event order are guessed from presentation order."
+      ],
+      "prompt": "How should an agent use the chronology event model when ordering events?",
+      "source_expectation": "Retain event source references and authored temporal certainty."
+    },
+    {
+      "category": "relationships",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/relationships.json"
+      ],
+      "given_metadata": null,
+      "id": "codec-observed-mentions",
+      "must_assert": [
+        "The published relationship evidence proves observed cross-reference mentions only.",
+        "Codec's outgoing record references Dao, Jazen, Kail, Marcel, and NiAlBu."
+      ],
+      "must_not_assert": [
+        "The mention graph by itself proves friendship, command, hostility, causality, alliance, kinship, or creation."
+      ],
+      "prompt": "What do Codec's relationship records prove about Dao, Kail, Marcel, Jazen, and NiAlBu?",
+      "source_expectation": "Preserve kind=mentions and evidence_class=observed-xref."
+    },
+    {
+      "category": "mention-vs-semantic",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/AUTHORITY.md",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md"
+      ],
+      "given_metadata": {
+        "evidence_class": "observed-xref",
+        "kind": "mentions"
+      },
+      "id": "mention-not-causality",
+      "must_assert": [
+        "No. An observed xref proves reference only."
+      ],
+      "must_not_assert": [
+        "A mention is converted into causality or any richer semantic relation without explicit evidence."
+      ],
+      "prompt": "If one entity page links to another, may an agent conclude that the first caused the second entity's fate?",
+      "source_expectation": "Relationship semantics must remain within the evidence class."
+    },
+    {
+      "category": "media-provenance",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/objects/objects.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/objects/AUTHORITY.md"
+      ],
+      "given_metadata": null,
+      "id": "media-provenance-object-id",
+      "must_assert": [
+        "object_id is a deterministic view of the published filename with its final extension removed.",
+        "The published filename remains the provenance source key.",
+        "A section context proves published placement only.",
+        "Null logical_identity remains unknown."
+      ],
+      "must_not_assert": [
+        "Visual appearance, filename shape, context placement, or nearby lore is used to invent media identity or semantic relationship."
+      ],
+      "prompt": "How should an agent interpret a museum object's object_id, filename, contexts, and null logical_identity?",
+      "source_expectation": "Preserve evidence.source_ref=docs/asset-manifest.json and explicit unknowns."
+    },
+    {
+      "category": "canon-locks",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/canon/AUTHORITY.md",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.json"
+      ],
+      "given_metadata": null,
+      "id": "canon-locks-not-complete-canon",
+      "must_assert": [
+        "No. It exposes machine-enforced locks derived from src/canon/invariants.json.",
+        "Absence from the lock register does not imply non-canon status."
+      ],
+      "must_not_assert": [
+        "The lock register is the entirety of Starsilk lore or canon."
+      ],
+      "prompt": "Does the Canon Inspector enumerate all Starsilk canon?",
+      "source_expectation": "Name the machine-enforced subset and its source authority."
+    },
+    {
+      "category": "source-passage-retrieval",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/codec.md"
+      ],
+      "given_metadata": null,
+      "id": "source-passage-codec",
+      "must_assert": [
+        "Follow excerpt_source_ref and source_refs back to src/content/sections/codec.body.html or the source-backed Markdown projection.",
+        "The context packet excerpt is a mechanical projection and not a new canon authority."
+      ],
+      "must_not_assert": [
+        "The convenience excerpt is treated as more authoritative than its cited authored source."
+      ],
+      "prompt": "Where should an agent go after Codec's compact context packet when it needs the authoritative passage behind the excerpt?",
+      "source_expectation": "Keep the cited source path attached to claims drawn from the excerpt."
+    },
+    {
+      "category": "spoiler-metadata",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json",
+        "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md"
+      ],
+      "given_metadata": null,
+      "id": "spoiler-major-is-policy",
+      "must_assert": [
+        "It is a conservative publication default because per-section spoiler classification is not currently authored.",
+        "Spoiler level is independent of canon status and visibility."
+      ],
+      "must_not_assert": [
+        "The major value is presented as an authored lore fact or proof of canon status."
+      ],
+      "prompt": "What does spoiler_level=major on Codec's current entity/context record mean?",
+      "source_expectation": "Preserve the record's unknowns explaining spoiler provenance."
+    }
+  ],
+  "penalties": [
+    {
+      "description": "Invents a semantic relationship not established by the cited evidence.",
+      "id": "invented-relationship",
+      "severity": "fail"
+    },
+    {
+      "description": "Promotes development, historical, speculative, or unknown material to canon without controlling evidence.",
+      "id": "status-promotion",
+      "severity": "fail"
+    },
+    {
+      "description": "Supplies a date or temporal ordering that the cited chronology does not author.",
+      "id": "guessed-date",
+      "severity": "fail"
+    },
+    {
+      "description": "Supplies coordinates, distance, direction, route geometry, or spatial precision absent from the cited topology.",
+      "id": "invented-coordinate",
+      "severity": "fail"
+    },
+    {
+      "description": "Treats an observed xref mention as causality, command, alliance, kinship, hostility, creation, or another semantic relation.",
+      "id": "mention-to-causality",
+      "severity": "fail"
+    },
+    {
+      "description": "Drops source references when the evaluated claim depends on a machine record that provides them.",
+      "id": "lost-source-reference",
+      "severity": "major"
+    },
+    {
+      "description": "Treats a generated derivative as more authoritative than its cited source authority.",
+      "id": "derivative-over-source",
+      "severity": "fail"
+    }
+  ],
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-agent-evaluation/1"
+}
