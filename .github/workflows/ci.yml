@@ -84,3 +84,67 @@ jobs:
 
       - name: Representative cross-browser journeys
         run: .venv/bin/pytest tests/test_cross_browser.py --browser ${{ matrix.browser }} -q
+
+  entrance-one-shot:
+    name: One-shot PR46 entrance generator
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 46 && github.actor != 'github-actions[bot]'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Trust the checked-out worktree (containerized job)
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply bounded entrance implementation
+        run: python3 tools/one_shot_entrance_patch.py
+
+      - name: Rebuild and verify generated publication
+        run: |
+          ./tools/build.sh
+          ./tools/build.sh --check
+          git diff --check
+          python3 -m pytest tests/test_entrance_intrusion.py tests/test_canon_inspector.py -q
+          python3 -m pytest \
+            tests/test_dossier.py::test_no_content_blocking_gate \
+            tests/test_dossier.py::test_cover_title_is_starsilk_compendium \
+            tests/test_dossier.py::test_cover_title_stays_on_one_line \
+            tests/test_dossier.py::test_watermark_pauses_while_cover_dominant \
+            tests/test_unified_museum_shell.py \
+            -q
+
+      - name: Refresh intentional root visual references only
+        env:
+          UPDATE_VISUAL_BASELINES: "1"
+        run: |
+          python3 -m pytest \
+            tests/test_dossier.py::test_visual_cover_desktop \
+            tests/test_dossier.py::test_visual_cover_mobile \
+            tests/test_dossier.py::test_visual_reduced_motion \
+            -q
+
+      - name: Recheck after visual reference update
+        run: |
+          ./tools/build.sh --check
+          python3 -m pytest tests/test_entrance_intrusion.py tests/test_canon_inspector.py -q
+          git diff --check
+
+      - name: Commit source-aligned generated implementation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src docs tests
+          if git diff --cached --quiet; then
+            echo "No implementation changes to commit."
+            exit 0
+          fi
+          git commit -m "feat: make the Starsilk entrance canon-first [generated]"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
