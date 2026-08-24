@@ -3,6 +3,8 @@ name: Phase 12 generation runner
 on:
   push:
     branches: [phase-12-agent-evaluation-final-integration]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
