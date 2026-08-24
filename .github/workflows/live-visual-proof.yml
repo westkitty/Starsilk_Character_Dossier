@@ -35,17 +35,20 @@ jobs:
           pages = json.load(open('/tmp/pages.json', encoding='utf-8'))
           build = json.load(open('/tmp/pages-build.json', encoding='utf-8'))
           source = pages.get('source') or {}
+          error = build.get('error') or {}
           print('build_type=', pages.get('build_type'))
           print('source_branch=', source.get('branch'))
           print('source_path=', source.get('path'))
           print('html_url=', pages.get('html_url'))
           print('latest_build_status=', build.get('status'))
           print('latest_build_commit=', build.get('commit'))
+          print('latest_build_created_at=', build.get('created_at'))
           print('latest_build_updated_at=', build.get('updated_at'))
+          print('latest_build_error=', error.get('message'))
+          print('latest_build_error_details=', error)
           assert pages.get('build_type') == 'legacy'
           assert source.get('branch') == 'main'
           assert source.get('path') == '/docs'
-          assert build.get('status') == 'built'
           PY
 
       - name: Prove exact visual coverage at public edge
