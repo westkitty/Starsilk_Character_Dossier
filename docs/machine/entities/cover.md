@@ -17,8 +17,9 @@ Source: `src/content/sections/cover.body.html`
 
 ## Published source content
 
-Character / canon / visual reference
+The all can be rewritten
 # Starsilk Compendium
 Web Edition
-Six principal character dossiers, forty-five peripheral character/entity folios, the full expanded Drakken operational register, a five-phase canon chronology, a 120-record granular canon ledger, twenty-one named WorldsVault templates, and the material systems that bind them: Starsilk, Blood Rings, the Blood Eclipse War, the Siege Wall, Starbinding, Administration governance, and Hookshot travel.
-Shard-God Tiger Codec Dao Kail Marcel Jazen Gorevault Ringthroat Lyriboris Expanded Drakken archive
+Reality has a substrate.
+Starsilk is the programmable filament running through the all: executable cosmological matter that can rewrite reality itself. Pull it from the heart of a star and the star collapses. Write into it correctly and reality obeys.
+Everything in this Compendium follows from what mortals, gods, empires, and survivors did once they learned that.

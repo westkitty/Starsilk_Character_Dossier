@@ -10,9 +10,7 @@
   "navigation_group": "Principal characters",
   "observed_relationships": {
     "evidence_class": "observed-xref",
-    "incoming_stable_ids": [
-      "cover"
-    ],
+    "incoming_stable_ids": [],
     "kind": "mentions",
     "outgoing_stable_ids": [
       "kail",

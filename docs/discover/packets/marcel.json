@@ -16,7 +16,6 @@
       "canon-ledger",
       "chronology",
       "codec",
-      "cover",
       "kail",
       "ontology-horror",
       "starbinding",
@@ -29,7 +28,8 @@
       "codec",
       "dao",
       "jazen",
-      "kail"
+      "kail",
+      "wordstreamer"
     ]
   },
   "packet_kind": "entity-context",

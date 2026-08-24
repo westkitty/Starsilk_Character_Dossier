@@ -19,7 +19,6 @@ Source: `src/content/sections/jazen.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) — `codec`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`
 - [Codec: the architecture of necessary harm.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/) — `source`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`

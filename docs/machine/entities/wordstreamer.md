@@ -20,8 +20,10 @@ Source: `src/content/sections/wordstreamer.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) — `cosmic-architecture`
+- [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`
 - [Mother](https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/) — `mother`
 - [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) — `nialbu`
+- [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) — `ontology-horror`
 - [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) — `shard-god`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) — `systems`
 

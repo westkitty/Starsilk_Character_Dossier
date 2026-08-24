@@ -746,6 +746,82 @@ stages.forEach(function(stage, index){
   refreshStatus();
 
   // ---------------------------------------------------------------------
+  // Sparse canon intrusion: the archive briefly yields to the universe.
+  // This is intentionally one substitution, not a repeated strobe. Under
+  // reduced motion the same interruption is held steady instead of flashed.
+  // ---------------------------------------------------------------------
+  (function(){
+    var title = document.getElementById('coverTitle');
+    if(!title) return;
+    var defaultTitle = title.getAttribute('data-default-title') || title.textContent;
+    var quotes = [
+      'YOUR SKY IS BUILT FROM YOUR DEAD.',
+      "STARS DON'T BURN. THEY SURRENDER.",
+      'SOLIDARITY, NOT SUPPLICATION.'
+    ];
+    var lastIndex = -1;
+    var count = 0;
+    var timer = null;
+    var restoreTimer = null;
+    // Tests may provide a pre-script timing object. Production never sets it.
+    // This keeps the real scheduling path under browser test without fake clocks.
+    var timingOverride = window.__STARSILK_CANON_INTRUSION_TIMING__ || null;
+    function timingNumber(key, fallback){
+      var value = timingOverride && timingOverride[key];
+      return Number.isFinite(value) && value >= 0 ? value : fallback;
+    }
+    var FIRST_MIN = timingNumber('firstMin', 35000);
+    var FIRST_SPAN = timingNumber('firstSpan', 10000);
+    var NEXT_MIN = timingNumber('nextMin', 38000);
+    var NEXT_SPAN = timingNumber('nextSpan', 17000);
+    var HOLD_MS = timingNumber('holdMs', reduceMotion ? 1200 : 90);
+
+    function pickIndex(){
+      if(count === 0) return 0;
+      if(quotes.length < 2) return 0;
+      var idx = Math.floor(Math.random() * quotes.length);
+      if(idx === lastIndex) idx = (idx + 1) % quotes.length;
+      return idx;
+    }
+    function restore(){
+      title.textContent = defaultTitle;
+      title.classList.remove('is-canon-intrusion');
+    }
+    function schedule(first){
+      clearTimeout(timer);
+      var base = first ? FIRST_MIN : NEXT_MIN;
+      var span = first ? FIRST_SPAN : NEXT_SPAN;
+      timer = setTimeout(showIntrusion, base + Math.floor(Math.random() * span));
+    }
+    function showIntrusion(){
+      if(document.hidden){
+        schedule(false);
+        return;
+      }
+      var idx = pickIndex();
+      lastIndex = idx;
+      count += 1;
+      title.textContent = quotes[idx];
+      title.classList.add('is-canon-intrusion');
+      clearTimeout(restoreTimer);
+      restoreTimer = setTimeout(function(){
+        restore();
+        schedule(false);
+      }, HOLD_MS);
+    }
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){
+        clearTimeout(timer);
+        clearTimeout(restoreTimer);
+        restore();
+      } else {
+        schedule(false);
+      }
+    });
+    schedule(true);
+  })();
+
+  // ---------------------------------------------------------------------
   // Hero video: autoplay, then loop just the tail
   // ---------------------------------------------------------------------
   (function(){
@@ -788,10 +864,11 @@ stages.forEach(function(stage, index){
       'assets/media/8fc2775c8783e4c873a72558.mp4'
     ];
     var i = 0;
-    var coverHidden = false;
+    var heroBanner = document.querySelector('.hero-video-wrap');
+    var coverDominant = !!heroBanner && 'IntersectionObserver' in window;
     var tabHidden = document.hidden;
     function sync(){
-      if(tabHidden || coverHidden){ v.pause(); }
+      if(tabHidden || coverDominant){ v.pause(); }
       else { v.play().catch(function(){}); }
     }
     v.src = clips[0];
@@ -805,13 +882,13 @@ stages.forEach(function(stage, index){
       tabHidden = document.hidden;
       sync();
     });
-    var cover = document.getElementById('cover');
-    if(cover && 'IntersectionObserver' in window){
+    if(heroBanner && 'IntersectionObserver' in window){
       var coverObserver = new IntersectionObserver(function(entries){
-        coverHidden = entries[0].intersectionRatio > 0.6;
+        var entry = entries[0];
+        coverDominant = entry.isIntersecting && entry.intersectionRatio > 0.25;
         sync();
-      }, {threshold: [0, 0.6, 1.0]});
-      coverObserver.observe(cover);
+      }, {threshold: [0, 0.25, 1.0]});
+      coverObserver.observe(heroBanner);
     }
   })();
 })();

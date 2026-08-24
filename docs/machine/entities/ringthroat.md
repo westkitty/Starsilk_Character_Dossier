@@ -18,7 +18,6 @@ Source: `src/content/sections/ringthroat.body.html`
 
 - [Blood Rings](https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/) — `blood-rings`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Media Vault](https://westkitty.github.io/Starsilk_Character_Dossier/entities/media-vault/) — `media-vault`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) — `systems`
 

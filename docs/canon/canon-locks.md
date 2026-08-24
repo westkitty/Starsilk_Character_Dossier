@@ -8,9 +8,9 @@ Authority: https://westkitty.github.io/Starsilk_Character_Dossier/canon/AUTHORIT
 These are machine-enforced validation locks protecting selected established facts. They are not the complete Starsilk canon.
 Absence from this register does not imply non-canon status.
 
-- Total locks: 11
-- Document locks: 2
-- Section locks: 9
+- Total locks: 16
+- Document locks: 3
+- Section locks: 13
 
 ## blood-eclipse-war-170-years
 
@@ -59,6 +59,28 @@ These raw patterns are technical evidence, not canon prose.
 #### Prohibitions
 
 - `(?i)\bwilliam\b`
+
+## wordstreamer-canonical-spelling
+
+The deity's canonical name is Wordstreamer; the obsolete internal-capital form WordStreamer must not appear.
+
+- Scope: `document`
+- Target: [complete-compendium-document](https://westkitty.github.io/Starsilk_Character_Dossier/)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied to the complete generated Compendium document; positive requirements are evaluated at document scope and prohibitions apply globally.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- None.
+
+#### Prohibitions
+
+- `\bWordStreamer\b`
 
 ## dao-right-arm
 
@@ -254,6 +276,94 @@ These raw patterns are technical evidence, not canon prose.
 #### Positive requirements
 
 - `no magical properties`
+
+#### Prohibitions
+
+- None.
+
+## wordstreaming-living-practice
+
+Wordstreaming remains a living practice named for the deceased Wordstreamer.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #ontology-horror; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `Wordstreaming</b> is a living communication and reality-code practice named for`
+
+#### Prohibitions
+
+- None.
+
+## post-wall-wordstreaming-living
+
+Post-Wall Drakken still use wordstreaming as a living communication practice.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/) (`beyond-wall`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `Wordstreaming survives as a living communication practice`
+
+#### Prohibitions
+
+- None.
+
+## post-wall-codec-time-estimate
+
+Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/) (`beyond-wall`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `roughly 8,560 years`
+
+#### Prohibitions
+
+- None.
+
+## modern-drakken-larger-than-humans
+
+Modern Drakken remain larger than humans while being much smaller than Blood Eclipse War Titans.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/) (`beyond-wall`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `larger than humans`
 
 #### Prohibitions
 

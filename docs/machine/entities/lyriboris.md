@@ -20,7 +20,6 @@ Source: `src/content/sections/lyriboris.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Captain Serr](https://westkitty.github.io/Starsilk_Character_Dossier/entities/captain-serr/) — `captain-serr`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Technician Naresh](https://westkitty.github.io/Starsilk_Character_Dossier/entities/technician-naresh/) — `technician-naresh`
 
 ## Published source content
