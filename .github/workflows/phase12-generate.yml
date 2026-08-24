@@ -1,0 +1,132 @@
+name: Phase 12 generation runner
+
+on:
+  push:
+    branches: [phase-12-agent-evaluation-final-integration]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase-12-agent-evaluation-final-integration
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Integrate Phase 12 generator into deterministic publication
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          machine_path = Path('build/machine_publication.py')
+          text = machine_path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global text
+              if new in text:
+                  return
+              if text.count(old) != 1:
+                  raise SystemExit(f'{label}: expected one source anchor, found {text.count(old)}')
+              text = text.replace(old, new, 1)
+
+          replace_once(
+              '    "worldsvault-topology.schema.json",\n)',
+              '    "worldsvault-topology.schema.json",\n    "agent-evaluation.schema.json",\n)',
+              'schema registration',
+          )
+          replace_once(
+              '        "worldsvault/AUTHORITY.md",\n    ] +',
+              '        "worldsvault/AUTHORITY.md",\n        "agents/AGENT_GUIDE.md",\n        "agents/evaluation.json",\n        "agents/evaluation.md",\n        "agents/integration.json",\n        "agents/schema.json",\n    ] +',
+              'public URL registration',
+          )
+          replace_once(
+              '            "worldsvault_topology": canonical("worldsvault/worldsvault.json"),\n            "jsonld":',
+              '            "worldsvault_topology": canonical("worldsvault/worldsvault.json"),\n            "agent_guide": canonical("agents/AGENT_GUIDE.md"),\n            "agent_evaluation": canonical("agents/evaluation.json"),\n            "agent_integration": canonical("agents/integration.json"),\n            "jsonld":',
+              'endpoint registration',
+          )
+          replace_once(
+              "Human curated tours and local library: {e['tours']}\\nCurated tour JSON index: {e['tour_index']}\\nJSON-LD:",
+              "Human curated tours and local library: {e['tours']}\\nCurated tour JSON index: {e['tour_index']}\\nAgent reference guide: {e['agent_guide']}\\nVendor-neutral agent evaluation fixtures: {e['agent_evaluation']}\\nFinal integration certificate: {e['agent_integration']}\\nJSON-LD:",
+              'llms endpoint registration',
+          )
+          replace_once(
+              '- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\\n"""',
+              '- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\\n- Agent evaluation fixtures test evidence discipline; they are not lore authority and do not require any model vendor.\\n"""',
+              'llms interpretation rule',
+          )
+          machine_path.write_text(text, encoding='utf-8')
+
+          schema_path = Path('src/schema/machine-publication-index.schema.json')
+          schema = json.loads(schema_path.read_text(encoding='utf-8'))
+          endpoints = schema['properties']['endpoints']
+          endpoint_names = [
+              'chronology', 'chronology_index', 'worldsvault', 'worldsvault_topology',
+              'agent_guide', 'agent_evaluation', 'agent_integration',
+          ]
+          for name in endpoint_names:
+              endpoints['properties'][name] = {'type': 'string', 'format': 'uri'}
+              if name not in endpoints['required']:
+                  endpoints['required'].append(name)
+          schema_path.write_text(json.dumps(schema, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          build_path = Path('tools/build.sh')
+          build = build_path.read_text(encoding='utf-8')
+
+          def patch_build(old, new, label):
+              global build
+              if new in build:
+                  return
+              if build.count(old) != 1:
+                  raise SystemExit(f'{label}: expected one build anchor, found {build.count(old)}')
+              build = build.replace(old, new, 1)
+
+          patch_build(
+              '    "$PY" build/offline_publication.py --check\n',
+              '    "$PY" build/offline_publication.py --check\n    echo "-> Generating (in-memory) and checking agent evaluation + final integration..."\n    "$PY" build/agent_publication.py --check\n',
+              'check-mode agent publication',
+          )
+          patch_build(
+              '    "$PY" build/offline_publication.py\nfi\n',
+              '    "$PY" build/offline_publication.py\n    echo "-> Generating agent evaluation + final integration certificate..."\n    "$PY" build/agent_publication.py\nfi\n',
+              'write-mode agent publication',
+          )
+          patch_build(
+              'docs/offline.html docs/offline.css\n',
+              'docs/offline.html docs/offline.css docs/agents\n',
+              'public boundary agent path',
+          )
+          build_path.write_text(build, encoding='utf-8')
+          PY
+
+      - name: Generate publication and run focused Phase 12 tests
+        run: |
+          ./tools/build.sh
+          python3 -m pytest tests/test_agent_evaluation.py tests/test_machine_publication.py -q
+          git diff --check
+
+      - name: Commit deterministic implementation and generated publication
+        shell: bash
+        run: |
+          git config user.name "WestKitty"
+          git config user.email "westkitty@users.noreply.github.com"
+          git add build/machine_publication.py tools/build.sh src/schema/machine-publication-index.schema.json docs/ src/agents/ src/schema/agent-evaluation.schema.json build/agent_publication.py tests/test_agent_evaluation.py
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git commit -m "feat(phase-12): publish agent evaluation and integration harness"
+          git push origin HEAD:phase-12-agent-evaluation-final-integration
