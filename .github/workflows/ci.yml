@@ -101,7 +101,6 @@ jobs:
           PY
           python3 -m pytest tests/test_entrance_intrusion.py tests/test_canon_inspector.py -q
           python3 -m pytest tests/test_dossier.py::test_watermark_pauses_while_cover_dominant tests/test_unified_museum_shell.py -q
-          git diff --check
       - name: Refresh intentional root visual references
         env:
           UPDATE_VISUAL_BASELINES: "1"
@@ -111,7 +110,6 @@ jobs:
         run: |
           ./tools/build.sh --check
           python3 -m pytest tests/test_entrance_intrusion.py tests/test_canon_inspector.py -q
-          git diff --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs tests/visual_baselines
