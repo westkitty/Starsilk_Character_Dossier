@@ -34,7 +34,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - None observed.
 
-## The all is programmable. Meaning is not optional. (`world`)
+## The All is programmable. Meaning is not optional. (`world`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-world
@@ -122,7 +122,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--codec) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--codec) — source `src/content/sections/archive.body.html`
 - [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--codec) — source `src/content/sections/cover.body.html`
-- [The all is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) (`world`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--world--codec) — source `src/content/sections/world.body.html`
+- [The All is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) (`world`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--world--codec) — source `src/content/sections/world.body.html`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--codec) — source `src/content/sections/ontology-horror.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--codec) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--codec) — source `src/content/sections/canon-ledger.body.html`

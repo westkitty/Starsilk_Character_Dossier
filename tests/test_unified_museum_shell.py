@@ -1,8 +1,13 @@
 """Phase 12 final integration: prove the root Compendium is visibly and
-functionally the unified Starsilk museum, not merely the old dossier-only
-shell with a couple of extra links -- and that every major museum system
-remains reachable, resolvable, and consistently marked as part of the same
-shell. See MUSEUM_AI_ROADMAP.md (Phase 12) and OPERATIONAL_STATE.md.
+functionally the unified Starsilk shell, not merely the old dossier-only
+shell with a couple of extra links -- and that every major system remains
+reachable, resolvable, and consistently marked as part of the same shell.
+See MUSEUM_AI_ROADMAP.md (Phase 12) and OPERATIONAL_STATE.md.
+
+The root page intentionally has no separate top navigation bar (removed
+per direct maintainer feedback -- the sticky top bar is reader controls
+only: expand/collapse/index/search). Root navigation to every system is
+via the exploration cards, positioned right after the cover section.
 """
 import json
 import re
@@ -32,14 +37,18 @@ def test_root_body_carries_deterministic_unified_shell_marker():
     assert soup.find("div", class_="museum-entrance", attrs={"data-museum-shell": "unified"}) is not None
 
 
-def test_root_navigation_links_every_major_museum_system():
+def test_root_has_no_separate_nav_bar():
+    """The sticky top bar on root is reader controls only (expand/collapse/
+    index/search) -- no separate unified-nav header, per direct maintainer
+    feedback. Every system is still reachable via the exploration cards."""
     soup = root_soup()
-    nav = soup.find("nav", attrs={"aria-label": "Unified Starsilk Museum navigation"})
-    assert nav is not None
-    hrefs = {a.get("href") for a in nav.find_all("a", href=True)}
-    for system in MAJOR_SYSTEMS:
-        assert f"{system}/" in hrefs, f"root unified nav is missing a link to {system}/"
-    assert "#mainContent" in hrefs, "root unified nav must offer a direct path into the Compendium"
+    assert soup.find("header", class_="museum-nav") is None
+    assert soup.find(id="offlineCacheClear") is None
+    assert soup.find(id="offlineStatus") is None
+    controls = soup.find("div", class_="page-controls")
+    assert controls is not None
+    for control_id in ("expandAllBtn", "collapseAllBtn", "sidebarToggle", "dossierSearch"):
+        assert controls.find(id=control_id) is not None, f"page-controls missing #{control_id}"
 
 
 def test_root_hero_exposes_exploration_cards_for_every_system():
@@ -49,9 +58,30 @@ def test_root_hero_exposes_exploration_cards_for_every_system():
     hrefs = {a.get("href") for a in modules.find_all("a", class_="museum-module", href=True)}
     for system in MAJOR_SYSTEMS:
         assert f"{system}/" in hrefs, f"root exploration cards are missing {system}/"
-    # Visitor-facing copy, not project-management phase labels.
+    # Visitor-facing copy, not project-management phase labels or "museum" branding.
     text = modules.get_text(" ", strip=True)
     assert "Phase " not in text
+    assert "museum" not in text.lower()
+
+
+def test_root_hero_copy_has_no_museum_branding():
+    soup = root_soup()
+    assert "museum" not in soup.title.get_text().lower()
+    hero = soup.find("section", class_="museum-hero")
+    assert hero is not None
+    assert "museum" not in hero.get_text(" ", strip=True).lower()
+
+
+def test_root_cover_appears_before_the_exploration_cards():
+    """The animated cover ("Starsilk Compendium") leads; the exploration
+    cards follow it, not the other way around."""
+    soup = root_soup()
+    main = soup.find("main", id="mainContent")
+    cover = main.find(id="cover")
+    entrance = main.find("div", class_="museum-entrance")
+    assert cover is not None and entrance is not None
+    # cover must precede entrance in document order
+    assert list(main.descendants).index(cover) < list(main.descendants).index(entrance)
 
 
 def test_root_data_ai_area_is_secondary_and_links_machine_publication():
@@ -65,8 +95,6 @@ def test_root_data_ai_area_is_secondary_and_links_machine_publication():
 
 def test_root_full_compendium_still_present_unabridged():
     soup = root_soup()
-    # The complete dossier sidebar, main content region, and a representative
-    # sample of principal/Drakken/peripheral sections must all still exist.
     assert soup.find("aside", id="index") is not None
     assert soup.find("main", id="mainContent") is not None
     for stable_id in ("cover", "codec", "dao", "drk-the-egg", "peripheral-index"):
@@ -125,11 +153,11 @@ def test_every_major_system_page_carries_the_same_unified_shell_and_links_home()
         html = (DOCS / system / "index.html").read_text(encoding="utf-8")
         soup = BeautifulSoup(html, "html.parser")
         header = soup.find("header", class_="museum-nav", attrs={"data-museum-shell": "unified"})
-        assert header is not None, f"{system}/index.html is missing the unified museum nav"
-        nav = header.find("nav", attrs={"aria-label": "Unified Starsilk Museum navigation"})
+        assert header is not None, f"{system}/index.html is missing the unified nav"
+        nav = header.find("nav", attrs={"aria-label": "Unified Starsilk Compendium navigation"})
         assert nav is not None
         home_link = nav.find("a", attrs={"href": "../"})
-        assert home_link is not None and "Museum Home" in home_link.get_text()
+        assert home_link is not None and "Home" in home_link.get_text()
         active = nav.find("a", attrs={"aria-current": "page"})
         assert active is not None, f"{system}/index.html unified nav has no active marker"
 
@@ -144,8 +172,8 @@ def test_entity_record_pages_also_carry_the_unified_shell():
 
 
 def test_no_external_runtime_dependency_in_shared_nav():
-    for system in [None, *MAJOR_SYSTEMS]:
-        path = DOCS / "index.html" if system is None else DOCS / system / "index.html"
+    for system in MAJOR_SYSTEMS:
+        path = DOCS / system / "index.html"
         soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
         header = soup.find("header", class_="museum-nav")
         assert header is not None
@@ -175,6 +203,6 @@ def test_unified_shell_mobile_layout_has_no_overflow(page: Page, local_server):
     page.set_viewport_size({"width": 375, "height": 812})
     page.goto(f"{local_server}/index.html")
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
-    expect(page.locator(".museum-nav-brand")).to_be_visible()
+    expect(page.locator(".page-controls")).to_be_visible()
     page.locator("#menuToggle").click()
     expect(page.locator("#index")).to_have_class(re.compile(r"\bopen\b"))

@@ -16,7 +16,7 @@ def test_unified_museum_shell_journey(page: Page, local_server):
     expect(page.locator("a.museum-module[href='objects/']")).to_be_visible()
     page.locator("a.museum-module[href='objects/']").click()
     expect(page.locator('header.museum-nav[data-museum-shell="unified"]')).to_be_visible()
-    expect(page.locator(".museum-nav-links a[aria-current='page']")).to_have_text("Museum objects")
+    expect(page.locator(".museum-nav-links a[aria-current='page']")).to_have_text("Objects")
 
 
 def test_nav_and_disclosure_journey(page: Page, local_server):

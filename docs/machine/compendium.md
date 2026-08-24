@@ -24,7 +24,7 @@ Web Edition
 Six principal character dossiers, forty-five peripheral character/entity folios, the full expanded Drakken operational register, a five-phase canon chronology, a 120-record granular canon ledger, twenty-one named WorldsVault templates, and the material systems that bind them: Starsilk, Blood Rings, the Blood Eclipse War, the Siege Wall, Starbinding, Administration governance, and Hookshot travel.
 Shard-God Tiger Codec Dao Kail Marcel Jazen Gorevault Ringthroat Lyriboris Expanded Drakken archive
 
-## The all is programmable. Meaning is not optional.
+## The All is programmable. Meaning is not optional.
 
 Stable ID: `world`  
 Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/  

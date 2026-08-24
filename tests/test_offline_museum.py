@@ -28,12 +28,16 @@ def test_offline_publication_is_deterministic_build_owned_and_small():
 
 
 def test_install_metadata_root_controls_and_worker_keep_media_on_demand():
+    """The offline shell has no visible root-page UI (no cache-clear button
+    or status region -- removed from the top bar per direct maintainer
+    feedback; the sticky top bar is reader controls only). Registration,
+    precaching, and the clear-cache message handler all still work
+    silently in the background; see the runtime tests below."""
     root = BeautifulSoup((DOCS / "index.html").read_text(encoding="utf-8"), "lxml")
     manifest_link = root.select_one("link[rel='manifest']")
     assert manifest_link and manifest_link["href"] == "manifest.webmanifest"
-    assert root.select_one("#offlineCacheClear")
-    status = root.select_one("#offlineStatus")
-    assert status and status.get("role") == "status" and status.get("aria-live") == "polite"
+    assert root.select_one("#offlineCacheClear") is None
+    assert root.select_one("#offlineStatus") is None
     assert root.select_one("script[src='offline-client.js']")
 
     manifest = json.loads((DOCS / "manifest.webmanifest").read_text(encoding="utf-8"))
@@ -45,7 +49,7 @@ def test_install_metadata_root_controls_and_worker_keep_media_on_demand():
     worker = (DOCS / "service-worker.js").read_text(encoding="utf-8")
     assert "register('service-worker.js', {scope: './'})" in client
     assert "CLEAR_STARSILK_OFFLINE_CACHE" in client
-    assert "clearButton.disabled = true" in client
+    assert "if(!status) return" in client and "if(clearButton)" in client
     assert "MEDIA_PATH" in worker and "isPublishedMedia(request)" in worker
     assert "assets/media" not in worker.split("const PRECACHE", 1)[1].split("const OFFLINE_FALLBACK", 1)[0]
     assert "cache.put" not in worker
@@ -69,8 +73,14 @@ def test_offline_shell_populates_without_media_and_can_be_cleared(page: Page, lo
     assert len(cache_state["urls"]) == len(json.loads((ROOT / "src/offline/config.json").read_text(encoding="utf-8"))["precache"])
     assert not any("/assets/media/" in url for url in cache_state["urls"])
 
-    page.locator("#offlineCacheClear").click()
-    expect(page.locator("#offlineStatus")).to_contain_text("Offline cache cleared")
+    # No visible root-page control triggers this anymore (removed from the
+    # top bar); post the same message the old button used to send, to prove
+    # the underlying clear-cache capability still works.
+    page.evaluate("""async () => {
+        const registration = await navigator.serviceWorker.ready;
+        const worker = registration.active || registration.waiting || registration.installing;
+        worker.postMessage({type: 'CLEAR_STARSILK_OFFLINE_CACHE'});
+    }""")
     page.wait_for_function("""async () => {
         return (await caches.keys()).filter((name) => name.startsWith('starsilk-offline-shell-')).length === 0;
     }""")

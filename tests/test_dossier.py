@@ -479,18 +479,11 @@ def test_watermark_lifecycle_and_reduced_motion(page: Page, local_server):
 def test_watermark_pauses_while_cover_dominant(page: Page, local_server):
     """Decorative-video lifecycle (item 10): don't run both the hero video
     and the full-bleed watermark at once while the cover is what's on
-    screen -- the watermark defers whenever the cover is actually dominant,
-    and plays otherwise. The unified museum entrance now sits above the
-    Compendium, so the cover isn't the first thing on screen at load; the
-    watermark's ambient loop is expected there instead."""
+    screen -- the watermark defers until the reader has actually scrolled
+    past the cover."""
     page.set_viewport_size({"width": 1280, "height": 800})
     page.goto(f"{local_server}/index.html")
     page.wait_for_timeout(300)
-    paused_at_load = page.evaluate("document.getElementById('brandkit-watermark').paused")
-    assert paused_at_load is False, "cover is not the dominant view at load; watermark should be free to play"
-
-    page.locator("#cover").scroll_into_view_if_needed()
-    page.wait_for_timeout(500)
     paused_at_cover = page.evaluate("document.getElementById('brandkit-watermark').paused")
     assert paused_at_cover is True
 
@@ -747,7 +740,7 @@ def test_cover_title_is_starsilk_compendium(page: Page, local_server):
     full_text = h1.inner_text()
     assert "Star Silk" not in full_text
     assert "STARSILK" in full_text.upper().replace("\n", "")
-    assert page.title() == "Starsilk Museum & Compendium"
+    assert page.title() == "Starsilk Compendium"
     assert page.locator("#cover h1 span").count() == 0
     style = page.evaluate("""() => {
         const cs = getComputedStyle(document.querySelector('#cover h1'));
