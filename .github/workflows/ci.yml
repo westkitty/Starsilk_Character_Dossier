@@ -131,16 +131,17 @@ jobs:
           entity = Path('tests/test_entity_permalinks.py')
           text = entity.read_text(encoding='utf-8')
           old = '        assert " ".join(published.stripped_strings) == source\n'
-          new = '''        presentation = BeautifulSoup(str(published), "html.parser")
-          for fallback in presentation.select('[data-visual-coverage="fallback"]'):
-              fallback.decompose()
-          published_source = presentation.find(id="entitySource")
-          assert published_source is not None
-          assert " ".join(published_source.stripped_strings) == source
-          '''
+          new = (
+              '        presentation = BeautifulSoup(str(published), "html.parser")\n'
+              '        for fallback in presentation.select(\'[data-visual-coverage="fallback"]\'):\n'
+              '            fallback.decompose()\n'
+              '        published_source = presentation.find(id="entitySource")\n'
+              '        assert published_source is not None\n'
+              '        assert " ".join(published_source.stripped_strings) == source\n'
+          )
           if old in text:
               text = text.replace(old, new, 1)
-          elif 'presentation.select(\'[data-visual-coverage="fallback"]\')' not in text:
+          elif '        for fallback in presentation.select(\'[data-visual-coverage="fallback"]\'):' not in text:
               raise SystemExit('missing expected entity permalink test marker')
           entity.write_text(text, encoding='utf-8')
           PY
