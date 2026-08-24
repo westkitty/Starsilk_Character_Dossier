@@ -21,6 +21,7 @@ Usage: python3 build/generate.py [--check]
             against committed output, fail on divergence).
 """
 import argparse
+import html as html_lib
 import json
 import re
 import shutil
@@ -35,6 +36,7 @@ SECTIONS_DIR = CONTENT_DIR / "sections"
 TEMPLATES_DIR = ROOT / "src" / "templates"
 DOCS_DIR = ROOT / "docs"
 MANIFEST_FILE = DOCS_DIR / "asset-manifest.json"
+VISUAL_COVERAGE_FILE = CONTENT_DIR / "visual-coverage.json"
 CANON_DIR = ROOT / "src" / "canon"
 
 CANONICAL_URL = "https://westkitty.github.io/Starsilk_Character_Dossier/"
@@ -43,10 +45,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import xref  # noqa: E402
 
 
-def load_media_rename_map() -> dict:
+def load_manifest() -> dict:
     if not MANIFEST_FILE.exists():
-        return {}
-    manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+        return {"assets": []}
+    return json.loads(MANIFEST_FILE.read_text(encoding="utf-8"))
+
+
+def load_media_rename_map() -> dict:
+    manifest = load_manifest()
     return {
         a["source_filename"]: a["filename"]
         for a in manifest.get("assets", [])
@@ -64,45 +70,178 @@ def rewrite_media_refs(html: str, rename_map: dict) -> str:
     return html
 
 
+def body_has_visible_image(body_html: str) -> bool:
+    """Return True when authored body HTML already contains a visible img src.
+
+    Legacy attachment placeholders often contain hidden <img> nodes with no src;
+    those must not count as visual coverage.
+    """
+    for match in re.finditer(r"<img\b[^>]*>", body_html or "", flags=re.IGNORECASE):
+        tag = match.group(0)
+        if re.search(r"\bhidden(?:\s|=|/|>)", tag, flags=re.IGNORECASE):
+            continue
+        src_match = re.search(r"\bsrc\s*=\s*([\"'])(.*?)\1", tag, flags=re.IGNORECASE | re.DOTALL)
+        if src_match and src_match.group(2).strip():
+            return True
+    return False
+
+
+def load_visual_coverage() -> dict[str, dict]:
+    """Load authored fallback visual placements and resolve them to published media.
+
+    This file is editorial placement authority only. Binary identity/provenance
+    remains docs/asset-manifest.json. Context placement never becomes evidence
+    that a depicted figure is the named section subject.
+    """
+    if not VISUAL_COVERAGE_FILE.exists():
+        return {}
+
+    data = json.loads(VISUAL_COVERAGE_FILE.read_text(encoding="utf-8"))
+    if data.get("schema") != "starsilk-visual-coverage/1":
+        raise RuntimeError("visual-coverage.json has an unexpected schema")
+
+    section_data = json.loads((CONTENT_DIR / "sections.json").read_text(encoding="utf-8"))
+    section_records = {record["id"]: record for record in section_data.get("sections", [])}
+    manifest = load_manifest()
+    manifest_by_source = {
+        asset.get("source_filename"): asset
+        for asset in manifest.get("assets", [])
+        if asset.get("source_filename")
+    }
+
+    resolved: dict[str, dict] = {}
+    for index, placement in enumerate(data.get("placements", [])):
+        sections = placement.get("sections")
+        source_filename = placement.get("source_filename")
+        role = placement.get("role")
+        title = placement.get("title")
+        alt = placement.get("alt")
+        note = placement.get("note")
+
+        if not isinstance(sections, list) or not sections or not all(isinstance(v, str) and v for v in sections):
+            raise RuntimeError(f"visual coverage placement #{index} has invalid sections")
+        if role not in {"identity", "context"}:
+            raise RuntimeError(f"visual coverage placement #{index} has invalid role {role!r}")
+        if not all(isinstance(value, str) and value.strip() for value in (source_filename, title, alt, note)):
+            raise RuntimeError(f"visual coverage placement #{index} is missing required text/source fields")
+
+        asset = manifest_by_source.get(source_filename)
+        if not asset:
+            raise RuntimeError(
+                f"visual coverage placement #{index} references source media absent from asset manifest: {source_filename}"
+            )
+        if not str(asset.get("mime_type", "")).startswith("image/"):
+            raise RuntimeError(f"visual coverage placement #{index} is not an image: {source_filename}")
+        published_filename = asset.get("filename")
+        if not published_filename:
+            raise RuntimeError(f"visual coverage placement #{index} has no published media filename")
+        published_path = DOCS_DIR / "assets" / "media" / published_filename
+        if not published_path.exists():
+            raise RuntimeError(f"visual coverage published media is missing: {published_filename}")
+
+        for section_id in sections:
+            if section_id not in section_records:
+                raise RuntimeError(f"visual coverage placement references unknown section: {section_id}")
+            if section_id in resolved:
+                raise RuntimeError(f"visual coverage section is assigned more than once: {section_id}")
+
+            classes = set(str(section_records[section_id].get("classes", "")).split())
+            if role == "context" and "character-page" in classes:
+                language = f"{alt} {note}".lower()
+                if "not a portrait" not in language:
+                    raise RuntimeError(
+                        f"context placement for character section {section_id} must explicitly state 'not a portrait'"
+                    )
+
+            resolved[section_id] = {
+                "source_filename": source_filename,
+                "published_filename": published_filename,
+                "role": role,
+                "title": title.strip(),
+                "alt": alt.strip(),
+                "note": note.strip(),
+            }
+
+    return resolved
+
+
+def render_visual_coverage_figure(section_id: str, placement: dict) -> str:
+    role = html_lib.escape(placement["role"], quote=True)
+    title = html_lib.escape(placement["title"])
+    alt = html_lib.escape(placement["alt"], quote=True)
+    note = html_lib.escape(placement["note"])
+    filename = html_lib.escape(placement["published_filename"], quote=True)
+    sid = html_lib.escape(section_id, quote=True)
+    return (
+        f'\n<div class="ref-grid visual-coverage-fallback" data-visual-coverage="fallback" '
+        f'data-coverage-section="{sid}">'
+        f'<figure class="reference-record visual-coverage-record" data-coverage-role="{role}">'
+        f'<div class="image-stage"><img loading="lazy" decoding="async" alt="{alt}" '
+        f'src="assets/media/{filename}"/></div>'
+        f'<figcaption><b>{title}</b><span>{note}</span></figcaption>'
+        f'</figure></div>\n'
+    )
+
+
 DISCLOSURE_OPEN = '<details class="page-disclosure"><summary class="page-title"><span class="page-chevron" aria-hidden="true"></span>'
 SUMMARY_CLOSE = "</summary>"
 DETAILS_CLOSE = "</details>"
 
 
 class Section:
-    def __init__(self, record: dict, title_html: str | None, body_html: str):
+    def __init__(self, record: dict, title_html: str | None, body_html: str, coverage_html: str = ""):
         self.id = record["id"]
         self.classes = record["classes"]
         self.attrs = record.get("attrs", {})
         self.has_disclosure = record.get("has_disclosure", False)
         self.title_html = title_html
         self.body_html = body_html
+        self.coverage_html = coverage_html
 
     def opening_tag(self) -> str:
         attr_str = "".join(f' {k}="{v}"' if v != "" else f" {k}" for k, v in self.attrs.items())
         return f'<section class="{self.classes}" id="{self.id}"{attr_str}>'
 
+    def rendered_body_html(self) -> str:
+        return self.body_html + self.coverage_html
+
     def render(self) -> str:
+        rendered_body = self.rendered_body_html()
         if not self.has_disclosure:
-            return f"{self.opening_tag()}{self.body_html}</section>"
+            return f"{self.opening_tag()}{rendered_body}</section>"
         return (
             f"{self.opening_tag()}{DISCLOSURE_OPEN}{self.title_html}{SUMMARY_CLOSE}"
-            f"{self.body_html}{DETAILS_CLOSE}</section>"
+            f"{rendered_body}{DETAILS_CLOSE}</section>"
         )
 
 
 def load_sections(rename_map: dict) -> list:
     data = json.loads((CONTENT_DIR / "sections.json").read_text(encoding="utf-8"))
+    coverage = load_visual_coverage()
     sections = []
+    missing_coverage = []
     for rec in data["sections"]:
         sid = rec["id"]
         body_html = (SECTIONS_DIR / f"{sid}.body.html").read_text(encoding="utf-8")
         body_html = rewrite_media_refs(body_html, rename_map)
+        coverage_html = ""
+        if not body_has_visible_image(body_html):
+            placement = coverage.get(sid)
+            if placement is None:
+                missing_coverage.append(sid)
+            else:
+                coverage_html = render_visual_coverage_figure(sid, placement)
         title_html = None
         if rec.get("has_disclosure"):
             title_html = (SECTIONS_DIR / f"{sid}.title.html").read_text(encoding="utf-8")
             title_html = rewrite_media_refs(title_html, rename_map)
-        sections.append(Section(rec, title_html, body_html))
+        sections.append(Section(rec, title_html, body_html, coverage_html))
+
+    if missing_coverage:
+        raise RuntimeError(
+            "authored top-level sections without a visible image or fallback placement: "
+            + ", ".join(missing_coverage)
+        )
     return sections
 
 
@@ -139,7 +278,7 @@ def load_museum_stats(sections: list) -> dict:
     """Unified-museum hero statistics, derived from existing authoritative
     source/generated-derivative data -- never hand-maintained, so they can't
     drift from what the rest of the build actually publishes."""
-    manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8")) if MANIFEST_FILE.exists() else {"assets": []}
+    manifest = load_manifest()
     tours = json.loads((ROOT / "src" / "tours" / "tours.json").read_text(encoding="utf-8"))
     events = json.loads((ROOT / "src" / "chronology" / "events.json").read_text(encoding="utf-8"))
     invariants = json.loads((CANON_DIR / "invariants.json").read_text(encoding="utf-8"))
@@ -200,12 +339,16 @@ def main() -> int:
         print("ERROR: docs/asset-manifest.json not found. Run build/media_pipeline.py first.", file=sys.stderr)
         return 1
 
-    html = render_site()
+    try:
+        html = render_site()
+    except (OSError, json.JSONDecodeError, RuntimeError) as exc:
+        print(f"ERROR: site generation failed: {exc}", file=sys.stderr)
+        return 1
 
     index_file = DOCS_DIR / "index.html"
     if args.check:
         if not index_file.exists():
-            print("ERROR: docs/index.html does not exist; nothing to check against.", file=sys.stderr)
+            print(f"ERROR: {index_file} does not exist; nothing to check against.", file=sys.stderr)
             return 1
         current = index_file.read_text(encoding="utf-8")
         if current != html:
