@@ -8,4 +8,6 @@ The map is **not canon authority** and is **not media-provenance authority**. Ev
 
 `build/generate.py` adds a fallback only when the authored body has no visible image with a real `src`. Existing authored visuals always win. Generation fails if an image-less authored record lacks a valid fallback or if a fallback references media absent from the manifest/published media directory.
 
+The cover is the one media-structure exception: its existing hero `<video>` carries the existing poster frame as native fallback `<img>` content. That satisfies image coverage without adding a second visible cover plate when video playback is available.
+
 The regression contract in `tests/test_visual_coverage.py` requires visible, locally resolvable image coverage for every authored record on both the complete Compendium and `/entities/<stable-id>/` permalinks. Manifest-derived `related_media_ids` remain separate and continue to derive only from manifest section contexts.
