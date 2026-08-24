@@ -1,0 +1,64 @@
+name: Phase 12 live Pages proof
+
+on:
+  push:
+    branches: [phase-12-live-proof]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  live-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify live Phase 12 Pages artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://westkitty.github.io/Starsilk_Character_Dossier'
+          fetch() {
+            local path="$1"
+            local out="$2"
+            for attempt in 1 2 3 4 5 6; do
+              if curl --fail --silent --show-error --location --max-time 30 "$base/$path" -o "$out"; then
+                return 0
+              fi
+              sleep 10
+            done
+            return 1
+          }
+
+          fetch 'agents/integration.json' integration.json
+          fetch 'agents/evaluation.json' evaluation.json
+          fetch 'agents/AGENT_GUIDE.md' guide.md
+          fetch 'machine/index.json' machine.json
+          fetch 'llms.txt' llms.txt
+
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          integration = json.loads(Path('integration.json').read_text())
+          evaluation = json.loads(Path('evaluation.json').read_text())
+          machine = json.loads(Path('machine.json').read_text())
+          guide = Path('guide.md').read_text()
+          llms = Path('llms.txt').read_text()
+
+          assert integration['schema'] == 'starsilk-final-integration/1'
+          assert integration['overall_status'] == 'pass'
+          assert integration['check_count'] == integration['pass_count'] == 10
+          assert integration['fail_count'] == 0
+          assert len(evaluation['cases']) == 13
+          assert len(evaluation['penalties']) == 7
+          assert 'Unknown is data.' in guide
+          assert 'Generated derivatives do not outrank cited authored sources.' in guide
+          endpoints = machine['endpoints']
+          assert endpoints['agent_guide'].endswith('/agents/AGENT_GUIDE.md')
+          assert endpoints['agent_evaluation'].endswith('/agents/evaluation.json')
+          assert endpoints['agent_integration'].endswith('/agents/integration.json')
+          assert '/agents/AGENT_GUIDE.md' in llms
+          assert '/agents/evaluation.json' in llms
+          assert '/agents/integration.json' in llms
+          print('LIVE PHASE 12 PAGES PROOF PASSED')
+          PY
