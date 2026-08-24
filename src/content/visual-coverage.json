@@ -1,0 +1,190 @@
+{
+  "schema": "starsilk-visual-coverage/1",
+  "authority_note": "Editorial fallback placement only. Every referenced binary must already exist in docs/asset-manifest.json by source_filename. A placement does not alter canon, media provenance, identity, or relationship authority. Context placements explicitly avoid claiming that the depicted figure is the named folio subject.",
+  "placements": [
+    {
+      "sections": ["world"],
+      "source_filename": "09e2837c1e2a76bc1fadccc2.jpg",
+      "role": "context",
+      "title": "Starsilk — visual orientation",
+      "alt": "Starsilk visual orientation plate used as broad world context.",
+      "note": "World-level context plate; it is not evidence for any unauthored character appearance."
+    },
+    {
+      "sections": ["chronology", "beyond-wall", "peripheral-index", "artifacts-factions"],
+      "source_filename": "36a1a4608262186ae6547d61.png",
+      "role": "context",
+      "title": "Blood Eclipse War — historical context",
+      "alt": "Blood Eclipse War overview plate used as historical context for this record.",
+      "note": "Historical context only; the plate does not add identities, dates, or relationships beyond the authored record."
+    },
+    {
+      "sections": ["jazen"],
+      "source_filename": "756b79618837443eadf6ce3b.png",
+      "role": "context",
+      "title": "Jazen — consequence context",
+      "alt": "Starbinding fracture imagery used as consequence context for Jazen's folio; not a portrait of Jazen.",
+      "note": "Context plate, not a portrait. Jazen's appearance remains unspecified where the authored record leaves it unspecified."
+    },
+    {
+      "sections": ["drakken-registry", "nyle-quarth"],
+      "source_filename": "56dd8a1dd141a08c85c0e37b.png",
+      "role": "context",
+      "title": "The Egg — Drakken archive context",
+      "alt": "The Egg archival plate used as Drakken registry and archive context.",
+      "note": "Drakken archival context; this does not portray Archivist Nyle Quarth."
+    },
+    {
+      "sections": ["blood-rings"],
+      "source_filename": "0ab4d1542df260c447aee4c0.png",
+      "role": "identity",
+      "title": "Blood Rings — incident plate",
+      "alt": "Blood Rings incident plate.",
+      "note": "Source-backed Blood Rings imagery from the published media provenance ledger."
+    },
+    {
+      "sections": ["starbinding", "kaelen", "lyra", "rhys", "anya"],
+      "source_filename": "756b79618837443eadf6ce3b.png",
+      "role": "context",
+      "title": "Starbinding — fracture context",
+      "alt": "Starbinding fracture imagery used as context for this record.",
+      "note": "For character folios this is event/context imagery, not a portrait or an assertion of physical appearance."
+    },
+    {
+      "sections": ["canon-ledger", "systems", "cosmic-architecture"],
+      "source_filename": "0db864ffeba055a05d60a4fd.png",
+      "role": "context",
+      "title": "Starsilk systems — structural context",
+      "alt": "Starsilk star-core contact, extraction and collapse sequence used as structural systems context.",
+      "note": "System/cosmology context only; textual canon locks remain authoritative."
+    },
+    {
+      "sections": ["wordstreamer", "nialbu"],
+      "source_filename": "09e2837c1e2a76bc1fadccc2.jpg",
+      "role": "context",
+      "title": "Original Triumvirate — historical context",
+      "alt": "General Starsilk historical context plate for an Original Triumvirate folio; not a portrait of the named subject.",
+      "note": "Context plate, not a portrait. It must not be used to infer Wordstreamer or NiAlBu appearance."
+    },
+    {
+      "sections": ["anika", "jory", "selim", "vessa", "orin", "mael", "sera-inventory"],
+      "source_filename": "6574bb00ab1efa0fc8c8bb60.png",
+      "role": "context",
+      "title": "Syrrian IV — K-Relic historical context",
+      "alt": "Syrrian IV world plate used as historical context for a K-Relic casualty folio; not a portrait of the named subject.",
+      "note": "Context plate, not a portrait. The K-Relic record follows the Syrin genocide; no unauthored appearance is inferred."
+    },
+    {
+      "sections": ["hesh", "mara", "rin", "kira", "jalen", "safi"],
+      "source_filename": "3089b9698ec619d3eac2fee9.png",
+      "role": "context",
+      "title": "Meridian Station — structural-breach context",
+      "alt": "Meridian Station structural-breach plate used as incident context; not a portrait of the named subject.",
+      "note": "Incident/location context only; the plate does not establish the subject's appearance."
+    },
+    {
+      "sections": ["sela-orrin", "marn", "joss", "reth", "iven", "khar-venn-child"],
+      "source_filename": "0ab4d1542df260c447aee4c0.png",
+      "role": "context",
+      "title": "Khar Venn — Blood Ring witness context",
+      "alt": "Blood Ring incident plate used as Khar Venn witness context; not a portrait of the named witness.",
+      "note": "Context plate, not a portrait. These records explicitly leave civilian appearances unspecified."
+    },
+    {
+      "sections": ["mother"],
+      "source_filename": "b401945ee296cda48c47cb00.png",
+      "role": "identity",
+      "title": "Mother — archival origin visualization",
+      "alt": "Mother archival pre-coup origin visualization.",
+      "note": "Source-backed Mother visualization from the published media provenance ledger."
+    },
+    {
+      "sections": ["foldhowl"],
+      "source_filename": "e62a6426326c8951111e1285.png",
+      "role": "identity",
+      "title": "Foldhowl — archival plate",
+      "alt": "Foldhowl archival visual reference.",
+      "note": "Exact Foldhowl identity plate from the published media provenance ledger."
+    },
+    {
+      "sections": ["manifest-discord"],
+      "source_filename": "f25ae4bb07e4c4d6c242832a.png",
+      "role": "identity",
+      "title": "Manifest.discord — archival plate",
+      "alt": "Manifest.discord archival visual reference.",
+      "note": "Exact Manifest.discord identity plate from the published media provenance ledger."
+    },
+    {
+      "sections": ["cradle-exe"],
+      "source_filename": "bfbbe39d13c93fa249a17702.png",
+      "role": "identity",
+      "title": "Cradle.exe — archival plate",
+      "alt": "Cradle.exe archival visual reference.",
+      "note": "Exact Cradle.exe identity plate from the published media provenance ledger."
+    },
+    {
+      "sections": ["shardlings", "little-king"],
+      "source_filename": "0cb9f2fd4623694ffca06f45.png",
+      "role": "context",
+      "title": "Shard-God — relational context",
+      "alt": "Shard-God reference plate used as relational context for this folio; not a portrait of the named subject.",
+      "note": "Context plate, not a portrait. The named subject's appearance is not inferred from the Shard-God reference."
+    },
+    {
+      "sections": ["allkept"],
+      "source_filename": "09e2837c1e2a76bc1fadccc2.jpg",
+      "role": "context",
+      "title": "VoidFey record — cosmological context",
+      "alt": "General Starsilk cosmological context plate for the Allkept folio; not a portrait of Allkept.",
+      "note": "Context only. No Allkept appearance is inferred from this plate."
+    },
+    {
+      "sections": ["marshal-venn"],
+      "source_filename": "19abded39a2a4486eec2cce6.png",
+      "role": "context",
+      "title": "Nacreous VI — command-room context",
+      "alt": "Nacreous VI world plate used as context for Marshal Venn's command-room folio; not a portrait of Marshal Venn.",
+      "note": "Location context only; the subject's appearance remains governed by the authored record."
+    },
+    {
+      "sections": ["administrator-pell", "technician-naresh", "captain-serr"],
+      "source_filename": "b2270a968eed67509f0812c1.png",
+      "role": "context",
+      "title": "The Hushing of Shail-9 — Lyriboris context",
+      "alt": "Lyriboris archival plate used as incident context for a Shail-9 witness folio; not a portrait of the named witness.",
+      "note": "Incident-antagonist context only; it does not portray Pell, Naresh, or Serr."
+    },
+    {
+      "sections": ["harold", "mara-syrin4", "tomas", "jonah", "clara", "eli", "ruth-syrin4", "kails-mother"],
+      "source_filename": "6574bb00ab1efa0fc8c8bb60.png",
+      "role": "context",
+      "title": "Syrin-4 — location context",
+      "alt": "Syrrian IV world plate used as Syrin-4 location context; not a portrait of the named subject.",
+      "note": "Location context only. No ensemble member's appearance is inferred from this plate."
+    },
+    {
+      "sections": ["worldsvault-templates"],
+      "source_filename": "100a6b911c0af4e1b21d4495.png",
+      "role": "context",
+      "title": "WorldsVault — template example",
+      "alt": "Cirrulite XXX WorldsVault template plate used as an example of the published world-template system.",
+      "note": "Example/template context; it does not redefine the WorldsVault catalog."
+    },
+    {
+      "sections": ["ontology-horror"],
+      "source_filename": "0db864ffeba055a05d60a4fd.png",
+      "role": "context",
+      "title": "Ontology horror — systems consequence context",
+      "alt": "Starsilk star-core collapse sequence used as ontological-consequence context.",
+      "note": "Context only; the visual does not create additional ontology canon."
+    },
+    {
+      "sections": ["archive", "source"],
+      "source_filename": "09e2837c1e2a76bc1fadccc2.jpg",
+      "role": "context",
+      "title": "Starsilk archive — orientation plate",
+      "alt": "Starsilk orientation plate used as archive/source context.",
+      "note": "Editorial orientation only; source authority remains the cited project records."
+    }
+  ]
+}
