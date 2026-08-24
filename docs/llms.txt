@@ -24,6 +24,9 @@ AI context packet register: https://westkitty.github.io/Starsilk_Character_Dossi
 AI context packet pattern: https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/<stable-id>.json
 Human curated tours and local library: https://westkitty.github.io/Starsilk_Character_Dossier/tours/
 Curated tour JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json
+Agent reference guide: https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md
+Vendor-neutral agent evaluation fixtures: https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json
+Final integration certificate: https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json
 JSON-LD: https://westkitty.github.io/Starsilk_Character_Dossier/machine/project.jsonld
 Authority and evidence rules: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
 Versioned schemas: https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/
@@ -39,6 +42,7 @@ Interpretation rules:
 - Faceted discovery and AI context packets are generated convenience derivatives: result classes remain structural, excerpts are mechanical source projections, and packet fields never outrank cited source authority.
 - Curated tours are editorial stable-ID navigation only; browser-local bookmarks, recent/history, progress, and user-named collections are not published, are not canon evidence, and private local text is not serialized into public URLs.
 - Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.
+- Agent evaluation fixtures test evidence discipline; they are not lore authority and do not require any model vendor.
 Human interactive chronology: https://westkitty.github.io/Starsilk_Character_Dossier/chronology/
 Chronology JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json
 - Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.

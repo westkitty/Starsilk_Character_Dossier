@@ -1,6 +1,9 @@
 {
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/",
   "endpoints": {
+    "agent_evaluation": "https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json",
+    "agent_guide": "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md",
+    "agent_integration": "https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json",
     "authority": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md",
     "canon_inspector": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/",
     "canon_lock_register": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-locks.json",
@@ -65,6 +68,11 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.md",
     "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/AUTHORITY.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.md",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/agents/schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/metadata-record.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/entity-index.schema.json",
@@ -77,6 +85,7 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json",
+    "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/agent-evaluation.schema.json",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
     "https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cover.json",
@@ -592,6 +601,7 @@
   "schema": "starsilk-machine-publication/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
   "schemas": {
+    "agent-evaluation": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/agent-evaluation.schema.json",
     "canon-lock-register": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
     "chronology-index": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json",
     "context-packet": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",

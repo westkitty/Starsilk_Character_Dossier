@@ -26,7 +26,7 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [13] SIZE REPORT
     Generated docs/index.html: 539,472 bytes
-    Total docs/ directory: 78,306,332 bytes
+    Total docs/ directory: 78,346,571 bytes
     Total published media: 73,201,453 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken

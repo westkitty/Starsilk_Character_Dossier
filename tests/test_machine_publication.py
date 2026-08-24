@@ -23,6 +23,7 @@ SCHEMAS = {
     "tour-index.schema.json",
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
+    "agent-evaluation.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -215,6 +216,11 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "worldsvault/worldsvault.md",
         "worldsvault/schema.json",
         "worldsvault/AUTHORITY.md",
+        "agents/AGENT_GUIDE.md",
+        "agents/evaluation.json",
+        "agents/evaluation.md",
+        "agents/integration.json",
+        "agents/schema.json",
     } | {f"machine/schema/v1/{name}" for name in SCHEMAS}
     expected_urls = {SITE_BASE, SITE_BASE + "entities/"} | {SITE_BASE + path for path in core_paths}
     for record in records:
@@ -253,6 +259,12 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
     assert index["endpoints"]["worldsvault_topology"] == SITE_BASE + "worldsvault/worldsvault.json"
     assert SITE_BASE + "chronology/" in llms
     assert SITE_BASE + "worldsvault/" in llms
+    assert index["endpoints"]["agent_guide"] == SITE_BASE + "agents/AGENT_GUIDE.md"
+    assert index["endpoints"]["agent_evaluation"] == SITE_BASE + "agents/evaluation.json"
+    assert index["endpoints"]["agent_integration"] == SITE_BASE + "agents/integration.json"
+    assert SITE_BASE + "agents/AGENT_GUIDE.md" in llms
+    assert SITE_BASE + "agents/evaluation.json" in llms
+    assert SITE_BASE + "agents/integration.json" in llms
 
 
 def test_sitemap_matches_declared_public_urls():

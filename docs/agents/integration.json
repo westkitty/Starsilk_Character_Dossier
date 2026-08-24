@@ -1,0 +1,62 @@
+{
+  "authority_note": "Deterministic structural integration certificate. It does not replace CI, browser, live Pages, public-boundary, or source-authority proof.",
+  "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json",
+  "check_count": 10,
+  "checks": [
+    {
+      "evidence": "entities=127 expected=127",
+      "id": "stable-entity-identity",
+      "status": "pass"
+    },
+    {
+      "evidence": "packets=127 entities=127",
+      "id": "context-packet-parity",
+      "status": "pass"
+    },
+    {
+      "evidence": "relationships=136 kind=mentions evidence=observed-xref",
+      "id": "relationship-evidence-boundary",
+      "status": "pass"
+    },
+    {
+      "evidence": "objects=213 manifest_assets=213 expected=213",
+      "id": "media-provenance-parity",
+      "status": "pass"
+    },
+    {
+      "evidence": "events=27 expected=27; null dates remain representable",
+      "id": "chronology-unknowns-preserved",
+      "status": "pass"
+    },
+    {
+      "evidence": "topology_edges=6 expected=6 with source evidence and explicit unknowns",
+      "id": "topology-no-false-precision",
+      "status": "pass"
+    },
+    {
+      "evidence": "six tours; local state remains browser-local, unpublished, and telemetry-free",
+      "id": "tour-local-state-boundary",
+      "status": "pass"
+    },
+    {
+      "evidence": "manifest scope/start_url are project-relative; service worker excludes published media and caches metadata indexes",
+      "id": "offline-project-scope",
+      "status": "pass"
+    },
+    {
+      "evidence": "machine index and llms orientation declare the Phase 12 agent surfaces",
+      "id": "agent-entry-points",
+      "status": "pass"
+    },
+    {
+      "evidence": "cases=13 required_categories=13 penalties=7",
+      "id": "evaluation-contract",
+      "status": "pass"
+    }
+  ],
+  "fail_count": 0,
+  "overall_status": "pass",
+  "pass_count": 10,
+  "project_id": "starsilk-character-dossier",
+  "schema": "starsilk-final-integration/1"
+}

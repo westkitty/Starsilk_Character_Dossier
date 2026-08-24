@@ -56,6 +56,7 @@ SCHEMA_FILES = (
     "tour-index.schema.json",
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
+    "agent-evaluation.schema.json",
 )
 
 
@@ -381,6 +382,11 @@ def public_urls(records: list[dict]) -> list[str]:
         "worldsvault/worldsvault.md",
         "worldsvault/schema.json",
         "worldsvault/AUTHORITY.md",
+        "agents/AGENT_GUIDE.md",
+        "agents/evaluation.json",
+        "agents/evaluation.md",
+        "agents/integration.json",
+        "agents/schema.json",
     ] + [f"machine/schema/v1/{name}" for name in SCHEMA_FILES]
     urls = [SITE_BASE] + [canonical(path) for path in paths] + [canonical("entities/")]
     for record in records:
@@ -420,6 +426,9 @@ def build_project_index(records: list[dict], relationship_count: int) -> dict:
             "chronology_index": canonical("chronology/chronology.json"),
             "worldsvault": canonical("worldsvault/"),
             "worldsvault_topology": canonical("worldsvault/worldsvault.json"),
+            "agent_guide": canonical("agents/AGENT_GUIDE.md"),
+            "agent_evaluation": canonical("agents/evaluation.json"),
+            "agent_integration": canonical("agents/integration.json"),
             "jsonld": canonical("machine/project.jsonld"),
             "compendium_markdown": canonical("machine/compendium.md"),
             "entity_markdown": canonical("machine/entities.md"),
@@ -474,7 +483,7 @@ def build_jsonld(records: list[dict]) -> dict:
 
 def build_llms_text(index: dict) -> str:
     e = index["endpoints"]
-    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nHuman entity index: {canonical('entities/')}\nHuman entity permalink pattern: {canonical('entities/<stable-id>/')}\nPer-entity JSON pattern: {canonical('machine/entities/<stable-id>.json')}\nPer-entity Markdown pattern: {canonical('machine/entities/<stable-id>.md')}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nHuman relationship observatory: {canonical('relationships/')}\nRelationship Observatory JSON: {canonical('relationships/relationships.json')}\nRelationship Observatory Markdown: {canonical('relationships/relationships.md')}\nHuman Canon Inspector: {e['canon_inspector']}\nCanon lock register JSON: {e['canon_lock_register']}\nCanon lock register Markdown: {canonical('canon/canon-locks.md')}\nHuman faceted discovery: {e['discovery']}\nDiscovery JSON index: {e['discovery_index']}\nAI context packet register: {e['context_packet_index']}\nAI context packet pattern: {canonical('discover/packets/<stable-id>.json')}\nHuman curated tours and local library: {e['tours']}\nCurated tour JSON index: {e['tour_index']}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- The Canon Inspector exposes only a machine-enforced validation subset from `src/canon/invariants.json`; it is not complete canon, and absence from its register does not imply non-canon status.\n- Faceted discovery and AI context packets are generated convenience derivatives: result classes remain structural, excerpts are mechanical source projections, and packet fields never outrank cited source authority.\n- Curated tours are editorial stable-ID navigation only; browser-local bookmarks, recent/history, progress, and user-named collections are not published, are not canon evidence, and private local text is not serialized into public URLs.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n"""
+    return f"""# {PROJECT_NAME}\n\n> Public, deterministic, source-backed machine orientation for the Starsilk Compendium. Generated derivatives never outrank repository authority.\n\nCanonical site: {SITE_BASE}\nHuman entity index: {canonical('entities/')}\nHuman entity permalink pattern: {canonical('entities/<stable-id>/')}\nPer-entity JSON pattern: {canonical('machine/entities/<stable-id>.json')}\nPer-entity Markdown pattern: {canonical('machine/entities/<stable-id>.md')}\nMachine index: {canonical('machine/index.json')}\nEntity index: {e['entity_index']}\nCompendium Markdown: {e['compendium_markdown']}\nEntity Markdown: {e['entity_markdown']}\nObserved relationship graph: {e['relationships']}\nHuman relationship observatory: {canonical('relationships/')}\nRelationship Observatory JSON: {canonical('relationships/relationships.json')}\nRelationship Observatory Markdown: {canonical('relationships/relationships.md')}\nHuman Canon Inspector: {e['canon_inspector']}\nCanon lock register JSON: {e['canon_lock_register']}\nCanon lock register Markdown: {canonical('canon/canon-locks.md')}\nHuman faceted discovery: {e['discovery']}\nDiscovery JSON index: {e['discovery_index']}\nAI context packet register: {e['context_packet_index']}\nAI context packet pattern: {canonical('discover/packets/<stable-id>.json')}\nHuman curated tours and local library: {e['tours']}\nCurated tour JSON index: {e['tour_index']}\nAgent reference guide: {e['agent_guide']}\nVendor-neutral agent evaluation fixtures: {e['agent_evaluation']}\nFinal integration certificate: {e['agent_integration']}\nJSON-LD: {e['jsonld']}\nAuthority and evidence rules: {e['authority']}\nVersioned schemas: {canonical('machine/schema/v1/')}\nSitemap: {e['sitemap']}\n\nInterpretation rules:\n- Stable IDs are existing published section IDs; do not replace them with display labels.\n- Canonical entity URLs use `/entities/<stable-id>/`; legacy `/#<stable-id>` Compendium anchors remain valid public locations.\n- `canon_status: unknown` means the current source model does not author a per-section status.\n- `spoiler_level: major` is a conservative publication default, not a canon fact.\n- Relationship kind `mentions` with evidence class `observed-xref` proves reference only; do not infer friend/enemy/parent/creator/causal semantics.\n- The Canon Inspector exposes only a machine-enforced validation subset from `src/canon/invariants.json`; it is not complete canon, and absence from its register does not imply non-canon status.\n- Faceted discovery and AI context packets are generated convenience derivatives: result classes remain structural, excerpts are mechanical source projections, and packet fields never outrank cited source authority.\n- Curated tours are editorial stable-ID navigation only; browser-local bookmarks, recent/history, progress, and user-named collections are not published, are not canon evidence, and private local text is not serialized into public URLs.\n- Missing event IDs, WorldsVault IDs, dates, coordinates, and semantic relations remain unknown until explicitly authored.\n- Agent evaluation fixtures test evidence discipline; they are not lore authority and do not require any model vendor.\n"""
 
 
 def build_sitemap(urls: list[str]) -> str:
