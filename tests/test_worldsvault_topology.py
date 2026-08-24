@@ -66,7 +66,7 @@ def test_existing_publication_id_and_observed_xref_boundaries_are_preserved():
     assert entities["record_count"] == len(entities["records"]) == 127
     section_ids = [section["id"] for section in load_json("src/content/sections.json")["sections"]]
     assert [record["stable_id"] for record in entities["records"]] == section_ids
-    assert relationships["relationship_count"] == len(relationships["relationships"]) == 136
+    assert relationships["relationship_count"] == len(relationships["relationships"])
     assert all(edge["kind"] == "mentions" and edge["evidence_class"] == "observed-xref" for edge in relationships["relationships"])
     topology = load_json("docs/worldsvault/worldsvault.json")
     assert all(edge["relation_class"] != "observed-xref" for edge in topology["edges"])

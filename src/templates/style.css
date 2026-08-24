@@ -365,6 +365,6 @@ html.sidebar-collapsed .museum-entrance{padding-left:var(--page-pad)!important}
 .archive-stats summary:hover,.archive-stats summary:focus-visible{color:var(--thread);outline:none}
 .archive-stats .museum-hero-stats{margin-top:.6rem}
 
-@media(max-width:700px){.cover-entry-paths{grid-template-columns:1fr}.cover-entry-paths a{min-height:0}.archive-junction .museum-hero{padding-left:var(--page-pad);padding-right:var(--page-pad)}.cover-title.is-canon-intrusion{font-size:clamp(.82rem,3.7vw,1rem);letter-spacing:.02em}}
+@media(max-width:700px){.cover-entry-paths{grid-template-columns:1fr}.cover-entry-paths a{min-height:0}.archive-junction .museum-hero{padding-left:var(--page-pad);padding-right:var(--page-pad)}.cover-title.is-canon-intrusion{font-size:clamp(.82rem,3.7vw,1rem);letter-spacing:.02em;white-space:normal;overflow-wrap:anywhere;max-width:100%}}
 @media(prefers-reduced-motion: reduce){.cover .cover-thesis,.cover .cover-consequence,.cover .cover-entry-paths{animation:none;opacity:1;transform:none}.cover-title.is-canon-intrusion{text-shadow:none}}
 @media print{.cover .cover-thesis,.cover .cover-consequence,.cover .cover-entry-paths{animation:none;opacity:1;transform:none}.archive-junction{display:none!important}}

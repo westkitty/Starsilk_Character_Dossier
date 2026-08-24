@@ -68,3 +68,7 @@ def test_canon_intrusion_does_not_overflow_320px(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     expect(page.locator("#coverTitle")).to_have_text("YOUR SKY IS BUILT FROM YOUR DEAD.", timeout=2500)
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    box = page.locator("#coverTitle").bounding_box()
+    assert box is not None
+    assert box["x"] >= -0.5
+    assert box["x"] + box["width"] <= 320.5

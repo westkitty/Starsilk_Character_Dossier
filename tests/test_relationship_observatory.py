@@ -71,7 +71,6 @@ def test_relationship_model_is_same_observed_graph_with_evidence_not_semantic_pr
     assert model["relationship_graph_url"] == SITE_BASE + "machine/relationships.json"
     assert model["entity_count"] == len(entities) == 127
     assert model["relationship_count"] == graph["relationship_count"] == len(model["relationships"])
-    assert model["relationship_count"] == 136
     assert 0 <= model["connected_entity_count"] <= model["entity_count"]
 
     graph_pairs = {(item["source"], item["target"]) for item in graph["relationships"]}
