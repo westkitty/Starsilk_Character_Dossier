@@ -86,6 +86,8 @@ def build_model() -> dict:
             raise RuntimeError(f"missing relative authored marker for {event_id}")
         if certainty == "authored-duration" and not isinstance(temporal.get("duration"), dict):
             raise RuntimeError(f"missing authored duration for {event_id}")
+        if not isinstance(temporal.get("before_event_ids"), list) or not isinstance(temporal.get("after_event_ids"), list):
+            raise RuntimeError(f"missing before_event_ids/after_event_ids list for {event_id}")
         source_ref = event_source(source_record) | {"heading": heading}
         events.append({
             "event_id": event_id,
@@ -129,7 +131,7 @@ def build_markdown(model: dict) -> str:
     lines = ["# Starsilk chronology", "", "Generated source-backed chronology derivative; not a second canon authority.", ""]
     for event in model["events"]:
         temporal = event["temporal"]
-        marker = temporal["exact_authored_marker"] or temporal["relative_marker"] or "Unknown date/order"
+        marker = temporal.get("exact_authored_marker") or temporal.get("relative_marker") or "Unknown date/order"
         lines += [f"## {event['label']}", "", f"- Stable deep link: {event['canonical_url']}", f"- Authored temporal marker: {marker}", f"- Temporal certainty: {temporal['certainty']}", f"- Visibility: {event['visibility']}", f"- Canon status: {event['canon_status']}", f"- Spoiler level: {event['spoiler_level']}", f"- Source: {event['source']['canonical_url']}", ""]
     return "\n".join(lines).rstrip() + "\n"
 
@@ -158,7 +160,15 @@ def check_outputs(outputs: dict[str, str]) -> list[str]:
         errors.append("generated chronology file set differs from expected output")
     for relative, expected in outputs.items():
         path = CHRONOLOGY_DIR / relative
-        if not path.exists() or path.read_text(encoding="utf-8") != expected:
+        if not path.exists():
+            errors.append(f"generated chronology output differs: docs/chronology/{relative}")
+            continue
+        try:
+            current = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            errors.append(f"unreadable generated chronology output docs/chronology/{relative}: {exc}")
+            continue
+        if current != expected:
             errors.append(f"generated chronology output differs: docs/chronology/{relative}")
     return errors
 

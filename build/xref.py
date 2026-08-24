@@ -141,7 +141,7 @@ def link_full_document(full_html: str, entities: dict) -> str:
     patterns = [(sid, name, re.compile(r"\b" + re.escape(name) + r"\b")) for sid, name in by_length]
 
     tokens = TAG_SPLIT_RE.split(full_html)
-    current_section_id = None
+    section_stack: list[str | None] = []
     skip_stack = []
     linked_in_section = set()
     linked_count = 0
@@ -156,10 +156,13 @@ def link_full_document(full_html: str, entities: dict) -> str:
             if m:
                 tagname = m.group(1).lower()
                 is_close = tok.startswith("</")
-                if tagname == "section" and not is_close:
-                    sm = SECTION_OPEN_RE.match(tok)
-                    if sm:
-                        current_section_id = sm.group(1)
+                if tagname == "section":
+                    if is_close:
+                        if section_stack:
+                            section_stack.pop()
+                    else:
+                        sm = SECTION_OPEN_RE.match(tok)
+                        section_stack.append(sm.group(1) if sm else None)
                 if tagname in SKIP_TAGS:
                     if is_close:
                         if skip_stack and skip_stack[-1] == tagname:
@@ -168,6 +171,7 @@ def link_full_document(full_html: str, entities: dict) -> str:
                         skip_stack.append(tagname)
             continue
 
+        current_section_id = next((sid for sid in reversed(section_stack) if sid), None)
         if skip_stack or current_section_id is None or not tok.strip():
             out.append(tok)
             continue

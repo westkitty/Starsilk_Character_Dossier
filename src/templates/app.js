@@ -276,6 +276,22 @@
       });
     });
 
+    // Same auto-open/restore contract as page disclosures above, but for
+    // sidebar nav-groups the search filter force-opens to reveal matches.
+    var navAutoOpened = new Set();      // groups opened only because of the search
+    var navUserToggled = new Set();     // groups the reader toggled themselves meanwhile
+    var navPendingAutoToggle = new Set(); // groups whose next toggle event is our own mutation
+    document.querySelectorAll('.index .nav-group').forEach(function(group){
+      group.addEventListener('toggle', function(){
+        if(navPendingAutoToggle.has(group)){
+          navPendingAutoToggle.delete(group);
+          return;
+        }
+        navUserToggled.add(group);
+        navAutoOpened.delete(group);
+      });
+    });
+
     function clearMarks(){
       marks.forEach(function(m){
         var parent = m.parentNode;
@@ -363,7 +379,11 @@
         });
         if(q){
           group.style.display = matched > 0 ? '' : 'none';
-          if(matched > 0) group.open = true;
+          if(matched > 0 && !group.open){
+            navPendingAutoToggle.add(group);
+            group.open = true;
+            navAutoOpened.add(group);
+          }
         } else {
           group.style.display = '';
         }
@@ -378,6 +398,12 @@
           if(d && d.open){ pendingAutoToggle.add(id); d.open = false; }
         });
         autoOpened.clear();
+        // Restore nav-groups that were opened only because of the search.
+        navAutoOpened.forEach(function(group){
+          if(navUserToggled.has(group)) return;
+          if(group.open){ navPendingAutoToggle.add(group); group.open = false; }
+        });
+        navAutoOpened.clear();
         setStatus();
         return;
       }

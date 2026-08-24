@@ -75,8 +75,11 @@ def make_image_derivative(src: Path, dest: Path) -> bool:
     cwebp = shutil.which("cwebp")
     if not cwebp:
         return False
-    with Image.open(src) as im:
-        w, h = im.size
+    try:
+        with Image.open(src) as im:
+            w, h = im.size
+    except (OSError, ValueError):
+        return False
     args = [cwebp, "-quiet", "-q", WEBP_QUALITY]
     long_edge = max(w, h)
     if long_edge > IMAGE_MAX_DIMENSION:
@@ -192,9 +195,10 @@ def main() -> int:
     }
     MANIFEST_FILE.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
+    reduction_pct = 100 * (1 - total_published_bytes / total_source_bytes) if total_source_bytes else 0.0
     print(f"Media pipeline: {len(assets)} assets. Source {total_source_bytes:,} bytes -> "
           f"published {total_published_bytes:,} bytes "
-          f"({100 * (1 - total_published_bytes / total_source_bytes):.1f}% reduction). "
+          f"({reduction_pct:.1f}% reduction). "
           f"{len(rename_map)} filename(s) changed (format conversions).")
     return 0
 

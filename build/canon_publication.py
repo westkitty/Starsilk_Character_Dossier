@@ -64,7 +64,8 @@ def source_target(scope: str, section_id: str | None) -> dict:
                 "src/content/sections/*.body.html",
             ],
         }
-    assert section_id is not None
+    if section_id is None:
+        raise RuntimeError("section-scoped canon lock target requires a section_id")
     return {
         "kind": "published-section",
         "stable_id": section_id,

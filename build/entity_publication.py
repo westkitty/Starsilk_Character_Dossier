@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -43,7 +44,9 @@ def is_external_or_special(url: str) -> bool:
 def rewrite_relative_url(url: str) -> str:
     if is_external_or_special(url) or url.startswith("#"):
         return url
-    return "../../" + url.lstrip("./")
+    if url.startswith("./"):
+        url = url[2:]
+    return "../../" + url
 
 
 def rewrite_fragment(fragment: str | None, stable_ids: set[str]) -> str:
@@ -73,7 +76,12 @@ def rewrite_fragment(fragment: str | None, stable_ids: set[str]) -> str:
         srcset = tag.get("srcset")
         if srcset:
             rewritten = []
-            for candidate in srcset.split(","):
+            # Split only on a comma followed by whitespace -- the actual
+            # candidate separator per the srcset grammar. A plain
+            # srcset.split(",") would also tear apart any data: URI
+            # candidate at its mandatory "base64," comma, since that comma
+            # is never followed by whitespace.
+            for candidate in re.split(r",\s+", srcset.strip()):
                 parts = candidate.strip().split()
                 if not parts:
                     continue
