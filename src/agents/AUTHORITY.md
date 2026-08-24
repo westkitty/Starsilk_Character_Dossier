@@ -33,6 +33,8 @@ Generated files under `docs/` are public derivatives. They are useful retrieval 
 - `docs/asset-manifest.json` for published-media provenance;
 - specialized authored Phase 8-10 source records where those publications explicitly cite them.
 
+Generated derivatives do not outrank cited authored sources.
+
 When answering a factual question, preserve the source reference supplied by the machine record whenever practical. A generated convenience packet is evidence navigation, not a new authority.
 
 ## Stable identity
