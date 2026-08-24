@@ -87,9 +87,9 @@
   </header>
 
   <dl class="canon-stats" aria-label="Canon lock totals">
-    <div><dt>Total enforceable locks</dt><dd>11</dd></div>
-    <div><dt>Document scoped</dt><dd>2</dd></div>
-    <div><dt>Section scoped</dt><dd>9</dd></div>
+    <div><dt>Total enforceable locks</dt><dd>16</dd></div>
+    <div><dt>Document scoped</dt><dd>3</dd></div>
+    <div><dt>Section scoped</dt><dd>13</dd></div>
     <div><dt>Validation status</dt><dd>Enforced</dd></div>
   </dl>
 
@@ -153,6 +153,33 @@
         <div class="canon-pattern-grid">
           <section><h3>Positive requirements</h3><p>None.</p></section>
           <section><h3>Prohibitions</h3><ul><li><code>(?i)\bwilliam\b</code></li></ul></section>
+        </div>
+        <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/*.title.html</code>, <code>src/content/sections/*.body.html</code></p>
+      </details>
+    </article>
+
+    <article id="lock-wordstreamer-canonical-spelling" class="canon-lock" data-lock-id="wordstreamer-canonical-spelling" data-scope="document">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">document lock</div>
+          <h2>The deity&#39;s canonical name is Wordstreamer; the obsolete internal-capital form WordStreamer must not appear.</h2>
+          <code>wordstreamer-canonical-spelling</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-wordstreamer-canonical-spelling" aria-label="Deep link to wordstreamer-canonical-spelling">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>document</code></dd></div>
+        <div><dt>Target</dt><dd><a href="https://westkitty.github.io/Starsilk_Character_Dossier/">complete compendium document</a></dd></div>
+        <div><dt>Validation authority</dt><dd><code>src/canon/invariants.json</code></dd></div>
+        <div><dt>Enforcement</dt><dd>enforced on generated compendium validation</dd></div>
+      </dl>
+      <p class="canon-semantics">Applied to the complete generated Compendium document; positive requirements are evaluated at document scope and prohibitions apply globally.</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3><p>None.</p></section>
+          <section><h3>Prohibitions</h3><ul><li><code>\bWordStreamer\b</code></li></ul></section>
         </div>
         <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/*.title.html</code>, <code>src/content/sections/*.body.html</code></p>
       </details>
@@ -398,6 +425,114 @@
           <section><h3>Prohibitions</h3><p>None.</p></section>
         </div>
         <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/marcel.body.html</code></p>
+      </details>
+    </article>
+
+    <article id="lock-wordstreaming-living-practice" class="canon-lock" data-lock-id="wordstreaming-living-practice" data-scope="section">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">section lock</div>
+          <h2>Wordstreaming remains a living practice named for the deceased Wordstreamer.</h2>
+          <code>wordstreaming-living-practice</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-wordstreaming-living-practice" aria-label="Deep link to wordstreaming-living-practice">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>section</code></dd></div>
+        <div><dt>Target</dt><dd><a href="https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/">published section</a> <code>ontology-horror</code></dd></div>
+        <div><dt>Validation authority</dt><dd><code>src/canon/invariants.json</code></dd></div>
+        <div><dt>Enforcement</dt><dd>enforced on generated compendium validation</dd></div>
+      </dl>
+      <p class="canon-semantics">Applied only to generated section #ontology-horror; positive requirements and prohibitions are evaluated inside that section.</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3><ul><li><code>Wordstreaming&lt;/b&gt; is a living communication and reality-code practice named for</code></li></ul></section>
+          <section><h3>Prohibitions</h3><p>None.</p></section>
+        </div>
+        <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/ontology-horror.body.html</code></p>
+      </details>
+    </article>
+
+    <article id="lock-post-wall-wordstreaming-living" class="canon-lock" data-lock-id="post-wall-wordstreaming-living" data-scope="section">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">section lock</div>
+          <h2>Post-Wall Drakken still use wordstreaming as a living communication practice.</h2>
+          <code>post-wall-wordstreaming-living</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-post-wall-wordstreaming-living" aria-label="Deep link to post-wall-wordstreaming-living">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>section</code></dd></div>
+        <div><dt>Target</dt><dd><a href="https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/">published section</a> <code>beyond-wall</code></dd></div>
+        <div><dt>Validation authority</dt><dd><code>src/canon/invariants.json</code></dd></div>
+        <div><dt>Enforcement</dt><dd>enforced on generated compendium validation</dd></div>
+      </dl>
+      <p class="canon-semantics">Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3><ul><li><code>Wordstreaming survives as a living communication practice</code></li></ul></section>
+          <section><h3>Prohibitions</h3><p>None.</p></section>
+        </div>
+        <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/beyond-wall.body.html</code></p>
+      </details>
+    </article>
+
+    <article id="lock-post-wall-codec-time-estimate" class="canon-lock" data-lock-id="post-wall-codec-time-estimate" data-scope="section">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">section lock</div>
+          <h2>Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era.</h2>
+          <code>post-wall-codec-time-estimate</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-post-wall-codec-time-estimate" aria-label="Deep link to post-wall-codec-time-estimate">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>section</code></dd></div>
+        <div><dt>Target</dt><dd><a href="https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/">published section</a> <code>beyond-wall</code></dd></div>
+        <div><dt>Validation authority</dt><dd><code>src/canon/invariants.json</code></dd></div>
+        <div><dt>Enforcement</dt><dd>enforced on generated compendium validation</dd></div>
+      </dl>
+      <p class="canon-semantics">Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3><ul><li><code>roughly 8,560 years</code></li></ul></section>
+          <section><h3>Prohibitions</h3><p>None.</p></section>
+        </div>
+        <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/beyond-wall.body.html</code></p>
+      </details>
+    </article>
+
+    <article id="lock-modern-drakken-larger-than-humans" class="canon-lock" data-lock-id="modern-drakken-larger-than-humans" data-scope="section">
+      <header class="canon-lock-head">
+        <div>
+          <div class="eyebrow">section lock</div>
+          <h2>Modern Drakken remain larger than humans while being much smaller than Blood Eclipse War Titans.</h2>
+          <code>modern-drakken-larger-than-humans</code>
+        </div>
+        <a class="canon-deep-link" href="#lock-modern-drakken-larger-than-humans" aria-label="Deep link to modern-drakken-larger-than-humans">#</a>
+      </header>
+      <dl class="canon-lock-facts">
+        <div><dt>Scope</dt><dd><code>section</code></dd></div>
+        <div><dt>Target</dt><dd><a href="https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/">published section</a> <code>beyond-wall</code></dd></div>
+        <div><dt>Validation authority</dt><dd><code>src/canon/invariants.json</code></dd></div>
+        <div><dt>Enforcement</dt><dd>enforced on generated compendium validation</dd></div>
+      </dl>
+      <p class="canon-semantics">Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.</p>
+      <details class="canon-patterns">
+        <summary>Technical machine validation patterns</summary>
+        <p>Raw patterns are implementation evidence for the validator, not standalone canon prose.</p>
+        <div class="canon-pattern-grid">
+          <section><h3>Positive requirements</h3><ul><li><code>larger than humans</code></li></ul></section>
+          <section><h3>Prohibitions</h3><p>None.</p></section>
+        </div>
+        <p class="canon-source">Underlying canon source references: <code>src/content/sections.json</code>, <code>src/content/sections/beyond-wall.body.html</code></p>
       </details>
     </article>
 

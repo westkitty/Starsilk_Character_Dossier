@@ -21,6 +21,7 @@ Source: `src/content/sections/marcel.body.html`
 - [Dao](https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/) — `dao`
 - [Jazen](https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/) — `jazen`
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) — `kail`
+- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) — `wordstreamer`
 
 ## Mentioned by
 
@@ -49,8 +50,8 @@ His memories have been edited repeatedly. Entire centuries of lived experience a
 - His body and habits retain echoes his conscious history cannot explain.
 - His present faith is sincere, but formed inside a controlled memory field.
 ### Wordstreaming
-Wordstreaming is executable force through an ancient dead language associated with WordStreamer. Marcel’s known specialty is gravity, but his actual historical proficiency is far larger than he remembers.
-- Learned wordstreaming from WordStreamer herself before Tiger murdered her.
+Wordstreaming is a living communication and executable reality-code practice named for Wordstreamer, whose ancient language supplies its syntax. Marcel’s known specialty is gravity, but his actual historical proficiency is far larger than he remembers.
+- Learned wordstreaming from Wordstreamer herself before Tiger murdered her.
 - During the Blood Eclipse War he was a devastating battlefield wordstreamer.
 - Was praised for centuries and could take down entire Drakken with words alone.
 - In raw battlefield impact, the supplied dossier describes him as outperforming even Codec ’s macro talent.
@@ -73,7 +74,7 @@ forest moss wood
 - Jazen : once a close friend; erased from Marcel’s present memory.
 - Dao : skeptical counterweight. Marcel’s settled faith can read to Dao as a contradiction trained to smile.
 - Kail : Marcel can appear to prove that one may belong inside the Administration without becoming cruel.
-- WordStreamer: teacher and stolen lineage.
+- Wordstreamer: teacher and stolen lineage.
 - Shard-God: Marcel believes the Shard-God is benevolent overall and interprets terrible acts as tragic necessity.
 ### Moral contradiction
 Marcel is not a sadist and does not seek domination. He is kind enough to be troubled by cruelty and loyal enough to excuse it when authority names it necessary. His hope makes him resilient; it also makes him governable.

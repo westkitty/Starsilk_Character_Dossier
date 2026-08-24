@@ -19,7 +19,7 @@ Source: `src/content/sections/ontology-horror.body.html`
 - Known safe interaction methods remain Tiger’s immunity, the Syrin blood glitch, and Codec ’s Syrin-blood vapor method.
 - The phrase “stars don’t burn, they surrender” encodes Tiger’s reversal of Codec’s solidarity ideal.
 ### Macros & wordstreaming
-Macros are sacred/repeatable executable action loops embedded in reality: literal runtime commands, not metaphor. Wordstreaming is the dead ancient language used to weave reality-code before Tiger’s enclosure of the system; Marcel remains its major living practitioner.
+Macros are sacred/repeatable executable action loops embedded in reality: literal runtime commands, not metaphor. Wordstreaming is a living communication and reality-code practice named for Wordstreamer , who gave the universe the ancient executable language from which the practice descends. Wordstreamer is dead; wordstreaming is not. Marcel remains a major living practitioner, and the post-Wall Drakken continue to wordstream directly.
 ### Tiger Equation / meta-canon breach
 The Tiger Equation first appeared unbidden on July 15, 2025 . Within project meta-canon this marks Tiger’s breach across the fiction/authorial boundary, establishes the Equation as a sigil of overwrite and divine sorrow recursion, and places later narrative decisions in its shadow.
 ### Administration knowledge asymmetry

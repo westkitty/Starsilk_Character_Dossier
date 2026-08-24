@@ -60,8 +60,8 @@
     "Generated /canon/ artifacts are public derivatives and do not become editable canon authority."
   ],
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/",
-  "document_lock_count": 2,
-  "lock_count": 11,
+  "document_lock_count": 3,
+  "lock_count": 16,
   "locks": [
     {
       "authority": {
@@ -114,6 +114,35 @@
       "positive_requirements": [],
       "prohibitions": [
         "(?i)\\bwilliam\\b"
+      ],
+      "scope": "document",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/",
+        "kind": "complete-compendium-document",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/*.title.html",
+          "src/content/sections/*.body.html"
+        ],
+        "stable_id": null
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "The deity's canonical name is Wordstreamer; the obsolete internal-capital form WordStreamer must not appear.",
+      "enforcement": {
+        "scope_semantics": "Applied to the complete generated Compendium document; positive requirements are evaluated at document scope and prohibitions apply globally.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "wordstreamer-canonical-spelling",
+      "positive_requirements": [],
+      "prohibitions": [
+        "\\bWordStreamer\\b"
       ],
       "scope": "document",
       "target": {
@@ -383,11 +412,123 @@
         ],
         "stable_id": "marcel"
       }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Wordstreaming remains a living practice named for the deceased Wordstreamer.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #ontology-horror; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "wordstreaming-living-practice",
+      "positive_requirements": [
+        "Wordstreaming</b> is a living communication and reality-code practice named for"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/ontology-horror.body.html"
+        ],
+        "stable_id": "ontology-horror"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Post-Wall Drakken still use wordstreaming as a living communication practice.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "post-wall-wordstreaming-living",
+      "positive_requirements": [
+        "Wordstreaming survives as a living communication practice"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/beyond-wall.body.html"
+        ],
+        "stable_id": "beyond-wall"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "post-wall-codec-time-estimate",
+      "positive_requirements": [
+        "roughly 8,560 years"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/beyond-wall.body.html"
+        ],
+        "stable_id": "beyond-wall"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Modern Drakken remain larger than humans while being much smaller than Blood Eclipse War Titans.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #beyond-wall; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "modern-drakken-larger-than-humans",
+      "positive_requirements": [
+        "larger than humans"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/beyond-wall.body.html"
+        ],
+        "stable_id": "beyond-wall"
+      }
     }
   ],
   "project_id": "starsilk-character-dossier",
   "schema": "starsilk-canon-lock-register/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
-  "section_lock_count": 9,
+  "section_lock_count": 13,
   "source_invariants": "src/canon/invariants.json"
 }

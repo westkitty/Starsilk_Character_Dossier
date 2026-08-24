@@ -63,7 +63,7 @@
       "display_label": "Marcel",
       "incoming_count": 12,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-marcel",
-      "outgoing_count": 4,
+      "outgoing_count": 5,
       "stable_id": "marcel"
     },
     {
@@ -589,7 +589,7 @@
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/",
       "display_label": "Wordstreamer",
-      "incoming_count": 8,
+      "incoming_count": 10,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-wordstreamer",
       "outgoing_count": 1,
       "stable_id": "wordstreamer"
@@ -967,7 +967,7 @@
       "display_label": "The operating system has moral consequences.",
       "incoming_count": 0,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-ontology-horror",
-      "outgoing_count": 3,
+      "outgoing_count": 4,
       "stable_id": "ontology-horror"
     },
     {
@@ -1021,7 +1021,7 @@
   ],
   "entity_count": 127,
   "project_id": "starsilk-character-dossier",
-  "relationship_count": 136,
+  "relationship_count": 138,
   "relationship_graph_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
   "relationships": [
     {
@@ -2104,6 +2104,19 @@
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--wordstreamer",
+      "edge_id": "mention--marcel--wordstreamer",
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "observed_href": "#wordstreamer",
+      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-marcel--wordstreamer",
+      "source": "marcel",
+      "source_ref": "src/content/sections/marcel.body.html",
+      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/",
+      "target": "wordstreamer",
+      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marshal-venn--codec",
       "edge_id": "mention--marshal-venn--codec",
       "evidence_class": "observed-xref",
@@ -2388,6 +2401,19 @@
       "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/",
       "target": "nialbu",
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--wordstreamer",
+      "edge_id": "mention--ontology-horror--wordstreamer",
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "observed_href": "#wordstreamer",
+      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-ontology-horror--wordstreamer",
+      "source": "ontology-horror",
+      "source_ref": "src/content/sections/ontology-horror.body.html",
+      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/",
+      "target": "wordstreamer",
+      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--rhys--lyra",

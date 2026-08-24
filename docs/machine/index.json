@@ -597,7 +597,7 @@
     "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/source.json"
   ],
   "record_count": 127,
-  "relationship_count": 136,
+  "relationship_count": 138,
   "schema": "starsilk-machine-publication/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/machine-publication-index.schema.json",
   "schemas": {

@@ -1000,6 +1000,7 @@ def test_visual_principal_character_page(page: Page, local_server):
     page.evaluate("document.getElementById('dao').querySelector('details.page-disclosure').open = true")
     page.locator("#dao").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#dao")
+    _freeze_decorative_video(page)
     assert_matches_baseline(page.locator("#dao").screenshot(), "principal-dao.png")
 
 
@@ -1009,6 +1010,7 @@ def test_visual_drakken_entry(page: Page, local_server):
     page.evaluate("document.getElementById('drk-the-egg').querySelector('details.page-disclosure').open = true")
     page.locator("#drk-the-egg").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#drk-the-egg")
+    _freeze_decorative_video(page)
     assert_matches_baseline(page.locator("#drk-the-egg").screenshot(), "drakken-the-egg.png")
 
 
@@ -1018,6 +1020,7 @@ def test_visual_peripheral_entry(page: Page, local_server):
     page.evaluate("document.getElementById('peripheral-index').querySelector('details.page-disclosure').open = true")
     page.locator("#peripheral-index").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#peripheral-index")
+    _freeze_decorative_video(page)
     assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png")
 
 
@@ -1027,6 +1030,7 @@ def test_visual_media_vault(page: Page, local_server):
     page.evaluate("document.getElementById('media-vault').querySelector('details.page-disclosure').open = true")
     page.locator("#media-vault").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#media-vault")
+    _freeze_decorative_video(page)
     assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png")
 
 

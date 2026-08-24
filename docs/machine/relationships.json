@@ -275,8 +275,10 @@
       "canon-ledger",
       "chronology",
       "cosmic-architecture",
+      "marcel",
       "mother",
       "nialbu",
+      "ontology-horror",
       "shard-god",
       "systems"
     ]
@@ -838,7 +840,8 @@
       "codec",
       "dao",
       "jazen",
-      "kail"
+      "kail",
+      "wordstreamer"
     ],
     "marn": [],
     "marshal-venn": [
@@ -885,7 +888,7 @@
       "marcel"
     ]
   },
-  "relationship_count": 136,
+  "relationship_count": 138,
   "relationships": [
     {
       "evidence_class": "observed-xref",
@@ -1388,6 +1391,12 @@
     {
       "evidence_class": "observed-xref",
       "kind": "mentions",
+      "source": "marcel",
+      "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
       "source": "marshal-venn",
       "target": "codec"
     },
@@ -1516,6 +1525,12 @@
       "kind": "mentions",
       "source": "ontology-horror",
       "target": "nialbu"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "ontology-horror",
+      "target": "wordstreamer"
     },
     {
       "evidence_class": "observed-xref",

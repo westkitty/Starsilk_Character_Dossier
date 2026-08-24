@@ -22,9 +22,10 @@ Source: `src/content/sections/beyond-wall.body.html`
 The approaching ship is built from multiple dead Titan bodies integrated with mechanical systems. Bone, tendon, preserved structure, and articulated remains are deliberate material culture rather than random gore.
 “Their sky is built from their dead.”
 A dead Titan limb extends as a docking and support mechanism. The visual language is horrifying by Blood Eclipse War standards; the actual gesture is careful assistance.
-### First contact through Wordstream
+### First contact through wordstreaming
 - The hail is conceptual rather than conventionally translated.
 - Marcel recognizes the meaning because the Drakken wordstream the idea directly.
+- Wordstreaming survives as a living communication practice named for Wordstreamer ; her death did not end the practice.
 - The first major message asks whether the damaged strangers need aid.
 - The channel activates Marcel’s missing-history problem without automatically restoring his memories.
 - The contact proves living continuity with the Wordstreamer tradition and avoids generic universal-translator logic.
@@ -33,9 +34,9 @@ Codec crossed the Wall to learn how the Drakken truly weaponized Starsilk. He ex
 The encounter gives him an opportunity to practice the political principle he claims to believe: ask rather than dominate; meet subjects with agency rather than a target class.
 “Solidarity, not supplication.”
 ### Historical reconstruction
-Wall +0 Drakken space is sealed with drastically reduced accessible matter. First ~2,000 years Extreme scarcity under Mother. Some Titans turn on one another; dead and damaged Titan matter accumulates as future building stock. ~2,000 years Surviving Drakken defeat Mother in an anti-fascist coup. The hive-mind condition is fully broken as a governing order. Following millennia Egg programming shifts toward smaller, resource-efficient, functionally specialized forms; dead-Titan reuse becomes foundational infrastructure. Codec’s arrival A damaged foreign craft enters the closed system and receives an offer of aid rather than an attack.
+Wall +0 Drakken space is sealed with drastically reduced accessible matter. First ~2,000 years Extreme scarcity under Mother. Some Titans turn on one another; dead and damaged Titan matter accumulates as future building stock. ~2,000 years Surviving Drakken defeat Mother in an anti-fascist coup. The hive-mind condition is fully broken as a governing order. Following millennia Egg programming shifts toward smaller, resource-efficient, functionally specialized forms; dead-Titan reuse becomes foundational infrastructure. Codec’s arrival Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era. A damaged foreign craft enters the closed system and receives an offer of aid rather than an attack.
 ### Modern Drakken — accepted locks
-- Modern forms are substantially smaller than Blood Eclipse War Titans while remaining visibly and physically Drakken.
+- Modern forms are substantially smaller than Blood Eclipse War Titans while remaining larger than humans and visibly, physically Drakken.
 - Morphology remains diverse; bipedal and quadrupedal forms coexist.
 - Egg programming can support matter transmutation, recycling, recovery, ossification, maintenance, close-tool work, and interface functions.
 - The civilization builds materially from the dead without pretending the catastrophe never happened.
@@ -43,7 +44,7 @@ Wall +0 Drakken space is sealed with drastically reduced accessible matter. Firs
 - The first-contact Drakken must not be staged as generic waiting monsters: scale and alien anatomy can remain intimidating without leading with predatory threat displays.
 ### Provisional design layer
 - Truck-scale is a favored working size for many modern adult Drakken, not a locked universal measurement.
-- The first vessel likely carries three Drakken: a slender bipedal Wordstream communication specialist, a bipedal captain/tactician with a directional draconic silhouette, and a quadrupedal interface specialist.
+- The first vessel likely carries three Drakken: a slender bipedal wordstream communication specialist, a bipedal captain/tactician with a directional draconic silhouette, and a quadrupedal interface specialist.
 - The provisional captain face is truly draconic but directional rather than predatory: a pointed, pterodactyl-like snout profile rather than a generic dragon or kaiju mouth dominated by teeth.
 - The quadrupedal interface form uses long wispy tactile whiskers to coax responsive dead-Titan tissue rather than commanding it.
 - Composite Titan spinal structures routed toward bridge interfaces are strongly favored but not yet locked.

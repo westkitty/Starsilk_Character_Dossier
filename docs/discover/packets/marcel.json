@@ -29,7 +29,8 @@
       "codec",
       "dao",
       "jazen",
-      "kail"
+      "kail",
+      "wordstreamer"
     ]
   },
   "packet_kind": "entity-context",

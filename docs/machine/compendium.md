@@ -18,11 +18,13 @@ Source: `src/content/sections/cover.body.html`
 
 Related published media IDs: `09e2837c1e2a76bc1fadccc2.webp`, `b3015054b3726a97adbc4a5c.mp4`
 
-Character / canon / visual reference
+The all can be rewritten
 # Starsilk Compendium
 Web Edition
-Six principal character dossiers, forty-five peripheral character/entity folios, the full expanded Drakken operational register, a five-phase canon chronology, a 120-record granular canon ledger, twenty-one named WorldsVault templates, and the material systems that bind them: Starsilk, Blood Rings, the Blood Eclipse War, the Siege Wall, Starbinding, Administration governance, and Hookshot travel.
-Shard-God Tiger Codec Dao Kail Marcel Jazen Gorevault Ringthroat Lyriboris Expanded Drakken archive
+Reality has a substrate.
+Starsilk is the programmable filament running through the all: executable cosmological matter that can rewrite reality itself. Pull it from the heart of a star and the star collapses. Write into it correctly and reality obeys.
+Everything in this Compendium follows from what mortals, gods, empires, and survivors did once they learned that.
+Shard-God Tiger · Codec · Dao · Kail · Marcel · Jazen · Gorevault · Ringthroat · Lyriboris
 
 ## The All is programmable. Meaning is not optional.
 
@@ -318,8 +320,8 @@ His memories have been edited repeatedly. Entire centuries of lived experience a
 - His body and habits retain echoes his conscious history cannot explain.
 - His present faith is sincere, but formed inside a controlled memory field.
 ### Wordstreaming
-Wordstreaming is executable force through an ancient dead language associated with WordStreamer. Marcel’s known specialty is gravity, but his actual historical proficiency is far larger than he remembers.
-- Learned wordstreaming from WordStreamer herself before Tiger murdered her.
+Wordstreaming is a living communication and executable reality-code practice named for Wordstreamer, whose ancient language supplies its syntax. Marcel’s known specialty is gravity, but his actual historical proficiency is far larger than he remembers.
+- Learned wordstreaming from Wordstreamer herself before Tiger murdered her.
 - During the Blood Eclipse War he was a devastating battlefield wordstreamer.
 - Was praised for centuries and could take down entire Drakken with words alone.
 - In raw battlefield impact, the supplied dossier describes him as outperforming even Codec ’s macro talent.
@@ -342,7 +344,7 @@ forest moss wood
 - Jazen : once a close friend; erased from Marcel’s present memory.
 - Dao : skeptical counterweight. Marcel’s settled faith can read to Dao as a contradiction trained to smile.
 - Kail : Marcel can appear to prove that one may belong inside the Administration without becoming cruel.
-- WordStreamer: teacher and stolen lineage.
+- Wordstreamer: teacher and stolen lineage.
 - Shard-God: Marcel believes the Shard-God is benevolent overall and interprets terrible acts as tragic necessity.
 ### Moral contradiction
 Marcel is not a sadist and does not seek domination. He is kind enough to be troubled by cruelty and loyal enough to excuse it when authority names it necessary. His hope makes him resilient; it also makes him governable.
@@ -2413,9 +2415,10 @@ Source: `src/content/sections/beyond-wall.body.html`
 The approaching ship is built from multiple dead Titan bodies integrated with mechanical systems. Bone, tendon, preserved structure, and articulated remains are deliberate material culture rather than random gore.
 “Their sky is built from their dead.”
 A dead Titan limb extends as a docking and support mechanism. The visual language is horrifying by Blood Eclipse War standards; the actual gesture is careful assistance.
-### First contact through Wordstream
+### First contact through wordstreaming
 - The hail is conceptual rather than conventionally translated.
 - Marcel recognizes the meaning because the Drakken wordstream the idea directly.
+- Wordstreaming survives as a living communication practice named for Wordstreamer ; her death did not end the practice.
 - The first major message asks whether the damaged strangers need aid.
 - The channel activates Marcel’s missing-history problem without automatically restoring his memories.
 - The contact proves living continuity with the Wordstreamer tradition and avoids generic universal-translator logic.
@@ -2424,9 +2427,9 @@ Codec crossed the Wall to learn how the Drakken truly weaponized Starsilk. He ex
 The encounter gives him an opportunity to practice the political principle he claims to believe: ask rather than dominate; meet subjects with agency rather than a target class.
 “Solidarity, not supplication.”
 ### Historical reconstruction
-Wall +0 Drakken space is sealed with drastically reduced accessible matter. First ~2,000 years Extreme scarcity under Mother. Some Titans turn on one another; dead and damaged Titan matter accumulates as future building stock. ~2,000 years Surviving Drakken defeat Mother in an anti-fascist coup. The hive-mind condition is fully broken as a governing order. Following millennia Egg programming shifts toward smaller, resource-efficient, functionally specialized forms; dead-Titan reuse becomes foundational infrastructure. Codec’s arrival A damaged foreign craft enters the closed system and receives an offer of aid rather than an attack.
+Wall +0 Drakken space is sealed with drastically reduced accessible matter. First ~2,000 years Extreme scarcity under Mother. Some Titans turn on one another; dead and damaged Titan matter accumulates as future building stock. ~2,000 years Surviving Drakken defeat Mother in an anti-fascist coup. The hive-mind condition is fully broken as a governing order. Following millennia Egg programming shifts toward smaller, resource-efficient, functionally specialized forms; dead-Titan reuse becomes foundational infrastructure. Codec’s arrival Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era. A damaged foreign craft enters the closed system and receives an offer of aid rather than an attack.
 ### Modern Drakken — accepted locks
-- Modern forms are substantially smaller than Blood Eclipse War Titans while remaining visibly and physically Drakken.
+- Modern forms are substantially smaller than Blood Eclipse War Titans while remaining larger than humans and visibly, physically Drakken.
 - Morphology remains diverse; bipedal and quadrupedal forms coexist.
 - Egg programming can support matter transmutation, recycling, recovery, ossification, maintenance, close-tool work, and interface functions.
 - The civilization builds materially from the dead without pretending the catastrophe never happened.
@@ -2434,7 +2437,7 @@ Wall +0 Drakken space is sealed with drastically reduced accessible matter. Firs
 - The first-contact Drakken must not be staged as generic waiting monsters: scale and alien anatomy can remain intimidating without leading with predatory threat displays.
 ### Provisional design layer
 - Truck-scale is a favored working size for many modern adult Drakken, not a locked universal measurement.
-- The first vessel likely carries three Drakken: a slender bipedal Wordstream communication specialist, a bipedal captain/tactician with a directional draconic silhouette, and a quadrupedal interface specialist.
+- The first vessel likely carries three Drakken: a slender bipedal wordstream communication specialist, a bipedal captain/tactician with a directional draconic silhouette, and a quadrupedal interface specialist.
 - The provisional captain face is truly draconic but directional rather than predatory: a pointed, pterodactyl-like snout profile rather than a generic dragon or kaiju mouth dominated by teeth.
 - The quadrupedal interface form uses long wispy tactile whiskers to coax responsive dead-Titan tissue rather than commanding it.
 - Composite Titan spinal structures routed toward bridge interfaces are strongly favored but not yet locked.
@@ -3534,7 +3537,7 @@ Source: `src/content/sections/ontology-horror.body.html`
 - Known safe interaction methods remain Tiger’s immunity, the Syrin blood glitch, and Codec ’s Syrin-blood vapor method.
 - The phrase “stars don’t burn, they surrender” encodes Tiger’s reversal of Codec’s solidarity ideal.
 ### Macros & wordstreaming
-Macros are sacred/repeatable executable action loops embedded in reality: literal runtime commands, not metaphor. Wordstreaming is the dead ancient language used to weave reality-code before Tiger’s enclosure of the system; Marcel remains its major living practitioner.
+Macros are sacred/repeatable executable action loops embedded in reality: literal runtime commands, not metaphor. Wordstreaming is a living communication and reality-code practice named for Wordstreamer , who gave the universe the ancient executable language from which the practice descends. Wordstreamer is dead; wordstreaming is not. Marcel remains a major living practitioner, and the post-Wall Drakken continue to wordstream directly.
 ### Tiger Equation / meta-canon breach
 The Tiger Equation first appeared unbidden on July 15, 2025 . Within project meta-canon this marks Tiger’s breach across the fiction/authorial boundary, establishes the Equation as a sigil of overwrite and divine sorrow recursion, and places later narrative decisions in its shadow.
 ### Administration knowledge asymmetry

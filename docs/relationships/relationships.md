@@ -9,7 +9,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Published records: 127
 - Connected records: 62
-- Observed edges: 136
+- Observed edges: 138
 
 ## Starsilk Compendium (`cover`)
 
@@ -186,7 +186,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-marcel
-- Outgoing observed mentions: 4
+- Outgoing observed mentions: 5
 - Incoming observed mentions: 12
 
 ### Outgoing observed mentions
@@ -195,6 +195,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Dao](https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/) (`dao`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--dao) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-marcel--dao) — source `src/content/sections/marcel.body.html`
 - [Jazen](https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/) (`jazen`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--jazen) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-marcel--jazen) — source `src/content/sections/marcel.body.html`
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) (`kail`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--kail) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-marcel--kail) — source `src/content/sections/marcel.body.html`
+- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--wordstreamer) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-marcel--wordstreamer) — source `src/content/sections/marcel.body.html`
 
 ### Incoming observed mentions
 
@@ -1253,7 +1254,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-wordstreamer
 - Outgoing observed mentions: 1
-- Incoming observed mentions: 8
+- Incoming observed mentions: 10
 
 ### Outgoing observed mentions
 
@@ -1262,11 +1263,13 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 ### Incoming observed mentions
 
 - [Beyond the Siege Wall](https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/) (`beyond-wall`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--beyond-wall--wordstreamer) — source `src/content/sections/beyond-wall.body.html`
+- [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--wordstreamer) — source `src/content/sections/marcel.body.html`
 - [Mother](https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/) (`mother`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--mother--wordstreamer) — source `src/content/sections/mother.body.html`
 - [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) (`nialbu`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--nialbu--wordstreamer) — source `src/content/sections/nialbu.body.html`
 - [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) (`cosmic-architecture`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cosmic-architecture--wordstreamer) — source `src/content/sections/cosmic-architecture.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--wordstreamer) — source `src/content/sections/chronology.body.html`
 - [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--shard-god--wordstreamer) — source `src/content/sections/shard-god.body.html`
+- [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--wordstreamer) — source `src/content/sections/ontology-horror.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--wordstreamer) — source `src/content/sections/canon-ledger.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--wordstreamer) — source `src/content/sections/systems.body.html`
 
@@ -1983,7 +1986,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-ontology-horror
-- Outgoing observed mentions: 3
+- Outgoing observed mentions: 4
 - Incoming observed mentions: 0
 
 ### Outgoing observed mentions
@@ -1991,6 +1994,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) (`codec`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--codec) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-ontology-horror--codec) — source `src/content/sections/ontology-horror.body.html`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--marcel) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-ontology-horror--marcel) — source `src/content/sections/ontology-horror.body.html`
 - [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) (`nialbu`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--nialbu) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-ontology-horror--nialbu) — source `src/content/sections/ontology-horror.body.html`
+- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--wordstreamer) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-ontology-horror--wordstreamer) — source `src/content/sections/ontology-horror.body.html`
 
 ### Incoming observed mentions
 
