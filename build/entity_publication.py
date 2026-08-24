@@ -218,7 +218,7 @@ def render_outputs() -> dict[str, str]:
             markdown_url=machine.entity_markdown_url(section.id),
             public_classes=public_classes(section),
             title_html=rewrite_fragment(section.title_html, stable_ids),
-            body_html=rewrite_fragment(section.body_html, stable_ids),
+            body_html=rewrite_fragment(section.rendered_body_html(), stable_ids),
             media=related_media(record, assets),
             outgoing=relationship_items(section.id, graph, labels, "outgoing"),
             incoming=relationship_items(section.id, graph, labels, "incoming"),
