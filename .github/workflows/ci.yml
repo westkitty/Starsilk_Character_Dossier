@@ -105,7 +105,13 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Apply bounded entrance implementation
-        run: python3 tools/one_shot_entrance_patch.py
+        run: |
+          python3 tools/one_shot_entrance_patch.py
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('src/templates/style.css')
+          path.write_text(path.read_text(encoding='utf-8').rstrip() + '\n', encoding='utf-8')
+          PY
 
       - name: Rebuild and verify generated publication
         run: |
