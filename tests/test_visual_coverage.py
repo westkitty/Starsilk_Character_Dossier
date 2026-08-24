@@ -84,6 +84,24 @@ def test_fallback_visuals_are_used_only_for_authored_bodies_without_images():
             assert fallback is not None, f"image-less authored body did not receive fallback coverage: {section_id}"
 
 
+def test_fallback_visuals_do_not_create_xref_evidence():
+    page_path = DOCS / "index.html"
+    soup = BeautifulSoup(page_path.read_text(encoding="utf-8"), "lxml")
+    offenders = []
+
+    for fallback in soup.find_all(attrs={"data-visual-coverage": "fallback"}):
+        links = fallback.find_all("a", class_="xref-link")
+        if links:
+            section = fallback.find_parent("section")
+            section_id = section.get("id") if section else "unknown"
+            offenders.append(section_id)
+
+    assert not offenders, (
+        "visual fallback presentation must not create observed-xref evidence: "
+        + ", ".join(sorted(set(offenders)))
+    )
+
+
 def test_every_entity_permalink_has_a_visible_resolvable_image():
     missing = []
     for record in authored_section_records():
