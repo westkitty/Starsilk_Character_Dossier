@@ -8,19 +8,27 @@ Authority: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/
 Every edge is `mentions / observed-xref`. Source -> target means only that the source section subtree contains the generated cross-reference to the target. No stronger semantic relationship is implied.
 
 - Published records: 127
-- Connected records: 61
-- Observed edges: 129
+- Connected records: 62
+- Observed edges: 138
 
 ## Starsilk Compendium (`cover`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cover
-- Outgoing observed mentions: 0
+- Outgoing observed mentions: 9
 - Incoming observed mentions: 0
 
 ### Outgoing observed mentions
 
-- None observed.
+- [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) (`codec`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--codec) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--codec) — source `src/content/sections/cover.body.html`
+- [Dao](https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/) (`dao`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--dao) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--dao) — source `src/content/sections/cover.body.html`
+- [Gorevault](https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/) (`gorevault`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--gorevault) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--gorevault) — source `src/content/sections/cover.body.html`
+- [Jazen](https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/) (`jazen`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--jazen) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--jazen) — source `src/content/sections/cover.body.html`
+- [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) (`kail`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--kail) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--kail) — source `src/content/sections/cover.body.html`
+- [Lyriboris](https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/) (`lyriboris`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--lyriboris) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--lyriboris) — source `src/content/sections/cover.body.html`
+- [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--marcel) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--marcel) — source `src/content/sections/cover.body.html`
+- [Ringthroat](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/) (`ringthroat`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--ringthroat) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--ringthroat) — source `src/content/sections/cover.body.html`
+- [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--shard-god) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--shard-god) — source `src/content/sections/cover.body.html`
 
 ### Incoming observed mentions
 
@@ -74,7 +82,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-shard-god
 - Outgoing observed mentions: 3
-- Incoming observed mentions: 0
+- Incoming observed mentions: 1
 
 ### Outgoing observed mentions
 
@@ -84,14 +92,14 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 ### Incoming observed mentions
 
-- None observed.
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--shard-god) — source `src/content/sections/cover.body.html`
 
 ## Codec (`codec`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-codec
 - Outgoing observed mentions: 5
-- Incoming observed mentions: 16
+- Incoming observed mentions: 17
 
 ### Outgoing observed mentions
 
@@ -113,6 +121,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) (`cosmic-architecture`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cosmic-architecture--codec) — source `src/content/sections/cosmic-architecture.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--codec) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--codec) — source `src/content/sections/archive.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--codec) — source `src/content/sections/cover.body.html`
 - [The All is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) (`world`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--world--codec) — source `src/content/sections/world.body.html`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--codec) — source `src/content/sections/ontology-horror.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--codec) — source `src/content/sections/starbinding.body.html`
@@ -125,7 +134,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-dao
 - Outgoing observed mentions: 0
-- Incoming observed mentions: 10
+- Incoming observed mentions: 11
 
 ### Outgoing observed mentions
 
@@ -139,6 +148,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--dao) — source `src/content/sections/marcel.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--dao) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--dao) — source `src/content/sections/archive.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--dao) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--dao) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--dao) — source `src/content/sections/canon-ledger.body.html`
 - [Three protagonists under impossible pressure.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/) (`trio-gallery`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--trio-gallery--dao) — source `src/content/sections/trio-gallery.body.html`
@@ -149,7 +159,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-kail
 - Outgoing observed mentions: 3
-- Incoming observed mentions: 11
+- Incoming observed mentions: 12
 
 ### Outgoing observed mentions
 
@@ -166,6 +176,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--kail) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--kail) — source `src/content/sections/archive.body.html`
 - [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--shard-god--kail) — source `src/content/sections/shard-god.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--kail) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--kail) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--kail) — source `src/content/sections/canon-ledger.body.html`
 - [Three protagonists under impossible pressure.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/) (`trio-gallery`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--trio-gallery--kail) — source `src/content/sections/trio-gallery.body.html`
@@ -176,7 +187,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-marcel
 - Outgoing observed mentions: 5
-- Incoming observed mentions: 11
+- Incoming observed mentions: 12
 
 ### Outgoing observed mentions
 
@@ -193,6 +204,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) (`kail`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--kail--marcel) — source `src/content/sections/kail.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--marcel) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--marcel) — source `src/content/sections/archive.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--marcel) — source `src/content/sections/cover.body.html`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--marcel) — source `src/content/sections/ontology-horror.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--marcel) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--marcel) — source `src/content/sections/canon-ledger.body.html`
@@ -205,7 +217,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-jazen
 - Outgoing observed mentions: 1
-- Incoming observed mentions: 7
+- Incoming observed mentions: 8
 
 ### Outgoing observed mentions
 
@@ -217,6 +229,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Codec: the architecture of necessary harm.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/) (`source`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--source--jazen) — source `src/content/sections/source.body.html`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--jazen) — source `src/content/sections/marcel.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--jazen) — source `src/content/sections/chronology.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--jazen) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--jazen) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--jazen) — source `src/content/sections/canon-ledger.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--jazen) — source `src/content/sections/systems.body.html`
@@ -241,7 +254,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-gorevault
 - Outgoing observed mentions: 0
-- Incoming observed mentions: 4
+- Incoming observed mentions: 5
 
 ### Outgoing observed mentions
 
@@ -251,6 +264,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - [Blood Rings](https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/) (`blood-rings`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--blood-rings--gorevault) — source `src/content/sections/blood-rings.body.html`
 - [Media Vault](https://westkitty.github.io/Starsilk_Character_Dossier/entities/media-vault/) (`media-vault`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--media-vault--gorevault) — source `src/content/sections/media-vault.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--gorevault) — source `src/content/sections/cover.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--gorevault) — source `src/content/sections/canon-ledger.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--gorevault) — source `src/content/sections/systems.body.html`
 
@@ -259,7 +273,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-ringthroat
 - Outgoing observed mentions: 0
-- Incoming observed mentions: 4
+- Incoming observed mentions: 5
 
 ### Outgoing observed mentions
 
@@ -269,6 +283,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - [Blood Rings](https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/) (`blood-rings`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--blood-rings--ringthroat) — source `src/content/sections/blood-rings.body.html`
 - [Media Vault](https://westkitty.github.io/Starsilk_Character_Dossier/entities/media-vault/) (`media-vault`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--media-vault--ringthroat) — source `src/content/sections/media-vault.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--ringthroat) — source `src/content/sections/cover.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--ringthroat) — source `src/content/sections/canon-ledger.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--ringthroat) — source `src/content/sections/systems.body.html`
 
@@ -277,7 +292,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-lyriboris
 - Outgoing observed mentions: 0
-- Incoming observed mentions: 5
+- Incoming observed mentions: 6
 
 ### Outgoing observed mentions
 
@@ -288,6 +303,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Administrator Pell](https://westkitty.github.io/Starsilk_Character_Dossier/entities/administrator-pell/) (`administrator-pell`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--administrator-pell--lyriboris) — source `src/content/sections/administrator-pell.body.html`
 - [Captain Serr](https://westkitty.github.io/Starsilk_Character_Dossier/entities/captain-serr/) (`captain-serr`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--captain-serr--lyriboris) — source `src/content/sections/captain-serr.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--lyriboris) — source `src/content/sections/chronology.body.html`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--lyriboris) — source `src/content/sections/cover.body.html`
 - [Technician Naresh](https://westkitty.github.io/Starsilk_Character_Dossier/entities/technician-naresh/) (`technician-naresh`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--technician-naresh--lyriboris) — source `src/content/sections/technician-naresh.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--lyriboris) — source `src/content/sections/canon-ledger.body.html`
 

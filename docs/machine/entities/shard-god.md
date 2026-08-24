@@ -23,6 +23,10 @@ Source: `src/content/sections/shard-god.body.html`
 - [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) — `nialbu`
 - [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) — `wordstreamer`
 
+## Mentioned by
+
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
+
 ## Published source content
 
 ### Core read

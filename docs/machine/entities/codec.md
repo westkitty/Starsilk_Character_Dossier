@@ -31,6 +31,7 @@ Source: `src/content/sections/codec.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) — `cosmic-architecture`
+- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Jazen](https://westkitty.github.io/Starsilk_Character_Dossier/entities/jazen/) — `jazen`
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) — `kail`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`

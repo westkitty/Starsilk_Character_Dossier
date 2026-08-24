@@ -24,6 +24,7 @@ Web Edition
 Reality has a substrate.
 Starsilk is the programmable filament running through the all: executable cosmological matter that can rewrite reality itself. Pull it from the heart of a star and the star collapses. Write into it correctly and reality obeys.
 Everything in this Compendium follows from what mortals, gods, empires, and survivors did once they learned that.
+Shard-God Tiger · Codec · Dao · Kail · Marcel · Jazen · Gorevault · Ringthroat · Lyriboris
 
 ## The All is programmable. Meaning is not optional.
 

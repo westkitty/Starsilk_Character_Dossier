@@ -17,6 +17,7 @@
       "canon-ledger",
       "chronology",
       "cosmic-architecture",
+      "cover",
       "jazen",
       "kail",
       "marcel",
@@ -35,6 +36,7 @@
       "canon-ledger",
       "chronology",
       "codec",
+      "cover",
       "kail",
       "marcel",
       "starbinding",
@@ -134,6 +136,7 @@
     "gorevault": [
       "blood-rings",
       "canon-ledger",
+      "cover",
       "media-vault",
       "systems"
     ],
@@ -154,6 +157,7 @@
       "canon-ledger",
       "chronology",
       "codec",
+      "cover",
       "marcel",
       "source",
       "starbinding",
@@ -171,6 +175,7 @@
       "canon-ledger",
       "chronology",
       "codec",
+      "cover",
       "kails-mother",
       "marcel",
       "shard-god",
@@ -192,6 +197,7 @@
       "canon-ledger",
       "captain-serr",
       "chronology",
+      "cover",
       "technician-naresh"
     ],
     "mael": [],
@@ -208,6 +214,7 @@
       "canon-ledger",
       "chronology",
       "codec",
+      "cover",
       "kail",
       "ontology-horror",
       "starbinding",
@@ -244,6 +251,7 @@
     "ringthroat": [
       "blood-rings",
       "canon-ledger",
+      "cover",
       "media-vault",
       "systems"
     ],
@@ -255,7 +263,9 @@
     "sela-orrin": [],
     "selim": [],
     "sera-inventory": [],
-    "shard-god": [],
+    "shard-god": [
+      "cover"
+    ],
     "shardlings": [],
     "technician-naresh": [],
     "tomas": [],
@@ -878,7 +888,7 @@
       "marcel"
     ]
   },
-  "relationship_count": 129,
+  "relationship_count": 138,
   "relationships": [
     {
       "evidence_class": "observed-xref",
@@ -1227,6 +1237,60 @@
       "kind": "mentions",
       "source": "cosmic-architecture",
       "target": "wordstreamer"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "codec"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "dao"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "gorevault"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "jazen"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "kail"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "lyriboris"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "marcel"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "ringthroat"
+    },
+    {
+      "evidence_class": "observed-xref",
+      "kind": "mentions",
+      "source": "cover",
+      "target": "shard-god"
     },
     {
       "evidence_class": "observed-xref",
