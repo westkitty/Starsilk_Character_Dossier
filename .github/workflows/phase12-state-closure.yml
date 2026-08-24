@@ -3,6 +3,8 @@ name: Phase 12 state closure
 on:
   push:
     branches: [phase-12-state-closure]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -101,5 +103,9 @@ Phase 12, **AI Agent Evaluation Harness and Final Integration**, is VERIFIED COM
           git config user.name "WestKitty"
           git config user.email "westkitty@users.noreply.github.com"
           git add MUSEUM_AI_ROADMAP.md OPERATIONAL_STATE.md Starsilk_Character_Dossier_bible.md
+          if git diff --cached --quiet; then
+            echo 'State closure already recorded.'
+            exit 0
+          fi
           git commit -m "docs(phase-12): record verified final completion"
           git push origin HEAD:phase-12-state-closure
