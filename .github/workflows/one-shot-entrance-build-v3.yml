@@ -1,0 +1,100 @@
+name: One-shot Starsilk entrance build v3
+
+on:
+  push:
+    branches: [canon/wordstreaming-post-wall-hardening]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  implement-generate-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: canon/wordstreaming-post-wall-hardening
+          fetch-depth: 0
+
+      - name: Trust worktree
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply, generate, verify, and commit
+        id: implementation
+        shell: bash
+        run: |
+          set -o pipefail
+          {
+            set -eux
+            python3 tools/one_shot_entrance_patch.py
+            ./tools/build.sh
+            ./tools/build.sh --check
+            git diff --check
+
+            python3 -m pytest tests/test_entrance_intrusion.py -q
+            python3 -m pytest \
+              tests/test_dossier.py::test_no_content_blocking_gate \
+              tests/test_dossier.py::test_cover_title_is_starsilk_compendium \
+              tests/test_dossier.py::test_cover_title_stays_on_one_line \
+              tests/test_dossier.py::test_watermark_pauses_while_cover_dominant \
+              tests/test_unified_museum_shell.py \
+              tests/test_canon_inspector.py \
+              -q
+
+            UPDATE_VISUAL_BASELINES=1 python3 -m pytest \
+              tests/test_dossier.py::test_visual_cover_desktop \
+              tests/test_dossier.py::test_visual_cover_mobile \
+              tests/test_dossier.py::test_visual_reduced_motion \
+              -q
+
+            ./tools/build.sh --check
+            python3 -m pytest tests/test_entrance_intrusion.py tests/test_canon_inspector.py -q
+            git diff --check
+
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src docs tests
+            if git diff --cached --quiet; then
+              echo "No implementation changes to commit."
+            else
+              git commit -m "feat: make the Starsilk entrance canon-first [generated]"
+              git push origin HEAD:canon/wordstreaming-post-wall-hardening
+            fi
+          } 2>&1 | tee one-shot.log
+
+      - name: Report bounded failure on PR 46
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          p = Path("one-shot.log")
+          log = p.read_text(encoding="utf-8", errors="replace") if p.exists() else "one-shot.log was not created"
+          log = log[-12000:].replace("```", "` ` `")
+          body = "ONE_SHOT_ENTRANCE_V3_FAILURE\n\n```text\n" + log + "\n```"
+          data = json.dumps({"body": body}).encode()
+          req = urllib.request.Request(
+              "https://api.github.com/repos/westkitty/Starsilk_Character_Dossier/issues/46/comments",
+              data=data,
+              method="POST",
+              headers={
+                  "Authorization": "Bearer " + os.environ["GITHUB_TOKEN"],
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "Content-Type": "application/json",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=30) as response:
+              print(response.status)
+          PY
