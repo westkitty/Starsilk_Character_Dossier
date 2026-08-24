@@ -24,8 +24,7 @@
     ],
     "kind": "mentions",
     "outgoing_stable_ids": [
-      "marcel",
-      "nialbu"
+      "marcel"
     ]
   },
   "packet_kind": "entity-context",

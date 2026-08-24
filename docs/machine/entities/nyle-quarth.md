@@ -10,10 +10,6 @@ Spoiler level: `major`
 
 Source: `src/content/sections/nyle-quarth.body.html`
 
-## Observed mentions
-
-- [The Egg](https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/) — `drk-the-egg`
-
 ## Published source content
 
 ### Canonical record

@@ -10,10 +10,7 @@
   "navigation_group": null,
   "observed_relationships": {
     "evidence_class": "observed-xref",
-    "incoming_stable_ids": [
-      "drakken-registry",
-      "nyle-quarth"
-    ],
+    "incoming_stable_ids": [],
     "kind": "mentions",
     "outgoing_stable_ids": []
   },

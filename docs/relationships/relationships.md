@@ -8,8 +8,8 @@ Authority: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/
 Every edge is `mentions / observed-xref`. Source -> target means only that the source section subtree contains the generated cross-reference to the target. No stronger semantic relationship is implied.
 
 - Published records: 127
-- Connected records: 65
-- Observed edges: 141
+- Connected records: 62
+- Observed edges: 138
 
 ## Starsilk Compendium (`cover`)
 
@@ -311,12 +311,12 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-drakken-registry
-- Outgoing observed mentions: 1
+- Outgoing observed mentions: 0
 - Incoming observed mentions: 0
 
 ### Outgoing observed mentions
 
-- [The Egg](https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/) (`drk-the-egg`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--drakken-registry--drk-the-egg) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-drakken-registry--drk-the-egg) — source `src/content/sections/drakken-registry.body.html`
+- None observed.
 
 ### Incoming observed mentions
 
@@ -327,7 +327,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-drk-the-egg
 - Outgoing observed mentions: 0
-- Incoming observed mentions: 2
+- Incoming observed mentions: 0
 
 ### Outgoing observed mentions
 
@@ -335,8 +335,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 ### Incoming observed mentions
 
-- [Archivist Nyle Quarth](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/) (`nyle-quarth`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--nyle-quarth--drk-the-egg) — source `src/content/sections/nyle-quarth.body.html`
-- [The full field register.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/) (`drakken-registry`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--drakken-registry--drk-the-egg) — source `src/content/sections/drakken-registry.body.html`
+- None observed.
 
 ## Magma Pleuron (`drk-magma-pleuron`)
 
@@ -1254,13 +1253,12 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-wordstreamer
-- Outgoing observed mentions: 2
+- Outgoing observed mentions: 1
 - Incoming observed mentions: 10
 
 ### Outgoing observed mentions
 
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--wordstreamer--marcel) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-wordstreamer--marcel) — source `src/content/sections/wordstreamer.body.html`
-- [NiAlBu](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/) (`nialbu`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--wordstreamer--nialbu) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-wordstreamer--nialbu) — source `src/content/sections/wordstreamer.body.html`
 
 ### Incoming observed mentions
 
@@ -1280,7 +1278,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nialbu
 - Outgoing observed mentions: 2
-- Incoming observed mentions: 10
+- Incoming observed mentions: 9
 
 ### Outgoing observed mentions
 
@@ -1298,7 +1296,6 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--nialbu) — source `src/content/sections/canon-ledger.body.html`
 - [Tools remember what systems ask them to do.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/artifacts-factions/) (`artifacts-factions`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--artifacts-factions--nialbu) — source `src/content/sections/artifacts-factions.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--nialbu) — source `src/content/sections/systems.body.html`
-- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--wordstreamer--nialbu) — source `src/content/sections/wordstreamer.body.html`
 
 ## Anika (`anika`)
 
@@ -1654,12 +1651,12 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nyle-quarth
-- Outgoing observed mentions: 1
+- Outgoing observed mentions: 0
 - Incoming observed mentions: 0
 
 ### Outgoing observed mentions
 
-- [The Egg](https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/) (`drk-the-egg`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--nyle-quarth--drk-the-egg) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-nyle-quarth--drk-the-egg) — source `src/content/sections/nyle-quarth.body.html`
+- None observed.
 
 ### Incoming observed mentions
 

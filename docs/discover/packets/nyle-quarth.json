@@ -12,9 +12,7 @@
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [],
     "kind": "mentions",
-    "outgoing_stable_ids": [
-      "drk-the-egg"
-    ]
+    "outgoing_stable_ids": []
   },
   "packet_kind": "entity-context",
   "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nyle-quarth.json",

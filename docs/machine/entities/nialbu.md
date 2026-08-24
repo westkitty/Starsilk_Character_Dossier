@@ -26,7 +26,6 @@ Source: `src/content/sections/nialbu.body.html`
 - [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) — `shard-god`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) — `systems`
-- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) — `wordstreamer`
 
 ## Published source content
 

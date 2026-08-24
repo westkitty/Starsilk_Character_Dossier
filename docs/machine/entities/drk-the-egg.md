@@ -14,11 +14,6 @@ Source: `src/content/sections/drk-the-egg.body.html`
 
 - `73881f061d9c2b2a1cdc3e0f.webp`
 
-## Mentioned by
-
-- [The full field register.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/) — `drakken-registry`
-- [Archivist Nyle Quarth](https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/) — `nyle-quarth`
-
 ## Published source content
 
 ### Operational role
