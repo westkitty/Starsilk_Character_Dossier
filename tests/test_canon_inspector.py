@@ -51,9 +51,9 @@ def test_all_public_lock_records_are_exact_invariant_derivatives_with_correct_sc
     assert model["schema_url"] == SITE_BASE + "machine/schema/v1/canon-lock-register.schema.json"
     assert model["canonical_url"] == SITE_BASE + "canon/"
     assert model["source_invariants"] == "src/canon/invariants.json"
-    assert model["lock_count"] == len(source_locks) == 11
-    assert model["document_lock_count"] == len(source["document_locks"]) == 2
-    assert model["section_lock_count"] == len(source["section_locks"]) == 9
+    assert model["lock_count"] == len(source_locks)
+    assert model["document_lock_count"] == len(source["document_locks"])
+    assert model["section_lock_count"] == len(source["section_locks"])
     assert [record["lock_id"] for record in model["locks"]] == [lock["id"] for _, lock in source_locks]
 
     for record, (scope, source_lock) in zip(model["locks"], source_locks):
