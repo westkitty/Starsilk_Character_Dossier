@@ -1,9 +1,12 @@
-{# Shared unified museum navigation, included by every public page template.
-   Callers must set `nav_root` (relative path prefix back to docs/ root --
-   '' at the root, '../' one level down, '../../' for entity records) and
-   `nav_current` (a key from the list below, or omit for no active marker)
-   before including this file. See src/templates/shell.html.j2 for the
-   canonical example. #}
+{# Shared unified navigation, included by every secondary system template
+   and entity records. Callers must set `nav_root` (relative path prefix
+   back to docs/ root -- '../' one level down, '../../' for entity records)
+   and `nav_current` (a key from the list below, or omit for no active
+   marker) before including this file. The root page (shell.html.j2) does
+   not include this partial -- its sticky top bar is reader controls only
+   (expand/collapse/index/search); every system is reachable from its
+   exploration cards instead. See src/templates/discovery.html.j2 for a
+   typical caller. #}
 <style>
 .museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
@@ -30,7 +33,7 @@
 }
 </style>
 <header class="museum-nav" data-museum-shell="unified">
-{% set _compendium_href = ('#mainContent' if nav_root == '' else nav_root) %}
+{% set _compendium_href = nav_root + '#mainContent' %}
 <a class="museum-nav-brand" href="{{ nav_root }}"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Compendium</em></a>
 <nav aria-label="Unified Starsilk Compendium navigation">
 <ul class="museum-nav-links">

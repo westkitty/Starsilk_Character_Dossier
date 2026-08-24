@@ -83,7 +83,7 @@ def validate_fixtures(fixtures: dict) -> None:
                 raise RuntimeError(f"case {case.get('id')} missing {key}")
         for key in ("evidence_urls", "must_assert", "must_not_assert"):
             values = case.get(key)
-            if not isinstance(values, list) or not values:
+            if not isinstance(values, list) or not values or not all(isinstance(v, str) and v for v in values):
                 raise RuntimeError(f"case {case.get('id')} missing {key}")
         if not all(url.startswith(SITE_BASE) for url in case["evidence_urls"]):
             raise RuntimeError(f"case {case.get('id')} has non-project evidence URL")

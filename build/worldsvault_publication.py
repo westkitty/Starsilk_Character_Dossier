@@ -64,8 +64,8 @@ def build_model() -> dict:
         layout = spec["layout"]
         if set(layout) != {"rendering_group", "rendering_order", "coordinate_status"} or layout["coordinate_status"] != "non-canonical rendering order only":
             raise RuntimeError(f"topology layout must be explicitly non-canonical for {node_id}")
-        if {"x", "y", "latitude", "longitude", "distance", "direction"} & set(layout):
-            raise RuntimeError(f"spatial precision is forbidden in topology layout for {node_id}")
+        if {"x", "y", "latitude", "longitude", "distance", "direction"} & set(spec):
+            raise RuntimeError(f"spatial precision is forbidden in topology node spec for {node_id}")
         node_ids.add(node_id)
         nodes.append(spec | {"canonical_url": machine.canonical(f"worldsvault/#node-{node_id}"), "source": public_source(spec["source"]), "certainty": "direct-authored", "status": policy, "unknowns": node_unknowns})
 
@@ -148,7 +148,16 @@ def check_outputs(outputs: dict[str, str]) -> list[str]:
     if actual_files() != set(outputs): errors.append("generated WorldsVault file set differs from expected output")
     for relative, expected in outputs.items():
         path = OUTPUT_DIR / relative
-        if not path.exists() or path.read_text(encoding="utf-8") != expected: errors.append(f"generated WorldsVault output differs: docs/worldsvault/{relative}")
+        if not path.exists():
+            errors.append(f"generated WorldsVault output differs: docs/worldsvault/{relative}")
+            continue
+        try:
+            current = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            errors.append(f"unreadable generated WorldsVault output docs/worldsvault/{relative}: {exc}")
+            continue
+        if current != expected:
+            errors.append(f"generated WorldsVault output differs: docs/worldsvault/{relative}")
     return errors
 
 

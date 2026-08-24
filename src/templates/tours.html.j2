@@ -79,7 +79,7 @@
         </select>
       </label>
       <div class="control-actions">
-        <a id="openSelected" href="../entities/{{ records[0].stable_id }}/">Open selected</a>
+        {% if records %}<a id="openSelected" href="../entities/{{ records[0].stable_id }}/">Open selected</a>{% else %}<a id="openSelected" href="../entities/" aria-disabled="true">Open selected</a>{% endif %}
         <button id="bookmarkSelected" type="button">Bookmark selected</button>
       </div>
       <label>New collection name

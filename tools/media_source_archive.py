@@ -29,16 +29,25 @@ def sha256(path: Path) -> str:
 def expected_sources(manifest: dict) -> dict:
     sources = {}
     conflicts = []
+    unsafe = []
     for asset in manifest.get("assets", []):
         name = asset.get("source_filename")
         digest = asset.get("source_sha256")
         size = asset.get("source_bytes")
         if not name or not digest:
             continue
+        # source_filename must be a bare filename: no path separators or
+        # traversal segments, so a compromised/malformed manifest entry can
+        # never make verify()/package() read or archive outside source_dir.
+        if name != Path(name).name or name in (".", ".."):
+            unsafe.append(name)
+            continue
         record = {"sha256": digest, "bytes": size}
         if name in sources and sources[name] != record:
             conflicts.append(name)
         sources[name] = record
+    if unsafe:
+        raise ValueError(f"unsafe source_filename (not a bare filename): {sorted(set(unsafe))}")
     if conflicts:
         raise ValueError(f"conflicting provenance for source file(s): {sorted(set(conflicts))}")
     return sources
@@ -77,7 +86,7 @@ def verify(source_dir: Path, manifest: dict) -> dict:
     }
 
 
-def package(source_dir: Path, manifest_path: Path, out_path: Path) -> int:
+def package(source_dir: Path, manifest_path: Path, out_path: Path, json_output: bool = False) -> int:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     result = verify(source_dir, manifest)
     if not result["valid"]:
@@ -106,7 +115,10 @@ def package(source_dir: Path, manifest_path: Path, out_path: Path) -> int:
         zf.writestr("README.txt", readme)
         for name in result["verified"]:
             zf.write(source_dir / name, f"media-source/{name}")
-    print(f"Wrote verified recovery package: {out_path} ({len(result['verified'])} canonical source files)")
+    if json_output:
+        print(json.dumps({"out": str(out_path), "verified_count": len(result["verified"])}, indent=2, sort_keys=True))
+    else:
+        print(f"Wrote verified recovery package: {out_path} ({len(result['verified'])} canonical source files)")
     return 0
 
 
@@ -128,10 +140,15 @@ def main() -> int:
         print(f"ERROR: canonical media source directory not found: {source_dir}", file=sys.stderr)
         return 2
 
-    if args.command == "package":
-        return package(source_dir, manifest_path, Path(args.out))
+    try:
+        if args.command == "package":
+            return package(source_dir, manifest_path, Path(args.out), json_output=args.json)
 
-    result = verify(source_dir, json.loads(manifest_path.read_text(encoding="utf-8")))
+        result = verify(source_dir, json.loads(manifest_path.read_text(encoding="utf-8")))
+    except ValueError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+
     if args.json:
         print(json.dumps(result, indent=2, sort_keys=True))
     else:

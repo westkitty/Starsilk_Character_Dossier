@@ -90,7 +90,15 @@ def main() -> int:
         print(f"ERROR: canon file not found: {canon_path}", file=sys.stderr)
         return 2
     canon = json.loads(canon_path.read_text(encoding="utf-8"))
-    text = Path(args.file).read_text(encoding="utf-8") if args.file else args.text
+    if args.file:
+        file_path = Path(args.file)
+        try:
+            text = file_path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            print(f"ERROR: could not read {file_path}: {exc}", file=sys.stderr)
+            return 2
+    else:
+        text = args.text
     result = evaluate(text, canon, args.section, args.complete)
 
     if args.json:

@@ -180,7 +180,15 @@ def check_outputs(outputs: dict[str, str]) -> list[str]:
         errors.append("generated offline file set differs from expected output")
     for relative, expected in outputs.items():
         path = DOCS_DIR / relative
-        if not path.exists() or path.read_text(encoding="utf-8") != expected:
+        if not path.exists():
+            errors.append(f"generated offline output differs: docs/{relative}")
+            continue
+        try:
+            current = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as exc:
+            errors.append(f"unreadable generated offline output docs/{relative}: {exc}")
+            continue
+        if current != expected:
             errors.append(f"generated offline output differs: docs/{relative}")
     return errors
 

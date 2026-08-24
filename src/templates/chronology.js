@@ -1,10 +1,16 @@
 (() => {
-  const controls = ["visibility", "canon", "spoiler", "temporal"].map((name) => document.querySelector(`#${name}Filter`));
+  const controls = ["visibility", "canon", "spoiler", "temporal"].map((name) => document.querySelector(`#${name}Filter`)).filter(Boolean);
   const cards = [...document.querySelectorAll(".chronology-event")];
   const status = document.querySelector("#chronologyStatus");
   const reset = document.querySelector("#resetFilters");
+  if (!controls.length || !status || !reset) return;
   const params = new URLSearchParams(location.search);
-  controls.forEach((control) => { if (params.has(control.name)) control.value = params.get(control.name); });
+  controls.forEach((control) => {
+    if (!params.has(control.name)) return;
+    const value = params.get(control.name);
+    const isValidOption = Array.from(control.options).some((opt) => opt.value === value);
+    if (isValidOption) control.value = value;
+  });
   const apply = () => {
     const values = Object.fromEntries(controls.map((control) => [control.name, control.value]));
     let visible = 0;

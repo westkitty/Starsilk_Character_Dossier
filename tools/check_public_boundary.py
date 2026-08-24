@@ -13,9 +13,9 @@ import sys
 from pathlib import Path
 
 TEXT_PATTERNS = [
-    ("macOS local path", re.compile(r"/Users/[A-Za-z0-9._-]+/")),
-    ("Unix home path", re.compile(r"/home/[A-Za-z0-9._-]+/")),
-    ("Windows user path", re.compile(r"[A-Za-z]:\\\\Users\\\\[^\\\\\s]+", re.I)),
+    ("macOS local path", re.compile(r"/Users/[A-Za-z0-9._-]+/?")),
+    ("Unix home path", re.compile(r"/home/[A-Za-z0-9._-]+/?")),
+    ("Windows user path", re.compile(r"[A-Za-z]:\\{1,2}Users\\{1,2}[^\\\s]+", re.I)),
     ("file URL", re.compile(r"\bfile://", re.I)),
     ("localhost URL", re.compile(r"https?://(?:localhost|127\.0\.0\.1)(?::\d+)?", re.I)),
     ("private key material", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")),

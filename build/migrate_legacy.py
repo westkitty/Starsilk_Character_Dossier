@@ -54,6 +54,7 @@ def main() -> int:
 
     opens = list(SECTION_OPEN_RE.finditer(html))
     records = []
+    seen_ids = set()
 
     for i, m in enumerate(opens):
         page_classes = m.group(1).strip()
@@ -71,6 +72,10 @@ def main() -> int:
         if not sid:
             print(f"WARNING: section #{i} (classes={page_classes!r}) has no id; skipping", file=sys.stderr)
             continue
+        if sid in seen_ids:
+            print(f"WARNING: duplicate section id {sid!r} (section #{i}); skipping, keeping the first occurrence", file=sys.stderr)
+            continue
+        seen_ids.add(sid)
 
         classes = ("page" + (" " + page_classes if page_classes else "")).strip()
 
