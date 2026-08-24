@@ -84,3 +84,68 @@ jobs:
 
       - name: Representative cross-browser journeys
         run: .venv/bin/pytest tests/test_cross_browser.py --browser ${{ matrix.browser }} -q
+
+  regenerate-pr47-visual-coverage:
+    name: Regenerate PR47 visual coverage
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 47 && github.actor != 'github-actions[bot]'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Regenerate deterministic publication
+        run: ./tools/build.sh
+
+      - name: Prove visual coverage contract
+        run: python3 -m pytest tests/test_visual_coverage.py -q
+
+      - name: Record durable visual-coverage invariants
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('OPERATIONAL_STATE.md')
+          text = p.read_text(encoding='utf-8')
+
+          def once(old, new):
+              global text
+              if old not in text:
+                  raise SystemExit(f'missing OPERATIONAL_STATE marker: {old[:120]!r}')
+              text = text.replace(old, new, 1)
+
+          once('revision: 20', 'revision: 21')
+          invariant70 = '70. The root museum entrance is presentation over the existing Compendium, not a second content or authority surface. It must not invent canon, relationships, chronology, or WorldsVault facts; its statistics must remain derived from existing source/generated data; and the full, unabridged Compendium plus every legacy `/#stable-id` anchor must remain intact below it.'
+          additions = '''
+71. `src/content/visual-coverage.json` is editorial fallback-placement authority only for authored top-level records whose source body has no visible image. Every referenced binary must already exist in `docs/asset-manifest.json` by `source_filename`; the map cannot create canon, media provenance, relationships, or an unauthored character appearance. Character context plates must explicitly state that they are not portraits.
+72. `build/generate.py` must refuse publication when any of the 127 authored records has neither a visible authored image nor a valid source-backed fallback. Fallbacks are additive presentation only and must never duplicate an authored visual.
+73. The root Compendium and every canonical `/entities/<stable-id>/` permalink must both retain visible, locally resolvable image coverage. `tests/test_visual_coverage.py` is the regression contract for this 127-record requirement. Manifest-derived `related_media_ids` remain governed by invariant 30; fallback presentation must not fabricate manifest context associations.
+'''.rstrip()
+          once(invariant70, invariant70 + '\n' + additions)
+          p.write_text(text, encoding='utf-8')
+          PY
+          git diff --check
+
+      - name: Commit generated publication and ledger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/ OPERATIONAL_STATE.md
+          git reset -- docs/qa-report.txt || true
+          if git diff --cached --quiet; then
+            echo "Generated publication and ledger already match source."
+            exit 0
+          fi
+          git commit -m "Regenerate publication for complete visual coverage"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
