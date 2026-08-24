@@ -10,20 +10,27 @@ CONTENT = ROOT / "src" / "content"
 SECTIONS = CONTENT / "sections"
 
 
-def visible_images(node):
-    images = []
+def visible_image_sources(node):
+    """Return visible image-bearing URLs: img src plus video poster frames."""
+    sources = []
     for img in node.find_all("img"):
         src = (img.get("src") or "").strip()
         if not src or img.has_attr("hidden"):
             continue
         if any(parent.has_attr("hidden") for parent in img.parents):
             continue
-        images.append(img)
-    return images
+        sources.append(src)
+    for video in node.find_all("video"):
+        poster = (video.get("poster") or "").strip()
+        if not poster or video.has_attr("hidden"):
+            continue
+        if any(parent.has_attr("hidden") for parent in video.parents):
+            continue
+        sources.append(poster)
+    return sources
 
 
-def assert_local_image_exists(page_path: Path, img) -> None:
-    src = img.get("src", "")
+def assert_local_image_exists(page_path: Path, src: str) -> None:
     assert not src.startswith(("http://", "https://", "data:")), (
         f"visual-coverage image unexpectedly depends on external/data media: {src}"
     )
@@ -39,7 +46,7 @@ def authored_section_records():
 def authored_body_has_image(section_id: str) -> bool:
     body = (SECTIONS / f"{section_id}.body.html").read_text(encoding="utf-8")
     soup = BeautifulSoup(body, "html.parser")
-    return bool(visible_images(soup))
+    return bool(visible_image_sources(soup))
 
 
 def test_every_authored_compendium_entry_has_a_visible_resolvable_image():
@@ -51,12 +58,12 @@ def test_every_authored_compendium_entry_has_a_visible_resolvable_image():
         section_id = record["id"]
         section = soup.find("section", id=section_id)
         assert section is not None, f"authored section missing from generated Compendium: {section_id}"
-        images = visible_images(section)
-        if not images:
+        sources = visible_image_sources(section)
+        if not sources:
             missing.append(section_id)
             continue
-        for img in images:
-            assert_local_image_exists(page_path, img)
+        for src in sources:
+            assert_local_image_exists(page_path, src)
 
     assert not missing, "authored Compendium entries without visible image coverage: " + ", ".join(missing)
 
@@ -84,12 +91,12 @@ def test_every_entity_permalink_has_a_visible_resolvable_image():
         page_path = DOCS / "entities" / section_id / "index.html"
         assert page_path.exists(), f"entity permalink missing: {section_id}"
         soup = BeautifulSoup(page_path.read_text(encoding="utf-8"), "lxml")
-        images = visible_images(soup)
-        if not images:
+        sources = visible_image_sources(soup)
+        if not sources:
             missing.append(section_id)
             continue
-        for img in images:
-            assert_local_image_exists(page_path, img)
+        for src in sources:
+            assert_local_image_exists(page_path, src)
 
     assert not missing, "entity permalinks without visible image coverage: " + ", ".join(missing)
 
