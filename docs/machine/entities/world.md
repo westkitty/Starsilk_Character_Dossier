@@ -1,4 +1,4 @@
-# The all is programmable. Meaning is not optional.
+# The All is programmable. Meaning is not optional.
 
 Stable ID: `world`  
 Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/  

@@ -31,14 +31,14 @@
 </style>
 <header class="museum-nav" data-museum-shell="unified">
 {% set _compendium_href = ('#mainContent' if nav_root == '' else nav_root) %}
-<a class="museum-nav-brand" href="{{ nav_root }}"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Museum</em></a>
-<nav aria-label="Unified Starsilk Museum navigation">
+<a class="museum-nav-brand" href="{{ nav_root }}"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Compendium</em></a>
+<nav aria-label="Unified Starsilk Compendium navigation">
 <ul class="museum-nav-links">
-<li><a href="{{ nav_root }}"{% if nav_current == 'home' %} aria-current="page"{% endif %}>Museum Home</a></li>
+<li><a href="{{ nav_root }}"{% if nav_current == 'home' %} aria-current="page"{% endif %}>Home</a></li>
 <li><a href="{{ _compendium_href }}"{% if nav_current == 'compendium' %} aria-current="page"{% endif %}>Compendium</a></li>
 <li><a href="{{ nav_root }}discover/"{% if nav_current == 'discover' %} aria-current="page"{% endif %}>Discover</a></li>
 <li><a href="{{ nav_root }}entities/"{% if nav_current == 'entities' %} aria-current="page"{% endif %}>Entities</a></li>
-<li><a href="{{ nav_root }}objects/"{% if nav_current == 'objects' %} aria-current="page"{% endif %}>Museum objects</a></li>
+<li><a href="{{ nav_root }}objects/"{% if nav_current == 'objects' %} aria-current="page"{% endif %}>Objects</a></li>
 <li><a href="{{ nav_root }}relationships/"{% if nav_current == 'relationships' %} aria-current="page"{% endif %}>Relationships</a></li>
 <li><a href="{{ nav_root }}canon/"{% if nav_current == 'canon' %} aria-current="page"{% endif %}>Canon Inspector</a></li>
 <li><a href="{{ nav_root }}tours/"{% if nav_current == 'tours' %} aria-current="page"{% endif %}>Tours</a></li>

@@ -189,5 +189,5 @@ def test_entity_pages_have_accessible_landmarks_and_responsive_css():
         assert soup.find("a", class_="skip-link", href="#main") is not None
         assert soup.find("main", id="main") is not None
         assert soup.find("header", attrs={"data-museum-shell": "unified"}) is not None
-        assert soup.find("nav", attrs={"aria-label": "Unified Starsilk Museum navigation"}) is not None
+        assert soup.find("nav", attrs={"aria-label": "Unified Starsilk Compendium navigation"}) is not None
         assert soup.find(id="published-source-heading") is not None

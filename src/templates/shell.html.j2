@@ -5,18 +5,18 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="dark" name="color-scheme"/>
 <meta name="theme-color" content="#05070d"/>
-<title>Starsilk Museum &amp; Compendium</title>
-<meta name="description" content="Starsilk Museum &amp; Compendium — a unified, source-backed museum: the complete character dossier plus faceted discovery, an entity index, museum objects, a relationship observatory, a canon inspector, curated tours, chronology, and WorldsVault topology."/>
+<title>Starsilk Compendium</title>
+<meta name="description" content="Starsilk Compendium — the Starsilk canon dossier: principal and peripheral character folios, the Drakken register, WorldsVault, and supporting lore material, plus faceted discovery, an entity index, a relationship observatory, a canon inspector, curated tours, and chronology."/>
 <link rel="canonical" href="{{ canonical_url }}"/>
 <meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Starsilk Museum &amp; Compendium"/>
-<meta property="og:title" content="Starsilk Museum &amp; Compendium"/>
-<meta property="og:description" content="A unified Starsilk museum: the complete character dossier plus discovery, entities, museum objects, relationships, canon, tours, chronology, and WorldsVault."/>
+<meta property="og:site_name" content="Starsilk Compendium"/>
+<meta property="og:title" content="Starsilk Compendium"/>
+<meta property="og:description" content="Principal and peripheral character dossiers, the Drakken register, canon chronology, and WorldsVault reference material, plus discovery, entities, relationships, canon, and tours."/>
 <meta property="og:url" content="{{ canonical_url }}"/>
 {% if og_image_url %}<meta property="og:image" content="{{ og_image_url }}"/>
 <meta name="twitter:card" content="summary_large_image"/>{% else %}<meta name="twitter:card" content="summary"/>{% endif %}
-<meta name="twitter:title" content="Starsilk Museum &amp; Compendium"/>
-<meta name="twitter:description" content="A unified Starsilk museum: the complete character dossier plus discovery, entities, museum objects, relationships, canon, tours, chronology, and WorldsVault."/>
+<meta name="twitter:title" content="Starsilk Compendium"/>
+<meta name="twitter:description" content="Principal and peripheral character dossiers, the Drakken register, canon chronology, and WorldsVault reference material, plus discovery, entities, relationships, canon, and tours."/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <style>
 {{ style_css }}
@@ -27,13 +27,16 @@
 <body data-museum-shell="unified">
 <a href="#mainContent" class="skip-link" tabindex="0">Skip to dossier content</a>
 
-<div class="museum-entrance" data-museum-shell="unified">
-{% set nav_root = '' %}{% set nav_current = 'home' %}{% include "_museum_nav.html.j2" %}
+<video id="brandkit-watermark" muted playsinline aria-hidden="true"></video>
+<aside class="index" id="index"><div class="index-head"><b>Starsilk / Index</b><button aria-label="Toggle dossier navigation" id="menuToggle" aria-expanded="false" aria-controls="indexPanel">Index</button></div><div class="index-panel" id="indexPanel"><div class="index-panel-inner"><nav>{% for group in nav_groups %}<details class="nav-group" open><summary>{{ group.label }}<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body">{% for item in group.links %}<a href="#{{ item.id }}">{{ item.label }}</a>{% endfor %}</div></details>{% endfor %}</nav><small>Web Edition · Character pages are print-separated.</small></div></div></aside>
+<main id="mainContent" tabindex="-1"><div class="page-controls"><button type="button" id="expandAllBtn">Expand all</button><button type="button" id="collapseAllBtn">Collapse all</button><button type="button" id="sidebarToggle" aria-expanded="true" aria-controls="index">Hide index</button><button type="button" id="modeToggle" aria-pressed="false" hidden>Archive tools</button><button type="button" id="copyImplementationPrompt" hidden>Copy implementation prompt</button><span id="copyPromptStatus" class="visually-hidden" role="status" aria-live="polite"></span><div class="page-controls-search"><label for="dossierSearch" class="visually-hidden">Search dossier titles and content</label><input type="search" id="dossierSearch" placeholder="Search dossier&#8230;" aria-label="Search dossier titles and content" autocomplete="off"/><span id="dossierSearchStatus" role="status" aria-live="polite"></span></div></div>
+{% for section in sections %}{{ section.render() }}
+{% if section.id == 'cover' %}<div class="museum-entrance" data-museum-shell="unified">
 <section class="museum-hero" aria-labelledby="museum-hero-heading">
 <div class="museum-hero-inner">
-<div class="eyebrow">Unified Starsilk museum</div>
-<h1 id="museum-hero-heading" class="museum-hero-title">One museum.<br/>Nine ways in.</h1>
-<p class="museum-hero-lede">The Starsilk Compendium is now a unified museum: source-backed exploration surfaces stand alongside the complete dossier below, all reading from the same authored canon. Nothing here is invented for the interface — unknowns stay unknown.</p>
+<div class="eyebrow">Unified Compendium</div>
+<h1 id="museum-hero-heading" class="museum-hero-title">One Compendium.<br/>Nine ways in.</h1>
+<p class="museum-hero-lede">Source-backed exploration surfaces stand alongside the complete dossier below, all reading from the same authored canon. Nothing here is invented for the interface — unknowns stay unknown.</p>
 <div class="museum-hero-actions">
 <a class="museum-cta primary" href="#mainContent">Enter the Compendium</a>
 <a class="museum-cta" href="discover/">Start discovering</a>
@@ -50,11 +53,11 @@
 </section>
 
 <section class="museum-modules" aria-labelledby="museum-modules-heading">
-<h2 id="museum-modules-heading" class="visually-hidden">Explore the museum</h2>
+<h2 id="museum-modules-heading" class="visually-hidden">Explore the Compendium</h2>
 <div class="museum-module-grid">
 <a class="museum-module" href="discover/"><span class="museum-module-eyebrow">Discover</span><h3>Faceted discovery</h3><p>Search and filter every stable record with source-backed excerpts and AI context packets.</p></a>
 <a class="museum-module" href="entities/"><span class="museum-module-eyebrow">Entities</span><h3>Entity index</h3><p>Stable, shareable permalinks for every principal, peripheral, and Drakken record.</p></a>
-<a class="museum-module" href="objects/"><span class="museum-module-eyebrow">Objects</span><h3>Museum objects</h3><p>Browse the published media collection with provenance, without loading the archive.</p></a>
+<a class="museum-module" href="objects/"><span class="museum-module-eyebrow">Objects</span><h3>Published media</h3><p>Browse the published media collection with provenance, without loading the archive.</p></a>
 <a class="museum-module" href="relationships/"><span class="museum-module-eyebrow">Relationships</span><h3>Relationship Observatory</h3><p>Directional evidence of what the Compendium actually cross-references — nothing more.</p></a>
 <a class="museum-module" href="canon/"><span class="museum-module-eyebrow">Canon</span><h3>Canon Inspector</h3><p>Machine-enforced validation locks protecting selected established facts.</p></a>
 <a class="museum-module" href="tours/"><span class="museum-module-eyebrow">Tours</span><h3>Tours &amp; local library</h3><p>Curated stable-ID routes, plus a private browser-local bookmarks and collections shelf.</p></a>
@@ -73,12 +76,7 @@
 <h2 id="museum-compendium-heading">The complete dossier continues below</h2>
 <p>Everything that follows is the original Starsilk Compendium in full: principal and peripheral folios, the Drakken register, WorldsVault reference prose, the canon ledger, and supporting material — unabridged.</p>
 </section>
-</div>
-
-<video id="brandkit-watermark" muted playsinline aria-hidden="true"></video>
-<aside class="index" id="index"><div class="index-head"><b>Starsilk / Index</b><button aria-label="Toggle dossier navigation" id="menuToggle" aria-expanded="false" aria-controls="indexPanel">Index</button></div><div class="index-panel" id="indexPanel"><div class="index-panel-inner"><nav>{% for group in nav_groups %}<details class="nav-group" open><summary>{{ group.label }}<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body">{% for item in group.links %}<a href="#{{ item.id }}">{{ item.label }}</a>{% endfor %}</div></details>{% endfor %}</nav><small>Web Edition · Character pages are print-separated.</small></div></div></aside>
-<main id="mainContent" tabindex="-1"><div class="page-controls"><button type="button" id="expandAllBtn">Expand all</button><button type="button" id="collapseAllBtn">Collapse all</button><button type="button" id="sidebarToggle" aria-expanded="true" aria-controls="index">Hide index</button><button type="button" id="offlineCacheClear">Clear offline cache</button><button type="button" id="modeToggle" aria-pressed="false" hidden>Archive tools</button><button type="button" id="copyImplementationPrompt" hidden>Copy implementation prompt</button><span id="copyPromptStatus" class="visually-hidden" role="status" aria-live="polite"></span><span id="offlineStatus" class="offline-status" role="status" aria-live="polite">Offline shell preparing when supported.</span><div class="page-controls-search"><label for="dossierSearch" class="visually-hidden">Search dossier titles and content</label><input type="search" id="dossierSearch" placeholder="Search dossier&#8230;" aria-label="Search dossier titles and content" autocomplete="off"/><span id="dossierSearchStatus" role="status" aria-live="polite"></span></div></div>
-{% for section in sections %}{{ section.render() }}
+</div>{% endif %}
 {% endfor %}<section class="page footer" data-folio="{{ footer_folio }}"><div class="eyebrow">Standalone reference</div><h2>Keep the contradiction.<br/>Keep the silhouette.</h2><p>This is the Web Edition: canon prose lives in this document, media is delivered as externalized, deduplicated files under <code>assets/media/</code> rather than embedded inline. Character locks override stale sheet annotations, unresolved canon conflicts remain explicit, and no third-party network resource is required to read the dossier.</p><p class="subtle" style="font-size:.78rem">Text, art, and media in this dossier are shared here for reference within the Starsilk project. Their presence on GitHub is not a grant of reuse rights &#8212; see <a href="RIGHTS.md">RIGHTS.md</a>.</p></section>
 </main>
 <script>

@@ -10,7 +10,7 @@ This is a deterministic discovery derivative. Result class is structural publica
 | Stable ID | Label | Result class | Navigation group | Media | Context packet |
 |---|---|---|---|---:|---|
 | `cover` | Starsilk Compendium | `section` | Overview | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cover.json |
-| `world` | The all is programmable. Meaning is not optional. | `section` | Overview | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/world.json |
+| `world` | The All is programmable. Meaning is not optional. | `section` | Overview | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/world.json |
 | `chronology` | Reality begins as betrayal. The future is built by exclusion. | `chronology-section` | Overview | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/chronology.json |
 | `shard-god` | Shard-God Tiger | `character-section` | Principal characters | 4 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/shard-god.json |
 | `codec` | Codec | `character-section` | Principal characters | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json |

@@ -117,7 +117,9 @@ def test_museum_supports_image_and_video_objects_without_autoload_markup():
 
 def test_entity_index_exposes_human_museum_entry_point():
     soup = BeautifulSoup((DOCS / "entities/index.html").read_text(encoding="utf-8"), "html.parser")
-    link = soup.find("a", href="../objects/")
+    actions = soup.find("div", class_="entity-actions", attrs={"aria-label": "Related publication"})
+    assert actions is not None
+    link = actions.find("a", href="../objects/")
     assert link is not None
     assert "museum objects" in link.get_text(" ", strip=True).lower()
 

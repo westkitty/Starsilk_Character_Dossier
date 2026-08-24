@@ -8,8 +8,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;ba
 .skip-link:focus,.skip-link:focus-visible{top:1rem;outline:2px solid #fff}
 
 /* Index shell & viewport safety (UX-008, UX-009, UX-012, UX-015, UX-021) */
-.index{position:fixed;z-index:20;left:1rem;top:6.75rem;width:min(15rem,calc(100vw - 2rem));max-height:calc(100vh - 7.75rem);display:flex;flex-direction:column;background:rgba(5,7,13,.92);border:1px solid #213145;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
-@media(min-width:951px){.index{top:4.75rem;max-height:calc(100vh - 5.75rem)}}
+.index{position:fixed;z-index:20;left:1rem;top:1rem;width:min(15rem,calc(100vw - 2rem));max-height:calc(100vh - 2rem);display:flex;flex-direction:column;background:rgba(5,7,13,.92);border:1px solid #213145;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
 .index-head{display:flex;align-items:center;justify-content:space-between;padding:.72rem .8rem;border-bottom:1px solid #213145;flex:0 0 auto}
 .index-head b{letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;color:var(--thread2)}
 #menuToggle{display:none;background:none;color:#fff;border:1px solid #31475c;border-radius:4px;padding:.35rem .6rem;min-height:44px;min-width:44px;align-items:center;justify-content:center;cursor:pointer}
@@ -275,12 +274,17 @@ html:not(.archive-mode) .archive-mode-note{display:block}
 @media(prefers-reduced-motion: reduce){.hero-video{display:none}.hero-video-wrap{background:#07101b}}
 @media print{.hero-video-wrap{display:none!important}}
 
-/* Cover entrance: the hero video gets a brief, purely decorative fade-in.
-   Nothing else on the page is ever hidden or delayed by this -- nav,
-   controls, and cover text/title are all immediately present and usable,
-   with or without JS, with or without autoplay succeeding. */
-.hero-video-wrap{animation:heroFadeIn .9s ease-out both}
+/* Cover entrance: the hero video/wordmark animation leads, fast and alone;
+   the title/description/tag row hold for a beat, then follow it in. Every
+   element is present in the DOM immediately (this is a decorative opacity
+   animation, not a JS-gated reveal) -- nav, controls, and cover text/title
+   are all immediately usable with or without JS, with or without autoplay
+   succeeding, and regardless of when the animation finishes. */
+.hero-video-wrap{animation:heroFadeIn .35s ease-out both}
 @keyframes heroFadeIn{from{opacity:0}to{opacity:1}}
+.cover .eyebrow,.cover h1,.cover .edition-label,.cover .deck,.cover .cover-rule,.cover .tag-row{animation:coverTextIn .5s ease-out .85s both}
+@keyframes coverTextIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media print{.cover .eyebrow,.cover h1,.cover .edition-label,.cover .deck,.cover .cover-rule,.cover .tag-row{animation:none;opacity:1;transform:none}}
 
 /* Unified museum entrance: sits above the complete Compendium, sharing the
    sidebar's reserved left column on desktop so nothing overlaps it. */
@@ -323,7 +327,7 @@ html.sidebar-collapsed .museum-entrance{padding-left:var(--page-pad)!important}
 .museum-compendium-lead p{max-width:42rem;color:#9fb1bf}
 
 @media(max-width:700px){.museum-hero,.museum-modules,.museum-compendium-lead{padding-left:var(--page-pad);padding-right:var(--page-pad)}.museum-data-strip{margin-left:var(--page-pad);margin-right:var(--page-pad)}}
-@media(prefers-reduced-motion: reduce){.hero-video-wrap{animation:none}}
+@media(prefers-reduced-motion: reduce){.hero-video-wrap{animation:none}.cover .eyebrow,.cover h1,.cover .edition-label,.cover .deck,.cover .cover-rule,.cover .tag-row{animation:none;opacity:1;transform:none}}
 
 
 /* Relationship Observatory */

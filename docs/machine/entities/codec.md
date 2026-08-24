@@ -41,7 +41,7 @@ Source: `src/content/sections/codec.body.html`
 - [Codec: the architecture of necessary harm.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/) — `source`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) — `systems`
-- [The all is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) — `world`
+- [The All is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) — `world`
 
 ## Published source content
 
