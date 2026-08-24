@@ -15,17 +15,61 @@
 </head>
 <body class="entity-shell">
 <a class="skip-link" href="#main">Skip to record</a>
+
+<style>
+.museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
+.museum-nav-brand em{font-style:normal;color:#55dfff}
+.museum-nav-mark{color:#55dfff;font-size:.9em}
+.museum-nav>nav{flex:1 1 auto;min-width:0}
+.museum-nav-links{display:flex;flex-wrap:wrap;gap:.05rem 1.1rem;list-style:none;margin:0;padding:0}
+.museum-nav-links a{display:inline-flex;padding:.4rem .1rem;color:#9fb1bf;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;min-height:44px;align-items:center}
+.museum-nav-links a:hover,.museum-nav-links a:focus-visible{color:#fff;border-bottom-color:#55dfff;outline:none}
+.museum-nav-links a[aria-current="page"]{color:#55dfff;border-bottom-color:#55dfff}
+.museum-nav-data{position:relative;font-size:.74rem}
+.museum-nav-data>summary{cursor:pointer;list-style:none;padding:.4rem .75rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;font:700 .7rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+.museum-nav-data>summary::-webkit-details-marker{display:none}
+.museum-nav-data[open]>summary{color:#55dfff;border-color:#55dfff}
+.museum-nav-data-panel{position:absolute;right:0;top:calc(100% + .4rem);display:flex;flex-direction:column;gap:.3rem;padding:.6rem;background:#0d1320;border:1px solid #27374b;border-radius:6px;min-width:11rem;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.museum-nav-data-panel a{color:#9fb1bf;text-decoration:none;font-size:.78rem;padding:.25rem 0}
+.museum-nav-data-panel a:hover,.museum-nav-data-panel a:focus-visible{color:#fff}
+@media(max-width:700px){
+.museum-nav{gap:.5rem .8rem;padding:.65rem .9rem}
+.museum-nav>nav{flex-basis:100%;order:3;min-width:100%}
+.museum-nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0 .9rem;padding-bottom:.15rem}
+.museum-nav-links a{flex:0 0 auto}
+.museum-nav-data{order:2;margin-left:auto}
+}
+</style>
+<header class="museum-nav" data-museum-shell="unified">
+
+<a class="museum-nav-brand" href="../../"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Museum</em></a>
+<nav aria-label="Unified Starsilk Museum navigation">
+<ul class="museum-nav-links">
+<li><a href="../../">Museum Home</a></li>
+<li><a href="../../">Compendium</a></li>
+<li><a href="../../discover/">Discover</a></li>
+<li><a href="../../entities/" aria-current="page">Entities</a></li>
+<li><a href="../../objects/">Museum objects</a></li>
+<li><a href="../../relationships/">Relationships</a></li>
+<li><a href="../../canon/">Canon Inspector</a></li>
+<li><a href="../../tours/">Tours</a></li>
+<li><a href="../../chronology/">Chronology</a></li>
+<li><a href="../../worldsvault/">WorldsVault</a></li>
+</ul>
+</nav>
+<details class="museum-nav-data">
+<summary>Data / AI</summary>
+<div class="museum-nav-data-panel">
+<a href="../../agents/AGENT_GUIDE.md">Agent guide</a>
+<a href="../../machine/index.json">Machine index</a>
+<a href="../../llms.txt">llms.txt</a>
+</div>
+</details>
+</header>
 <header class="entity-bar">
   <a class="entity-brand" href="../../">Starsilk Compendium</a>
-  <nav aria-label="Entity publication">
-    <a href="../">Entity index</a>
-    <a href="../../machine/entities.json">Machine index</a>
-    <a href="../../relationships/">Relationship observatory</a>
-    <a href="../../canon/">Canon Inspector</a>
-    <a href="../../tours/#record-foldhowl">Tours & local library</a>
-    <a href="../../chronology/">Chronology</a>
-    <a href="../../worldsvault/">WorldsVault topology</a>
-  </nav>
+  <nav aria-label="Entity record formats"><a href="../">Entity index</a><a href="https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json">JSON</a><a href="https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md">Markdown</a><a href="../../tours/#record-foldhowl">Local library</a></nav>
 </header>
 
 

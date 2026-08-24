@@ -12,19 +12,17 @@
 </head>
 <body class="tour-shell">
 <a class="skip-link" href="#main">Skip to tours</a>
+{% set nav_root = '../' %}{% set nav_current = 'tours' %}{% include "_museum_nav.html.j2" %}
 <header class="tour-bar">
   <a class="tour-brand" href="../">{{ project_name }}</a>
-  <nav aria-label="Tour publication">
-    <a href="../entities/">Entity index</a>
-    <a href="../discover/">Discover</a>
-    <a href="../objects/">Museum objects</a>
+  <nav aria-label="Tour publication formats">
     <a href="tours.json">JSON</a>
   </nav>
 </header>
 
 <main id="main" class="tour-main">
   <header class="tour-hero">
-    <div class="eyebrow">Phase 8 · stable-ID routes</div>
+    <div class="eyebrow">Tours · stable-ID routes</div>
     <h1>Curated tours & local library</h1>
     <p class="tour-lede">Follow editorial routes through existing stable Compendium records, then keep bookmarks, recent openings, history, progress, and named collections locally in this browser.</p>
     <p class="tour-authority"><strong>Authority boundary:</strong> tour order is navigation, not chronology or relationship evidence. Local library state is personal browser state, not canon. No account, analytics, telemetry, or server write is used.</p>

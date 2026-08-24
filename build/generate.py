@@ -135,12 +135,30 @@ def find_og_image(rename_map: dict) -> str | None:
     return None
 
 
+def load_museum_stats(sections: list) -> dict:
+    """Unified-museum hero statistics, derived from existing authoritative
+    source/generated-derivative data -- never hand-maintained, so they can't
+    drift from what the rest of the build actually publishes."""
+    manifest = json.loads(MANIFEST_FILE.read_text(encoding="utf-8")) if MANIFEST_FILE.exists() else {"assets": []}
+    tours = json.loads((ROOT / "src" / "tours" / "tours.json").read_text(encoding="utf-8"))
+    events = json.loads((ROOT / "src" / "chronology" / "events.json").read_text(encoding="utf-8"))
+    invariants = json.loads((CANON_DIR / "invariants.json").read_text(encoding="utf-8"))
+    return {
+        "record_count": len(sections),
+        "object_count": len(manifest.get("assets", [])),
+        "event_count": len(events.get("events", events) if isinstance(events, dict) else events),
+        "tour_count": len(tours.get("tours", tours) if isinstance(tours, dict) else tours),
+        "canon_lock_count": len(invariants.get("document_locks", [])) + len(invariants.get("section_locks", [])),
+    }
+
+
 def render_site() -> str:
     rename_map = load_media_rename_map()
     sections = load_sections(rename_map)
     nav = json.loads((CONTENT_DIR / "nav.json").read_text(encoding="utf-8"))
     style_css = (TEMPLATES_DIR / "style.css").read_text(encoding="utf-8")
     app_js = build_app_js(rename_map)
+    museum_stats = load_museum_stats(sections)
 
     entities = xref.collect_entities([
         {"id": s.id, "classes": s.classes, "title_html": s.title_html} for s in sections
@@ -161,9 +179,11 @@ def render_site() -> str:
         footer_folio="27",
         canonical_url=CANONICAL_URL,
         og_image_url=find_og_image(rename_map),
+        museum_stats=museum_stats,
     )
 
     html, linked_count = xref.link_full_document(html, entities)
+    html = html.replace("MUSEUM_LINK_COUNT_PLACEHOLDER", str(linked_count))
     print(f"Cross-reference links: {len(entities)} entities indexed, {linked_count} links inserted.", file=sys.stderr)
     return html
 

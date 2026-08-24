@@ -13,13 +13,10 @@
 </head>
 <body>
 <a class="skip-link" href="#results">Skip to results</a>
+{% set nav_root = '../' %}{% set nav_current = 'discover' %}{% include "_museum_nav.html.j2" %}
 <header class="topbar">
   <a class="brand" href="../">{{ project_name }}</a>
-  <nav aria-label="Discovery publication">
-    <a href="../entities/">Entity index</a>
-    <a href="../relationships/">Relationships</a>
-    <a href="../canon/">Canon Inspector</a>
-    <a href="../tours/">Tours & local library</a>
+  <nav aria-label="Discovery publication formats">
     <a href="discovery.json">JSON</a>
     <a href="context-packets.json">Context packets</a>
   </nav>
@@ -27,7 +24,7 @@
 
 <main id="main">
   <header class="hero">
-    <div class="eyebrow">Phase 7 · source-backed discovery</div>
+    <div class="eyebrow">Discovery · source-backed Compendium index</div>
     <h1>Faceted discovery</h1>
     <p class="lede">Search and filter the {{ results|length }} stable top-level Compendium records without replacing the complete Compendium search. Result classes are structural publication metadata; excerpts are mechanical projections of authored source text.</p>
     <p class="authority-note"><strong>Authority boundary:</strong> search matches, facets, excerpts, and AI context packets are generated discovery aids. They do not create canon facts, change canon status, or promote observed mentions into semantic relationships.</p>

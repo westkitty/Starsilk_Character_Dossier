@@ -6,7 +6,7 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [2] BROKEN ANCHORS: 0 (of 128 unique #hash hrefs)
 
-[3] LOCAL ASSET PATHS: 209 checked, 0 missing
+[3] LOCAL ASSET PATHS: 221 checked, 0 missing
 
 [4] REMAINING DATA URIS: 0
 
@@ -14,7 +14,7 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [6] EXTERNAL RUNTIME DEPENDENCIES: 0
 
-[7] SECTION COUNTS: total=138, principal=6, peripheral=45, drakken=56
+[7] SECTION COUNTS: total=142, principal=6, peripheral=45, drakken=56
 
 [8] DISCLOSURE (<summary>) SEMANTICS: 0 error(s)
 
@@ -25,8 +25,8 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 [12] JAVASCRIPT SYNTAX: 1 script block(s), 0 syntax error(s)
 
 [13] SIZE REPORT
-    Generated docs/index.html: 539,472 bytes
-    Total docs/ directory: 78,346,571 bytes
+    Generated docs/index.html: 551,398 bytes
+    Total docs/ directory: 78,846,024 bytes
     Total published media: 73,201,453 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken

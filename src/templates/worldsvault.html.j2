@@ -3,7 +3,8 @@
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WorldsVault cosmic topology — {{ project_name }}</title><link rel="canonical" href="{{ canonical_url }}"><link rel="stylesheet" href="worldsvault.css"></head>
 <body>
 <a class="skip-link" href="#topology">Skip to topology</a>
-<header class="site-head"><p class="eyebrow">Source-backed explorer</p><h1>WorldsVault cosmic topology</h1><p>Direct authored relations only. Rendering arrangement is not a map or a cosmic coordinate system.</p><nav aria-label="Museum navigation"><a href="../">Complete Compendium</a><a href="../entities/">Entities</a><a href="../relationships/">Relationship observatory</a><a href="../chronology/">Chronology</a></nav></header>
+{% set nav_root = '../' %}{% set nav_current = 'worldsvault' %}{% include "_museum_nav.html.j2" %}
+<header class="site-head"><p class="eyebrow">Source-backed explorer</p><h1>WorldsVault cosmic topology</h1><p>Direct authored relations only. Rendering arrangement is not a map or a cosmic coordinate system.</p></header>
 <main id="topology">
   <section class="boundary" aria-labelledby="boundary-heading"><h2 id="boundary-heading">Interpretation boundary</h2><ul>{% for rule in model.interpretation_rules %}<li>{{ rule }}</li>{% endfor %}</ul></section>
   <section aria-labelledby="visual-heading"><h2 id="visual-heading">Topology explorer</h2><p id="topologyStatus" aria-live="polite">{{ model.node_count }} source-backed nodes and {{ model.edge_count }} direct authored edges.</p><div class="topology-controls"><button type="button" id="showAll" aria-pressed="true">Show all</button><button type="button" id="clearSelection">Clear selection</button></div>

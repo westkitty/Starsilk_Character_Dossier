@@ -5,18 +5,18 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="dark" name="color-scheme"/>
 <meta name="theme-color" content="#05070d"/>
-<title>Starsilk — Compendium</title>
-<meta name="description" content="Starsilk Compendium — the Starsilk canon dossier: principal and peripheral character folios, the Drakken register, WorldsVault, and supporting lore material."/>
+<title>Starsilk Museum &amp; Compendium</title>
+<meta name="description" content="Starsilk Museum &amp; Compendium — a unified, source-backed museum: the complete character dossier plus faceted discovery, an entity index, museum objects, a relationship observatory, a canon inspector, curated tours, chronology, and WorldsVault topology."/>
 <link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Starsilk Compendium"/>
-<meta property="og:title" content="Starsilk Compendium"/>
-<meta property="og:description" content="Principal and peripheral character dossiers, the Drakken register, canon chronology, and WorldsVault reference material."/>
+<meta property="og:site_name" content="Starsilk Museum &amp; Compendium"/>
+<meta property="og:title" content="Starsilk Museum &amp; Compendium"/>
+<meta property="og:description" content="A unified Starsilk museum: the complete character dossier plus discovery, entities, museum objects, relationships, canon, tours, chronology, and WorldsVault."/>
 <meta property="og:url" content="https://westkitty.github.io/Starsilk_Character_Dossier/"/>
 <meta property="og:image" content="https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/09e2837c1e2a76bc1fadccc2.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Starsilk Compendium"/>
-<meta name="twitter:description" content="Principal and peripheral character dossiers, the Drakken register, canon chronology, and WorldsVault reference material."/>
+<meta name="twitter:title" content="Starsilk Museum &amp; Compendium"/>
+<meta name="twitter:description" content="A unified Starsilk museum: the complete character dossier plus discovery, entities, museum objects, relationships, canon, tours, chronology, and WorldsVault."/>
 <link rel="manifest" href="manifest.webmanifest"/>
 <style>
 
@@ -29,7 +29,8 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;ba
 .skip-link:focus,.skip-link:focus-visible{top:1rem;outline:2px solid #fff}
 
 /* Index shell & viewport safety (UX-008, UX-009, UX-012, UX-015, UX-021) */
-.index{position:fixed;z-index:20;left:1rem;top:1rem;width:min(15rem,calc(100vw - 2rem));max-height:calc(100vh - 2rem);display:flex;flex-direction:column;background:rgba(5,7,13,.92);border:1px solid #213145;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.index{position:fixed;z-index:20;left:1rem;top:6.75rem;width:min(15rem,calc(100vw - 2rem));max-height:calc(100vh - 7.75rem);display:flex;flex-direction:column;background:rgba(5,7,13,.92);border:1px solid #213145;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+@media(min-width:951px){.index{top:4.75rem;max-height:calc(100vh - 5.75rem)}}
 .index-head{display:flex;align-items:center;justify-content:space-between;padding:.72rem .8rem;border-bottom:1px solid #213145;flex:0 0 auto}
 .index-head b{letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;color:var(--thread2)}
 #menuToggle{display:none;background:none;color:#fff;border:1px solid #31475c;border-radius:4px;padding:.35rem .6rem;min-height:44px;min-width:44px;align-items:center;justify-content:center;cursor:pointer}
@@ -223,7 +224,7 @@ h1 span{display:block;color:transparent;-webkit-text-stroke:1px #98bfd0;font-siz
 @media print{
   *,*::before,*::after{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
   html,body{background:#fff!important;color:#111!important;font-size:11pt!important}
-  .index,.page-controls,#menuToggle,.skip-link,.asset-toolbar,#brandkit-watermark,video,.media-video,input,.visually-hidden{display:none!important}
+  .index,.page-controls,.museum-entrance,#menuToggle,.skip-link,.asset-toolbar,#brandkit-watermark,video,.media-video,input,.visually-hidden{display:none!important}
   .page{padding:1.5cm 1cm!important;min-height:auto!important;page-break-after:always;break-after:page}
   .cover{page-break-after:always;break-after:page}
   .dossier-entry,.reference-record,.template-record,.lore-record,.media-item,.system-entry,.canon-law{border:1px solid #ccc!important;background:#fff!important;break-inside:avoid;margin-bottom:1rem}
@@ -301,14 +302,155 @@ html:not(.archive-mode) .archive-mode-note{display:block}
    with or without JS, with or without autoplay succeeding. */
 .hero-video-wrap{animation:heroFadeIn .9s ease-out both}
 @keyframes heroFadeIn{from{opacity:0}to{opacity:1}}
+
+/* Unified museum entrance: sits above the complete Compendium, sharing the
+   sidebar's reserved left column on desktop so nothing overlaps it. */
+.museum-entrance{position:relative;background:var(--void);border-bottom:1px solid #101927}
+@media(min-width:951px){.museum-entrance{padding-left:clamp(18rem,20vw,22rem)}}
+html.sidebar-collapsed .museum-entrance{padding-left:var(--page-pad)!important}
+@media(max-width:700px){.museum-entrance{padding-left:0!important}}
+
+.museum-hero{padding:clamp(2.5rem,6vw,5rem) var(--page-pad) clamp(2rem,4vw,3rem)}
+.museum-hero-inner{max-width:56rem}
+.museum-hero-title{font-size:clamp(2.6rem,6vw,5rem);line-height:.96;letter-spacing:-.04em;margin:.6rem 0 1.1rem}
+.museum-hero-lede{max-width:44rem;font-size:clamp(1rem,1.6vw,1.2rem);color:#b7c8d3;margin-bottom:1.6rem}
+.museum-hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2.2rem}
+.museum-cta{display:inline-flex;align-items:center;min-height:44px;padding:.65rem 1.3rem;border:1px solid #2b4966;border-radius:4px;color:#d9f3ff;text-decoration:none;font:700 .78rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase}
+.museum-cta:hover,.museum-cta:focus-visible{border-color:var(--thread);color:#fff;outline:none}
+.museum-cta.primary{background:var(--thread);border-color:var(--thread);color:#071018}
+.museum-cta.primary:hover,.museum-cta.primary:focus-visible{background:var(--thread2);border-color:var(--thread2)}
+.museum-hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1px;background:#182636;border:1px solid #182636;border-radius:6px;overflow:hidden}
+.museum-hero-stats>div{background:#0a121c;padding:.85rem 1rem}
+.museum-hero-stats dt{font:700 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.museum-hero-stats dd{margin:0;font:800 1.6rem/1 ui-sans-serif,system-ui,sans-serif;color:#eef3f6}
+
+.museum-modules{padding:0 var(--page-pad) clamp(2rem,4vw,3rem)}
+.museum-module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:1rem}
+.museum-module{display:flex;flex-direction:column;gap:.4rem;padding:1.1rem 1.2rem;background:#0a121c;border:1px solid #1c2c3d;border-radius:8px;text-decoration:none;color:inherit;transition:border-color .18s ease,transform .18s ease}
+.museum-module:hover,.museum-module:focus-visible{border-color:var(--thread);transform:translateY(-2px);outline:none}
+.museum-module-eyebrow{font:800 .68rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--thread)}
+.museum-module h3{font-size:1.15rem;letter-spacing:-.01em;margin:0}
+.museum-module p{margin:0;font-size:.86rem;color:#9fb1bf;line-height:1.45}
+
+.museum-data-strip{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem var(--page-pad);margin:0 var(--page-pad) clamp(2rem,4vw,3rem);background:#0d1320;border:1px solid #213145;border-radius:8px}
+.museum-data-strip h2{font-size:1.3rem;margin:.25rem 0}
+.museum-data-strip p{margin:0;color:#9fb1bf;font-size:.85rem;max-width:34rem}
+.museum-data-links{display:flex;flex-wrap:wrap;gap:.5rem}
+.museum-data-links a{display:inline-flex;min-height:38px;align-items:center;padding:.4rem .85rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.05em;text-transform:uppercase}
+.museum-data-links a:hover,.museum-data-links a:focus-visible{border-color:var(--thread);color:#fff;outline:none}
+
+.museum-compendium-lead{padding:0 var(--page-pad) clamp(2.5rem,5vw,4rem);border-bottom:1px solid #101927}
+.museum-compendium-lead h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:.4rem 0 .6rem;max-width:30ch}
+.museum-compendium-lead p{max-width:42rem;color:#9fb1bf}
+
+@media(max-width:700px){.museum-hero,.museum-modules,.museum-compendium-lead{padding-left:var(--page-pad);padding-right:var(--page-pad)}.museum-data-strip{margin-left:var(--page-pad);margin-right:var(--page-pad)}}
 @media(prefers-reduced-motion: reduce){.hero-video-wrap{animation:none}}
 
 /* Preserve the HTML hidden contract even when component CSS sets display. */
 [hidden]{display:none!important}
 </style>
 </head>
-<body>
+<body data-museum-shell="unified">
 <a href="#mainContent" class="skip-link" tabindex="0">Skip to dossier content</a>
+
+<div class="museum-entrance" data-museum-shell="unified">
+
+<style>
+.museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
+.museum-nav-brand em{font-style:normal;color:#55dfff}
+.museum-nav-mark{color:#55dfff;font-size:.9em}
+.museum-nav>nav{flex:1 1 auto;min-width:0}
+.museum-nav-links{display:flex;flex-wrap:wrap;gap:.05rem 1.1rem;list-style:none;margin:0;padding:0}
+.museum-nav-links a{display:inline-flex;padding:.4rem .1rem;color:#9fb1bf;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;min-height:44px;align-items:center}
+.museum-nav-links a:hover,.museum-nav-links a:focus-visible{color:#fff;border-bottom-color:#55dfff;outline:none}
+.museum-nav-links a[aria-current="page"]{color:#55dfff;border-bottom-color:#55dfff}
+.museum-nav-data{position:relative;font-size:.74rem}
+.museum-nav-data>summary{cursor:pointer;list-style:none;padding:.4rem .75rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;font:700 .7rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+.museum-nav-data>summary::-webkit-details-marker{display:none}
+.museum-nav-data[open]>summary{color:#55dfff;border-color:#55dfff}
+.museum-nav-data-panel{position:absolute;right:0;top:calc(100% + .4rem);display:flex;flex-direction:column;gap:.3rem;padding:.6rem;background:#0d1320;border:1px solid #27374b;border-radius:6px;min-width:11rem;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.museum-nav-data-panel a{color:#9fb1bf;text-decoration:none;font-size:.78rem;padding:.25rem 0}
+.museum-nav-data-panel a:hover,.museum-nav-data-panel a:focus-visible{color:#fff}
+@media(max-width:700px){
+.museum-nav{gap:.5rem .8rem;padding:.65rem .9rem}
+.museum-nav>nav{flex-basis:100%;order:3;min-width:100%}
+.museum-nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0 .9rem;padding-bottom:.15rem}
+.museum-nav-links a{flex:0 0 auto}
+.museum-nav-data{order:2;margin-left:auto}
+}
+</style>
+<header class="museum-nav" data-museum-shell="unified">
+
+<a class="museum-nav-brand" href=""><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Museum</em></a>
+<nav aria-label="Unified Starsilk Museum navigation">
+<ul class="museum-nav-links">
+<li><a href="" aria-current="page">Museum Home</a></li>
+<li><a href="#mainContent">Compendium</a></li>
+<li><a href="discover/">Discover</a></li>
+<li><a href="entities/">Entities</a></li>
+<li><a href="objects/">Museum objects</a></li>
+<li><a href="relationships/">Relationships</a></li>
+<li><a href="canon/">Canon Inspector</a></li>
+<li><a href="tours/">Tours</a></li>
+<li><a href="chronology/">Chronology</a></li>
+<li><a href="worldsvault/">WorldsVault</a></li>
+</ul>
+</nav>
+<details class="museum-nav-data">
+<summary>Data / AI</summary>
+<div class="museum-nav-data-panel">
+<a href="agents/AGENT_GUIDE.md">Agent guide</a>
+<a href="machine/index.json">Machine index</a>
+<a href="llms.txt">llms.txt</a>
+</div>
+</details>
+</header>
+<section class="museum-hero" aria-labelledby="museum-hero-heading">
+<div class="museum-hero-inner">
+<div class="eyebrow">Unified Starsilk museum</div>
+<h1 id="museum-hero-heading" class="museum-hero-title">One museum.<br/>Nine ways in.</h1>
+<p class="museum-hero-lede">The Starsilk Compendium is now a unified museum: source-backed exploration surfaces stand alongside the complete dossier below, all reading from the same authored canon. Nothing here is invented for the interface — unknowns stay unknown.</p>
+<div class="museum-hero-actions">
+<a class="museum-cta primary" href="#mainContent">Enter the Compendium</a>
+<a class="museum-cta" href="discover/">Start discovering</a>
+</div>
+<dl class="museum-hero-stats" aria-label="Collection totals">
+<div><dt>Compendium records</dt><dd>127</dd></div>
+<div><dt>Published media objects</dt><dd>213</dd></div>
+<div><dt>Cross-referenced links</dt><dd>51</dd></div>
+<div><dt>Chronology events</dt><dd>27</dd></div>
+<div><dt>Curated tours</dt><dd>6</dd></div>
+<div><dt>Machine-enforced canon locks</dt><dd>11</dd></div>
+</dl>
+</div>
+</section>
+
+<section class="museum-modules" aria-labelledby="museum-modules-heading">
+<h2 id="museum-modules-heading" class="visually-hidden">Explore the museum</h2>
+<div class="museum-module-grid">
+<a class="museum-module" href="discover/"><span class="museum-module-eyebrow">Discover</span><h3>Faceted discovery</h3><p>Search and filter every stable record with source-backed excerpts and AI context packets.</p></a>
+<a class="museum-module" href="entities/"><span class="museum-module-eyebrow">Entities</span><h3>Entity index</h3><p>Stable, shareable permalinks for every principal, peripheral, and Drakken record.</p></a>
+<a class="museum-module" href="objects/"><span class="museum-module-eyebrow">Objects</span><h3>Museum objects</h3><p>Browse the published media collection with provenance, without loading the archive.</p></a>
+<a class="museum-module" href="relationships/"><span class="museum-module-eyebrow">Relationships</span><h3>Relationship Observatory</h3><p>Directional evidence of what the Compendium actually cross-references — nothing more.</p></a>
+<a class="museum-module" href="canon/"><span class="museum-module-eyebrow">Canon</span><h3>Canon Inspector</h3><p>Machine-enforced validation locks protecting selected established facts.</p></a>
+<a class="museum-module" href="tours/"><span class="museum-module-eyebrow">Tours</span><h3>Tours &amp; local library</h3><p>Curated stable-ID routes, plus a private browser-local bookmarks and collections shelf.</p></a>
+<a class="museum-module" href="chronology/"><span class="museum-module-eyebrow">Chronology</span><h3>Interactive chronology</h3><p>Only direct authored markers and durations appear here — unknowns stay explicit.</p></a>
+<a class="museum-module" href="worldsvault/"><span class="museum-module-eyebrow">WorldsVault</span><h3>Cosmic topology</h3><p>A source-backed topology explorer for direct authored cosmic relations.</p></a>
+</div>
+</section>
+
+<section class="museum-data-strip" aria-labelledby="museum-data-heading">
+<div><div class="eyebrow">Data &amp; AI</div><h2 id="museum-data-heading">Machine-readable publication</h2><p>Agent-oriented documentation and deterministic machine derivatives for the whole collection.</p></div>
+<div class="museum-data-links"><a href="agents/AGENT_GUIDE.md">Agent guide</a><a href="machine/index.json">Machine index</a><a href="llms.txt">llms.txt</a><a href="sitemap.xml">Sitemap</a></div>
+</section>
+
+<section class="museum-compendium-lead" aria-labelledby="museum-compendium-heading">
+<div class="eyebrow">Full Compendium</div>
+<h2 id="museum-compendium-heading">The complete dossier continues below</h2>
+<p>Everything that follows is the original Starsilk Compendium in full: principal and peripheral folios, the Drakken register, WorldsVault reference prose, the canon ledger, and supporting material — unabridged.</p>
+</section>
+</div>
 
 <video id="brandkit-watermark" muted playsinline aria-hidden="true"></video>
 <aside class="index" id="index"><div class="index-head"><b>Starsilk / Index</b><button aria-label="Toggle dossier navigation" id="menuToggle" aria-expanded="false" aria-controls="indexPanel">Index</button></div><div class="index-panel" id="indexPanel"><div class="index-panel-inner"><nav><details class="nav-group" open><summary>Overview<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#cover">00 — Dossier</a><a href="#world">01 — Project axis</a><a href="#chronology">02 — Canon chronology</a></div></details><details class="nav-group" open><summary>Principal characters<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#shard-god">03 — Shard-God</a><a href="#codec">04 — Codec</a><a href="#dao">05 — Dao</a><a href="#kail">06 — Kail</a><a href="#marcel">07 — Marcel</a><a href="#jazen">08 — Jazen</a></div></details><details class="nav-group" open><summary>Drakken & blood systems<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#starsilk-material">09 — Starsilk material</a><a href="#gorevault">10 — Gorevault</a><a href="#ringthroat">11 — Ringthroat</a><a href="#lyriboris">12 — Lyriboris</a><a href="#drakken-registry">12A — Drakken archive</a><a href="#blood-rings">13 — Blood Rings</a></div></details><details class="nav-group" open><summary>Canon & cosmology<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#starbinding">14 — Starbinding</a><a href="#canon-ledger">15 — Canon ledger</a><a href="#beyond-wall">15A — Beyond the Siege Wall</a><a href="#systems">16 — Systems & figures</a></div></details><details class="nav-group" open><summary>Reference<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#archive">17 — Image archive</a><a href="#source">18 — Codec source text</a></div></details><details class="nav-group" open><summary>Peripheral & cosmic<span class="chevron" aria-hidden="true"></span></summary><div class="nav-group-body"><a href="#peripheral-index">19 — Peripheral registry</a><a href="#cosmic-architecture">20 — Cosmic architecture</a><a href="#worldsvault-templates">21 — WorldsVault templates</a><a href="#ontology-horror">22 — Ontology & horror</a><a href="#artifacts-factions">23 — Artifacts & factions</a><a href="#trio-gallery">24 — Hero archive</a><a href="#history-media">25 — History media</a><a href="#media-vault">26 — Media vault</a></div></details></nav><small>Web Edition · Character pages are print-separated.</small></div></div></aside>

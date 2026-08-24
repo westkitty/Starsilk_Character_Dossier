@@ -12,11 +12,10 @@
 </head>
 <body class="relationship-shell">
 <a class="skip-link" href="#main">Skip to relationship evidence</a>
+{% set nav_root = '../' %}{% set nav_current = 'relationships' %}{% include "_museum_nav.html.j2" %}
 <header class="relationship-bar">
   <a class="relationship-brand" href="../">Starsilk Compendium</a>
-  <nav aria-label="Relationship publication">
-    <a href="../entities/">Entity index</a>
-    <a href="../objects/">Museum objects</a>
+  <nav aria-label="Relationship publication formats">
     <a href="relationships.json">JSON</a>
     <a href="relationships.md">Markdown</a>
   </nav>
