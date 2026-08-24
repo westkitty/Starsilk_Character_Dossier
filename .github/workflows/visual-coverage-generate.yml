@@ -1,0 +1,45 @@
+name: Visual coverage branch regeneration
+
+on:
+  push:
+    branches:
+      - repair/visual-coverage-provenance
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: github.ref == 'refs/heads/repair/visual-coverage-provenance'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install build dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Regenerate deterministic publication
+        run: ./tools/build.sh
+
+      - name: Prove visual coverage contract
+        run: python3 -m pytest tests/test_visual_coverage.py -q
+
+      - name: Commit generated publication to repair branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git reset -- docs/qa-report.txt || true
+          if git diff --cached --quiet; then
+            echo "Generated docs already match source."
+            exit 0
+          fi
+          git commit -m "Regenerate publication for visual coverage"
+          git push origin HEAD:repair/visual-coverage-provenance
