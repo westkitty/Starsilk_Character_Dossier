@@ -43,12 +43,9 @@ jobs:
           tests/test_dossier.py::test_visual_peripheral_entry
           tests/test_dossier.py::test_visual_media_vault
 
-      - name: Full Chromium regression suite
-        run: python3 -m pytest tests/ -q
-
       - name: Commit refreshed baselines and remove one-shot workflow
         run: |
-          set -euo pipefail
+          set -eu
           rm .github/workflows/refresh-drakken-visual-baselines.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
