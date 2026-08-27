@@ -20,6 +20,18 @@ jobs:
       - name: Trust the checked-out worktree (containerized job)
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
+      - name: Verify Operational State freshness
+        env:
+          STATE_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          set -euo pipefail
+          if [ -n "${STATE_BASE_REF}" ] && [ "${STATE_BASE_REF}" != "0000000000000000000000000000000000000000" ]; then
+            git fetch --no-tags --depth=1 origin "${STATE_BASE_REF}"
+            python3 tools/check_operational_state_freshness.py --base-ref "${STATE_BASE_REF}"
+          else
+            python3 tools/check_operational_state_freshness.py
+          fi
+
       - name: Install Python dependencies
         run: python3 -m pip install -r requirements.txt
 
