@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 23
+revision: 24
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -27,6 +27,7 @@ freshness_policy: src/system/operational-state-policy.json
 - Source-of-truth graph PR #52 merged at `48efb542b198383e9aaf3f55cedc6d66a0bb532b`; `src/system/derivation-map.json` now maps major authority/evidence groups, build generators, generated roots, and validation gates with deterministic projection/validation.
 - Build-provenance PR #53 merged at `c91bfa0231982314edfb241ca10c38b94807ed51`; main CI run `33043525693` passed and Build Provenance run `33043645726` generated, reverified, boundary-checked, and uploaded the first exact-commit attestation for that merge.
 - Operational State freshness sentinel PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` compared exact previous main `c91bfa0231982314edfb241ca10c38b94807ed51`, classified 15 state-relevant paths, reported `state_update=closed`, passed deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys. Build Provenance run `33045915082` then succeeded for the exact merge commit.
+- Cold-start recovery protection is defined by `src/system/COLD_START_RECOVERY.md` and `src/system/cold-start-recovery-contract.json`, with `tests/test_cold_start_recovery.py` enforcing repository-only recoverability of project purpose, current baseline, authority/architecture, active paths, build/test/preview, environment/publication, protected invariants, known limitations/dependencies, pending work, and anti-inference boundaries. It is repository-resumption guidance only and creates no lore, canon, relationship, chronology, media-identity, or publication authority.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -729,6 +730,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Known limitations
 
+- The durable cold-start gate proves that required recovery evidence remains present and source-linked in the repository; it does not claim that every external AI model will reason correctly from that evidence or that external services are reachable without fresh probes.
 - Google Drive connector transfer ceilings require the durable backup to be stored as verified ordered chunks rather than one 582 MB Drive object. This is a transport constraint, not a content-integrity gap.
 - One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
 - Chronology event publication IDs are Phase 9 source-backed derivatives from direct authored labels; they are not authored historical IDs. Unsupported absolute dates, ordering, durations, and event-level canon/spoiler status remain unknown.
@@ -772,3 +774,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 21: closed the post-Phase-12 visual-coverage publication gap. PR #47 merged at `3801b500c08c3842c3a54445db503610eac92200` with source-backed visual coverage for all 127 authored records and 138 observed-xref relationships preserved; PR #48 merged at `be9bc848788e1a6e3972a615f050a5f2d10a9d59` to make Pages proof exact-commit and semantic; PR #50 merged at `acf7a97b9872d6baf9d6c40f1fca03401671c263` to skip redundant legacy rebuilds for workflow-only changes while retaining strict source-change/live proof.
 - Revision 22: reconciled the ledger to current `main` through `c91bfa0231982314edfb241ca10c38b94807ed51`, recording source-of-truth graph PR #52 and build-provenance PR #53 plus successful main/provenance evidence; added the bounded read-only Operational State freshness contract, policy, checker, CI gate, regression coverage, and derivation-graph integration on `uplift/operational-state-sentinel`. Merge and post-merge main proof remain pending.
 - Revision 23: closed the Operational State freshness sentinel after PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` proved exact-base freshness closure from `c91bfa0231982314edfb241ca10c38b94807ed51`, deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys; Build Provenance run `33045915082` succeeded for the merge. No media, dependency, generated-publication, or public-UI source changed, so Pages/live-edge proof was not required.
+- Revision 24: added the zero-memory cold-start recovery entrypoint, ten-category machine evidence contract, README discovery path, and dependency-free regression gate so a successor can reconstruct the project from repository evidence without chat memory; recorded the external-model reasoning limit without creating a second state/canon/publication authority.

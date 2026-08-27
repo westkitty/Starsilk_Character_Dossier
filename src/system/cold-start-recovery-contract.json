@@ -1,0 +1,249 @@
+{
+  "schema": "starsilk-cold-start-recovery/1",
+  "project_id": "starsilk-character-dossier",
+  "entrypoint": "src/system/COLD_START_RECOVERY.md",
+  "authority_note": "Repository-resumption evidence contract only. This does not create lore, canon, relationship, chronology, media identity, or publication authority.",
+  "zero_memory_rule": "Recover required facts from repository evidence and direct runtime probes only; never fill gaps from prior chat or model memory.",
+  "min_operational_state_revision": 24,
+  "required_categories": [
+    {
+      "id": "identity_purpose",
+      "evidence": [
+        {
+          "path": "README.md",
+          "contains": [
+            "publishes the **Starsilk Compendium**",
+            "Public site:"
+          ]
+        },
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "project_id: starsilk-character-dossier",
+            "project_name: Starsilk Compendium"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "current_baseline",
+      "evidence": [
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "## Current baseline",
+            "## Active invariants",
+            "## Pending"
+          ]
+        },
+        {
+          "path": "MUSEUM_AI_ROADMAP.md",
+          "contains": [
+            "`OPERATIONAL_STATE.md` records what is currently real and verified",
+            "reality wins"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "architecture_authority",
+      "evidence": [
+        {
+          "path": "README.md",
+          "contains": [
+            "## Architecture",
+            "`docs/index.html` is **generated output**"
+          ]
+        },
+        {
+          "path": "MUSEUM_AI_FOUNDATION.md",
+          "contains": [
+            "**One authority. Many views.**",
+            "## Authority hierarchy",
+            "Generated outputs"
+          ]
+        },
+        {
+          "path": "src/system/AUTHORITY.md",
+          "contains": [
+            "repository authority and derivation topology",
+            "generated `docs/` surfaces never become a second source of truth"
+          ]
+        },
+        {
+          "path": "src/system/derivation-map.json",
+          "contains": [
+            "starsilk-derivation-map/1",
+            "operational_state",
+            "state_freshness"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "active_user_paths",
+      "evidence": [
+        {
+          "path": "README.md",
+          "contains": [
+            "Public site:",
+            "## Preview locally"
+          ]
+        },
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "Canonical human record destinations are `/entities/<stable-id>/`",
+            "The museum human surface is `/objects/`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "build_test_preview",
+      "evidence": [
+        {
+          "path": "README.md",
+          "contains": [
+            "./tools/build.sh --check",
+            ".venv/bin/pytest tests/ -q",
+            "python3 -m http.server 4173 --directory docs"
+          ]
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "contains": [
+            "Verify Operational State freshness",
+            "Full pytest + Playwright suite (Chromium)",
+            "Representative journeys (Firefox, WebKit)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "environment_publication",
+      "evidence": [
+        {
+          "path": "README.md",
+          "contains": [
+            "Served via GitHub Pages from `main` / `/docs`."
+          ]
+        },
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "build_type=legacy",
+            "Repository merge state, Pages configuration, Pages build execution, and live-edge content are separate proof states"
+          ]
+        },
+        {
+          "path": ".github/workflows/pages.yml",
+          "contains": [
+            "name: Publish Compendium to GitHub Pages",
+            "Inspect active Pages source",
+            "build_type"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "protected_invariants",
+      "evidence": [
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "## Active invariants",
+            "Preserve the deterministic source/build/docs pipeline",
+            "Unknown is a first-class machine state"
+          ]
+        },
+        {
+          "path": "MUSEUM_AI_FOUNDATION.md",
+          "contains": [
+            "## Stable identity policy",
+            "## Unknown handling",
+            "## Relationship evidence rules"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limitations_dependencies",
+      "evidence": [
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "## Known limitations",
+            "## Canonical media recovery state — VERIFIED RESTORABLE AND DURABLY STORED"
+          ]
+        },
+        {
+          "path": "README.md",
+          "contains": [
+            "### Why `media/source/` isn't committed",
+            "requires `media/source/` locally"
+          ]
+        },
+        {
+          "path": "RIGHTS.md",
+          "contains": [
+            "Starsilk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pending_work",
+      "evidence": [
+        {
+          "path": "OPERATIONAL_STATE.md",
+          "contains": [
+            "## Pending"
+          ]
+        },
+        {
+          "path": "MUSEUM_AI_ROADMAP.md",
+          "contains": [
+            "Phase 12",
+            "COMPLETE",
+            "Never begin the next phase automatically"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anti_inference_stop_rules",
+      "evidence": [
+        {
+          "path": "MUSEUM_AI_FOUNDATION.md",
+          "contains": [
+            "Unknown is a first-class state",
+            "Generated derivatives may never upgrade `mentions` into a stronger relation by inference",
+            "When authorities disagree, do not silently reconcile them"
+          ]
+        },
+        {
+          "path": "src/system/AUTHORITY.md",
+          "contains": [
+            "absence of an edge means **not declared**, not permission to infer one",
+            "If the graph conflicts with explicit source behavior or a stronger authority, the conflict is a defect to resolve"
+          ]
+        }
+      ]
+    }
+  ],
+  "required_entrypoint_markers": [
+    "zero prior chat/session memory",
+    "Do not recover facts from remembered chat",
+    "RECOVERABLE",
+    "AMBIGUOUS",
+    "MISSING",
+    "STALE",
+    "CONTRADICTORY",
+    "python3 tests/test_cold_start_recovery.py",
+    "not lore authority"
+  ],
+  "forbidden_required_evidence_prefixes": [
+    "docs/"
+  ]
+}
