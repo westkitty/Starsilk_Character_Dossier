@@ -42,11 +42,18 @@ def test_formerly_peripheral_drakken_are_typed_and_positioned_as_drakken():
         "foldhowl": "glitch-touched",
         "manifest-discord": "glitch-touched",
     }
+    expected_folios = {
+        "mother": "P27",
+        "cradle-exe": "P30",
+        "foldhowl": "P28",
+        "manifest-discord": "P29",
+    }
     for sid, archetype in expected_archetypes.items():
         classes = by_id[sid]["classes"].split()
         assert "drakken-page" in classes
         assert "peripheral-page" not in classes
         assert by_id[sid]["attrs"]["data-archetype"] == archetype
+        assert by_id[sid]["attrs"]["data-folio"] == expected_folios[sid]
     drakken_positions = [
         i
         for i, r in enumerate(sections)
