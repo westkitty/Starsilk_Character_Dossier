@@ -1,5 +1,5 @@
 {
-  "archetype": null,
+  "archetype": "genesis",
   "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
@@ -7,7 +7,7 @@
   "excerpt": "Canonical record Fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula. Emerges from the unchecked/orphaned Notebook Program after Wordstreamer ’s murder removes a major semantic safeguard. Drakken Eggs and strains are produced under Mother’s continuance logic; older Drakken can program eggs…",
   "excerpt_source_ref": "src/content/sections/mother.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#mother",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [],
@@ -43,8 +43,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

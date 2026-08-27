@@ -136,8 +136,8 @@
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/tours/#tour-drakken-blood-systems",
-      "label": "Drakken & blood systems",
-      "navigation_group": "Drakken & blood systems",
+      "label": "Drakken",
+      "navigation_group": "Drakken",
       "source_refs": [
         {
           "anchor": "drakken-blood-systems",
@@ -145,20 +145,20 @@
           "path": "src/tours/tours.json"
         },
         {
-          "anchor": "Drakken & blood systems",
+          "anchor": "Drakken",
           "kind": "authoritative-navigation",
           "path": "src/content/nav.json"
         }
       ],
-      "stop_count": 6,
+      "stop_count": 61,
       "stops": [
         {
-          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/",
-          "display_label": "Starsilk",
-          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material",
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/",
+          "display_label": "The full field register.",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry",
           "position": 1,
           "source_ref": "src/content/nav.json",
-          "stable_id": "starsilk-material"
+          "stable_id": "drakken-registry"
         },
         {
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/",
@@ -185,20 +185,460 @@
           "stable_id": "lyriboris"
         },
         {
-          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/",
-          "display_label": "The full field register.",
-          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry",
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
+          "display_label": "Mother",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#mother",
           "position": 5,
           "source_ref": "src/content/nav.json",
-          "stable_id": "drakken-registry"
+          "stable_id": "mother"
         },
         {
-          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/",
-          "display_label": "Blood Rings",
-          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings",
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/",
+          "display_label": "The Egg",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-the-egg",
           "position": 6,
           "source_ref": "src/content/nav.json",
-          "stable_id": "blood-rings"
+          "stable_id": "drk-the-egg"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-magma-pleuron/",
+          "display_label": "Magma Pleuron",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-magma-pleuron",
+          "position": 7,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-magma-pleuron"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-granithelion/",
+          "display_label": "Granithelion",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-granithelion",
+          "position": 8,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-granithelion"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fault-tongue/",
+          "display_label": "Fault-Tongue",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue",
+          "position": 9,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-fault-tongue"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-obsidian-gul/",
+          "display_label": "Obsidian Gul",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-obsidian-gul",
+          "position": 10,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-obsidian-gul"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-tremorhound/",
+          "display_label": "Tremorhound",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-tremorhound",
+          "position": 11,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-tremorhound"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-glassspine/",
+          "display_label": "Glassspine",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glassspine",
+          "position": 12,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-glassspine"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-quarrymind/",
+          "display_label": "Quarrymind",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-quarrymind",
+          "position": 13,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-quarrymind"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-aerokarst/",
+          "display_label": "Aerokarst",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-aerokarst",
+          "position": 14,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-aerokarst"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-cloudmaw/",
+          "display_label": "Cloudmaw",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cloudmaw",
+          "position": 15,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-cloudmaw"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-atmantid/",
+          "display_label": "Atmantid",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-atmantid",
+          "position": 16,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-atmantid"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-weathernode/",
+          "display_label": "Weathernode",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-weathernode",
+          "position": 17,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-weathernode"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-vortenbray/",
+          "display_label": "Vortenbray",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-vortenbray",
+          "position": 18,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-vortenbray"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fumericus/",
+          "display_label": "Fumericus",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fumericus",
+          "position": 19,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-fumericus"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-skymourn/",
+          "display_label": "Skymourn",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-skymourn",
+          "position": 20,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-skymourn"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-verdgorge/",
+          "display_label": "Verdgorge",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-verdgorge",
+          "position": 21,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-verdgorge"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-pollenvault/",
+          "display_label": "Pollenvault",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-pollenvault",
+          "position": 22,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-pollenvault"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-mycethron/",
+          "display_label": "Mycethron",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-mycethron",
+          "position": 23,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-mycethron"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-raintaster/",
+          "display_label": "Raintaster",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-raintaster",
+          "position": 24,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-raintaster"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-terragullet/",
+          "display_label": "Terragullet",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-terragullet",
+          "position": 25,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-terragullet"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-petalnest/",
+          "display_label": "Petalnest",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-petalnest",
+          "position": 26,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-petalnest"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-feralseed/",
+          "display_label": "Feralseed",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-feralseed",
+          "position": 27,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-feralseed"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-abyssoriel/",
+          "display_label": "Abyssoriel",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-abyssoriel",
+          "position": 28,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-abyssoriel"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-brinechoir/",
+          "display_label": "Brinechoir",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-brinechoir",
+          "position": 29,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-brinechoir"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-currenthalo/",
+          "display_label": "Currenthalo",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-currenthalo",
+          "position": 30,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-currenthalo"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-shelfcarver/",
+          "display_label": "Shelfcarver",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shelfcarver",
+          "position": 31,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-shelfcarver"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-glacierthroat/",
+          "display_label": "Glacierthroat",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glacierthroat",
+          "position": 32,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-glacierthroat"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-veilcurrent/",
+          "display_label": "Veilcurrent",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-veilcurrent",
+          "position": 33,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-veilcurrent"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-coronaxis/",
+          "display_label": "Coronaxis",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-coronaxis",
+          "position": 34,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-coronaxis"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-solnexus/",
+          "display_label": "Solnexus",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-solnexus",
+          "position": 35,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-solnexus"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-nullthorn/",
+          "display_label": "Nullthorn",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-nullthorn",
+          "position": 36,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-nullthorn"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-helionth/",
+          "display_label": "Helionth",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-helionth",
+          "position": 37,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-helionth"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-umbrakrael/",
+          "display_label": "Umbrakrael",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-umbrakrael",
+          "position": 38,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-umbrakrael"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-cinderverge/",
+          "display_label": "Cinderverge",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cinderverge",
+          "position": 39,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-cinderverge"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-singularch/",
+          "display_label": "Singularch",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-singularch",
+          "position": 40,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-singularch"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-ironcant/",
+          "display_label": "Ironcant",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-ironcant",
+          "position": 41,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-ironcant"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gridsaint/",
+          "display_label": "Gridsaint",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gridsaint",
+          "position": 42,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-gridsaint"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spiremolt/",
+          "display_label": "Spiremolt",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spiremolt",
+          "position": 43,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-spiremolt"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-roadthorn/",
+          "display_label": "Roadthorn",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-roadthorn",
+          "position": 44,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-roadthorn"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-habitarch/",
+          "display_label": "Habitarch",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-habitarch",
+          "position": 45,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-habitarch"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-archivore/",
+          "display_label": "Archivore",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-archivore",
+          "position": 46,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-archivore"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-harborhex/",
+          "display_label": "Harborhex",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-harborhex",
+          "position": 47,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-harborhex"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-lexiclast/",
+          "display_label": "Lexiclast",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-lexiclast",
+          "position": 48,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-lexiclast"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-calendarion/",
+          "display_label": "Calendarion",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-calendarion",
+          "position": 49,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-calendarion"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-dreamtaxon/",
+          "display_label": "Dreamtaxon",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-dreamtaxon",
+          "position": 50,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-dreamtaxon"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-crownmute/",
+          "display_label": "Crownmute",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-crownmute",
+          "position": 51,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-crownmute"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-hymnlock/",
+          "display_label": "Hymnlock",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-hymnlock",
+          "position": 52,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-hymnlock"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-memorialvein/",
+          "display_label": "Memorialvein",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-memorialvein",
+          "position": 53,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-memorialvein"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-shrinehunger/",
+          "display_label": "Shrinehunger",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shrinehunger",
+          "position": 54,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-shrinehunger"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-redacted-grin/",
+          "display_label": "Redacted Grin",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-redacted-grin",
+          "position": 55,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-redacted-grin"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spinal-loop/",
+          "display_label": "Spinal Loop",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spinal-loop",
+          "position": 56,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-spinal-loop"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
+          "display_label": "Cradle.exe",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe",
+          "position": 57,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "cradle-exe"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
+          "display_label": "Foldhowl",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl",
+          "position": 58,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "foldhowl"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
+          "display_label": "Manifest.discord",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord",
+          "position": 59,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "manifest-discord"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/",
+          "display_label": "Gloryfail",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gloryfail",
+          "position": 60,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-gloryfail"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-viral-bastion/",
+          "display_label": "Viral Bastion",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-viral-bastion",
+          "position": 61,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "drk-viral-bastion"
         }
       ],
       "tour_id": "drakken-blood-systems"
@@ -219,13 +659,29 @@
           "path": "src/content/nav.json"
         }
       ],
-      "stop_count": 4,
+      "stop_count": 6,
       "stops": [
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starsilk-material/",
+          "display_label": "Starsilk",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material",
+          "position": 1,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "starsilk-material"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/",
+          "display_label": "Blood Rings",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings",
+          "position": 2,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "blood-rings"
+        },
         {
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/",
           "display_label": "The universe executes the partition.",
           "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starbinding",
-          "position": 1,
+          "position": 3,
           "source_ref": "src/content/nav.json",
           "stable_id": "starbinding"
         },
@@ -233,7 +689,7 @@
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/",
           "display_label": "The universe keeps receipts.",
           "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#canon-ledger",
-          "position": 2,
+          "position": 4,
           "source_ref": "src/content/nav.json",
           "stable_id": "canon-ledger"
         },
@@ -241,7 +697,7 @@
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/beyond-wall/",
           "display_label": "Beyond the Siege Wall",
           "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#beyond-wall",
-          "position": 3,
+          "position": 5,
           "source_ref": "src/content/nav.json",
           "stable_id": "beyond-wall"
         },
@@ -249,7 +705,7 @@
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/",
           "display_label": "What the characters are standing inside.",
           "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#systems",
-          "position": 4,
+          "position": 6,
           "source_ref": "src/content/nav.json",
           "stable_id": "systems"
         }

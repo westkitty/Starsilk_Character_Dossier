@@ -115,6 +115,14 @@
       "stable_id": "drakken-registry"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
+      "display_label": "Mother",
+      "incoming_count": 0,
+      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-mother",
+      "outgoing_count": 1,
+      "stable_id": "mother"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/",
       "display_label": "The Egg",
       "incoming_count": 0,
@@ -523,6 +531,30 @@
       "stable_id": "drk-spinal-loop"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
+      "display_label": "Cradle.exe",
+      "incoming_count": 0,
+      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cradle-exe",
+      "outgoing_count": 0,
+      "stable_id": "cradle-exe"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
+      "display_label": "Foldhowl",
+      "incoming_count": 1,
+      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-foldhowl",
+      "outgoing_count": 0,
+      "stable_id": "foldhowl"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
+      "display_label": "Manifest.discord",
+      "incoming_count": 0,
+      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-manifest-discord",
+      "outgoing_count": 0,
+      "stable_id": "manifest-discord"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/",
       "display_label": "Gloryfail",
       "incoming_count": 0,
@@ -793,38 +825,6 @@
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nyle-quarth",
       "outgoing_count": 0,
       "stable_id": "nyle-quarth"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
-      "display_label": "Mother",
-      "incoming_count": 0,
-      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-mother",
-      "outgoing_count": 1,
-      "stable_id": "mother"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
-      "display_label": "Foldhowl",
-      "incoming_count": 1,
-      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-foldhowl",
-      "outgoing_count": 0,
-      "stable_id": "foldhowl"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
-      "display_label": "Manifest.discord",
-      "incoming_count": 0,
-      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-manifest-discord",
-      "outgoing_count": 0,
-      "stable_id": "manifest-discord"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
-      "display_label": "Cradle.exe",
-      "incoming_count": 0,
-      "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cradle-exe",
-      "outgoing_count": 0,
-      "stable_id": "cradle-exe"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/",

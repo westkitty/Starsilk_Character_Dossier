@@ -89,6 +89,12 @@
       "stable_id": "drakken-registry"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
+      "display_label": "Mother",
+      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json",
+      "stable_id": "mother"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/",
       "display_label": "The Egg",
       "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-the-egg.json",
@@ -395,6 +401,24 @@
       "stable_id": "drk-spinal-loop"
     },
     {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
+      "display_label": "Cradle.exe",
+      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json",
+      "stable_id": "cradle-exe"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
+      "display_label": "Foldhowl",
+      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json",
+      "stable_id": "foldhowl"
+    },
+    {
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
+      "display_label": "Manifest.discord",
+      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json",
+      "stable_id": "manifest-discord"
+    },
+    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/",
       "display_label": "Gloryfail",
       "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-gloryfail.json",
@@ -597,30 +621,6 @@
       "display_label": "Archivist Nyle Quarth",
       "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nyle-quarth.json",
       "stable_id": "nyle-quarth"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
-      "display_label": "Mother",
-      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json",
-      "stable_id": "mother"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
-      "display_label": "Foldhowl",
-      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json",
-      "stable_id": "foldhowl"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
-      "display_label": "Manifest.discord",
-      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json",
-      "stable_id": "manifest-discord"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
-      "display_label": "Cradle.exe",
-      "packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json",
-      "stable_id": "cradle-exe"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/",

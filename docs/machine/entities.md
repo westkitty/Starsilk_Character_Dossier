@@ -18,6 +18,7 @@ This index addresses existing published sections by their stable section IDs. Ca
 | `ringthroat` | Ringthroat | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/ |
 | `lyriboris` | Lyriboris | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/ |
 | `drakken-registry` | The full field register. | `section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/ |
+| `mother` | Mother | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/ |
 | `drk-the-egg` | The Egg | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/ |
 | `drk-magma-pleuron` | Magma Pleuron | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-magma-pleuron/ |
 | `drk-granithelion` | Granithelion | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-granithelion/ |
@@ -69,6 +70,9 @@ This index addresses existing published sections by their stable section IDs. Ca
 | `drk-shrinehunger` | Shrinehunger | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-shrinehunger/ |
 | `drk-redacted-grin` | Redacted Grin | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-redacted-grin/ |
 | `drk-spinal-loop` | Spinal Loop | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spinal-loop/ |
+| `cradle-exe` | Cradle.exe | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/ |
+| `foldhowl` | Foldhowl | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/ |
+| `manifest-discord` | Manifest.discord | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/ |
 | `drk-gloryfail` | Gloryfail | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/ |
 | `drk-viral-bastion` | Viral Bastion | `character-section` | `unknown` | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-viral-bastion/ |
 | `blood-rings` | Blood Rings | `section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/ |
@@ -103,10 +107,6 @@ This index addresses existing published sections by their stable section IDs. Ca
 | `iven` | Iven | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/iven/ |
 | `khar-venn-child` | Unnamed Child | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/khar-venn-child/ |
 | `nyle-quarth` | Archivist Nyle Quarth | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/ |
-| `mother` | Mother | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/ |
-| `foldhowl` | Foldhowl | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/ |
-| `manifest-discord` | Manifest.discord | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/ |
-| `cradle-exe` | Cradle.exe | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/ |
 | `shardlings` | The Shardlings | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/ |
 | `allkept` | Allkept | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/allkept/ |
 | `little-king` | The Little King | `character-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/little-king/ |

@@ -102,6 +102,13 @@
       "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drakken-registry/"
     },
     {
+      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
+      "@type": "CreativeWork",
+      "identifier": "mother",
+      "name": "Mother",
+      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/"
+    },
+    {
       "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/",
       "@type": "CreativeWork",
       "identifier": "drk-the-egg",
@@ -459,6 +466,27 @@
       "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-spinal-loop/"
     },
     {
+      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
+      "@type": "CreativeWork",
+      "identifier": "cradle-exe",
+      "name": "Cradle.exe",
+      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/"
+    },
+    {
+      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
+      "@type": "CreativeWork",
+      "identifier": "foldhowl",
+      "name": "Foldhowl",
+      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/"
+    },
+    {
+      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
+      "@type": "CreativeWork",
+      "identifier": "manifest-discord",
+      "name": "Manifest.discord",
+      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/"
+    },
+    {
       "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/",
       "@type": "CreativeWork",
       "identifier": "drk-gloryfail",
@@ -695,34 +723,6 @@
       "identifier": "nyle-quarth",
       "name": "Archivist Nyle Quarth",
       "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/"
-    },
-    {
-      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
-      "@type": "CreativeWork",
-      "identifier": "mother",
-      "name": "Mother",
-      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/"
-    },
-    {
-      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
-      "@type": "CreativeWork",
-      "identifier": "foldhowl",
-      "name": "Foldhowl",
-      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/"
-    },
-    {
-      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
-      "@type": "CreativeWork",
-      "identifier": "manifest-discord",
-      "name": "Manifest.discord",
-      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/"
-    },
-    {
-      "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
-      "@type": "CreativeWork",
-      "identifier": "cradle-exe",
-      "name": "Cradle.exe",
-      "url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/"
     },
     {
       "@id": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/",

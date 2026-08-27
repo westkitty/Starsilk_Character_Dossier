@@ -1,5 +1,5 @@
 {
-  "archetype": null,
+  "archetype": "glitch-touched",
   "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
@@ -7,7 +7,7 @@
   "excerpt": "Canonical record Massive data-geode egg split permanently open. Radiates neon-blue lullaby code. Its permanently opened state makes it both a failed/ongoing hatch architecture and a persistent emission source. Visual reference Cradle.exe — archival plate Verified archival plate imported from the Drakken art archive.…",
   "excerpt_source_ref": "src/content/sections/cradle-exe.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [],
@@ -41,8 +41,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

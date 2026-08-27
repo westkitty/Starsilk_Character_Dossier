@@ -7,7 +7,7 @@
   "excerpt": "Operational role Litho-colony node; excavates programmable minerals and deploys brainstone drones. Archetype function Planetary bones: faultlines, lithosphere, glassfields, minerals, seismicity and deep-earth formatting. Archival visual references Quarrymind — archival plate Verified archival plate imported from the…",
   "excerpt_source_ref": "src/content/sections/drk-quarrymind.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-quarrymind",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -45,8 +45,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

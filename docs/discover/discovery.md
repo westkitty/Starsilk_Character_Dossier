@@ -18,65 +18,69 @@ This is a deterministic discovery derivative. Result class is structural publica
 | `kail` | Kail | `character-section` | Principal characters | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/kail.json |
 | `marcel` | Marcel | `character-section` | Principal characters | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/marcel.json |
 | `jazen` | Jazen | `character-section` | Principal characters | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/jazen.json |
-| `starsilk-material` | Starsilk | `material-section` | Drakken & blood systems | 5 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/starsilk-material.json |
-| `gorevault` | Gorevault | `character-section` | Drakken & blood systems | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/gorevault.json |
-| `ringthroat` | Ringthroat | `character-section` | Drakken & blood systems | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/ringthroat.json |
-| `lyriboris` | Lyriboris | `character-section` | Drakken & blood systems | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/lyriboris.json |
-| `drakken-registry` | The full field register. | `section` | Drakken & blood systems | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drakken-registry.json |
-| `drk-the-egg` | The Egg | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-the-egg.json |
-| `drk-magma-pleuron` | Magma Pleuron | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-magma-pleuron.json |
-| `drk-granithelion` | Granithelion | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-granithelion.json |
-| `drk-fault-tongue` | Fault-Tongue | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-fault-tongue.json |
-| `drk-obsidian-gul` | Obsidian Gul | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-obsidian-gul.json |
-| `drk-tremorhound` | Tremorhound | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-tremorhound.json |
-| `drk-glassspine` | Glassspine | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-glassspine.json |
-| `drk-quarrymind` | Quarrymind | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-quarrymind.json |
-| `drk-aerokarst` | Aerokarst | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-aerokarst.json |
-| `drk-cloudmaw` | Cloudmaw | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-cloudmaw.json |
-| `drk-atmantid` | Atmantid | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-atmantid.json |
-| `drk-weathernode` | Weathernode | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-weathernode.json |
-| `drk-vortenbray` | Vortenbray | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-vortenbray.json |
-| `drk-fumericus` | Fumericus | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-fumericus.json |
-| `drk-skymourn` | Skymourn | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-skymourn.json |
-| `drk-verdgorge` | Verdgorge | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-verdgorge.json |
-| `drk-pollenvault` | Pollenvault | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-pollenvault.json |
-| `drk-mycethron` | Mycethron | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-mycethron.json |
-| `drk-raintaster` | Raintaster | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-raintaster.json |
-| `drk-terragullet` | Terragullet | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-terragullet.json |
-| `drk-petalnest` | Petalnest | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-petalnest.json |
-| `drk-feralseed` | Feralseed | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-feralseed.json |
-| `drk-abyssoriel` | Abyssoriel | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-abyssoriel.json |
-| `drk-brinechoir` | Brinechoir | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-brinechoir.json |
-| `drk-currenthalo` | Currenthalo | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-currenthalo.json |
-| `drk-shelfcarver` | Shelfcarver | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-shelfcarver.json |
-| `drk-glacierthroat` | Glacierthroat | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-glacierthroat.json |
-| `drk-veilcurrent` | Veilcurrent | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-veilcurrent.json |
-| `drk-coronaxis` | Coronaxis | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-coronaxis.json |
-| `drk-solnexus` | Solnexus | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-solnexus.json |
-| `drk-nullthorn` | Nullthorn | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-nullthorn.json |
-| `drk-helionth` | Helionth | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-helionth.json |
-| `drk-umbrakrael` | Umbrakrael | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-umbrakrael.json |
-| `drk-cinderverge` | Cinderverge | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-cinderverge.json |
-| `drk-singularch` | Singularch | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-singularch.json |
-| `drk-ironcant` | Ironcant | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-ironcant.json |
-| `drk-gridsaint` | Gridsaint | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-gridsaint.json |
-| `drk-spiremolt` | Spiremolt | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-spiremolt.json |
-| `drk-roadthorn` | Roadthorn | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-roadthorn.json |
-| `drk-habitarch` | Habitarch | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-habitarch.json |
-| `drk-archivore` | Archivore | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-archivore.json |
-| `drk-harborhex` | Harborhex | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-harborhex.json |
-| `drk-lexiclast` | Lexiclast | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-lexiclast.json |
-| `drk-calendarion` | Calendarion | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-calendarion.json |
-| `drk-dreamtaxon` | Dreamtaxon | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-dreamtaxon.json |
-| `drk-crownmute` | Crownmute | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-crownmute.json |
-| `drk-hymnlock` | Hymnlock | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-hymnlock.json |
-| `drk-memorialvein` | Memorialvein | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-memorialvein.json |
-| `drk-shrinehunger` | Shrinehunger | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-shrinehunger.json |
-| `drk-redacted-grin` | Redacted Grin | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-redacted-grin.json |
-| `drk-spinal-loop` | Spinal Loop | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-spinal-loop.json |
-| `drk-gloryfail` | Gloryfail | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-gloryfail.json |
-| `drk-viral-bastion` | Viral Bastion | `character-section` | — | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-viral-bastion.json |
-| `blood-rings` | Blood Rings | `section` | Drakken & blood systems | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/blood-rings.json |
+| `starsilk-material` | Starsilk | `material-section` | Canon & cosmology | 5 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/starsilk-material.json |
+| `gorevault` | Gorevault | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/gorevault.json |
+| `ringthroat` | Ringthroat | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/ringthroat.json |
+| `lyriboris` | Lyriboris | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/lyriboris.json |
+| `drakken-registry` | The full field register. | `section` | Drakken | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drakken-registry.json |
+| `mother` | Mother | `character-section` | Drakken | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json |
+| `drk-the-egg` | The Egg | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-the-egg.json |
+| `drk-magma-pleuron` | Magma Pleuron | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-magma-pleuron.json |
+| `drk-granithelion` | Granithelion | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-granithelion.json |
+| `drk-fault-tongue` | Fault-Tongue | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-fault-tongue.json |
+| `drk-obsidian-gul` | Obsidian Gul | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-obsidian-gul.json |
+| `drk-tremorhound` | Tremorhound | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-tremorhound.json |
+| `drk-glassspine` | Glassspine | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-glassspine.json |
+| `drk-quarrymind` | Quarrymind | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-quarrymind.json |
+| `drk-aerokarst` | Aerokarst | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-aerokarst.json |
+| `drk-cloudmaw` | Cloudmaw | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-cloudmaw.json |
+| `drk-atmantid` | Atmantid | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-atmantid.json |
+| `drk-weathernode` | Weathernode | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-weathernode.json |
+| `drk-vortenbray` | Vortenbray | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-vortenbray.json |
+| `drk-fumericus` | Fumericus | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-fumericus.json |
+| `drk-skymourn` | Skymourn | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-skymourn.json |
+| `drk-verdgorge` | Verdgorge | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-verdgorge.json |
+| `drk-pollenvault` | Pollenvault | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-pollenvault.json |
+| `drk-mycethron` | Mycethron | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-mycethron.json |
+| `drk-raintaster` | Raintaster | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-raintaster.json |
+| `drk-terragullet` | Terragullet | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-terragullet.json |
+| `drk-petalnest` | Petalnest | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-petalnest.json |
+| `drk-feralseed` | Feralseed | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-feralseed.json |
+| `drk-abyssoriel` | Abyssoriel | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-abyssoriel.json |
+| `drk-brinechoir` | Brinechoir | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-brinechoir.json |
+| `drk-currenthalo` | Currenthalo | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-currenthalo.json |
+| `drk-shelfcarver` | Shelfcarver | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-shelfcarver.json |
+| `drk-glacierthroat` | Glacierthroat | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-glacierthroat.json |
+| `drk-veilcurrent` | Veilcurrent | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-veilcurrent.json |
+| `drk-coronaxis` | Coronaxis | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-coronaxis.json |
+| `drk-solnexus` | Solnexus | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-solnexus.json |
+| `drk-nullthorn` | Nullthorn | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-nullthorn.json |
+| `drk-helionth` | Helionth | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-helionth.json |
+| `drk-umbrakrael` | Umbrakrael | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-umbrakrael.json |
+| `drk-cinderverge` | Cinderverge | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-cinderverge.json |
+| `drk-singularch` | Singularch | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-singularch.json |
+| `drk-ironcant` | Ironcant | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-ironcant.json |
+| `drk-gridsaint` | Gridsaint | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-gridsaint.json |
+| `drk-spiremolt` | Spiremolt | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-spiremolt.json |
+| `drk-roadthorn` | Roadthorn | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-roadthorn.json |
+| `drk-habitarch` | Habitarch | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-habitarch.json |
+| `drk-archivore` | Archivore | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-archivore.json |
+| `drk-harborhex` | Harborhex | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-harborhex.json |
+| `drk-lexiclast` | Lexiclast | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-lexiclast.json |
+| `drk-calendarion` | Calendarion | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-calendarion.json |
+| `drk-dreamtaxon` | Dreamtaxon | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-dreamtaxon.json |
+| `drk-crownmute` | Crownmute | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-crownmute.json |
+| `drk-hymnlock` | Hymnlock | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-hymnlock.json |
+| `drk-memorialvein` | Memorialvein | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-memorialvein.json |
+| `drk-shrinehunger` | Shrinehunger | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-shrinehunger.json |
+| `drk-redacted-grin` | Redacted Grin | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-redacted-grin.json |
+| `drk-spinal-loop` | Spinal Loop | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-spinal-loop.json |
+| `cradle-exe` | Cradle.exe | `character-section` | Drakken | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json |
+| `foldhowl` | Foldhowl | `character-section` | Drakken | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json |
+| `manifest-discord` | Manifest.discord | `character-section` | Drakken | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json |
+| `drk-gloryfail` | Gloryfail | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-gloryfail.json |
+| `drk-viral-bastion` | Viral Bastion | `character-section` | Drakken | 1 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-viral-bastion.json |
+| `blood-rings` | Blood Rings | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/blood-rings.json |
 | `starbinding` | The universe executes the partition. | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/starbinding.json |
 | `canon-ledger` | The universe keeps receipts. | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/canon-ledger.json |
 | `beyond-wall` | Beyond the Siege Wall | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/beyond-wall.json |
@@ -108,10 +112,6 @@ This is a deterministic discovery derivative. Result class is structural publica
 | `iven` | Iven | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/iven.json |
 | `khar-venn-child` | Unnamed Child | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/khar-venn-child.json |
 | `nyle-quarth` | Archivist Nyle Quarth | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nyle-quarth.json |
-| `mother` | Mother | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json |
-| `foldhowl` | Foldhowl | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json |
-| `manifest-discord` | Manifest.discord | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json |
-| `cradle-exe` | Cradle.exe | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json |
 | `shardlings` | The Shardlings | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/shardlings.json |
 | `allkept` | Allkept | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/allkept.json |
 | `little-king` | The Little King | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/little-king.json |

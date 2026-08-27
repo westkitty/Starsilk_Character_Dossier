@@ -14,19 +14,19 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [6] EXTERNAL RUNTIME DEPENDENCIES: 0
 
-[7] SECTION COUNTS: total=140, principal=6, peripheral=45, drakken=56
+[7] SECTION COUNTS: total=140, principal=6, peripheral=41, drakken=60
 
 [8] DISCLOSURE (<summary>) SEMANTICS: 0 error(s)
 
-[9] MEDIA COUNTS: image_refs=233, video_refs=7
+[9] MEDIA COUNTS: image_refs=288, video_refs=7
 
 [10-11] CANON INVARIANTS: 16 lock(s) checked, 0 violation(s)
 
 [12] JAVASCRIPT SYNTAX: 1 script block(s), 0 syntax error(s) (node unavailable, skipped)
 
 [13] SIZE REPORT
-    Generated docs/index.html: 557,144 bytes
-    Total docs/ directory: 78,903,607 bytes
+    Generated docs/index.html: 592,502 bytes
+    Total docs/ directory: 79,031,493 bytes
     Total published media: 73,201,453 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken

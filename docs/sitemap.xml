@@ -116,6 +116,10 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drakken-registry.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drakken-registry.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drakken-registry.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-the-egg.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-the-egg.md</loc></url>
@@ -320,6 +324,18 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spinal-loop.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-spinal-loop.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/drk-spinal-loop.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gloryfail.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drk-gloryfail.md</loc></url>
@@ -456,22 +472,6 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nyle-quarth.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nyle-quarth.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nyle-quarth.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.md</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.md</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.json</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.md</loc></url>
-  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/shardlings/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shardlings.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shardlings.md</loc></url>

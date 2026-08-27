@@ -5,15 +5,15 @@
       "links": [
         {
           "id": "cover",
-          "label": "00 \u2014 Dossier"
+          "label": "00 — Dossier"
         },
         {
           "id": "world",
-          "label": "01 \u2014 Project axis"
+          "label": "01 — Project axis"
         },
         {
           "id": "chronology",
-          "label": "02 \u2014 Canon chronology"
+          "label": "02 — Canon chronology"
         }
       ]
     },
@@ -22,56 +22,276 @@
       "links": [
         {
           "id": "shard-god",
-          "label": "03 \u2014 Shard-God"
+          "label": "03 — Shard-God"
         },
         {
           "id": "codec",
-          "label": "04 \u2014 Codec"
+          "label": "04 — Codec"
         },
         {
           "id": "dao",
-          "label": "05 \u2014 Dao"
+          "label": "05 — Dao"
         },
         {
           "id": "kail",
-          "label": "06 \u2014 Kail"
+          "label": "06 — Kail"
         },
         {
           "id": "marcel",
-          "label": "07 \u2014 Marcel"
+          "label": "07 — Marcel"
         },
         {
           "id": "jazen",
-          "label": "08 \u2014 Jazen"
+          "label": "08 — Jazen"
         }
       ]
     },
     {
-      "label": "Drakken & blood systems",
+      "label": "Drakken",
       "links": [
         {
-          "id": "starsilk-material",
-          "label": "09 \u2014 Starsilk material"
+          "id": "drakken-registry",
+          "label": "12A — Drakken archive"
         },
         {
           "id": "gorevault",
-          "label": "10 \u2014 Gorevault"
+          "label": "10 — Gorevault"
         },
         {
           "id": "ringthroat",
-          "label": "11 \u2014 Ringthroat"
+          "label": "11 — Ringthroat"
         },
         {
           "id": "lyriboris",
-          "label": "12 \u2014 Lyriboris"
+          "label": "12 — Lyriboris"
         },
         {
-          "id": "drakken-registry",
-          "label": "12A \u2014 Drakken archive"
+          "id": "mother",
+          "label": "P27 — Mother"
         },
         {
-          "id": "blood-rings",
-          "label": "13 \u2014 Blood Rings"
+          "id": "drk-the-egg",
+          "label": "D01 — The Egg"
+        },
+        {
+          "id": "drk-magma-pleuron",
+          "label": "D02 — Magma Pleuron"
+        },
+        {
+          "id": "drk-granithelion",
+          "label": "D03 — Granithelion"
+        },
+        {
+          "id": "drk-fault-tongue",
+          "label": "D04 — Fault-Tongue"
+        },
+        {
+          "id": "drk-obsidian-gul",
+          "label": "D05 — Obsidian Gul"
+        },
+        {
+          "id": "drk-tremorhound",
+          "label": "D06 — Tremorhound"
+        },
+        {
+          "id": "drk-glassspine",
+          "label": "D07 — Glassspine"
+        },
+        {
+          "id": "drk-quarrymind",
+          "label": "D08 — Quarrymind"
+        },
+        {
+          "id": "drk-aerokarst",
+          "label": "D09 — Aerokarst"
+        },
+        {
+          "id": "drk-cloudmaw",
+          "label": "D10 — Cloudmaw"
+        },
+        {
+          "id": "drk-atmantid",
+          "label": "D11 — Atmantid"
+        },
+        {
+          "id": "drk-weathernode",
+          "label": "D12 — Weathernode"
+        },
+        {
+          "id": "drk-vortenbray",
+          "label": "D13 — Vortenbray"
+        },
+        {
+          "id": "drk-fumericus",
+          "label": "D14 — Fumericus"
+        },
+        {
+          "id": "drk-skymourn",
+          "label": "D15 — Skymourn"
+        },
+        {
+          "id": "drk-verdgorge",
+          "label": "D16 — Verdgorge"
+        },
+        {
+          "id": "drk-pollenvault",
+          "label": "D17 — Pollenvault"
+        },
+        {
+          "id": "drk-mycethron",
+          "label": "D18 — Mycethron"
+        },
+        {
+          "id": "drk-raintaster",
+          "label": "D19 — Raintaster"
+        },
+        {
+          "id": "drk-terragullet",
+          "label": "D20 — Terragullet"
+        },
+        {
+          "id": "drk-petalnest",
+          "label": "D21 — Petalnest"
+        },
+        {
+          "id": "drk-feralseed",
+          "label": "D22 — Feralseed"
+        },
+        {
+          "id": "drk-abyssoriel",
+          "label": "D23 — Abyssoriel"
+        },
+        {
+          "id": "drk-brinechoir",
+          "label": "D24 — Brinechoir"
+        },
+        {
+          "id": "drk-currenthalo",
+          "label": "D25 — Currenthalo"
+        },
+        {
+          "id": "drk-shelfcarver",
+          "label": "D26 — Shelfcarver"
+        },
+        {
+          "id": "drk-glacierthroat",
+          "label": "D27 — Glacierthroat"
+        },
+        {
+          "id": "drk-veilcurrent",
+          "label": "D28 — Veilcurrent"
+        },
+        {
+          "id": "drk-coronaxis",
+          "label": "D29 — Coronaxis"
+        },
+        {
+          "id": "drk-solnexus",
+          "label": "D30 — Solnexus"
+        },
+        {
+          "id": "drk-nullthorn",
+          "label": "D31 — Nullthorn"
+        },
+        {
+          "id": "drk-helionth",
+          "label": "D32 — Helionth"
+        },
+        {
+          "id": "drk-umbrakrael",
+          "label": "D33 — Umbrakrael"
+        },
+        {
+          "id": "drk-cinderverge",
+          "label": "D34 — Cinderverge"
+        },
+        {
+          "id": "drk-singularch",
+          "label": "D35 — Singularch"
+        },
+        {
+          "id": "drk-ironcant",
+          "label": "D36 — Ironcant"
+        },
+        {
+          "id": "drk-gridsaint",
+          "label": "D37 — Gridsaint"
+        },
+        {
+          "id": "drk-spiremolt",
+          "label": "D38 — Spiremolt"
+        },
+        {
+          "id": "drk-roadthorn",
+          "label": "D39 — Roadthorn"
+        },
+        {
+          "id": "drk-habitarch",
+          "label": "D40 — Habitarch"
+        },
+        {
+          "id": "drk-archivore",
+          "label": "D41 — Archivore"
+        },
+        {
+          "id": "drk-harborhex",
+          "label": "D42 — Harborhex"
+        },
+        {
+          "id": "drk-lexiclast",
+          "label": "D43 — Lexiclast"
+        },
+        {
+          "id": "drk-calendarion",
+          "label": "D44 — Calendarion"
+        },
+        {
+          "id": "drk-dreamtaxon",
+          "label": "D45 — Dreamtaxon"
+        },
+        {
+          "id": "drk-crownmute",
+          "label": "D46 — Crownmute"
+        },
+        {
+          "id": "drk-hymnlock",
+          "label": "D47 — Hymnlock"
+        },
+        {
+          "id": "drk-memorialvein",
+          "label": "D48 — Memorialvein"
+        },
+        {
+          "id": "drk-shrinehunger",
+          "label": "D49 — Shrinehunger"
+        },
+        {
+          "id": "drk-redacted-grin",
+          "label": "D50 — Redacted Grin"
+        },
+        {
+          "id": "drk-spinal-loop",
+          "label": "D51 — Spinal Loop"
+        },
+        {
+          "id": "cradle-exe",
+          "label": "P30 — Cradle.exe"
+        },
+        {
+          "id": "foldhowl",
+          "label": "P28 — Foldhowl"
+        },
+        {
+          "id": "manifest-discord",
+          "label": "P29 — Manifest.discord"
+        },
+        {
+          "id": "drk-gloryfail",
+          "label": "D52 — Gloryfail"
+        },
+        {
+          "id": "drk-viral-bastion",
+          "label": "D53 — Viral Bastion"
         }
       ]
     },
@@ -79,20 +299,28 @@
       "label": "Canon & cosmology",
       "links": [
         {
+          "id": "starsilk-material",
+          "label": "09 — Starsilk material"
+        },
+        {
+          "id": "blood-rings",
+          "label": "13 — Blood Rings"
+        },
+        {
           "id": "starbinding",
-          "label": "14 \u2014 Starbinding"
+          "label": "14 — Starbinding"
         },
         {
           "id": "canon-ledger",
-          "label": "15 \u2014 Canon ledger"
+          "label": "15 — Canon ledger"
         },
         {
           "id": "beyond-wall",
-          "label": "15A \u2014 Beyond the Siege Wall"
+          "label": "15A — Beyond the Siege Wall"
         },
         {
           "id": "systems",
-          "label": "16 \u2014 Systems & figures"
+          "label": "16 — Systems & figures"
         }
       ]
     },
@@ -101,11 +329,11 @@
       "links": [
         {
           "id": "archive",
-          "label": "17 \u2014 Image archive"
+          "label": "17 — Image archive"
         },
         {
           "id": "source",
-          "label": "18 \u2014 Codec source text"
+          "label": "18 — Codec source text"
         }
       ]
     },
@@ -114,35 +342,35 @@
       "links": [
         {
           "id": "peripheral-index",
-          "label": "19 \u2014 Peripheral registry"
+          "label": "19 — Peripheral registry"
         },
         {
           "id": "cosmic-architecture",
-          "label": "20 \u2014 Cosmic architecture"
+          "label": "20 — Cosmic architecture"
         },
         {
           "id": "worldsvault-templates",
-          "label": "21 \u2014 WorldsVault templates"
+          "label": "21 — WorldsVault templates"
         },
         {
           "id": "ontology-horror",
-          "label": "22 \u2014 Ontology & horror"
+          "label": "22 — Ontology & horror"
         },
         {
           "id": "artifacts-factions",
-          "label": "23 \u2014 Artifacts & factions"
+          "label": "23 — Artifacts & factions"
         },
         {
           "id": "trio-gallery",
-          "label": "24 \u2014 Hero archive"
+          "label": "24 — Hero archive"
         },
         {
           "id": "history-media",
-          "label": "25 \u2014 History media"
+          "label": "25 — History media"
         },
         {
           "id": "media-vault",
-          "label": "26 \u2014 Media vault"
+          "label": "26 — Media vault"
         }
       ]
     }

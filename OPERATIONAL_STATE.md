@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 24
+revision: 25
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -728,6 +728,18 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Exported HTML still embeds locally attached images as data URIs for handoff evidence while stripping the maintenance copy-prompt controls.
 - `./tools/build.sh`, `./tools/build.sh --check`, `git diff --check`, focused clipboard/export tests, the full Chromium suite, and representative Firefox/WebKit journeys passed before commit.
 
+## Drakken information architecture regrouping — BUILD-VERIFIED
+
+- `src/content/nav.json` has exactly six top-level navigation groups and one dedicated `Drakken` group.
+- That group contains `drakken-registry` plus every authored top-level record classified `drakken-page`, exactly once and in source order.
+- Mother is classified as Drakken genesis; Cradle.exe, Foldhowl, and Manifest.Discord are classified as glitch-touched Drakken. They are no longer members of the peripheral registry.
+- The Drakken records are contiguous in `src/content/sections.json`; stable section IDs and legacy folio literals are preserved.
+- The strict structural taxonomy counts are now `peripheral=41` and `drakken=60`, matching the corrected record classifications; the count gate remains enforced.
+- `starsilk-material` and `blood-rings` remain non-Drakken records and now live in the existing `Canon & cosmology` navigation group.
+- The stable tour ID `drakken-blood-systems` is preserved but now binds to the renamed `Drakken` navigation group; the six-tour architecture remains intact.
+- `tests/test_drakken_navigation.py` prevents incomplete Drakken grouping, accidental peripheral reclassification, count-lock drift, seventh-group drift, and tour-binding drift.
+- The deterministic publication is rebuilt and checked in GitHub Actions run `33052821820` before the repair commit. Full Chromium/Firefox/WebKit PR CI remains the merge gate.
+
 ## Known limitations
 
 - The durable cold-start gate proves that required recovery evidence remains present and source-linked in the repository; it does not claim that every external AI model will reason correctly from that evidence or that external services are reachable without fresh probes.
@@ -775,3 +787,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 22: reconciled the ledger to current `main` through `c91bfa0231982314edfb241ca10c38b94807ed51`, recording source-of-truth graph PR #52 and build-provenance PR #53 plus successful main/provenance evidence; added the bounded read-only Operational State freshness contract, policy, checker, CI gate, regression coverage, and derivation-graph integration on `uplift/operational-state-sentinel`. Merge and post-merge main proof remain pending.
 - Revision 23: closed the Operational State freshness sentinel after PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` proved exact-base freshness closure from `c91bfa0231982314edfb241ca10c38b94807ed51`, deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys; Build Provenance run `33045915082` succeeded for the merge. No media, dependency, generated-publication, or public-UI source changed, so Pages/live-edge proof was not required.
 - Revision 24: added the zero-memory cold-start recovery entrypoint, ten-category machine evidence contract, README discovery path, and dependency-free regression gate so a successor can reconstruct the project from repository evidence without chat memory; recorded the external-model reasoning limit without creating a second state/canon/publication authority.
+- Revision 25: regrouped all authored Drakken records under one dedicated navigation section, corrected four Drakken records previously typed/indexed as peripheral, aligned strict structural taxonomy counts to 41 peripheral / 60 Drakken, preserved the six-group/six-tour architecture and stable tour ID, added regression coverage, and rebuilt deterministic publication in GitHub Actions run 33052821820.

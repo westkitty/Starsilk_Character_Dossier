@@ -19,11 +19,11 @@
         "value": "fluxborne"
       },
       {
-        "count": 1,
+        "count": 2,
         "value": "genesis"
       },
       {
-        "count": 4,
+        "count": 7,
         "value": "glitch-touched"
       },
       {
@@ -59,11 +59,11 @@
         "value": "Principal characters"
       },
       {
-        "count": 6,
-        "value": "Drakken & blood systems"
+        "count": 61,
+        "value": "Drakken"
       },
       {
-        "count": 4,
+        "count": 6,
         "value": "Canon & cosmology"
       },
       {
@@ -75,7 +75,7 @@
         "value": "Peripheral & cosmic"
       },
       {
-        "count": 98,
+        "count": 41,
         "label": "Not in authored navigation",
         "value": "__unlisted__"
       }
@@ -251,7 +251,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#starsilk-material",
       "media_count": 5,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Canon & cosmology",
       "result_class": "material-section",
       "stable_id": "starsilk-material"
     },
@@ -265,7 +265,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#gorevault",
       "media_count": 1,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "gorevault"
     },
@@ -279,7 +279,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#ringthroat",
       "media_count": 1,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "ringthroat"
     },
@@ -293,7 +293,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#lyriboris",
       "media_count": 1,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "lyriboris"
     },
@@ -307,9 +307,23 @@
       "has_media": false,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drakken-registry",
       "media_count": 0,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Drakken",
       "result_class": "section",
       "stable_id": "drakken-registry"
+    },
+    {
+      "archetype": "genesis",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
+      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json",
+      "display_label": "Mother",
+      "excerpt": "Canonical record Fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula. Emerges from the unchecked/orphaned Notebook Program after Wordstreamer ’s murder removes a major semantic safeguard. Drakken Eggs and strains are produced under Mother’s continuance logic; older Drakken can program eggs…",
+      "excerpt_source_ref": "src/content/sections/mother.body.html",
+      "has_media": false,
+      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#mother",
+      "media_count": 0,
+      "navigation_group": "Drakken",
+      "result_class": "character-section",
+      "stable_id": "mother"
     },
     {
       "archetype": "genesis",
@@ -321,7 +335,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-the-egg",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-the-egg"
     },
@@ -335,7 +349,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-magma-pleuron",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-magma-pleuron"
     },
@@ -349,7 +363,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-granithelion",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-granithelion"
     },
@@ -363,7 +377,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-fault-tongue"
     },
@@ -377,7 +391,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-obsidian-gul",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-obsidian-gul"
     },
@@ -391,7 +405,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-tremorhound",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-tremorhound"
     },
@@ -405,7 +419,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glassspine",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-glassspine"
     },
@@ -419,7 +433,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-quarrymind",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-quarrymind"
     },
@@ -433,7 +447,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-aerokarst",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-aerokarst"
     },
@@ -447,7 +461,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cloudmaw",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-cloudmaw"
     },
@@ -461,7 +475,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-atmantid",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-atmantid"
     },
@@ -475,7 +489,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-weathernode",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-weathernode"
     },
@@ -489,7 +503,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-vortenbray",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-vortenbray"
     },
@@ -503,7 +517,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fumericus",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-fumericus"
     },
@@ -517,7 +531,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-skymourn",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-skymourn"
     },
@@ -531,7 +545,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-verdgorge",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-verdgorge"
     },
@@ -545,7 +559,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-pollenvault",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-pollenvault"
     },
@@ -559,7 +573,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-mycethron",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-mycethron"
     },
@@ -573,7 +587,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-raintaster",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-raintaster"
     },
@@ -587,7 +601,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-terragullet",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-terragullet"
     },
@@ -601,7 +615,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-petalnest",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-petalnest"
     },
@@ -615,7 +629,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-feralseed",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-feralseed"
     },
@@ -629,7 +643,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-abyssoriel",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-abyssoriel"
     },
@@ -643,7 +657,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-brinechoir",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-brinechoir"
     },
@@ -657,7 +671,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-currenthalo",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-currenthalo"
     },
@@ -671,7 +685,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shelfcarver",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-shelfcarver"
     },
@@ -685,7 +699,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-glacierthroat",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-glacierthroat"
     },
@@ -699,7 +713,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-veilcurrent",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-veilcurrent"
     },
@@ -713,7 +727,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-coronaxis",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-coronaxis"
     },
@@ -727,7 +741,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-solnexus",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-solnexus"
     },
@@ -741,7 +755,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-nullthorn",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-nullthorn"
     },
@@ -755,7 +769,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-helionth",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-helionth"
     },
@@ -769,7 +783,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-umbrakrael",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-umbrakrael"
     },
@@ -783,7 +797,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cinderverge",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-cinderverge"
     },
@@ -797,7 +811,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-singularch",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-singularch"
     },
@@ -811,7 +825,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-ironcant",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-ironcant"
     },
@@ -825,7 +839,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gridsaint",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-gridsaint"
     },
@@ -839,7 +853,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spiremolt",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-spiremolt"
     },
@@ -853,7 +867,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-roadthorn",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-roadthorn"
     },
@@ -867,7 +881,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-habitarch",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-habitarch"
     },
@@ -881,7 +895,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-archivore",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-archivore"
     },
@@ -895,7 +909,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-harborhex",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-harborhex"
     },
@@ -909,7 +923,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-lexiclast",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-lexiclast"
     },
@@ -923,7 +937,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-calendarion",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-calendarion"
     },
@@ -937,7 +951,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-dreamtaxon",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-dreamtaxon"
     },
@@ -951,7 +965,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-crownmute",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-crownmute"
     },
@@ -965,7 +979,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-hymnlock",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-hymnlock"
     },
@@ -979,7 +993,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-memorialvein",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-memorialvein"
     },
@@ -993,7 +1007,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-shrinehunger",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-shrinehunger"
     },
@@ -1007,7 +1021,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-redacted-grin",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-redacted-grin"
     },
@@ -1021,9 +1035,51 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-spinal-loop",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-spinal-loop"
+    },
+    {
+      "archetype": "glitch-touched",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
+      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json",
+      "display_label": "Cradle.exe",
+      "excerpt": "Canonical record Massive data-geode egg split permanently open. Radiates neon-blue lullaby code. Its permanently opened state makes it both a failed/ongoing hatch architecture and a persistent emission source. Visual reference Cradle.exe — archival plate Verified archival plate imported from the Drakken art archive.…",
+      "excerpt_source_ref": "src/content/sections/cradle-exe.body.html",
+      "has_media": false,
+      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe",
+      "media_count": 0,
+      "navigation_group": "Drakken",
+      "result_class": "character-section",
+      "stable_id": "cradle-exe"
+    },
+    {
+      "archetype": "glitch-touched",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
+      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json",
+      "display_label": "Foldhowl",
+      "excerpt": "Canonical record Its body never finishes loading. Bends local space into failed geometry. Created the permanent “Hole in the Map” at Jaakar Keep, turning a military war room into an enduring spatial error. Visual reference Foldhowl — archival plate Verified archival plate imported from the Drakken art archive. Registry…",
+      "excerpt_source_ref": "src/content/sections/foldhowl.body.html",
+      "has_media": false,
+      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl",
+      "media_count": 0,
+      "navigation_group": "Drakken",
+      "result_class": "character-section",
+      "stable_id": "foldhowl"
+    },
+    {
+      "archetype": "glitch-touched",
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
+      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json",
+      "display_label": "Manifest.discord",
+      "excerpt": "Canonical record A hypercritical meme swarm centered on a floating hollow porcelain mask. Exists as distributed critical pressure rather than a conventional single-bodied combatant. Its presentation should preserve the mask-centered swarm identity rather than reduce it to an ordinary humanoid antagonist. Visual…",
+      "excerpt_source_ref": "src/content/sections/manifest-discord.body.html",
+      "has_media": false,
+      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord",
+      "media_count": 0,
+      "navigation_group": "Drakken",
+      "result_class": "character-section",
+      "stable_id": "manifest-discord"
     },
     {
       "archetype": "glitch-touched",
@@ -1035,7 +1091,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-gloryfail",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-gloryfail"
     },
@@ -1049,7 +1105,7 @@
       "has_media": true,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-viral-bastion",
       "media_count": 1,
-      "navigation_group": null,
+      "navigation_group": "Drakken",
       "result_class": "character-section",
       "stable_id": "drk-viral-bastion"
     },
@@ -1063,7 +1119,7 @@
       "has_media": false,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#blood-rings",
       "media_count": 0,
-      "navigation_group": "Drakken & blood systems",
+      "navigation_group": "Canon & cosmology",
       "result_class": "section",
       "stable_id": "blood-rings"
     },
@@ -1500,62 +1556,6 @@
       "navigation_group": null,
       "result_class": "character-section",
       "stable_id": "nyle-quarth"
-    },
-    {
-      "archetype": null,
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
-      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/mother.json",
-      "display_label": "Mother",
-      "excerpt": "Canonical record Fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula. Emerges from the unchecked/orphaned Notebook Program after Wordstreamer ’s murder removes a major semantic safeguard. Drakken Eggs and strains are produced under Mother’s continuance logic; older Drakken can program eggs…",
-      "excerpt_source_ref": "src/content/sections/mother.body.html",
-      "has_media": false,
-      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#mother",
-      "media_count": 0,
-      "navigation_group": null,
-      "result_class": "character-section",
-      "stable_id": "mother"
-    },
-    {
-      "archetype": null,
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/",
-      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/foldhowl.json",
-      "display_label": "Foldhowl",
-      "excerpt": "Canonical record Its body never finishes loading. Bends local space into failed geometry. Created the permanent “Hole in the Map” at Jaakar Keep, turning a military war room into an enduring spatial error. Visual reference Foldhowl — archival plate Verified archival plate imported from the Drakken art archive. Registry…",
-      "excerpt_source_ref": "src/content/sections/foldhowl.body.html",
-      "has_media": false,
-      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl",
-      "media_count": 0,
-      "navigation_group": null,
-      "result_class": "character-section",
-      "stable_id": "foldhowl"
-    },
-    {
-      "archetype": null,
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/",
-      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/manifest-discord.json",
-      "display_label": "Manifest.discord",
-      "excerpt": "Canonical record A hypercritical meme swarm centered on a floating hollow porcelain mask. Exists as distributed critical pressure rather than a conventional single-bodied combatant. Its presentation should preserve the mask-centered swarm identity rather than reduce it to an ordinary humanoid antagonist. Visual…",
-      "excerpt_source_ref": "src/content/sections/manifest-discord.body.html",
-      "has_media": false,
-      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord",
-      "media_count": 0,
-      "navigation_group": null,
-      "result_class": "character-section",
-      "stable_id": "manifest-discord"
-    },
-    {
-      "archetype": null,
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/",
-      "context_packet_url": "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/cradle-exe.json",
-      "display_label": "Cradle.exe",
-      "excerpt": "Canonical record Massive data-geode egg split permanently open. Radiates neon-blue lullaby code. Its permanently opened state makes it both a failed/ongoing hatch architecture and a persistent emission source. Visual reference Cradle.exe — archival plate Verified archival plate imported from the Drakken art archive.…",
-      "excerpt_source_ref": "src/content/sections/cradle-exe.body.html",
-      "has_media": false,
-      "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe",
-      "media_count": 0,
-      "navigation_group": null,
-      "result_class": "character-section",
-      "stable_id": "cradle-exe"
     },
     {
       "archetype": null,

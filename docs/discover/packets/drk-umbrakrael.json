@@ -7,7 +7,7 @@
   "excerpt": "Operational role Phantom occluder; subtracts visibility and hides fleets or systems. Archetype function Stellar, gravitational, orbital and void-scale operations. Archival visual references Umbrakrael — archival plate Verified archival plate imported from the Drakken art archive. Umbrakrael — secondary reference…",
   "excerpt_source_ref": "src/content/sections/drk-umbrakrael.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-umbrakrael",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -45,8 +45,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

@@ -7,7 +7,7 @@
   "excerpt": "Operational role Hydrostatic renderer; reroutes storms, raises oceans, and drowns shelters and archives. Archetype function Planetary breath: atmosphere, pressure, weather, sound, toxins, temperature and climate systems. Named historical record The Drowning of Zuul Kai — the ocean was raised over sealed archive domes…",
   "excerpt_source_ref": "src/content/sections/drk-cloudmaw.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-cloudmaw",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -46,8 +46,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }
