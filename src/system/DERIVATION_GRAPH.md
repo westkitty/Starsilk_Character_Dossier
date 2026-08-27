@@ -17,7 +17,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
 | `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**` | subsystems |
-| `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json` | topology |
+| `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
 | `root_gen` | authoritative | generator | `build/generate.py` | root_gen |
@@ -50,6 +50,9 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `offline_out` | generated | output | `docs/manifest.webmanifest`<br>`docs/service-worker.js`<br>`docs/offline-client.js`<br>`docs/offline.html`<br>`docs/offline.css`<br>`docs/offline-icon.svg` | offline_out |
 | `agents_out` | generated | output | `docs/agents/**` | agents_out |
 | `graph_out` | generated | output | `src/system/DERIVATION_GRAPH.md` | graph_out |
+| `operational_state` | authoritative | source | `OPERATIONAL_STATE.md` | operational_state |
+| `ci` | authoritative | orchestrator | `.github/workflows/ci.yml` | ci |
+| `state_freshness` | authoritative | validator | `tools/check_operational_state_freshness.py` | state_freshness |
 
 ## Mermaid
 
@@ -94,6 +97,9 @@ flowchart LR
     offline_out["offline_out\ngenerated / output"]
     agents_out["agents_out\ngenerated / output"]
     graph_out["graph_out\ngenerated / output"]
+    operational_state["operational_state\nauthoritative / source"]
+    ci["ci\nauthoritative / orchestrator"]
+    state_freshness["state_freshness\nauthoritative / validator"]
     foundation -->|governs| topology
     media_originals -->|input_to| media_gen
     media_gen -->|generates| media_out
@@ -183,6 +189,9 @@ flowchart LR
     museum_out -->|validates| boundary
     offline_out -->|validates| boundary
     agents_out -->|validates| boundary
+    operational_state -->|input_to| state_freshness
+    topology -->|input_to| state_freshness
+    ci -->|invokes| state_freshness
 ```
 
 ## Stale-risk summary

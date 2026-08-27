@@ -31,7 +31,8 @@ Version 1 maps:
 - every Python generator entrypoint invoked by `tools/build.sh`;
 - major generated publication roots;
 - the strict validator and public-boundary validator;
-- the source-of-truth graph validator itself.
+- the source-of-truth graph validator itself;
+- the CI-enforced Operational State freshness policy and read-only validator.
 
 It does not enumerate every individual dossier fragment, template, media binary, helper function, test, or transitive Python import as a separate node. Those are represented through bounded source groups unless later work demonstrates that finer-grained topology is necessary.
 
