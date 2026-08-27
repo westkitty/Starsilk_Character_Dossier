@@ -8,6 +8,10 @@ public-facing site and documents refer to it as the Compendium.)
 Public site: **https://westkitty.github.io/Starsilk_Character_Dossier/**
 Served via GitHub Pages from `main` / `/docs`.
 
+## Cold start / successor handoff
+
+If you are resuming this repository **without prior chat, session, or operator context**, start with [src/system/COLD_START_RECOVERY.md](src/system/COLD_START_RECOVERY.md). It defines the repository-only recovery order and the facts that must be recoverable before mutation. Do not promote generated `docs/` derivatives into authority or fill unknowns from memory.
+
 See [RIGHTS.md](RIGHTS.md) for reuse terms — there isn't an open license.
 
 ## Architecture
