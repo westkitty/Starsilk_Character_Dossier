@@ -1,0 +1,65 @@
+name: Build Provenance
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+      - Publish Compendium to GitHub Pages
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  attest:
+    name: Attest successful main build lineage
+    if: >-
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+          github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact successful source-run commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 1
+
+      - name: Create and independently verify provenance
+        env:
+          SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+          SOURCE_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          case "${SOURCE_WORKFLOW}" in
+            CI) source_kind="ci" ;;
+            "Publish Compendium to GitHub Pages") source_kind="pages" ;;
+            *)
+              echo "::error::Unexpected source workflow: ${SOURCE_WORKFLOW}"
+              exit 1
+              ;;
+          esac
+          out="/tmp/starsilk-${source_kind}-provenance.json"
+          python3 tools/build_provenance.py \
+            --output "${out}" \
+            --validation source-workflow=pass \
+            --validation public-boundary=pass \
+            --claim "source_workflow=${SOURCE_WORKFLOW}" \
+            --claim "source_run_id=${SOURCE_RUN_ID}" \
+            --claim "source_run_attempt=${SOURCE_RUN_ATTEMPT}" \
+            --claim "source_head_sha=${SOURCE_HEAD_SHA}"
+          python3 tools/build_provenance.py --verify "${out}"
+          python3 tools/check_public_boundary.py "${out}" "${out}.sha256"
+          echo "artifact_path=${out}" >> "${GITHUB_ENV}"
+          echo "artifact_kind=${source_kind}" >> "${GITHUB_ENV}"
+
+      - name: Upload provenance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: starsilk-${{ env.artifact_kind }}-provenance-${{ github.event.workflow_run.head_sha }}
+          path: |
+            ${{ env.artifact_path }}
+            ${{ env.artifact_path }}.sha256
+          if-no-files-found: error
+          retention-days: 90
