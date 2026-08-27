@@ -1,0 +1,15 @@
+{
+  "schema": "starsilk-provenance-policy/1",
+  "project_id": "starsilk-character-dossier",
+  "authority_note": "Build lineage only; never canon authority or backup proof.",
+  "excluded_nodes": {
+    "media_originals": "Canonical originals are intentionally outside Git and are proven by the separate restore-tested recovery process, not by a CI build attestation."
+  },
+  "digest_overrides": {
+    "media_out": {
+      "mode": "manifest-records",
+      "manifest": "docs/asset-manifest.json",
+      "path_prefix": "docs/assets/media"
+    }
+  }
+}
