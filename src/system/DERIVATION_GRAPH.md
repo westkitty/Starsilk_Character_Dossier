@@ -17,7 +17,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
 | `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**` | subsystems |
-| `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md` | topology |
+| `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md`<br>`src/system/operational-state-invariants.json` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
 | `root_gen` | authoritative | generator | `build/generate.py` | root_gen |
