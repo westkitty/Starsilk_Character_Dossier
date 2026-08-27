@@ -1,0 +1,168 @@
+name: One-shot Drakken grouping builder
+
+on:
+  push:
+    branches:
+      - fix/drakken-section
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/drakken-section
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply complete Drakken information-architecture repair
+        env:
+          REPAIR_RUN_ID: ${{ github.run_id }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          root = Path('.')
+          sections_path = root / 'src/content/sections.json'
+          nav_path = root / 'src/content/nav.json'
+          tours_path = root / 'src/tours/tours.json'
+          peripheral_path = root / 'src/content/sections/peripheral-index.body.html'
+          state_path = root / 'OPERATIONAL_STATE.md'
+
+          data = json.loads(sections_path.read_text(encoding='utf-8'))
+          records = data['sections']
+          by_id = {record['id']: record for record in records}
+
+          special_archetypes = {
+              'mother': 'genesis',
+              'cradle-exe': 'glitch-touched',
+              'foldhowl': 'glitch-touched',
+              'manifest-discord': 'glitch-touched',
+          }
+          for sid, archetype in special_archetypes.items():
+              record = by_id[sid]
+              classes = record['classes'].split()
+              classes = [value for value in classes if value != 'peripheral-page']
+              if 'drakken-page' not in classes:
+                  classes.append('drakken-page')
+              record['classes'] = ' '.join(classes)
+              record.setdefault('attrs', {})['data-archetype'] = archetype
+
+          # Move the four formerly peripheral Drakken into the contiguous Drakken block.
+          specials = {sid: by_id[sid] for sid in special_archetypes}
+          records = [record for record in records if record['id'] not in specials]
+
+          def insert_after(items, target_id, new_items):
+              index = next(i for i, item in enumerate(items) if item['id'] == target_id)
+              items[index + 1:index + 1] = new_items
+
+          insert_after(records, 'drakken-registry', [specials['mother']])
+          insert_after(records, 'drk-spinal-loop', [specials['cradle-exe'], specials['foldhowl'], specials['manifest-discord']])
+          data['sections'] = records
+          sections_path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          def title_for(section_id):
+              title_file = root / 'src/content/sections' / f'{section_id}.title.html'
+              text = title_file.read_text(encoding='utf-8')
+              match = re.search(r'<h2>(.*?)</h2>', text, flags=re.I | re.S)
+              if not match:
+                  raise SystemExit(f'Missing h2 title for {section_id}')
+              return re.sub(r'<[^>]+>', '', match.group(1)).strip()
+
+          # Re-read in final order so the nav and page order agree.
+          records = json.loads(sections_path.read_text(encoding='utf-8'))['sections']
+          drakken_records = [record for record in records if 'drakken-page' in record['classes'].split()]
+          drakken_links = [{'id': 'drakken-registry', 'label': '12A — Drakken archive'}]
+          for record in drakken_records:
+              folio = record.get('attrs', {}).get('data-folio', '')
+              label = title_for(record['id'])
+              drakken_links.append({'id': record['id'], 'label': f'{folio} — {label}' if folio else label})
+
+          nav = json.loads(nav_path.read_text(encoding='utf-8'))
+          groups = nav['groups']
+          old = next(group for group in groups if group['label'] in {'Drakken', 'Drakken & blood systems'})
+          old['label'] = 'Drakken'
+          old['links'] = drakken_links
+
+          # Preserve the verified six-group museum/tour architecture: material/system pages
+          # are not Drakken records, so move them into the existing canon/cosmology group.
+          groups[:] = [group for group in groups if group['label'] != 'Materials & blood systems']
+          canon_group = next(group for group in groups if group['label'] == 'Canon & cosmology')
+          existing_canon_ids = {link['id'] for link in canon_group['links']}
+          prefix = []
+          if 'starsilk-material' not in existing_canon_ids:
+              prefix.append({'id': 'starsilk-material', 'label': '09 — Starsilk material'})
+          if 'blood-rings' not in existing_canon_ids:
+              prefix.append({'id': 'blood-rings', 'label': '13 — Blood Rings'})
+          canon_group['links'] = prefix + canon_group['links']
+          nav_path.write_text(json.dumps(nav, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          tours = json.loads(tours_path.read_text(encoding='utf-8'))
+          for tour in tours['tours']:
+              if tour['tour_id'] == 'drakken-blood-systems':
+                  tour['navigation_group'] = 'Drakken'
+          tours_path.write_text(json.dumps(tours, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+
+          peripheral = peripheral_path.read_text(encoding='utf-8')
+          for sid in special_archetypes:
+              if f'href="#{sid}"' in peripheral:
+                  raise SystemExit(f'{sid} still appears in peripheral registry')
+
+          # Durable regression fixture for the exact correction requested.
+          test_path = root / 'tests/test_drakken_navigation.py'
+          test_path.write_text('''import json\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parent.parent\n\ndef load(path):\n    return json.loads((ROOT / path).read_text(encoding="utf-8"))\n\ndef test_all_drakken_are_in_one_dedicated_navigation_group():\n    sections = load("src/content/sections.json")["sections"]\n    nav = load("src/content/nav.json")\n    tours = load("src/tours/tours.json")\n    groups = nav["groups"]\n    assert len(groups) == 6\n    assert [g["label"] for g in groups].count("Drakken") == 1\n    drakken = next(g for g in groups if g["label"] == "Drakken")\n    assert drakken["links"][0]["id"] == "drakken-registry"\n    expected = [r["id"] for r in sections if "drakken-page" in r["classes"].split()]\n    actual = [link["id"] for link in drakken["links"][1:]]\n    assert actual == expected\n    assert len(actual) == len(set(actual))\n    assert "starsilk-material" not in actual\n    assert "blood-rings" not in actual\n    canon = next(g for g in groups if g["label"] == "Canon & cosmology")\n    canon_ids = [link["id"] for link in canon["links"]]\n    assert "starsilk-material" in canon_ids\n    assert "blood-rings" in canon_ids\n    tour = next(t for t in tours["tours"] if t["tour_id"] == "drakken-blood-systems")\n    assert tour["navigation_group"] == "Drakken"\n\ndef test_formerly_peripheral_drakken_are_typed_and_positioned_as_drakken():\n    sections = load("src/content/sections.json")["sections"]\n    by_id = {r["id"]: r for r in sections}\n    expected_archetypes = {\n        "mother": "genesis",\n        "cradle-exe": "glitch-touched",\n        "foldhowl": "glitch-touched",\n        "manifest-discord": "glitch-touched",\n    }\n    for sid, archetype in expected_archetypes.items():\n        classes = by_id[sid]["classes"].split()\n        assert "drakken-page" in classes\n        assert "peripheral-page" not in classes\n        assert by_id[sid]["attrs"]["data-archetype"] == archetype\n    drakken_positions = [i for i, r in enumerate(sections) if r["id"] == "drakken-registry" or "drakken-page" in r["classes"].split()]\n    assert max(drakken_positions) - min(drakken_positions) + 1 == len(drakken_positions)\n    peripheral = (ROOT / "src/content/sections/peripheral-index.body.html").read_text(encoding="utf-8")\n    for sid in expected_archetypes:\n        assert f'href="#{sid}"' not in peripheral\n''', encoding='utf-8')
+
+          # Operational State: record a truthful build-level verification state.
+          state = state_path.read_text(encoding='utf-8')
+          if not state.startswith('# OPERATIONAL_STATE'):
+              raise SystemExit('Unexpected Operational State format')
+          state = re.sub(r'(?m)^revision:\s*24\s*$', 'revision: 25', state, count=1)
+          section = '''\n## Drakken information architecture regrouping — BUILD-VERIFIED, PR CI PENDING\n\n- `src/content/nav.json` has exactly six top-level navigation groups and one dedicated `Drakken` group.\n- That group contains `drakken-registry` plus every authored top-level record classified `drakken-page`, exactly once and in source order.\n- Mother is classified as Drakken genesis; Cradle.exe, Foldhowl, and Manifest.Discord are classified as glitch-touched Drakken. They are no longer members of the peripheral registry.\n- The Drakken records are contiguous in `src/content/sections.json`; stable section IDs and legacy folio literals are preserved.\n- `starsilk-material` and `blood-rings` remain non-Drakken records and now live in the existing `Canon & cosmology` navigation group.\n- The stable tour ID `drakken-blood-systems` is preserved but now binds to the renamed `Drakken` navigation group; the six-tour architecture remains intact.\n- `tests/test_drakken_navigation.py` prevents incomplete Drakken grouping, accidental peripheral reclassification, seventh-group drift, and tour-binding drift.\n- The deterministic publication was rebuilt successfully in GitHub Actions run `${REPAIR_RUN_ID}` before commit. Full Chromium/Firefox/WebKit PR CI remains the merge gate.\n'''
+          section = section.replace('${REPAIR_RUN_ID}', __import__('os').environ['REPAIR_RUN_ID'])
+          marker = '\n## Known limitations\n'
+          if '## Drakken information architecture regrouping' not in state:
+              if marker not in state:
+                  raise SystemExit('Known limitations marker missing from Operational State')
+              state = state.replace(marker, section + marker, 1)
+          revision_line = f"- Revision 25: regrouped all authored Drakken records under one dedicated navigation section, corrected four Drakken records previously typed/indexed as peripheral, preserved the six-group/six-tour architecture and stable tour ID, added regression coverage, and rebuilt deterministic publication in GitHub Actions run {__import__('os').environ['REPAIR_RUN_ID']}; full PR CI remained pending at commit time.\n"
+          if '- Revision 25:' not in state:
+              state = state.rstrip() + '\n' + revision_line
+          state_path.write_text(state, encoding='utf-8')
+          PY
+
+      - name: Build deterministic publication
+        run: ./tools/build.sh
+
+      - name: Run focused structural regression
+        run: python3 -m pytest tests/test_drakken_navigation.py tests/test_tours.py -q
+
+      - name: Prove generated parity and whitespace integrity
+        run: |
+          ./tools/build.sh --check
+          git diff --check
+
+      - name: Commit and push complete repair
+        run: |
+          set -euo pipefail
+          rm .github/workflows/drakken-section-repair.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --short
+          git commit -m "Fix complete Drakken dossier grouping"
+          git push origin HEAD:fix/drakken-section
