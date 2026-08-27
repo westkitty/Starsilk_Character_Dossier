@@ -150,6 +150,9 @@ def test_provenance_workflow_is_main_only_and_boundary_checked():
     assert "tools/check_public_boundary.py" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "--verify" in workflow
+    assert 'source_validation="generated-public-boundary=pass"' in workflow
+    assert 'source_validation="live-publication=pass"' in workflow
+    assert "--validation public-boundary=pass" not in workflow
 
 
 def test_real_repository_graph_can_be_attested_without_external_media_originals():
