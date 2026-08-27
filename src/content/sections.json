@@ -114,6 +114,16 @@
       "has_disclosure": true
     },
     {
+      "id": "mother",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "P27",
+        "style": "--accent:#70e7ff",
+        "data-archetype": "genesis"
+      },
+      "has_disclosure": true
+    },
+    {
       "id": "drk-the-egg",
       "classes": "page character-page drakken-page",
       "attrs": {
@@ -573,6 +583,36 @@
       "has_disclosure": true
     },
     {
+      "id": "cradle-exe",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "P30",
+        "style": "--accent:#70e7ff",
+        "data-archetype": "glitch-touched"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "foldhowl",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "P28",
+        "style": "--accent:#70e7ff",
+        "data-archetype": "glitch-touched"
+      },
+      "has_disclosure": true
+    },
+    {
+      "id": "manifest-discord",
+      "classes": "page character-page drakken-page",
+      "attrs": {
+        "data-folio": "P29",
+        "style": "--accent:#70e7ff",
+        "data-archetype": "glitch-touched"
+      },
+      "has_disclosure": true
+    },
+    {
       "id": "drk-gloryfail",
       "classes": "page character-page drakken-page",
       "attrs": {
@@ -868,42 +908,6 @@
       "classes": "page character-page peripheral-page",
       "attrs": {
         "data-folio": "P26",
-        "style": "--accent:#70e7ff"
-      },
-      "has_disclosure": true
-    },
-    {
-      "id": "mother",
-      "classes": "page character-page peripheral-page",
-      "attrs": {
-        "data-folio": "P27",
-        "style": "--accent:#70e7ff"
-      },
-      "has_disclosure": true
-    },
-    {
-      "id": "foldhowl",
-      "classes": "page character-page peripheral-page",
-      "attrs": {
-        "data-folio": "P28",
-        "style": "--accent:#70e7ff"
-      },
-      "has_disclosure": true
-    },
-    {
-      "id": "manifest-discord",
-      "classes": "page character-page peripheral-page",
-      "attrs": {
-        "data-folio": "P29",
-        "style": "--accent:#70e7ff"
-      },
-      "has_disclosure": true
-    },
-    {
-      "id": "cradle-exe",
-      "classes": "page character-page peripheral-page",
-      "attrs": {
-        "data-folio": "P30",
         "style": "--accent:#70e7ff"
       },
       "has_disclosure": true

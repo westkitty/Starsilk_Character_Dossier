@@ -7,7 +7,7 @@
   "excerpt": "Operational role Starbinder core; binds stars into gravity-locked macro arrays and enables synchronized heliocide and star braiding. Archetype function Stellar, gravitational, orbital and void-scale operations. Named historical record The Burning of Triune Crown — three suns were braided and extinguished; a fourth…",
   "excerpt_source_ref": "src/content/sections/drk-solnexus.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-solnexus",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -47,8 +47,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

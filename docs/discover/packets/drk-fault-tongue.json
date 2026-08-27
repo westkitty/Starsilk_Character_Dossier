@@ -7,7 +7,7 @@
   "excerpt": "Operational role Seismic translator; sings through bedrock to fracture, displace or realign strata. Archetype function Planetary bones: faultlines, lithosphere, glassfields, minerals, seismicity and deep-earth formatting. Named historical record The Singing Crack of Tholus Fort — the fortress split in six directions in…",
   "excerpt_source_ref": "src/content/sections/drk-fault-tongue.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-fault-tongue",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -47,8 +47,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

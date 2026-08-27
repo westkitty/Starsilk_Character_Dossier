@@ -557,6 +557,31 @@ Lexiclast Syntax breaker; fractures native syntax and replaces it with macro-com
 Unstable anomaly forms built from broken code, paradox, recursion, anti-macro infection and conceptual failure.
 Redacted Grin Forbidden subroutine; erases causality, testimony and records. Spinal Loop Recursive tremor; repeats terrain and traps armies in non-resolving conflict loops. Cradle.exe Error-shelter spawner; creates synthetic refuges, dead software ecosystems or incomplete shelter simulations. Foldhowl Phase-fail lupine; breaks local geometry with impossible rooms, echo loops and map holes. Manifest.Discord Contagious idea; anti-macro spread through language, suggestion, denial and cultural infection. Gloryfail Ascension drop; failed divine macro-form that crashes pantheon environments and reroutes prayer into entropy. Viral Bastion Siege.tmp entity; walking fortress that creates self-defending corrupted-code strongholds and may become a city.
 
+## Mother
+
+Stable ID: `mother`  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mother  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.md  
+Source: `src/content/sections/mother.body.html`
+
+### Canonical record
+- Fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula.
+- Emerges from the unchecked/orphaned Notebook Program after Wordstreamer ’s murder removes a major semantic safeguard.
+- Drakken Eggs and strains are produced under Mother’s continuance logic; older Drakken can program eggs before hatching.
+- During the first roughly two thousand years behind the Siege Wall, extreme material scarcity persists under Mother.
+- Surviving Drakken eventually defeat Mother in an anti-fascist coup and fully break the hive-mind condition as a civilizational governing order.
+- Mother’s exact physical state after defeat remains unspecified.
+### Visual reference
+*Media note: Mother — archival pre-coup origin visualization Mother — archival pre-coup origin visualization. Current canon text governs later state; Mother's exact physical condition after the anti-fascist coup remains unspecified.*
+### Registry state
+Domain Aureal Nebula
+Record Current-message canon
+Identity Mother
+### Continuity law
+This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
+
 ## The Egg
 
 Stable ID: `drk-the-egg`  
@@ -1882,6 +1907,72 @@ Identity Spinal Loop
 This folio records the current integrated operational role. It does not claim that this entry occupies one of the compact hub’s thirty-five formal strain slots unless a later canon map explicitly says so.
 Return to Drakken field register
 
+## Cradle.exe
+
+Stable ID: `cradle-exe`  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.md  
+Source: `src/content/sections/cradle-exe.body.html`
+
+### Canonical record
+- Massive data-geode egg split permanently open.
+- Radiates neon-blue lullaby code.
+- Its permanently opened state makes it both a failed/ongoing hatch architecture and a persistent emission source.
+### Visual reference
+*Media note: Cradle.exe — archival plate Verified archival plate imported from the Drakken art archive.*
+### Registry state
+Domain Drakken/systemic entity
+Record Current-message canon
+Identity Cradle.exe
+### Continuity law
+This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
+
+## Foldhowl
+
+Stable ID: `foldhowl`  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md  
+Source: `src/content/sections/foldhowl.body.html`
+
+### Canonical record
+- Its body never finishes loading.
+- Bends local space into failed geometry.
+- Created the permanent “Hole in the Map” at Jaakar Keep, turning a military war room into an enduring spatial error.
+### Visual reference
+*Media note: Foldhowl — archival plate Verified archival plate imported from the Drakken art archive.*
+### Registry state
+Domain Drakken entity
+Record Current-message canon
+Identity Foldhowl
+### Continuity law
+This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
+
+## Manifest.discord
+
+Stable ID: `manifest-discord`  
+Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/  
+Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord  
+Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.json  
+Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.md  
+Source: `src/content/sections/manifest-discord.body.html`
+
+### Canonical record
+- A hypercritical meme swarm centered on a floating hollow porcelain mask.
+- Exists as distributed critical pressure rather than a conventional single-bodied combatant.
+- Its presentation should preserve the mask-centered swarm identity rather than reduce it to an ordinary humanoid antagonist.
+### Visual reference
+*Media note: Manifest.Discord — archival plate Verified archival plate imported from the Drakken art archive.*
+### Registry state
+Domain Drakken/systemic entity
+Record Current-message canon
+Identity Manifest.discord
+### Continuity law
+This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
+
 ## Gloryfail
 
 Stable ID: `drk-gloryfail`  
@@ -2506,12 +2597,6 @@ Kaelen Advocate of Collapse as Creativity Lyra Opponent of the Starbinding Rhys 
 Sela Orrin Validation node Marn Validation node Joss Validation node Reth Validation node Iven Validation node Unnamed Child Validation node
 ### Drakken archive
 Archivist Nyle Quarth Compendium compiler
-### Aureal Nebula
-Mother Living Drakken homeworld
-### Drakken entity
-Foldhowl Glitch-touched phase-lupine
-### Drakken/systemic entity
-Manifest.discord Hypercritical meme swarm Cradle.exe Data-geode egg
 ### Shard-God anomaly
 The Shardlings The Choir
 ### VoidFey
@@ -3042,97 +3127,6 @@ Source: `src/content/sections/nyle-quarth.body.html`
 Domain Drakken archive
 Record Current-message canon
 Identity Archivist Nyle Quarth
-### Continuity law
-This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
-
-## Mother
-
-Stable ID: `mother`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/  
-Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#mother  
-Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.json  
-Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mother.md  
-Source: `src/content/sections/mother.body.html`
-
-### Canonical record
-- Fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula.
-- Emerges from the unchecked/orphaned Notebook Program after Wordstreamer ’s murder removes a major semantic safeguard.
-- Drakken Eggs and strains are produced under Mother’s continuance logic; older Drakken can program eggs before hatching.
-- During the first roughly two thousand years behind the Siege Wall, extreme material scarcity persists under Mother.
-- Surviving Drakken eventually defeat Mother in an anti-fascist coup and fully break the hive-mind condition as a civilizational governing order.
-- Mother’s exact physical state after defeat remains unspecified.
-### Visual reference
-*Media note: Mother — archival pre-coup origin visualization Mother — archival pre-coup origin visualization. Current canon text governs later state; Mother's exact physical condition after the anti-fascist coup remains unspecified.*
-### Registry state
-Domain Aureal Nebula
-Record Current-message canon
-Identity Mother
-### Continuity law
-This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
-
-## Foldhowl
-
-Stable ID: `foldhowl`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/  
-Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#foldhowl  
-Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.json  
-Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/foldhowl.md  
-Source: `src/content/sections/foldhowl.body.html`
-
-### Canonical record
-- Its body never finishes loading.
-- Bends local space into failed geometry.
-- Created the permanent “Hole in the Map” at Jaakar Keep, turning a military war room into an enduring spatial error.
-### Visual reference
-*Media note: Foldhowl — archival plate Verified archival plate imported from the Drakken art archive.*
-### Registry state
-Domain Drakken entity
-Record Current-message canon
-Identity Foldhowl
-### Continuity law
-This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
-
-## Manifest.discord
-
-Stable ID: `manifest-discord`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/  
-Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#manifest-discord  
-Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.json  
-Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/manifest-discord.md  
-Source: `src/content/sections/manifest-discord.body.html`
-
-### Canonical record
-- A hypercritical meme swarm centered on a floating hollow porcelain mask.
-- Exists as distributed critical pressure rather than a conventional single-bodied combatant.
-- Its presentation should preserve the mask-centered swarm identity rather than reduce it to an ordinary humanoid antagonist.
-### Visual reference
-*Media note: Manifest.Discord — archival plate Verified archival plate imported from the Drakken art archive.*
-### Registry state
-Domain Drakken/systemic entity
-Record Current-message canon
-Identity Manifest.discord
-### Continuity law
-This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
-
-## Cradle.exe
-
-Stable ID: `cradle-exe`  
-Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/  
-Legacy Compendium location: https://westkitty.github.io/Starsilk_Character_Dossier/#cradle-exe  
-Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.json  
-Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cradle-exe.md  
-Source: `src/content/sections/cradle-exe.body.html`
-
-### Canonical record
-- Massive data-geode egg split permanently open.
-- Radiates neon-blue lullaby code.
-- Its permanently opened state makes it both a failed/ongoing hatch architecture and a persistent emission source.
-### Visual reference
-*Media note: Cradle.exe — archival plate Verified archival plate imported from the Drakken art archive.*
-### Registry state
-Domain Drakken/systemic entity
-Record Current-message canon
-Identity Cradle.exe
 ### Continuity law
 This folio records only supplied details. Unnamed motives, dates, appearances and outcomes remain unspecified rather than being filled by inference.
 

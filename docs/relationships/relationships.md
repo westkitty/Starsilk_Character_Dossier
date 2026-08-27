@@ -322,6 +322,21 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - None observed.
 
+## Mother (`mother`)
+
+- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/
+- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-mother
+- Outgoing observed mentions: 1
+- Incoming observed mentions: 0
+
+### Outgoing observed mentions
+
+- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--mother--wordstreamer) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-mother--wordstreamer) — source `src/content/sections/mother.body.html`
+
+### Incoming observed mentions
+
+- None observed.
+
 ## The Egg (`drk-the-egg`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-the-egg/
@@ -1096,6 +1111,51 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - None observed.
 
+## Cradle.exe (`cradle-exe`)
+
+- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/
+- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cradle-exe
+- Outgoing observed mentions: 0
+- Incoming observed mentions: 0
+
+### Outgoing observed mentions
+
+- None observed.
+
+### Incoming observed mentions
+
+- None observed.
+
+## Foldhowl (`foldhowl`)
+
+- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/
+- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-foldhowl
+- Outgoing observed mentions: 0
+- Incoming observed mentions: 1
+
+### Outgoing observed mentions
+
+- None observed.
+
+### Incoming observed mentions
+
+- [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) (`cosmic-architecture`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cosmic-architecture--foldhowl) — source `src/content/sections/cosmic-architecture.body.html`
+
+## Manifest.discord (`manifest-discord`)
+
+- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/
+- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-manifest-discord
+- Outgoing observed mentions: 0
+- Incoming observed mentions: 0
+
+### Outgoing observed mentions
+
+- None observed.
+
+### Incoming observed mentions
+
+- None observed.
+
 ## Gloryfail (`drk-gloryfail`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-gloryfail/
@@ -1651,66 +1711,6 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/nyle-quarth/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-nyle-quarth
-- Outgoing observed mentions: 0
-- Incoming observed mentions: 0
-
-### Outgoing observed mentions
-
-- None observed.
-
-### Incoming observed mentions
-
-- None observed.
-
-## Mother (`mother`)
-
-- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/
-- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-mother
-- Outgoing observed mentions: 1
-- Incoming observed mentions: 0
-
-### Outgoing observed mentions
-
-- [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — `mentions / observed-xref` — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--mother--wordstreamer) — [published xref evidence](https://westkitty.github.io/Starsilk_Character_Dossier/#xref-mother--wordstreamer) — source `src/content/sections/mother.body.html`
-
-### Incoming observed mentions
-
-- None observed.
-
-## Foldhowl (`foldhowl`)
-
-- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/foldhowl/
-- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-foldhowl
-- Outgoing observed mentions: 0
-- Incoming observed mentions: 1
-
-### Outgoing observed mentions
-
-- None observed.
-
-### Incoming observed mentions
-
-- [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) (`cosmic-architecture`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cosmic-architecture--foldhowl) — source `src/content/sections/cosmic-architecture.body.html`
-
-## Manifest.discord (`manifest-discord`)
-
-- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/manifest-discord/
-- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-manifest-discord
-- Outgoing observed mentions: 0
-- Incoming observed mentions: 0
-
-### Outgoing observed mentions
-
-- None observed.
-
-### Incoming observed mentions
-
-- None observed.
-
-## Cradle.exe (`cradle-exe`)
-
-- Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cradle-exe/
-- Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cradle-exe
 - Outgoing observed mentions: 0
 - Incoming observed mentions: 0
 

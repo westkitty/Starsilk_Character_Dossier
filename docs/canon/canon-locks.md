@@ -377,8 +377,8 @@ These are invariant inputs used by the existing validator. They are not addition
 
 - `total_sections_min`: 138
 - `principal`: 6
-- `peripheral`: 45
-- `drakken`: 56
+- `peripheral`: 41
+- `drakken`: 60
 
 ### Principal-name expectations
 

@@ -7,7 +7,7 @@
   "excerpt": "Operational role Basalt vanguard; tunnels through faultlines, liquefies crust, and seeds stabilized lavaflows and data-rich tectonic overlays. Archetype function Planetary bones: faultlines, lithosphere, glassfields, minerals, seismicity and deep-earth formatting. Archival visual references Magma Pleuron — archival…",
   "excerpt_source_ref": "src/content/sections/drk-magma-pleuron.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#drk-magma-pleuron",
-  "navigation_group": null,
+  "navigation_group": "Drakken",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [],
@@ -43,8 +43,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

@@ -24,12 +24,6 @@ Kaelen Advocate of Collapse as Creativity Lyra Opponent of the Starbinding Rhys 
 Sela Orrin Validation node Marn Validation node Joss Validation node Reth Validation node Iven Validation node Unnamed Child Validation node
 ### Drakken archive
 Archivist Nyle Quarth Compendium compiler
-### Aureal Nebula
-Mother Living Drakken homeworld
-### Drakken entity
-Foldhowl Glitch-touched phase-lupine
-### Drakken/systemic entity
-Manifest.discord Hypercritical meme swarm Cradle.exe Data-geode egg
 ### Shard-God anomaly
 The Shardlings The Choir
 ### VoidFey
