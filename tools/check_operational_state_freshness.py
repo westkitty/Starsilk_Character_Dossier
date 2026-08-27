@@ -83,7 +83,9 @@ def _matches(path: str, patterns: list[str]) -> bool:
 
 
 def is_state_relevant(path: str, policy: dict) -> bool:
-    normalized = path.replace("\\", "/").lstrip("./")
+    normalized = path.replace("\\", "/")
+    if normalized.startswith("./"):
+        normalized = normalized[2:]
     if normalized in HARD_PROTECTED_PATHS:
         return True
     if _matches(normalized, policy["reinclude_patterns"]):
