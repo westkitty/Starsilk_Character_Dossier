@@ -150,3 +150,19 @@ def test_provenance_workflow_is_main_only_and_boundary_checked():
     assert "tools/check_public_boundary.py" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "--verify" in workflow
+
+
+def test_real_repository_graph_can_be_attested_without_external_media_originals():
+    attestation = provenance.build_attestation(
+        ROOT,
+        generated_at="2026-08-27T00:00:00+00:00",
+        commit="test-commit",
+        tree="test-tree",
+    )
+    assert attestation["summary"]["material_groups"] >= 6
+    assert attestation["summary"]["tool_groups"] >= 10
+    assert attestation["summary"]["subject_groups"] >= 10
+    assert attestation["summary"]["lineage_edges"] >= 80
+    assert [item["node_id"] for item in attestation["excluded_nodes"]] == ["media_originals"]
+    assert any(item["node_id"] == "root_out" for item in attestation["subjects"])
+    assert any(item["node_id"] == "agents_out" for item in attestation["subjects"])
