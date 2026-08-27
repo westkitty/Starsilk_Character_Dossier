@@ -1,0 +1,43 @@
+{
+  "schema": "starsilk-capability-invariants/1",
+  "project_id": "starsilk-character-dossier",
+  "scope": "operational-state-freshness",
+  "invariants": [
+    {
+      "id": "OPS-001",
+      "statement": "A state-relevant repository delta must include an OPERATIONAL_STATE.md change in the same change set.",
+      "evidence": ["tools/check_operational_state_freshness.py", ".github/workflows/ci.yml"],
+      "proof": "CI comparison against the exact pre-change Git ref"
+    },
+    {
+      "id": "OPS-002",
+      "statement": "A state-relevant repository delta must increase the integer Operational State revision and provide a matching revision-log entry.",
+      "evidence": ["OPERATIONAL_STATE.md", "tools/check_operational_state_freshness.py"],
+      "proof": "base/current revision comparison plus structural state validation"
+    },
+    {
+      "id": "OPS-003",
+      "statement": "Ordinary generated docs and visual-regression baseline changes do not independently force Operational State churn, while docs/asset-manifest.json remains state-relevant provenance evidence.",
+      "evidence": ["src/system/operational-state-policy.json", "tests/test_operational_state_freshness.py"],
+      "proof": "classification regression fixtures"
+    },
+    {
+      "id": "OPS-004",
+      "statement": "The freshness checker is read-only and has no repository write, commit, or push path.",
+      "evidence": ["tools/check_operational_state_freshness.py", "tests/test_operational_state_freshness_adversarial.py"],
+      "proof": "adversarial source contract"
+    },
+    {
+      "id": "OPS-005",
+      "statement": "The freshness policy, checker, and CI gate cannot be hidden behind their own broad exemptions.",
+      "evidence": ["tools/check_operational_state_freshness.py", "src/system/operational-state-policy.json", "tests/test_operational_state_freshness_adversarial.py"],
+      "proof": "hard-protected guardrail paths and required policy patterns"
+    },
+    {
+      "id": "OPS-006",
+      "statement": "Operational State freshness remains project-state governance only and does not create lore, canon, relationship, chronology, media-identity, publication, or backup authority.",
+      "evidence": ["src/system/OPERATIONAL_STATE_FRESHNESS.md", "src/system/AUTHORITY.md", "src/system/derivation-map.json"],
+      "proof": "authority boundary plus derivation-graph integration"
+    }
+  ]
+}
