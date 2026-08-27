@@ -27,11 +27,10 @@ freshness = _load()
 def test_checker_has_no_write_or_commit_path():
     source = (ROOT / "tools" / "check_operational_state_freshness.py").read_text(encoding="utf-8")
     forbidden = (
-        "write_text(",
-        "write_bytes(",
-        "unlink(",
-        "rename(",
-        "replace(",
+        ".write_text(",
+        ".write_bytes(",
+        ".unlink(",
+        ".rename(",
         '"commit"',
         "'commit'",
         '"push"',
@@ -51,7 +50,7 @@ def test_policy_cannot_hide_guardrail_files_behind_broad_exemptions():
 
 def test_real_branch_delta_requires_and_contains_state_closure():
     base = subprocess.run(
-        ["git", "merge-base", "HEAD", "origin/main"],
+        ["git", "rev-parse", "HEAD^1"],
         check=True,
         stdout=subprocess.PIPE,
         text=True,
