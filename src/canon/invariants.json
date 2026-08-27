@@ -19,30 +19,18 @@
     {
       "id": "blood-eclipse-war-170-years",
       "description": "Blood Eclipse War lasts one hundred seventy years, not seventeen.",
-      "must_match": [
-        "170[- ]year|one[- ]hundred[- ]seventy[- ]year"
-      ],
-      "must_not_match": [
-        "\\b17-year\\b",
-        "\\bseventeen-year\\b",
-        "\\b17 years\\b",
-        "\\bseventeen years\\b",
-        "\\bYear 17(?!\\d)"
-      ]
+      "must_match": ["170[- ]year|one[- ]hundred[- ]seventy[- ]year"],
+      "must_not_match": ["\\b17-year\\b", "\\bseventeen-year\\b", "\\b17 years\\b", "\\bseventeen years\\b", "\\bYear 17(?!\\d)"]
     },
     {
       "id": "no-william",
       "description": "The rejected/obsolete name 'William' must never appear.",
-      "must_not_match": [
-        "(?i)\\bwilliam\\b"
-      ]
+      "must_not_match": ["(?i)\\bwilliam\\b"]
     },
     {
       "id": "wordstreamer-canonical-spelling",
       "description": "The deity's canonical name is Wordstreamer; the obsolete internal-capital form WordStreamer must not appear.",
-      "must_not_match": [
-        "\\bWordStreamer\\b"
-      ]
+      "must_not_match": ["\\bWordStreamer\\b"]
     }
   ],
   "section_locks": [
@@ -50,150 +38,90 @@
       "id": "dao-right-arm",
       "section": "dao",
       "description": "Dao's integrated buster/mechanical arm remains on the right.",
-      "must_match": [
-        "right arm|right mechanical arm"
-      ],
-      "must_not_match": [
-        "(?i)left arm"
-      ]
+      "must_match": ["right arm|right mechanical arm"],
+      "must_not_match": ["(?i)left arm"]
     },
     {
       "id": "dao-eyepatch-left",
       "section": "dao",
       "description": "Dao's eyepatch remains over the left eye.",
-      "must_match": [
-        "eyepatch"
-      ],
-      "must_not_match": [
-        "(?i)right eye"
-      ]
+      "must_match": ["eyepatch"],
+      "must_not_match": ["(?i)right eye"]
     },
     {
       "id": "kail-scarf-covers-mouth",
       "section": "kail",
       "description": "Kail's red scarf remains over the mouth/throat in ordinary depiction.",
-      "must_match": [
-        "over the mouth",
-        "scarf"
-      ]
+      "must_match": ["over the mouth", "scarf"]
     },
     {
       "id": "kail-no-exposed-mouth",
       "section": "kail",
       "description": "Kail does not gain an ordinary exposed speaking mouth.",
-      "must_match": [
-        "exposed speaking mouth"
-      ]
+      "must_match": ["exposed speaking mouth"]
     },
     {
       "id": "shard-god-single-tail",
       "section": "shard-god",
       "description": "Shard-God Tiger has exactly one tail.",
-      "must_match": [
-        "(?i)single[- ]tail(ed)?"
-      ]
+      "must_match": ["(?i)single[- ]tail(ed)?"]
     },
     {
       "id": "shard-god-digitigrade",
       "section": "shard-god",
       "description": "Shard-God Tiger is digitigrade.",
-      "must_match": [
-        "(?i)digitigrade"
-      ]
+      "must_match": ["(?i)digitigrade"]
     },
     {
       "id": "shard-god-obsidian",
       "section": "shard-god",
       "description": "Shard-God Tiger's body identity remains obsidian.",
-      "must_match": [
-        "(?i)obsidian"
-      ]
+      "must_match": ["(?i)obsidian"]
     },
     {
       "id": "starsilk-material-azure",
       "section": "starsilk-material",
       "description": "Starsilk's material identity remains cyan/azure luminous edges.",
-      "must_match": [
-        "(?i)azure"
-      ]
+      "must_match": ["(?i)azure"]
     },
     {
       "id": "marcel-staff-non-magical",
       "section": "marcel",
       "description": "Marcel's plain wooden staff remains non-magical.",
-      "must_match": [
-        "no magical properties"
-      ]
+      "must_match": ["no magical properties"]
     },
     {
       "id": "wordstreaming-living-practice",
       "section": "ontology-horror",
       "description": "Wordstreaming remains a living practice named for the deceased Wordstreamer.",
-      "must_match": [
-        "Wordstreaming</b> is a living communication and reality-code practice named for"
-      ]
+      "must_match": ["Wordstreaming</b> is a living communication and reality-code practice named for"]
     },
     {
       "id": "post-wall-wordstreaming-living",
       "section": "beyond-wall",
       "description": "Post-Wall Drakken still use wordstreaming as a living communication practice.",
-      "must_match": [
-        "Wordstreaming survives as a living communication practice"
-      ]
+      "must_match": ["Wordstreaming survives as a living communication practice"]
     },
     {
       "id": "post-wall-codec-time-estimate",
       "section": "beyond-wall",
       "description": "Codec estimates roughly 8,560 years have passed since the Blood Eclipse War era.",
-      "must_match": [
-        "roughly 8,560 years"
-      ]
+      "must_match": ["roughly 8,560 years"]
     },
     {
       "id": "modern-drakken-larger-than-humans",
       "section": "beyond-wall",
       "description": "Modern Drakken remain larger than humans while being much smaller than Blood Eclipse War Titans.",
-      "must_match": [
-        "larger than humans"
-      ]
+      "must_match": ["larger than humans"]
     }
   ],
   "drakken_art_identities": [
-    "drk-the-egg",
-    "drk-magma-pleuron",
-    "drk-granithelion",
-    "drk-fault-tongue",
-    "drk-obsidian-gul",
-    "drk-tremorhound",
-    "drk-glassspine",
-    "drk-quarrymind",
-    "drk-aerokarst",
-    "drk-cloudmaw",
-    "drk-atmantid",
-    "drk-weathernode",
-    "drk-vortenbray",
-    "drk-fumericus",
-    "drk-skymourn",
-    "drk-verdgorge",
-    "drk-pollenvault",
-    "drk-mycethron",
-    "drk-raintaster",
-    "drk-terragullet",
-    "drk-petalnest",
-    "drk-feralseed",
-    "drk-solnexus",
-    "drk-nullthorn",
-    "lyriboris",
-    "drk-helionth",
-    "drk-umbrakrael",
-    "drk-cinderverge",
-    "drk-singularch",
-    "drk-redacted-grin",
-    "drk-spinal-loop",
-    "cradle-exe",
-    "foldhowl",
-    "manifest-discord",
-    "drk-gloryfail",
-    "drk-viral-bastion"
+    "drk-the-egg", "drk-magma-pleuron", "drk-granithelion", "drk-fault-tongue", "drk-obsidian-gul",
+    "drk-tremorhound", "drk-glassspine", "drk-quarrymind", "drk-aerokarst", "drk-cloudmaw",
+    "drk-atmantid", "drk-weathernode", "drk-vortenbray", "drk-fumericus", "drk-skymourn",
+    "drk-verdgorge", "drk-pollenvault", "drk-mycethron", "drk-raintaster", "drk-terragullet",
+    "drk-petalnest", "drk-feralseed", "drk-solnexus", "drk-nullthorn", "lyriboris",
+    "drk-helionth", "drk-umbrakrael", "drk-cinderverge", "drk-singularch", "drk-redacted-grin",
+    "drk-spinal-loop", "cradle-exe", "foldhowl", "manifest-discord", "drk-gloryfail", "drk-viral-bastion"
   ]
 }
