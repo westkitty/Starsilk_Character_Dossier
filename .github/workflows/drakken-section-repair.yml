@@ -1,0 +1,110 @@
+name: One-shot Drakken section repair
+
+on:
+  push:
+    branches: [fix/drakken-section]
+    paths:
+      - ".github/workflows/drakken-section-repair.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/drakken-section
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Reclassify and regroup Drakken records
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('src/content/sections.json')
+          data = json.loads(path.read_text(encoding='utf-8'))
+          sections = data['sections']
+          stray = {'mother', 'foldhowl', 'manifest-discord', 'cradle-exe'}
+
+          for record in sections:
+              if record['id'] in stray:
+                  classes = record['classes'].split()
+                  classes = ['drakken-page' if c == 'peripheral-page' else c for c in classes]
+                  if 'drakken-page' not in classes:
+                      classes.append('drakken-page')
+                  record['classes'] = ' '.join(classes)
+
+          registry = next(record for record in sections if record['id'] == 'drakken-registry')
+          drakken = [record for record in sections if 'drakken-page' in record['classes'].split()]
+          others = [record for record in sections if record is not registry and record not in drakken]
+
+          insert_at = next(i for i, record in enumerate(others) if record['id'] == 'starsilk-material') + 1
+          data['sections'] = others[:insert_at] + [registry] + drakken + others[insert_at:]
+          path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          PY
+
+      - name: Assert Drakken structural contract
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          sections = json.loads(Path('src/content/sections.json').read_text(encoding='utf-8'))['sections']
+          ids = [r['id'] for r in sections]
+          drakken_indices = [i for i, r in enumerate(sections) if 'drakken-page' in r['classes'].split()]
+          assert drakken_indices == list(range(min(drakken_indices), max(drakken_indices) + 1))
+          assert ids[min(drakken_indices) - 1] == 'drakken-registry'
+          for sid in ('mother', 'foldhowl', 'manifest-discord', 'cradle-exe', 'gorevault', 'ringthroat', 'lyriboris'):
+              record = next(r for r in sections if r['id'] == sid)
+              assert 'drakken-page' in record['classes'].split(), sid
+              assert 'peripheral-page' not in record['classes'].split(), sid
+
+          nav = json.loads(Path('src/content/nav.json').read_text(encoding='utf-8'))
+          groups = {g['label']: g for g in nav['groups']}
+          assert 'Drakken' in groups
+          assert 'Drakken & blood systems' not in groups
+          assert {x['id'] for x in groups['Drakken']['links']} >= {
+              'drakken-registry', 'mother', 'gorevault', 'ringthroat', 'lyriboris',
+              'foldhowl', 'manifest-discord', 'cradle-exe'
+          }
+          peripheral = Path('src/content/sections/peripheral-index.body.html').read_text(encoding='utf-8')
+          for sid in ('#mother', '#foldhowl', '#manifest-discord', '#cradle-exe'):
+              assert sid not in peripheral, sid
+          PY
+
+      - name: Rebuild deployable site
+        run: ./tools/build.sh
+
+      - name: Record verified operational state
+        run: |
+          cat >> OPERATIONAL_STATE.md <<'EOF'
+
+## Drakken section structural repair — VERIFIED
+
+- Dedicated root navigation group is now `Drakken`; Starsilk material and Blood Rings are separated into `Materials & blood systems`.
+- The Drakken archive remains the taxonomy hub and every authored `drakken-page` record is now contiguous immediately beneath that hub in `src/content/sections.json`.
+- Mother, Foldhowl, Manifest.discord, and Cradle.exe are reclassified from `peripheral-page` to `drakken-page` and removed from the peripheral registry.
+- Gorevault, Ringthroat, Lyriboris, the 53 `drk-*` records, and the four corrected legacy-peripheral records remain intact; dossier/canon prose was not rewritten by this structural repair.
+- Focused structural assertions passed before rebuild, and `./tools/build.sh` regenerated the deployable `docs/` output from canonical source.
+
+- Revision 25: corrected the Drakken information architecture so every Drakken record belongs to one dedicated Drakken block/hub rather than leaking into peripheral or mixed blood-system grouping; regenerated deployable output from source.
+EOF
+
+      - name: Remove one-shot workflow and commit generated repair
+        run: |
+          rm .github/workflows/drakken-section-repair.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/sections.json src/content/nav.json src/content/sections/peripheral-index.body.html docs/ OPERATIONAL_STATE.md .github/workflows/drakken-section-repair.yml
+          git commit -m "Complete Drakken section regrouping"
+          git push origin HEAD:fix/drakken-section
