@@ -4,7 +4,8 @@
     ['slow-2g', '2g'].indexOf(navigator.connection.effectiveType) !== -1));
 
   // ---------------------------------------------------------------------
-  // Accordion disclosures: nav-group / media-shelf (WAAPI height animation)
+  // Accordion disclosures: nav-group / media-shelf / Drakken folder
+  // (WAAPI height animation)
   // ---------------------------------------------------------------------
   function enhanceAccordion(details){
     var summary = details.querySelector(':scope > summary');
@@ -41,7 +42,7 @@
       anim.onfinish = function(){ details.open = false; details.classList.remove('animating'); body.style.height=''; body.style.overflow=''; };
     }
   }
-  document.querySelectorAll('details.nav-group, details.media-shelf').forEach(enhanceAccordion);
+  document.querySelectorAll('details.nav-group, details.media-shelf, details.drakken-folder').forEach(enhanceAccordion);
 
   // ---------------------------------------------------------------------
   // Default-collapsed page-section anchor handling + print expand/restore
@@ -50,6 +51,8 @@
     function expandContaining(id){
       var target = document.getElementById(id);
       if(!target) return null;
+      var folder = target.closest('details.drakken-folder');
+      if(folder && !folder.open) folder.open = true;
       var page = target.querySelector(':scope > details.page-disclosure') || target.closest('details.page-disclosure');
       if(page && !page.open) page.open = true;
       return target;
@@ -78,13 +81,20 @@
     var wasOpenBeforePrint = null;
     window.addEventListener('beforeprint', function(){
       var pages = document.querySelectorAll('details.page-disclosure');
-      wasOpenBeforePrint = Array.prototype.map.call(pages, function(d){ return d.open; });
+      var folders = document.querySelectorAll('details.drakken-folder');
+      wasOpenBeforePrint = {
+        pages: Array.prototype.map.call(pages, function(d){ return d.open; }),
+        folders: Array.prototype.map.call(folders, function(d){ return d.open; })
+      };
       pages.forEach(function(d){ d.open = true; });
+      folders.forEach(function(d){ d.open = true; });
     });
     window.addEventListener('afterprint', function(){
       if(!wasOpenBeforePrint) return;
       var pages = document.querySelectorAll('details.page-disclosure');
-      pages.forEach(function(d, i){ d.open = wasOpenBeforePrint[i]; });
+      var folders = document.querySelectorAll('details.drakken-folder');
+      pages.forEach(function(d, i){ d.open = wasOpenBeforePrint.pages[i]; });
+      folders.forEach(function(d, i){ d.open = wasOpenBeforePrint.folders[i]; });
       wasOpenBeforePrint = null;
     });
   })();
@@ -248,7 +258,7 @@
     var searchInput = document.getElementById('dossierSearch');
     if(!searchInput) return;
     var status = document.getElementById('dossierSearchStatus');
-    var pages = Array.prototype.slice.call(document.querySelectorAll('main#mainContent > section.page[id]'))
+    var pages = Array.prototype.slice.call(document.querySelectorAll('main#mainContent section.page[id]'))
       .filter(function(p){ return !p.classList.contains('cover'); });
 
     var autoOpened = new Set();    // ids opened by search, eligible to auto-close on clear
@@ -289,6 +299,20 @@
         }
         navUserToggled.add(group);
         navAutoOpened.delete(group);
+      });
+    });
+
+    var folderAutoOpened = new Set();
+    var folderUserToggled = new Set();
+    var folderPendingAutoToggle = new Set();
+    document.querySelectorAll('details.drakken-folder').forEach(function(folder){
+      folder.addEventListener('toggle', function(){
+        if(folderPendingAutoToggle.has(folder)){
+          folderPendingAutoToggle.delete(folder);
+          return;
+        }
+        folderUserToggled.add(folder);
+        folderAutoOpened.delete(folder);
       });
     });
 
@@ -398,6 +422,11 @@
           if(d && d.open){ pendingAutoToggle.add(id); d.open = false; }
         });
         autoOpened.clear();
+        folderAutoOpened.forEach(function(folder){
+          if(folderUserToggled.has(folder)) return;
+          if(folder.open){ folderPendingAutoToggle.add(folder); folder.open = false; }
+        });
+        folderAutoOpened.clear();
         // Restore nav-groups that were opened only because of the search.
         navAutoOpened.forEach(function(group){
           if(navUserToggled.has(group)) return;
@@ -413,6 +442,12 @@
         if(!d) return;
         var hay = p.textContent.toLowerCase();
         if(hay.indexOf(q.toLowerCase()) === -1) return;
+        var folder = p.closest('details.drakken-folder');
+        if(folder && !folder.open){
+          folderPendingAutoToggle.add(folder);
+          folder.open = true;
+          folderAutoOpened.add(folder);
+        }
         var wasOpen = d.open;
         if(!wasOpen){
           pendingAutoToggle.add(p.id);
@@ -460,12 +495,14 @@
   var collapseAllBtn = document.getElementById('collapseAllBtn');
   if(expandAllBtn){
     expandAllBtn.addEventListener('click', function(){
+      document.querySelectorAll('details.drakken-folder').forEach(function(d){ d.open = true; });
       document.querySelectorAll('details.page-disclosure').forEach(function(d){ d.open = true; });
     });
   }
   if(collapseAllBtn){
     collapseAllBtn.addEventListener('click', function(){
       document.querySelectorAll('details.page-disclosure').forEach(function(d){ d.open = false; });
+      document.querySelectorAll('details.drakken-folder').forEach(function(d){ d.open = false; });
     });
   }
 

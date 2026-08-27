@@ -7,7 +7,7 @@
   "excerpt": "Canonical record Recursive dreamer, archivist, original architect and damaged verification principle of the universe. Tiger’s original deception specifically targeted NiAlBu. Forced to witness Wordstreamer ’s murder and then trapped inside unrendered code in the Digital Geode. His prison sustains him as a bound living…",
   "excerpt_source_ref": "src/content/sections/nialbu.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#nialbu",
-  "navigation_group": null,
+  "navigation_group": "Peripheral & cosmic",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -54,8 +54,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

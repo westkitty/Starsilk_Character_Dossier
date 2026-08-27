@@ -765,7 +765,7 @@
           "path": "src/content/nav.json"
         }
       ],
-      "stop_count": 8,
+      "stop_count": 10,
       "stops": [
         {
           "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/peripheral-index/",
@@ -830,6 +830,22 @@
           "position": 8,
           "source_ref": "src/content/nav.json",
           "stable_id": "media-vault"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/",
+          "display_label": "Wordstreamer",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#wordstreamer",
+          "position": 9,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "wordstreamer"
+        },
+        {
+          "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/",
+          "display_label": "NiAlBu",
+          "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#nialbu",
+          "position": 10,
+          "source_ref": "src/content/nav.json",
+          "stable_id": "nialbu"
         }
       ],
       "tour_id": "peripheral-cosmic"

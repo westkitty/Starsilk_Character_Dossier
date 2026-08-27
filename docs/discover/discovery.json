@@ -71,11 +71,11 @@
         "value": "Reference"
       },
       {
-        "count": 8,
+        "count": 10,
         "value": "Peripheral & cosmic"
       },
       {
-        "count": 41,
+        "count": 39,
         "label": "Not in authored navigation",
         "value": "__unlisted__"
       }
@@ -1203,7 +1203,7 @@
       "has_media": false,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#wordstreamer",
       "media_count": 0,
-      "navigation_group": null,
+      "navigation_group": "Peripheral & cosmic",
       "result_class": "character-section",
       "stable_id": "wordstreamer"
     },
@@ -1217,7 +1217,7 @@
       "has_media": false,
       "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#nialbu",
       "media_count": 0,
-      "navigation_group": null,
+      "navigation_group": "Peripheral & cosmic",
       "result_class": "character-section",
       "stable_id": "nialbu"
     },

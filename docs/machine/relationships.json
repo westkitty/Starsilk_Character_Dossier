@@ -136,7 +136,6 @@
     "gorevault": [
       "blood-rings",
       "canon-ledger",
-      "cover",
       "media-vault",
       "systems"
     ],
@@ -197,7 +196,6 @@
       "canon-ledger",
       "captain-serr",
       "chronology",
-      "cover",
       "technician-naresh"
     ],
     "mael": [],
@@ -251,7 +249,6 @@
     "ringthroat": [
       "blood-rings",
       "canon-ledger",
-      "cover",
       "media-vault",
       "systems"
     ],
@@ -888,7 +885,7 @@
       "marcel"
     ]
   },
-  "relationship_count": 138,
+  "relationship_count": 135,
   "relationships": [
     {
       "evidence_class": "observed-xref",
@@ -1254,12 +1251,6 @@
       "evidence_class": "observed-xref",
       "kind": "mentions",
       "source": "cover",
-      "target": "gorevault"
-    },
-    {
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "source": "cover",
       "target": "jazen"
     },
     {
@@ -1272,19 +1263,7 @@
       "evidence_class": "observed-xref",
       "kind": "mentions",
       "source": "cover",
-      "target": "lyriboris"
-    },
-    {
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "source": "cover",
       "target": "marcel"
-    },
-    {
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "source": "cover",
-      "target": "ringthroat"
     },
     {
       "evidence_class": "observed-xref",

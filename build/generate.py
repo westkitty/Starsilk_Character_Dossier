@@ -245,6 +245,22 @@ def load_sections(rename_map: dict) -> list:
     return sections
 
 
+def build_root_items(sections: list) -> list[dict]:
+    """Keep all Drakken records behind one deliberate root disclosure."""
+    drakken = []
+    regular = []
+    for section in sections:
+        classes = set(section.classes.split())
+        if "drakken-page" in classes or section.id == "drakken-registry":
+            drakken.append(section)
+        else:
+            regular.append(section)
+
+    items = [{"kind": "section", "section": section} for section in regular]
+    items.append({"kind": "drakken-folder", "sections": drakken})
+    return items
+
+
 WATERMARK_CLIPS_SOURCE = [
     "bd9b6b141f0f2d11fadea67a.mp4",
     "c629ce1b298593185fb64c6d.mp4",
@@ -312,7 +328,7 @@ def render_site() -> str:
     template = env.get_template("shell.html.j2")
     html = template.render(
         nav_groups=nav["groups"],
-        sections=sections,
+        root_items=build_root_items(sections),
         style_css=style_css,
         app_js=app_js,
         footer_folio="27",

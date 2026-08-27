@@ -7,7 +7,7 @@
   "excerpt": "Canonical record Language-bound poet who gave the universe its script and the dead ancient language later used for wordstreaming. Her existence allowed language to formulate refusal; this made her a structural threat to Tiger’s administrative enclosure. Tiger murdered her with Starsilk, turning the medium’s betrayal…",
   "excerpt_source_ref": "src/content/sections/wordstreamer.body.html",
   "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#wordstreamer",
-  "navigation_group": null,
+  "navigation_group": "Peripheral & cosmic",
   "observed_relationships": {
     "evidence_class": "observed-xref",
     "incoming_stable_ids": [
@@ -54,8 +54,7 @@
   "unknowns": [
     "Per-section canon status is not authored by the current source model.",
     "Per-section spoiler classification is not authored; major is a conservative publication default.",
-    "object_type describes the published section structure and is not an ontological claim about the subject.",
-    "This stable record is not assigned to an authored src/content/nav.json navigation group."
+    "object_type describes the published section structure and is not an ontological claim about the subject."
   ],
   "visibility": "public"
 }

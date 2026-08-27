@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from bs4 import BeautifulSoup
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -74,3 +76,22 @@ def test_structural_count_locks_match_the_corrected_taxonomy():
     drakken = sum(1 for r in sections if {"character-page", "drakken-page"} <= set(r["classes"].split()))
     assert (peripheral, drakken) == (41, 60)
     assert (counts["peripheral"], counts["drakken"]) == (peripheral, drakken)
+
+
+def test_root_reader_keeps_drakken_behind_one_closed_archive():
+    soup = BeautifulSoup((ROOT / "docs/index.html").read_text(encoding="utf-8"), "html.parser")
+    root = soup.select_one("main#mainContent")
+    folder = soup.select_one("details#drakken-folder")
+    assert root is not None
+    assert folder is not None
+    assert folder.has_attr("open") is False
+
+    folder_offset = str(root).find('id="drakken-folder"')
+    assert folder_offset >= 0
+    for label in ("Wordstreamer", "NiAlBu"):
+        assert str(root).find(label) < folder_offset
+
+    for section_id in ("gorevault", "ringthroat", "lyriboris", "drakken-registry", "drk-the-egg"):
+        section = soup.find(id=section_id)
+        assert section is not None
+        assert section.find_parent("details", id="drakken-folder") is folder

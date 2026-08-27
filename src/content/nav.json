@@ -48,6 +48,7 @@
     },
     {
       "label": "Drakken",
+      "open": false,
       "links": [
         {
           "id": "drakken-registry",
@@ -371,6 +372,14 @@
         {
           "id": "media-vault",
           "label": "26 — Media vault"
+        },
+        {
+          "id": "wordstreamer",
+          "label": "P01 — Wordstreamer"
+        },
+        {
+          "id": "nialbu",
+          "label": "P02 — NiAlBu"
         }
       ]
     }

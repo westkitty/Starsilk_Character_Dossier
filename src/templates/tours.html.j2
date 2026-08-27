@@ -42,7 +42,7 @@
         </header>
         <p class="tour-progress" id="progress-{{ tour.tour_id }}" role="status">0 of {{ tour.stop_count }} stops completed locally</p>
         <ol class="tour-stops">
-          {% for stop in tour.stops %}
+          {% for stop in tour.stops -%}
           <li id="tour-{{ tour.tour_id }}-stop-{{ stop.position }}" data-stable-id="{{ stop.stable_id }}">
             <div class="stop-main">
               <span class="stop-number">{{ stop.position }}</span>
@@ -57,7 +57,7 @@
               <a href="#record-{{ stop.stable_id }}">Library</a>
             </div>
           </li>
-          {% endfor %}
+          {%- endfor %}
         </ol>
       </article>
       {% endfor %}

@@ -86,8 +86,8 @@ This is a deterministic discovery derivative. Result class is structural publica
 | `beyond-wall` | Beyond the Siege Wall | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/beyond-wall.json |
 | `systems` | What the characters are standing inside. | `section` | Canon & cosmology | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/systems.json |
 | `peripheral-index` | The universe is not only its leads. | `section` | Peripheral & cosmic | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/peripheral-index.json |
-| `wordstreamer` | Wordstreamer | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/wordstreamer.json |
-| `nialbu` | NiAlBu | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nialbu.json |
+| `wordstreamer` | Wordstreamer | `character-section` | Peripheral & cosmic | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/wordstreamer.json |
+| `nialbu` | NiAlBu | `character-section` | Peripheral & cosmic | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/nialbu.json |
 | `anika` | Anika | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/anika.json |
 | `jory` | Jory | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/jory.json |
 | `selim` | Selim | `character-section` | — | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/selim.json |

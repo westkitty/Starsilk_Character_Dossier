@@ -238,6 +238,20 @@ details.page-disclosure>summary.page-title:focus-visible{outline:2px solid var(-
 details.page-disclosure[open]>summary.page-title .page-chevron{transform:rotate(-135deg)}
 @media print{details.page-disclosure{display:block!important}details.page-disclosure>summary.page-title{display:grid!important}details.page-disclosure>summary.page-title .page-chevron{display:none!important}}
 
+/* Drakken archive folder: the root Compendium exposes one entry point and
+   keeps the complete operational register behind an explicit reader action. */
+.drakken-folder{border-bottom:1px solid #101927;background:linear-gradient(180deg,#07131b 0,#050a11 100%)}
+.drakken-folder>summary{cursor:pointer;list-style:none;display:flex;align-items:end;justify-content:space-between;gap:2rem;padding:var(--page-pad);border-bottom:1px solid #1d3344;min-height:9rem}
+.drakken-folder>summary::-webkit-details-marker{display:none}
+.drakken-folder>summary:focus-visible{outline:2px solid var(--thread);outline-offset:-6px}
+.drakken-folder-heading{display:grid;gap:.35rem}
+.drakken-folder-heading strong{font-size:clamp(2.5rem,6vw,5.5rem);line-height:.9;letter-spacing:-.055em;color:#66e7ff}
+.drakken-folder-note{max-width:22rem;color:#9fb0bd;font-size:.9rem;text-align:right}
+.drakken-folder-body>.page:first-child{border-top:0}
+@media(min-width:951px){.drakken-folder>summary{padding-left:clamp(18rem,20vw,22rem)}}
+@media(max-width:700px){.drakken-folder>summary{align-items:start;flex-direction:column;gap:1rem}.drakken-folder-note{text-align:left}}
+@media print{.drakken-folder{display:block!important}.drakken-folder>summary{display:none!important}}
+
 /* Top-of-content controls (expand/collapse all, content search, sidebar toggle) */
 .page-controls{position:sticky;top:0;z-index:15;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;padding:.75rem var(--page-pad);background:rgba(5,7,13,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #213145}
 @media(min-width:951px){.page-controls{padding-left:clamp(18rem,20vw,22rem)}}

@@ -7,7 +7,7 @@
       "display_label": "Starsilk Compendium",
       "incoming_count": 0,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cover",
-      "outgoing_count": 9,
+      "outgoing_count": 6,
       "stable_id": "cover"
     },
     {
@@ -85,7 +85,7 @@
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/",
       "display_label": "Gorevault",
-      "incoming_count": 5,
+      "incoming_count": 4,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-gorevault",
       "outgoing_count": 0,
       "stable_id": "gorevault"
@@ -93,7 +93,7 @@
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/",
       "display_label": "Ringthroat",
-      "incoming_count": 5,
+      "incoming_count": 4,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-ringthroat",
       "outgoing_count": 0,
       "stable_id": "ringthroat"
@@ -101,7 +101,7 @@
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/",
       "display_label": "Lyriboris",
-      "incoming_count": 6,
+      "incoming_count": 5,
       "observatory_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-lyriboris",
       "outgoing_count": 0,
       "stable_id": "lyriboris"
@@ -1021,7 +1021,7 @@
   ],
   "entity_count": 127,
   "project_id": "starsilk-character-dossier",
-  "relationship_count": 138,
+  "relationship_count": 135,
   "relationship_graph_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/relationships.json",
   "relationships": [
     {
@@ -1805,19 +1805,6 @@
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/dao/"
     },
     {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--gorevault",
-      "edge_id": "mention--cover--gorevault",
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "observed_href": "#gorevault",
-      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--gorevault",
-      "source": "cover",
-      "source_ref": "src/content/sections/cover.body.html",
-      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
-      "target": "gorevault",
-      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/gorevault/"
-    },
-    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--jazen",
       "edge_id": "mention--cover--jazen",
       "evidence_class": "observed-xref",
@@ -1844,19 +1831,6 @@
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/"
     },
     {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--lyriboris",
-      "edge_id": "mention--cover--lyriboris",
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "observed_href": "#lyriboris",
-      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--lyriboris",
-      "source": "cover",
-      "source_ref": "src/content/sections/cover.body.html",
-      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
-      "target": "lyriboris",
-      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/lyriboris/"
-    },
-    {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--marcel",
       "edge_id": "mention--cover--marcel",
       "evidence_class": "observed-xref",
@@ -1868,19 +1842,6 @@
       "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
       "target": "marcel",
       "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/"
-    },
-    {
-      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--ringthroat",
-      "edge_id": "mention--cover--ringthroat",
-      "evidence_class": "observed-xref",
-      "kind": "mentions",
-      "observed_href": "#ringthroat",
-      "public_evidence_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#xref-cover--ringthroat",
-      "source": "cover",
-      "source_ref": "src/content/sections/cover.body.html",
-      "source_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/",
-      "target": "ringthroat",
-      "target_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/ringthroat/"
     },
     {
       "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--shard-god",
