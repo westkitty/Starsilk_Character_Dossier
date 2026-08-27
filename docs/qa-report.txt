@@ -22,7 +22,7 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [10-11] CANON INVARIANTS: 16 lock(s) checked, 0 violation(s)
 
-[12] JAVASCRIPT SYNTAX: 1 script block(s), 0 syntax error(s)
+[12] JAVASCRIPT SYNTAX: 1 script block(s), 0 syntax error(s) (node unavailable, skipped)
 
 [13] SIZE REPORT
     Generated docs/index.html: 592,502 bytes
