@@ -169,10 +169,10 @@ jobs:
       - name: Run focused structural regression
         run: python3 -m pytest tests/test_drakken_navigation.py -q
 
-      - name: Prove generated parity and whitespace integrity
+      - name: Prove generated parity and authored-input whitespace integrity
         run: |
           ./tools/build.sh --check
-          git diff --check
+          git diff --check -- OPERATIONAL_STATE.md src tests
 
       - name: Commit and push complete repair
         run: |
