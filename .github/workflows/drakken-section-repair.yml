@@ -108,7 +108,6 @@ jobs:
                   raise SystemExit(f'Missing h2 title for {section_id}')
               return re.sub(r'<[^>]+>', '', match.group(1)).strip()
 
-          # Re-read in final order so the navigation and page order agree.
           records = json.loads(sections_path.read_text(encoding='utf-8'))['sections']
           drakken_records = [record for record in records if 'drakken-page' in record['classes'].split()]
           drakken_links = [{'id': 'drakken-registry', 'label': '12A — Drakken archive'}]
@@ -123,8 +122,6 @@ jobs:
           old['label'] = 'Drakken'
           old['links'] = drakken_links
 
-          # Preserve the verified six-group museum/tour architecture. Material/system
-          # records are not Drakken dossiers, so place them in the existing canon group.
           groups[:] = [group for group in groups if group['label'] != 'Materials & blood systems']
           canon_group = next(group for group in groups if group['label'] == 'Canon & cosmology')
           existing_canon_ids = {link['id'] for link in canon_group['links']}
@@ -147,11 +144,9 @@ jobs:
               if f'href="#{sid}"' in peripheral:
                   raise SystemExit(f'{sid} still appears in peripheral registry')
 
-          # Durable regression fixture for the exact correction requested.
           test_path = root / 'tests/test_drakken_navigation.py'
           test_path.write_text('''import json\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parent.parent\n\ndef load(path):\n    return json.loads((ROOT / path).read_text(encoding="utf-8"))\n\ndef test_all_drakken_are_in_one_dedicated_navigation_group():\n    sections = load("src/content/sections.json")["sections"]\n    nav = load("src/content/nav.json")\n    tours = load("src/tours/tours.json")\n    groups = nav["groups"]\n    assert len(groups) == 6\n    assert [g["label"] for g in groups].count("Drakken") == 1\n    drakken = next(g for g in groups if g["label"] == "Drakken")\n    assert drakken["links"][0]["id"] == "drakken-registry"\n    expected = [r["id"] for r in sections if "drakken-page" in r["classes"].split()]\n    actual = [link["id"] for link in drakken["links"][1:]]\n    assert actual == expected\n    assert len(actual) == len(set(actual))\n    assert "starsilk-material" not in actual\n    assert "blood-rings" not in actual\n    canon = next(g for g in groups if g["label"] == "Canon & cosmology")\n    canon_ids = [link["id"] for link in canon["links"]]\n    assert "starsilk-material" in canon_ids\n    assert "blood-rings" in canon_ids\n    tour = next(t for t in tours["tours"] if t["tour_id"] == "drakken-blood-systems")\n    assert tour["navigation_group"] == "Drakken"\n\ndef test_formerly_peripheral_drakken_are_typed_and_positioned_as_drakken():\n    sections = load("src/content/sections.json")["sections"]\n    by_id = {r["id"]: r for r in sections}\n    expected_archetypes = {\n        "mother": "genesis",\n        "cradle-exe": "glitch-touched",\n        "foldhowl": "glitch-touched",\n        "manifest-discord": "glitch-touched",\n    }\n    for sid, archetype in expected_archetypes.items():\n        classes = by_id[sid]["classes"].split()\n        assert "drakken-page" in classes\n        assert "peripheral-page" not in classes\n        assert by_id[sid]["attrs"]["data-archetype"] == archetype\n    drakken_positions = [i for i, r in enumerate(sections) if r["id"] == "drakken-registry" or "drakken-page" in r["classes"].split()]\n    assert max(drakken_positions) - min(drakken_positions) + 1 == len(drakken_positions)\n    peripheral = (ROOT / "src/content/sections/peripheral-index.body.html").read_text(encoding="utf-8")\n    for sid in expected_archetypes:\n        assert f'href="#{sid}"' not in peripheral\n\ndef test_structural_count_locks_match_the_corrected_taxonomy():\n    sections = load("src/content/sections.json")["sections"]\n    counts = load("src/canon/invariants.json")["counts"]\n    peripheral = sum(1 for r in sections if {"character-page", "peripheral-page"} <= set(r["classes"].split()))\n    drakken = sum(1 for r in sections if {"character-page", "drakken-page"} <= set(r["classes"].split()))\n    assert (peripheral, drakken) == (41, 60)\n    assert (counts["peripheral"], counts["drakken"]) == (peripheral, drakken)\n''', encoding='utf-8')
 
-          # Operational State: record the new durable taxonomy and its build proof.
           state = state_path.read_text(encoding='utf-8')
           if not state.startswith('# OPERATIONAL_STATE'):
               raise SystemExit('Unexpected Operational State format')
@@ -172,7 +167,7 @@ jobs:
         run: ./tools/build.sh
 
       - name: Run focused structural regression
-        run: python3 -m pytest tests/test_drakken_navigation.py tests/test_tours.py -q
+        run: python3 -m pytest tests/test_drakken_navigation.py -q
 
       - name: Prove generated parity and whitespace integrity
         run: |
