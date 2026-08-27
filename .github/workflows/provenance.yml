@@ -33,8 +33,14 @@ jobs:
         run: |
           set -euo pipefail
           case "${SOURCE_WORKFLOW}" in
-            CI) source_kind="ci" ;;
-            "Publish Compendium to GitHub Pages") source_kind="pages" ;;
+            CI)
+              source_kind="ci"
+              source_validation="generated-public-boundary=pass"
+              ;;
+            "Publish Compendium to GitHub Pages")
+              source_kind="pages"
+              source_validation="live-publication=pass"
+              ;;
             *)
               echo "::error::Unexpected source workflow: ${SOURCE_WORKFLOW}"
               exit 1
@@ -44,7 +50,7 @@ jobs:
           python3 tools/build_provenance.py \
             --output "${out}" \
             --validation source-workflow=pass \
-            --validation public-boundary=pass \
+            --validation "${source_validation}" \
             --claim "source_workflow=${SOURCE_WORKFLOW}" \
             --claim "source_run_id=${SOURCE_RUN_ID}" \
             --claim "source_run_attempt=${SOURCE_RUN_ATTEMPT}" \
