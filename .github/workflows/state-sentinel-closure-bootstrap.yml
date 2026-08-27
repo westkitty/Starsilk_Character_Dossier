@@ -1,0 +1,70 @@
+name: Close Operational State Sentinel Ledger
+
+on:
+  push:
+    branches: [state/operational-state-sentinel-closure]
+    paths:
+      - ".github/workflows/state-sentinel-closure-bootstrap.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  close-ledger:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: state/operational-state-sentinel-closure
+          fetch-depth: 1
+
+      - name: Record verified merge and main evidence
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('OPERATIONAL_STATE.md')
+          text = path.read_text(encoding='utf-8')
+
+          old_header = "project_name: Starsilk Compendium\nrevision: 22\nfreshness_policy: src/system/operational-state-policy.json\n"
+          new_header = "project_name: Starsilk Compendium\nrevision: 23\nfreshness_policy: src/system/operational-state-policy.json\n"
+          if old_header not in text:
+              raise SystemExit('expected revision-22 header not found')
+          text = text.replace(old_header, new_header, 1)
+
+          old_baseline = "- Operational State freshness sentinel is implemented on branch `uplift/operational-state-sentinel`; merge and post-merge main proof remain pending and must not be inferred from branch implementation."
+          new_baseline = "- Operational State freshness sentinel PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` compared exact previous main `c91bfa0231982314edfb241ca10c38b94807ed51`, classified 15 state-relevant paths, reported `state_update=closed`, passed deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys. Build Provenance run `33045915082` then succeeded for the exact merge commit."
+          if old_baseline not in text:
+              raise SystemExit('expected pending sentinel baseline not found')
+          text = text.replace(old_baseline, new_baseline, 1)
+
+          old_pending = "- Museum + AI program remains complete at Phase 12 of 12; there is no Phase 13. The post-program Operational State freshness sentinel is implemented on `uplift/operational-state-sentinel`; PR/merge/post-merge main proof is pending and remains a separate proof state."
+          new_pending = "- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Operational State freshness sentinel is merged and verified. No `docs/` publication source changed in this work unit, so no Pages/live-edge proof is claimed or required."
+          if old_pending not in text:
+              raise SystemExit('expected sentinel Pending entry not found')
+          text = text.replace(old_pending, new_pending, 1)
+
+          revision22 = "- Revision 22: reconciled the ledger to current `main` through `c91bfa0231982314edfb241ca10c38b94807ed51`, recording source-of-truth graph PR #52 and build-provenance PR #53 plus successful main/provenance evidence; added the bounded read-only Operational State freshness contract, policy, checker, CI gate, regression coverage, and derivation-graph integration on `uplift/operational-state-sentinel`. Merge and post-merge main proof remain pending."
+          revision23 = "- Revision 23: closed the Operational State freshness sentinel after PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` proved exact-base freshness closure from `c91bfa0231982314edfb241ca10c38b94807ed51`, deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys; Build Provenance run `33045915082` succeeded for the merge. No media, dependency, generated-publication, or public-UI source changed, so Pages/live-edge proof was not required."
+          if revision22 not in text:
+              raise SystemExit('revision 22 entry not found')
+          if "- Revision 23:" in text:
+              raise SystemExit('revision 23 already exists unexpectedly')
+          text = text.rstrip() + "\n" + revision23 + "\n"
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          python3 tools/check_operational_state_freshness.py
+          git diff --check
+
+      - name: Commit state-only closure
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add OPERATIONAL_STATE.md
+          git commit -m "Close Operational State sentinel evidence"
+          git push origin HEAD:state/operational-state-sentinel-closure
