@@ -1,0 +1,40 @@
+name: Cold Start Recovery Bootstrap
+
+on:
+  push:
+    branches: [uplift/cold-start-recovery]
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: uplift/cold-start-recovery
+          fetch-depth: 2
+
+      - name: Apply cold-start recovery uplift
+        run: python3 tools/_cold_start_bootstrap.py
+
+      - name: Verify dependency-free recovery gate
+        run: python3 tests/test_cold_start_recovery.py
+
+      - name: Verify clean patch
+        run: git diff --check
+
+      - name: Commit generated uplift
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md OPERATIONAL_STATE.md src/system/COLD_START_RECOVERY.md src/system/cold-start-recovery-contract.json tests/test_cold_start_recovery.py
+          if git diff --cached --quiet; then
+            echo "No bootstrap changes to commit."
+            exit 0
+          fi
+          git commit -m "feat: add cold-start recovery gate"
+          git push origin HEAD:uplift/cold-start-recovery
