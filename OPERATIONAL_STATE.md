@@ -2,7 +2,8 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 21
+revision: 22
+freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
 
@@ -20,7 +21,12 @@ revision: 21
 - Museum + AI Phase 7 PR #27 merged at `72837ad5595a0380fe45d2aed1ed7cb5521b6432`.
 - Museum + AI Phase 8 PR #30 merged at `6520f43574eac8de64d67da77dca19bc99f3eb46`.
 - Museum + AI Phase 9 PR #34 merged at `3ed684897975065d89f5e12c8c15b36f936c0262`.
-- Visual-coverage work unit PR #47 (`repair/visual-coverage-provenance`) is source/build/docs verified at revision 21: clean read-only CI run `32738410496` passed Chromium, Firefox, and WebKit on implementation head `e81aacafac80de3542ce1c466de8b8df2434bfce`. Merge state, Pages publication, and live-edge content remain separate proof states under invariant 10.
+- Visual-coverage PR #47 merged at `3801b500c08c3842c3a54445db503610eac92200`, completing source-backed local image coverage for all 127 authored top-level records while preserving 138 observed-xref `mentions` edges and adding no new media binaries.
+- Pages proof-hardening PR #48 merged at `be9bc848788e1a6e3972a615f050a5f2d10a9d59`, making visual-coverage publication proof exact-commit and semantic rather than generic-marker based.
+- Pages source-delta PR #50 merged at `acf7a97b9872d6baf9d6c40f1fca03401671c263`, preserving exact source-change publication proof while skipping redundant legacy rebuild requests for workflow-only changes.
+- Source-of-truth graph PR #52 merged at `48efb542b198383e9aaf3f55cedc6d66a0bb532b`; `src/system/derivation-map.json` now maps major authority/evidence groups, build generators, generated roots, and validation gates with deterministic projection/validation.
+- Build-provenance PR #53 merged at `c91bfa0231982314edfb241ca10c38b94807ed51`; main CI run `33043525693` passed and Build Provenance run `33043645726` generated, reverified, boundary-checked, and uploaded the first exact-commit attestation for that merge.
+- Operational State freshness sentinel is implemented on branch `uplift/operational-state-sentinel`; merge and post-merge main proof remain pending and must not be inferred from branch implementation.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -127,6 +133,8 @@ revision: 21
 72. Every one of the 127 authored top-level records must retain locally resolvable image coverage on both the complete Compendium and its canonical `/entities/<stable-id>/` page. Existing authored visuals take precedence; fallbacks are additive only for image-less authored bodies. The cover may satisfy this contract through the existing local poster frame attached to its hero video.
 73. Character context fallbacks must explicitly state that they are not portraits so unknown appearance remains unknown. Fallback presentation must not create `.xref-link` evidence or alter the observed-xref relationship graph; manifest-derived `related_media_ids` remain governed by invariant 30.
 74. Visual-coverage completion must not add or replace canonical media binaries, write back to `media/source/`, or weaken provenance checks. Any deliberately changed visual-regression baseline must be generated and immediately re-compared inside the pinned Playwright Linux environment before merge.
+
+75. `OPERATIONAL_STATE.md` must close every state-relevant repository change in the same change set with an increased revision and matching revision-log entry. `src/system/operational-state-policy.json` defines the bounded material/exemption policy; `tools/check_operational_state_freshness.py` is read-only and must not auto-edit project state.
 
 ## Visual coverage completion — VERIFIED ON PR #47
 
@@ -725,7 +733,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - One-time recovery branch `recovery/canonical-media-archive` may remain until branch cleanup is available; its PR is execution-only and must not be merged into production.
 - Chronology event publication IDs are Phase 9 source-backed derivatives from direct authored labels; they are not authored historical IDs. Unsupported absolute dates, ordering, durations, and event-level canon/spoiler status remain unknown.
 - Many WorldsVault template records do not yet have authored stable IDs; display labels/media references are not silently promoted into permanent object identity.
-- The Relationship Observatory exposes the current 136 observed xref `mentions` edges with source/evidence traceability, but no stronger semantic relationship authority exists; semantic meaning remains unauthored unless a later explicit authority is added.
+- The Relationship Observatory exposes the current 138 observed xref `mentions` edges with source/evidence traceability, but no stronger semantic relationship authority exists; semantic meaning remains unauthored unless a later explicit authority is added.
 - Per-section canon status remains unauthored in the current source model; Phase 2 publishes `canon_status=unknown` rather than guessing.
 - Phase 2 uses `spoiler_level=major` as a conservative publication default; that is publication policy, not a canon fact.
 - Phase 4 museum deep links are fragment routes over one static `/objects/` document, not separate server-side HTML resources.
@@ -737,7 +745,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- None. Museum + AI program: Phase 12 of 12 — AI Agent Evaluation Harness and Final Integration is complete, including the final root-integration repair (PR #42) that made the unified museum shell the visible public entrance. There is no Phase 13.
+- Museum + AI program remains complete at Phase 12 of 12; there is no Phase 13. The post-program Operational State freshness sentinel is implemented on `uplift/operational-state-sentinel`; PR/merge/post-merge main proof is pending and remains a separate proof state.
 
 ## Revision log
 
@@ -761,3 +769,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 18: completed Museum + AI Phase 10. Added deterministic seven-file WorldsVault topology publication from 11 source-cited nodes and 6 direct-authored edges, explicit publication-derived identity, separate non-canonical layout, independent public/unknown/unknown status, accessible text/keyboard/mobile behavior, and machine/schema/sitemap/entity discovery. Existing stable IDs, observed-xref mentions, and unauthored template positions remained unchanged. PR #36 passed CI run `32673667684` and merged at `9b05fe5873e171b63399558215189436213ae62f`. Execution-only proof PR #37 closed unmerged after repaired proof run `32673946000` proved byte parity, boundary safety, deep links, keyboard behavior, text equivalent, mobile layout, source links, and same-origin networking. Phase 11 was not started.
 - Revision 19: completed Museum + AI Phase 11. Added deterministic six-file installable offline publication with root manifest/client UI, project-relative service-worker scope, under-2-MB shell/metadata precache, strict on-demand media boundary, cache clear/failure reporting, cached-root and explicit fallback navigation, focused browser coverage, and a bounded pinned visual-reference refresh. PR #38 CI run `32675229686` passed Chromium/Firefox/WebKit, merged at `457d5226b03a5ae1a2d58278ed6af850a532c73e`, and live Pages proof established byte parity plus real HTTPS worker/cache/offline behavior. Phase 12 was not started.
 - Revision 20: completed Museum + AI Phase 12, both parts. Part A (PR #39, merged `3431f14941f20a0105ac70275360d6aaa07f6014`) published the agent evaluation harness: `src/agents/AUTHORITY.md`/`evaluation-fixtures.json`, `build/agent_publication.py`, and the `docs/agents/` publication set, with a 10/10-check deterministic integration certificate and a 13-category/7-penalty evaluation contract; CI run `32676564639` and live-proof run `32676803602` (job `97286337702`, PR #40, closed unmerged) both passed. Part B (PR #42, branch `fix/unified-museum-final-integration`, merged `e2950ec0645f699fcd311f891129e7b558285476`) closed the one remaining integration defect Part A left open: the root page still looked like the pre-museum dossier shell with no visible path into any of the eight public systems. Added the shared `src/templates/_museum_nav.html.j2` navigation partial (included by the root shell and every secondary system template plus entity records -- no new build-script code required), a real museum entrance on the root page (hero, exploration cards, Data/AI strip, lead-in to the unabridged Compendium below) with every statistic computed in `build/generate.py` from existing source/generated data, and a deterministic `data-museum-shell="unified"` marker verified by `tests/test_unified_museum_shell.py`. Fixed three tests whose assumptions no longer held once the cover section stopped being the first thing in the viewport (ambient-watermark initial state, a lazy-loaded image needing an explicit scroll, and the page `<title>`). Visual baselines for the seven screenshots whose layout legitimately changed were regenerated inside the pinned CI Playwright container via a one-shot `workflow_dispatch` runner that was removed once its commit landed. PR #42 CI run `32682068700` passed the full Chromium suite (180 tests) plus Firefox/WebKit representative journeys; GitHub Pages built the merged commit (`pages/builds/1170882630`, status `built`), and live verification confirmed the unified-shell marker and HTTP 200 responses at `/`, `/discover/`, `/entities/`, `/objects/`, `/relationships/`, `/canon/`, `/tours/`, `/chronology/`, and `/worldsvault/`. The Museum + AI program (Phases 1-12) is now complete; there is no Phase 13.
+- Revision 21: closed the post-Phase-12 visual-coverage publication gap. PR #47 merged at `3801b500c08c3842c3a54445db503610eac92200` with source-backed visual coverage for all 127 authored records and 138 observed-xref relationships preserved; PR #48 merged at `be9bc848788e1a6e3972a615f050a5f2d10a9d59` to make Pages proof exact-commit and semantic; PR #50 merged at `acf7a97b9872d6baf9d6c40f1fca03401671c263` to skip redundant legacy rebuilds for workflow-only changes while retaining strict source-change/live proof.
+- Revision 22: reconciled the ledger to current `main` through `c91bfa0231982314edfb241ca10c38b94807ed51`, recording source-of-truth graph PR #52 and build-provenance PR #53 plus successful main/provenance evidence; added the bounded read-only Operational State freshness contract, policy, checker, CI gate, regression coverage, and derivation-graph integration on `uplift/operational-state-sentinel`. Merge and post-merge main proof remain pending.

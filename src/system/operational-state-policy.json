@@ -1,0 +1,40 @@
+{
+  "schema": "starsilk-operational-state-policy/1",
+  "project_id": "starsilk-character-dossier",
+  "state_file": "OPERATIONAL_STATE.md",
+  "authority_note": "Freshness policy only. This does not create lore, canon, relationship, chronology, media identity, or publication authority.",
+  "tracked_patterns": [
+    ".github/workflows/**",
+    "build/**",
+    "src/**",
+    "tools/**",
+    "tests/**",
+    ".gitignore",
+    "requirements.txt",
+    "CANON_INFRASTRUCTURE.md",
+    "MUSEUM_AI_FOUNDATION.md",
+    "MUSEUM_AI_ROADMAP.md",
+    "README.md",
+    "RIGHTS.md",
+    "Starsilk_Character_Dossier_bible.md",
+    "docs/asset-manifest.json"
+  ],
+  "exempt_patterns": [
+    "OPERATIONAL_STATE.md",
+    "tests/visual_baselines/**",
+    "docs/**"
+  ],
+  "reinclude_patterns": [
+    "docs/asset-manifest.json"
+  ],
+  "required_state_markers": [
+    "freshness_policy: src/system/operational-state-policy.json"
+  ],
+  "rules": {
+    "material_change_requires_state_change": true,
+    "revision_must_increase": true,
+    "checker_is_read_only": true,
+    "generated_publication_uses_existing_parity_gates": true,
+    "visual_baselines_use_existing_visual_regression_gates": true
+  }
+}
