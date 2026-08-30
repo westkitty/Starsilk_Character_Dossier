@@ -25,6 +25,9 @@ jobs:
       contents: read
       pages: read
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Read current GitHub Pages configuration
         env:
           GH_TOKEN: ${{ github.token }}

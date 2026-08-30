@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 26
+revision: 27
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -789,3 +789,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 24: added the zero-memory cold-start recovery entrypoint, ten-category machine evidence contract, README discovery path, and dependency-free regression gate so a successor can reconstruct the project from repository evidence without chat memory; recorded the external-model reasoning limit without creating a second state/canon/publication authority.
 - Revision 25: regrouped all authored Drakken records under one dedicated navigation section, corrected four Drakken records previously typed/indexed as peripheral, aligned strict structural taxonomy counts to 41 peripheral / 60 Drakken, preserved the six-group/six-tour architecture and stable tour ID, added regression coverage, and rebuilt deterministic publication in GitHub Actions run 33052821820.
 - Revision 26: closed the local post-program Drakken archive repair. Recorded the root disclosure/template/test changes required by the freshness sentinel, proved the source-derived relationship publication at 135 `kind=mentions` / `evidence_class=observed-xref` edges, and changed the Pages live proof to compare the cache-busted publication byte-for-byte with checked-in `docs/relationships/relationships.json` while retaining semantic boundary assertions for promotion-time CI.
+- Revision 27: closed the bounded Pages proof execution defect found by PR CI by checking out the repository in the pull-request inspection job before reading the checked-in relationship artifact; no publication or product semantics changed.
