@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 30
+revision: 31
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -57,6 +57,7 @@ freshness_policy: src/system/operational-state-policy.json
 - `src/templates/_museum_nav.html.j2` is the single shared unified-museum-navigation partial, included by `shell.html.j2` and every secondary system template (`museum.html.j2`, `discovery.html.j2`, `canon-inspector.html.j2`, `relationships.html.j2`, `tours.html.j2`, `chronology.html.j2`, `worldsvault.html.j2`, `entity.html.j2`); each including template sets its own `nav_root`/`nav_current` before the include. It is presentation/navigation only and carries no canon, relationship, or provenance authority of its own.
 - `data-museum-shell="unified"` is the deterministic integration marker proving the root page and every public system share one museum shell; it is asserted on the root `<body>` and on every page's rendered `_museum_nav.html.j2` header.
 - Root hero statistics in `shell.html.j2` (`museum_stats`, computed in `build/generate.py::load_museum_stats`) are derived from `sections.json`, `docs/asset-manifest.json`, `src/tours/tours.json`, `src/chronology/events.json`, and `src/canon/invariants.json` at build time; they are never hand-maintained literals and must not be edited directly in generated output.
+- `src/system/main-protection-policy.json` is the repository's machine-readable expected governance contract for `main`; GitHub branch protection is the enforcement authority and must be verified independently. It requires a pull request, strict current Chromium/Firefox/WebKit CI checks, administrator enforcement, and blocked force-push/deletion, while intentionally requiring no reviewer, CODEOWNERS, signed-commit, merge-queue, or linear-history gate.
 
 ## Active invariants
 
@@ -759,7 +760,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Drakken archive repair is locally closed with fresh Operational State and a source-derived live Pages proof contract; promotion must run the required CI and live-edge proof.
+- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Drakken archive repair and post-completion fortress pass are closed with fresh Operational State, repository governance contract, protected `main`, reproducibility, and source-derived live Pages proof.
 
 ## Revision log
 
@@ -793,3 +794,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 28: aligned the Chromium visual regressions with the dedicated closed Drakken archive by opening that explicit outer disclosure in affected tests and refreshing only the Drakken-entry and peripheral-index references in the pinned Playwright environment; no application semantics or canon data changed.
 - Revision 29: made the temporary pinned visual-baseline refresh cleanup portable to the workflow shell after its generation, recheck, and full Chromium suite had passed; the temporary workflow remains self-removing and is not part of the final repair surface.
 - Revision 30: made the affected Drakken visual test open the outer archive without accordion animation so its pinned screenshot scroll state is deterministic; constrained the temporary refresh commit to the two visual references and workflow deletion, excluding environment-only QA-report churn.
+- Revision 31: added the machine-readable `main` governance contract and cold-start pointer, verified the actual GitHub branch protection, and closed the post-completion reproducibility/recovery and merge/live-publication proof boundary without starting Phase 13.

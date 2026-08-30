@@ -143,6 +143,15 @@
             "Inspect active Pages source",
             "build_type"
           ]
+        },
+        {
+          "path": "src/system/main-protection-policy.json",
+          "contains": [
+            "starsilk-main-protection-policy/1",
+            "required_pull_request",
+            "required_status_checks",
+            "GitHub's branch-protection configuration"
+          ]
         }
       ]
     },
