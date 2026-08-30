@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 31
+revision: 32
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -12,6 +12,7 @@ freshness_policy: src/system/operational-state-policy.json
 - Pages source-compatibility PR #2 merged at `6c57256b32a6f75f1857919dba3015851e738f97`.
 - Pages source-aware self-heal PR #3 merged at `a84a3440c0178ad256bbd5994392bb0d4caf5dde`.
 - Live Pages proof PR #4 merged at `5a813a13e13dcaed19f496196de1302572fa9984`.
+- The recovered visual-coverage change adds 55 authored fallback visual-reference blocks and 47 manifest-backed WebP assets, raising the published asset ledger from 213 to 260; these additions are presentation/provenance coverage only and do not create canon, identity, relationship, or media authority.
 - Museum + AI Phase 1 PR #11 merged at `ea287f572264eee625708d22b95a2d482b7d8a87`.
 - Museum + AI Phase 2 PR #12 merged at `d23d940ae306017550ef69265f0bea8d64a7c303`.
 - Museum + AI Phase 3 PR #15 merged at `b7726adc86f967e914616c07b5b4b6179236dbf3`.
@@ -795,3 +796,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 29: made the temporary pinned visual-baseline refresh cleanup portable to the workflow shell after its generation, recheck, and full Chromium suite had passed; the temporary workflow remains self-removing and is not part of the final repair surface.
 - Revision 30: made the affected Drakken visual test open the outer archive without accordion animation so its pinned screenshot scroll state is deterministic; constrained the temporary refresh commit to the two visual references and workflow deletion, excluding environment-only QA-report churn.
 - Revision 31: added the machine-readable `main` governance contract and cold-start pointer, verified the actual GitHub branch protection, and closed the post-completion reproducibility/recovery and merge/live-publication proof boundary without starting Phase 13.
+- Revision 32: recorded the recovered source-backed visual-coverage change: 55 authored fallback visual-reference blocks, 47 manifest-backed WebP assets, and regenerated deterministic publication outputs; no canon or relationship authority changed.
