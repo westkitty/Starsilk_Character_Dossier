@@ -1009,7 +1009,7 @@ def test_visual_principal_character_page(page: Page, local_server):
 def test_visual_drakken_entry(page: Page, local_server):
     page.set_viewport_size({"width": 1280, "height": 900})
     page.goto(f"{local_server}/index.html")
-    page.locator("#drakken-folder > summary").click()
+    page.evaluate("document.getElementById('drakken-folder').open = true")
     page.evaluate("document.getElementById('drk-the-egg').querySelector('details.page-disclosure').open = true")
     page.locator("#drk-the-egg").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#drk-the-egg")
