@@ -48,7 +48,7 @@ jobs:
 
       - name: Commit refreshed baselines and remove one-shot workflow
         run: |
-          set -euo pipefail
+          set -eu
           rm .github/workflows/refresh-post-repair-visual-baselines.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 28
+revision: 29
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -791,3 +791,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 26: closed the local post-program Drakken archive repair. Recorded the root disclosure/template/test changes required by the freshness sentinel, proved the source-derived relationship publication at 135 `kind=mentions` / `evidence_class=observed-xref` edges, and changed the Pages live proof to compare the cache-busted publication byte-for-byte with checked-in `docs/relationships/relationships.json` while retaining semantic boundary assertions for promotion-time CI.
 - Revision 27: closed the bounded Pages proof execution defect found by PR CI by checking out the repository in the pull-request inspection job before reading the checked-in relationship artifact; no publication or product semantics changed.
 - Revision 28: aligned the Chromium visual regressions with the dedicated closed Drakken archive by opening that explicit outer disclosure in affected tests and refreshing only the Drakken-entry and peripheral-index references in the pinned Playwright environment; no application semantics or canon data changed.
+- Revision 29: made the temporary pinned visual-baseline refresh cleanup portable to the workflow shell after its generation, recheck, and full Chromium suite had passed; the temporary workflow remains self-removing and is not part of the final repair surface.
