@@ -21,9 +21,10 @@ If the repository does not support a required fact, classify it as `AMBIGUOUS`, 
 5. `src/system/AUTHORITY.md` plus `src/system/derivation-map.json` — repository authority/derivation topology and validation ownership.
 6. `src/system/operational-state-policy.json` — which project changes require Operational State closure.
 7. `.github/workflows/ci.yml` and `.github/workflows/pages.yml` — current CI and publication behavior. Read the actual workflows rather than assuming a remembered deployment mode.
-8. `RIGHTS.md` — reuse/legal boundary.
-9. The relevant subsystem `AUTHORITY.md` and source records for whatever you intend to change.
-10. Only after the above are reconciled: mutate the repository.
+8. `src/system/main-protection-policy.json` — expected `main` pull-request, status-check, force-push, deletion, and solo-maintainer governance boundary; verify the actual GitHub configuration separately.
+9. `RIGHTS.md` — reuse/legal boundary.
+10. The relevant subsystem `AUTHORITY.md` and source records for whatever you intend to change.
+11. Only after the above are reconciled: mutate the repository.
 
 Generated `docs/` files are useful evidence and deployable derivatives, but they do not become controlling source merely because they are convenient to read. The exception is a file whose declared authority is itself evidentiary, such as the published-media provenance ledger `docs/asset-manifest.json`.
 
@@ -39,6 +40,7 @@ Before consequential work, a cold starter must be able to recover all ten catego
 | Active user/public paths | The public Compendium entry point, canonical entity path, legacy anchor compatibility, museum/object path, and local preview path. |
 | Build, test, and preview | Exact repository commands for deterministic build/check, validation/test execution, and local serving. |
 | Environment and publication | Current Pages source model, CI baseline, and the rule that merge, build, deployment, and live-edge proof are separate states. |
+| Repository governance | Expected `main` protection policy and the requirement to verify GitHub enforcement independently from repository text. |
 | Protected invariants | The active project invariants and stable identity/unknown/evidence rules that changes must preserve. |
 | Known limitations and external dependencies | Current limitations, intentionally external state such as canonical media originals/recovery material, and what cannot be inferred from file presence. |
 | Pending work | The current `## Pending` state, including an explicit `None` when there is no authorized next phase. |

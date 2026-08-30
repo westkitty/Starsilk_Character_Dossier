@@ -1,0 +1,29 @@
+{
+  "schema": "starsilk-main-protection-policy/1",
+  "project_id": "starsilk-character-dossier",
+  "authority_note": "This is the repository's expected governance contract. GitHub's branch-protection configuration is the enforcement authority; this file does not grant bypass permission.",
+  "target": {
+    "repository": "westkitty/Starsilk_Character_Dossier",
+    "branch": "main"
+  },
+  "enforcement": {
+    "mechanism": "branch-protection",
+    "required_pull_request": true,
+    "required_status_checks": [
+      "Build, validate, unit + accessibility/network tests (Chromium)",
+      "Representative journeys (Firefox, WebKit) (firefox)",
+      "Representative journeys (Firefox, WebKit) (webkit)"
+    ],
+    "strict_status_checks": true,
+    "enforce_admins": true,
+    "allow_force_pushes": false,
+    "allow_deletions": false
+  },
+  "intentionally_unrequired": [
+    "required_pull_request_reviews",
+    "CODEOWNERS",
+    "signed_commits",
+    "merge_queue",
+    "required_linear_history"
+  ]
+}

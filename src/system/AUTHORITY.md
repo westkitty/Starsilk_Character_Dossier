@@ -9,6 +9,7 @@ This subsystem maps **repository authority and derivation topology**. It does no
 The graph records **what governs or feeds what**. The underlying sources keep their own authority scopes. In particular:
 
 - `MUSEUM_AI_FOUNDATION.md` remains the repository-level machine-derivative authority contract;
+- `src/system/main-protection-policy.json` declares the expected GitHub governance boundary; GitHub's branch-protection configuration remains the enforcement authority;
 - authored content remains under `src/content/`;
 - machine canon locks remain under `src/canon/invariants.json`;
 - published-media provenance remains `docs/asset-manifest.json` with canonical originals outside Git under `media/source/`;
