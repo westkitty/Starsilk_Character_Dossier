@@ -539,6 +539,7 @@ def test_sections_collapsed_by_default(page: Page, local_server):
     page.goto(f"{local_server}/index.html")
     expect(page.locator("#cover h1")).to_be_visible()
     expect(page.locator("#index")).to_be_visible()
+    page.locator("#drakken-folder > summary").click()
     for sec_id in ("codec", "drk-the-egg", "gorevault", "peripheral-index"):
         details = page.locator(f"#{sec_id} details.page-disclosure")
         expect(details).to_have_count(1)
@@ -586,6 +587,7 @@ def test_anchor_navigation_opens_collapsed_section(page: Page, local_server):
     assert page.locator("#marcel details.page-disclosure").evaluate("el => el.open") is True
 
     page.goto(f"{local_server}/index.html")
+    page.locator("#drakken-folder > summary").click()
     return_link = page.locator('#drk-abyssoriel a[href="#drakken-registry"]')
     page.evaluate("document.getElementById('drk-abyssoriel').querySelector('details.page-disclosure').open = true")
     expect(return_link).to_be_visible()
@@ -1007,6 +1009,7 @@ def test_visual_principal_character_page(page: Page, local_server):
 def test_visual_drakken_entry(page: Page, local_server):
     page.set_viewport_size({"width": 1280, "height": 900})
     page.goto(f"{local_server}/index.html")
+    page.evaluate("document.getElementById('drakken-folder').open = true")
     page.evaluate("document.getElementById('drk-the-egg').querySelector('details.page-disclosure').open = true")
     page.locator("#drk-the-egg").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#drk-the-egg")
