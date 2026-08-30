@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 25
+revision: 26
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -759,7 +759,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Operational State freshness sentinel is merged and verified. No `docs/` publication source changed in this work unit, so no Pages/live-edge proof is claimed or required.
+- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Drakken archive repair is locally closed with fresh Operational State and a source-derived live Pages proof contract; promotion must run the required CI and live-edge proof.
 
 ## Revision log
 
@@ -788,3 +788,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 23: closed the Operational State freshness sentinel after PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` proved exact-base freshness closure from `c91bfa0231982314edfb241ca10c38b94807ed51`, deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys; Build Provenance run `33045915082` succeeded for the merge. No media, dependency, generated-publication, or public-UI source changed, so Pages/live-edge proof was not required.
 - Revision 24: added the zero-memory cold-start recovery entrypoint, ten-category machine evidence contract, README discovery path, and dependency-free regression gate so a successor can reconstruct the project from repository evidence without chat memory; recorded the external-model reasoning limit without creating a second state/canon/publication authority.
 - Revision 25: regrouped all authored Drakken records under one dedicated navigation section, corrected four Drakken records previously typed/indexed as peripheral, aligned strict structural taxonomy counts to 41 peripheral / 60 Drakken, preserved the six-group/six-tour architecture and stable tour ID, added regression coverage, and rebuilt deterministic publication in GitHub Actions run 33052821820.
+- Revision 26: closed the local post-program Drakken archive repair. Recorded the root disclosure/template/test changes required by the freshness sentinel, proved the source-derived relationship publication at 135 `kind=mentions` / `evidence_class=observed-xref` edges, and changed the Pages live proof to compare the cache-busted publication byte-for-byte with checked-in `docs/relationships/relationships.json` while retaining semantic boundary assertions for promotion-time CI.

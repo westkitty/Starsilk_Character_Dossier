@@ -72,15 +72,19 @@ jobs:
           grep -Fq 'Khar Venn — Blood Ring witness context' /tmp/live-root.html
           grep -Fq 'data-visual-coverage="fallback"' /tmp/live-sela.html
           grep -Fqi 'not a portrait' /tmp/live-sela.html
+          cmp --silent /tmp/live-relationships.json docs/relationships/relationships.json
           python3 - <<'PY'
           import json
+          expected = json.load(open('docs/relationships/relationships.json', encoding='utf-8'))
           data = json.load(open('/tmp/live-relationships.json', encoding='utf-8'))
+          assert data == expected
           relationships = data.get('relationships', [])
-          assert data.get('entity_count') == 127
-          assert data.get('relationship_count') == 138
-          assert len(relationships) == 138
+          assert data.get('entity_count') == len(expected.get('entities', []))
+          assert data.get('relationship_count') == len(expected.get('relationships', []))
+          assert len(relationships) == data.get('relationship_count')
           assert all(item.get('kind') == 'mentions' for item in relationships)
           assert all(item.get('evidence_class') == 'observed-xref' for item in relationships)
+          assert all('relation_class' not in item for item in relationships)
           PY
           echo "Verified current live visual-coverage contract at ${page_url}"
 
@@ -295,7 +299,8 @@ jobs:
 
             if curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
               "${rel_probe}" --output /tmp/live-relationships.json; then
-              if python3 -c "import json; d=json.load(open('/tmp/live-relationships.json')); assert d.get('entity_count') == 127; assert d.get('relationship_count') == 138; r=d.get('relationships', []); assert len(r) == 138; assert all(x.get('kind') == 'mentions' and x.get('evidence_class') == 'observed-xref' for x in r)"; then
+              if cmp --silent /tmp/live-relationships.json docs/relationships/relationships.json \
+                && python3 -c "import json; d=json.load(open('/tmp/live-relationships.json')); e=json.load(open('docs/relationships/relationships.json')); assert d == e; r=d.get('relationships', []); assert d.get('entity_count') == len(e.get('entities', [])); assert d.get('relationship_count') == len(e.get('relationships', [])); assert len(r) == d.get('relationship_count'); assert all(x.get('kind') == 'mentions' and x.get('evidence_class') == 'observed-xref' and 'relation_class' not in x for x in r)"; then
                 rel_ok=1
               fi
             fi
