@@ -12,6 +12,8 @@ Source: `src/content/sections/cosmic-architecture.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Cosmic Architecture Cosmic Architecture — structural reality scaffolding.*
 ### WorldsVault
 Oppressive monumental digital geode lit by hyper-luminous azure edges. It stores holographic templates of extinct planetary architectures looping in zero gravity. Codec later stills and steals thirty templates during the breach.
 ### Digital Geode

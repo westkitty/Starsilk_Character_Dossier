@@ -30,7 +30,7 @@ Source: `src/content/sections/marcel.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) — `codec`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) — `kail`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) — `ontology-horror`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`

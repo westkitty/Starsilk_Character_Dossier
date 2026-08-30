@@ -12,6 +12,8 @@ Source: `src/content/sections/iven.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Iven — Khar-Venn Witness Iven — Khar-Venn validation node.*
 ### Canonical record
 - One of the six named/identified witness nodes at Khar Venn.
 - Kept alive not as mercy but as part of the Blood Ring’s psychological and doctrinal operation.

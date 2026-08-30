@@ -11,7 +11,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - Connected records: 62
 - Observed edges: 135
 
-## Starsilk Compendium (`cover`)
+## Visual reference (`cover`)
 
 - Entity: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/
 - Observatory deep link: https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#entity-cover
@@ -89,7 +89,7 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 
 ### Incoming observed mentions
 
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--shard-god) — source `src/content/sections/cover.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--shard-god) — source `src/content/sections/cover.body.html`
 
 ## Codec (`codec`)
 
@@ -118,12 +118,12 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Prisons, repositories, scars and places that remember.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cosmic-architecture/) (`cosmic-architecture`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cosmic-architecture--codec) — source `src/content/sections/cosmic-architecture.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--codec) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--codec) — source `src/content/sections/archive.body.html`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--codec) — source `src/content/sections/cover.body.html`
 - [The All is programmable. Meaning is not optional.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/) (`world`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--world--codec) — source `src/content/sections/world.body.html`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--codec) — source `src/content/sections/ontology-horror.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--codec) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--codec) — source `src/content/sections/canon-ledger.body.html`
 - [Tools remember what systems ask them to do.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/artifacts-factions/) (`artifacts-factions`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--artifacts-factions--codec) — source `src/content/sections/artifacts-factions.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--codec) — source `src/content/sections/cover.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--codec) — source `src/content/sections/systems.body.html`
 
 ## Dao (`dao`)
@@ -145,10 +145,10 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--dao) — source `src/content/sections/marcel.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--dao) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--dao) — source `src/content/sections/archive.body.html`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--dao) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--dao) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--dao) — source `src/content/sections/canon-ledger.body.html`
 - [Three protagonists under impossible pressure.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/) (`trio-gallery`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--trio-gallery--dao) — source `src/content/sections/trio-gallery.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--dao) — source `src/content/sections/cover.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--dao) — source `src/content/sections/systems.body.html`
 
 ## Kail (`kail`)
@@ -173,10 +173,10 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--kail) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--kail) — source `src/content/sections/archive.body.html`
 - [Shard-God Tiger](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--shard-god--kail) — source `src/content/sections/shard-god.body.html`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--kail) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--kail) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--kail) — source `src/content/sections/canon-ledger.body.html`
 - [Three protagonists under impossible pressure.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/) (`trio-gallery`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--trio-gallery--kail) — source `src/content/sections/trio-gallery.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--kail) — source `src/content/sections/cover.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--kail) — source `src/content/sections/systems.body.html`
 
 ## Marcel (`marcel`)
@@ -201,11 +201,11 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) (`kail`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--kail--marcel) — source `src/content/sections/kail.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--marcel) — source `src/content/sections/chronology.body.html`
 - [Reference art belongs beside the canon it can contradict.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/archive/) (`archive`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--archive--marcel) — source `src/content/sections/archive.body.html`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--marcel) — source `src/content/sections/cover.body.html`
 - [The operating system has moral consequences.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/ontology-horror/) (`ontology-horror`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--ontology-horror--marcel) — source `src/content/sections/ontology-horror.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--marcel) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--marcel) — source `src/content/sections/canon-ledger.body.html`
 - [Three protagonists under impossible pressure.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/trio-gallery/) (`trio-gallery`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--trio-gallery--marcel) — source `src/content/sections/trio-gallery.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--marcel) — source `src/content/sections/cover.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--marcel) — source `src/content/sections/systems.body.html`
 - [Wordstreamer](https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/) (`wordstreamer`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--wordstreamer--marcel) — source `src/content/sections/wordstreamer.body.html`
 
@@ -226,9 +226,9 @@ Every edge is `mentions / observed-xref`. Source -> target means only that the s
 - [Codec: the architecture of necessary harm.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/) (`source`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--source--jazen) — source `src/content/sections/source.body.html`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) (`marcel`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--marcel--jazen) — source `src/content/sections/marcel.body.html`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) (`chronology`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--chronology--jazen) — source `src/content/sections/chronology.body.html`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--jazen) — source `src/content/sections/cover.body.html`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) (`starbinding`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--starbinding--jazen) — source `src/content/sections/starbinding.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) (`canon-ledger`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--canon-ledger--jazen) — source `src/content/sections/canon-ledger.body.html`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) (`cover`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--cover--jazen) — source `src/content/sections/cover.body.html`
 - [What the characters are standing inside.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/systems/) (`systems`) — [edge](https://westkitty.github.io/Starsilk_Character_Dossier/relationships/#mention--systems--jazen) — source `src/content/sections/systems.body.html`
 
 ## Starsilk (`starsilk-material`)

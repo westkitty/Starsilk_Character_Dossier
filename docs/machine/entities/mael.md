@@ -12,6 +12,8 @@ Source: `src/content/sections/mael.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Mael — Mercy Mael — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category MERCY.
 - Kept breathing in the infirmary while sedatives remain untouched.

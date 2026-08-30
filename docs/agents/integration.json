@@ -19,7 +19,7 @@
       "status": "pass"
     },
     {
-      "evidence": "objects=213 manifest_assets=213 declared_assets=213",
+      "evidence": "objects=260 manifest_assets=260 declared_assets=260",
       "id": "media-provenance-parity",
       "status": "pass"
     },

@@ -12,6 +12,8 @@ Source: `src/content/sections/joss.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Joss — Khar-Venn Witness Joss — Khar-Venn validation node.*
 ### Canonical record
 - Civilian intentionally preserved during the Khar Venn extrusion.
 - Serves as one of the living witnesses through whom the ring’s propaganda function is validated.

@@ -9,7 +9,7 @@
     "Null or absent descriptive fields remain unknown and must not be inferred from filenames, imagery, or adjacent lore."
   ],
   "project_id": "starsilk-character-dossier",
-  "record_count": 213,
+  "record_count": 260,
   "records": [
     {
       "bytes": 347940,
@@ -7273,6 +7273,1369 @@
       "unknowns": [
         "No logical identity is authored for this published media object.",
         "One or more published contexts have no authored alt text."
+      ]
+    },
+    {
+      "bytes": 712,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#0329829de2147ca922b80506",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "0329829de2147ca922b80506.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "0329829de2147ca922b80506.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/0329829de2147ca922b80506.webp",
+      "mime_type": "image/webp",
+      "object_id": "0329829de2147ca922b80506",
+      "provenance": null,
+      "sha256": "08e7210376356df5f2541435af25d635cf7c8901e3a5aee75e6da5e0e8ec8f3c",
+      "source": {
+        "bytes": 5570,
+        "filename": "0329829de2147ca922b80506.png",
+        "sha256": "0329829de2147ca922b80506646fa81f132eef222f9af9627d3d6a043edfd926"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 173124,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#089a128e736eb0a78f593764",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "089a128e736eb0a78f593764.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "089a128e736eb0a78f593764.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/089a128e736eb0a78f593764.webp",
+      "mime_type": "image/webp",
+      "object_id": "089a128e736eb0a78f593764",
+      "provenance": null,
+      "sha256": "7979f718db761f060780d847fdc4599b2459d1c8163e579a7f4aa2ba87f1fd37",
+      "source": {
+        "bytes": 2197602,
+        "filename": "089a128e736eb0a78f593764.png",
+        "sha256": "089a128e736eb0a78f593764f0e9a754d6b6b17755c351006688f07a5eda8db4"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 282962,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#0a7dc9a7cc9f179ea7c2aa05",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "0a7dc9a7cc9f179ea7c2aa05.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "0a7dc9a7cc9f179ea7c2aa05.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/0a7dc9a7cc9f179ea7c2aa05.webp",
+      "mime_type": "image/webp",
+      "object_id": "0a7dc9a7cc9f179ea7c2aa05",
+      "provenance": null,
+      "sha256": "278b9579c67b1096b371ec13835e08b238b115e076d34fa714445f93697dfe31",
+      "source": {
+        "bytes": 2681713,
+        "filename": "0a7dc9a7cc9f179ea7c2aa05.png",
+        "sha256": "0a7dc9a7cc9f179ea7c2aa05385b90a41d36286afa1675d44de99b26391a329e"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 1934,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#0d0e90a7b3d5339c6102adbb",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "0d0e90a7b3d5339c6102adbb.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "0d0e90a7b3d5339c6102adbb.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/0d0e90a7b3d5339c6102adbb.webp",
+      "mime_type": "image/webp",
+      "object_id": "0d0e90a7b3d5339c6102adbb",
+      "provenance": null,
+      "sha256": "2150f03c29444d53722808004af3b53bd0533762ee91c7c363b0d50e171c9b09",
+      "source": {
+        "bytes": 12353,
+        "filename": "0d0e90a7b3d5339c6102adbb.png",
+        "sha256": "0d0e90a7b3d5339c6102adbbfc66ed2c0273e42a3457f243205ef441fdf53caf"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 125780,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#13eeacc7bb563a358d5f87ab",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "13eeacc7bb563a358d5f87ab.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "13eeacc7bb563a358d5f87ab.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/13eeacc7bb563a358d5f87ab.webp",
+      "mime_type": "image/webp",
+      "object_id": "13eeacc7bb563a358d5f87ab",
+      "provenance": null,
+      "sha256": "b7b1ea23568357ceb112a6e4ddcc31de3f3b687bb1f55bf9959bcaf87aeb5f8d",
+      "source": {
+        "bytes": 2030386,
+        "filename": "13eeacc7bb563a358d5f87ab.png",
+        "sha256": "13eeacc7bb563a358d5f87ab397453f1857b77b34206ed7af651f22361dca67d"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 80004,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#15a278ebae10823051999a3d",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "15a278ebae10823051999a3d.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "15a278ebae10823051999a3d.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/15a278ebae10823051999a3d.webp",
+      "mime_type": "image/webp",
+      "object_id": "15a278ebae10823051999a3d",
+      "provenance": null,
+      "sha256": "668ede0f4b30440af1275e08c52313132f651bdfa6846d0c3c22d66052ceb57b",
+      "source": {
+        "bytes": 1972182,
+        "filename": "15a278ebae10823051999a3d.png",
+        "sha256": "15a278ebae10823051999a3d2fafc4e2ecd674f72e55bc4b2edecacc3f53dfa9"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 165890,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#1d5c21057f9a09ba00382bfa",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "1d5c21057f9a09ba00382bfa.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "1d5c21057f9a09ba00382bfa.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/1d5c21057f9a09ba00382bfa.webp",
+      "mime_type": "image/webp",
+      "object_id": "1d5c21057f9a09ba00382bfa",
+      "provenance": null,
+      "sha256": "5aca4a742a8bea1b73f77b9a317ba936ded5a04e992bf9b6ca62ea28303ad284",
+      "source": {
+        "bytes": 2077103,
+        "filename": "1d5c21057f9a09ba00382bfa.png",
+        "sha256": "1d5c21057f9a09ba00382bfae6e51528675e713bbbf6f00f5efbfcee620b2cc5"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 156806,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#26a5341e80cef6ff4f12f141",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "26a5341e80cef6ff4f12f141.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "26a5341e80cef6ff4f12f141.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/26a5341e80cef6ff4f12f141.webp",
+      "mime_type": "image/webp",
+      "object_id": "26a5341e80cef6ff4f12f141",
+      "provenance": null,
+      "sha256": "d839f56e451acb501c446fe0a90588e09ec26829a784bb22bf85c1d0e357d75f",
+      "source": {
+        "bytes": 2452144,
+        "filename": "26a5341e80cef6ff4f12f141.png",
+        "sha256": "26a5341e80cef6ff4f12f1413ca6d7464445e34e0a8fe98a60deea9e593e5a39"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 182406,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#2e7ae5a84baaeb0ee27b0122",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "2e7ae5a84baaeb0ee27b0122.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "2e7ae5a84baaeb0ee27b0122.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/2e7ae5a84baaeb0ee27b0122.webp",
+      "mime_type": "image/webp",
+      "object_id": "2e7ae5a84baaeb0ee27b0122",
+      "provenance": null,
+      "sha256": "47856b0ed186ac3cbe6c9058f1c83d34caca2298ac7a8e2149f7773d05cc2d1a",
+      "source": {
+        "bytes": 2523436,
+        "filename": "2e7ae5a84baaeb0ee27b0122.png",
+        "sha256": "2e7ae5a84baaeb0ee27b01228ad20b78d739dd05a3ce46735e56bcf78ca8ce6f"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 197342,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#30492dd06b1a0c68e4c7cc87",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "30492dd06b1a0c68e4c7cc87.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "30492dd06b1a0c68e4c7cc87.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/30492dd06b1a0c68e4c7cc87.webp",
+      "mime_type": "image/webp",
+      "object_id": "30492dd06b1a0c68e4c7cc87",
+      "provenance": null,
+      "sha256": "9de0efb674292540f12d1fca8c5891c8e3e02a6e61aea0de9004ea896c01fea5",
+      "source": {
+        "bytes": 2516097,
+        "filename": "30492dd06b1a0c68e4c7cc87.png",
+        "sha256": "30492dd06b1a0c68e4c7cc8705b79e965550817fa45bfaadf0482080339fd866"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 246132,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#35c83133a52bc0669e96ea58",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "35c83133a52bc0669e96ea58.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "35c83133a52bc0669e96ea58.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/35c83133a52bc0669e96ea58.webp",
+      "mime_type": "image/webp",
+      "object_id": "35c83133a52bc0669e96ea58",
+      "provenance": null,
+      "sha256": "3eb5e55dd355d82ac764bfec3fe67374f7025b28544672baa49464ef8db869f8",
+      "source": {
+        "bytes": 2610079,
+        "filename": "35c83133a52bc0669e96ea58.png",
+        "sha256": "35c83133a52bc0669e96ea58caeb9ece94520cccfa63b7ca7ee7e51b908ea40c"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 149080,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#394e4cb718f9ffb0bc3ae0fd",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "394e4cb718f9ffb0bc3ae0fd.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "394e4cb718f9ffb0bc3ae0fd.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/394e4cb718f9ffb0bc3ae0fd.webp",
+      "mime_type": "image/webp",
+      "object_id": "394e4cb718f9ffb0bc3ae0fd",
+      "provenance": null,
+      "sha256": "9772506df1c5fc53fbb860a0a138a395cae4dc6a95ddd6fa8b52a1727796417e",
+      "source": {
+        "bytes": 2270425,
+        "filename": "394e4cb718f9ffb0bc3ae0fd.png",
+        "sha256": "394e4cb718f9ffb0bc3ae0fd3350aa6973c2d81e0b88c8e5ee9216722785e7a1"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 187682,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#41c959a052571e6f6be9dbb2",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "41c959a052571e6f6be9dbb2.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "41c959a052571e6f6be9dbb2.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/41c959a052571e6f6be9dbb2.webp",
+      "mime_type": "image/webp",
+      "object_id": "41c959a052571e6f6be9dbb2",
+      "provenance": null,
+      "sha256": "7727523fdfb658a49dcb35c743fc5c8df6c12e25d731525371769cdffd1091b8",
+      "source": {
+        "bytes": 2513392,
+        "filename": "41c959a052571e6f6be9dbb2.png",
+        "sha256": "41c959a052571e6f6be9dbb2540e3702237331312de580a6d9c20194b48ec0a6"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 228056,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#44851b1daa116c2b45751290",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "44851b1daa116c2b45751290.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "44851b1daa116c2b45751290.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/44851b1daa116c2b45751290.webp",
+      "mime_type": "image/webp",
+      "object_id": "44851b1daa116c2b45751290",
+      "provenance": null,
+      "sha256": "0df6155e951098dac069ebc4d3973a88dcc81358b1392e274b068e97688efe97",
+      "source": {
+        "bytes": 2425609,
+        "filename": "44851b1daa116c2b45751290.png",
+        "sha256": "44851b1daa116c2b457512901cc0b3673bc4cd7a5bbd4091f5a86a7f2d0e268a"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 133484,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#46736eeda8cda349443b6b9f",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "46736eeda8cda349443b6b9f.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "46736eeda8cda349443b6b9f.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/46736eeda8cda349443b6b9f.webp",
+      "mime_type": "image/webp",
+      "object_id": "46736eeda8cda349443b6b9f",
+      "provenance": null,
+      "sha256": "a23c60f8f54217a7b2704aa8204fb0579af57407c94c4feab57b8287c2f677cd",
+      "source": {
+        "bytes": 2231279,
+        "filename": "46736eeda8cda349443b6b9f.png",
+        "sha256": "46736eeda8cda349443b6b9fcbcb7045374f0dd8a217ceeb0ed3702fc6d1e847"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 157216,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#4e0ab06956ddc0faa41bc203",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "4e0ab06956ddc0faa41bc203.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "4e0ab06956ddc0faa41bc203.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/4e0ab06956ddc0faa41bc203.webp",
+      "mime_type": "image/webp",
+      "object_id": "4e0ab06956ddc0faa41bc203",
+      "provenance": null,
+      "sha256": "abe1b3b59d2293a8d91ee3041fc4fa41caa993e35f45284aa52c0f8b856f6a75",
+      "source": {
+        "bytes": 2415980,
+        "filename": "4e0ab06956ddc0faa41bc203.png",
+        "sha256": "4e0ab06956ddc0faa41bc2030dcae32387f44e786aec927ebda8b06feb27456c"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 169580,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#4f6d2ab3ea3b96b526d0ebe6",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "4f6d2ab3ea3b96b526d0ebe6.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "4f6d2ab3ea3b96b526d0ebe6.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/4f6d2ab3ea3b96b526d0ebe6.webp",
+      "mime_type": "image/webp",
+      "object_id": "4f6d2ab3ea3b96b526d0ebe6",
+      "provenance": null,
+      "sha256": "c97a88066e6418e982b1c6654ee59a081a6331f01b0cce3d39bd79ce4d6612d9",
+      "source": {
+        "bytes": 2414530,
+        "filename": "4f6d2ab3ea3b96b526d0ebe6.png",
+        "sha256": "4f6d2ab3ea3b96b526d0ebe649aa3cffc102dae2c56731c462727a9aa524b45f"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 168554,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#4fa86451014813e0363e913a",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "4fa86451014813e0363e913a.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "4fa86451014813e0363e913a.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/4fa86451014813e0363e913a.webp",
+      "mime_type": "image/webp",
+      "object_id": "4fa86451014813e0363e913a",
+      "provenance": null,
+      "sha256": "68b64d037d5c2ca8de4480bd387d70941a998c6cf88da544d4473cab875c8333",
+      "source": {
+        "bytes": 2264487,
+        "filename": "4fa86451014813e0363e913a.png",
+        "sha256": "4fa86451014813e0363e913a87d7bded380b5cc8bd844f9d77736ad6747d6934"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 225376,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#5948633b3712642d45c5f60c",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "5948633b3712642d45c5f60c.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "5948633b3712642d45c5f60c.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/5948633b3712642d45c5f60c.webp",
+      "mime_type": "image/webp",
+      "object_id": "5948633b3712642d45c5f60c",
+      "provenance": null,
+      "sha256": "c116c7c3947eda6341f90dbd5f62b31b755e1156c28e54f4a27d7f6f1dde045b",
+      "source": {
+        "bytes": 2650364,
+        "filename": "5948633b3712642d45c5f60c.png",
+        "sha256": "5948633b3712642d45c5f60c99925783bb0f705d2437211d3e86deac7084114c"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 164180,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#5b69a2c243139ece1f6c9d77",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "5b69a2c243139ece1f6c9d77.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "5b69a2c243139ece1f6c9d77.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/5b69a2c243139ece1f6c9d77.webp",
+      "mime_type": "image/webp",
+      "object_id": "5b69a2c243139ece1f6c9d77",
+      "provenance": null,
+      "sha256": "c1602be6e56995f6bf747c367b7d26ac0348b552d3d6a5e8206cf23e8e3d9ca8",
+      "source": {
+        "bytes": 2194991,
+        "filename": "5b69a2c243139ece1f6c9d77.png",
+        "sha256": "5b69a2c243139ece1f6c9d7757503c1126ec4bdde06a4a85b4e2d0b78d8590c9"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 125938,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#5db8a4eda448613e9d8a3ac4",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "5db8a4eda448613e9d8a3ac4.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "5db8a4eda448613e9d8a3ac4.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/5db8a4eda448613e9d8a3ac4.webp",
+      "mime_type": "image/webp",
+      "object_id": "5db8a4eda448613e9d8a3ac4",
+      "provenance": null,
+      "sha256": "bf92359a1e9d3c851e114bc27ef0bb7cd4304366507916b81fc9d922f5b42a5b",
+      "source": {
+        "bytes": 2163767,
+        "filename": "5db8a4eda448613e9d8a3ac4.png",
+        "sha256": "5db8a4eda448613e9d8a3ac403c1bae00cfdc71ae4e706185fb3ceb374870ec0"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 72566,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#5e69d62c4a21d688ee5a50f9",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "5e69d62c4a21d688ee5a50f9.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "5e69d62c4a21d688ee5a50f9.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/5e69d62c4a21d688ee5a50f9.webp",
+      "mime_type": "image/webp",
+      "object_id": "5e69d62c4a21d688ee5a50f9",
+      "provenance": null,
+      "sha256": "7ad14a2ea5f9be35164efc9587eb8c2115d6f781b61eb25f3c928af48928ca85",
+      "source": {
+        "bytes": 1935548,
+        "filename": "5e69d62c4a21d688ee5a50f9.png",
+        "sha256": "5e69d62c4a21d688ee5a50f9f5ace482a58f14f7e812837691b777c1b582c880"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 1810,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#6278ffac7ff75cd2a24ac925",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "6278ffac7ff75cd2a24ac925.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "6278ffac7ff75cd2a24ac925.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/6278ffac7ff75cd2a24ac925.webp",
+      "mime_type": "image/webp",
+      "object_id": "6278ffac7ff75cd2a24ac925",
+      "provenance": null,
+      "sha256": "7dd09c976bf4c42a6f136815ba941560d9d9cf52aa3d67efbade51c5899dcc59",
+      "source": {
+        "bytes": 12008,
+        "filename": "6278ffac7ff75cd2a24ac925.png",
+        "sha256": "6278ffac7ff75cd2a24ac9250628c99d43b7debbcd48dff7730a92daef9e770f"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 67228,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#6b36c4d0aecf271dc8184220",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "6b36c4d0aecf271dc8184220.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "6b36c4d0aecf271dc8184220.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/6b36c4d0aecf271dc8184220.webp",
+      "mime_type": "image/webp",
+      "object_id": "6b36c4d0aecf271dc8184220",
+      "provenance": null,
+      "sha256": "386002464bf538cddb4f1a026d8bbda2084648ce772bc4cce80ba93ec763a6e9",
+      "source": {
+        "bytes": 1949132,
+        "filename": "6b36c4d0aecf271dc8184220.png",
+        "sha256": "6b36c4d0aecf271dc8184220f501011f12b5e2f37b74684407042ae58ecdef46"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 109264,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#6b9d05df95d804883d991a25",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "6b9d05df95d804883d991a25.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "6b9d05df95d804883d991a25.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/6b9d05df95d804883d991a25.webp",
+      "mime_type": "image/webp",
+      "object_id": "6b9d05df95d804883d991a25",
+      "provenance": null,
+      "sha256": "a5756d7a1ebd88e064751c6bdcfce3293543c288127ba95e8d858ba0b431802f",
+      "source": {
+        "bytes": 2084094,
+        "filename": "6b9d05df95d804883d991a25.png",
+        "sha256": "6b9d05df95d804883d991a257ec127632061449a7bc14ece8daa8259abeab72c"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 99104,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#6ed29997f277fd80dd9968f6",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "6ed29997f277fd80dd9968f6.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "6ed29997f277fd80dd9968f6.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/6ed29997f277fd80dd9968f6.webp",
+      "mime_type": "image/webp",
+      "object_id": "6ed29997f277fd80dd9968f6",
+      "provenance": null,
+      "sha256": "034b00eaf9af4b821c2a51ffe2519ae9bfa6718b7b44505f98866b0934831d8b",
+      "source": {
+        "bytes": 2142142,
+        "filename": "6ed29997f277fd80dd9968f6.png",
+        "sha256": "6ed29997f277fd80dd9968f68268a695a3de42bfe492b853a5850b878e56f7d7"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 213324,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#6f97fe27358582d17e3900e4",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "6f97fe27358582d17e3900e4.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "6f97fe27358582d17e3900e4.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/6f97fe27358582d17e3900e4.webp",
+      "mime_type": "image/webp",
+      "object_id": "6f97fe27358582d17e3900e4",
+      "provenance": null,
+      "sha256": "5f6a2b8e90745688e8cbe9414fbdd2e752d4ed7857b3b7722f96b4b1d7859cdc",
+      "source": {
+        "bytes": 2578201,
+        "filename": "6f97fe27358582d17e3900e4.png",
+        "sha256": "6f97fe27358582d17e3900e49c903348915669f77a752ba964d43ef505e23456"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 138636,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#734f56f616cc806fc1ba453f",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "734f56f616cc806fc1ba453f.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "734f56f616cc806fc1ba453f.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/734f56f616cc806fc1ba453f.webp",
+      "mime_type": "image/webp",
+      "object_id": "734f56f616cc806fc1ba453f",
+      "provenance": null,
+      "sha256": "3456f8717a6a58653aa5f9e4f7a5efe4e49cbe7277d6f3a35343075df2a40b10",
+      "source": {
+        "bytes": 2349453,
+        "filename": "734f56f616cc806fc1ba453f.png",
+        "sha256": "734f56f616cc806fc1ba453f12a94d40e206cd502673540ed1da6b584f0e79e1"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 257538,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#7700c06ba94dab76cf552c92",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "7700c06ba94dab76cf552c92.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "7700c06ba94dab76cf552c92.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/7700c06ba94dab76cf552c92.webp",
+      "mime_type": "image/webp",
+      "object_id": "7700c06ba94dab76cf552c92",
+      "provenance": null,
+      "sha256": "2b54dbd855ea01828c69164c0b2fa41ebd07750ba26bff50e86deeff5bd92e40",
+      "source": {
+        "bytes": 2466152,
+        "filename": "7700c06ba94dab76cf552c92.png",
+        "sha256": "7700c06ba94dab76cf552c921c13fa839f676d4af16f5c645fdb3a0732d451ec"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 164556,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#784734b4a7bdb5e8a3696cd7",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "784734b4a7bdb5e8a3696cd7.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "784734b4a7bdb5e8a3696cd7.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/784734b4a7bdb5e8a3696cd7.webp",
+      "mime_type": "image/webp",
+      "object_id": "784734b4a7bdb5e8a3696cd7",
+      "provenance": null,
+      "sha256": "d9b3e58f7d53acf075817265ac0318ca2ccfa6c59c25a4b5be163e73a4109fea",
+      "source": {
+        "bytes": 2407846,
+        "filename": "784734b4a7bdb5e8a3696cd7.png",
+        "sha256": "784734b4a7bdb5e8a3696cd7c49bfb538b8fe74fad5ef6226e5269e317d12af9"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 256624,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#91973e1d83725cf20160a965",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "91973e1d83725cf20160a965.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "91973e1d83725cf20160a965.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/91973e1d83725cf20160a965.webp",
+      "mime_type": "image/webp",
+      "object_id": "91973e1d83725cf20160a965",
+      "provenance": null,
+      "sha256": "ea2bc3724a5e46e5c47351b409c5d60fec93638cf67b92d74fdf07b33d3043f4",
+      "source": {
+        "bytes": 2662905,
+        "filename": "91973e1d83725cf20160a965.png",
+        "sha256": "91973e1d83725cf20160a965eeb0ac2aeae1c207d42f68428a91fd44400117a4"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 109138,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#9b611bacbf139dfa6b557098",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "9b611bacbf139dfa6b557098.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "9b611bacbf139dfa6b557098.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/9b611bacbf139dfa6b557098.webp",
+      "mime_type": "image/webp",
+      "object_id": "9b611bacbf139dfa6b557098",
+      "provenance": null,
+      "sha256": "6d8fda80e9024a31f157d7401f9320e13484064f76b9164bc40d2b88cbbc7fce",
+      "source": {
+        "bytes": 2357098,
+        "filename": "9b611bacbf139dfa6b557098.png",
+        "sha256": "9b611bacbf139dfa6b55709830c04ce8a8176e8f488ada410dfdc0471b616d4a"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 199986,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#a8b9d3a8fe7355a3c4d08e2f",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "a8b9d3a8fe7355a3c4d08e2f.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "a8b9d3a8fe7355a3c4d08e2f.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/a8b9d3a8fe7355a3c4d08e2f.webp",
+      "mime_type": "image/webp",
+      "object_id": "a8b9d3a8fe7355a3c4d08e2f",
+      "provenance": null,
+      "sha256": "787b9e166e09e537b09d97571c77dccab8dcd9b389b88c2d64e3ee9f4ab49e22",
+      "source": {
+        "bytes": 2366532,
+        "filename": "a8b9d3a8fe7355a3c4d08e2f.png",
+        "sha256": "a8b9d3a8fe7355a3c4d08e2f7b3b2595f225963702fff7858b525aff198ebe63"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 159130,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#af58762e29040161611d19d8",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "af58762e29040161611d19d8.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "af58762e29040161611d19d8.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/af58762e29040161611d19d8.webp",
+      "mime_type": "image/webp",
+      "object_id": "af58762e29040161611d19d8",
+      "provenance": null,
+      "sha256": "9e2da1707eaaafca7a2a2923e77e94ec605c6bf3b786e7bcbe32ee978122b073",
+      "source": {
+        "bytes": 2176265,
+        "filename": "af58762e29040161611d19d8.png",
+        "sha256": "af58762e29040161611d19d8b75747860a13234cf046690dd68dcb34a39f9a9e"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 74826,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#b2d77167f843a47fd0e4ea16",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "b2d77167f843a47fd0e4ea16.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "b2d77167f843a47fd0e4ea16.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/b2d77167f843a47fd0e4ea16.webp",
+      "mime_type": "image/webp",
+      "object_id": "b2d77167f843a47fd0e4ea16",
+      "provenance": null,
+      "sha256": "3c6c24eed1cd3e9e98acbb8e4562d42ef3ef04e69219e09765511f69b8ef855f",
+      "source": {
+        "bytes": 2072931,
+        "filename": "b2d77167f843a47fd0e4ea16.png",
+        "sha256": "b2d77167f843a47fd0e4ea164378116d7a226dd7a81ebcd11dbda60068165116"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 103718,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#b3fbe908e0f4c5b644c99cd3",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "b3fbe908e0f4c5b644c99cd3.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "b3fbe908e0f4c5b644c99cd3.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/b3fbe908e0f4c5b644c99cd3.webp",
+      "mime_type": "image/webp",
+      "object_id": "b3fbe908e0f4c5b644c99cd3",
+      "provenance": null,
+      "sha256": "197db5a3a1195d6d8a8bdbf2004f6397d1438fd8d35c3556b1ec395df3a3f50e",
+      "source": {
+        "bytes": 1926827,
+        "filename": "b3fbe908e0f4c5b644c99cd3.png",
+        "sha256": "b3fbe908e0f4c5b644c99cd39914f915911a61b56be9492bbf7c7e8d8c5b22b1"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 93614,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#b6eca7b9611efd0d088a322d",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "b6eca7b9611efd0d088a322d.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "b6eca7b9611efd0d088a322d.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/b6eca7b9611efd0d088a322d.webp",
+      "mime_type": "image/webp",
+      "object_id": "b6eca7b9611efd0d088a322d",
+      "provenance": null,
+      "sha256": "b933227453204c943630a17e3cfdbac46e18f12d7e4b902efb5d780ec72fce09",
+      "source": {
+        "bytes": 1861370,
+        "filename": "b6eca7b9611efd0d088a322d.png",
+        "sha256": "b6eca7b9611efd0d088a322dc972f674e8062ad076d66e36bcc8f8689308a42b"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 85752,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#b8fbb856b01443e02f9d02b4",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "b8fbb856b01443e02f9d02b4.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "b8fbb856b01443e02f9d02b4.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/b8fbb856b01443e02f9d02b4.webp",
+      "mime_type": "image/webp",
+      "object_id": "b8fbb856b01443e02f9d02b4",
+      "provenance": null,
+      "sha256": "15d200540d7f495904086ebabf5bb9e30d060c3904d306edf3a6bf6ab6acc531",
+      "source": {
+        "bytes": 2109132,
+        "filename": "b8fbb856b01443e02f9d02b4.png",
+        "sha256": "b8fbb856b01443e02f9d02b4d2c5feb3eb81722cf5330c6f3c5bef793f89cb03"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 51164,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#bc61950dfff4f8e36f9b8463",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "bc61950dfff4f8e36f9b8463.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "bc61950dfff4f8e36f9b8463.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/bc61950dfff4f8e36f9b8463.webp",
+      "mime_type": "image/webp",
+      "object_id": "bc61950dfff4f8e36f9b8463",
+      "provenance": null,
+      "sha256": "a2613bd30a4489f74878c81fb16a46dc9334a481da2e253eacf6de8795180438",
+      "source": {
+        "bytes": 1751889,
+        "filename": "bc61950dfff4f8e36f9b8463.png",
+        "sha256": "bc61950dfff4f8e36f9b84638d8e9d0369b95ff76d4b33525f0b0002b25331b1"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 253160,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#c23e6ab2b121c8041b9a958f",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "c23e6ab2b121c8041b9a958f.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "c23e6ab2b121c8041b9a958f.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/c23e6ab2b121c8041b9a958f.webp",
+      "mime_type": "image/webp",
+      "object_id": "c23e6ab2b121c8041b9a958f",
+      "provenance": null,
+      "sha256": "805fd819ca0e4d7b9d58bd427e512bb9a5b36dcad1b40aa0102f12e2bfc19cb3",
+      "source": {
+        "bytes": 2541593,
+        "filename": "c23e6ab2b121c8041b9a958f.png",
+        "sha256": "c23e6ab2b121c8041b9a958f4a2b32da358aaa73bfc152e2ae44c653387470db"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 105122,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#c4ea2b3bdfba875ced04481f",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "c4ea2b3bdfba875ced04481f.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "c4ea2b3bdfba875ced04481f.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/c4ea2b3bdfba875ced04481f.webp",
+      "mime_type": "image/webp",
+      "object_id": "c4ea2b3bdfba875ced04481f",
+      "provenance": null,
+      "sha256": "3af12efef125fc80d1069f1165ef2d785f5979b635816e5a6e61491d211ab6a3",
+      "source": {
+        "bytes": 2018315,
+        "filename": "c4ea2b3bdfba875ced04481f.png",
+        "sha256": "c4ea2b3bdfba875ced04481fa643787cff92a190248a6ca3ddd41c5a644ce18f"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 72514,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#ca3c4f94dc32968c695f8e27",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "ca3c4f94dc32968c695f8e27.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "ca3c4f94dc32968c695f8e27.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/ca3c4f94dc32968c695f8e27.webp",
+      "mime_type": "image/webp",
+      "object_id": "ca3c4f94dc32968c695f8e27",
+      "provenance": null,
+      "sha256": "b755e56352bc7c61768614e38f55617c5f5f76f6b5a053cb7dd7cbb59e825daf",
+      "source": {
+        "bytes": 1934028,
+        "filename": "ca3c4f94dc32968c695f8e27.png",
+        "sha256": "ca3c4f94dc32968c695f8e2702df12fbb05f818e848ab26366c42f56278677f1"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 201792,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#d3133a4cd3b5889aff550c7d",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "d3133a4cd3b5889aff550c7d.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "d3133a4cd3b5889aff550c7d.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/d3133a4cd3b5889aff550c7d.webp",
+      "mime_type": "image/webp",
+      "object_id": "d3133a4cd3b5889aff550c7d",
+      "provenance": null,
+      "sha256": "8b806816da808734b6db523e84f75770c9fefefea5de57e414811f5a13266f4d",
+      "source": {
+        "bytes": 2472796,
+        "filename": "d3133a4cd3b5889aff550c7d.png",
+        "sha256": "d3133a4cd3b5889aff550c7dac493d6e23f859780485451c03d4dbbcbafeed1a"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 161148,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#d7d132ea2a15537c0967dcc1",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "d7d132ea2a15537c0967dcc1.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "d7d132ea2a15537c0967dcc1.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/d7d132ea2a15537c0967dcc1.webp",
+      "mime_type": "image/webp",
+      "object_id": "d7d132ea2a15537c0967dcc1",
+      "provenance": null,
+      "sha256": "3d62b4dbaff027b50126df7746becebd1212df6a42913f83c8e0991fe1933128",
+      "source": {
+        "bytes": 2095245,
+        "filename": "d7d132ea2a15537c0967dcc1.png",
+        "sha256": "d7d132ea2a15537c0967dcc19e10e6c720ba3a6541e387bbe0bf97514d4ad0e3"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 77740,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#e7a2af6f8396e8010ae44c87",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "e7a2af6f8396e8010ae44c87.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "e7a2af6f8396e8010ae44c87.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/e7a2af6f8396e8010ae44c87.webp",
+      "mime_type": "image/webp",
+      "object_id": "e7a2af6f8396e8010ae44c87",
+      "provenance": null,
+      "sha256": "07bd61ab09463d23359e9d247686d13f85462e5fc09086d5b788ad8d856e15d8",
+      "source": {
+        "bytes": 1894924,
+        "filename": "e7a2af6f8396e8010ae44c87.png",
+        "sha256": "e7a2af6f8396e8010ae44c87fcb4e67ddd3068a5b5a186a2f5bf925823c40d69"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 258722,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#ef6b43d46f4a07acd6dfbcf9",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "ef6b43d46f4a07acd6dfbcf9.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "ef6b43d46f4a07acd6dfbcf9.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/ef6b43d46f4a07acd6dfbcf9.webp",
+      "mime_type": "image/webp",
+      "object_id": "ef6b43d46f4a07acd6dfbcf9",
+      "provenance": null,
+      "sha256": "6452b5e499daaabe18b9f19b6bb808249cf0b0c5edd1153047604a7498c7035b",
+      "source": {
+        "bytes": 2761108,
+        "filename": "ef6b43d46f4a07acd6dfbcf9.png",
+        "sha256": "ef6b43d46f4a07acd6dfbcf9a5e4aefa01e1267058e1e9cbbaecd951799c4e87"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
+      ]
+    },
+    {
+      "bytes": 211398,
+      "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/objects/#fd24fbf6bb80ae0f4ad10e86",
+      "contexts": [],
+      "evidence": {
+        "class": "published-media-provenance",
+        "identity_basis": "Published filename with its final extension removed.",
+        "source_key": "fd24fbf6bb80ae0f4ad10e86.webp",
+        "source_ref": "docs/asset-manifest.json"
+      },
+      "filename": "fd24fbf6bb80ae0f4ad10e86.webp",
+      "logical_identity": null,
+      "match_status": null,
+      "media_kind": "image",
+      "media_url": "https://westkitty.github.io/Starsilk_Character_Dossier/assets/media/fd24fbf6bb80ae0f4ad10e86.webp",
+      "mime_type": "image/webp",
+      "object_id": "fd24fbf6bb80ae0f4ad10e86",
+      "provenance": null,
+      "sha256": "93e7638d6f9d364e1ac24faf285a1c98caf13c4cc404cb9d2548e21118b8aa92",
+      "source": {
+        "bytes": 2347653,
+        "filename": "fd24fbf6bb80ae0f4ad10e86.png",
+        "sha256": "fd24fbf6bb80ae0f4ad10e864dcc9738f613a053410dc9ee369c150cb7f12db3"
+      },
+      "unknowns": [
+        "No logical identity is authored for this published media object.",
+        "No published section context is attached to this media object."
       ]
     }
   ],

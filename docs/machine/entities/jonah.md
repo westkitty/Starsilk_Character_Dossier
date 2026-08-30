@@ -16,6 +16,8 @@ Source: `src/content/sections/jonah.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Jonah — Witness Jonah — peripheral witness record.*
 ### Source-backed record
 - Jonah carries the small-scale unease that bridges comedy and dread.
 - His function is not prophecy at Harold ’s scale but the accumulation of practical, unsettling signs that something is wrong.

@@ -16,6 +16,8 @@ Source: `src/content/sections/technician-naresh.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Technician Naresh — Shail-9 Technician Naresh — Shail-9 systems technician.*
 ### Source-backed record
 - Naresh reports that the eastern batteries are responding to the Lyriboris song.
 - His console stops behaving like ordinary code and displays impossible musical notation.

@@ -16,6 +16,8 @@ Source: `src/content/sections/mara-syrin4.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Mara — Syrin-4 Ensemble Mara (Syrin-4) — market warmth and practical denial (The Loyalty Drill).*
 ### Source-backed record
 - Mara represents the village’s everyday warmth and the practical reasons people keep performing normal life while warnings escalate.
 - Her function is to make the doomed community lovable before the genre turns.

@@ -16,6 +16,8 @@ Source: `src/content/sections/captain-serr.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Captain Serr Captain Serr — security and enforcement record.*
 ### Source-backed record
 - Serr moves toward the hardline breaker when Pell orders manual severance.
 - Her own armor answers the Lyriboris in a childlike choir and says “Please.”

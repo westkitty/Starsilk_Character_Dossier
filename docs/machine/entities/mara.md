@@ -22,6 +22,8 @@ Source: `src/content/sections/mara.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Mara — Meridian Station Landmark Mara — approved visual landmark reference.*
 ### Canonical record
 - Caught in a recurring morning-cycle orbital pass around Meridian’s wreckage.
 - Her repeated visibility converts an ordinary daily rhythm into a fixed landmark of the station’s destruction.

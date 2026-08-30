@@ -18,6 +18,8 @@ Source: `src/content/sections/harold.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Harold — Witness Harold — peripheral witness record.*
 ### Source-backed record
 - Harold warns the village about the Obsidian Armor before the community is willing to treat the warning as real.
 - His prophecy functions first as public embarrassment and comic friction inside ordinary village life.

@@ -12,6 +12,8 @@ Source: `src/content/sections/selim.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Selim — Method Selim — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category METHOD.
 - His hands are pinned to the tide-engine console.

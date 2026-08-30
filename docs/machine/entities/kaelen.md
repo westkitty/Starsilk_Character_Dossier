@@ -20,6 +20,8 @@ Source: `src/content/sections/kaelen.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Kaelen — Witness Kaelen — peripheral witness record.*
 ### Canonical record
 - Advocates for the Starbinding under a “Collapse as Creativity” argument.
 - Claims order is the jailor and that the universe must be remade rather than preserved.

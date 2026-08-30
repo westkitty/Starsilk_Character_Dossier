@@ -12,6 +12,8 @@ Source: `src/content/sections/nyle-quarth.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Archivist Nyle Quarth Archivist Nyle Quarth — compendium compiler record.*
 ### Canonical record
 - Compiler of the Drakken Terraforming Compendium.
 - Assembles fragmented macro-records, battlefield evidence and burnt planetary libraries into a usable taxonomy.

@@ -16,6 +16,8 @@ Source: `src/content/sections/allkept.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Allkept Archive Core Allkept — administrative archive vault.*
 ### Canonical record
 - Memory-borne entity transmitted through conversation and art.
 - Genuinely loves the humans it converts.

@@ -20,6 +20,8 @@ Source: `src/content/sections/marshal-venn.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Marshal Venn — Nacreous VI Marshal Venn — Nacreous VI command authority.*
 ### Source-backed record
 - Venn is present in the Nacreous VI command room while Codec models the Pyric titan containment outcomes.
 - He asks whether the lethal macro can be narrowed and is shown that the narrowed model allows the titan to take the weather lattice.

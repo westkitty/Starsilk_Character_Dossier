@@ -1,4 +1,4 @@
-# Starsilk Compendium
+# Visual reference
 
 Stable ID: `cover`  
 Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/  
@@ -17,6 +17,8 @@ Source: `src/content/sections/cover.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Starsilk Dossier — Master Visual Frame Starsilk Master Visual Frame — canonical hero plate.*
 The all can be rewritten
 # Starsilk Compendium
 Web Edition

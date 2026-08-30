@@ -16,6 +16,8 @@ Source: `src/content/sections/clara.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Clara — Witness Clara — peripheral witness record.*
 ### Source-backed record
 - Clara embodies civic authority and the confidence that doors, rules and ordinary control systems can keep danger outside.
 - Her role sharpens the prologue’s central reversal: administrative order cannot lock out a system-level horror.

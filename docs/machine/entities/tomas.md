@@ -12,6 +12,8 @@ Source: `src/content/sections/tomas.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Tomas — Syrin-4 Ensemble Tomas — confidence and civic normalcy (The Loyalty Drill).*
 ### Source-backed record
 - Tomas embodies the physical confidence of a community that believes it is fine.
 - His presence gives denial a stable, ordinary body rather than making disbelief seem foolish or abstract.

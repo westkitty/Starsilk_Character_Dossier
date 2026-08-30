@@ -12,6 +12,8 @@ Source: `src/content/sections/eli.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Eli — Witness Eli — peripheral witness record.*
 ### Source-backed record
 - Eli carries charm and social ease as a way of evading the growing threat.
 - His smile is designed to last slightly too long once the world begins to turn, making familiar warmth feel unstable.

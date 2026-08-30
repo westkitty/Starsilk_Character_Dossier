@@ -12,6 +12,8 @@ Source: `src/content/sections/ontology-horror.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Starsilk Nightmare — Recursive Horror Ontology & Horror — recursive reality and simulation aftermath.*
 ### Starsilk / the medium
 - Literal programmable mnemonic filament and substrate for repeatable reality Macros.
 - Carries memory/data architecture including traces of the dead; it is not itself sentient or consciously suffering.

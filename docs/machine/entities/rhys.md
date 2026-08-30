@@ -20,6 +20,8 @@ Source: `src/content/sections/rhys.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Rhys — Civilian Grower Rhys — civilian grower record.*
 ### Canonical record
 - Lyra ’s brother.
 - Grows fungi on Kepler-186f and lives happily within the existing system.

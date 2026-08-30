@@ -16,6 +16,8 @@ Source: `src/content/sections/kira.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Kira — Meridian Station Landmark Kira — approved visual landmark reference.*
 ### Canonical record
 - Rendered into a highly reflective orbital reliquary within Meridian’s corpse geography.
 - Her placement is part of Tiger’s surgical arrangement of the dead across six months.

@@ -12,6 +12,8 @@ Source: `src/content/sections/starbinding.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Starbinding Partition & Solar Alignment Starbinding — celestial macro partition and solar alignment.*
 ### Chronology lock
 - Spire: Jazen enters Obsidian Armor and stellar data; Codec concludes the divine system cannot be reformed.
 - Kail ’s accidental star dive destroys his system; Torture holds him for roughly 256 years.

@@ -12,6 +12,8 @@ Source: `src/content/sections/anika.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Anika — Witness Anika — peripheral witness record.*
 ### Canonical record
 - Member of the K-Relic crew transformed into the Shard-God’s living museum of corrected categories after the Syrin genocide.
 - Stationed at the thruster-pier under the imposed category FIRST MOMENT.

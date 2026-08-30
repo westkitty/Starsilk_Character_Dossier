@@ -12,6 +12,8 @@ Source: `src/content/sections/sera-inventory.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Sera — Inventory-Keeper Sera — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - The only K-Relic crew member left mobile within the corrected-category installation.
 - Carries the scrapbook in which “I DON’T KNOW” was smeared using Syrin-vapor residue.

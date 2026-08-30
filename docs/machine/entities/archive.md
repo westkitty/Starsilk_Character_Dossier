@@ -12,6 +12,8 @@ Source: `src/content/sections/archive.body.html`
 
 ## Published source content
 
+### Archive overview
+*Media note: Historical Reference Archive Ensemble and scene reference bank.*
 Image status: the dossier contains an extensive published Media Vault plus principal character and Starsilk reference sheets. The historical attachment bank below remains available for legacy reference slots.
 ### Directly embedded reference set
 The Web Edition includes canonical reference art and Media Vault archives located in the companion media directory. The historical archive below remains an interactive attachment bank for legacy references not currently included in the published media archive. Exported HTML copies reference the accompanying assets/media/ directory.

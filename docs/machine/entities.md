@@ -4,7 +4,7 @@ This index addresses existing published sections by their stable section IDs. Ca
 
 | Stable ID | Label | Structural type | Canon status | Media | Canonical |
 |---|---|---|---|---:|---|
-| `cover` | Starsilk Compendium | `section` | `unknown` | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/ |
+| `cover` | Visual reference | `section` | `unknown` | 2 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/ |
 | `world` | The All is programmable. Meaning is not optional. | `section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/world/ |
 | `chronology` | Reality begins as betrayal. The future is built by exclusion. | `chronology-section` | `unknown` | 0 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/ |
 | `shard-god` | Shard-God Tiger | `character-section` | `unknown` | 4 | https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/ |

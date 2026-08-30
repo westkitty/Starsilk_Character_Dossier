@@ -12,6 +12,8 @@ Source: `src/content/sections/world.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Cosmological Project Axis Project Axis — reality-code macros and planetary architecture.*
 ### Core cosmology
 - The Notebook Program continuously renders the universe, its lore and physical law through memory and recursion; time travel is structurally impossible.
 - Starsilk is a literal programmable mnemonic filament running through stellar centers and the medium for repeatable reality Macros.

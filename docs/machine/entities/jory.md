@@ -12,6 +12,8 @@ Source: `src/content/sections/jory.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Jory — Witness Jory — peripheral witness record.*
 ### Canonical record
 - Assigned the corrected category EUPHEMISM.
 - His lips split when he attempted to speak the word “seal.”

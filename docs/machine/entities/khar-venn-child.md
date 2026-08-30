@@ -12,6 +12,8 @@ Source: `src/content/sections/khar-venn-child.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Khar-Venn Child — Witness Khar-Venn Child — Khar-Venn validation node.*
 ### Canonical record
 - An unnamed child among the six civilians deliberately left beneath the Khar Venn Blood Ring.
 - The absence of a recovered personal name is preserved rather than filled in.

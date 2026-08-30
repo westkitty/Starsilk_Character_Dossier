@@ -21,6 +21,8 @@ Source: `src/content/sections/safi.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Safi — Meridian Station Landmark Safi — approved visual landmark reference.*
 ### Canonical record
 - Paired with Jalen as a fixed structural waypoint.
 - Part of the corpse geography Tiger constructs around Meridian Station.

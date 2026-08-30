@@ -12,6 +12,8 @@ Source: `src/content/sections/little-king.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Little King — Anomaly Little King — systemic anomaly record.*
 ### Canonical record
 - A mortal ruler who attempted to answer Tiger through traditional armies.
 - The response failed at the category level: Tiger extracted/edited him out of existence.

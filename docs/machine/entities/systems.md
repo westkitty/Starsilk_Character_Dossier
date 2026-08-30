@@ -12,6 +12,8 @@ Source: `src/content/sections/systems.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Connected Figures & Machinery Systems & Figures — systemic machinery and ideological architecture.*
 ### Drakken / Mother
 Mother is a fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula. Through the Notebook Program, Drakken Eggs and strains emerge under her continuance logic. Roughly two millennia after the Siege Wall, surviving Drakken defeat Mother in an anti-fascist coup and break the hive-mind condition as a governing order.
 ### Administration

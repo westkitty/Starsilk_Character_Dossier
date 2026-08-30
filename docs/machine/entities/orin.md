@@ -12,6 +12,8 @@ Source: `src/content/sections/orin.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Orin — Name Orin — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category NAME.
 - His ink-stained fingers are spread against the antenna-vault door.

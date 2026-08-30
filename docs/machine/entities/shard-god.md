@@ -25,7 +25,7 @@ Source: `src/content/sections/shard-god.body.html`
 
 ## Mentioned by
 
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 
 ## Published source content
 

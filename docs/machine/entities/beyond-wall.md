@@ -12,6 +12,8 @@ Source: `src/content/sections/beyond-wall.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Beyond the Siege Wall The Siege Wall — black-hole containment lattice.*
 ### Crossing and discovery
 - Codec warns Kail , Marcel , and Dao to leave before the crossing; they remain aboard while treating him as a fugitive they intend to stop.
 - The ship passes through a tiny opening in the Siege Wall and is badly damaged. Assistance later becomes materially necessary.

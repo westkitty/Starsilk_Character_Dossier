@@ -16,6 +16,8 @@ Source: `src/content/sections/hesh.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Hesh — Meridian Station Landmark Hesh — approved visual landmark reference.*
 ### Canonical record
 - Commander of Meridian Station during the six-month dismantling.
 - His jaw is destroyed mid-prayer.

@@ -12,6 +12,8 @@ Source: `src/content/sections/artifacts-factions.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Administration Artifacts & Factions Artifacts & Factions — administrative and military apparatus.*
 ### Physical artifacts
 - Torture: engineered anomaly that intercepts the data of anything it kills and compresses that data into physical mass inside the blade.
 - Obsidian Armor: autonomous, non-sentient enforcement mechanism tasked with systemic stabilization/data conservation; it consumes its wearer.

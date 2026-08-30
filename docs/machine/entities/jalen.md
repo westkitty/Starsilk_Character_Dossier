@@ -21,6 +21,8 @@ Source: `src/content/sections/jalen.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Jalen — Meridian Station Landmark Jalen — approved visual landmark reference.*
 ### Canonical record
 - Violently trapped in the antenna grid.
 - Paired with Safi as a fixed structural waypoint in the Orbital Tomb.

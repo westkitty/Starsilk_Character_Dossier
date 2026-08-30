@@ -19,7 +19,7 @@ Source: `src/content/sections/jazen.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) — `codec`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`
 - [Codec: the architecture of necessary harm.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/source/) — `source`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`
@@ -27,6 +27,8 @@ Source: `src/content/sections/jazen.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Jazen — Canonical Study Jazen — character and relational reference plate.*
 ### Core record
 Jazen and Codec are separate people. Jazen is Codec’s romantic and ideological partner. His importance is relational: what happens to him makes the machinery of Starsilk, archives, divine authority and the Obsidian system personal and intolerable to Codec.
 ### The Obsidian event

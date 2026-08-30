@@ -20,6 +20,8 @@ Source: `src/content/sections/lyra.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Lyra — Witness Lyra — peripheral witness record.*
 ### Canonical record
 - Opposes the Starbinding and treats stellar destruction as an unacceptable repetition of catastrophic power.
 - Cites the fate of Elara, a minor star unbound, as evidence.

@@ -12,6 +12,8 @@ Source: `src/content/sections/source.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Codec Narrative Broadcast Transmission Codec Source Text — narrative broadcast transmission terminal.*
 “Tiger saved us from the Drakken.”
 The refugee who said it was young enough that the Blood Eclipse War lived in him as inherited ash, not memory. He sat near the heat coil with both hands wrapped around a tin cup, eyes lowered, shoulders folded inward as if gratitude itself could keep the universe from noticing him.
 Codec looked at him for a long moment.

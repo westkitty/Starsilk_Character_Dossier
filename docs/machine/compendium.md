@@ -7,7 +7,7 @@ Authority: https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHOR
 
 This is a deterministic text alternative generated from the authoritative section fragments in source order. It preserves authored text while omitting visual page layout. Canon status remains explicitly unknown where the source model does not author one.
 
-## Starsilk Compendium
+## Visual reference
 
 Stable ID: `cover`  
 Canonical: https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/  
@@ -18,6 +18,8 @@ Source: `src/content/sections/cover.body.html`
 
 Related published media IDs: `09e2837c1e2a76bc1fadccc2.webp`, `b3015054b3726a97adbc4a5c.mp4`
 
+### Visual reference
+*Media note: Starsilk Dossier — Master Visual Frame Starsilk Master Visual Frame — canonical hero plate.*
 The all can be rewritten
 # Starsilk Compendium
 Web Edition
@@ -35,6 +37,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/world.md  
 Source: `src/content/sections/world.body.html`
 
+### Visual reference
+*Media note: Cosmological Project Axis Project Axis — reality-code macros and planetary architecture.*
 ### Core cosmology
 - The Notebook Program continuously renders the universe, its lore and physical law through memory and recursion; time travel is structurally impossible.
 - Starsilk is a literal programmable mnemonic filament running through stellar centers and the medium for repeatable reality Macros.
@@ -367,6 +371,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jazen.md  
 Source: `src/content/sections/jazen.body.html`
 
+### Visual reference
+*Media note: Jazen — Canonical Study Jazen — character and relational reference plate.*
 ### Core record
 Jazen and Codec are separate people. Jazen is Codec’s romantic and ideological partner. His importance is relational: what happens to him makes the machinery of Starsilk, archives, divine authority and the Obsidian system personal and intolerable to Codec.
 ### The Obsidian event
@@ -528,6 +534,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/drakken-registry.md  
 Source: `src/content/sections/drakken-registry.body.html`
 
+### Visual reference
+*Media note: Drakken Master Field Register Drakken Archive — master taxonomic register overview.*
 Taxonomy law: formal five-domain hub and expanded operational archive are both retained. They are different indexing layers. This dossier does not silently make the sixty named operational entities into a replacement “35-strain” hub.
 ### Genesis Nodes
 Origin systems: compiled initialization states and the fixed homeworld ecology that produces and synchronizes Drakken.
@@ -2075,6 +2083,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/starbinding.md  
 Source: `src/content/sections/starbinding.body.html`
 
+### Visual reference
+*Media note: Starbinding Partition & Solar Alignment Starbinding — celestial macro partition and solar alignment.*
 ### Chronology lock
 - Spire: Jazen enters Obsidian Armor and stellar data; Codec concludes the divine system cannot be reformed.
 - Kail ’s accidental star dive destroys his system; Torture holds him for roughly 256 years.
@@ -2115,6 +2125,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/canon-ledger.md  
 Source: `src/content/sections/canon-ledger.body.html`
 
+### Visual reference
+*Media note: Blood-Eclipse War Theater Overview Blood-Eclipse War — master theater overview plate.*
 120 discrete records 10 canon domains 170 years Blood Eclipse War Y170 Aureal Gate terminus
 ### Execution law / cosmology
 C001 Cosmology · Notebook Program
@@ -2496,6 +2508,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/beyond-wall.md  
 Source: `src/content/sections/beyond-wall.body.html`
 
+### Visual reference
+*Media note: Beyond the Siege Wall The Siege Wall — black-hole containment lattice.*
 ### Crossing and discovery
 - Codec warns Kail , Marcel , and Dao to leave before the crossing; they remain aboard while treating him as a fugitive they intend to stop.
 - The ship passes through a tiny opening in the Siege Wall and is badly damaged. Assistance later becomes materially necessary.
@@ -2551,6 +2565,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/systems.md  
 Source: `src/content/sections/systems.body.html`
 
+### Visual reference
+*Media note: Connected Figures & Machinery Systems & Figures — systemic machinery and ideological architecture.*
 ### Drakken / Mother
 Mother is a fixed living Drakken homeworld and hive-command ecology in the Aureal Nebula. Through the Notebook Program, Drakken Eggs and strains emerge under her continuance logic. Roughly two millennia after the Siege Wall, surviving Drakken defeat Mother in an anti-fascist coup and break the hive-mind condition as a governing order.
 ### Administration
@@ -2585,6 +2601,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/peripheral-index.md  
 Source: `src/content/sections/peripheral-index.body.html`
 
+### Visual reference
+*Media note: Peripheral Witness & Casualty Registry Peripheral Registry — named witnesses, archivists, and casualties.*
 ### Original Triumvirate
 Wordstreamer The Poet / Syntax Deity NiAlBu The Archivist / Bound God
 ### K-Relic casualty
@@ -2619,6 +2637,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/wordstreamer.md  
 Source: `src/content/sections/wordstreamer.body.html`
 
+### Visual reference
+*Media note: Wordstreamer — The Poet Wordstreamer — Original Triumvirate syntax deity.*
 ### Canonical record
 - Language-bound poet who gave the universe its script and the dead ancient language later used for wordstreaming.
 - Her existence allowed language to formulate refusal; this made her a structural threat to Tiger’s administrative enclosure.
@@ -2641,6 +2661,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nialbu.md  
 Source: `src/content/sections/nialbu.body.html`
 
+### Visual reference
+*Media note: NiAlBu — The Bound God NiAlBu — Original Triumvirate archivist.*
 ### Canonical record
 - Recursive dreamer, archivist, original architect and damaged verification principle of the universe.
 - Tiger’s original deception specifically targeted NiAlBu.
@@ -2663,6 +2685,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anika.md  
 Source: `src/content/sections/anika.body.html`
 
+### Visual reference
+*Media note: Anika — Witness Anika — peripheral witness record.*
 ### Canonical record
 - Member of the K-Relic crew transformed into the Shard-God’s living museum of corrected categories after the Syrin genocide.
 - Stationed at the thruster-pier under the imposed category FIRST MOMENT.
@@ -2683,6 +2707,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jory.md  
 Source: `src/content/sections/jory.body.html`
 
+### Visual reference
+*Media note: Jory — Witness Jory — peripheral witness record.*
 ### Canonical record
 - Assigned the corrected category EUPHEMISM.
 - His lips split when he attempted to speak the word “seal.”
@@ -2703,6 +2729,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/selim.md  
 Source: `src/content/sections/selim.body.html`
 
+### Visual reference
+*Media note: Selim — Method Selim — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category METHOD.
 - His hands are pinned to the tide-engine console.
@@ -2723,6 +2751,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/vessa.md  
 Source: `src/content/sections/vessa.body.html`
 
+### Visual reference
+*Media note: Vessa — Witness Vessa — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category WITNESS.
 - Left on the ring-window catwalk staring toward the radiofoam reef.
@@ -2743,6 +2773,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/orin.md  
 Source: `src/content/sections/orin.body.html`
 
+### Visual reference
+*Media note: Orin — Name Orin — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category NAME.
 - His ink-stained fingers are spread against the antenna-vault door.
@@ -2763,6 +2795,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mael.md  
 Source: `src/content/sections/mael.body.html`
 
+### Visual reference
+*Media note: Mael — Mercy Mael — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category MERCY.
 - Kept breathing in the infirmary while sedatives remain untouched.
@@ -2783,6 +2817,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sera-inventory.md  
 Source: `src/content/sections/sera-inventory.body.html`
 
+### Visual reference
+*Media note: Sera — Inventory-Keeper Sera — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - The only K-Relic crew member left mobile within the corrected-category installation.
 - Carries the scrapbook in which “I DON’T KNOW” was smeared using Syrin-vapor residue.
@@ -2803,6 +2839,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/hesh.md  
 Source: `src/content/sections/hesh.body.html`
 
+### Visual reference
+*Media note: Hesh — Meridian Station Landmark Hesh — approved visual landmark reference.*
 ### Canonical record
 - Commander of Meridian Station during the six-month dismantling.
 - His jaw is destroyed mid-prayer.
@@ -2823,6 +2861,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara.md  
 Source: `src/content/sections/mara.body.html`
 
+### Visual reference
+*Media note: Mara — Meridian Station Landmark Mara — approved visual landmark reference.*
 ### Canonical record
 - Caught in a recurring morning-cycle orbital pass around Meridian’s wreckage.
 - Her repeated visibility converts an ordinary daily rhythm into a fixed landmark of the station’s destruction.
@@ -2843,6 +2883,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rin.md  
 Source: `src/content/sections/rin.body.html`
 
+### Visual reference
+*Media note: Rin — Meridian Station Landmark Rin — approved visual landmark reference.*
 ### Canonical record
 - Drifts alongside Mara in the Orbital Tomb.
 - Still clutches maintenance tools, preserving the practical work-state of the moment in which the station was dismantled.
@@ -2863,6 +2905,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kira.md  
 Source: `src/content/sections/kira.body.html`
 
+### Visual reference
+*Media note: Kira — Meridian Station Landmark Kira — approved visual landmark reference.*
 ### Canonical record
 - Rendered into a highly reflective orbital reliquary within Meridian’s corpse geography.
 - Her placement is part of Tiger’s surgical arrangement of the dead across six months.
@@ -2883,6 +2927,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jalen.md  
 Source: `src/content/sections/jalen.body.html`
 
+### Visual reference
+*Media note: Jalen — Meridian Station Landmark Jalen — approved visual landmark reference.*
 ### Canonical record
 - Violently trapped in the antenna grid.
 - Paired with Safi as a fixed structural waypoint in the Orbital Tomb.
@@ -2903,6 +2949,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/safi.md  
 Source: `src/content/sections/safi.body.html`
 
+### Visual reference
+*Media note: Safi — Meridian Station Landmark Safi — approved visual landmark reference.*
 ### Canonical record
 - Paired with Jalen as a fixed structural waypoint.
 - Part of the corpse geography Tiger constructs around Meridian Station.
@@ -2923,6 +2971,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kaelen.md  
 Source: `src/content/sections/kaelen.body.html`
 
+### Visual reference
+*Media note: Kaelen — Witness Kaelen — peripheral witness record.*
 ### Canonical record
 - Advocates for the Starbinding under a “Collapse as Creativity” argument.
 - Claims order is the jailor and that the universe must be remade rather than preserved.
@@ -2943,6 +2993,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/lyra.md  
 Source: `src/content/sections/lyra.body.html`
 
+### Visual reference
+*Media note: Lyra — Witness Lyra — peripheral witness record.*
 ### Canonical record
 - Opposes the Starbinding and treats stellar destruction as an unacceptable repetition of catastrophic power.
 - Cites the fate of Elara, a minor star unbound, as evidence.
@@ -2963,6 +3015,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/rhys.md  
 Source: `src/content/sections/rhys.body.html`
 
+### Visual reference
+*Media note: Rhys — Civilian Grower Rhys — civilian grower record.*
 ### Canonical record
 - Lyra ’s brother.
 - Grows fungi on Kepler-186f and lives happily within the existing system.
@@ -2983,6 +3037,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/anya.md  
 Source: `src/content/sections/anya.body.html`
 
+### Visual reference
+*Media note: Anya — Witness Anya — Syrin-4 survivor record.*
 ### Canonical record
 - Kaelen ’s daughter.
 - Her unreachable memory is a major emotional driver behind Kaelen’s willingness to burn the old stellar order away.
@@ -3003,6 +3059,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/sela-orrin.md  
 Source: `src/content/sections/sela-orrin.body.html`
 
+### Visual reference
+*Media note: Sela Orrin — Khar-Venn Witness Sela Orrin — Khar-Venn validation node.*
 ### Canonical record
 - One of six civilians intentionally left on raw dirt during the Drakken extrusion of Khar Venn.
 - Left alive as a validation node: a witness positioned beneath the Blood Ring overhead.
@@ -3023,6 +3081,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marn.md  
 Source: `src/content/sections/marn.body.html`
 
+### Visual reference
+*Media note: Marn — Khar-Venn Witness Marn — Khar-Venn validation node.*
 ### Canonical record
 - Civilian intentionally left at Khar Venn as a validation node.
 - The role is not rescue; it is forced witnesshood beneath the newly extruded Blood Ring.
@@ -3042,6 +3102,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/joss.md  
 Source: `src/content/sections/joss.body.html`
 
+### Visual reference
+*Media note: Joss — Khar-Venn Witness Joss — Khar-Venn validation node.*
 ### Canonical record
 - Civilian intentionally preserved during the Khar Venn extrusion.
 - Serves as one of the living witnesses through whom the ring’s propaganda function is validated.
@@ -3061,6 +3123,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/reth.md  
 Source: `src/content/sections/reth.body.html`
 
+### Visual reference
+*Media note: Reth — Khar-Venn Witness Reth — Khar-Venn validation node.*
 ### Canonical record
 - One of the Khar Venn civilians left on raw dirt beneath the completed atrocity-structure.
 - His survival is instrumentalized as evidence that the message has an audience.
@@ -3080,6 +3144,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/iven.md  
 Source: `src/content/sections/iven.body.html`
 
+### Visual reference
+*Media note: Iven — Khar-Venn Witness Iven — Khar-Venn validation node.*
 ### Canonical record
 - One of the six named/identified witness nodes at Khar Venn.
 - Kept alive not as mercy but as part of the Blood Ring’s psychological and doctrinal operation.
@@ -3099,6 +3165,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/khar-venn-child.md  
 Source: `src/content/sections/khar-venn-child.body.html`
 
+### Visual reference
+*Media note: Khar-Venn Child — Witness Khar-Venn Child — Khar-Venn validation node.*
 ### Canonical record
 - An unnamed child among the six civilians deliberately left beneath the Khar Venn Blood Ring.
 - The absence of a recovered personal name is preserved rather than filled in.
@@ -3119,6 +3187,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/nyle-quarth.md  
 Source: `src/content/sections/nyle-quarth.body.html`
 
+### Visual reference
+*Media note: Archivist Nyle Quarth Archivist Nyle Quarth — compendium compiler record.*
 ### Canonical record
 - Compiler of the Drakken Terraforming Compendium.
 - Assembles fragmented macro-records, battlefield evidence and burnt planetary libraries into a usable taxonomy.
@@ -3139,6 +3209,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/shardlings.md  
 Source: `src/content/sections/shardlings.body.html`
 
+### Visual reference
+*Media note: The Shardlings — The Choir The Shardlings — divine resonance choir anomaly.*
 ### Canonical record
 - Tiny masked crystalline entities that burst from the Shard-God.
 - Speak in high-pitched voices with eager, naive enthusiasm.
@@ -3159,6 +3231,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/allkept.md  
 Source: `src/content/sections/allkept.body.html`
 
+### Visual reference
+*Media note: Allkept Archive Core Allkept — administrative archive vault.*
 ### Canonical record
 - Memory-borne entity transmitted through conversation and art.
 - Genuinely loves the humans it converts.
@@ -3189,6 +3263,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/little-king.md  
 Source: `src/content/sections/little-king.body.html`
 
+### Visual reference
+*Media note: Little King — Anomaly Little King — systemic anomaly record.*
 ### Canonical record
 - A mortal ruler who attempted to answer Tiger through traditional armies.
 - The response failed at the category level: Tiger extracted/edited him out of existence.
@@ -3209,6 +3285,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/marshal-venn.md  
 Source: `src/content/sections/marshal-venn.body.html`
 
+### Visual reference
+*Media note: Marshal Venn — Nacreous VI Marshal Venn — Nacreous VI command authority.*
 ### Source-backed record
 - Venn is present in the Nacreous VI command room while Codec models the Pyric titan containment outcomes.
 - He asks whether the lethal macro can be narrowed and is shown that the narrowed model allows the titan to take the weather lattice.
@@ -3230,6 +3308,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/administrator-pell.md  
 Source: `src/content/sections/administrator-pell.body.html`
 
+### Visual reference
+*Media note: Administrator Pell Administrator Pell — Administration allocation facility authority.*
 ### Source-backed record
 - Pell hears the defense grid sing before the bunker consoles admit that anything is wrong.
 - He commands the bunker while a single Lyriboris turns planetary machine systems into one resonant instrument.
@@ -3251,6 +3331,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/technician-naresh.md  
 Source: `src/content/sections/technician-naresh.body.html`
 
+### Visual reference
+*Media note: Technician Naresh — Shail-9 Technician Naresh — Shail-9 systems technician.*
 ### Source-backed record
 - Naresh reports that the eastern batteries are responding to the Lyriboris song.
 - His console stops behaving like ordinary code and displays impossible musical notation.
@@ -3272,6 +3354,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/captain-serr.md  
 Source: `src/content/sections/captain-serr.body.html`
 
+### Visual reference
+*Media note: Captain Serr Captain Serr — security and enforcement record.*
 ### Source-backed record
 - Serr moves toward the hardline breaker when Pell orders manual severance.
 - Her own armor answers the Lyriboris in a childlike choir and says “Please.”
@@ -3293,6 +3377,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/harold.md  
 Source: `src/content/sections/harold.body.html`
 
+### Visual reference
+*Media note: Harold — Witness Harold — peripheral witness record.*
 ### Source-backed record
 - Harold warns the village about the Obsidian Armor before the community is willing to treat the warning as real.
 - His prophecy functions first as public embarrassment and comic friction inside ordinary village life.
@@ -3313,6 +3399,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/mara-syrin4.md  
 Source: `src/content/sections/mara-syrin4.body.html`
 
+### Visual reference
+*Media note: Mara — Syrin-4 Ensemble Mara (Syrin-4) — market warmth and practical denial (The Loyalty Drill).*
 ### Source-backed record
 - Mara represents the village’s everyday warmth and the practical reasons people keep performing normal life while warnings escalate.
 - Her function is to make the doomed community lovable before the genre turns.
@@ -3333,6 +3421,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/tomas.md  
 Source: `src/content/sections/tomas.body.html`
 
+### Visual reference
+*Media note: Tomas — Syrin-4 Ensemble Tomas — confidence and civic normalcy (The Loyalty Drill).*
 ### Source-backed record
 - Tomas embodies the physical confidence of a community that believes it is fine.
 - His presence gives denial a stable, ordinary body rather than making disbelief seem foolish or abstract.
@@ -3353,6 +3443,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/jonah.md  
 Source: `src/content/sections/jonah.body.html`
 
+### Visual reference
+*Media note: Jonah — Witness Jonah — peripheral witness record.*
 ### Source-backed record
 - Jonah carries the small-scale unease that bridges comedy and dread.
 - His function is not prophecy at Harold ’s scale but the accumulation of practical, unsettling signs that something is wrong.
@@ -3373,6 +3465,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/clara.md  
 Source: `src/content/sections/clara.body.html`
 
+### Visual reference
+*Media note: Clara — Witness Clara — peripheral witness record.*
 ### Source-backed record
 - Clara embodies civic authority and the confidence that doors, rules and ordinary control systems can keep danger outside.
 - Her role sharpens the prologue’s central reversal: administrative order cannot lock out a system-level horror.
@@ -3393,6 +3487,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/eli.md  
 Source: `src/content/sections/eli.body.html`
 
+### Visual reference
+*Media note: Eli — Witness Eli — peripheral witness record.*
 ### Source-backed record
 - Eli carries charm and social ease as a way of evading the growing threat.
 - His smile is designed to last slightly too long once the world begins to turn, making familiar warmth feel unstable.
@@ -3413,6 +3509,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ruth-syrin4.md  
 Source: `src/content/sections/ruth-syrin4.body.html`
 
+### Visual reference
+*Media note: Ruth — Syrin-4 Ensemble Ruth — fear surfacing before consensus (The Loyalty Drill).*
 ### Source-backed record
 - Ruth is the ensemble member whose fear becomes visible early.
 - Her reaction gives the audience permission to believe Harold before the entire community does.
@@ -3433,6 +3531,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/kails-mother.md  
 Source: `src/content/sections/kails-mother.body.html`
 
+### Visual reference
+*Media note: Kail’s Mother — Lineage Kail’s Mother — Syrin-4 lineage and legacy record.*
 ### Source-backed record
 - Kail returns toward Syrin-4 after the catastrophic star-dive collapse.
 - During the Obsidian Armor’s arrival, his mother is caught in the strike sequence immediately before Kail is cut by Torture.
@@ -3453,6 +3553,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/cosmic-architecture.md  
 Source: `src/content/sections/cosmic-architecture.body.html`
 
+### Visual reference
+*Media note: Cosmic Architecture Cosmic Architecture — structural reality scaffolding.*
 ### WorldsVault
 Oppressive monumental digital geode lit by hyper-luminous azure edges. It stores holographic templates of extinct planetary architectures looping in zero gravity. Codec later stills and steals thirty templates during the breach.
 ### Digital Geode
@@ -3524,6 +3626,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/ontology-horror.md  
 Source: `src/content/sections/ontology-horror.body.html`
 
+### Visual reference
+*Media note: Starsilk Nightmare — Recursive Horror Ontology & Horror — recursive reality and simulation aftermath.*
 ### Starsilk / the medium
 - Literal programmable mnemonic filament and substrate for repeatable reality Macros.
 - Carries memory/data architecture including traces of the dead; it is not itself sentient or consciously suffering.
@@ -3562,6 +3666,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/artifacts-factions.md  
 Source: `src/content/sections/artifacts-factions.body.html`
 
+### Visual reference
+*Media note: Administration Artifacts & Factions Artifacts & Factions — administrative and military apparatus.*
 ### Physical artifacts
 - Torture: engineered anomaly that intercepts the data of anything it kills and compresses that data into physical mass inside the blade.
 - Obsidian Armor: autonomous, non-sentient enforcement mechanism tasked with systemic stabilization/data conservation; it consumes its wearer.
@@ -3745,6 +3851,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/archive.md  
 Source: `src/content/sections/archive.body.html`
 
+### Archive overview
+*Media note: Historical Reference Archive Ensemble and scene reference bank.*
 Image status: the dossier contains an extensive published Media Vault plus principal character and Starsilk reference sheets. The historical attachment bank below remains available for legacy reference slots.
 ### Directly embedded reference set
 The Web Edition includes canonical reference art and Media Vault archives located in the companion media directory. The historical archive below remains an interactive attachment bank for legacy references not currently included in the published media archive. Exported HTML copies reference the accompanying assets/media/ directory.
@@ -3807,6 +3915,8 @@ Machine JSON: https://westkitty.github.io/Starsilk_Character_Dossier/machine/ent
 Machine Markdown: https://westkitty.github.io/Starsilk_Character_Dossier/machine/entities/source.md  
 Source: `src/content/sections/source.body.html`
 
+### Visual reference
+*Media note: Codec Narrative Broadcast Transmission Codec Source Text — narrative broadcast transmission terminal.*
 “Tiger saved us from the Drakken.”
 The refugee who said it was young enough that the Blood Eclipse War lived in him as inherited ash, not memory. He sat near the heat coil with both hands wrapped around a tin cup, eyes lowered, shoulders folded inward as if gratitude itself could keep the universe from noticing him.
 Codec looked at him for a long moment.

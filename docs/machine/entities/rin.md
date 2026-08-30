@@ -21,6 +21,8 @@ Source: `src/content/sections/rin.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Rin — Meridian Station Landmark Rin — approved visual landmark reference.*
 ### Canonical record
 - Drifts alongside Mara in the Orbital Tomb.
 - Still clutches maintenance tools, preserving the practical work-state of the moment in which the station was dismantled.

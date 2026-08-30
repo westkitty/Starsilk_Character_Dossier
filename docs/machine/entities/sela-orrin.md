@@ -12,6 +12,8 @@ Source: `src/content/sections/sela-orrin.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Sela Orrin — Khar-Venn Witness Sela Orrin — Khar-Venn validation node.*
 ### Canonical record
 - One of six civilians intentionally left on raw dirt during the Drakken extrusion of Khar Venn.
 - Left alive as a validation node: a witness positioned beneath the Blood Ring overhead.

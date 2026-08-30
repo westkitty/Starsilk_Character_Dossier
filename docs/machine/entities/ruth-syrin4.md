@@ -16,6 +16,8 @@ Source: `src/content/sections/ruth-syrin4.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Ruth — Syrin-4 Ensemble Ruth — fear surfacing before consensus (The Loyalty Drill).*
 ### Source-backed record
 - Ruth is the ensemble member whose fear becomes visible early.
 - Her reaction gives the audience permission to believe Harold before the entire community does.

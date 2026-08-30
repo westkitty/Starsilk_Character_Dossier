@@ -20,6 +20,8 @@ Source: `src/content/sections/anya.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Anya — Witness Anya — Syrin-4 survivor record.*
 ### Canonical record
 - Kaelen ’s daughter.
 - Her unreachable memory is a major emotional driver behind Kaelen’s willingness to burn the old stellar order away.

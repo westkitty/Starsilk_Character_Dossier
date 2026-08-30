@@ -16,6 +16,8 @@ Source: `src/content/sections/administrator-pell.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Administrator Pell Administrator Pell — Administration allocation facility authority.*
 ### Source-backed record
 - Pell hears the defense grid sing before the bunker consoles admit that anything is wrong.
 - He commands the bunker while a single Lyriboris turns planetary machine systems into one resonant instrument.

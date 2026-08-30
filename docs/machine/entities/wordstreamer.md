@@ -29,6 +29,8 @@ Source: `src/content/sections/wordstreamer.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Wordstreamer — The Poet Wordstreamer — Original Triumvirate syntax deity.*
 ### Canonical record
 - Language-bound poet who gave the universe its script and the dead ancient language later used for wordstreaming.
 - Her existence allowed language to formulate refusal; this made her a structural threat to Tiger’s administrative enclosure.

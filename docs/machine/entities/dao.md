@@ -21,7 +21,7 @@ Source: `src/content/sections/dao.body.html`
 - [The universe keeps receipts.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/canon-ledger/) — `canon-ledger`
 - [Reality begins as betrayal. The future is built by exclusion.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/chronology/) — `chronology`
 - [Codec](https://westkitty.github.io/Starsilk_Character_Dossier/entities/codec/) — `codec`
-- [Starsilk Compendium](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
+- [Visual reference](https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/) — `cover`
 - [Kail](https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/) — `kail`
 - [Marcel](https://westkitty.github.io/Starsilk_Character_Dossier/entities/marcel/) — `marcel`
 - [The universe executes the partition.](https://westkitty.github.io/Starsilk_Character_Dossier/entities/starbinding/) — `starbinding`

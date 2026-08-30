@@ -12,6 +12,8 @@ Source: `src/content/sections/peripheral-index.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Peripheral Witness & Casualty Registry Peripheral Registry — named witnesses, archivists, and casualties.*
 ### Original Triumvirate
 Wordstreamer The Poet / Syntax Deity NiAlBu The Archivist / Bound God
 ### K-Relic casualty

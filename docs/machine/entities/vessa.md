@@ -12,6 +12,8 @@ Source: `src/content/sections/vessa.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Vessa — Witness Vessa — K-Relic casualty study (The Mercy Index).*
 ### Canonical record
 - Assigned the category WITNESS.
 - Left on the ring-window catwalk staring toward the radiofoam reef.

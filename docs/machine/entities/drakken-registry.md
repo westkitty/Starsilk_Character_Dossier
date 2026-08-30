@@ -12,6 +12,8 @@ Source: `src/content/sections/drakken-registry.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Drakken Master Field Register Drakken Archive — master taxonomic register overview.*
 Taxonomy law: formal five-domain hub and expanded operational archive are both retained. They are different indexing layers. This dossier does not silently make the sixty named operational entities into a replacement “35-strain” hub.
 ### Genesis Nodes
 Origin systems: compiled initialization states and the fixed homeworld ecology that produces and synchronizes Drakken.

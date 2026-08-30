@@ -16,6 +16,8 @@ Source: `src/content/sections/kails-mother.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Kail’s Mother — Lineage Kail’s Mother — Syrin-4 lineage and legacy record.*
 ### Source-backed record
 - Kail returns toward Syrin-4 after the catastrophic star-dive collapse.
 - During the Obsidian Armor’s arrival, his mother is caught in the strike sequence immediately before Kail is cut by Torture.

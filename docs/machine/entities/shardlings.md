@@ -12,6 +12,8 @@ Source: `src/content/sections/shardlings.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: The Shardlings — The Choir The Shardlings — divine resonance choir anomaly.*
 ### Canonical record
 - Tiny masked crystalline entities that burst from the Shard-God.
 - Speak in high-pitched voices with eager, naive enthusiasm.

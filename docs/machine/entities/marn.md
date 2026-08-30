@@ -12,6 +12,8 @@ Source: `src/content/sections/marn.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Marn — Khar-Venn Witness Marn — Khar-Venn validation node.*
 ### Canonical record
 - Civilian intentionally left at Khar Venn as a validation node.
 - The role is not rescue; it is forced witnesshood beneath the newly extruded Blood Ring.

@@ -12,6 +12,8 @@ Source: `src/content/sections/canon-ledger.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: Blood-Eclipse War Theater Overview Blood-Eclipse War — master theater overview plate.*
 120 discrete records 10 canon domains 170 years Blood Eclipse War Y170 Aureal Gate terminus
 ### Execution law / cosmology
 C001 Cosmology · Notebook Program

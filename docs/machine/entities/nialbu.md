@@ -29,6 +29,8 @@ Source: `src/content/sections/nialbu.body.html`
 
 ## Published source content
 
+### Visual reference
+*Media note: NiAlBu — The Bound God NiAlBu — Original Triumvirate archivist.*
 ### Canonical record
 - Recursive dreamer, archivist, original architect and damaged verification principle of the universe.
 - Tiger’s original deception specifically targeted NiAlBu.
