@@ -1,27 +1,13 @@
 import { DEFAULT_ERA_PRESETS, SCHEMA_VERSION, type Entity, type StarMapProject } from "./core.js";
 
-const schematic = (sourceNote = "SCHEMATIC / NON-CANON POSITION"): Entity["meta"] => ({
-  canonStatus: "schematic",
-  positionStatus: "schematic",
-  sourceNote
-});
-
-const orbit = (semiMajorAxis: number, period: number, inclination = 0, phase = 0) => ({
-  semiMajorAxis,
-  eccentricity: 0.035,
-  inclination,
-  ascendingNode: 0,
-  argumentOfPeriapsis: 0,
-  meanAnomalyAtEpoch: phase,
-  epoch: 0,
-  period
-});
+const schematic = (sourceNote = "SCHEMATIC / NON-CANON POSITION"): Entity["meta"] => ({ canonStatus: "schematic", positionStatus: "schematic", sourceNote });
+const orbit = (semiMajorAxis: number, period: number, inclination = 0, phase = 0) => ({ semiMajorAxis, eccentricity: 0.035, inclination, ascendingNode: 0, argumentOfPeriapsis: 0, meanAnomalyAtEpoch: phase, epoch: 0, period });
 
 export function createDemoProject(): StarMapProject {
   const entities: Entity[] = [
     { id: "galaxy-starsilk-demo", parentId: null, type: "galaxy", name: "STARSiLK CARTOGRAPHIC DEMO", time: { mode: "override", overrideValue: 121 }, timeline: [], meta: schematic("Demonstration topology only. Named locations are canon references; coordinates are not supplied canon."), visual: { color: "#55dfff" } },
     { id: "sector-pharos", parentId: "galaxy-starsilk-demo", type: "starfield", name: "PHAROS NEBULA", position: { x: -36, y: 8, z: 20, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#4ba7db" } },
-    { id: "sector-fallenstar", parentId: "galaxy-starsilk-demo", type: "starfield", name: "FALLENSTAR REGION", position: { x: 28, y: -5, z: -18, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#d95d6c" } },
+    { id: "sector-fallenstar", parentId: "galaxy-starsilk-demo", type: "starfield", name: "FALLENSTAR REGION", position: { x: 28, y: -5, z: -18, unit: "schematic" }, time: { mode: "override", overrideValue: 0 }, timeline: [], meta: schematic("SCHEMATIC / NON-CANON POSITION. This branch intentionally overrides the demo galaxy to Year 0 to prove hierarchical historical time."), visual: { color: "#d95d6c" } },
     { id: "sector-aureal", parentId: "galaxy-starsilk-demo", type: "starfield", name: "AUREAL APPROACH", position: { x: 5, y: 18, z: 42, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#e4bd46" } },
     { id: "system-pharos-03", parentId: "sector-pharos", type: "system", name: "PHAROS SYSTEM 03", position: { x: -40, y: 7, z: 18, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#a6efff" } },
     { id: "star-pharos-03", parentId: "system-pharos-03", type: "star", name: "PHAROS 03", time: { mode: "inherit" }, timeline: [], meta: { canonStatus: "schematic", sourceNote: "Demonstration star; not asserted as canon." }, visual: { displayRadius: 2.8, color: "#c9d5df", emissive: 0.8 } },
@@ -30,17 +16,14 @@ export function createDemoProject(): StarMapProject {
     { id: "system-fallenstar", parentId: "sector-fallenstar", type: "system", name: "FALLENSTAR SYSTEM", position: { x: 31, y: -6, z: -16, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#d95d6c" } },
     { id: "star-fallenstar", parentId: "system-fallenstar", type: "star", name: "FALLENSTAR", time: { mode: "inherit" }, timeline: [], meta: { canonStatus: "provisional", sourceNote: "Display star for the known Fallenstar Prime location; stellar properties are schematic." }, visual: { displayRadius: 3.2, color: "#e4bd46", emissive: 1 } },
     { id: "planet-fallenstar-prime", parentId: "system-fallenstar", type: "planet", name: "FALLENSTAR PRIME", orbit: orbit(2.4, 84, 1.5, 70), time: { mode: "inherit" }, timeline: [], meta: { canonStatus: "locked", sourceNote: "Known canon name. Orbit and position are schematic." }, visual: { displayRadius: 1.35, color: "#8fa8b8", atmosphere: true } },
+    { id: "bloodring-fallenstar-prime", parentId: "planet-fallenstar-prime", type: "bloodRing", name: "FALLENSTAR PRIME BLOOD RING", orbit: orbit(0.34, 8, 8, 0), time: { mode: "inherit" }, timeline: [{ id: "event-fallenstar-bloodring-created", time: 3, label: "First Blood Ring erected", eventType: "bloodRingCreated", canonStatus: "locked", sourceNote: "Blood Eclipse War Year 3: first Blood Rings erected around Fallenstar Prime." }], meta: { canonStatus: "locked", sourceNote: "Solid orbital band made from processed remains and biospheric material; not a Saturn-like dust ring." }, visual: { displayRadius: 1.75, color: "#5b101b", ringAppearance: "vitrified crimson-black composite" } },
     { id: "system-aureal-gate", parentId: "sector-aureal", type: "system", name: "AUREAL GATE", position: { x: 7, y: 20, z: 45, unit: "schematic" }, time: { mode: "inherit" }, timeline: [], meta: schematic(), visual: { color: "#e4bd46" } },
     { id: "star-aureal", parentId: "system-aureal-gate", type: "star", name: "AUREAL PRIMARY", time: { mode: "inherit" }, timeline: [], meta: schematic("Demonstration stellar identity; the task supplies Aureal Gate, not exact stellar properties."), visual: { displayRadius: 3, color: "#a6efff", emissive: 0.9 } },
-    { id: "planet-aureal-a", parentId: "system-aureal-gate", type: "planet", name: "AUREAL A", orbit: orbit(2.1, 72, 6, 225), time: { mode: "inherit" }, timeline: [], meta: schematic("Demonstration planet; not asserted as canon."), visual: { displayRadius: 1.1, color: "#4ba7db", atmosphere: true } }
+    { id: "planet-aureal-a", parentId: "system-aureal-gate", type: "planet", name: "AUREAL A", orbit: orbit(2.1, 72, 6, 225), time: { mode: "inherit" }, timeline: [], meta: schematic("Demonstration planet; not asserted as canon."), visual: { displayRadius: 1.1, color: "#4ba7db", atmosphere: true } },
+    { id: "system-heliocide-demo", parentId: "sector-aureal", type: "system", name: "HELiOCIDE MECHANICS DEMO", position: { x: 17, y: 12, z: 36, unit: "schematic" }, time: { mode: "inherit" }, timeline: [{ id: "event-demo-collapse", time: "POST-SIEGE-WALL", label: "Starsilk extraction collapse", eventType: "starsilkExtractionCollapse", statePatch: { starId: "star-heliocide-demo" }, canonStatus: "schematic", sourceNote: "Mechanics demonstration only. No exact canon date or location is asserted." }], meta: schematic("SCHEMATIC / NON-CANON POSITION. Exists only to demonstrate the Starsilk extraction rule."), visual: { color: "#8fa8b8" } },
+    { id: "star-heliocide-demo", parentId: "system-heliocide-demo", type: "star", name: "DEMO PRIMARY", time: { mode: "inherit" }, timeline: [], meta: schematic("Mechanics demonstration only."), visual: { displayRadius: 2.9, color: "#c9d5df", emissive: 0.8 } },
+    { id: "planet-heliocide-demo", parentId: "system-heliocide-demo", type: "planet", name: "DEMO WORLD", orbit: orbit(2.3, 80, 0, 45), time: { mode: "inherit" }, timeline: [], meta: schematic("Mechanics demonstration only."), visual: { displayRadius: 1.2, color: "#7dbf82" } },
+    { id: "siege-wall", parentId: "galaxy-starsilk-demo", type: "largeScaleStructure", name: "SIEGE WALL", time: { mode: "inherit" }, timeline: [{ id: "event-siege-wall-formed", time: "POST-SIEGE-WALL", label: "Siege Wall established", eventType: "created", canonStatus: "locked", sourceNote: "After Aureal Gate, collapsed stellar systems establish the containment architecture." }], meta: { canonStatus: "locked", sourceNote: "Not a literal wall. Default map representation is a swath of stellar absence; analyst topology is non-diegetic and off by default." }, visual: { color: "#05070d" } }
   ];
-
-  return {
-    schemaVersion: SCHEMA_VERSION,
-    id: "starsilk-cartographer-demo-v1",
-    title: "STARSiLK Temporal Cartographer — Demonstration",
-    eraPresets: structuredClone(DEFAULT_ERA_PRESETS),
-    entities,
-    settings: { simulation: { running: true, speed: 1 }, view: { labels: true, orbitPaths: true, trails: false, referenceGrid: false, analystOverlay: false, canonOnly: false, annotations: true } }
-  };
+  return { schemaVersion: SCHEMA_VERSION, id: "starsilk-cartographer-demo-v1", title: "STARSiLK Temporal Cartographer — Demonstration", eraPresets: structuredClone(DEFAULT_ERA_PRESETS), entities, settings: { simulation: { running: true, speed: 1 }, view: { labels: true, orbitPaths: true, trails: false, referenceGrid: false, analystOverlay: false, canonOnly: false, annotations: true } } };
 }

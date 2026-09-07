@@ -2,7 +2,7 @@
 
 project_id: starsilk-temporal-cartographer
 project_name: STARSiLK Temporal Cartographer
-revision: 2
+revision: 3
 
 ## Current baseline
 
@@ -24,6 +24,11 @@ revision: 2
 
 ## Verified
 
+- Phase 3 resolves historical time at galaxy, starfield, system, and object scope with real inheritance, override, sibling isolation, event markers, exact/custom input, and return-to-parent behavior.
+- Blood Ring history renders the solid ring absent before Year 3 and present from Year 3 onward without deleting the event when scrubbing backward.
+- `starsilkExtractionCollapse` renders its targeted star as a subdued black hole and marks/hides the historically destroyed system branch after the authored event.
+- Siege Wall history is represented by missing stars / black absence; the optional `ANALYST OVERLAY — NON-DIEGETIC` is off by default.
+- Fourteen dependency-free schema, hierarchy, orbital, and temporal tests pass.
 - Phase 2 source implements one Three.js render-loop owner, galaxy/sector/system views, 10,000-point stress starfield, deterministic Keplerian body motion, labels, bounded trails, orbit paths, click selection, focus/reset camera, pointer/touch OrbitControls, and synchronized hierarchy selection.
 - Deterministic orbital tests pass in the dependency-free harness.
 - Project schema version 1 exists with stable IDs, parent IDs, canon metadata, timeline events, time inheritance fields, project settings, and import-safe serializable values.
@@ -36,6 +41,5 @@ revision: 2
 
 ## Pending
 
-- Phase 3: hierarchical era resolution and STARSiLK-specific historical mechanics.
 - Phase 4: full authoring, persistence, responsive accessibility, and reusable viewer seam.
 - Phase 5: complete acceptance/bug sweep and integration hardening.
