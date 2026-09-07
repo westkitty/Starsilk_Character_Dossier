@@ -1,0 +1,25 @@
+{
+  "name": "starsilk-temporal-cartographer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "STARSiLK Temporal Cartographer — standalone 3D galaxy / star system / historical-era authoring tool. Renderer + project JSON are designed for later embedding in the Starsilk Character Dossier.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.169.0",
+    "jsdom": "^27.4.0",
+    "typescript": "^5.6.3",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0"
+  }
+}
