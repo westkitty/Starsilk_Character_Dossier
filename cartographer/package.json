@@ -1,0 +1,20 @@
+{
+  "name": "@starsilk/temporal-cartographer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "rm -rf .test-build && tsc -p tsconfig.test.json && node tests/run.mjs",
+    "build": "npm run typecheck && vite build",
+    "check": "npm run test && npm run build"
+  },
+  "dependencies": {
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vite": "8.2.2"
+  }
+}
