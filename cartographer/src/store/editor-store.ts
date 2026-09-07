@@ -216,7 +216,6 @@ export class EditorStore {
     if (this.state.project.settings.orbitalPaused) return;
     const speed = this.state.project.settings.orbitalSpeed;
     this.state.simTime += dt * speed;
-    this.emit();
   }
 
   setPaused(paused: boolean) {

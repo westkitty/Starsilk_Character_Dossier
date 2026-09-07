@@ -32,21 +32,16 @@ export function isTimeAtOrAfter(
 }
 
 export function formatHistoricalTime(value: HistoricalTimeValue): string {
+  if (value === "pre-war") return "PRE-WAR";
+  if (value === "post-siege-wall") return "POST-SIEGE-WALL";
+  if (value === "main-narrative") return "MAIN NARRATIVE — DATE UNSPECIFIED";
   if (typeof value === "number") {
-    if (value === 0) return "BLOOD ECLIPSE — YEAR 0";
+    const preset = DEFAULT_ERA_PRESETS.find((p) => p.value === value && p.id !== "custom");
+    if (preset) return preset.label;
     if (Number.isInteger(value)) return `YEAR ${value}`;
     return `YEAR ${value}`;
   }
-  switch (value) {
-    case "pre-war":
-      return "PRE-WAR";
-    case "post-siege-wall":
-      return "POST-SIEGE-WALL";
-    case "main-narrative":
-      return "MAIN NARRATIVE — DATE UNSPECIFIED";
-    default:
-      return String(value);
-  }
+  return String(value);
 }
 
 export function parseHistoricalTime(input: string): HistoricalTimeValue | null {

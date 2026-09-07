@@ -235,7 +235,7 @@ export function mountEditor(root: HTMLElement, store: EditorStore): ShellHandle 
     }
     const time = resolveHistoricalTime(store.state.project, sel.id);
     const view = resolveHistoricalView(store.state.project, sel);
-    readout.textContent = `${ENTITY_TYPE_LABEL[view.type]} · ${view.name} · ${formatHistoricalTime(time.value)} · ${time.mode === "override" ? "OVERRIDE" : "INHERITED"} · ${CANON_LABEL[sel.meta.canonStatus]}`;
+    readout.textContent = `${ENTITY_TYPE_LABEL[view.type]} · ${view.name} · ${formatHistoricalTime(time.value)}${view.destroyed ? " · HISTORICALLY DESTROYED" : ""}${view.collapsed ? " · COLLAPSED" : ""} · ${time.mode === "override" ? "OVERRIDE" : "INHERITED"} · ${CANON_LABEL[sel.meta.canonStatus]}`;
   }
 
   const collapsed = new Set<string>();
@@ -404,7 +404,7 @@ export function mountEditor(root: HTMLElement, store: EditorStore): ShellHandle 
     const vis = el("section", { class: "inspect-section" });
     vis.append(el("h3", {}, ["Visual"]));
     const col = el("input", { type: "color", value: normalizeHex(entity.visual?.color ?? "#c9d5df") });
-    col.addEventListener("input", () =>
+    col.addEventListener("change", () =>
       store.updateSelected((e) => ({ ...e, visual: { ...(e.visual ?? { displayRadius: 1, color: col.value }), color: col.value } })),
     );
     vis.append(field("Color", col));
@@ -548,9 +548,7 @@ export function mountEditor(root: HTMLElement, store: EditorStore): ShellHandle 
     if (ev.key === "t" && !typing) store.toggleSetting("trails");
     if (ev.key === "Escape") {
       store.cancelDelete();
-      store.state.drawers.hierarchy = false;
-      store.state.drawers.inspector = false;
-      renderChrome();
+      store.closeDrawers();
     }
     if ((ev.key === "Delete" || ev.key === "Backspace") && !typing && store.state.selectionId) {
       store.requestDelete(store.state.selectionId);
