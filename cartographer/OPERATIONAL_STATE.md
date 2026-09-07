@@ -2,7 +2,7 @@
 
 project_id: starsilk-temporal-cartographer
 project_name: STARSiLK Temporal Cartographer
-revision: 1
+revision: 2
 
 ## Current baseline
 
@@ -24,6 +24,8 @@ revision: 1
 
 ## Verified
 
+- Phase 2 source implements one Three.js render-loop owner, galaxy/sector/system views, 10,000-point stress starfield, deterministic Keplerian body motion, labels, bounded trails, orbit paths, click selection, focus/reset camera, pointer/touch OrbitControls, and synchronized hierarchy selection.
+- Deterministic orbital tests pass in the dependency-free harness.
 - Project schema version 1 exists with stable IDs, parent IDs, canon metadata, timeline events, time inheritance fields, project settings, and import-safe serializable values.
 - Core validation rejects duplicate IDs, missing parents, invalid root shape, and parent cycles.
 - ProjectStore supports bounded undo/redo plus add/duplicate/delete operations without mutating Three.js runtime state.
@@ -34,7 +36,6 @@ revision: 1
 
 ## Pending
 
-- Phase 2: Three.js galaxy/system renderer and orbital controls.
 - Phase 3: hierarchical era resolution and STARSiLK-specific historical mechanics.
 - Phase 4: full authoring, persistence, responsive accessibility, and reusable viewer seam.
 - Phase 5: complete acceptance/bug sweep and integration hardening.
