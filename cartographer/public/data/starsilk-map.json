@@ -1,0 +1,875 @@
+{
+  "schemaVersion": 1,
+  "id": "proj-starsilk-schematic-archive",
+  "title": "STARSiLK Schematic Archive",
+  "eraPresets": [
+    {
+      "id": "pre-war",
+      "label": "PRE-WAR",
+      "value": "pre-war",
+      "editable": true
+    },
+    {
+      "id": "be-0",
+      "label": "BLOOD ECLIPSE — YEAR 0",
+      "value": 0,
+      "editable": true
+    },
+    {
+      "id": "be-3",
+      "label": "BLOOD ECLIPSE — YEAR 3",
+      "value": 3,
+      "editable": true
+    },
+    {
+      "id": "be-121",
+      "label": "BLOOD ECLIPSE — YEAR 121",
+      "value": 121,
+      "editable": true
+    },
+    {
+      "id": "be-170",
+      "label": "BLOOD ECLIPSE — YEAR 170",
+      "value": 170,
+      "editable": true
+    },
+    {
+      "id": "post-wall",
+      "label": "POST-SIEGE-WALL",
+      "value": "post-siege-wall",
+      "editable": true
+    },
+    {
+      "id": "main",
+      "label": "MAIN NARRATIVE — DATE UNSPECIFIED",
+      "value": "main-narrative",
+      "editable": true
+    },
+    {
+      "id": "custom",
+      "label": "CUSTOM",
+      "value": 0,
+      "editable": true
+    }
+  ],
+  "settings": {
+    "galaxyHistoricalTime": "main-narrative",
+    "orbitalPaused": false,
+    "orbitalSpeed": 1,
+    "labels": true,
+    "orbitPaths": true,
+    "trails": false,
+    "annotations": true,
+    "analystOverlay": false,
+    "canonOnly": false,
+    "referenceGrid": false,
+    "backgroundStarCount": 10000,
+    "backgroundStarSeed": 20260907
+  },
+  "entities": [
+    {
+      "timeline": [],
+      "id": "gal-archive",
+      "parentId": null,
+      "type": "galaxy",
+      "name": "Schematic Archive Galaxy",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 80,
+        "color": "#55dfff"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "A forbidden Administration cartographic archive. Coordinates in this demonstration are schematic and must not be read as canon.",
+        "tags": [
+          "archive",
+          "schematic"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sec-pharos",
+      "parentId": "gal-archive",
+      "type": "starfield",
+      "name": "Pharos Nebula",
+      "order": 0,
+      "position": {
+        "x": 18,
+        "y": 4,
+        "z": -6,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 8,
+        "color": "#d95d6c"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "Name is canon-adjacent; placement is SCHEMATIC / NON-CANON POSITION.",
+        "description": "Named nebula used schematically. Year 121: Administration attacks a Drakken forward node — Siege of the Ruby Eclipse.",
+        "tags": [
+          "pharos",
+          "blood-eclipse"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sys-pharos-03",
+      "parentId": "sec-pharos",
+      "type": "system",
+      "name": "Pharos System 03",
+      "order": 0,
+      "position": {
+        "x": 2,
+        "y": 0.4,
+        "z": -1,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 1.2,
+        "color": "#e4bd46"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic forward-node system in the Pharos Nebula."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "star-pharos",
+      "parentId": "sys-pharos-03",
+      "type": "star",
+      "name": "Pharos Primary",
+      "visual": {
+        "displayRadius": 2.2,
+        "color": "#ffe7a8",
+        "emissive": 1.4
+      },
+      "rotationPeriod": 40,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-ruby",
+      "parentId": "sys-pharos-03",
+      "type": "planet",
+      "name": "Ruby Eclipse",
+      "orbit": {
+        "semiMajorAxis": 1.4,
+        "eccentricity": 0.04,
+        "inclination": 0.08,
+        "ascendingNode": 0.4,
+        "argumentOfPeriapsis": 0.2,
+        "meanAnomalyAtEpoch": 0.9,
+        "epoch": 0,
+        "period": 42
+      },
+      "visual": {
+        "displayRadius": 0.52,
+        "color": "#a33b48",
+        "atmosphere": true,
+        "atmosphereColor": "#d95d6c"
+      },
+      "rotationPeriod": 8,
+      "meta": {
+        "canonStatus": "provisional",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic world associated with the Siege of the Ruby Eclipse (Year 121)."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-pharos-ii",
+      "parentId": "sys-pharos-03",
+      "type": "planet",
+      "name": "Pharos II",
+      "orbit": {
+        "semiMajorAxis": 2.6,
+        "eccentricity": 0.08,
+        "inclination": 0.12,
+        "ascendingNode": 1.1,
+        "argumentOfPeriapsis": 0.6,
+        "meanAnomalyAtEpoch": 2.2,
+        "epoch": 0,
+        "period": 78
+      },
+      "visual": {
+        "displayRadius": 0.38,
+        "color": "#4ba7db",
+        "atmosphere": true,
+        "atmosphereColor": "#7ec8e8"
+      },
+      "rotationPeriod": 12,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "moon-pharos-ii-a",
+      "parentId": "pl-pharos-ii",
+      "type": "moon",
+      "name": "Pharos II-A",
+      "orbit": {
+        "semiMajorAxis": 0.18,
+        "eccentricity": 0.02,
+        "inclination": 0.15,
+        "ascendingNode": 0.2,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0.4,
+        "epoch": 0,
+        "period": 9
+      },
+      "visual": {
+        "displayRadius": 0.12,
+        "color": "#8fa8b8"
+      },
+      "rotationPeriod": 9,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sec-fallenstar",
+      "parentId": "gal-archive",
+      "type": "starfield",
+      "name": "Fallenstar Region",
+      "order": 1,
+      "position": {
+        "x": -14,
+        "y": -3,
+        "z": 8,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 7,
+        "color": "#d95d6c"
+      },
+      "time": {
+        "mode": "inherit"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "Name is canon-adjacent; placement is SCHEMATIC / NON-CANON POSITION.",
+        "description": "Named region used schematically. Year 3: first Blood Rings erected around Fallenstar Prime.",
+        "tags": [
+          "fallenstar",
+          "blood-ring"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sys-fallenstar",
+      "parentId": "sec-fallenstar",
+      "type": "system",
+      "name": "Fallenstar System",
+      "order": 0,
+      "position": {
+        "x": -1.2,
+        "y": 0.2,
+        "z": 0.8,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 1.1,
+        "color": "#e4bd46"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "star-fallenstar",
+      "parentId": "sys-fallenstar",
+      "type": "star",
+      "name": "Fallenstar",
+      "visual": {
+        "displayRadius": 2,
+        "color": "#ffd18a",
+        "emissive": 1.1
+      },
+      "rotationPeriod": 36,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-fallenstar-prime",
+      "parentId": "sys-fallenstar",
+      "type": "planet",
+      "name": "Fallenstar Prime",
+      "orbit": {
+        "semiMajorAxis": 1.15,
+        "eccentricity": 0.03,
+        "inclination": 0.05,
+        "ascendingNode": 0.7,
+        "argumentOfPeriapsis": 0.1,
+        "meanAnomalyAtEpoch": 1.4,
+        "epoch": 0,
+        "period": 36
+      },
+      "visual": {
+        "displayRadius": 0.58,
+        "color": "#6a8b6e",
+        "atmosphere": true,
+        "atmosphereColor": "#7dbf82"
+      },
+      "rotationPeriod": 10,
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "World around which the first Blood Rings were erected in Blood Eclipse Year 3. Coordinates schematic.",
+        "tags": [
+          "fallenstar-prime",
+          "blood-ring"
+        ],
+        "dossierHref": "#"
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-blood-ring-formed",
+          "time": 3,
+          "label": "Blood Ring formed",
+          "eventType": "bloodRingCreated",
+          "canonStatus": "locked",
+          "sourceNote": "Year 3: First Blood Rings erected around Fallenstar Prime. A Blood Ring is a huge solid orbital band created from the processed remains and biospheric material of a murdered world. “Your sky is built from your dead.”"
+        }
+      ],
+      "id": "ring-fallenstar",
+      "parentId": "pl-fallenstar-prime",
+      "type": "bloodRing",
+      "name": "First Blood Ring",
+      "orbit": {
+        "semiMajorAxis": 0.22,
+        "eccentricity": 0,
+        "inclination": 0.18,
+        "ascendingNode": 0.3,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 14
+      },
+      "visual": {
+        "displayRadius": 1.35,
+        "color": "#6a1018",
+        "ringThickness": 0.09,
+        "ringInner": 1.05,
+        "ringOuter": 1.55
+      },
+      "meta": {
+        "canonStatus": "locked",
+        "positionCanon": "schematic",
+        "sourceNote": "Creation era Year 3 is a locked chronology anchor. Placement remains schematic.",
+        "description": "Solid orbital band of vitrified black-red composite: biological residue, ash, fats, minerals, Drakken processing material. Not an asteroid belt, not Saturn-like dust, not jewelry.",
+        "tags": [
+          "blood-ring"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-fallenstar-minor",
+      "parentId": "sys-fallenstar",
+      "type": "planet",
+      "name": "Fallenstar Minor",
+      "orbit": {
+        "semiMajorAxis": 2.1,
+        "eccentricity": 0.11,
+        "inclination": 0.2,
+        "ascendingNode": 2.1,
+        "argumentOfPeriapsis": 0.8,
+        "meanAnomalyAtEpoch": 4,
+        "epoch": 0,
+        "period": 64
+      },
+      "visual": {
+        "displayRadius": 0.3,
+        "color": "#8a6a4a"
+      },
+      "rotationPeriod": 16,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sec-aureal",
+      "parentId": "gal-archive",
+      "type": "starfield",
+      "name": "Aureal Gate",
+      "order": 2,
+      "position": {
+        "x": 6,
+        "y": -10,
+        "z": 16,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 6.5,
+        "color": "#55dfff"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "Name is canon-adjacent; placement is SCHEMATIC / NON-CANON POSITION.",
+        "description": "Named region used schematically. Year 170: final collapse at the Aureal Gate. Drakken use Starsilk against gods for the first time.",
+        "tags": [
+          "aureal",
+          "heliocide"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sys-aureal",
+      "parentId": "sec-aureal",
+      "type": "system",
+      "name": "Aureal System",
+      "order": 0,
+      "position": {
+        "x": 0.6,
+        "y": -0.8,
+        "z": 1.4,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 1.1,
+        "color": "#a6efff"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic system at the Aureal Gate. Pulling Starsilk from the center of a star collapses it immediately into a black hole and destroys its star system."
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-aureal-collapse",
+          "time": 170,
+          "label": "Starsilk extraction collapse",
+          "eventType": "starsilkExtractionCollapse",
+          "canonStatus": "locked",
+          "sourceNote": "Year 170: final collapse at the Aureal Gate. Starsilk is a literal programmable cosmological substance — not sentient. Extraction from a stellar core collapses the star into a black hole and historically destroys the system. Afterward Shard-God Tiger collapses huge numbers of stars, establishing the Siege Wall."
+        }
+      ],
+      "id": "star-aureal",
+      "parentId": "sys-aureal",
+      "type": "star",
+      "name": "Aureal",
+      "visual": {
+        "displayRadius": 2.4,
+        "color": "#fff4d2",
+        "emissive": 1.6
+      },
+      "rotationPeriod": 28,
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic primary. After Year 170 this body is a black hole and the system is historically destroyed. Backward scrubbing restores visualization of the earlier state; it does not imply resurrection.",
+        "tags": [
+          "heliocide",
+          "starsilk"
+        ]
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-aureal-i-lost",
+          "time": 170,
+          "label": "System historically destroyed",
+          "eventType": "destroyed",
+          "canonStatus": "locked",
+          "sourceNote": "Destroyed with the Aureal collapse. No survivors, debris belts, or recovery are authored."
+        }
+      ],
+      "id": "pl-aureal-i",
+      "parentId": "sys-aureal",
+      "type": "planet",
+      "name": "Aureal I",
+      "orbit": {
+        "semiMajorAxis": 1.05,
+        "eccentricity": 0.05,
+        "inclination": 0.04,
+        "ascendingNode": 0.2,
+        "argumentOfPeriapsis": 0.3,
+        "meanAnomalyAtEpoch": 0.1,
+        "epoch": 0,
+        "period": 30
+      },
+      "visual": {
+        "displayRadius": 0.42,
+        "color": "#c9d5df",
+        "atmosphere": true
+      },
+      "rotationPeriod": 11,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sec-halven",
+      "parentId": "gal-archive",
+      "type": "starfield",
+      "name": "Hal'Ven Cluster",
+      "order": 3,
+      "position": {
+        "x": -20,
+        "y": 12,
+        "z": -10,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 7.5,
+        "color": "#4ba7db"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "Name is canon-adjacent; placement is SCHEMATIC / NON-CANON POSITION.",
+        "description": "Named cluster used schematically."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sys-halven-watch",
+      "parentId": "sec-halven",
+      "type": "system",
+      "name": "Hal'Ven Watch",
+      "order": 0,
+      "position": {
+        "x": -1.6,
+        "y": 1.1,
+        "z": -0.7,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 1,
+        "color": "#7dbf82"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "star-halven",
+      "parentId": "sys-halven-watch",
+      "type": "star",
+      "name": "Watchfire",
+      "visual": {
+        "displayRadius": 1.7,
+        "color": "#ffc978",
+        "emissive": 0.9
+      },
+      "rotationPeriod": 44,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-halven",
+      "parentId": "sys-halven-watch",
+      "type": "planet",
+      "name": "Watchfall",
+      "orbit": {
+        "semiMajorAxis": 1.7,
+        "eccentricity": 0.06,
+        "inclination": 0.09,
+        "ascendingNode": 1.6,
+        "argumentOfPeriapsis": 0.5,
+        "meanAnomalyAtEpoch": 3.1,
+        "epoch": 0,
+        "period": 52
+      },
+      "visual": {
+        "displayRadius": 0.44,
+        "color": "#4b7a6a",
+        "atmosphere": true,
+        "atmosphereColor": "#7dbf82"
+      },
+      "rotationPeriod": 13,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sec-drakken",
+      "parentId": "gal-archive",
+      "type": "starfield",
+      "name": "Drakken Domain",
+      "order": 4,
+      "position": {
+        "x": 4,
+        "y": 16,
+        "z": 4,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 11,
+        "color": "#5a3038"
+      },
+      "meta": {
+        "canonStatus": "working",
+        "positionCanon": "schematic",
+        "sourceNote": "Domain extent is SCHEMATIC / NON-CANON POSITION.",
+        "description": "Schematic region of Drakken activity. Drakken are elemental terraforming entities produced by the Notebook Program — not ordinary dragons, monsters, kaiju, or aliens. The Siege Wall contained them; it did not annihilate them.",
+        "tags": [
+          "drakken"
+        ]
+      }
+    },
+    {
+      "timeline": [],
+      "id": "sys-drakken-node",
+      "parentId": "sec-drakken",
+      "type": "system",
+      "name": "Forward Node (schematic)",
+      "order": 0,
+      "position": {
+        "x": 0.8,
+        "y": 1.4,
+        "z": 0.3,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 1,
+        "color": "#d95d6c"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "star-drakken",
+      "parentId": "sys-drakken-node",
+      "type": "star",
+      "name": "Node Primary",
+      "visual": {
+        "displayRadius": 1.8,
+        "color": "#ffb48a",
+        "emissive": 0.8
+      },
+      "rotationPeriod": 50,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only."
+      }
+    },
+    {
+      "timeline": [],
+      "id": "pl-replaced",
+      "parentId": "sys-drakken-node",
+      "type": "planet",
+      "name": "Replaced World",
+      "orbit": {
+        "semiMajorAxis": 1.3,
+        "eccentricity": 0.02,
+        "inclination": 0.03,
+        "ascendingNode": 0.5,
+        "argumentOfPeriapsis": 0.2,
+        "meanAnomalyAtEpoch": 5.2,
+        "epoch": 0,
+        "period": 40
+      },
+      "visual": {
+        "displayRadius": 0.48,
+        "color": "#3a2a22",
+        "atmosphere": true,
+        "atmosphereColor": "#6a3030"
+      },
+      "rotationPeriod": 14,
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic world illustrating Drakken replacement of ecosystems, geology, atmospheres, settlements, cultures, populations, and stellar infrastructure."
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-siege-wall",
+          "time": "post-siege-wall",
+          "label": "Siege Wall established",
+          "eventType": "siegeWallFormed",
+          "canonStatus": "locked",
+          "sourceNote": "After the Aureal Gate, Shard-God Tiger collapses huge numbers of stars. Those stellar deaths establish the Siege Wall. It is not a literal wall, fence, lattice, or force field. From inhabited worlds it manifests as an enormous swath of black absence across the night sky. Node count is not authored here."
+        }
+      ],
+      "id": "lss-siege-wall",
+      "parentId": "gal-archive",
+      "type": "largeScaleStructure",
+      "name": "Siege Wall",
+      "order": 90,
+      "position": {
+        "x": 2,
+        "y": 8,
+        "z": 2,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 22,
+        "color": "#05070d"
+      },
+      "meta": {
+        "canonStatus": "locked",
+        "positionCanon": "schematic",
+        "sourceNote": "Geometry in this archive is schematic. No exact node count is claimed.",
+        "description": "Large-scale containment architecture formed from stars collapsed into black holes around Drakken territory. Primary representation: lost stars, missing light, void. Analyst overlay is non-diegetic and off by default.",
+        "tags": [
+          "siege-wall"
+        ]
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-lock-a",
+          "time": "post-siege-wall",
+          "label": "Collapsed lock",
+          "eventType": "created",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic lock node — not a claimed canon count."
+        }
+      ],
+      "id": "bh-wall-a",
+      "parentId": "lss-siege-wall",
+      "type": "blackHole",
+      "name": "Lock (schematic)",
+      "position": {
+        "x": 10,
+        "y": 9,
+        "z": 3,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 0.55,
+        "color": "#000000"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic collapsed-star lock. Not a census of the Wall."
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-lock-b",
+          "time": "post-siege-wall",
+          "label": "Collapsed lock",
+          "eventType": "created",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic lock node — not a claimed canon count."
+        }
+      ],
+      "id": "bh-wall-b",
+      "parentId": "lss-siege-wall",
+      "type": "blackHole",
+      "name": "Lock (schematic)",
+      "position": {
+        "x": -2,
+        "y": 14,
+        "z": 6,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 0.5,
+        "color": "#000000"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic collapsed-star lock."
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-lock-c",
+          "time": "post-siege-wall",
+          "label": "Collapsed lock",
+          "eventType": "created",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic lock node — not a claimed canon count."
+        }
+      ],
+      "id": "bh-wall-c",
+      "parentId": "lss-siege-wall",
+      "type": "blackHole",
+      "name": "Lock (schematic)",
+      "position": {
+        "x": 8,
+        "y": 18,
+        "z": -2,
+        "unit": "schematic"
+      },
+      "visual": {
+        "displayRadius": 0.48,
+        "color": "#000000"
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
+        "description": "Schematic collapsed-star lock."
+      }
+    }
+  ]
+}
