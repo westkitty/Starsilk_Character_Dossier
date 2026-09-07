@@ -2,7 +2,7 @@
 
 project_id: starsilk-temporal-cartographer
 project_name: STARSiLK Temporal Cartographer
-revision: 3
+revision: 4
 
 ## Current baseline
 
@@ -24,6 +24,9 @@ revision: 3
 
 ## Verified
 
+- Phase 4 source provides hierarchy search, constrained add/duplicate/reorder/delete, accessible delete confirmation, editable identity/position/orbit/visual/canon/provenance/timeline controls, undo/redo, canon-only filtering, JSON import/export validation, IndexedDB autosave with save state, responsive mobile drawers, and keyboard equivalents.
+- Viewer mode is exposed through both `mountStarsilkStarmap(...)` and a Shadow-DOM `<starsilk-starmap>` custom element consuming the same project JSON with start-entity and era options.
+- Eighteen dependency-free schema, authoring, import/export, orbital, and temporal tests pass; complete TypeScript static checking passes using the local Three.js declaration shim.
 - Phase 3 resolves historical time at galaxy, starfield, system, and object scope with real inheritance, override, sibling isolation, event markers, exact/custom input, and return-to-parent behavior.
 - Blood Ring history renders the solid ring absent before Year 3 and present from Year 3 onward without deleting the event when scrubbing backward.
 - `starsilkExtractionCollapse` renders its targeted star as a subdued black hole and marks/hides the historically destroyed system branch after the authored event.
@@ -41,5 +44,4 @@ revision: 3
 
 ## Pending
 
-- Phase 4: full authoring, persistence, responsive accessibility, and reusable viewer seam.
 - Phase 5: complete acceptance/bug sweep and integration hardening.

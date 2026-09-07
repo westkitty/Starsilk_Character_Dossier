@@ -3,6 +3,8 @@ import { ProjectStore, createEntity, createProject, descendantsOf, validateProje
 import { createDemoProject } from "../.test-build/demo.js";
 import { orbitalPosition, solveEccentricAnomaly } from "../.test-build/orbit.js";
 import { eventIsActive, resolveEntityHistoricalState, resolveHistoricalTime, returnToParentTime, setHistoricalOverride } from "../.test-build/timeline.js";
+import { createAuthoredChild, moveSibling } from "../.test-build/authoring.js";
+import { parseProjectJson, serializeProject } from "../.test-build/persistence.js";
 
 let passed = 0;
 function test(name, fn) { try { fn(); passed += 1; console.log(`PASS ${name}`); } catch (error) { console.error(`FAIL ${name}`); throw error; } }
@@ -33,5 +35,9 @@ test("return to parent time removes local override immediately", () => { const p
 test("Blood Ring is absent before creation and present after", () => { const project = createDemoProject(); setHistoricalOverride(project, "bloodring-fallenstar-prime", 0); assert.equal(resolveEntityHistoricalState(project, "bloodring-fallenstar-prime").visible, false); setHistoricalOverride(project, "bloodring-fallenstar-prime", 3); assert.equal(resolveEntityHistoricalState(project, "bloodring-fallenstar-prime").visible, true); });
 test("Starsilk extraction collapse converts star and destroys system state", () => { const project = createDemoProject(); setHistoricalOverride(project, "system-heliocide-demo", 170); assert.equal(resolveEntityHistoricalState(project, "star-heliocide-demo").effectiveType, "star"); setHistoricalOverride(project, "system-heliocide-demo", "POST-SIEGE-WALL"); assert.equal(resolveEntityHistoricalState(project, "star-heliocide-demo").effectiveType, "blackHole"); assert.equal(resolveEntityHistoricalState(project, "system-heliocide-demo").destroyed, true); assert.equal(resolveEntityHistoricalState(project, "planet-heliocide-demo").visible, false); });
 test("symbolic historical ordering is deterministic without inventing a main-narrative year", () => { assert.equal(eventIsActive(170, "POST-SIEGE-WALL"), true); assert.equal(eventIsActive("POST-SIEGE-WALL", 170), false); assert.equal(eventIsActive("POST-SIEGE-WALL", "MAIN NARRATIVE — DATE UNSPECIFIED"), true); });
+test("project export and import roundtrip preserves required state", () => { const project = createDemoProject(); const text = serializeProject(project); const imported = parseProjectJson(text); assert.deepEqual(imported, project); });
+test("malformed import is rejected with useful error", () => { assert.throws(() => parseProjectJson('{"schemaVersion":1}'), /Invalid STARSiLK map project/); assert.throws(() => parseProjectJson('{not json'), /Invalid JSON/); });
+test("authoring helper enforces hierarchy and creates Blood Ring provenance event", () => { const project = createDemoProject(); const ring = createAuthoredChild(project, "planet-pharos-a", "bloodRing"); assert.equal(ring.type, "bloodRing"); assert.equal(ring.parentId, "planet-pharos-a"); assert.equal(ring.timeline[0]?.eventType, "bloodRingCreated"); assert.throws(() => createAuthoredChild(project, "planet-pharos-a", "system"), /cannot be created/); });
+test("meaningful sibling reordering changes authored entity order only within branch", () => { const project = timelineFixture(); const before = project.entities.map((entity) => entity.id); moveSibling(project, "b", -1); const after = project.entities.map((entity) => entity.id); assert.notDeepEqual(after, before); assert.equal(project.entities.find((entity) => entity.id === "b")?.parentId, "g"); });
 
-console.log(`\n${passed} core/orbital/temporal tests passed.`);
+console.log(`\n${passed} total tests passed.`);
