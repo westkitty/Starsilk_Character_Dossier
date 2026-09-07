@@ -15,6 +15,7 @@ const GALAXY_R = 48;
 interface BodyHandle {
   id: string;
   mesh: THREE.Object3D;
+  body?: THREE.Object3D;
   orbitLine?: THREE.Line;
   trail?: THREE.Line;
   trailPts: THREE.Vector3[];
@@ -28,7 +29,6 @@ export class MapRenderer {
   readonly canvas: HTMLCanvasElement;
   private store: EditorStore;
   private labelHost: HTMLElement;
-  private raf: number | null = null;
   private last = 0;
   private disposed = false;
   private pick = new THREE.Raycaster();
@@ -177,6 +177,7 @@ export class MapRenderer {
       s.project.settings.trails,
       s.project.settings.analystOverlay,
       s.project.settings.canonOnly,
+      s.project.settings.referenceGrid,
       s.project.settings.galaxyHistoricalTime,
       s.project.entities.length,
       hist,
@@ -413,9 +414,11 @@ export class MapRenderer {
     if (!sys) return;
     this.resetCamera(new THREE.Vector3(0, 3.2, 8), new THREE.Vector3(0, 0, 0), 0.8, 48);
 
-    const grid = new THREE.PolarGridHelper(14, 16, 8, 64, 0x1a2736, 0x121b28);
-    grid.userData.helper = true;
-    if (project.settings.referenceGrid) this.scene.add(grid);
+    if (project.settings.referenceGrid) {
+      const grid = new THREE.PolarGridHelper(14, 16, 8, 64, 0x1a2736, 0x121b28);
+      grid.userData.helper = true;
+      this.scene.add(grid);
+    }
 
     const sysView = resolveHistoricalView(project, sys);
     this.addSystemTree(sys, new THREE.Group(), sysView.collapsed);
@@ -436,13 +439,14 @@ export class MapRenderer {
       const mesh = this.makeBodyMesh(entity, view);
       mesh.userData.entityId = entity.id;
       group.add(mesh);
+      const isRing = entity.type === "bloodRing" || view.type === "bloodRing";
       let orbitLine: THREE.Line | undefined;
-      if (entity.orbit && this.store.state.project.settings.orbitPaths && view.orbit) {
-        orbitLine = this.makeOrbitLine(view.orbit, entity.type === "bloodRing");
+      if (entity.orbit && this.store.state.project.settings.orbitPaths && view.orbit && !isRing) {
+        orbitLine = this.makeOrbitLine(view.orbit, false);
         parent.add(orbitLine);
       }
-      const handle: BodyHandle = { id: entity.id, mesh: group, orbitLine, trailPts: [] };
-      if (this.store.state.project.settings.trails && entity.orbit) {
+      const handle: BodyHandle = { id: entity.id, mesh: group, body: mesh, orbitLine, trailPts: [] };
+      if (this.store.state.project.settings.trails && entity.orbit && !isRing) {
         const trailGeo = new THREE.BufferGeometry();
         trailGeo.setAttribute("position", new THREE.Float32BufferAttribute(new Float32Array(MAX_TRAIL * 3), 3));
         const trail = new THREE.Line(
@@ -472,23 +476,28 @@ export class MapRenderer {
     const radius = displayBodyRadius(view.visual?.displayRadius ?? entity.visual?.displayRadius ?? 0.4, type);
     const color = view.visual?.color ?? entity.visual?.color ?? "#c9d5df";
     if (type === "bloodRing") {
-      const inner = entity.visual?.ringInner ?? 1.05;
-      const outer = entity.visual?.ringOuter ?? 1.55;
-      const thick = entity.visual?.ringThickness ?? 0.08;
-      const torus = new THREE.TorusGeometry((inner + outer) * 0.22, thick, 12, 96);
+      const sma = entity.orbit?.semiMajorAxis ?? 0.22;
+      const major = Math.max(displayOrbitRadius(sma) * 0.5, radius * 1.35);
+      const thick = Math.max(entity.visual?.ringThickness ?? 0.08, 0.07);
+      const torus = new THREE.TorusGeometry(major, thick, 18, 128);
       torus.rotateX(Math.PI / 2);
       const mesh = new THREE.Mesh(torus, makeBloodRingMaterial());
-      mesh.scale.set(1, 1, 1.02);
+      mesh.rotation.z = entity.orbit?.inclination ?? 0.18;
       return mesh;
     }
     if (type === "blackHole") {
       const g = new THREE.Group();
       g.add(new THREE.Mesh(new THREE.SphereGeometry(radius * 0.7, 24, 18), makeBlackHoleMaterial()));
       const halo = new THREE.Mesh(
-        new THREE.TorusGeometry(radius * 1.05, 0.015, 8, 48),
-        new THREE.MeshBasicMaterial({ color: 0x1a2a36, transparent: true, opacity: 0.7 }),
+        new THREE.SphereGeometry(radius * 1.2, 24, 16),
+        new THREE.MeshBasicMaterial({
+          color: 0x152028,
+          transparent: true,
+          opacity: 0.45,
+          side: THREE.BackSide,
+          depthWrite: false,
+        }),
       );
-      halo.rotation.x = Math.PI / 2;
       g.add(halo);
       return g;
     }
@@ -501,7 +510,7 @@ export class MapRenderer {
     const mesh = new THREE.Mesh(geo, mat);
     if (entity.visual?.atmosphere) {
       const atmo = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(radius * 1.18, 1),
+        new THREE.SphereGeometry(radius * 1.14, 24, 16),
         atmosphereMaterial(entity.visual.atmosphereColor ?? color),
       );
       mesh.add(atmo);
@@ -533,18 +542,28 @@ export class MapRenderer {
     const map = entityMap(project);
     for (const h of this.bodies.values()) {
       const e = map.get(h.id);
-      if (!e?.orbit) continue;
+      if (!e) continue;
       const view = resolveHistoricalView(project, e);
-      if (!view.orbit) continue;
+      if (e.type === "bloodRing" || view.type === "bloodRing") {
+        h.mesh.position.set(0, 0, 0);
+        const inc = e.orbit?.inclination ?? 0.18;
+        h.mesh.rotation.z = inc;
+        const period = e.orbit?.period || 14;
+        if (h.body) h.body.rotation.y = (sim / period) * Math.PI * 2 * 0.22;
+        continue;
+      }
+      if (!e.orbit || !view.orbit) {
+        if (e.rotationPeriod && h.body) {
+          h.body.rotation.y = (sim / e.rotationPeriod) * Math.PI * 2;
+        }
+        continue;
+      }
       const p = keplerPosition(view.orbit, sim);
       const r = displayOrbitRadius(view.orbit.semiMajorAxis);
       const s = r / (view.orbit.semiMajorAxis || 1);
       h.mesh.position.set(p.x * s, p.z * s, p.y * s);
-      if (e.rotationPeriod) {
-        h.mesh.rotation.y = (sim / e.rotationPeriod) * Math.PI * 2;
-      }
-      if (e.type === "bloodRing") {
-        h.mesh.rotation.z = (e.orbit.inclination ?? 0.18);
+      if (e.rotationPeriod && h.body) {
+        h.body.rotation.y = (sim / e.rotationPeriod) * Math.PI * 2;
       }
       if (h.trail) {
         h.trailPts.push(h.mesh.position.clone());
@@ -573,9 +592,10 @@ export class MapRenderer {
 
   private makeLabel(entity: Entity, name: string) {
     const el = document.createElement("div");
-    el.className = "body-label";
+    el.className = entity.type === "bloodRing" ? "body-label blood" : "body-label";
     el.textContent = name;
     el.dataset.id = entity.id;
+    el.dataset.type = entity.type;
     this.labelHost.appendChild(el);
     this.labelEls.set(entity.id, el);
   }
@@ -597,7 +617,8 @@ export class MapRenderer {
         continue;
       }
       const x = (this.tmp2.x * 0.5 + 0.5) * w;
-      const y = (-this.tmp2.y * 0.5 + 0.5) * h;
+      let y = (-this.tmp2.y * 0.5 + 0.5) * h;
+      if (el.dataset.type === "bloodRing") y += 16;
       el.style.display = "block";
       el.style.left = `${x}px`;
       el.style.top = `${y}px`;

@@ -318,6 +318,7 @@ button:disabled { cursor: not-allowed; opacity: 0.45; }
   text-shadow: 0 1px 8px #05070d;
   white-space: nowrap;
 }
+.body-label.blood { color: var(--red); }
 
 .inspect-section {
   border-bottom: 1px solid var(--line);
@@ -544,7 +545,7 @@ button:disabled { cursor: not-allowed; opacity: 0.45; }
     min-height: 0;
   }
   .presets { justify-content: flex-start; }
-  .btn, .chip, .tree-item { min-height: 44px; }
+  .btn, .chip, .tree-item, .tree-twisty { min-height: 44px; }
   .top-actions .btn { min-height: 44px; }
 }
 

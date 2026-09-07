@@ -16,7 +16,7 @@ export function atmosphereMaterial(color: string): THREE.MeshBasicMaterial {
   return new THREE.MeshBasicMaterial({
     color,
     transparent: true,
-    opacity: 0.16,
+    opacity: 0.11,
     side: THREE.BackSide,
     depthWrite: false,
   });
