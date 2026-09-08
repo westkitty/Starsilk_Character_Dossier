@@ -1,6 +1,7 @@
 import type { MountOptions, StarMapProject } from "./model/types.ts";
 import { EditorStore } from "./store/editor-store.ts";
 import { mountEditor, type ShellHandle } from "./ui/shell.ts";
+import { mountAnalystPanel, type AnalystPanelHandle } from "./ui/analyst-panel.ts";
 import { parseProjectJson } from "./persist/import-export.ts";
 import { loadAutosave, saveAutosave } from "./persist/indexeddb.ts";
 
@@ -52,9 +53,24 @@ export async function mountStarsilkStarmap(
   container.appendChild(host);
   const shell: ShellHandle = mountEditor(host, store);
 
+  // mountEditor owns an open Shadow DOM. Analyst Mode must live inside that
+  // same boundary; appending it to the host light DOM would leave it invisible
+  // because the editor shadow tree intentionally exposes no <slot>.
+  let analystMount: HTMLDivElement | null = null;
+  let analyst: AnalystPanelHandle | null = null;
+  if (store.state.mode === "editor") {
+    analystMount = document.createElement("div");
+    analystMount.style.display = "contents";
+    analystMount.setAttribute("data-cartographer-analyst-host", "");
+    (host.shadowRoot ?? host).append(analystMount);
+    analyst = mountAnalystPanel(analystMount, store);
+  }
+
   return {
     store,
     destroy() {
+      analyst?.destroy();
+      analystMount?.remove();
       shell.destroy();
       host.remove();
     },

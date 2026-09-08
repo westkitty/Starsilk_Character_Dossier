@@ -8,7 +8,7 @@ import type {
 } from "./types.ts";
 import { isTimeAtOrAfter } from "./time.ts";
 import { resolveHistoricalTime } from "./resolve-time.ts";
-import { childrenOf, entityMap } from "./validate.ts";
+import { ancestorsOf, childrenOf, entityMap } from "./validate.ts";
 
 function applyPatch<T extends Record<string, unknown>>(base: T, patch: Record<string, unknown> | undefined): T {
   if (!patch) return base;
@@ -40,6 +40,11 @@ function startsAbsent(entity: Entity): boolean {
       ev.eventType === "bloodRingCreated" ||
       ev.eventType === "siegeWallFormed",
   );
+}
+
+function systemAncestor(project: StarMapProject, entity: Entity): Entity | undefined {
+  if (entity.type === "system") return entity;
+  return [entity, ...ancestorsOf(project, entity.id)].find((candidate) => candidate.type === "system");
 }
 
 /**
@@ -144,14 +149,21 @@ export function resolveHistoricalView(
     }
   }
 
-  if (entity.parentId && entity.type !== "star" && entity.type !== "blackHole" && entity.type !== "galaxy") {
-    const parent = entityMap(project).get(entity.parentId);
-    if (parent?.type === "system") {
-      const sys = resolveHistoricalView(project, parent, time);
-      if (sys.collapsed) {
-        present = false;
-        destroyed = true;
-      }
+  // System collapse applies through the whole hierarchy, including moons,
+  // Blood Rings, and structures nested under planets. Do not limit collapse
+  // propagation to direct children of the system.
+  const system = systemAncestor(project, entity);
+  if (
+    system &&
+    entity.id !== system.id &&
+    entity.type !== "star" &&
+    entity.type !== "blackHole" &&
+    entity.type !== "galaxy"
+  ) {
+    const systemView = resolveHistoricalView(project, system, time);
+    if (systemView.collapsed) {
+      present = false;
+      destroyed = true;
     }
   }
 

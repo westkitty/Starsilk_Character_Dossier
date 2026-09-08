@@ -5,5 +5,6 @@ export * from "./orbit.ts";
 export * from "./validate.ts";
 export * from "./resolve-time.ts";
 export * from "./resolve-state.ts";
+export * from "./analyst.ts";
 export * from "./demo-project.ts";
 export * from "./mutations.ts";
