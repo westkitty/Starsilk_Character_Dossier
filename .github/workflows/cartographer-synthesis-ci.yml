@@ -1,0 +1,109 @@
+name: Cartographer Synthesis Validation
+
+on:
+  pull_request:
+    branches:
+      - feature/temporal-cartographer-2026-09-07-2
+    paths:
+      - 'cartographer/**'
+      - '.github/workflows/cartographer-synthesis-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  cartographer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: cartographer
+    steps:
+      - name: Checkout synthesis
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install Cartographer dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Unit tests
+        run: npm test
+
+      - name: TypeScript
+        run: npm run typecheck
+
+      - name: Production build
+        run: npm run build
+
+      - name: Install browser smoke dependency
+        run: npm install --no-save --ignore-scripts --no-audit --no-fund playwright@1.62.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Analyst Mode browser smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run dev -- --host 127.0.0.1 > /tmp/cartographer-vite.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true; cat /tmp/cartographer-vite.log || true' EXIT
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4177/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
+          const consoleErrors = [];
+          page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
+          page.on('pageerror', err => consoleErrors.push(err.message));
+          await page.goto('http://127.0.0.1:4177/', { waitUntil: 'networkidle' });
+
+          await page.getByRole('button', { name: 'Fallenstar Region', exact: true }).click();
+          await page.getByLabel('Override value').fill('3');
+          await page.getByRole('button', { name: 'Override at this era', exact: true }).click();
+
+          await page.getByRole('button', { name: 'ANALYST', exact: true }).click();
+          await page.getByRole('heading', { name: 'Trace / Why?' }).waitFor();
+          await page.getByText(/Historical authority: Fallenstar Region/).waitFor();
+
+          await page.getByRole('tab', { name: 'PALIMPSEST' }).click();
+          await page.getByText('COMPOSITE TEMPORAL VIEW', { exact: true }).waitFor();
+
+          await page.getByRole('button', { name: 'First Blood Ring', exact: true }).click();
+          await page.getByRole('tab', { name: 'DELTA' }).click();
+          const deltaSelects = page.locator('.tc-analyst-controls select');
+          await deltaSelects.nth(0).selectOption('n:0');
+          await deltaSelects.nth(1).selectOption('n:3');
+          await page.getByText('CREATED', { exact: true }).waitFor();
+
+          await page.getByRole('button', { name: 'Aureal', exact: true }).click();
+          await page.getByRole('tab', { name: 'DELTA' }).click();
+          await deltaSelects.nth(0).selectOption('n:121');
+          await deltaSelects.nth(1).selectOption('n:170');
+          await page.getByText('TRANSFORMED', { exact: true }).waitFor();
+          await page.getByText('COLLAPSE', { exact: true }).waitFor();
+
+          await page.getByRole('tab', { name: 'TRUTH' }).click();
+          await page.getByText('existence', { exact: true }).waitFor();
+          await page.getByRole('tab', { name: 'GAPS' }).click();
+          await page.getByText(/UNKNOWN/).first().waitFor();
+          await page.getByRole('tab', { name: 'QUERY' }).click();
+          await page.locator('.tc-analyst-card select').selectOption('collapse-affected');
+          await page.getByText(/Aureal/).first().waitFor();
+
+          if (consoleErrors.length) {
+            throw new Error(`Browser console/page errors:\n${consoleErrors.join('\n')}`);
+          }
+          await browser.close();
+          NODE
+
+      - name: Diff hygiene
+        working-directory: .
+        run: git diff --check
