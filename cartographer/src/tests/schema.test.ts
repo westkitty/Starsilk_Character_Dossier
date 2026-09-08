@@ -34,7 +34,8 @@ describe("schema validation", () => {
     assert.throws(() => validateProject(bad), SchemaError);
     try {
       validateProject(bad);
-    } catch (err) {
+      assert.fail("Expected validateProject to reject malformed input.");
+    } catch (err: unknown) {
       assert.ok(err instanceof SchemaError);
       const paths = err.issues.map((i) => i.path);
       assert.ok(paths.includes("id"));

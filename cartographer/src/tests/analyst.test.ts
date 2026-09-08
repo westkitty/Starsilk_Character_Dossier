@@ -15,7 +15,7 @@ import type { Entity } from "../model/types.ts";
 
 function entity(project: ReturnType<typeof createDemoProject>, id: string): Entity {
   const found = project.entities.find((candidate) => candidate.id === id);
-  assert.ok(found, `Expected entity ${id}`);
+  if (!found) throw new Error(`Expected entity ${id}`);
   return found;
 }
 
