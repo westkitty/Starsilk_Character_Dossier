@@ -3,6 +3,16 @@
 A standalone, browser-only **3D galaxy / star-system authoring tool with hierarchical
 historical time**, built for the fictional STARSiLK universe.
 
+> **Branch identity.** This implementation lives on
+> `arena/01a07e1c-starsilk-character-dossier` (LLM Arena session), 6 commits, 58 files,
+> 205 passing tests, tip `ef84738`. The remote branches
+> `feature/temporal-cartographer-2026-09-07` and `feature/temporal-cartographer-2026-09-07-2`
+> are a **separate, parallel implementation** by a different agent — same specification,
+> different code and layout (`src/core.ts`, `src/editor.ts`, `src/authoring.ts`), and they
+> share only the `main` base commit `5537f41` with this one. Do not assume they are
+> interchangeable. To give this line of work a clearer name:
+> `git push origin arena/01a07e1c-starsilk-character-dossier:refs/heads/llm-arena-temporal-cartographer`
+
 This directory is an **isolated subsystem**. It does not participate in the
 `src → build → docs` publication pipeline of the Starsilk Character Dossier, it does
 not modify `docs/`, and it is not served by GitHub Pages from `main`. It exists so the
