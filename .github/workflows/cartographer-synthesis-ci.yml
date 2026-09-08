@@ -65,7 +65,7 @@ jobs:
           page.on('pageerror', err => consoleErrors.push(err.message));
           await page.goto('http://127.0.0.1:4177/', { waitUntil: 'networkidle' });
 
-          await page.getByRole('button', { name: 'Fallenstar Region', exact: true }).click();
+          await page.getByRole('treeitem', { name: /^Fallenstar Region/ }).click();
           await page.getByLabel('Override value').fill('3');
           await page.getByRole('button', { name: 'Override at this era', exact: true }).click();
 
@@ -76,14 +76,14 @@ jobs:
           await page.getByRole('tab', { name: 'PALIMPSEST' }).click();
           await page.getByText('COMPOSITE TEMPORAL VIEW', { exact: true }).waitFor();
 
-          await page.getByRole('button', { name: 'First Blood Ring', exact: true }).click();
+          await page.getByRole('treeitem', { name: /^First Blood Ring/ }).click();
           await page.getByRole('tab', { name: 'DELTA' }).click();
           const deltaSelects = page.locator('.tc-analyst-controls select');
           await deltaSelects.nth(0).selectOption('n:0');
           await deltaSelects.nth(1).selectOption('n:3');
           await page.getByText('CREATED', { exact: true }).waitFor();
 
-          await page.getByRole('button', { name: 'Aureal', exact: true }).click();
+          await page.getByRole('treeitem', { name: /^Aureal(?:\s+SCH)?$/ }).click();
           await page.getByRole('tab', { name: 'DELTA' }).click();
           await deltaSelects.nth(0).selectOption('n:121');
           await deltaSelects.nth(1).selectOption('n:170');
