@@ -30,6 +30,14 @@ jobs:
       - name: Install Cartographer dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
 
+      - name: Capture reproducible lockfile
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartographer-package-lock
+          path: cartographer/package-lock.json
+          if-no-files-found: error
+          retention-days: 1
+
       - name: Unit tests
         run: npm test
 
@@ -69,10 +77,11 @@ jobs:
           page.on('pageerror', err => consoleErrors.push(err.message));
           await page.goto('http://127.0.0.1:4177/', { waitUntil: 'networkidle' });
 
-          await page.waitForFunction(() => {
+          const waitForEditor = async () => page.waitForFunction(() => {
             const host = document.querySelector('starsilk-starmap-host');
             return Boolean(host?.shadowRoot?.querySelector('[role="treeitem"]'));
           });
+          await waitForEditor();
 
           const clickShadow = async (selector, text) => page.evaluate(({ selector, text }) => {
             const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
@@ -138,6 +147,28 @@ jobs:
           await waitShadowText('Truth Lattice');
           await waitShadowText('existence');
 
+          // Persist an explicit field-level truth classification, wait for the
+          // real debounced IndexedDB save, reload, and prove it returns.
+          await page.evaluate(() => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            if (!root) throw new Error('Missing shadow root');
+            const row = [...root.querySelectorAll('.tc-analyst-truth')].find(
+              node => node.querySelector('strong')?.textContent?.trim() === 'existence',
+            );
+            const select = row?.querySelector('select');
+            if (!(select instanceof HTMLSelectElement)) throw new Error('Missing existence truth selector');
+            select.value = 'locked';
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          });
+          await page.waitForFunction(() => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            return root?.querySelector('.save-ind')?.textContent === 'UNSAVED';
+          });
+          await page.waitForFunction(() => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            return root?.querySelector('.save-ind')?.textContent === 'SAVED';
+          });
+
           await clickShadow('.tc-analyst-tab', 'GAPS');
           await waitShadowText('Knowledge Gaps');
           await waitShadowText('UNKNOWN');
@@ -153,6 +184,57 @@ jobs:
             return panel instanceof HTMLElement && !panel.hidden;
           });
           if (!analystVisible) throw new Error('Analyst panel is not visible inside the editor shadow boundary');
+
+          await page.reload({ waitUntil: 'networkidle' });
+          await waitForEditor();
+          await clickShadow('[role="treeitem"]', '●AurealSCH');
+          await clickShadow('button', 'ANALYST');
+          await clickShadow('.tc-analyst-tab', 'TRUTH');
+          const persistedTruth = await page.evaluate(() => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            const row = [...(root?.querySelectorAll('.tc-analyst-truth') ?? [])].find(
+              node => node.querySelector('strong')?.textContent?.trim() === 'existence',
+            );
+            const select = row?.querySelector('select');
+            return select instanceof HTMLSelectElement ? select.value : null;
+          });
+          if (persistedTruth !== 'locked') throw new Error(`Truth lattice persistence failed: ${persistedTruth}`);
+
+          // Mount the exact same project in viewer mode and prove the mount
+          // seam stays read-only: no Analyst workstation and no visible
+          // authoring controls.
+          const viewerProof = await page.evaluate(async () => {
+            const { mountStarsilkStarmap } = await import('/src/mount.ts');
+            const { createDemoProject } = await import('/src/model/demo-project.ts');
+            const container = document.createElement('div');
+            container.id = 'viewer-proof';
+            container.style.width = '900px';
+            container.style.height = '600px';
+            document.body.append(container);
+            const handle = await mountStarsilkStarmap(container, {
+              mode: 'viewer',
+              src: createDemoProject(),
+              startEntityId: 'sys-fallenstar',
+              startEra: 3,
+              disableAuthoring: true,
+            });
+            await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+            const host = container.querySelector('starsilk-starmap-host');
+            const root = host?.shadowRoot;
+            const viewerClass = Boolean(root?.querySelector('.silk-root.viewer'));
+            const analystPresent = Boolean(root?.querySelector('.tc-analyst-toggle,.tc-analyst-panel'));
+            const visibleAuthoring = [...(root?.querySelectorAll('.ed-only') ?? [])]
+              .filter(node => node instanceof HTMLElement && getComputedStyle(node).display !== 'none')
+              .map(node => node.textContent?.trim() ?? node.tagName);
+            handle.destroy();
+            container.remove();
+            return { viewerClass, analystPresent, visibleAuthoring };
+          });
+          if (!viewerProof.viewerClass) throw new Error('Viewer mode class was not mounted');
+          if (viewerProof.analystPresent) throw new Error('Analyst workstation leaked into viewer mode');
+          if (viewerProof.visibleAuthoring.length) {
+            throw new Error(`Viewer exposes authoring controls: ${viewerProof.visibleAuthoring.join(' | ')}`);
+          }
 
           if (consoleErrors.length) {
             throw new Error(`Browser console/page errors:\n${consoleErrors.join('\n')}`);
