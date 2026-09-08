@@ -4,6 +4,24 @@
 export const SCHEMA_VERSION = 1 as const;
 
 export type CanonStatus = "locked" | "working" | "provisional" | "schematic";
+export type TruthStatus = CanonStatus | "unknown" | "editorial";
+export type TruthField =
+  | "existence"
+  | "name"
+  | "position"
+  | "orbit"
+  | "visual"
+  | "timeline";
+
+export interface TruthFieldState {
+  status: TruthStatus;
+  sourceNote?: string;
+  sourceHref?: string;
+}
+
+/** Optional field-level epistemic state. Existing entity canonStatus remains
+ *  the compatibility fallback; explicit field truth always wins. */
+export type TruthProfile = Partial<Record<TruthField, TruthFieldState>>;
 
 export type EntityType =
   | "galaxy"
@@ -99,8 +117,11 @@ export interface EntityMeta {
   sourceHref?: string;
   dossierHref?: string;
   warning?: string;
-  /** Demo / invented coordinates must stay schematic. */
-  positionCanon?: "schematic" | "locked";
+  /** Schematic means deliberately placed for analysis. Unknown means no
+   *  position is currently asserted. Never coerce unknown to 0,0,0. */
+  positionCanon?: "schematic" | "locked" | "unknown";
+  /** Per-field truth lattice. Optional and backwards compatible with v1 JSON. */
+  truth?: TruthProfile;
 }
 
 export interface TimelineEvent {

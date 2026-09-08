@@ -1,6 +1,7 @@
 import type { MountOptions, StarMapProject } from "./model/types.ts";
 import { EditorStore } from "./store/editor-store.ts";
 import { mountEditor, type ShellHandle } from "./ui/shell.ts";
+import { mountAnalystPanel, type AnalystPanelHandle } from "./ui/analyst-panel.ts";
 import { parseProjectJson } from "./persist/import-export.ts";
 import { loadAutosave, saveAutosave } from "./persist/indexeddb.ts";
 
@@ -51,10 +52,14 @@ export async function mountStarsilkStarmap(
   host.style.minHeight = "100dvh";
   container.appendChild(host);
   const shell: ShellHandle = mountEditor(host, store);
+  const analyst: AnalystPanelHandle | null = store.state.mode === "editor"
+    ? mountAnalystPanel(host, store)
+    : null;
 
   return {
     store,
     destroy() {
+      analyst?.destroy();
       shell.destroy();
       host.remove();
     },
