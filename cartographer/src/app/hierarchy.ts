@@ -5,7 +5,7 @@
  * both write `store.selectionId` and both re-render from the same event.
  */
 
-import { childrenOf, entityById, rootEntity, TYPE_GLYPHS } from '../core/project';
+import { childrenOf, entityById, pathOf, rootEntity, TYPE_GLYPHS } from '../core/project';
 import type { Entity, StarMapProject } from '../core/types';
 import type { ProjectStore } from '../core/store';
 import { el } from './dom';
@@ -15,7 +15,13 @@ export interface HierarchyDecorations {
   /** Historically absent at the resolved era (still listed, visibly struck out). */
   isAbsent?: (id: string) => boolean;
   /** Small right-hand tag, e.g. INHERITED / OVERRIDE / the resolved era. */
-  tag?: (entity: Entity) => { text: string; tone: 'override' | 'inherit' | 'absent' } | null;
+  tag?: (
+    entity: Entity,
+  ) => { text: string; tone: 'override' | 'inherit' | 'absent'; title?: string } | null;
+  /** Historically effective name (e.g. after a rename event). */
+  displayName?: (entity: Entity) => string | undefined;
+  /** Historically effective glyph (e.g. a star that has collapsed). */
+  glyph?: (entity: Entity) => string | undefined;
 }
 
 export interface HierarchyCallbacks {
@@ -31,6 +37,7 @@ interface RowInfo {
 }
 
 export class HierarchyPanel {
+  private seededProjectId: string | null = null;
   private rows: RowInfo[] = [];
   private unsubscribe: (() => void) | null = null;
 
@@ -73,8 +80,24 @@ export class HierarchyPanel {
       body.append(el('p', { class: 'sktc-empty', text: 'NO ROOT ENTITY' }));
       return;
     }
+    // Seed a fresh project with the root expanded so the panel is never blank.
+    if (this.seededProjectId !== project.id) {
+      this.seededProjectId = project.id;
+      if (!this.store.ui.expandedIds.length) {
+        // setUi notifies synchronously and re-enters render() with the seeded state.
+        this.store.setUi({ expandedIds: [root.id] });
+        return;
+      }
+    }
+
     const query = this.store.ui.hierarchyQuery.trim().toLowerCase();
-    const tree = this.buildList(project, [root], 0, query);
+    const expanded = new Set(this.store.ui.expandedIds);
+    const selection = this.store.selectionId;
+    if (selection) {
+      // Always reveal the selected entity's ancestors (3D picks, scope jumps).
+      for (const ancestor of pathOf(project, selection)) expanded.add(ancestor.id);
+    }
+    const tree = this.buildList(project, [root], 0, query, expanded);
     body.append(tree);
     this.syncAriaSelection();
   }
@@ -97,12 +120,13 @@ export class HierarchyPanel {
     entities: Entity[],
     depth: number,
     query: string,
+    expandedSet?: Set<string>,
   ): HTMLElement {
     const list = el('ul', { class: 'sktc-tree', role: depth === 0 ? undefined : 'group' });
     for (const entity of entities) {
       if (query && !this.subtreeMatches(project, entity, query)) continue;
       const kids = childrenOf(project, entity.id);
-      const expanded = query ? true : this.store.ui.expandedIds.includes(entity.id);
+      const expanded = query ? true : (expandedSet?.has(entity.id) ?? false);
       const item = el('li', { role: 'none' });
 
       const tags: HTMLElement[] = [];
@@ -112,11 +136,12 @@ export class HierarchyPanel {
           el('span', {
             class: `sktc-node-tag sktc-node-tag--${decoration.tone}`,
             text: decoration.text,
+            ...(decoration.title ? { title: decoration.title } : {}),
           }),
         );
       }
       const absent = this.decorations.isAbsent?.(entity.id) ?? false;
-      if (absent) {
+      if (absent && decoration?.tone !== 'absent') {
         tags.push(el('span', { class: 'sktc-node-tag sktc-node-tag--absent', text: 'ABSENT' }));
       }
 
@@ -136,10 +161,13 @@ export class HierarchyPanel {
         }),
         el('span', {
           class: 'sktc-node-glyph',
-          text: TYPE_GLYPHS[entity.type] ?? '·',
+          text: this.decorations.glyph?.(entity) ?? TYPE_GLYPHS[entity.type] ?? '·',
           ariaHidden: 'true',
         }),
-        el('span', { class: 'sktc-node-name', text: entity.name }),
+        el('span', {
+          class: 'sktc-node-name',
+          text: this.decorations.displayName?.(entity) ?? entity.name,
+        }),
         ...tags,
       ]);
 
@@ -167,7 +195,7 @@ export class HierarchyPanel {
       });
 
       if (expanded && kids.length > 0) {
-        item.append(this.buildList(project, kids, depth + 1, query));
+        item.append(this.buildList(project, kids, depth + 1, query, expandedSet));
       }
       list.append(item);
     }
@@ -185,9 +213,10 @@ export class HierarchyPanel {
         this.decorations.isAbsent?.(row.entityId) ?? false,
       );
     }
-    // Keep the selected row scrolled into view after a 3D pick.
+    // Keep the selected row scrolled into view after a 3D pick. Guarded because
+    // some host environments (jsdom, SSR, restricted embeds) do not implement it.
     const selected = this.rows.find((row) => row.entityId === this.store.selectionId);
-    selected?.element.scrollIntoView({ block: 'nearest' });
+    selected?.element.scrollIntoView?.({ block: 'nearest' });
   }
 
   private onKeyDown(event: KeyboardEvent): void {

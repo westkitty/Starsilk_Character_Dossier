@@ -283,6 +283,9 @@ function structureKind(entity: Entity): DerivedStructure['kind'] {
 }
 
 function extentOf(project: StarMapProject, entityId: string): number {
+  const owner = entityById(project, entityId);
+  const authoredExtent = owner?.visual?.extent;
+  if (typeof authoredExtent === 'number' && authoredExtent > 0) return authoredExtent;
   let max = 0;
   for (const descendant of childrenOf(project, entityId)) {
     const p = positionOf(descendant);

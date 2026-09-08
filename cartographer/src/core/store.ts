@@ -23,6 +23,8 @@ export interface UiState {
   expandedIds: string[];
   hierarchyQuery: string;
   drawer: DrawerName;
+  /** Entity whose historical time the rail is currently editing. */
+  railScopeId: string | null;
   /** Transient status line text (import errors, confirmations, …). */
   statusMessage: string | null;
   statusTone: 'neutral' | 'warn' | 'danger';
@@ -48,6 +50,7 @@ export function defaultUiState(): UiState {
     expandedIds: [],
     hierarchyQuery: '',
     drawer: 'none',
+    railScopeId: null,
     statusMessage: null,
     statusTone: 'neutral',
   };
@@ -172,6 +175,11 @@ export class ProjectStore {
   select(entityId: string | null): void {
     if (this.selectionId === entityId) return;
     this.selectionId = entityId;
+    // The historical rail follows the selection. An explicit pin (setUi with
+    // railScopeId) overrides this until the next selection.
+    if (entityId !== null && this.ui.railScopeId !== entityId) {
+      this.ui = { ...this.ui, railScopeId: entityId };
+    }
     this.emit('selection');
   }
 
@@ -207,6 +215,9 @@ export class ProjectStore {
     }
     if (this.ui.focusEntityId && !this.project.entities.some((e) => e.id === this.ui.focusEntityId)) {
       this.ui.focusEntityId = null;
+    }
+    if (this.ui.railScopeId && !this.project.entities.some((e) => e.id === this.ui.railScopeId)) {
+      this.ui.railScopeId = null;
     }
     if (this.ui.viewEntityId && !this.project.entities.some((e) => e.id === this.ui.viewEntityId)) {
       this.ui.viewEntityId = null;

@@ -82,6 +82,7 @@ export function createShell(host: HTMLElement): ShellRefs {
   });
   const saveStateEl = el('span', {
     class: 'sktc-badge',
+    id: 'sktc-save-state',
     text: 'SAVED',
     role: 'status',
     ariaLive: 'polite',
@@ -140,6 +141,7 @@ export function createShell(host: HTMLElement): ShellRefs {
   const hierarchyActions = el('div', { class: 'sktc-tree-actions' });
   const hierarchyPanel = el('section', {
     class: 'sktc-panel sktc-panel--left',
+    id: 'sktc-hierarchy',
     ariaLabel: 'Hierarchy',
   }, [
     el('div', { class: 'sktc-panel-head' }, [
@@ -171,6 +173,7 @@ export function createShell(host: HTMLElement): ShellRefs {
   const inspectorBody = el('div', { class: 'sktc-panel-body' });
   const inspectorPanel = el('section', {
     class: 'sktc-panel sktc-panel--right',
+    id: 'sktc-inspector',
     ariaLabel: 'Inspector',
   }, [
     el('div', { class: 'sktc-panel-head' }, [
@@ -224,6 +227,7 @@ export function createShell(host: HTMLElement): ShellRefs {
   const dialogLayer = el('div', { class: 'sktc-dialog-layer' });
   const liveRegion = el('div', {
     class: 'sktc-sr-only',
+    id: 'sktc-announce',
     role: 'status',
     ariaLive: 'polite',
   });

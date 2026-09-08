@@ -76,6 +76,47 @@ date. **RETURN TO PARENT TIME** sets the entity back to `inherit` and it immedia
 resolves against its parent again. Resolution is implemented in
 `src/core/resolve.ts` and covered by `tests/resolve.test.ts`.
 
+### How an era is resolved
+
+`resolveHistoricalState(project, { canonOnly })` runs in four passes and returns a
+`Map<entityId, ResolvedEntity>`:
+
+1. **Scope walk** — for every entity, walk up to the nearest ancestor carrying an
+   `override` (`resolveTimeFor`). `mode` always describes *that entity's own* block: it
+   is `override` only when the entity itself carries one, otherwise `inherit` with
+   `fromEntityId` naming the supplying ancestor.
+2. **Event merge** — the entity's timeline is sorted with `sortEvents` and every event
+   at or before the resolved era applies its `statePatch` (shallow, one level of
+   nesting). `name` becomes `effectiveName`, `type` becomes `effectiveType`, and a
+   `starsilkExtractionCollapse` marks the star collapsed and flips it to `blackHole`.
+3. **Absence propagation** — a collapsed star flags its system `systemDestroyed`; all
+   non-star descendants of that system, all descendants of an absent ancestor, and all
+   records whose creation event is later than the era are marked absent with a reason
+   (`before-creation`, `destroyed`, `ancestor-absent`, `system-destroyed`,
+   `canon-filtered`).
+4. **Canon filter** — with `canonOnly`, `provisional` and `schematic` records are
+   dropped from the render set while remaining in the document.
+
+`derivationContextFor(resolution)` is the only bridge into the renderer: it exposes
+`present(id)` / `effectiveType(entity)` / `annotate(entity)` and keeps era vocabulary out
+of `src/render/*`. Authored values are never mutated to express an era.
+
+### Rail scope
+
+The historical rail edits exactly one scope at a time. Its scope is
+`ui.railScopeId ?? selectionId ?? galaxyRoot`, and selecting an entity moves the scope to
+it, so the rail follows selection until a scope is pinned explicitly from the rail or from
+**EDIT THIS SCOPE ON THE RAIL** in the inspector.
+
+### Demonstration plate
+
+`src/core/demo.ts` builds `STARSiLK DEMONSTRATION PLATE` (`createDemoProject()`): four
+sectors, five systems, two Blood Rings, one Starsilk extraction collapse, the Siege Wall
+and the Drakken domain, with overrides demonstrated at all three subordinate scopes. Every
+coordinate is labelled schematic, no post-war date is invented, and no Siege Wall node
+count is asserted. `tests/demo.test.ts` asserts all of that, plus the Blood Ring and
+collapse before/after behaviour.
+
 ## STARSiLK canon constraints encoded here
 
 * **Starsilk** is a literal, programmable cosmological substance — never metaphorical,

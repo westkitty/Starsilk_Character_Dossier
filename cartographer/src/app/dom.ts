@@ -22,6 +22,9 @@ export function el<K extends keyof HTMLElementTagNameMap>(
     else if (key === 'style' && typeof value === 'string') node.setAttribute('style', value);
     else if (key === 'text') node.textContent = String(value);
     else if (key === 'dataset') Object.assign(node.dataset, value as Record<string, string>);
+    else if (key.startsWith('aria')) {
+      node.setAttribute(key.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`), String(value));
+    }
     else if (key.startsWith('on') && typeof value === 'function') {
       node.addEventListener(key.slice(2).toLowerCase(), value as EventListener);
     } else if (key in node && key !== 'list' && key !== 'form') {
