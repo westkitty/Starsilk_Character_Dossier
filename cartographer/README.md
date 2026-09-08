@@ -12,12 +12,16 @@ integration seam.
 
 ```bash
 cd cartographer
-npm install
+npm ci
 npm test
 npm run typecheck
 npm run dev      # http://127.0.0.1:4177
 npm run build    # static assets in dist/
 ```
+
+`package-lock.json` is committed and has a clean Ubuntu / Node 22 `npm ci`
+validation. Use `npm ci` for reproduction and CI; use `npm install` only when
+intentionally changing the dependency graph.
 
 No backend, accounts, telemetry, or CDN runtime dependency.
 
