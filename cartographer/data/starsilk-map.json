@@ -1,0 +1,1392 @@
+{
+  "schemaVersion": 1,
+  "id": "prj-starsilk-demo",
+  "title": "STARSiLK DEMONSTRATION PLATE",
+  "createdAt": "2026-09-07T00:00:00.000Z",
+  "updatedAt": "2026-09-07T00:00:00.000Z",
+  "eraPresets": [
+    {
+      "id": "pre-war",
+      "label": "PRE-WAR",
+      "order": 0,
+      "description": "Fringe-colony tension before Blood Eclipse War hostilities. Exact date deliberately unspecified.",
+      "canonStatus": "working"
+    },
+    {
+      "id": "bew-0",
+      "label": "BLOOD ECLIPSE — YEAR 0",
+      "order": 10,
+      "time": 0,
+      "description": "Fringe-colony hostilities begin after Drakken lightning-strike terraformings trigger Administration counter-Macros.",
+      "canonStatus": "locked"
+    },
+    {
+      "id": "bew-3",
+      "label": "BLOOD ECLIPSE — YEAR 3",
+      "order": 20,
+      "time": 3,
+      "description": "First Blood Rings erected around Fallenstar Prime.",
+      "canonStatus": "locked"
+    },
+    {
+      "id": "bew-121",
+      "label": "BLOOD ECLIPSE — YEAR 121",
+      "order": 30,
+      "time": 121,
+      "description": "Administration attacks a Drakken forward node in the Pharos Nebula. Siege of the Ruby Eclipse.",
+      "canonStatus": "locked"
+    },
+    {
+      "id": "bew-170",
+      "label": "BLOOD ECLIPSE — YEAR 170",
+      "order": 40,
+      "time": 170,
+      "description": "Final collapse at the Aureal Gate. Drakken use Starsilk against gods for the first time.",
+      "canonStatus": "locked"
+    },
+    {
+      "id": "post-siege-wall",
+      "label": "POST-SIEGE-WALL",
+      "order": 50,
+      "description": "After the Aureal Gate, Shard-God Tiger collapses vast numbers of stars; those stellar deaths establish the Siege Wall, which contains — does not annihilate — the Drakken. No exact date supplied.",
+      "canonStatus": "working"
+    },
+    {
+      "id": "main-narrative",
+      "label": "MAIN NARRATIVE — DATE UNSPECIFIED",
+      "order": 60,
+      "description": "The era of the main STARSiLK narrative. It occurs later than the war; no exact numerical year is supplied and none is invented here.",
+      "canonStatus": "working"
+    },
+    {
+      "id": "custom",
+      "label": "CUSTOM",
+      "order": 70,
+      "description": "Type an exact value: a war year, or an era marker id.",
+      "canonStatus": "provisional",
+      "custom": true
+    }
+  ],
+  "entities": [
+    {
+      "id": "galaxy-root",
+      "parentId": null,
+      "type": "galaxy",
+      "name": "STARSiLK CARTOGRAPHIC PLATE 01",
+      "timeline": [
+        {
+          "id": "galaxy-note-war",
+          "time": 0,
+          "label": "Blood Eclipse War begins",
+          "eventType": "annotation",
+          "canonStatus": "locked",
+          "sourceNote": "Year 0 — fringe-colony hostilities begin after Drakken lightning-strike terraformings trigger Administration counter-Macros."
+        },
+        {
+          "id": "galaxy-note-170",
+          "time": 170,
+          "label": "Final collapse at the Aureal Gate",
+          "eventType": "annotation",
+          "canonStatus": "locked",
+          "sourceNote": "Year 170 — Drakken use Starsilk against gods for the first time."
+        },
+        {
+          "id": "galaxy-note-wall",
+          "time": "post-siege-wall",
+          "label": "Siege Wall established by collapsed stars",
+          "eventType": "annotation",
+          "canonStatus": "working",
+          "sourceNote": "After the Aureal Gate, Shard-God Tiger collapses huge numbers of stars; those stellar deaths establish the Siege Wall. No exact date is supplied."
+        }
+      ],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "Authoring plate for the STARSiLK Temporal Cartographer. Starsilk is a literal, programmable cosmological substance — not metaphorical and not sentient; repeatable reality-changing Macros operate through it. Change GALAXY historical time to see every inheriting branch move; override any sector, system, or body to pin that branch to its own era.",
+        "tags": [
+          "root",
+          "plate"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#55dfff",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "override",
+        "overrideValue": "main-narrative"
+      }
+    },
+    {
+      "id": "sector-pharos",
+      "parentId": "galaxy-root",
+      "type": "starfield",
+      "name": "PHAROS NEBULA",
+      "timeline": [
+        {
+          "id": "pharos-siege",
+          "time": 121,
+          "label": "Siege of the Ruby Eclipse",
+          "eventType": "annotation",
+          "canonStatus": "locked",
+          "sourceNote": "Year 121 — Administration attacks a Drakken forward node in the Pharos Nebula."
+        }
+      ],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Named canon region. Its position on this plate is invented for layout; treat the coordinates as schematic.",
+        "tags": [
+          "sector",
+          "war-theatre"
+        ],
+        "sourceNote": "Pharos Nebula is a supplied canon name and the Year 121 siege is a supplied anchor; the coordinate is schematic."
+      },
+      "position": {
+        "x": 26,
+        "y": 3,
+        "z": -18,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#55dfff",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "sector-fallenstar",
+      "parentId": "galaxy-root",
+      "type": "starfield",
+      "name": "FALLENSTAR REGION",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Inherits the galaxy era, so scrubbing the galaxy time shows the first Blood Ring form here in Year 3.",
+        "tags": [
+          "sector"
+        ],
+        "sourceNote": "Fallenstar is a supplied canon name; this coordinate is schematic."
+      },
+      "position": {
+        "x": -24,
+        "y": -2,
+        "z": 20,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#a6efff",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "sector-aureal",
+      "parentId": "galaxy-root",
+      "type": "starfield",
+      "name": "AUREAL REACH",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Approach region to the Aureal Gate.",
+        "tags": [
+          "sector"
+        ],
+        "sourceNote": "Aureal Gate is a supplied canon name; this coordinate is schematic."
+      },
+      "position": {
+        "x": 52,
+        "y": 5,
+        "z": 34,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#4ba7db",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "sector-halven",
+      "parentId": "galaxy-root",
+      "type": "starfield",
+      "name": "HAL'VEN CLUSTER",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Named canon cluster; no canon coordinate is supplied for it. Carries a SECTOR-SCOPE historical override (Year 121) so sibling sectors visibly keep the galaxy era.",
+        "tags": [
+          "sector",
+          "override-demo"
+        ],
+        "sourceNote": "Hal'Ven Cluster is a supplied canon name; the position here is schematic."
+      },
+      "position": {
+        "x": -46,
+        "y": 8,
+        "z": -34,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#7dbf82",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "override",
+        "overrideValue": 121
+      }
+    },
+    {
+      "id": "system-pharos-03",
+      "parentId": "sector-pharos",
+      "type": "system",
+      "name": "PHAROS SYSTEM 03",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "Invented demonstration system inside the Pharos Nebula.",
+        "tags": [
+          "system"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "position": {
+        "x": 30,
+        "y": 3,
+        "z": -22,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#c9d5df",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "star-pharos-a",
+      "parentId": "system-pharos-03",
+      "type": "star",
+      "name": "PHAROS A",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "star"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 6.2,
+        "color": "#ffe0ae",
+        "emissive": "#ffcf7a",
+        "emissiveIntensity": 1.2,
+        "roughness": 0.9,
+        "facets": 2,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#ffd9a0",
+          "intensity": 0.45
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-pharos-b",
+      "parentId": "system-pharos-03",
+      "type": "planet",
+      "name": "PHAROS III-b",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "planet"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 0.9,
+        "eccentricity": 0.04,
+        "inclination": 2,
+        "ascendingNode": 12,
+        "argumentOfPeriapsis": 40,
+        "meanAnomalyAtEpoch": 20,
+        "epoch": 0,
+        "period": 210
+      },
+      "visual": {
+        "displayRadius": 2.1,
+        "color": "#7fa8c9",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.3,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.3
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "moon-pharos-b1",
+      "parentId": "planet-pharos-b",
+      "type": "moon",
+      "name": "PHAROS III-b I",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "moon"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 0.014,
+        "eccentricity": 0.01,
+        "inclination": 5,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 90,
+        "epoch": 0,
+        "period": 22
+      },
+      "visual": {
+        "displayRadius": 0.62,
+        "color": "#9fb0bd",
+        "roughness": 0.9,
+        "facets": 2,
+        "banding": 0.12
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-pharos-c",
+      "parentId": "system-pharos-03",
+      "type": "planet",
+      "name": "PHAROS OUTER MARKER",
+      "timeline": [
+        {
+          "id": "pharos-c-rename",
+          "time": 121,
+          "label": "Redesignated after the siege survey",
+          "eventType": "renamed",
+          "canonStatus": "schematic",
+          "sourceNote": "Demonstration of a discrete rename: before Year 121 the record carries its survey designation.",
+          "statePatch": {
+            "name": "PHAROS III-c"
+          }
+        }
+      ],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "planet",
+          "rename-demo"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 2.6,
+        "eccentricity": 0.12,
+        "inclination": 7,
+        "ascendingNode": 88,
+        "argumentOfPeriapsis": 210,
+        "meanAnomalyAtEpoch": 300,
+        "epoch": 0,
+        "period": 1240
+      },
+      "visual": {
+        "displayRadius": 2.6,
+        "color": "#8c7f6a",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.45,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.3
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "system-ruby",
+      "parentId": "sector-pharos",
+      "type": "system",
+      "name": "RUBY ECLIPSE FORWARD NODE",
+      "timeline": [
+        {
+          "id": "ruby-siege",
+          "time": 121,
+          "label": "Siege of the Ruby Eclipse",
+          "eventType": "annotation",
+          "canonStatus": "locked",
+          "sourceNote": "Year 121 — Administration attacks this Drakken forward node."
+        }
+      ],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Drakken forward node attacked in Year 121. The node itself is canon-anchored; its coordinates are schematic. Carries a SYSTEM-SCOPE historical override at Year 121 — a visible demonstration that siblings are unaffected.",
+        "tags": [
+          "system",
+          "war",
+          "override-demo"
+        ],
+        "sourceNote": "Year 121 siege is a supplied anchor; the coordinate is schematic."
+      },
+      "position": {
+        "x": 36,
+        "y": 2,
+        "z": -12,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#c9d5df",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "override",
+        "overrideValue": 121
+      }
+    },
+    {
+      "id": "star-ruby",
+      "parentId": "system-ruby",
+      "type": "star",
+      "name": "NODE PRIMARY",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "star"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 5.4,
+        "color": "#ffb9a0",
+        "emissive": "#ff8f6a",
+        "emissiveIntensity": 1,
+        "roughness": 0.9,
+        "facets": 2,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#ffd9a0",
+          "intensity": 0.45
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-ruby-shell",
+      "parentId": "system-ruby",
+      "type": "planet",
+      "name": "NODE SHELL 1",
+      "timeline": [
+        {
+          "id": "ruby-shell-processed",
+          "time": 121,
+          "label": "Biosphere processed by Drakken",
+          "eventType": "visualChanged",
+          "canonStatus": "provisional",
+          "sourceNote": "Demonstration of a discrete visual change tied to the Year 121 siege. Drakken activity replaces ecosystems, geology, atmospheres, settlements, cultures, and populations.",
+          "statePatch": {
+            "color": "#6c4f4a"
+          }
+        }
+      ],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "planet",
+          "processed"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1.4,
+        "eccentricity": 0.06,
+        "inclination": 3,
+        "ascendingNode": 30,
+        "argumentOfPeriapsis": 15,
+        "meanAnomalyAtEpoch": 140,
+        "epoch": 0,
+        "period": 420
+      },
+      "visual": {
+        "displayRadius": 2.3,
+        "color": "#9a7a72",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.4,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.3
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "ring-ruby",
+      "parentId": "planet-ruby-shell",
+      "type": "bloodRing",
+      "name": "SIEGE RING OF THE RUBY ECLIPSE",
+      "timeline": [
+        {
+          "id": "ring-ruby-created",
+          "time": 121,
+          "label": "Blood Ring formed from the processed world",
+          "eventType": "bloodRingCreated",
+          "canonStatus": "provisional",
+          "sourceNote": "Demonstration Blood Ring anchored to the Year 121 siege. A Blood Ring is a huge solid orbital band built from the processed remains and biospheric material of a murdered world — not an asteroid belt and not decorative rings. This particular ring is not specified in canon."
+        }
+      ],
+      "meta": {
+        "canonStatus": "provisional",
+        "description": "Your sky is built from your dead. Vitrified black-red composite with spin striations and ash inclusions; at distance it holds the terrible elegance of dark stained glass.",
+        "tags": [
+          "blood-ring"
+        ],
+        "sourceNote": "Ring not specified in canon; anchored to a supplied Year 121 event."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "color": "#8d2230",
+        "roughness": 0.6,
+        "metalness": 0.1,
+        "facets": 3,
+        "banding": 0.7,
+        "ring": {
+          "innerRadius": 1.7,
+          "outerRadius": 3.2,
+          "thickness": 0.46,
+          "inclination": 11,
+          "color": "#6d1a26",
+          "striations": 30
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "system-fallenstar",
+      "parentId": "sector-fallenstar",
+      "type": "system",
+      "name": "FALLENSTAR SYSTEM",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Home system of Fallenstar Prime.",
+        "tags": [
+          "system"
+        ],
+        "sourceNote": "Fallenstar Prime is a supplied canon name; the coordinate is schematic."
+      },
+      "position": {
+        "x": -26,
+        "y": -2,
+        "z": 22,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#c9d5df",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "star-fallenstar",
+      "parentId": "system-fallenstar",
+      "type": "star",
+      "name": "FALLENSTAR",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "working",
+        "description": "",
+        "tags": [
+          "star"
+        ],
+        "sourceNote": "Schematic position; canon name."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 6.8,
+        "color": "#ffd9c0",
+        "emissive": "#ffb98a",
+        "emissiveIntensity": 1.25,
+        "roughness": 0.9,
+        "facets": 2,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#ffd9a0",
+          "intensity": 0.45
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-fallenstar-prime",
+      "parentId": "system-fallenstar",
+      "type": "planet",
+      "name": "FALLENSTAR PRIME",
+      "timeline": [
+        {
+          "id": "fallenstar-vitrified",
+          "time": 3,
+          "label": "Surface vitrified beneath the first ring",
+          "eventType": "visualChanged",
+          "canonStatus": "provisional",
+          "sourceNote": "Demonstration of a discrete visual patch coinciding with the Year 3 ring erection.",
+          "statePatch": {
+            "color": "#7b5a53"
+          }
+        }
+      ],
+      "meta": {
+        "canonStatus": "locked",
+        "description": "Fallenstar Prime — the world whose dead were raised into the first Blood Rings in Year 3.",
+        "tags": [
+          "planet",
+          "canon"
+        ],
+        "sourceNote": "Fallenstar Prime is a supplied canon name; its orbit here is schematic.",
+        "dossierHref": "./"
+      },
+      "orbit": {
+        "semiMajorAxis": 1.1,
+        "eccentricity": 0.03,
+        "inclination": 1.5,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 60,
+        "epoch": 0,
+        "period": 330
+      },
+      "visual": {
+        "displayRadius": 2.4,
+        "color": "#8fb6c4",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.28,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.34
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "ring-fallenstar",
+      "parentId": "planet-fallenstar-prime",
+      "type": "bloodRing",
+      "name": "FIRST BLOOD RING",
+      "timeline": [
+        {
+          "id": "ring-fallenstar-created",
+          "time": 3,
+          "label": "First Blood Rings erected",
+          "eventType": "bloodRingCreated",
+          "canonStatus": "locked",
+          "sourceNote": "Blood Eclipse War Year 3 — first Blood Rings erected around Fallenstar Prime."
+        }
+      ],
+      "meta": {
+        "canonStatus": "locked",
+        "description": "A huge solid orbital band created from the processed remains and biospheric material of a murdered world: biological residue, ash, fats, minerals, Drakken processing material, and vitrified black-red composite. Your sky is built from your dead.",
+        "tags": [
+          "blood-ring",
+          "canon"
+        ],
+        "sourceNote": "Year 3 first Blood Rings around Fallenstar Prime is a supplied canon anchor."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "color": "#93242f",
+        "roughness": 0.6,
+        "metalness": 0.1,
+        "facets": 3,
+        "banding": 0.75,
+        "ring": {
+          "innerRadius": 1.6,
+          "outerRadius": 3.4,
+          "thickness": 0.5,
+          "inclination": 6,
+          "color": "#6d1a26",
+          "striations": 34
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "moon-fallenstar-1",
+      "parentId": "planet-fallenstar-prime",
+      "type": "moon",
+      "name": "FALLENSTAR PRIME I",
+      "timeline": [
+        {
+          "id": "moon-fallenstar-lost",
+          "time": 3,
+          "label": "Moon consumed into ring material",
+          "eventType": "destroyed",
+          "canonStatus": "provisional",
+          "sourceNote": "Demonstration of a destruction event: absent from Year 3 onward in this branch, restored only as a historical visualisation when scrubbing backwards."
+        }
+      ],
+      "meta": {
+        "canonStatus": "provisional",
+        "description": "",
+        "tags": [
+          "moon",
+          "destroyed-demo"
+        ],
+        "sourceNote": "Not specified in canon; demonstrates destruction handling."
+      },
+      "orbit": {
+        "semiMajorAxis": 0.02,
+        "eccentricity": 0.02,
+        "inclination": 4,
+        "ascendingNode": 20,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 200,
+        "epoch": 0,
+        "period": 18
+      },
+      "visual": {
+        "displayRadius": 0.66,
+        "color": "#a9b7c0",
+        "roughness": 0.9,
+        "facets": 2,
+        "banding": 0.12
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "system-aureal",
+      "parentId": "sector-aureal",
+      "type": "system",
+      "name": "AUREAL GATE",
+      "timeline": [
+        {
+          "id": "aureal-collapse",
+          "time": 170,
+          "label": "Final collapse at the Aureal Gate",
+          "eventType": "annotation",
+          "canonStatus": "locked",
+          "sourceNote": "Year 170 — Drakken use Starsilk against gods for the first time."
+        },
+        {
+          "id": "aureal-destroyed",
+          "time": "post-siege-wall",
+          "label": "System historically destroyed by stellar collapse",
+          "eventType": "annotation",
+          "canonStatus": "working",
+          "sourceNote": "After the Aureal Gate, Shard-God Tiger collapses huge numbers of stars. This system is destroyed historically; scrubbing backwards visualises the earlier state and does not imply resurrection."
+        }
+      ],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Site of the final collapse in Year 170. Inherits the galaxy era so scrubbing past the war shows the stellar collapse; its moon below carries an object-scope override.",
+        "tags": [
+          "system",
+          "war"
+        ],
+        "sourceNote": "Aureal Gate and Year 170 are supplied anchors; the coordinate is schematic."
+      },
+      "position": {
+        "x": 56,
+        "y": 5,
+        "z": 38,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#c9d5df",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "star-aureal",
+      "parentId": "system-aureal",
+      "type": "star",
+      "name": "AUREAL PRIMARY",
+      "timeline": [
+        {
+          "id": "aureal-starsilk-collapse",
+          "time": "post-siege-wall",
+          "label": "Starsilk extraction — stellar collapse",
+          "eventType": "starsilkExtractionCollapse",
+          "canonStatus": "working",
+          "sourceNote": "Pulling Starsilk from the centre of a star collapses it immediately into a black hole and destroys its star system. Anchored to the post-Aureal-Gate era; no exact date is supplied. This particular star is a schematic stand-in.",
+          "statePatch": {
+            "type": "blackHole"
+          }
+        }
+      ],
+      "meta": {
+        "canonStatus": "working",
+        "description": "Before the collapse: a star with an extant system. After: a black hole and a historically destroyed system.",
+        "tags": [
+          "star",
+          "collapse-demo"
+        ],
+        "sourceNote": "The collapse mechanic is canon; this specific star is schematic."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 7,
+        "color": "#ffe9c4",
+        "emissive": "#ffd28a",
+        "emissiveIntensity": 1.3,
+        "roughness": 0.9,
+        "facets": 2,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#ffd9a0",
+          "intensity": 0.45
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-aureal-1",
+      "parentId": "system-aureal",
+      "type": "planet",
+      "name": "GATEWARD I",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "planet"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1.8,
+        "eccentricity": 0.09,
+        "inclination": 6,
+        "ascendingNode": 200,
+        "argumentOfPeriapsis": 60,
+        "meanAnomalyAtEpoch": 15,
+        "epoch": 0,
+        "period": 640
+      },
+      "visual": {
+        "displayRadius": 2.2,
+        "color": "#96a8b8",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.32,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.3
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "moon-aureal-1",
+      "parentId": "planet-aureal-1",
+      "type": "moon",
+      "name": "GATEWARD I-a",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "moon",
+          "override-demo"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON. Carries an OBJECT-SCOPE historical override (Year 121) to demonstrate sibling isolation. Note that ancestor absence still wins: when its system is historically destroyed, this body is absent whatever its own era says."
+      },
+      "orbit": {
+        "semiMajorAxis": 0.018,
+        "eccentricity": 0.03,
+        "inclination": 9,
+        "ascendingNode": 40,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 120,
+        "epoch": 0,
+        "period": 26
+      },
+      "visual": {
+        "displayRadius": 0.6,
+        "color": "#b3a99c",
+        "roughness": 0.9,
+        "facets": 2,
+        "banding": 0.12
+      },
+      "time": {
+        "mode": "override",
+        "overrideValue": 121
+      }
+    },
+    {
+      "id": "system-halven",
+      "parentId": "sector-halven",
+      "type": "system",
+      "name": "HAL'VEN PRIMARY SYSTEM",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "Invented demonstration system inside the named Hal’Ven Cluster.",
+        "tags": [
+          "system"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "position": {
+        "x": -48,
+        "y": 8,
+        "z": -36,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#c9d5df",
+        "roughness": 0.8,
+        "facets": 2
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "star-halven",
+      "parentId": "system-halven",
+      "type": "star",
+      "name": "HAL'VEN A",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "star"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 5.6,
+        "color": "#d9ecff",
+        "emissive": "#bfe4ff",
+        "emissiveIntensity": 1.1,
+        "roughness": 0.9,
+        "facets": 2,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#ffd9a0",
+          "intensity": 0.45
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "planet-halven-1",
+      "parentId": "system-halven",
+      "type": "planet",
+      "name": "HAL'VEN A II",
+      "timeline": [],
+      "meta": {
+        "canonStatus": "schematic",
+        "description": "",
+        "tags": [
+          "planet"
+        ],
+        "sourceNote": "Demonstration record. Coordinates and placement are invented for cartographic legibility — SCHEMATIC / NON-CANON."
+      },
+      "orbit": {
+        "semiMajorAxis": 1.3,
+        "eccentricity": 0.05,
+        "inclination": 4,
+        "ascendingNode": 70,
+        "argumentOfPeriapsis": 130,
+        "meanAnomalyAtEpoch": 250,
+        "epoch": 0,
+        "period": 380
+      },
+      "visual": {
+        "displayRadius": 2,
+        "color": "#7dbf82",
+        "roughness": 0.75,
+        "metalness": 0.05,
+        "facets": 3,
+        "banding": 0.35,
+        "atmosphere": {
+          "enabled": true,
+          "color": "#a6efff",
+          "intensity": 0.3
+        }
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "structure-siege-wall",
+      "parentId": "galaxy-root",
+      "type": "largeScaleStructure",
+      "name": "SIEGE WALL",
+      "timeline": [
+        {
+          "id": "siege-wall-formed",
+          "time": "post-siege-wall",
+          "label": "Siege Wall established by collapsed stars",
+          "eventType": "created",
+          "canonStatus": "working",
+          "sourceNote": "After the Aureal Gate, Shard-God Tiger collapses huge numbers of stars around Drakken territory; those stellar deaths establish the Siege Wall, which contains — does not annihilate — the Drakken. No exact date and no node count is supplied."
+        }
+      ],
+      "meta": {
+        "canonStatus": "working",
+        "description": "NOT a literal wall. Large-scale containment architecture formed from stars collapsed into black holes. From inhabited worlds it manifests as an enormous swath of black absence across the night sky — lost stars and missing light. Rendered here as absence, never as bricks, panels, fencing, force fields, grids, or glowing barriers.",
+        "tags": [
+          "siege-wall",
+          "absence"
+        ],
+        "sourceNote": "Supplied canon: the Siege Wall contains the Drakken and is established by stellar collapse after the Aureal Gate. Its geometry here is schematic, and any lensing nodes drawn are procedural render placeholders — no canon node count exists."
+      },
+      "position": {
+        "x": -6,
+        "y": 0,
+        "z": -4,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#0d0509",
+        "roughness": 0.8,
+        "facets": 2,
+        "structure": "siegeWall",
+        "extent": 46
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    },
+    {
+      "id": "structure-drakken-domain",
+      "parentId": "galaxy-root",
+      "type": "largeScaleStructure",
+      "name": "DRAKKEN DOMAIN",
+      "timeline": [
+        {
+          "id": "drakken-domain-war",
+          "time": 0,
+          "label": "Domain contiguous with war-theatre activity",
+          "eventType": "annotation",
+          "canonStatus": "provisional",
+          "sourceNote": "Year 0 onward — Drakken are elemental terraforming entities produced by the Notebook Program; their activity replaces ecosystems, geology, atmospheres, settlements, cultures, populations, and stellar infrastructure. The domain outline here is schematic."
+        }
+      ],
+      "meta": {
+        "canonStatus": "provisional",
+        "description": "Territory replaced by Drakken activity during the Blood Eclipse War. Contained by the Siege Wall afterwards — not annihilated by it.",
+        "tags": [
+          "drakken",
+          "domain"
+        ],
+        "sourceNote": "Outline schematic; Drakken identity and containment are supplied canon."
+      },
+      "position": {
+        "x": -34,
+        "y": 0,
+        "z": -12,
+        "unit": "pc"
+      },
+      "orbit": {
+        "semiMajorAxis": 1,
+        "eccentricity": 0,
+        "inclination": 0,
+        "ascendingNode": 0,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0,
+        "epoch": 0,
+        "period": 1
+      },
+      "visual": {
+        "displayRadius": 1.6,
+        "color": "#7a2f3c",
+        "roughness": 0.8,
+        "facets": 2,
+        "structure": "region",
+        "extent": 34
+      },
+      "time": {
+        "mode": "inherit"
+      }
+    }
+  ],
+  "settings": {
+    "units": {
+      "length": "pc",
+      "time": "d"
+    },
+    "defaultCanonStatus": "schematic",
+    "render": {
+      "labelMode": "major",
+      "showOrbitPaths": true,
+      "showTrails": true,
+      "showReferenceGrid": true,
+      "showAnalystOverlay": false,
+      "canonOnly": false,
+      "trailSamples": 220,
+      "starfieldDensity": 10000,
+      "respectReducedMotion": true
+    },
+    "simulation": {
+      "speed": 1
+    }
+  }
+}

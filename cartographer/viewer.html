@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>STARSiLK — dossier embed test page</title>
+    <meta
+      name="description"
+      content="A deliberately ordinary host page that embeds the Cartographer through the starsilk-starmap seam, to prove the embed neither leaks nor inherits CSS."
+    />
+    <!--
+      This page is NOT the Cartographer. It is a stand-in for a Starsilk Character
+      Dossier page: plain light styling, its own layout, no shared classes. The
+      Cartographer must fit inside the box below without touching any of this.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        background: #f4f1ea;
+        color: #23201c;
+        font: 14px/1.6 Georgia, 'Times New Roman', serif;
+      }
+      h1 {
+        font-size: 20px;
+        letter-spacing: 0.04em;
+        margin: 0 0 4px;
+      }
+      p.lede {
+        margin: 0 0 18px;
+        max-width: 62ch;
+      }
+      .card {
+        border: 1px solid #c9c1b2;
+        background: #fffdf8;
+        padding: 12px;
+        max-width: 1100px;
+      }
+      .host-controls {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+      .host-controls button {
+        font: inherit;
+        padding: 6px 12px;
+        border: 1px solid #8d8474;
+        background: #efe9dd;
+        cursor: pointer;
+      }
+      .host-log {
+        font: 12px/1.5 ui-monospace, 'SFMono-Regular', Menlo, monospace;
+        background: #fffdf8;
+        border: 1px dashed #c9c1b2;
+        padding: 8px;
+        max-height: 140px;
+        overflow: auto;
+        max-width: 1100px;
+      }
+      /* Proof of isolation: a global rule that must NOT affect the embed. */
+      * {
+        font-family: Georgia, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ADMINISTRATION DOSSIER — CARTOGRAPHIC ANNEX</h1>
+    <p class="lede">
+      A host page with its own palette, typography, and layout. Everything inside the box
+      below is the Cartographer, mounted through the
+      <code>&lt;starsilk-starmap&gt;</code> seam in viewer mode: authoring is disabled,
+      navigation and historical scrubbing are not, and none of this page's CSS reaches in.
+    </p>
+
+    <div class="host-controls">
+      <button type="button" data-era="pre-war">PRE-WAR</button>
+      <button type="button" data-era="0">YEAR 0</button>
+      <button type="button" data-era="3">YEAR 3 (first Blood Ring)</button>
+      <button type="button" data-era="121">YEAR 121</button>
+      <button type="button" data-era="170">YEAR 170</button>
+      <button type="button" data-era="post-siege-wall">POST-SIEGE-WALL (collapse)</button>
+      <button type="button" data-entity="ring-fallenstar">FOCUS: FIRST BLOOD RING</button>
+      <button type="button" data-entity="system-aureal">FOCUS: AUREAL GATE</button>
+    </div>
+
+    <div class="card">
+      <starsilk-starmap
+        id="annex-map"
+        mode="viewer"
+        src="./data/starsilk-map.json"
+        era="main-narrative"
+        style="display: block; height: 620px"
+      ></starsilk-starmap>
+    </div>
+
+    <p class="lede" style="margin-top: 18px">Seam events received by the host page:</p>
+    <div class="host-log" id="host-log" aria-live="polite">waiting…</div>
+
+    <script type="module" src="./src/viewer/element.ts"></script>
+    <script type="module">
+      const map = document.getElementById('annex-map');
+      const log = document.getElementById('host-log');
+      let first = true;
+      const write = (line) => {
+        if (first) {
+          log.textContent = '';
+          first = false;
+        }
+        log.append(document.createTextNode(`${line}\n`));
+      };
+
+      map.addEventListener('starsilk-navigate', (event) => {
+        write(`navigate → ${event.detail.entityId} (${event.detail.name})`);
+      });
+      map.addEventListener('starsilk-error', (event) => {
+        write(`error → ${event.detail.message}`);
+      });
+
+      for (const button of document.querySelectorAll('.host-controls button')) {
+        button.addEventListener('click', () => {
+          if (button.dataset.era !== undefined) {
+            map.setEra(button.dataset.era);
+            write(`host set era → ${button.dataset.era}`);
+          } else {
+            const ok = map.focusEntity(button.dataset.entity);
+            write(`host focus ${button.dataset.entity} → ${ok ? 'found' : 'not found'}`);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

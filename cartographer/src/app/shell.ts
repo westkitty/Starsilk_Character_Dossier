@@ -93,10 +93,18 @@ export function createShell(host: HTMLElement): ShellRefs {
   const importBtn = button('IMPORT', { title: 'Import project JSON' });
   const exportBtn = button('EXPORT', { title: 'Export project JSON' });
   const demoBtn = button('DEMO', { title: 'Load the STARSiLK demonstration map' });
+  // Stable ids: an embedding page (or a test) can find and hide specific controls.
+  importBtn.id = 'sktc-import';
+  exportBtn.id = 'sktc-export';
+  demoBtn.id = 'sktc-demo';
   const viewerModeBtn = button('VIEWER', {
     title: 'Toggle read-only viewer mode (the embeddable dossier surface)',
   });
+  viewerModeBtn.id = 'sktc-viewer-mode';
   const helpBtn = iconButton('?', 'Keyboard shortcuts and canon notes');
+  helpBtn.id = 'sktc-help';
+  undoBtn.id = 'sktc-undo';
+  redoBtn.id = 'sktc-redo';
 
   const hierarchyToggle = iconButton('☰', 'Hierarchy', undefined, { class: 'sktc-drawer-toggle' });
   const inspectorToggle = iconButton('⚙', 'Inspector', undefined, { class: 'sktc-drawer-toggle' });
@@ -153,7 +161,15 @@ export function createShell(host: HTMLElement): ShellRefs {
   ]);
 
   /* viewport ---------------------------------------------------------- */
-  const canvasHost = el('div', { class: 'sktc-canvas-host', style: 'position:absolute;inset:0' });
+  // Focusable so keyboard users can reach the 3D surface, and so an embedded
+  // build can scope global shortcuts to this component.
+  const canvasHost = el('div', {
+    class: 'sktc-canvas-host',
+    style: 'position:absolute;inset:0',
+    tabindex: '0',
+    role: 'application',
+    ariaLabel: 'Star map viewport. Drag to orbit, scroll to zoom.',
+  });
   const overlay = el('div', { class: 'sktc-viewport-overlay', ariaHidden: 'true' });
   const breadcrumbs = el('nav', { class: 'sktc-breadcrumbs', ariaLabel: 'Cartographic position' });
   const viewportTools = el('div', { class: 'sktc-viewport-tools' });

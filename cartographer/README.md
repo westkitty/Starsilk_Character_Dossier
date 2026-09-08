@@ -26,15 +26,36 @@ cartographer/
 ```bash
 cd cartographer
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # typecheck + production build into cartographer/dist
-npm run preview    # serve the production build
-npm test           # vitest
-npm run typecheck  # tsc --noEmit
+npm run dev          # http://localhost:5173
+npm run build        # typecheck + production build into cartographer/dist
+npm run build:viewer # library build of the embeddable seam into cartographer/dist-viewer
+npm run preview      # serve the production build
+npm test             # vitest
+npm run typecheck    # tsc --noEmit
+npm run export:demo  # regenerate data/starsilk-map.json from src/core/demo.ts
 ```
 
 There is no backend, no account, no telemetry, no analytics, and no CDN runtime
-dependency. Autosave lives in IndexedDB; explicit save/load uses portable JSON.
+dependency.
+
+## Persistence
+
+Two independent mechanisms, both local:
+
+* **Autosave** (`src/core/persistence.ts`) debounces committed documents into IndexedDB
+  (`starsilk-cartographer` / `projects` / `active-project`), degrading to memory when
+  IndexedDB is unavailable. Records are validated on the way back in, so a corrupt
+  autosave is discarded rather than restored. On startup the standalone app offers an
+  explicit **RESTORE / DISCARD** choice; an embedded viewer never prompts and never
+  writes to the host origin unless `autosave: true` is passed.
+* **Portable JSON** — EXPORT downloads `<slug>.starsilk-map.json`; IMPORT (button or
+  drag-and-drop) validates first and reports precise errors instead of discarding state.
+  Every document carries `"schemaVersion": 1`, and `src/core/schema.ts` holds the
+  migration table for future versions.
+
+`data/starsilk-map.json` is the generated demonstration plate. It is produced by
+`npm run export:demo` and `tests/demo.test.ts` fails if the committed copy drifts from
+`src/core/demo.ts`.
 
 ## The two clocks
 
@@ -145,39 +166,68 @@ are never persisted. Schema lives in `src/core/types.ts`
 (`StarMapProject`, `Entity`, `TimelineEvent`, `EraPreset`) with validation and
 migration in `src/core/schema.ts`. Every export carries `schemaVersion`.
 
-## INTEGRATION SEAM (future dossier embed)
+## INTEGRATION SEAM (dossier embed)
 
-The renderer does not assume it owns the page. Two equivalent entry points exist:
+`npm run build:viewer` produces `dist-viewer/starsilk-viewer.js` (+ a `three` chunk and a
+`.css` file the viewer does **not** need you to link — it injects the same rules into its
+own shadow root). Two equivalent entry points:
 
 ```html
+<script type="module" src="./cartographer/dist-viewer/starsilk-viewer.js"></script>
+
 <starsilk-starmap mode="viewer"
-                  src="./data/starsilk-map.json"
-                  entity="fallenstar-prime"
-                  era="bew-3"></starsilk-starmap>
+                  src="./cartographer/data/starsilk-map.json"
+                  entity="planet-fallenstar-prime"
+                  era="3"></starsilk-starmap>
 ```
 
 ```js
-import { mountStarsilkStarmap } from './cartographer/src/viewer/mount';
+import { mountStarsilkStarmap } from './cartographer/dist-viewer/starsilk-viewer.js';
 
 const handle = mountStarsilkStarmap(container, {
-  mode: 'viewer',                  // disables authoring controls
-  src: './data/starsilk-map.json', // or `project: <parsed JSON>`
-  entity: 'fallenstar-system',     // start on a named entity
-  era: 170,                        // start at an era (number or preset id)
-  autosave: false,                 // never write to the host origin
-  onNavigate: ({ entityId }) => { /* deep-link into the dossier */ },
+  mode: 'viewer',                  // authoring disabled, inspection kept
+  src: './data/starsilk-map.json', // or `project: <parsed JSON or JSON string>`
+  entity: 'system-fallenstar',     // start on an entity id or name
+  era: 170,                        // era preset id or Blood Eclipse War year
+  view: 'system',                  // 'galaxy' | 'sector' | 'system'
+  autosave: false,                 // default in viewer mode: never write to the host origin
+  onNavigate: ({ entityId, name }) => { /* deep-link into the dossier */ },
   onError: (err) => console.warn(err),
 });
 
-handle.setEra('post-siege-wall');
-handle.focusEntity('fallenstar-prime');
+handle.setEra('post-siege-wall');   // historical lens, allowed in viewer mode
+handle.focusEntity('FIRST BLOOD RING');
+handle.project();                   // authored JSON only — never a Three.js object
 handle.destroy();
 ```
 
-Guarantees the seam keeps: styles are injected into a shadow root (`.sktc` namespace,
-no global CSS), no globals are created, `src` resolves relative to the embedding
-document, and navigation/inspection stay available in viewer mode while authoring is
-disabled.
+Element attributes: `mode`, `src`, `entity`, `era`, `view`, `autosave`. Events:
+`starsilk-navigate` and `starsilk-error` (both bubble and are composed, with a `detail`
+payload). `element.handle` exposes the imperative API; `element.setEra()` and
+`element.focusEntity()` work without remounting. Changing an observed attribute remounts.
+
+`viewer.html` is a working host page for this seam — a light-serif "dossier annex" with
+its own palette and a global `* { font-family: Georgia }` rule, embedding the map in
+viewer mode with host-side era buttons and an event log. It is built alongside the app
+(`dist/viewer.html`, with `dist/data/starsilk-map.json` copied next to it) and is the
+fastest way to see the isolation guarantees hold in a real browser.
+
+Guarantees the seam keeps, all covered by `tests/viewer.test.ts`:
+
+* styles go into a shadow root (`.sktc` namespace); nothing is injected into the host
+  document and host CSS cannot reach in;
+* no globals, no page-level layout assumption — the component fills its container;
+* keyboard shortcuts are scoped to the component, so the host page keeps its keys;
+* `viewer` mode refuses document edits (`store.commit` with the default `authoring` kind)
+  while **era scrubbing keeps working** — commits of kind `view` move the historical lens,
+  which is inspection rather than authoring;
+* `src` resolves relative to the embedding document; a bad document is reported through
+  `onError` / `starsilk-error`, never thrown;
+* the API exposes authored JSON only — no `Object3D`, no geometry, no materials.
+
+Header controls carry stable ids (`#sktc-import`, `#sktc-export`, `#sktc-demo`,
+`#sktc-undo`, `#sktc-redo`, `#sktc-viewer-mode`, `#sktc-help`) so a host page can hide or
+relabel them.
 
 A dossier integration would place the built assets under its own path, ship the map JSON
 as data, and render the element inside an existing dossier section. Nothing in this

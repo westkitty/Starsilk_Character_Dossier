@@ -25,7 +25,8 @@ import {
 import { createDemoProject } from '../core/demo';
 import { describeTime, describeTimeShort } from '../core/time';
 import { ENTITY_TYPE_LABELS, type EntityType } from '../core/types';
-import { parseProjectText, exportProject } from './transfer';
+import { exportProject, parseProjectText, readFileText } from './transfer';
+import { serializeProject } from '../core/schema';
 import { ProjectStore } from '../core/store';
 import { SimulationClock } from '../core/simulation';
 import type { StarMapProject } from '../core/types';
@@ -199,20 +200,21 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
     announce(`Exported ${store.project.title}`);
   });
 
-  const fileInput = el('input', {
-    type: 'file',
-    accept: 'application/json,.json',
-    class: 'sktc-hidden',
-    ariaHidden: 'true',
-    tabIndex: -1,
-  }) as HTMLInputElement;
-  refs.root.append(fileInput);
-  refs.importBtn.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', async () => {
-    const file = fileInput.files?.[0];
-    fileInput.value = '';
-    if (!file) return;
-    const text = await file.text();
+  const ingestFile = async (file: File) => {
+    if (!store.authoringEnabled) {
+      store.setStatus('Import is disabled in viewer mode.', 'warn');
+      return;
+    }
+    let text: string;
+    try {
+      text = await readFileText(file);
+    } catch (error) {
+      await infoDialog(refs, 'IMPORT FAILED', [
+        el('p', { class: 'sktc-warning', text: `Could not read ${file.name}: ${(error as Error).message}` }),
+      ]);
+      announce('Import failed: the file could not be read.');
+      return;
+    }
     const outcome = parseProjectText(text, file.name);
     if (!outcome.ok || !outcome.project) {
       await infoDialog(refs, 'IMPORT REFUSED', [
@@ -227,6 +229,45 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
       outcome.message ? 'warn' : 'neutral',
     );
     announce(`Imported ${outcome.project.title}`);
+  };
+
+  const fileInput = el('input', {
+    type: 'file',
+    accept: 'application/json,.json',
+    class: 'sktc-hidden',
+    ariaHidden: 'true',
+    tabIndex: -1,
+  }) as HTMLInputElement;
+  refs.root.append(fileInput);
+  refs.importBtn.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files?.[0];
+    fileInput.value = '';
+    if (file) await ingestFile(file);
+  });
+
+  /* drag-and-drop import (the IMPORT button remains the accessible path) --- */
+  let dragDepth = 0;
+  const setDropTarget = (active: boolean) => {
+    if (active) refs.root.dataset.dropTarget = 'true';
+    else delete refs.root.dataset.dropTarget;
+  };
+  refs.root.addEventListener('dragenter', (event) => {
+    event.preventDefault();
+    dragDepth += 1;
+    setDropTarget(true);
+  });
+  refs.root.addEventListener('dragover', (event) => event.preventDefault());
+  refs.root.addEventListener('dragleave', () => {
+    dragDepth = Math.max(0, dragDepth - 1);
+    if (dragDepth === 0) setDropTarget(false);
+  });
+  refs.root.addEventListener('drop', async (event) => {
+    event.preventDefault();
+    dragDepth = 0;
+    setDropTarget(false);
+    const file = event.dataTransfer?.files?.[0];
+    if (file) await ingestFile(file);
   });
 
   refs.helpBtn.addEventListener('click', () => {
@@ -296,6 +337,19 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
   });
 
   /* viewer mode -------------------------------------------------------- */
+  // An embedded viewer must not offer a way back into authoring.
+  if (options.mode === 'viewer') {
+    refs.viewerModeBtn.remove();
+  }
+
+  const syncAuthoringAffordances = () => {
+    const readOnly = !store.authoringEnabled;
+    refs.importBtn.disabled = readOnly;
+    refs.demoBtn.disabled = readOnly;
+    refs.undoBtn.disabled = readOnly || !store.canUndo;
+    refs.redoBtn.disabled = readOnly || !store.canRedo;
+  };
+
   refs.viewerModeBtn.addEventListener('click', () => {
     const next = !store.authoringEnabled;
     store.authoringEnabled = next;
@@ -307,6 +361,7 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
         : 'VIEWER MODE — authoring disabled; navigation and inspection remain available (this is the embeddable dossier surface).',
       next ? 'neutral' : 'warn',
     );
+    syncAuthoringAffordances();
     refreshHistorical();
   });
 
@@ -319,6 +374,12 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
   autosave.onStatus((status) => setSaveState(status));
   setSaveState(autosave.getStatus());
 
+  // The standalone app owns the page, so it takes keyboard focus for shortcuts.
+  // An embedded viewer must not (it would scroll or trap the host document).
+  if (options.mode !== 'viewer') {
+    refs.canvasHost.focus?.({ preventScroll: true });
+  }
+
   store.subscribe((change) => {
     if (change === 'project') refreshHistorical();
   });
@@ -327,24 +388,33 @@ export function startEditor(options: EditorOptions = {}): EditorHandle {
   // Keep the drawer attribute in sync with UI state (CSS drives the transform).
   store.subscribe(() => {
     refs.root.dataset.drawer = store.ui.drawer;
-    refs.undoBtn.disabled = !store.canUndo || !store.authoringEnabled;
-    refs.redoBtn.disabled = !store.canRedo || !store.authoringEnabled;
+    syncAuthoringAffordances();
   });
-  refs.undoBtn.disabled = !store.canUndo;
-  refs.redoBtn.disabled = !store.canRedo;
+  syncAuthoringAffordances();
 
   /* restore a previous autosaved session ------------------------------ */
-  void (async () => {
-    const stored = await storage.load();
-    if (stored && !options.project) {
-      store.loadProject(stored.project);
-      store.setStatus(
-        `Restored autosaved session “${stored.title}” from ${stored.savedAt}.`,
-        'neutral',
-      );
-      announce('Restored autosaved session.');
-    }
-  })();
+  // An embed always supplies its own document, so it never prompts.
+  if (options.mode !== 'viewer' && !options.project) {
+    void (async () => {
+      const stored = await storage.load();
+      if (!stored) return;
+      if (serializeProject(stored.project) === serializeProject(store.project)) return;
+      const restore = await confirmDialog(refs, {
+        title: 'RESTORE PREVIOUS SESSION',
+        message: `An autosaved session was found: “${stored.title}”, saved ${stored.savedAt}.`,
+        confirmLabel: 'RESTORE',
+        details: ['Choosing otherwise starts from the current plate; the stored copy is replaced on your next edit.'],
+      });
+      if (restore) {
+        store.loadProject(stored.project);
+        store.setStatus(`Restored autosaved session “${stored.title}”.`, 'neutral');
+        announce('Restored autosaved session.');
+      } else {
+        store.setStatus('Starting from the current plate; the previous autosave was left behind.', 'neutral');
+        announce('Previous autosave discarded.');
+      }
+    })();
+  }
 
   const onBeforeUnload = () => {
     void autosave.flush();

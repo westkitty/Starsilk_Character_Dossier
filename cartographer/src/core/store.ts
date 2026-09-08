@@ -61,6 +61,13 @@ export interface CommitOptions {
   silentHistory?: boolean;
   /** Emit only these change kinds. Defaults to `['project']`. */
   changes?: ChangeKind[];
+  /**
+   * `authoring` edits the authored record and is refused while authoring is
+   * disabled (viewer mode). `view` moves the historical lens only — era value,
+   * era scope — and stays available in viewer mode, because reading a map at a
+   * different era is inspection, not authoring.
+   */
+  kind?: 'authoring' | 'view';
 }
 
 export class ProjectStore {
@@ -120,7 +127,7 @@ export class ProjectStore {
     mutator: (draft: StarMapProject) => StarMapProject | void,
     options: CommitOptions = {},
   ): boolean {
-    if (!this.authoringEnabled) return false;
+    if (!this.authoringEnabled && (options.kind ?? 'authoring') === 'authoring') return false;
     const draft = deepClone(this.project);
     const returned = mutator(draft);
     const next = returned ?? draft;

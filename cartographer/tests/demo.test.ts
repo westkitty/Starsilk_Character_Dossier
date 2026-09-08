@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { createDemoProject } from '../src/core/demo';
 import { parseProject, serializeProject, validateProject } from '../src/core/schema';
 import { resolveHistoricalState, resolveTimeFor } from '../src/core/resolve';
@@ -16,6 +18,16 @@ describe('demo dataset integrity', () => {
     const result = validateProject(JSON.parse(serializeProject(demo)));
     expect(result.errors).toEqual([]);
     expect(result.ok).toBe(true);
+  });
+
+  it('matches the committed data/starsilk-map.json byte for byte', () => {
+    // The committed dataset is generated, never hand-edited: `npm run export:demo`.
+    const onDisk = readFileSync(
+      fileURLToPath(new URL('../data/starsilk-map.json', import.meta.url)),
+      'utf8',
+    );
+    expect(onDisk.trim()).toBe(serializeProject(createDemoProject()).trim());
+    expect(parseProject(onDisk).ok).toBe(true);
   });
 
   it('survives a JSON round trip', () => {

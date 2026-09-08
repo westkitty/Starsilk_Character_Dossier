@@ -117,7 +117,13 @@ export class ViewportControls {
     this.unsubscribeClock = clock.subscribe(() => this.render());
     this.unsubscribeStore = store.subscribe(() => this.render());
 
-    this.keyHandler = (event: KeyboardEvent) => this.onKeyDown(event);
+    this.keyHandler = (event: KeyboardEvent) => {
+      // Embedded builds must never steal keystrokes from the host document:
+      // ignore anything that did not originate inside this component.
+      const target = event.target as Node | null;
+      if (target && !this.options.refs.root.contains(target)) return;
+      this.onKeyDown(event);
+    };
     document.addEventListener('keydown', this.keyHandler);
     this.render();
   }

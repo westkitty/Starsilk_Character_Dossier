@@ -42,6 +42,9 @@ function event(
   return built;
 }
 
+/** Catalogue date stamped on the demonstration plate (kept fixed for reproducible exports). */
+export const DEMO_CATALOGUE_DATE = '2026-09-07T00:00:00.000Z';
+
 export function createDemoProject(): StarMapProject {
   const entities: Entity[] = [];
 
@@ -853,7 +856,9 @@ export function createDemoProject(): StarMapProject {
   settings.render.starfieldDensity = 10000;
   settings.render.labelMode = 'major';
 
-  const now = new Date().toISOString();
+  // Fixed catalogue timestamp: the demonstration plate is a dataset, not a live
+  // session, so its export is byte-identical every time it is regenerated.
+  const now = DEMO_CATALOGUE_DATE;
   return {
     schemaVersion: SCHEMA_VERSION,
     id: 'prj-starsilk-demo',

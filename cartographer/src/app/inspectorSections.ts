@@ -28,7 +28,8 @@ export interface SectionContext {
   resolution: Map<string, ResolvedEntity>;
 }
 
-const AUTHORING = (store: ProjectStore) => !store.authoringEnabled;
+/** True when the record is read-only (viewer mode). Era navigation stays enabled. */
+const READ_ONLY = (store: ProjectStore) => !store.authoringEnabled;
 
 function patchEntity(
   store: ProjectStore,
@@ -113,12 +114,16 @@ export function renderHistorical(ctx: SectionContext, entity: Entity): HTMLEleme
     title: 'Remove this entity’s override and inherit from its parent again',
     class: 'sktc-btn sktc-btn--wide',
   });
-  returnBtn.disabled = AUTHORING(store) || entity.parentId === null || state?.resolution.mode !== 'override';
+  returnBtn.disabled = entity.parentId === null || state?.resolution.mode !== 'override';
   returnBtn.addEventListener('click', () => {
-    store.commit(`Return ${entity.name} to parent time`, (draft) => {
-      const target = entityById(draft, entity.id);
-      if (target) target.time = { mode: 'inherit' };
-    });
+    store.commit(
+      `Return ${entity.name} to parent time`,
+      (draft) => {
+        const target = entityById(draft, entity.id);
+        if (target) target.time = { mode: 'inherit' };
+      },
+      { kind: 'view' },
+    );
     store.setStatus(`${entity.name.toUpperCase()} now inherits its parent’s historical time.`, 'neutral');
   });
 
@@ -454,20 +459,23 @@ export function renderTimeline(ctx: SectionContext, entity: Entity): HTMLElement
     }`;
 
     const editBtn = button('EDIT', { class: 'sktc-btn sktc-btn--icon', title: 'Edit event' });
-    editBtn.disabled = AUTHORING(store);
+    editBtn.disabled = READ_ONLY(store);
     editBtn.addEventListener('click', () =>
       void openEventForm({ refs, store, entityId: entity.id, event }),
     );
     const deleteBtn = button('✕', { class: 'sktc-btn sktc-btn--icon sktc-btn--danger', title: 'Delete event' });
-    deleteBtn.disabled = AUTHORING(store);
+    deleteBtn.disabled = READ_ONLY(store);
     deleteBtn.addEventListener('click', () => void confirmDeleteEvent(refs, store, entity.id, event));
     const jumpBtn = button('GO', { class: 'sktc-btn sktc-btn--icon', title: 'Move the scope to this event’s time' });
-    jumpBtn.disabled = AUTHORING(store);
     jumpBtn.addEventListener('click', () => {
-      store.commit(`Jump to ${event.label}`, (draft) => {
-        const target = entityById(draft, entity.id);
-        if (target) target.time = { mode: 'override', overrideValue: event.time };
-      });
+      store.commit(
+        `Jump to ${event.label}`,
+        (draft) => {
+          const target = entityById(draft, entity.id);
+          if (target) target.time = { mode: 'override', overrideValue: event.time };
+        },
+        { kind: 'view' },
+      );
       store.select(entity.id);
       store.setUi({ railScopeId: entity.id });
     });
@@ -498,7 +506,7 @@ export function renderTimeline(ctx: SectionContext, entity: Entity): HTMLElement
     class: 'sktc-btn sktc-btn--wide',
     title: 'Add a historical event at the resolved era',
   });
-  addBtn.disabled = AUTHORING(store);
+  addBtn.disabled = READ_ONLY(store);
   addBtn.addEventListener('click', () =>
     void openEventForm({ refs, store, entityId: entity.id, defaultTime: now as TimeValue }),
   );

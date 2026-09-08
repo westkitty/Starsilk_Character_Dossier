@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { startEditor, type EditorHandle } from '../src/app/main';
 import { createDemoProject } from '../src/core/demo';
 import { parseProject } from '../src/core/schema';
@@ -143,18 +143,90 @@ describe('editor integration (headless)', () => {
     expect(nodeFor(ui.all, 'PHAROS NEBULA')?.textContent).toContain('Y170');
   });
 
-  it('exports a schema-valid project through the toolbar action', async () => {
+  it('exports a downloadable, schema-valid document', () => {
     const ui = boot();
     handle = ui.handle;
-    // Clicking export must not throw (the download itself is a no-op in jsdom).
-    expect(() =>
-      ui.q('#sktc-export')?.dispatchEvent(new MouseEvent('click', { bubbles: true })),
-    ).not.toThrow();
 
-    // The document itself must round-trip.
+    const downloads: string[] = [];
+    const spy = vi
+      .spyOn(HTMLAnchorElement.prototype, 'click')
+      .mockImplementation(function click(this: HTMLAnchorElement) {
+        downloads.push(`${this.download} :: ${this.href.slice(0, 24)}`);
+      });
+    ui.q('#sktc-export')!.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    spy.mockRestore();
+
+    // jsdom has no URL.createObjectURL, so the data-URL fallback must engage.
+    expect(downloads).toHaveLength(1);
+    expect(downloads[0]).toMatch(
+      /^starsilk-demonstration-plate\.starsilk-map\.json :: (data:application\/json|blob:)/,
+    );
+
     const parsed = parseProject(JSON.stringify(ui.handle.projectSnapshot()));
     expect(parsed.ok).toBe(true);
-    expect(parsed.project?.entities.length).toBeGreaterThan(20);
+    expect(parsed.project?.entities.length).toBe(28);
+  });
+
+  it('imports a dropped project file and replaces the working plate', async () => {
+    const ui = boot();
+    handle = ui.handle;
+
+    const replacement = { ...createDemoProject(), title: 'DROPPED PLATE' };
+    const file = new File([JSON.stringify(replacement)], 'dropped.starsilk-map.json', {
+      type: 'application/json',
+    });
+    const event = new Event('drop', { bubbles: true, cancelable: true });
+    Object.defineProperty(event, 'dataTransfer', { value: { files: [file] } });
+    ui.q('.sktc')!.dispatchEvent(event);
+    await new Promise((r) => setTimeout(r, 5));
+
+    expect(ui.handle.store.project.title).toBe('DROPPED PLATE');
+  });
+
+  it('refuses an invalid dropped file and says why', async () => {
+    const ui = boot();
+    handle = ui.handle;
+    const before = ui.handle.store.project.title;
+
+    const file = new File(['{"schemaVersion":1,"bogus":true}'], 'bad.json', {
+      type: 'application/json',
+    });
+    const event = new Event('drop', { bubbles: true, cancelable: true });
+    Object.defineProperty(event, 'dataTransfer', { value: { files: [file] } });
+    ui.q('.sktc')!.dispatchEvent(event);
+    await new Promise((r) => setTimeout(r, 5));
+
+    expect(ui.handle.store.project.title).toBe(before);
+    expect(ui.q('.sktc-dialog')?.textContent).toContain('IMPORT REFUSED');
+    (ui.q('.sktc-dialog button') as HTMLButtonElement | null)?.click();
+  });
+
+  it('viewer mode refuses authoring but still moves the historical lens', () => {
+    const ui = boot();
+    handle = ui.handle;
+    const store = ui.handle.store;
+
+    store.authoringEnabled = false;
+    store.commit('should be refused', (draft) => {
+      draft.title = 'NOPE';
+    });
+    expect(store.project.title).not.toBe('NOPE');
+
+    store.commit(
+      'era',
+      (draft) => {
+        draft.entities = draft.entities.map((e) =>
+          e.id === 'galaxy-root'
+            ? { ...e, time: { mode: 'override' as const, overrideValue: 3 } }
+            : e,
+        );
+      },
+      { kind: 'view' },
+    );
+    expect(store.project.entities.find((e) => e.id === 'galaxy-root')!.time).toEqual({
+      mode: 'override',
+      overrideValue: 3,
+    });
   });
 
   it('keeps the orbital clock independent of historical time', () => {

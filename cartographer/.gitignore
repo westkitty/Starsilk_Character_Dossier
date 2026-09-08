@@ -1,5 +1,6 @@
 # Cartographer build + dependency artifacts. Nothing here is authored source.
 node_modules/
 dist/
+dist-viewer/
 *.tsbuildinfo
 .vite/

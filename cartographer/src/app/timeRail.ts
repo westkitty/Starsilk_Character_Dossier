@@ -171,10 +171,15 @@ export class TimeRail {
     if (!id) return;
     const entity = entityById(this.options.store.project, id);
     if (!entity) return;
-    this.options.store.commit(`Set historical time — ${entity.name}`, (draft) => {
-      const next = setTimeOverride(draft, id, value);
-      draft.entities = next.entities;
-    });
+    this.options.store.commit(
+      `Set historical time — ${entity.name}`,
+      (draft) => {
+        const next = setTimeOverride(draft, id, value);
+        draft.entities = next.entities;
+      },
+      // Moving the historical lens is inspection: allowed in viewer mode.
+      { kind: 'view' },
+    );
     this.options.store.setStatus(
       `${entity.name.toUpperCase()} → ${describeTime(value, this.options.store.project.eraPresets)}${
         entity.parentId === null ? ' (galaxy scope: every inheriting branch follows)' : ' (override: siblings unaffected)'
@@ -379,9 +384,10 @@ export class TimeRail {
       this.railStatus.append(el('span', { class: 'sktc-badge sktc-badge--danger', text: 'STELLAR COLLAPSE' }));
     }
 
-    this.returnBtn.disabled = !store.authoringEnabled || mode !== 'override' || scopeEntity?.parentId === null;
-    this.prevBtn.disabled = !store.authoringEnabled;
-    this.nextBtn.disabled = !store.authoringEnabled;
+    // Era navigation stays enabled for viewers; only authoring is gated.
+    this.returnBtn.disabled = mode !== 'override' || scopeEntity?.parentId === null;
+    this.prevBtn.disabled = false;
+    this.nextBtn.disabled = false;
     this.addEventBtn.disabled = !store.authoringEnabled || !scopeEntity;
     this.editPresetsBtn.disabled = !store.authoringEnabled;
 
@@ -400,7 +406,7 @@ export class TimeRail {
         el('span', { class: 'sktc-marker__dot', ariaHidden: 'true' }),
         el('span', { class: 'sktc-marker__text', text: stop.label }),
       ]);
-      if (!store.authoringEnabled) (marker as HTMLButtonElement).disabled = true;
+
       this.markers.append(marker);
     }
 
@@ -416,7 +422,7 @@ export class TimeRail {
       'aria-valuetext',
       describeTime(time, project.eraPresets),
     );
-    this.slider.disabled = !store.authoringEnabled || stops.length < 2;
+    this.slider.disabled = stops.length < 2;
 
     /* event markers ----------------------------------------------------- */
     this.eventsRow.textContent = '';

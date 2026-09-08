@@ -10,15 +10,20 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "export:demo": "tsx scripts/write-demo-json.ts",
+    "build:viewer": "tsc --noEmit && vite build --config vite.config.lib.ts"
   },
   "dependencies": {
     "three": "^0.169.0"
   },
   "devDependencies": {
+    "@types/node": "^26.5.0",
     "@types/three": "^0.169.0",
+    "fake-indexeddb": "^6.2.5",
     "jsdom": "^27.4.0",
     "playwright": "^1.63.0",
+    "tsx": "^4.23.13",
     "typescript": "^5.6.3",
     "vite": "^8.2.2",
     "vitest": "^5.0.0"

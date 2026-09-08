@@ -1101,6 +1101,23 @@
 
 /* --------------------------------------------------------------- dialogs */
 
+/* Drag-and-drop import: the whole shell lights up while a file is held over it. */
+.sktc[data-drop-target='true'] .sktc-viewport {
+  outline: 1px dashed var(--thread);
+  outline-offset: -6px;
+}
+
+.sktc[data-drop-target='true'] .sktc-viewport::after {
+  content: 'DROP A .STARSILK-MAP.JSON FILE TO IMPORT';
+  position: absolute;
+  inset: auto 0 14px 0;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--thread2);
+  pointer-events: none;
+}
+
 /* The dialog layer is a transparent grouping node: its backdrops position
    against the frame, so it must not participate in layout. */
 .sktc-dialog-layer {

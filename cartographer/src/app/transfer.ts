@@ -20,15 +20,28 @@ export function projectFilename(project: StarMapProject): string {
 
 export function exportProject(project: StarMapProject): string {
   const json = serializeProject(project);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');
-  anchor.href = url;
   anchor.download = projectFilename(project);
+
+  // Object URLs are the normal path; the data-URL fallback keeps export working
+  // in restricted environments (some embeds, test harnesses) instead of throwing.
+  const canUseObjectUrl =
+    typeof Blob === 'function' && typeof URL !== 'undefined' && typeof URL.createObjectURL === 'function';
+  let objectUrl: string | null = null;
+  if (canUseObjectUrl) {
+    objectUrl = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
+    anchor.href = objectUrl;
+  } else {
+    anchor.href = `data:application/json;charset=utf-8,${encodeURIComponent(json)}`;
+  }
+
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 2000);
+  if (objectUrl) {
+    const revoke = objectUrl;
+    setTimeout(() => URL.revokeObjectURL(revoke), 2000);
+  }
   return json;
 }
 
@@ -40,10 +53,25 @@ export interface ImportOutcome {
   result?: ValidationResult;
 }
 
+/**
+ * Read a file as text. `Blob.text()` is the normal path; `FileReader` is the
+ * fallback for hosts that do not implement it (older browsers, some embeds,
+ * jsdom), so import never fails for a reason unrelated to the document.
+ */
+export async function readFileText(file: File | Blob): Promise<string> {
+  if (typeof file.text === 'function') return file.text();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result ?? ''));
+    reader.onerror = () => reject(reader.error ?? new Error('Could not read the file.'));
+    reader.readAsText(file);
+  });
+}
+
 export async function readProjectFile(file: File): Promise<ImportOutcome> {
   let text: string;
   try {
-    text = await file.text();
+    text = await readFileText(file);
   } catch (error) {
     return { ok: false, message: `Could not read ${file.name}: ${(error as Error).message}` };
   }
