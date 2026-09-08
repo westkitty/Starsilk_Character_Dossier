@@ -52,14 +52,25 @@ export async function mountStarsilkStarmap(
   host.style.minHeight = "100dvh";
   container.appendChild(host);
   const shell: ShellHandle = mountEditor(host, store);
-  const analyst: AnalystPanelHandle | null = store.state.mode === "editor"
-    ? mountAnalystPanel(host, store)
-    : null;
+
+  // mountEditor owns an open Shadow DOM. Analyst Mode must live inside that
+  // same boundary; appending it to the host light DOM would leave it invisible
+  // because the editor shadow tree intentionally exposes no <slot>.
+  let analystMount: HTMLDivElement | null = null;
+  let analyst: AnalystPanelHandle | null = null;
+  if (store.state.mode === "editor") {
+    analystMount = document.createElement("div");
+    analystMount.style.display = "contents";
+    analystMount.setAttribute("data-cartographer-analyst-host", "");
+    (host.shadowRoot ?? host).append(analystMount);
+    analyst = mountAnalystPanel(analystMount, store);
+  }
 
   return {
     store,
     destroy() {
       analyst?.destroy();
+      analystMount?.remove();
       shell.destroy();
       host.remove();
     },

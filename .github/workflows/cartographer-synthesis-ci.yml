@@ -58,45 +58,101 @@ jobs:
           done
           node --input-type=module <<'NODE'
           import { chromium } from 'playwright';
-          const browser = await chromium.launch({ headless: true });
+
+          const browser = await chromium.launch({
+            headless: true,
+            args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'],
+          });
           const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
           const consoleErrors = [];
           page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
           page.on('pageerror', err => consoleErrors.push(err.message));
           await page.goto('http://127.0.0.1:4177/', { waitUntil: 'networkidle' });
 
-          await page.getByRole('treeitem', { name: /^Fallenstar Region/ }).click();
-          await page.getByLabel('Override value').fill('3');
-          await page.getByRole('button', { name: 'Override at this era', exact: true }).click();
+          await page.waitForFunction(() => {
+            const host = document.querySelector('starsilk-starmap-host');
+            return Boolean(host?.shadowRoot?.querySelector('[role="treeitem"]'));
+          });
 
-          await page.getByRole('button', { name: 'ANALYST', exact: true }).click();
-          await page.getByRole('heading', { name: 'Trace / Why?' }).waitFor();
-          await page.getByText(/Historical authority: Fallenstar Region/).waitFor();
+          const clickShadow = async (selector, text) => page.evaluate(({ selector, text }) => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            if (!root) throw new Error('Missing open Cartographer shadow root');
+            const nodes = [...root.querySelectorAll(selector)];
+            const target = nodes.find((node) => (node.textContent ?? '').includes(text));
+            if (!(target instanceof HTMLElement)) {
+              throw new Error(`Missing ${selector} containing ${text}; found: ${nodes.map(n => n.textContent?.trim()).join(' | ')}`);
+            }
+            target.click();
+          }, { selector, text });
 
-          await page.getByRole('tab', { name: 'PALIMPSEST' }).click();
-          await page.getByText('COMPOSITE TEMPORAL VIEW', { exact: true }).waitFor();
+          const waitShadowText = async (text) => page.waitForFunction((text) => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            return (root?.textContent ?? '').includes(text);
+          }, text);
 
-          await page.getByRole('treeitem', { name: /^First Blood Ring/ }).click();
-          await page.getByRole('tab', { name: 'DELTA' }).click();
-          const deltaSelects = page.locator('.tc-analyst-controls select');
-          await deltaSelects.nth(0).selectOption('n:0');
-          await deltaSelects.nth(1).selectOption('n:3');
-          await page.getByText('CREATED', { exact: true }).waitFor();
+          const setLabelValue = async (labelText, value) => page.evaluate(({ labelText, value }) => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            if (!root) throw new Error('Missing shadow root');
+            const label = [...root.querySelectorAll('label')].find((node) => node.textContent?.trim() === labelText);
+            if (!(label instanceof HTMLLabelElement)) throw new Error(`Missing label ${labelText}`);
+            const control = root.getElementById(label.htmlFor);
+            if (!(control instanceof HTMLInputElement)) throw new Error(`Missing input for ${labelText}`);
+            control.value = value;
+            control.dispatchEvent(new Event('input', { bubbles: true }));
+          }, { labelText, value });
 
-          await page.getByRole('treeitem', { name: /^Aureal(?:\s+SCH)?$/ }).click();
-          await page.getByRole('tab', { name: 'DELTA' }).click();
-          await deltaSelects.nth(0).selectOption('n:121');
-          await deltaSelects.nth(1).selectOption('n:170');
-          await page.getByText('TRANSFORMED', { exact: true }).waitFor();
-          await page.getByText('COLLAPSE', { exact: true }).waitFor();
+          const setSelect = async (selector, index, value) => page.evaluate(({ selector, index, value }) => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            if (!root) throw new Error('Missing shadow root');
+            const select = root.querySelectorAll(selector)[index];
+            if (!(select instanceof HTMLSelectElement)) throw new Error(`Missing select ${selector}[${index}]`);
+            select.value = value;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+          }, { selector, index, value });
 
-          await page.getByRole('tab', { name: 'TRUTH' }).click();
-          await page.getByText('existence', { exact: true }).waitFor();
-          await page.getByRole('tab', { name: 'GAPS' }).click();
-          await page.getByText(/UNKNOWN/).first().waitFor();
-          await page.getByRole('tab', { name: 'QUERY' }).click();
-          await page.locator('.tc-analyst-card select').selectOption('collapse-affected');
-          await page.getByText(/Aureal/).first().waitFor();
+          await clickShadow('[role="treeitem"]', 'Fallenstar Region');
+          await setLabelValue('Override value', '3');
+          await clickShadow('button', 'Override at this era');
+
+          await clickShadow('button', 'ANALYST');
+          await waitShadowText('Trace / Why?');
+          await waitShadowText('Historical authority: Fallenstar Region');
+
+          await clickShadow('.tc-analyst-tab', 'PALIMPSEST');
+          await waitShadowText('COMPOSITE TEMPORAL VIEW');
+
+          await clickShadow('[role="treeitem"]', 'First Blood Ring');
+          await clickShadow('.tc-analyst-tab', 'DELTA');
+          await setSelect('.tc-analyst-controls select', 0, 'n:0');
+          await setSelect('.tc-analyst-controls select', 1, 'n:3');
+          await waitShadowText('CREATED');
+
+          await clickShadow('[role="treeitem"]', '★Aureal');
+          await clickShadow('.tc-analyst-tab', 'DELTA');
+          await setSelect('.tc-analyst-controls select', 0, 'n:121');
+          await setSelect('.tc-analyst-controls select', 1, 'n:170');
+          await waitShadowText('TRANSFORMED');
+          await waitShadowText('COLLAPSE');
+
+          await clickShadow('.tc-analyst-tab', 'TRUTH');
+          await waitShadowText('Truth Lattice');
+          await waitShadowText('existence');
+
+          await clickShadow('.tc-analyst-tab', 'GAPS');
+          await waitShadowText('Knowledge Gaps');
+          await waitShadowText('UNKNOWN');
+
+          await clickShadow('.tc-analyst-tab', 'QUERY');
+          await setSelect('.tc-analyst-card select', 0, 'collapse-affected');
+          await waitShadowText('Affected by Starsilk extraction collapse');
+          await waitShadowText('Aureal');
+
+          const analystVisible = await page.evaluate(() => {
+            const root = document.querySelector('starsilk-starmap-host')?.shadowRoot;
+            const panel = root?.querySelector('.tc-analyst-panel');
+            return panel instanceof HTMLElement && !panel.hidden;
+          });
+          if (!analystVisible) throw new Error('Analyst panel is not visible inside the editor shadow boundary');
 
           if (consoleErrors.length) {
             throw new Error(`Browser console/page errors:\n${consoleErrors.join('\n')}`);
