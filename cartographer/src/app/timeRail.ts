@@ -40,7 +40,7 @@ import type { ProjectStore } from '../core/store';
 import { button, el } from './dom';
 import { numberInput, textInput } from './inspector';
 import { openEventForm } from './eventForm';
-import { infoDialog, type ShellRefs } from './shell';
+import { formDialog, type ShellRefs } from './shell';
 
 export interface TimeRailOptions {
   refs: ShellRefs;
@@ -275,17 +275,33 @@ export class TimeRail {
     const newId = textInput('', () => {}, { placeholder: 'new-preset-id', ariaLabel: 'New preset id' });
     const newLabel = textInput('', () => {}, { placeholder: 'NEW PRESET LABEL', ariaLabel: 'New preset label' });
 
-    await infoDialog(this.options.refs, 'EDIT ERA PRESETS', [
-      list,
-      el('p', {
-        class: 'sktc-note',
-        text: 'This list is a working set of anchors, not an exhaustive history. Leaving YEAR empty keeps an anchor deliberately undated — as the main narrative must stay.',
-      }),
-      el('div', { class: 'sktc-row' }, [
-        el('div', { class: 'sktc-field' }, [el('span', { class: 'sktc-field-label', text: 'ADD ID' }), newId]),
-        el('div', { class: 'sktc-field' }, [el('span', { class: 'sktc-field-label', text: 'ADD LABEL' }), newLabel]),
-      ]),
-    ]);
+    const saved = await formDialog(this.options.refs, {
+      title: 'EDIT ERA PRESETS',
+      confirmLabel: 'SAVE PRESETS',
+      body: [
+        list,
+        el('p', {
+          class: 'sktc-note',
+          text: 'This list is a working set of anchors, not an exhaustive history. Leaving YEAR empty keeps an anchor deliberately undated — as the main narrative must stay. CANCEL writes nothing.',
+        }),
+        el('div', { class: 'sktc-row' }, [
+          el('div', { class: 'sktc-field' }, [el('span', { class: 'sktc-field-label', text: 'ADD ID' }), newId]),
+          el('div', { class: 'sktc-field' }, [el('span', { class: 'sktc-field-label', text: 'ADD LABEL' }), newLabel]),
+        ]),
+      ],
+      validate: () => {
+        for (const row of rows) {
+          if (!row.label.value.trim()) return false;
+          const raw = row.time.value.trim();
+          if (raw !== '' && !Number.isFinite(Number.parseFloat(raw))) return false;
+        }
+        return true;
+      },
+    });
+    if (!saved) {
+      store.setStatus('Era preset edits cancelled — nothing was written.', 'neutral');
+      return;
+    }
 
     store.commit('Edit era presets', (draft) => {
       for (const row of rows) {
@@ -441,6 +457,10 @@ export class TimeRail {
       const marker = el('button', {
         class: `sktc-marker${applied ? ' sktc-marker--active' : ''}${destructive ? ' sktc-marker--destructive' : ''}`,
         type: 'button',
+        ariaPressed: String(applied),
+        ariaLabel: `${event.label} at ${describeTime(event.time, project.eraPresets)} — ${
+          EVENT_TYPE_LABELS[event.eventType]
+        }${destructive ? ' (destructive)' : ''}`,
         title: `${describeTime(event.time, project.eraPresets)} — ${event.label} (${EVENT_TYPE_LABELS[event.eventType]})`,
         onClick: () => {
           this.setValue(event.time);

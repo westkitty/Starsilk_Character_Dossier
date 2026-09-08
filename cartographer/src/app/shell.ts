@@ -382,6 +382,92 @@ export function confirmDialog(refs: ShellRefs, options: ConfirmOptions): Promise
   });
 }
 
+/**
+ * Modal form: arbitrary body plus CANCEL / SAVE.
+ *
+ * Unlike `infoDialog`, dismissing (Escape, backdrop click, CANCEL) resolves
+ * `false` and the caller must not write anything — a form that saved on Escape
+ * would commit half-typed records. `validate` runs on SAVE and may keep the
+ * dialog open by returning false.
+ */
+export interface FormDialogOptions {
+  title: string;
+  body: Node[];
+  confirmLabel?: string;
+  cancelLabel?: string;
+  tone?: 'neutral' | 'danger';
+  validate?: () => boolean;
+}
+
+export function formDialog(refs: ShellRefs, options: FormDialogOptions): Promise<boolean> {
+  return new Promise((resolve) => {
+    const confirmBtn = button(options.confirmLabel ?? 'SAVE', {
+      class:
+        options.tone === 'danger' ? 'sktc-btn sktc-btn--danger' : 'sktc-btn sktc-btn--primary',
+    });
+    const cancelBtn = button(options.cancelLabel ?? 'CANCEL', { class: 'sktc-btn' });
+
+    const dialog = el('div', {
+      class: 'sktc-dialog sktc-dialog--form',
+      role: 'dialog',
+      ariaModal: 'true',
+      ariaLabel: options.title,
+    }, [
+      el('h2', { text: options.title }),
+      ...options.body,
+      el('div', { class: 'sktc-dialog__actions' }, [cancelBtn, confirmBtn]),
+    ]);
+
+    const backdrop = el('div', { class: 'sktc-dialog-backdrop' }, [dialog]);
+    refs.dialogLayer.append(backdrop);
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const close = (result: boolean) => {
+      backdrop.remove();
+      document.removeEventListener('keydown', onKey, true);
+      previouslyFocused?.focus?.();
+      resolve(result);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        close(false);
+        return;
+      }
+      if (event.key === 'Enter' && (event.target as HTMLElement)?.tagName !== 'TEXTAREA') {
+        event.preventDefault();
+        if (options.validate?.() === false) return;
+        close(true);
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusables = [
+          ...dialog.querySelectorAll<HTMLElement>('input, select, textarea, button'),
+        ];
+        if (focusables.length === 0) return;
+        const index = focusables.indexOf(document.activeElement as HTMLElement);
+        event.preventDefault();
+        const next = event.shiftKey
+          ? focusables[(index - 1 + focusables.length) % focusables.length]!
+          : focusables[(index + 1) % focusables.length]!;
+        next.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKey, true);
+    cancelBtn.addEventListener('click', () => close(false));
+    confirmBtn.addEventListener('click', () => {
+      if (options.validate?.() === false) return;
+      close(true);
+    });
+    backdrop.addEventListener('mousedown', (event) => {
+      if (event.target === backdrop) close(false);
+    });
+    const firstField = dialog.querySelector<HTMLElement>('input, select, textarea');
+    (firstField ?? confirmBtn).focus();
+  });
+}
+
 /** Non-blocking modal for help / import errors. */
 export function infoDialog(refs: ShellRefs, title: string, body: Node[]): Promise<void> {
   return new Promise((resolve) => {

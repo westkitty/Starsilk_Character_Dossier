@@ -1160,6 +1160,12 @@
   line-height: 1.5;
 }
 
+.sktc-dialog--form {
+  width: min(560px, 100%);
+  max-height: min(80vh, 720px);
+  overflow: auto;
+}
+
 .sktc-dialog__actions {
   display: flex;
   justify-content: flex-end;
@@ -1238,7 +1244,11 @@
 
   .sktc-btn,
   .sktc-node-row,
-  .sktc-crumb {
+  .sktc-crumb,
+  .sktc-input,
+  .sktc-select,
+  .sktc-search,
+  .sktc-marker {
     min-height: var(--tap);
   }
 

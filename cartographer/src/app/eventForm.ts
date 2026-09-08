@@ -20,7 +20,7 @@ import {
 import type { ProjectStore } from '../core/store';
 import { el } from './dom';
 import { numberInput, selectInput, textInput } from './inspector';
-import { confirmDialog, infoDialog, type ShellRefs } from './shell';
+import { confirmDialog, formDialog, type ShellRefs } from './shell';
 
 function parseTimeValue(raw: string, fallback: TimeValue): TimeValue {
   const trimmed = raw.trim();
@@ -108,34 +108,60 @@ export async function openEventForm(options: EventFormOptions): Promise<void> {
     ]),
   ]);
 
-  await infoDialog(refs, event ? `EDIT EVENT — ${entity.name}` : `ADD EVENT — ${entity.name}`, [
-    form,
-    el('p', {
-      class: 'sktc-note',
-      text: 'CREATED / DESTROYED / BLOOD RING / STARSiLK EXTRACTION COLLAPSE events change what exists at an era. RENAMED and VISUAL CHANGE patch discrete properties. Nothing is interpolated.',
-    }),
-  ]);
+  const errorEl = el('p', { class: 'sktc-warning', role: 'alert', text: '' });
 
-  const label = labelInput.value.trim();
-  if (!label) return;
-  const time = parseTimeValue(timeInput.value, defaultTime);
-
+  // Escape / CANCEL / backdrop dismiss must never write a half-typed record, so
+  // validation happens on SAVE and the dialog stays open when it fails.
   let statePatch: Record<string, unknown> | undefined;
-  const patchText = patchInput.value.trim();
-  if (patchText) {
+  const validate = (): boolean => {
+    if (!labelInput.value.trim()) {
+      errorEl.textContent = 'LABEL is required — an event with no label cannot be cited.';
+      labelInput.focus();
+      return false;
+    }
+    const patchText = patchInput.value.trim();
+    if (!patchText) {
+      statePatch = undefined;
+      errorEl.textContent = '';
+      return true;
+    }
     try {
       const parsed = JSON.parse(patchText) as unknown;
-      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-        statePatch = parsed as Record<string, unknown>;
-      } else {
-        store.setStatus('STATE PATCH must be a JSON object — event not saved.', 'danger');
-        return;
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+        errorEl.textContent = 'STATE PATCH must be a JSON object, e.g. { "type": "blackHole" }.';
+        patchInput.focus();
+        return false;
       }
+      statePatch = parsed as Record<string, unknown>;
+      errorEl.textContent = '';
+      return true;
     } catch (error) {
-      store.setStatus(`STATE PATCH is not valid JSON: ${(error as Error).message}`, 'danger');
-      return;
+      errorEl.textContent = `STATE PATCH is not valid JSON: ${(error as Error).message}`;
+      patchInput.focus();
+      return false;
     }
+  };
+
+  const saved = await formDialog(refs, {
+    title: event ? `EDIT EVENT — ${entity.name}` : `ADD EVENT — ${entity.name}`,
+    confirmLabel: event ? 'SAVE EVENT' : 'ADD EVENT',
+    body: [
+      form,
+      errorEl,
+      el('p', {
+        class: 'sktc-note',
+        text: 'CREATED / DESTROYED / BLOOD RING / STARSiLK EXTRACTION COLLAPSE events change what exists at an era. RENAMED and VISUAL CHANGE patch discrete properties. Nothing is interpolated. CANCEL writes nothing.',
+      }),
+    ],
+    validate,
+  });
+  if (!saved) {
+    store.setStatus('Event cancelled — nothing was written.', 'neutral');
+    return;
   }
+
+  const label = labelInput.value.trim();
+  const time = parseTimeValue(timeInput.value, defaultTime);
 
   const payload: Omit<TimelineEvent, 'id'> = {
     time,

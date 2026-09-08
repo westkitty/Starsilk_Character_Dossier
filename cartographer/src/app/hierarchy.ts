@@ -73,6 +73,11 @@ export class HierarchyPanel {
   render(): void {
     const project = this.store.project;
     const body = this.refs.hierarchyBody;
+    // Roving focus must survive a re-render, or keyboard users are dropped back
+    // to the top of the document every time the tree rebuilds.
+    const active = document.activeElement as HTMLElement | null;
+    const focusedId =
+      active && body.contains(active) ? (active.getAttribute('data-id') ?? null) : null;
     body.textContent = '';
     this.rows = [];
     const root = rootEntity(project);
@@ -99,6 +104,10 @@ export class HierarchyPanel {
     }
     const tree = this.buildList(project, [root], 0, query, expanded);
     body.append(tree);
+    if (focusedId) {
+      const replacement = this.rows.find((row) => row.entityId === focusedId)?.element;
+      replacement?.focus({ preventScroll: true });
+    }
     this.syncAriaSelection();
   }
 
