@@ -508,10 +508,11 @@ export class MapRenderer {
       mat.roughness = 0.35;
     }
     const mesh = new THREE.Mesh(geo, mat);
-    if (entity.visual?.atmosphere) {
+    const atmoOn = view.visual?.atmosphere ?? entity.visual?.atmosphere;
+    if (atmoOn) {
       const atmo = new THREE.Mesh(
         new THREE.SphereGeometry(radius * 1.14, 24, 16),
-        atmosphereMaterial(entity.visual.atmosphereColor ?? color),
+        atmosphereMaterial(view.visual?.atmosphereColor ?? entity.visual?.atmosphereColor ?? color),
       );
       mesh.add(atmo);
     }

@@ -103,4 +103,40 @@ describe("historical state resolution", () => {
     assert.equal(resolveHistoricalView(project, wall, "post-siege-wall").present, true);
     assert.equal(resolveHistoricalView(project, wall, "main-narrative").present, true);
   });
+
+  it("illustrates Drakken overwrite on Replaced World across locked era anchors", () => {
+    const project = createDemoProject();
+    const planet = project.entities.find((e) => e.id === "pl-replaced")!;
+    const ring = project.entities.find((e) => e.id === "ring-replaced")!;
+    const fallenRing = project.entities.find((e) => e.id === "ring-fallenstar")!;
+
+    const pre = resolveHistoricalView(project, planet, "pre-war");
+    assert.equal(pre.present, true);
+    assert.equal(pre.visual?.color, "#5a4a38");
+    assert.equal(pre.visual?.atmosphere, undefined);
+    assert.deepEqual(pre.annotations, ["CRUST REWRITE"]);
+    assert.equal(resolveHistoricalView(project, ring, "pre-war").present, false);
+
+    const y0 = resolveHistoricalView(project, planet, 0);
+    assert.equal(y0.visual?.atmosphere, true);
+    assert.equal(y0.visual?.atmosphereColor, "#8a9ab0");
+    assert.equal(y0.annotations.at(-1), "LIGHTNING-STRIKE ATMOSPHERE");
+    assert.equal(resolveHistoricalView(project, ring, 0).present, false);
+
+    const y3 = resolveHistoricalView(project, planet, 3);
+    assert.equal(y3.visual?.color, "#3a4a28");
+    assert.equal(y3.annotations.at(-1), "ECOLOGY REPLACED");
+    assert.equal(resolveHistoricalView(project, ring, 3).present, false);
+    assert.equal(resolveHistoricalView(project, fallenRing, 3).present, true);
+
+    const y7 = resolveHistoricalView(project, planet, 7);
+    assert.equal(y7.visual?.color, "#3a2a22");
+    assert.equal(y7.annotations.at(-1), "CIVIC CAPTURE");
+    assert.equal(resolveHistoricalView(project, ring, 7).present, false);
+
+    const y121 = resolveHistoricalView(project, planet, 121);
+    assert.equal(y121.annotations.at(-1), "BLOOD RING EXTRUDED");
+    assert.equal(resolveHistoricalView(project, ring, 121).present, true);
+    assert.equal(resolveHistoricalView(project, ring, 170).present, true);
+  });
 });

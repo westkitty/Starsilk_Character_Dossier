@@ -78,6 +78,7 @@ export const DEFAULT_ERA_PRESETS: EraPreset[] = [
   { id: "pre-war", label: "PRE-WAR", value: "pre-war", editable: true },
   { id: "be-0", label: "BLOOD ECLIPSE — YEAR 0", value: 0, editable: true },
   { id: "be-3", label: "BLOOD ECLIPSE — YEAR 3", value: 3, editable: true },
+  { id: "be-7", label: "LONG ATTRITION — YEAR 7", value: 7, editable: true },
   { id: "be-121", label: "BLOOD ECLIPSE — YEAR 121", value: 121, editable: true },
   { id: "be-170", label: "BLOOD ECLIPSE — YEAR 170", value: 170, editable: true },
   {

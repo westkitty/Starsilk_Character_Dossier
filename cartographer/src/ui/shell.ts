@@ -235,7 +235,11 @@ export function mountEditor(root: HTMLElement, store: EditorStore): ShellHandle 
     }
     const time = resolveHistoricalTime(store.state.project, sel.id);
     const view = resolveHistoricalView(store.state.project, sel);
-    readout.textContent = `${ENTITY_TYPE_LABEL[view.type]} · ${view.name} · ${formatHistoricalTime(time.value)}${view.destroyed ? " · HISTORICALLY DESTROYED" : ""}${view.collapsed ? " · COLLAPSED" : ""} · ${time.mode === "override" ? "OVERRIDE" : "INHERITED"} · ${CANON_LABEL[sel.meta.canonStatus]}`;
+    const stage =
+      store.state.project.settings.annotations && view.annotations.length
+        ? ` · ${view.annotations[view.annotations.length - 1]}`
+        : "";
+    readout.textContent = `${ENTITY_TYPE_LABEL[view.type]} · ${view.name} · ${formatHistoricalTime(time.value)}${stage}${view.destroyed ? " · HISTORICALLY DESTROYED" : ""}${view.collapsed ? " · COLLAPSED" : ""} · ${time.mode === "override" ? "OVERRIDE" : "INHERITED"} · ${CANON_LABEL[sel.meta.canonStatus]}`;
   }
 
   const collapsed = new Set<string>();

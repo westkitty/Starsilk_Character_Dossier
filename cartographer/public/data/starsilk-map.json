@@ -22,6 +22,12 @@
       "editable": true
     },
     {
+      "id": "be-7",
+      "label": "LONG ATTRITION — YEAR 7",
+      "value": 7,
+      "editable": true
+    },
+    {
       "id": "be-121",
       "label": "BLOOD ECLIPSE — YEAR 121",
       "value": 121,
@@ -662,9 +668,10 @@
         "canonStatus": "working",
         "positionCanon": "schematic",
         "sourceNote": "Domain extent is SCHEMATIC / NON-CANON POSITION.",
-        "description": "Schematic region of Drakken activity. Drakken are elemental terraforming entities produced by the Notebook Program — not ordinary dragons, monsters, kaiju, or aliens. The Siege Wall contained them; it did not annihilate them.",
+        "description": "Schematic region of Drakken activity. Drakken are elemental terraforming entities produced by the Notebook Program — not ordinary dragons, monsters, kaiju, or aliens. Absolute ecological function: aggressive biospheric rewrite into seedbeds for continuance. The Siege Wall contained them; it did not annihilate them.",
         "tags": [
-          "drakken"
+          "drakken",
+          "overwrite"
         ]
       }
     },
@@ -710,7 +717,73 @@
       }
     },
     {
-      "timeline": [],
+      "timeline": [
+        {
+          "id": "evt-replaced-crust",
+          "time": "pre-war",
+          "label": "CRUST REWRITE",
+          "eventType": "annotation",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic Crust-Binder overwrite. Pre-war: Eggs descend and overwrite loops already execute (Great Misunderstanding). This body is not Thon V, Nullgard, Omega Field 27, Syrrian IV, or Cumulon II.",
+          "statePatch": {
+            "visual": {
+              "color": "#5a4a38",
+              "emissive": 0.04
+            }
+          }
+        },
+        {
+          "id": "evt-replaced-atmo",
+          "time": 0,
+          "label": "LIGHTNING-STRIKE ATMOSPHERE",
+          "eventType": "annotation",
+          "canonStatus": "schematic",
+          "sourceNote": "Year 0 first contact: lightning-strike Drakken terraformings trigger Administration counter-Macros. Schematic Atmos-Engine overwrite. This body is not a named fringe colony.",
+          "statePatch": {
+            "visual": {
+              "atmosphere": true,
+              "atmosphereColor": "#8a9ab0"
+            }
+          }
+        },
+        {
+          "id": "evt-replaced-ecology",
+          "time": 3,
+          "label": "ECOLOGY REPLACED",
+          "eventType": "annotation",
+          "canonStatus": "schematic",
+          "sourceNote": "Year 3 sets the Standard of Conquest at Fallenstar Prime. Seedcarrier biospheric rewrite is attested. This schematic world is not Fallenstar Prime. Feralseed: infected planets cannot be restored, only overwritten.",
+          "statePatch": {
+            "visual": {
+              "color": "#3a4a28",
+              "atmosphereColor": "#5a6a40"
+            }
+          }
+        },
+        {
+          "id": "evt-replaced-civic",
+          "time": 7,
+          "label": "CIVIC CAPTURE",
+          "eventType": "annotation",
+          "canonStatus": "schematic",
+          "sourceNote": "Years 7–120 long attrition: countless worlds fall. Schematic Civiformer occupation (Habitarch: labor wards, shrine districts, breeding blocks, sacrifice-processing). This body is not a named campaign world.",
+          "statePatch": {
+            "visual": {
+              "color": "#3a2a22",
+              "atmosphereColor": "#6a3030",
+              "emissive": 0.08
+            }
+          }
+        },
+        {
+          "id": "evt-replaced-ring-stage",
+          "time": 121,
+          "label": "BLOOD RING EXTRUDED",
+          "eventType": "annotation",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic processed-world Blood Ring. Gorevault harvests; Ringthroat extrudes. Year 121 is the next locked chronology anchor after the long attrition begins — not a claim that the Siege of the Ruby Eclipse happened here. Not Fallenstar Prime. Not a census of the twenty fully subjugated Blood-Ring worlds at Year 170."
+        }
+      ],
       "id": "pl-replaced",
       "parentId": "sys-drakken-node",
       "type": "planet",
@@ -727,16 +800,61 @@
       },
       "visual": {
         "displayRadius": 0.48,
-        "color": "#3a2a22",
-        "atmosphere": true,
-        "atmosphereColor": "#6a3030"
+        "color": "#4b7a6a"
       },
       "rotationPeriod": 14,
       "meta": {
         "canonStatus": "schematic",
         "positionCanon": "schematic",
         "sourceNote": "SCHEMATIC / NON-CANON POSITION — invented for cartographic demonstration only.",
-        "description": "Schematic world illustrating Drakken replacement of ecosystems, geology, atmospheres, settlements, cultures, populations, and stellar infrastructure."
+        "description": "Schematic illustration of Drakken overwrite: crust → atmosphere → ecology → civic capture → Blood Ring. Stages are hung on locked Blood Eclipse chronology anchors. This is not a named canon world and not a count of processed worlds.",
+        "tags": [
+          "overwrite",
+          "schematic"
+        ]
+      }
+    },
+    {
+      "timeline": [
+        {
+          "id": "evt-replaced-ring",
+          "time": 121,
+          "label": "Blood Ring extruded",
+          "eventType": "bloodRingCreated",
+          "canonStatus": "schematic",
+          "sourceNote": "Schematic illustration of the locked Blood Ring pipeline (consumption → Gorevault rendering → vitrification → Ringthroat extrusion → spin-shaping). First Blood Rings remain Fallenstar Prime, Year 3. This ring is not a census of the twenty fully subjugated Blood-Ring worlds at Year 170."
+        }
+      ],
+      "id": "ring-replaced",
+      "parentId": "pl-replaced",
+      "type": "bloodRing",
+      "name": "Blood Ring (schematic)",
+      "orbit": {
+        "semiMajorAxis": 0.24,
+        "eccentricity": 0,
+        "inclination": 0.22,
+        "ascendingNode": 0.8,
+        "argumentOfPeriapsis": 0,
+        "meanAnomalyAtEpoch": 0.4,
+        "epoch": 0,
+        "period": 16
+      },
+      "visual": {
+        "displayRadius": 1.2,
+        "color": "#6a1018",
+        "ringThickness": 0.08,
+        "ringInner": 1.05,
+        "ringOuter": 1.5
+      },
+      "meta": {
+        "canonStatus": "schematic",
+        "positionCanon": "schematic",
+        "sourceNote": "SCHEMATIC / NON-CANON POSITION. Not a named canon world.",
+        "description": "Solid orbital band of vitrified remains. Schematic processed-world illustration — not Saturn dust, not Fallenstar Prime’s first ring.",
+        "tags": [
+          "blood-ring",
+          "schematic"
+        ]
       }
     },
     {
