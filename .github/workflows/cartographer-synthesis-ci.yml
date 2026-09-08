@@ -127,7 +127,7 @@ jobs:
           await setSelect('.tc-analyst-controls select', 1, 'n:3');
           await waitShadowText('CREATED');
 
-          await clickShadow('[role="treeitem"]', '★Aureal');
+          await clickShadow('[role="treeitem"]', '●AurealSCH');
           await clickShadow('.tc-analyst-tab', 'DELTA');
           await setSelect('.tc-analyst-controls select', 0, 'n:121');
           await setSelect('.tc-analyst-controls select', 1, 'n:170');
