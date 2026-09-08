@@ -142,6 +142,27 @@ describe('schema: rejection with useful errors', () => {
     expect(result.errors.some((e) => e.path === '$.entities[0].timeline[0].eventType')).toBe(true);
   });
 
+  it('rejects an entity whose parent does not exist', () => {
+    const doc = JSON.parse(serializeProject(createProject())) as any;
+    doc.entities.push({
+      id: 'orphan-1',
+      parentId: 'no-such-parent',
+      type: 'system',
+      name: 'ORPHANED SYSTEM',
+    });
+    const result = validateProject(doc);
+    expect(result.errors.length).toBeGreaterThan(0);
+    expect(result.errors.some((e) => /does not match any entity id/.test(e.message))).toBe(true);
+  });
+
+  it('rejects a second detached root', () => {
+    const doc = JSON.parse(serializeProject(createProject())) as any;
+    doc.entities.push({ id: 'second-root', parentId: null, type: 'galaxy', name: 'SECOND GALAXY' });
+    const result = validateProject(doc);
+    expect(result.errors.length).toBeGreaterThan(0);
+    expect(result.errors.some((e) => /root entities/.test(e.message))).toBe(true);
+  });
+
   it('detects parent cycles', () => {
     const project = createProject();
     const a = addEntity(project, { type: 'starfield', name: 'A', parentId: 'galaxy-root' });

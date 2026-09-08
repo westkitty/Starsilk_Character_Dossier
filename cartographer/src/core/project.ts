@@ -249,8 +249,13 @@ export function pathOf(project: StarMapProject, id: string): Entity[] {
 /** Descendants in authored order (depth-first, siblings in array order). */
 export function descendantsOf(project: StarMapProject, id: string): Entity[] {
   const out: Entity[] = [];
+  // The schema rejects parent cycles at import, but traversal must still be
+  // total: a hand-edited file must never hang the tool.
+  const seen = new Set<string>([id]);
   const walk = (parentId: string) => {
     for (const child of childrenOf(project, parentId)) {
+      if (seen.has(child.id)) continue;
+      seen.add(child.id);
       out.push(child);
       walk(child.id);
     }
