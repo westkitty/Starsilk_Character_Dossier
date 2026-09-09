@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 31
+revision: 32
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -758,6 +758,10 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture WorldsVault IDs, semantic relationships, dates, or coordinates.
 - Phase 8 browser-local bookmarks/history/progress/collections are intentionally per browser origin/profile and do not sync through an account or server; this privacy/locality constraint is deliberate, not missing canon infrastructure.
 
+- `build/analytics_publication.py` owns deterministic generation of `docs/analytics/` from `src/analytics/dashboard.json` plus `src/templates/analytics.*`; the fan dashboard is a sample-data demonstration surface, not canon, relationship, chronology, or media-provenance authority.
+- The analytics sample dataset is illustrative only (seeded generator, 180 days ending 2026-09-09); the page carries an explicit sample-data badge, loads no third-party resources, and stores only a browser-local theme preference.
+- `src/analytics/AUTHORITY.md` defines the analytics interpretation boundary; `tests/test_analytics_dashboard.py` enforces determinism, file-set exactness, sample-data labeling, DOM/controls presence, and filter/table/theme behavior.
+
 ## Pending
 
 - None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Drakken archive repair and post-completion fortress pass are closed with fresh Operational State, repository governance contract, protected `main`, reproducibility, and source-derived live Pages proof.
@@ -795,3 +799,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 29: made the temporary pinned visual-baseline refresh cleanup portable to the workflow shell after its generation, recheck, and full Chromium suite had passed; the temporary workflow remains self-removing and is not part of the final repair surface.
 - Revision 30: made the affected Drakken visual test open the outer archive without accordion animation so its pinned screenshot scroll state is deterministic; constrained the temporary refresh commit to the two visual references and workflow deletion, excluding environment-only QA-report churn.
 - Revision 31: added the machine-readable `main` governance contract and cold-start pointer, verified the actual GitHub branch protection, and closed the post-completion reproducibility/recovery and merge/live-publication proof boundary without starting Phase 13.
+- Revision 32: added the deterministic fan analytics sample-data dashboard (`src/analytics/`, `src/templates/analytics.*`, `build/analytics_publication.py`, `docs/analytics/`, `tests/test_analytics_dashboard.py`) with KPI trends, line/bar/donut charts, a sortable/filterable folio table, live date-range/segment filters, and a dark-mode toggle; extended the derivation map/projection and build pipeline without touching canon authority, shared navigation, machine publication, or existing generated surfaces. Merge and post-merge CI proof remain pending.

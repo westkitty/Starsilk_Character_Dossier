@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fan analytics · Starsilk Compendium</title>
+<meta name="description" content="Illustrative sample-data analytics for Starsilk Compendium fans: visits, readers, dwell, completions, collections, and top folios.">
+<link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/analytics/"><link rel="alternate" type="application/json" href="analytics.json"><link rel="stylesheet" href="analytics.css">
+</head>
+<body class="ana-body" data-museum-shell="unified">
+<a class="ana-skip" href="#anaMain">Skip to dashboard</a>
+
+<style>
+.museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
+.museum-nav-brand em{font-style:normal;color:#55dfff}
+.museum-nav-mark{color:#55dfff;font-size:.9em}
+.museum-nav>nav{flex:1 1 auto;min-width:0}
+.museum-nav-links{display:flex;flex-wrap:wrap;gap:.05rem 1.1rem;list-style:none;margin:0;padding:0}
+.museum-nav-links a{display:inline-flex;padding:.4rem .1rem;color:#9fb1bf;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;min-height:44px;align-items:center}
+.museum-nav-links a:hover,.museum-nav-links a:focus-visible{color:#fff;border-bottom-color:#55dfff;outline:none}
+.museum-nav-links a[aria-current="page"]{color:#55dfff;border-bottom-color:#55dfff}
+.museum-nav-data{position:relative;font-size:.74rem}
+.museum-nav-data>summary{cursor:pointer;list-style:none;padding:.4rem .75rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;font:700 .7rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+.museum-nav-data>summary::-webkit-details-marker{display:none}
+.museum-nav-data[open]>summary{color:#55dfff;border-color:#55dfff}
+.museum-nav-data-panel{position:absolute;right:0;top:calc(100% + .4rem);display:flex;flex-direction:column;gap:.3rem;padding:.6rem;background:#0d1320;border:1px solid #27374b;border-radius:6px;min-width:11rem;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.museum-nav-data-panel a{color:#9fb1bf;text-decoration:none;font-size:.78rem;padding:.25rem 0}
+.museum-nav-data-panel a:hover,.museum-nav-data-panel a:focus-visible{color:#fff}
+@media(max-width:700px){
+.museum-nav{gap:.5rem .8rem;padding:.65rem .9rem}
+.museum-nav>nav{flex-basis:100%;order:3;min-width:100%}
+.museum-nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0 .9rem;padding-bottom:.15rem}
+.museum-nav-links a{flex:0 0 auto}
+.museum-nav-data{order:2;margin-left:auto}
+}
+</style>
+<header class="museum-nav" data-museum-shell="unified">
+
+<a class="museum-nav-brand" href="../"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Compendium</em></a>
+<nav aria-label="Unified Starsilk Compendium navigation">
+<ul class="museum-nav-links">
+<li><a href="../">Home</a></li>
+<li><a href="../#mainContent">Compendium</a></li>
+<li><a href="../discover/">Discover</a></li>
+<li><a href="../entities/">Entities</a></li>
+<li><a href="../objects/">Objects</a></li>
+<li><a href="../relationships/">Relationships</a></li>
+<li><a href="../canon/">Canon Inspector</a></li>
+<li><a href="../tours/">Tours</a></li>
+<li><a href="../chronology/">Chronology</a></li>
+<li><a href="../worldsvault/">WorldsVault</a></li>
+</ul>
+</nav>
+<details class="museum-nav-data">
+<summary>Data / AI</summary>
+<div class="museum-nav-data-panel">
+<a href="../agents/AGENT_GUIDE.md">Agent guide</a>
+<a href="../machine/index.json">Machine index</a>
+<a href="../llms.txt">llms.txt</a>
+</div>
+</details>
+</header>
+<div class="ana-page">
+<header class="ana-hero">
+<p class="ana-eyebrow">Fan analytics · Compendium pulse</p>
+<h1>How fans wander the archive</h1>
+<p class="ana-lede">An interactive look at visits, readers, dwell time, and favorite folios across the Starsilk Compendium. Every number below is <strong>illustrative sample data</strong> generated for this demo &mdash; nothing is tracked or measured from real readers.</p>
+<div class="ana-meta">
+<span class="ana-badge"><span class="dot" aria-hidden="true"></span>Sample data</span>
+<span class="ana-generated">Sample window 2026-03-14 to 2026-09-09 · <a href="analytics.json">analytics.json</a> · <a href="analytics.md">methodology</a> · <a href="AUTHORITY.md">authority</a></span>
+<button class="ana-theme" id="anaTheme" type="button" aria-pressed="false"><span class="icon" aria-hidden="true">☾</span><span class="label">Light mode</span></button>
+</div>
+</header>
+<main id="anaMain">
+<div class="ana-filters" role="group" aria-label="Dashboard filters">
+<div class="ana-filters-row">
+<div class="ana-field"><span id="rangeLabel">Date range</span>
+<div class="ana-segmented" role="group" aria-labelledby="rangeLabel">
+<button type="button" data-preset="7d" aria-pressed="false">7D</button><button type="button" data-preset="30d" aria-pressed="true">30D</button><button type="button" data-preset="90d" aria-pressed="false">90D</button><button type="button" data-preset="all" aria-pressed="false">All</button>
+</div>
+</div>
+<div class="ana-field"><span id="customLabel">Custom range</span>
+<div class="ana-dates" role="group" aria-labelledby="customLabel">
+<label class="sr-only" for="anaFrom">Start date</label><input type="date" id="anaFrom" name="from" min="2026-03-14" max="2026-09-09">
+<span aria-hidden="true">→</span>
+<label class="sr-only" for="anaTo">End date</label><input type="date" id="anaTo" name="to" min="2026-03-14" max="2026-09-09">
+<button class="ana-apply" id="anaApply" type="button">Apply</button>
+</div>
+</div>
+<div class="ana-field ana-select"><span id="segmentLabel">Reader segment</span>
+<select id="anaSegment" aria-labelledby="segmentLabel">
+<option value="all">All segments</option>
+<option value="new-seekers">New Seekers</option>
+<option value="lore-keepers">Lore Keepers</option>
+<option value="drakken-hunters">Drakken Hunters</option>
+<option value="archivists">Archivists</option>
+<option value="night-readers">Night Readers</option>
+</select>
+</div>
+<div class="ana-field"><span aria-hidden="true">&nbsp;</span><button class="ana-reset" id="anaReset" type="button">Reset</button></div>
+</div>
+<p class="ana-status" id="anaStatus" role="status" aria-live="polite">Loading sample data…</p>
+<p class="ana-error" id="anaError" role="alert" hidden></p>
+</div>
+
+<section class="ana-section" aria-labelledby="kpiHeading">
+<div class="ana-section-head"><h2 id="kpiHeading">At a glance</h2><p>Totals for the selected range and segment, with trend vs the prior equivalent window.</p></div>
+<div class="ana-kpis">
+<div class="ana-card ana-kpi" data-kpi="visits" style="--kpi-accent:#55dfff"><p class="ana-kpi-label">Compendium visits</p><p class="ana-kpi-value">—</p><p class="ana-kpi-sub"><span class="ana-delta flat">—</span><span>trend</span></p><svg class="ana-kpi-spark" aria-hidden="true"></svg></div>
+<div class="ana-card ana-kpi" data-kpi="readers" style="--kpi-accent:#b48cff"><p class="ana-kpi-label">Active readers</p><p class="ana-kpi-value">—</p><p class="ana-kpi-sub"><span class="ana-delta flat">—</span><span>trend</span></p><svg class="ana-kpi-spark" aria-hidden="true"></svg></div>
+<div class="ana-card ana-kpi" data-kpi="dwell" style="--kpi-accent:#7ee2a8"><p class="ana-kpi-label">Avg. dwell time</p><p class="ana-kpi-value">—</p><p class="ana-kpi-sub"><span class="ana-delta flat">—</span><span>trend</span></p><svg class="ana-kpi-spark" aria-hidden="true"></svg></div>
+<div class="ana-card ana-kpi" data-kpi="completions" style="--kpi-accent:#ffd166"><p class="ana-kpi-label">Folios completed</p><p class="ana-kpi-value">—</p><p class="ana-kpi-sub"><span class="ana-delta flat">—</span><span>trend</span></p><svg class="ana-kpi-spark" aria-hidden="true"></svg></div>
+</div>
+</section>
+
+<section class="ana-section" aria-labelledby="chartsHeading">
+<div class="ana-section-head"><h2 id="chartsHeading">Engagement over time</h2><p>Hover any chart for details. Every view follows the filters above.</p></div>
+<div class="ana-charts">
+<div class="ana-card ana-chart wide"><div class="ana-chart-head"><h3>Daily visits &amp; readers</h3><p>toggle a series to isolate it</p></div>
+<div class="ana-legend" id="lineLegend"><button type="button" data-series="visits" aria-pressed="true" style="--sw:var(--ana-line-visits)"><span class="swatch" aria-hidden="true"></span>Visits</button><button type="button" data-series="readers" aria-pressed="true" style="--sw:var(--ana-line-readers)"><span class="swatch" aria-hidden="true"></span>Readers</button></div>
+<svg class="ana-svg" id="lineChart" role="img" aria-label="Daily visits and readers"></svg>
+</div>
+<div class="ana-card ana-chart"><div class="ana-chart-head"><h3>Views by collection</h3><p>folio views in range</p></div>
+<svg class="ana-svg" id="barChart" role="img" aria-label="Views by collection"></svg>
+</div>
+<div class="ana-card ana-chart"><div class="ana-chart-head"><h3>Reader mix</h3><p>visit share by segment</p></div>
+<div class="ana-donut-wrap"><svg class="ana-svg ana-donut-svg" id="donutChart" role="img" aria-label="Visit share by reader segment"></svg><ul class="ana-donut-legend" id="donutLegend"></ul></div>
+</div>
+</div>
+</section>
+
+<section class="ana-section" aria-labelledby="tableHeading">
+<div class="ana-section-head"><h2 id="tableHeading">Top folios</h2><p>Sort any column, search, or narrow by collection. Folio names link to their records.</p></div>
+<div class="ana-table-toolbar">
+<div class="ana-field ana-search"><span id="searchLabel">Search folios</span><input type="search" id="folioSearch" aria-labelledby="searchLabel" placeholder="Search folios…" autocomplete="off"></div>
+<div class="ana-field ana-select"><span id="collectionLabel">Collection</span>
+<select id="folioCollection" aria-labelledby="collectionLabel">
+<option value="all">All collections</option>
+<option value="principal">Principal Folios</option>
+<option value="peripheral">Peripheral Folios</option>
+<option value="drakken">Drakken Register</option>
+<option value="worldsvault">WorldsVault</option>
+<option value="chronology">Chronology</option>
+<option value="tours">Curated Tours</option>
+<option value="media">Media Vault</option>
+</select>
+</div>
+<button class="ana-export" id="folioExport" type="button">Download CSV</button>
+<span class="ana-table-meta" id="folioCount" role="status" aria-live="polite"></span>
+</div>
+<div class="ana-table-scroll">
+<table class="ana-table">
+<caption>Per-folio engagement for the selected range and segment. Trend compares the second half of the range to the first.</caption>
+<thead><tr>
+<th scope="col"><button type="button" data-sort="folio">Folio <span class="arrow" aria-hidden="true"></span></button></th>
+<th scope="col" class="num"><button type="button" data-sort="views">Views <span class="arrow" aria-hidden="true"></span></button></th>
+<th scope="col" class="num"><button type="button" data-sort="readers">Readers <span class="arrow" aria-hidden="true"></span></button></th>
+<th scope="col" class="num"><button type="button" data-sort="dwell">Avg dwell <span class="arrow" aria-hidden="true"></span></button></th>
+<th scope="col" class="num"><button type="button" data-sort="completion">Completion <span class="arrow" aria-hidden="true"></span></button></th>
+<th scope="col" class="num"><button type="button" data-sort="trend">Trend <span class="arrow" aria-hidden="true"></span></button></th>
+</tr></thead>
+<tbody id="folioBody"><tr><td colspan="6" class="ana-empty">Loading sample data…</td></tr></tbody>
+</table>
+</div>
+</section>
+
+<footer class="ana-foot">
+<h2>About these numbers</h2>
+<p>All figures are <strong>deterministic sample data</strong> generated from <code>src/analytics/dashboard.json</code> (seed 20260909) by <code>build/analytics_publication.py</code>. They illustrate dashboard behavior only and must never be quoted as real readership, canon, or publication evidence.</p>
+<p>Aggregation is view-only: range sums, per-day trend deltas, segment affinity weighting, and table sorting change the rendered view without altering the published <code>analytics.json</code>. The page sets no tracking cookies and stores only a browser-local theme preference.</p>
+<p><a href="../">Back to the Starsilk Compendium</a></p>
+</footer>
+</main>
+</div>
+<script src="analytics.js"></script>
+</body></html>
