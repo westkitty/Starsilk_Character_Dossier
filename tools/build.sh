@@ -14,6 +14,7 @@ set -euo pipefail
 #     -> build/worldsvault_publication.py (source-backed cosmic topology explorer)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
 #     -> build/museum_publication.py    (manifest-derived museum object model/viewer)
+#     -> build/analytics_publication.py (deterministic fan sample-data dashboard)
 #     -> build/offline_publication.py   (narrow installable shell + metadata cache)
 #     -> build/validate.py              (parsed-DOM structural + canon-invariant gate)
 #     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
@@ -115,6 +116,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/entity_publication.py --check
     echo "-> Generating (in-memory) and checking museum object publication..."
     "$PY" build/museum_publication.py --check
+    echo "-> Generating (in-memory) and checking fan analytics dashboard..."
+    "$PY" build/analytics_publication.py --check
     echo "-> Generating (in-memory) and checking installable offline shell..."
     "$PY" build/offline_publication.py --check
     echo "-> Generating (in-memory) and checking agent evaluation + final integration..."
@@ -140,6 +143,8 @@ else
     "$PY" build/entity_publication.py
     echo "-> Generating museum object model/viewer from published media provenance..."
     "$PY" build/museum_publication.py
+    echo "-> Generating fan sample-data analytics dashboard..."
+    "$PY" build/analytics_publication.py
     echo "-> Generating narrow installable offline shell and metadata cache..."
     "$PY" build/offline_publication.py
     echo "-> Generating agent evaluation + final integration certificate..."

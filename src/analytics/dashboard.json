@@ -1,0 +1,261 @@
+{
+  "schema": "starsilk-analytics-dashboard-source/1",
+  "project_id": "starsilk-character-dossier",
+  "audience": "fans",
+  "sample_data": {
+    "seed": 20260909,
+    "days": 180,
+    "end_date": "2026-09-09",
+    "base_daily_visits": 1240,
+    "daily_growth": 1.0021,
+    "weekend_lift": 1.28,
+    "monday_dip": 0.94,
+    "noise_sigma": 0.07,
+    "affinity_favorite": 1.7,
+    "affinity_other": 0.85,
+    "affinity_jitter": 0.3,
+    "events": [
+      {
+        "day_offset": 34,
+        "label": "Drakken reveal week",
+        "lift": 1.9,
+        "span": 6
+      },
+      {
+        "day_offset": 97,
+        "label": "Chronology explorer launch",
+        "lift": 1.6,
+        "span": 4
+      },
+      {
+        "day_offset": 150,
+        "label": "First Descent tour",
+        "lift": 1.45,
+        "span": 5
+      }
+    ]
+  },
+  "segments": [
+    {
+      "id": "new-seekers",
+      "label": "New Seekers",
+      "blurb": "First-time visitors finding their footing in the Compendium.",
+      "share": 0.3,
+      "color": "#55dfff",
+      "reader_ratio": 0.78,
+      "dwell_sec": 145,
+      "completion": 0.18,
+      "favorite_collection": "tours"
+    },
+    {
+      "id": "lore-keepers",
+      "label": "Lore Keepers",
+      "blurb": "Returning readers tracing principal folios and canon locks.",
+      "share": 0.24,
+      "color": "#b48cff",
+      "reader_ratio": 0.71,
+      "dwell_sec": 262,
+      "completion": 0.41,
+      "favorite_collection": "principal"
+    },
+    {
+      "id": "drakken-hunters",
+      "label": "Drakken Hunters",
+      "blurb": "Register divers chasing every Drakken record.",
+      "share": 0.18,
+      "color": "#ff9d6b",
+      "reader_ratio": 0.66,
+      "dwell_sec": 228,
+      "completion": 0.36,
+      "favorite_collection": "drakken"
+    },
+    {
+      "id": "archivists",
+      "label": "Archivists",
+      "blurb": "Deep researchers cross-checking chronology and sources.",
+      "share": 0.16,
+      "color": "#7ee2a8",
+      "reader_ratio": 0.58,
+      "dwell_sec": 318,
+      "completion": 0.47,
+      "favorite_collection": "chronology"
+    },
+    {
+      "id": "night-readers",
+      "label": "Night Readers",
+      "blurb": "Late-session browsers drifting through media and folios.",
+      "share": 0.12,
+      "color": "#f26d8d",
+      "reader_ratio": 0.62,
+      "dwell_sec": 196,
+      "completion": 0.24,
+      "favorite_collection": "media"
+    }
+  ],
+  "collections": [
+    {
+      "id": "principal",
+      "label": "Principal Folios",
+      "color": "#55dfff"
+    },
+    {
+      "id": "peripheral",
+      "label": "Peripheral Folios",
+      "color": "#7ee2a8"
+    },
+    {
+      "id": "drakken",
+      "label": "Drakken Register",
+      "color": "#ff9d6b"
+    },
+    {
+      "id": "worldsvault",
+      "label": "WorldsVault",
+      "color": "#b48cff"
+    },
+    {
+      "id": "chronology",
+      "label": "Chronology",
+      "color": "#ffd166"
+    },
+    {
+      "id": "tours",
+      "label": "Curated Tours",
+      "color": "#6bd5ff"
+    },
+    {
+      "id": "media",
+      "label": "Media Vault",
+      "color": "#f26d8d"
+    }
+  ],
+  "folios": [
+    {
+      "id": "codec",
+      "label": "Codec",
+      "collection": "principal",
+      "weight": 0.115,
+      "dwell_sec": 214,
+      "completion": 0.34,
+      "entity": "codec"
+    },
+    {
+      "id": "dao",
+      "label": "Dao",
+      "collection": "principal",
+      "weight": 0.098,
+      "dwell_sec": 238,
+      "completion": 0.38,
+      "entity": "dao"
+    },
+    {
+      "id": "kail",
+      "label": "Kail",
+      "collection": "principal",
+      "weight": 0.087,
+      "dwell_sec": 205,
+      "completion": 0.31,
+      "entity": "kail"
+    },
+    {
+      "id": "shard-god",
+      "label": "Shard-God",
+      "collection": "principal",
+      "weight": 0.076,
+      "dwell_sec": 251,
+      "completion": 0.29,
+      "entity": "shard-god"
+    },
+    {
+      "id": "anika",
+      "label": "Anika",
+      "collection": "peripheral",
+      "weight": 0.072,
+      "dwell_sec": 188,
+      "completion": 0.27,
+      "entity": "anika"
+    },
+    {
+      "id": "clara",
+      "label": "Clara",
+      "collection": "peripheral",
+      "weight": 0.064,
+      "dwell_sec": 176,
+      "completion": 0.25,
+      "entity": "clara"
+    },
+    {
+      "id": "mara",
+      "label": "Mara",
+      "collection": "peripheral",
+      "weight": 0.058,
+      "dwell_sec": 169,
+      "completion": 0.23,
+      "entity": "mara"
+    },
+    {
+      "id": "drk-the-egg",
+      "label": "The Egg",
+      "collection": "drakken",
+      "weight": 0.082,
+      "dwell_sec": 224,
+      "completion": 0.33,
+      "entity": "drk-the-egg"
+    },
+    {
+      "id": "drk-abyssoriel",
+      "label": "Abyssoriel",
+      "collection": "drakken",
+      "weight": 0.061,
+      "dwell_sec": 198,
+      "completion": 0.3,
+      "entity": "drk-abyssoriel"
+    },
+    {
+      "id": "chronology",
+      "label": "Chronology",
+      "collection": "chronology",
+      "weight": 0.069,
+      "dwell_sec": 243,
+      "completion": 0.36,
+      "entity": "chronology"
+    },
+    {
+      "id": "media-vault",
+      "label": "Media Vault",
+      "collection": "media",
+      "weight": 0.066,
+      "dwell_sec": 154,
+      "completion": 0.21,
+      "entity": "media-vault"
+    },
+    {
+      "id": "world",
+      "label": "World",
+      "collection": "worldsvault",
+      "weight": 0.055,
+      "dwell_sec": 231,
+      "completion": 0.28,
+      "entity": "world"
+    },
+    {
+      "id": "peripheral-index",
+      "label": "Peripheral Index",
+      "collection": "peripheral",
+      "weight": 0.052,
+      "dwell_sec": 142,
+      "completion": 0.19,
+      "entity": "peripheral-index"
+    },
+    {
+      "id": "first-descent",
+      "label": "First Descent",
+      "collection": "tours",
+      "weight": 0.045,
+      "dwell_sec": 322,
+      "completion": 0.52,
+      "entity": null,
+      "record_url": "tours/"
+    }
+  ]
+}

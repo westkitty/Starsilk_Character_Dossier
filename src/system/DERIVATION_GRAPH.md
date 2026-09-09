@@ -16,7 +16,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon` | authoritative | source | `src/canon/AUTHORITY.md`<br>`src/canon/invariants.json` | canon |
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
-| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**` | subsystems |
+| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**`<br>`src/analytics/**` | subsystems |
 | `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md`<br>`src/system/operational-state-invariants.json` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
@@ -30,6 +30,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `worldsvault_gen` | authoritative | generator | `build/worldsvault_publication.py` | worldsvault_gen |
 | `entities_gen` | authoritative | generator | `build/entity_publication.py` | entities_gen |
 | `museum_gen` | authoritative | generator | `build/museum_publication.py` | museum_gen |
+| `analytics_gen` | authoritative | generator | `build/analytics_publication.py` | analytics_gen |
 | `offline_gen` | authoritative | generator | `build/offline_publication.py` | offline_gen |
 | `agents_gen` | authoritative | generator | `build/agent_publication.py` | agents_gen |
 | `build` | authoritative | orchestrator | `tools/build.sh` | build |
@@ -47,6 +48,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `worldsvault_out` | generated | output | `docs/worldsvault/**` | worldsvault_out |
 | `entities_out` | generated | output | `docs/entities/**` | entities_out |
 | `museum_out` | generated | output | `docs/objects/**` | museum_out |
+| `analytics_out` | generated | output | `docs/analytics/**` | analytics_out |
 | `offline_out` | generated | output | `docs/manifest.webmanifest`<br>`docs/service-worker.js`<br>`docs/offline-client.js`<br>`docs/offline.html`<br>`docs/offline.css`<br>`docs/offline-icon.svg` | offline_out |
 | `agents_out` | generated | output | `docs/agents/**` | agents_out |
 | `graph_out` | generated | output | `src/system/DERIVATION_GRAPH.md` | graph_out |
@@ -77,6 +79,7 @@ flowchart LR
     worldsvault_gen["worldsvault_gen\nauthoritative / generator"]
     entities_gen["entities_gen\nauthoritative / generator"]
     museum_gen["museum_gen\nauthoritative / generator"]
+    analytics_gen["analytics_gen\nauthoritative / generator"]
     offline_gen["offline_gen\nauthoritative / generator"]
     agents_gen["agents_gen\nauthoritative / generator"]
     build["build\nauthoritative / orchestrator"]
@@ -94,6 +97,7 @@ flowchart LR
     worldsvault_out["worldsvault_out\ngenerated / output"]
     entities_out["entities_out\ngenerated / output"]
     museum_out["museum_out\ngenerated / output"]
+    analytics_out["analytics_out\ngenerated / output"]
     offline_out["offline_out\ngenerated / output"]
     agents_out["agents_out\ngenerated / output"]
     graph_out["graph_out\ngenerated / output"]
@@ -148,6 +152,9 @@ flowchart LR
     schemas -->|input_to| museum_gen
     subsystems -->|input_to| museum_gen
     museum_gen -->|generates| museum_out
+    content -->|input_to| analytics_gen
+    subsystems -->|input_to| analytics_gen
+    analytics_gen -->|generates| analytics_out
     content -->|input_to| offline_gen
     media -->|input_to| offline_gen
     subsystems -->|input_to| offline_gen
@@ -196,11 +203,11 @@ flowchart LR
 
 ## Stale-risk summary
 
-- **content** -> agents_out, canon_out, discovery_out, entities_out, machine_out, offline_out, relationships_out, root_out, tours_out
+- **content** -> agents_out, analytics_out, canon_out, discovery_out, entities_out, machine_out, offline_out, relationships_out, root_out, tours_out
 - **canon** -> agents_out, canon_out, machine_out, offline_out, relationships_out, root_out
 - **media** -> agents_out, discovery_out, entities_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out
 - **schemas** -> agents_out, canon_out, chronology_out, discovery_out, machine_out, museum_out, offline_out, tours_out, worldsvault_out
-- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out, worldsvault_out
+- **subsystems** -> agents_out, analytics_out, canon_out, chronology_out, discovery_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out, worldsvault_out
 - **topology** -> graph_out
 - **media_originals** -> agents_out, discovery_out, entities_out, machine_out, media_out, museum_out, offline_out, relationships_out, root_out, tours_out
 
