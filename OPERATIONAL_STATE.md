@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 31
+revision: 32
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -795,3 +795,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 29: made the temporary pinned visual-baseline refresh cleanup portable to the workflow shell after its generation, recheck, and full Chromium suite had passed; the temporary workflow remains self-removing and is not part of the final repair surface.
 - Revision 30: made the affected Drakken visual test open the outer archive without accordion animation so its pinned screenshot scroll state is deterministic; constrained the temporary refresh commit to the two visual references and workflow deletion, excluding environment-only QA-report churn.
 - Revision 31: added the machine-readable `main` governance contract and cold-start pointer, verified the actual GitHub branch protection, and closed the post-completion reproducibility/recovery and merge/live-publication proof boundary without starting Phase 13.
+- Revision 32: expanded the additive root Reader Workbench forensic uplift into an auditable browser-local reading desk with stable-ID-only state, local search/counts, queue/saved/recent/comparison actions, resilient resume/storage/import/export paths, preference/guidance controls, bounded Thread Atlas evidence navigation, copy surfaces, and six focused real-production-path Playwright journeys. Pre-delivery local proof is now established: focused Chromium `6 passed`; representative Firefox `12 passed`; WebKit `12 passed`; a CI-like tree excluding only intentionally uncommitted `media/source/` passed deterministic build/check, strict validation, public-boundary validation across 576 files, and derivation-map validation at 42 nodes / 92 edges, with 16 canon locks / 0 violations and 36 Drakken art assertions / 0 failures. The complete local Chromium suite reached 236 passed / 1 skipped; its four remaining screenshot mismatches are local macOS renders against pinned Linux references, while the two Git-ignore checks that could not run in the copied tree passed 2/2 in the real repository. No visual baseline was refreshed. This revision remains unclosed only for protected-branch pinned CI, merge, and live Pages proof; there is no Phase 13.
