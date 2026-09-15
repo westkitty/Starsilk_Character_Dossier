@@ -21,6 +21,7 @@ Usage: python3 build/generate.py [--check]
             against committed output, fail on divergence).
 """
 import argparse
+import base64
 import html as html_lib
 import json
 import re
@@ -307,6 +308,67 @@ def load_museum_stats(sections: list) -> dict:
     }
 
 
+def strip_witness_html(value: str) -> str:
+    """Collapse authored HTML to a display label without creating new lore."""
+    return " ".join(html_lib.unescape(re.sub(r"<[^>]+>", " ", value or "")).split())
+
+
+def build_witness_data(sections: list) -> dict:
+    """Compile the smallest browser-safe evidence index for the Witness Engine.
+
+    The index points back to existing stable IDs and machine locks. It is a
+    derivative convenience surface, never a new canon authority.
+    """
+    invariants = json.loads((CANON_DIR / "invariants.json").read_text(encoding="utf-8"))
+    principals = [v for v in invariants.get("principal_names", []) if isinstance(v, str) and v.strip()]
+    records = []
+    for section in sections:
+        if section.id == "cover":
+            continue
+        fragment = section.title_html or section.body_html
+        match = re.search(r"<h[1-3][^>]*>(.*?)</h[1-3]>", fragment or "", flags=re.IGNORECASE | re.DOTALL)
+        title = strip_witness_html(match.group(1) if match else section.id) or section.id
+        aliases = [section.id.replace("-", " ")]
+        sid = re.sub(r"[^a-z0-9]+", "-", section.id.lower()).strip("-")
+        for name in principals:
+            slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+            if slug == sid or slug.startswith(sid + "-"):
+                aliases.append(name)
+                if " " in name:
+                    aliases.append(name.split()[-1])
+        records.append({
+            "stable_id": section.id,
+            "title": title,
+            "aliases": sorted(set(a for a in aliases if a and a.lower() != title.lower())),
+            "source_ref": f"src/content/sections/{section.id}.body.html",
+            "canonical_url": f"{CANONICAL_URL}entities/{section.id}/",
+            "context_packet_url": f"{CANONICAL_URL}discover/packets/{section.id}.json",
+        })
+
+    locks = []
+    for scope, key in (("document", "document_locks"), ("section", "section_locks")):
+        for lock in invariants.get(key, []):
+            locks.append({
+                "lock_id": lock.get("id"),
+                "scope": scope,
+                "target_stable_id": lock.get("section") if scope == "section" else None,
+                "description": lock.get("description", ""),
+                "positive_requirements": list(lock.get("must_match", [])),
+                "prohibitions": list(lock.get("must_not_match", [])),
+            })
+
+    protected_literals = list(principals)
+    if any(lock.get("id") == "wordstreamer-canonical-spelling" for lock in invariants.get("document_locks", [])):
+        protected_literals.append("Wordstreamer")
+    return {
+        "schema": "starsilk-witness-data/1",
+        "authority_note": "Evidence derivative only; compile success never creates canon authority.",
+        "records": records,
+        "locks": locks,
+        "protected_literals": sorted(set(protected_literals)),
+    }
+
+
 def render_site() -> str:
     rename_map = load_media_rename_map()
     sections = load_sections(rename_map)
@@ -314,6 +376,8 @@ def render_site() -> str:
     style_css = (TEMPLATES_DIR / "style.css").read_text(encoding="utf-8")
     app_js = build_app_js(rename_map)
     reader_workbench_js = (TEMPLATES_DIR / "reader-workbench.js").read_text(encoding="utf-8")
+    witness_engine_js = (TEMPLATES_DIR / "witness-engine.js").read_text(encoding="utf-8")
+    witness_data_b64 = base64.b64encode(json.dumps(build_witness_data(sections), ensure_ascii=False, separators=(",", ":")).encode("utf-8")).decode("ascii")
     museum_stats = load_museum_stats(sections)
 
     entities = xref.collect_entities([
@@ -333,6 +397,8 @@ def render_site() -> str:
         style_css=style_css,
         app_js=app_js,
         reader_workbench_js=reader_workbench_js,
+        witness_engine_js=witness_engine_js,
+        witness_data_b64=witness_data_b64,
         footer_folio="27",
         canonical_url=CANONICAL_URL,
         og_image_url=find_og_image(rename_map),
