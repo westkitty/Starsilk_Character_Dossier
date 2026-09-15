@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 33
+revision: 34
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -137,6 +137,7 @@ freshness_policy: src/system/operational-state-policy.json
 74. Visual-coverage completion must not add or replace canonical media binaries, write back to `media/source/`, or weaken provenance checks. Any deliberately changed visual-regression baseline must be generated and immediately re-compared inside the pinned Playwright Linux environment before merge.
 
 75. `OPERATIONAL_STATE.md` must close every state-relevant repository change in the same change set with an increased revision and matching revision-log entry. `src/system/operational-state-policy.json` defines the bounded material/exemption policy; `tools/check_operational_state_freshness.py` is read-only and must not auto-edit project state.
+76. The root Witness Engine is a browser-memory-only evidence compiler over existing stable records and machine-enforced canon locks. Draft text is never canon/content/relationship authority and must not be persisted, transmitted, or promoted by compilation. Exact source-phrase matches establish only the matched phrase; unmatched assertions remain `source-local` or `unknown`, and absence from `src/canon/invariants.json` must never be interpreted as non-canon or false.
 
 ## Visual coverage completion — VERIFIED ON PR #47
 
@@ -760,7 +761,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- None. Museum + AI remains complete at Phase 12 of 12; there is no Phase 13. The post-program Drakken archive repair and post-completion fortress pass are closed with fresh Operational State, repository governance contract, protected `main`, reproducibility, and source-derived live Pages proof.
+- Witness Engine implementation on `feature/witness-engine` is locally verified and awaiting protected PR CI, merge, and exact live Pages proof. Museum + AI remains complete at Phase 12 of 12; this is post-program capability work, not Phase 13.
 
 ## Revision log
 
@@ -797,3 +798,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 31: added the machine-readable `main` governance contract and cold-start pointer, verified the actual GitHub branch protection, and closed the post-completion reproducibility/recovery and merge/live-publication proof boundary without starting Phase 13.
 - Revision 32: expanded the additive root Reader Workbench forensic uplift into an auditable browser-local reading desk with stable-ID-only state, local search/counts, queue/saved/recent/comparison actions, resilient resume/storage/import/export paths, preference/guidance controls, bounded Thread Atlas evidence navigation, copy surfaces, and six focused real-production-path Playwright journeys. Local proof established focused Chromium 6/6 plus representative Firefox 12/12 and WebKit 12/12; a CI-like tree excluding only intentionally uncommitted `media/source/` passed deterministic build/check, strict validation, public-boundary validation across 576 files, and derivation-map validation at 42 nodes / 92 edges, with 16 canon locks / 0 violations and 36 Drakken art assertions / 0 failures. Authoritative PR CI run `35031504532` then passed pinned Linux Chromium at `242 passed, 1 skipped`, Firefox 12/12, WebKit 12/12, exact-base Operational State freshness, deterministic docs parity, and the 576-file public-boundary gate. No visual baseline was refreshed. This revision remains unclosed only for protected merge and live Pages proof; there is no Phase 13.
 - Revision 33: closed the Reader Workbench uplift after PR #64 merged at `1828b0f1cff57b9107cc548b5fa49deba6139839`. Exact-state PR CI run `35031829035` and main CI run `35032076500` passed pinned Chromium plus Firefox/WebKit; Pages publish `35032076495`, Pages deployment `35032090194`, and Build Provenance succeeded for the merge. Cache-busted live verification established exact byte parity for root `docs/index.html` SHA-256 `c0eea9e3a0412ed0f9c5f78e08cf1061ec10d2d861d1fb9925209dd187380811` and `docs/service-worker.js` SHA-256 `c87b3dd810d93256296c265872048904cffa4d5357988e7008f3c7cfeb74c304`, with live Workbench/Thread Atlas markers present. The forensic ledger is 20 UI/UX + 20 interaction + 20 backend + 20 QoL + 20 feature improvements plus WOW-01, all VERIFIED COMPLETE. No canon, media provenance, dependency, visual baseline, service, telemetry, or Phase 13 change was introduced.
+- Revision 34: added the post-program Witness Engine on `feature/witness-engine`: a root-only browser-local draft compiler that derives a compact evidence index from existing stable records and `src/canon/invariants.json`, distinguishes exact six-word source support from draft-local/unknown assertions, applies only explicit applicable lock prohibitions as conflicts, flags protected literals and attributed-speech candidates, and exports evidence/context packets without creating canon authority. Draft text is never persisted, sent to a backend, or written into repository state; no account, telemetry, dependency, or remote runtime service was added. Raw lock evidence is UTF-8/base64 packaged into the generated root so technical forbidden-example strings do not contaminate rendered canon validation. Local focused Witness/mobile-cover proof passed 5/5; deterministic full build and `--check` both passed with 16 canon locks / 0 violations, 36 Drakken art assertions / 0 failures, and the 576-file public-boundary gate clean. The broader macOS Chromium run reached 241 passed / 1 skipped with only pinned-Linux screenshot comparisons failing; the Witness-induced mobile-cover delta was removed and its targeted baseline test now passes. Protected PR CI, merge, and live Pages byte/behavior proof remain pending; no Phase 13 was created.
