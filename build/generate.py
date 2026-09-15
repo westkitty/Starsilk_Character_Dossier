@@ -313,6 +313,7 @@ def render_site() -> str:
     nav = json.loads((CONTENT_DIR / "nav.json").read_text(encoding="utf-8"))
     style_css = (TEMPLATES_DIR / "style.css").read_text(encoding="utf-8")
     app_js = build_app_js(rename_map)
+    reader_workbench_js = (TEMPLATES_DIR / "reader-workbench.js").read_text(encoding="utf-8")
     museum_stats = load_museum_stats(sections)
 
     entities = xref.collect_entities([
@@ -331,6 +332,7 @@ def render_site() -> str:
         root_items=build_root_items(sections),
         style_css=style_css,
         app_js=app_js,
+        reader_workbench_js=reader_workbench_js,
         footer_folio="27",
         canonical_url=CANONICAL_URL,
         og_image_url=find_og_image(rename_map),
