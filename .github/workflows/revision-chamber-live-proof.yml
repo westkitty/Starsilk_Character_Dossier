@@ -47,7 +47,7 @@ jobs:
           assert match, 'Revision data payload not found'
           payload = json.loads(base64.b64decode(match.group(1)).decode('utf-8'))
           assert payload['schema'] == 'starsilk-revision-data/1'
-          assert 'subset' in payload['authority_note'].lower()
+          assert 'human canon judgment remains required' in payload['authority_note'].lower()
           print('root_sha256=' + hashlib.sha256(live).hexdigest())
           print('service_worker_sha256=' + hashlib.sha256(sw_live).hexdigest())
           print('revision_schema=' + payload['schema'])
