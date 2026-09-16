@@ -1,6 +1,6 @@
 {
   "archetype": "orbital-wyrm",
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-solnexus/",
   "display_label": "Solnexus",
@@ -27,6 +27,20 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C054",
+      "domain": "Localized campaigns / Shail-9",
+      "evidence_class": "authored-lore-record",
+      "label": "Triune Crown ends with a coded fourth sun",
+      "order": 54,
+      "source_locator": "data-lore-record=\"C054\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "A Solnexus braids three suns together and extinguishes them in sequence; a fourth sun is later born carrying restrictive Administration code intended to limit mythic variance.",
+      "tag": "War incident · Triune Crown"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "drk-solnexus",

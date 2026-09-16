@@ -121,3 +121,8 @@ Do not:
 `/agents/evaluation.json` contains reusable reference cases and explicit penalty rules. The fixtures do not require a particular model vendor. A system passes by respecting the evidence and authority boundaries, not by matching a preferred writing style.
 
 `/agents/integration.json` is a deterministic integration certificate generated from the current public derivatives. It proves structural compatibility checks only; it does not replace runtime browser, CI, live Pages, or source-authority evidence.
+## Claim-level evidence strength
+
+Context packets may include `source_claims`: proof-carrying projections of authored Canon Ledger records. Preserve each claim's `claim_id`, `authority`, `evidence_class`, `source_ref`, and `source_locator` when the answer depends on it. A claim proves only the proposition it actually states. Do not expand a narrow claim into a complete history, causal relation, recovery state, motive, or other stronger assertion without separate controlling evidence.
+
+This is the epistemic-overreach boundary: source-backed does not mean unlimited inference, and a machine-readable claim is not stronger merely because it is easier to retrieve.

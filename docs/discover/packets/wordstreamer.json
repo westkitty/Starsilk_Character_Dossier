@@ -1,6 +1,6 @@
 {
   "archetype": null,
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/wordstreamer/",
   "display_label": "Wordstreamer",
@@ -34,6 +34,104 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C013",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The first order is triarchic",
+      "order": 13,
+      "source_locator": "data-lore-record=\"C013\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The original divine order is the Triumvirate: Tiger / Shard-God, Wordstreamer / Language-Bound Poet, and NiAlBu / Recursive Dreamer.",
+      "tag": "Primordial · Triumvirate"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C014",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "Wordstreamer supplied creation syntax",
+      "order": 14,
+      "source_locator": "data-lore-record=\"C014\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Wordstreamer is the ancient language-bound deity whose syntax makes language capable of becoming structure, consequence, and executable force.",
+      "tag": "Primordial · Wordstreamer"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C018",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "Wordstreamer is murdered with Starsilk",
+      "order": 18,
+      "source_locator": "data-lore-record=\"C018\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Tiger uses the substrate he created to murder Wordstreamer, turning the universe’s executable medium into the mechanism of foundational divine betrayal.",
+      "tag": "Primordial · Murder"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C019",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The murder is a seizure of syntax",
+      "order": 19,
+      "source_locator": "data-lore-record=\"C019\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Wordstreamer’s death is not only elimination of a rival. It is Tiger’s attempt to claim absolute authorship over the universe’s language and rules.",
+      "tag": "Primordial · Authority"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C020",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The first Starsilk bleed follows deletion",
+      "order": 20,
+      "source_locator": "data-lore-record=\"C020\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Wordstreamer’s deletion produces the first recorded Starsilk bleed: radiant azure thread appearing where memory refuses a clean overwrite.",
+      "tag": "Primordial · Starsilk bleed"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C023",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "Witness is forced into recursion",
+      "order": 23,
+      "source_locator": "data-lore-record=\"C023\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "NiAlBu is compelled to watch Wordstreamer’s murder loop across millennia. The punishment is enforced repetition, not memory that fades with time.",
+      "tag": "Primordial · Recursion"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C035",
+      "domain": "Mother / Drakken origins",
+      "evidence_class": "authored-lore-record",
+      "label": "Silence creates the Great Misunderstanding",
+      "order": 35,
+      "source_locator": "data-lore-record=\"C035\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Because the Triumvirate has been silent since Wordstreamer’s murder, mortals interpret the descending Eggs through a religious vacuum and mistake them for benevolent gods.",
+      "tag": "Drakken · Great Misunderstanding"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C116",
+      "domain": "Post-Wall Drakken / civilization beyond the Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "Wordstream survives as a living communication practice",
+      "order": 116,
+      "source_locator": "data-lore-record=\"C116\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The first Drakken hail is not solved by a generic translator. Marcel understands because the Drakken wordstream the idea itself, revealing a living cultural connection to Wordstreamer’s legacy.",
+      "tag": "Post-Wall · Wordstream"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "wordstreamer",

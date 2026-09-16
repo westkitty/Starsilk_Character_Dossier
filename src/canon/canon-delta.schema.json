@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/canon-delta.schema.json",
+  "title": "Starsilk Canon Delta v1",
+  "description": "Interchange contract for proposed or accepted canon changes. The object records evidence and authority state; it does not itself canonize anything.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "project_id", "delta_id", "title", "authority", "old_state", "proposed_state", "source_claim_ids", "machine_lock_ids", "affected_stable_ids", "affected_event_ids", "must_change", "must_not_change", "unknowns"],
+  "properties": {
+    "schema": {"const": "starsilk-canon-delta/1"},
+    "project_id": {"const": "starsilk-character-dossier"},
+    "delta_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "authority": {"enum": ["exploratory", "provisional", "accepted", "locked"]},
+    "old_state": {"type": "string"},
+    "proposed_state": {"type": "string", "minLength": 1},
+    "source_claim_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^C[0-9]{3}$"}},
+    "machine_lock_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "affected_stable_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "affected_event_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "exact_literals": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}, "default": []},
+    "must_change": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "must_not_change": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "unknowns": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  }
+}

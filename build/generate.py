@@ -45,6 +45,7 @@ CANONICAL_URL = "https://westkitty.github.io/Starsilk_Character_Dossier/"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import xref  # noqa: E402
+import canon_loom  # noqa: E402
 
 
 def load_manifest() -> dict:
@@ -412,6 +413,9 @@ def build_revision_data(sections: list) -> dict:
         "records": witness["records"],
         "locks": witness["locks"],
         "events": events,
+        "claims": canon_loom.load_claims(),
+        "claim_source": "src/content/sections/canon-ledger.body.html",
+        "canon_delta_schema": "src/canon/canon-delta.schema.json",
         "canon_lock_source": "src/canon/invariants.json",
         "chronology_source": source_record.get("path", "src/chronology/events.json"),
     }

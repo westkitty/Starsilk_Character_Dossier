@@ -35,6 +35,7 @@ REQUIRED_CATEGORIES = {
     "canon-locks",
     "source-passage-retrieval",
     "spoiler-metadata",
+    "evidence-strength",
 }
 REQUIRED_PENALTIES = {
     "invented-relationship",
@@ -44,6 +45,7 @@ REQUIRED_PENALTIES = {
     "mention-to-causality",
     "lost-source-reference",
     "derivative-over-source",
+    "epistemic-overreach",
 }
 
 

@@ -1,6 +1,6 @@
 {
   "archetype": null,
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/kail/",
   "display_label": "Kail",
@@ -41,6 +41,68 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C082",
+      "domain": "Torture / Obsidian Armor / Kail",
+      "evidence_class": "authored-lore-record",
+      "label": "Kail’s first catastrophe is accidental star law",
+      "order": 82,
+      "source_locator": "data-lore-record=\"C082\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Tricked into a star dive, Kail pulls the filament without understanding the consequence; the star collapses, his system is destroyed, and the enforcement machinery follows the anomaly back toward him.",
+      "tag": "Kail · Origin"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C083",
+      "domain": "Torture / Obsidian Armor / Kail",
+      "evidence_class": "authored-lore-record",
+      "label": "Torture holds Kail outside ordinary stellar routing",
+      "order": 83,
+      "source_locator": "data-lore-record=\"C083\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "After Obsidian Armor slices him, Kail’s data remains trapped in Torture’s compressed state for approximately two hundred fifty-six years instead of entering the usual stellar archive route.",
+      "tag": "Kail · Torture state"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C084",
+      "domain": "Torture / Obsidian Armor / Kail",
+      "evidence_class": "authored-lore-record",
+      "label": "Zentrum reconstructs Kail as a controlled anomaly",
+      "order": 84,
+      "source_locator": "data-lore-record=\"C084\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Dao and Marcel crack Torture; Kail reforms without a mouth and with a miniature black hole at his throat. Marcel wordstreams a temporary container, and Tiger’s raw-starlight scarf provides ongoing gravity containment while retaining root-level control over what Kail can say.",
+      "tag": "Kail · Zentrum"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C108",
+      "domain": "Starbinding / Partition / Tiger aftermath",
+      "evidence_class": "authored-lore-record",
+      "label": "Codec removes himself from the world he creates",
+      "order": 108,
+      "source_locator": "data-lore-record=\"C108\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Codec repairs Kail’s mouth with old-universe data and sends him across. Because Codec’s own nervous system depends on active Starsilk, he decompiles in the between-space and purges his footprint rather than becoming the Partition’s new sovereign.",
+      "tag": "Starbinding · Codec end-state"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C120",
+      "domain": "Post-Wall Drakken / civilization beyond the Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "Peace begins as behavior, not absolution",
+      "order": 120,
+      "source_locator": "data-lore-record=\"C120\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Codec accepts aid, asks Marcel to answer through Wordstream, directs Dao to remove the Buster, and watches Kail lay down his sword. He approaches with kindness and humility for what his side—and he personally—did. The Drakken are not retroactively innocent, and Codec is not forgiven by default.",
+      "tag": "Post-Wall · Solidarity"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "kail",

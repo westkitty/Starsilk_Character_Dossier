@@ -1,6 +1,6 @@
 {
   "archetype": "crust-binder",
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-granithelion/",
   "display_label": "Granithelion",
@@ -25,6 +25,7 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [],
   "source_refs": [
     {
       "anchor": "drk-granithelion",

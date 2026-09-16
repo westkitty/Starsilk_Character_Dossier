@@ -1,6 +1,6 @@
 {
   "archetype": "crust-binder",
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/drk-fault-tongue/",
   "display_label": "Fault-Tongue",
@@ -27,6 +27,20 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C049",
+      "domain": "Localized campaigns / Shail-9",
+      "evidence_class": "authored-lore-record",
+      "label": "Tholus Fort is broken by one seismic utterance",
+      "order": 49,
+      "source_locator": "data-lore-record=\"C049\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "A Fault-Tongue strain speaks a single subterranean seismic tone and splits Tholus Fort in six directions within one sunrise.",
+      "tag": "War incident · Tholus Fort"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "drk-fault-tongue",

@@ -35,6 +35,7 @@ PROJECT_NAME = "Starsilk Compendium"
 
 sys.path.insert(0, str(ROOT / "build"))
 import generate  # noqa: E402
+import canon_loom  # noqa: E402
 import machine_publication as machine  # noqa: E402
 
 EXCERPT_LIMIT = 320
@@ -132,10 +133,14 @@ def build_facets(results: list[dict], nav_order: list[str]) -> dict:
     }
 
 
-def build_context_packet(section, record: dict, result: dict, relationships: dict) -> dict:
+def build_context_packet(section, record: dict, result: dict, relationships: dict, claims: list[dict]) -> dict:
     stable_id = record["stable_id"]
     outgoing = list(relationships.get("outgoing", {}).get(stable_id, []))
     incoming = list(relationships.get("backlinks", {}).get(stable_id, []))
+    source_claims = [
+        canon_loom.public_claim(claim)
+        for claim in canon_loom.claims_for_record(claims, stable_id, record["display_label"])
+    ]
     unknowns = list(record.get("unknowns", []))
     if result["navigation_group"] is None:
         unknowns.append("This stable record is not assigned to an authored src/content/nav.json navigation group.")
@@ -165,8 +170,9 @@ def build_context_packet(section, record: dict, result: dict, relationships: dic
             "incoming_stable_ids": incoming,
         },
         "source_refs": list(record["source_refs"]),
+        "source_claims": source_claims,
         "unknowns": unknowns,
-        "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+        "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
     }
 
 
@@ -208,8 +214,9 @@ def render_outputs() -> dict[str, str]:
         for section, record in zip(sections, records)
     ]
     facets = build_facets(results, nav_order)
+    claims = canon_loom.load_claims()
     packets = [
-        build_context_packet(section, record, result, relationships)
+        build_context_packet(section, record, result, relationships, claims)
         for section, record, result in zip(sections, records, results)
     ]
 
