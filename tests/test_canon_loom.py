@@ -34,7 +34,8 @@ def test_canon_loom_extracts_explicit_numeric_evidence_without_promoting_it_to_l
 def test_revision_payload_carries_claim_evidence_and_keeps_lock_source_separate():
     sections = generate.load_sections(generate.load_media_rename_map())
     payload = generate.build_revision_data(sections)
-    assert len(payload["claims"]) == 120
+    assert "claims" not in payload
+    assert payload["claim_numeric_facts"]["C094"] == [786_000_000]
     assert payload["claim_source"] == "src/content/sections/canon-ledger.body.html"
     assert payload["canon_lock_source"] == "src/canon/invariants.json"
     assert payload["canon_delta_schema"] == "src/canon/canon-delta.schema.json"

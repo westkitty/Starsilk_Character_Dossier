@@ -249,6 +249,20 @@ def claims_for_record(claims: list[dict], stable_id: str, display_label: str) ->
     return out
 
 
+def numeric_fact_map(claims: list[dict] | None = None) -> dict[str, list[float | int]]:
+    """Compact numeric evidence keyed by authored claim ID for browser analysis."""
+    out: dict[str, list[float | int]] = {}
+    for claim in claims or load_claims():
+        values = []
+        for fact in claim.get("numeric_facts", []):
+            value = fact.get("value")
+            if value not in values:
+                values.append(value)
+        if values:
+            out[claim["claim_id"]] = values
+    return out
+
+
 def public_claim(claim: dict) -> dict:
     """Compact proof-carrying claim representation for generated derivatives."""
     return {

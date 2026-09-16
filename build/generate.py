@@ -413,7 +413,7 @@ def build_revision_data(sections: list) -> dict:
         "records": witness["records"],
         "locks": witness["locks"],
         "events": events,
-        "claims": canon_loom.load_claims(),
+        "claim_numeric_facts": canon_loom.numeric_fact_map(),
         "claim_source": "src/content/sections/canon-ledger.body.html",
         "canon_delta_schema": "src/canon/canon-delta.schema.json",
         "canon_lock_source": "src/canon/invariants.json",
