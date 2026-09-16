@@ -1,0 +1,64 @@
+name: Revision Chamber bootstrap
+
+on:
+  push:
+    branches: [feature/revision-chamber]
+    paths:
+      - '.github/workflows/revision-chamber-bootstrap.yml'
+      - '.github/scripts/apply_revision_chamber.py'
+      - 'src/templates/revision-chamber.js'
+      - 'tests/test_revision_chamber.py'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/revision-chamber
+          fetch-depth: 0
+
+      - name: Trust worktree
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Install project dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Apply bounded Revision Chamber patch
+        run: python3 .github/scripts/apply_revision_chamber.py
+
+      - name: Build deterministic publication
+        run: ./tools/build.sh
+
+      - name: Focused Revision Chamber proof
+        run: python3 -m pytest tests/test_revision_chamber.py -q
+
+      - name: Check generated publication parity
+        run: ./tools/build.sh --check
+
+      - name: Remove one-shot bootstrap machinery
+        run: |
+          rm .github/scripts/apply_revision_chamber.py
+          rm .github/workflows/revision-chamber-bootstrap.yml
+          git checkout -- docs/qa-report.txt 2>/dev/null || true
+
+      - name: Commit materialized feature
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add OPERATIONAL_STATE.md build/generate.py src/templates/shell.html.j2 src/templates/revision-chamber.js tests/test_revision_chamber.py tests/test_cross_browser.py
+          git add docs/
+          git reset -- docs/qa-report.txt 2>/dev/null || true
+          git add -u .github
+          if git diff --cached --quiet; then
+            echo "No materialized changes to commit."
+            exit 1
+          fi
+          git diff --cached --check
+          git commit -m "feat: add speculative Revision Chamber"
+          git push origin HEAD:feature/revision-chamber
