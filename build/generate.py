@@ -39,6 +39,7 @@ DOCS_DIR = ROOT / "docs"
 MANIFEST_FILE = DOCS_DIR / "asset-manifest.json"
 VISUAL_COVERAGE_FILE = CONTENT_DIR / "visual-coverage.json"
 CANON_DIR = ROOT / "src" / "canon"
+CHRONOLOGY_FILE = ROOT / "src" / "chronology" / "events.json"
 
 CANONICAL_URL = "https://westkitty.github.io/Starsilk_Character_Dossier/"
 
@@ -369,6 +370,53 @@ def build_witness_data(sections: list) -> dict:
     }
 
 
+
+def build_revision_data(sections: list) -> dict:
+    """Build the browser-local evidence substrate for speculative canon planning.
+
+    This intentionally reuses the Witness stable-record and machine-lock index,
+    then adds only authored chronology event evidence. It is a planning
+    derivative and must never be interpreted as complete canon authority.
+    """
+    witness = build_witness_data(sections)
+    chronology = json.loads(CHRONOLOGY_FILE.read_text(encoding="utf-8"))
+    source_record = chronology.get("source_record", {})
+    events = []
+    for event in chronology.get("events", []):
+        temporal = event.get("temporal", {})
+        event_id = event.get("event_id")
+        if not event_id or not event.get("label"):
+            continue
+        events.append({
+            "event_id": event_id,
+            "label": event.get("label"),
+            "source_heading": event.get("source_heading"),
+            "source_ref": source_record.get("path"),
+            "canonical_url": f"{CANONICAL_URL}chronology/#event-{event_id}",
+            "temporal": {
+                "certainty": temporal.get("certainty", "unknown"),
+                "exact_authored_marker": temporal.get("exact_authored_marker"),
+                "relative_marker": temporal.get("relative_marker"),
+                "duration": temporal.get("duration"),
+                "before_event_ids": list(temporal.get("before_event_ids", [])),
+                "after_event_ids": list(temporal.get("after_event_ids", [])),
+            },
+        })
+    return {
+        "schema": "starsilk-revision-data/1",
+        "authority_note": (
+            "Speculative planning derivative only. Zero machine-lock conflicts "
+            "never means canon-compatible; human canon judgment remains required."
+        ),
+        "base_url": CANONICAL_URL,
+        "records": witness["records"],
+        "locks": witness["locks"],
+        "events": events,
+        "canon_lock_source": "src/canon/invariants.json",
+        "chronology_source": source_record.get("path", "src/chronology/events.json"),
+    }
+
+
 def render_site() -> str:
     rename_map = load_media_rename_map()
     sections = load_sections(rename_map)
@@ -378,6 +426,8 @@ def render_site() -> str:
     reader_workbench_js = (TEMPLATES_DIR / "reader-workbench.js").read_text(encoding="utf-8")
     witness_engine_js = (TEMPLATES_DIR / "witness-engine.js").read_text(encoding="utf-8")
     witness_data_b64 = base64.b64encode(json.dumps(build_witness_data(sections), ensure_ascii=False, separators=(",", ":")).encode("utf-8")).decode("ascii")
+    revision_chamber_js = (TEMPLATES_DIR / "revision-chamber.js").read_text(encoding="utf-8")
+    revision_data_b64 = base64.b64encode(json.dumps(build_revision_data(sections), ensure_ascii=False, separators=(",", ":")).encode("utf-8")).decode("ascii")
     museum_stats = load_museum_stats(sections)
 
     entities = xref.collect_entities([
@@ -399,6 +449,8 @@ def render_site() -> str:
         reader_workbench_js=reader_workbench_js,
         witness_engine_js=witness_engine_js,
         witness_data_b64=witness_data_b64,
+        revision_chamber_js=revision_chamber_js,
+        revision_data_b64=revision_data_b64,
         footer_folio="27",
         canonical_url=CANONICAL_URL,
         og_image_url=find_og_image(rename_map),

@@ -157,3 +157,18 @@ def test_worldsvault_topology_keyboard_and_deep_link_journey(page: Page, local_s
     expect(page.locator("#edge-orbits--meridian-station--virgil")).not_to_have_class("is-muted")
     expect(page.locator("#node-virgil")).to_have_class(re.compile(r"\bis-connected\b"))
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
+
+def test_revision_chamber_speculative_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/index.html#codec")
+    page.locator("#readerWorkbenchToggle").click()
+    page.locator("#readerToRevision").click()
+    expect(page.locator("#revisionChamber")).to_be_visible()
+    page.locator("#revisionProposal").fill("Codec establishes the mauve theorem.")
+    page.locator("#revisionAnalyze").click()
+    expect(page.locator("#revisionConsequences")).to_contain_text("HUMAN DECISION REQUIRED")
+    expect(page.locator("#revisionConsequences")).to_contain_text("Known blast radius only")
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    page.keyboard.press("Escape")
+    expect(page.locator("#revisionChamber")).to_be_hidden()
