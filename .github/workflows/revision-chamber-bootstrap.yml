@@ -30,7 +30,13 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Apply bounded Revision Chamber patch
-        run: python3 .github/scripts/apply_revision_chamber.py
+        run: |
+          python3 .github/scripts/apply_revision_chamber.py
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path("tests/test_cross_browser.py")
+          path.write_text(path.read_text(encoding="utf-8").rstrip() + "\n", encoding="utf-8")
+          PY
 
       - name: Build deterministic publication
         run: ./tools/build.sh
