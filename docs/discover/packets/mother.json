@@ -1,6 +1,6 @@
 {
   "archetype": "genesis",
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/mother/",
   "display_label": "Mother",
@@ -23,6 +23,92 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C025",
+      "domain": "Mother / Drakken origins",
+      "evidence_class": "authored-lore-record",
+      "label": "Mother is a world, not merely a commander",
+      "order": 25,
+      "source_locator": "data-lore-record=\"C025\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Mother emerges in the Aureal Nebula as a fixed living Drakken homeworld and hive-command ecology rather than a mobile Drakken titan.",
+      "tag": "Drakken · Mother"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C026",
+      "domain": "Mother / Drakken origins",
+      "evidence_class": "authored-lore-record",
+      "label": "Mother carries bioluminescent data-veins",
+      "order": 26,
+      "source_locator": "data-lore-record=\"C026\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Her planetary body is marked by luminous data-veins, visually linking biological worldhood with the Notebook Program’s executable ecology.",
+      "tag": "Drakken · Mother"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C027",
+      "domain": "Mother / Drakken origins",
+      "evidence_class": "authored-lore-record",
+      "label": "Mother compiles the Drakken",
+      "order": 27,
+      "source_locator": "data-lore-record=\"C027\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The Drakken are generated through Mother’s relationship with the Notebook Program: they are compiled ecological instruments, not an unrelated species that later learns terraforming.",
+      "tag": "Drakken · Origin"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C031",
+      "domain": "Mother / Drakken origins",
+      "evidence_class": "authored-lore-record",
+      "label": "The compendium is a thirty-seven-entry ecology",
+      "order": 31,
+      "source_locator": "data-lore-record=\"C031\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The Drakken Terraforming Compendium contains thirty-seven entries: one Egg, thirty-five strains, and Mother.",
+      "tag": "Drakken · Taxonomy"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C110",
+      "domain": "Post-Wall Drakken / civilization beyond the Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "The first post-Wall era is a material crisis",
+      "order": 110,
+      "source_locator": "data-lore-record=\"C110\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "For roughly two thousand years under Mother, accessible matter is brutally constrained. Some Titans turn on one another, and damaged bodies and fragments become part of the surviving environment.",
+      "tag": "Post-Wall · Scarcity"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C111",
+      "domain": "Post-Wall Drakken / civilization beyond the Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "Mother is defeated rather than eternally obeyed",
+      "order": 111,
+      "source_locator": "data-lore-record=\"C111\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "About two millennia after containment, surviving Drakken overthrow Mother in an anti-fascist coup. The hive-mind link ceases to function as the governing condition of their civilization.",
+      "tag": "Post-Wall · Mother"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C112",
+      "domain": "Post-Wall Drakken / civilization beyond the Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "Egg programming becomes civilizational adaptation",
+      "order": 112,
+      "source_locator": "data-lore-record=\"C112\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "After Mother’s defeat, surviving Drakken continue programming eggs before hatching, redirecting reproduction away from conquest-scale Titan bodies and toward forms compatible with scarcity, repair, close work, and material stewardship.",
+      "tag": "Post-Wall · Eggs"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "mother",

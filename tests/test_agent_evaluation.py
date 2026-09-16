@@ -19,7 +19,7 @@ def test_vendor_neutral_fixture_covers_phase_12_contract():
 
     assert {case["category"] for case in fixtures["cases"]} == agent_publication.REQUIRED_CATEGORIES
     assert {item["id"] for item in fixtures["penalties"]} == agent_publication.REQUIRED_PENALTIES
-    assert len(fixtures["cases"]) == 13
+    assert len(fixtures["cases"]) == 14
 
 
 def test_agent_guide_preserves_authority_and_unknown_boundaries():

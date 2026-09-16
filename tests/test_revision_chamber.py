@@ -114,3 +114,29 @@ def test_revision_chamber_mobile_keyboard_and_touch_targets(page: Page, local_se
     page.keyboard.press("Escape")
     expect(page.locator("#revisionChamber")).to_be_hidden()
     expect(page.locator("#readerWorkbenchToggle")).to_be_focused()
+
+
+def test_revision_chamber_source_contradiction_is_distinct_from_machine_lock(page: Page, local_server):
+    page.goto(f"{local_server}/index.html#codec")
+    open_chamber(page)
+    page.locator("#revisionProposal").fill(
+        "On Nacreous VI, the final confirmed death count was 100 million."
+    )
+    page.locator("#revisionSacrifice").click()
+    consequences = page.locator("#revisionConsequences")
+    expect(consequences).to_contain_text("HUMAN DECISION REQUIRED")
+    expect(consequences).to_contain_text("Source contradictions")
+    expect(consequences).to_contain_text("C094")
+    expect(consequences).to_contain_text("explicit-numeric-mismatch")
+    expect(consequences).to_contain_text("Minimum proven sacrifice set")
+    expect(consequences).to_contain_text("source-claim")
+    expect(consequences).to_contain_text("Why Is This Canon?")
+    expect(consequences).to_contain_text("What Breaks If This Changes?")
+    assert consequences.locator(".revision-source-conflict").count() == 1
+    assert consequences.locator(".revision-conflict").count() == 0
+
+    page.locator("#revisionCompareTarget").select_option("current-canon")
+    page.locator("#revisionCompareBtn").click()
+    expect(page.locator("#revisionComparison")).to_contain_text("Earliest Proven Divergence")
+    expect(page.locator("#revisionComparison")).to_contain_text("C094")
+    expect(page.locator("#revisionComparison")).to_contain_text("not a claim of universal causal or chronological priority")

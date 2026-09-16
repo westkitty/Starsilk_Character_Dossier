@@ -1,6 +1,6 @@
 {
   "archetype": null,
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/blood-rings/",
   "display_label": "Blood Rings",
@@ -21,6 +21,44 @@
   "result_class": "section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C040",
+      "domain": "Blood Eclipse War / Siege Wall",
+      "evidence_class": "authored-lore-record",
+      "label": "The first ring uses whole-world biological fractions",
+      "order": 40,
+      "source_locator": "data-lore-record=\"C040\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The Fallenstar process combines rendered flesh, bone, breath, ocean fats, biosphere oils, and other world matter into the feedstock later vitrified in orbit.",
+      "tag": "Blood Eclipse War · Blood Rings"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C088",
+      "domain": "Codec / Administration / Nacreous VI",
+      "evidence_class": "authored-lore-record",
+      "label": "Blood Ring maps are operational instruments",
+      "order": 88,
+      "source_locator": "data-lore-record=\"C088\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Codec maps approach vectors, blind corridors, and the distance at which orbital slurry makes instruments unreliable. The rings are treated as navigation hazards before they can be treated as symbols.",
+      "tag": "Codec · Blood Rings"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C089",
+      "domain": "Codec / Administration / Nacreous VI",
+      "evidence_class": "authored-lore-record",
+      "label": "He names the psychological hazard clinically",
+      "order": 89,
+      "source_locator": "data-lore-record=\"C089\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Field warnings use terms such as cognitive hazard, recursive despair, and spatial-moral disorientation to describe what unfiltered visualization of a world-made-ring can do to observers.",
+      "tag": "Codec · Blood Rings"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "blood-rings",

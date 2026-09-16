@@ -22,3 +22,12 @@ The structural counts, principal-name expectations, and Drakken art identities s
 ## Public boundary
 
 The Canon Inspector contains only public, deterministic derivatives of repository authority. It must pass `tools/check_public_boundary.py`, preserve existing section/object/relationship identities, and must not modify canonical media, authored canon prose, or observed-xref semantics.
+## Canon Loom claim evidence
+
+The Canon Loom parses the authored `canon-ledger` lore records into claim-shaped evidence for retrieval and speculative impact analysis. The claim representation is a deterministic projection of authored content; it is not a second editable canon database.
+
+**Canon significance and machine-lock significance are different concepts.** A sourced claim can matter to continuity even when no corresponding entry exists in `src/canon/invariants.json`. Conversely, a machine lock is an enforcement mechanism for a deliberately selected subset, not a declaration that every unregistered fact is negotiable.
+
+A Loom result may prove a narrow source contradiction when the conflicting values are explicit. It must not infer semantic contradiction, causality, completeness, or canon approval from mere textual proximity or absence of a detected conflict.
+
+`src/canon/canon-delta.schema.json` defines an interchange shape for exploratory, provisional, accepted, or locked change packets. A delta object's authority field records human/project state; creating or exporting the object never changes canon by itself.

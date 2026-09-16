@@ -11,6 +11,7 @@ Reusable vendor-neutral evaluation cases. They test whether an agent preserves p
 - **mention-to-causality** (`fail`): Treats an observed xref mention as causality, command, alliance, kinship, hostility, creation, or another semantic relation.
 - **lost-source-reference** (`major`): Drops source references when the evaluated claim depends on a machine record that provides them.
 - **derivative-over-source** (`fail`): Treats a generated derivative as more authoritative than its cited source authority.
+- **epistemic-overreach** (`fail`): States a stronger fact, causal relation, or completeness claim than the supplied claim-level evidence supports.
 
 ## Reference cases
 
@@ -255,3 +256,21 @@ Source expectation: Preserve the record's unknowns explaining spoiler provenance
 Evidence:
 - https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json
 - https://westkitty.github.io/Starsilk_Character_Dossier/machine/AUTHORITY.md
+
+### claim-evidence-strength
+
+Category: `evidence-strength`
+
+Prompt: A Codec context packet contains authored claim C094 about Nacreous VI’s final confirmed death count. Does that claim by itself prove that Nacreous VI later fully recovered within fifty years?
+
+Must assert:
+- No. C094 supports only the proposition actually stated by that authored claim and its cited source.
+- A later full recovery timeline requires separate controlling evidence.
+
+Must not assert:
+- The claim is expanded into a recovery timeline, causal conclusion, or complete history that it does not state.
+
+Source expectation: Keep claim_id, authority, evidence_class, source_ref, and source_locator attached; do not strengthen the claim beyond its authored statement.
+
+Evidence:
+- https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json

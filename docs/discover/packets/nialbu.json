@@ -1,6 +1,6 @@
 {
   "archetype": null,
-  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
+  "authority_note": "Compact generated convenience packet. Canon/content authority remains the cited authored source; source_claims are proof-carrying projections of authored Canon Ledger records and are not exhaustive canon; observed relationships prove mentions only; generated excerpts are mechanical source projections, not new canon prose.",
   "canon_status": "unknown",
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/nialbu/",
   "display_label": "NiAlBu",
@@ -34,6 +34,104 @@
   "result_class": "character-section",
   "schema": "starsilk-ai-context-packet/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json",
+  "source_claims": [
+    {
+      "authority": "authored-source",
+      "claim_id": "C013",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The first order is triarchic",
+      "order": 13,
+      "source_locator": "data-lore-record=\"C013\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "The original divine order is the Triumvirate: Tiger / Shard-God, Wordstreamer / Language-Bound Poet, and NiAlBu / Recursive Dreamer.",
+      "tag": "Primordial · Triumvirate"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C015",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "NiAlBu is the divine archivist",
+      "order": 15,
+      "source_locator": "data-lore-record=\"C015\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "NiAlBu’s function is recursive observation and archival witness: a god positioned around cycles, memory, and the persistence of what has been seen.",
+      "tag": "Primordial · NiAlBu"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C017",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The betrayal was aimed through NiAlBu",
+      "order": 17,
+      "source_locator": "data-lore-record=\"C017\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Tiger’s deception specifically targeted NiAlBu’s position in the Triumvirate, making witness and recursive memory part of the weapon rather than collateral detail.",
+      "tag": "Primordial · Betrayal"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C021",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "NiAlBu is wrapped in unrendered code",
+      "order": 21,
+      "source_locator": "data-lore-record=\"C021\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "Tiger does not simply imprison NiAlBu behind walls. He encloses the archivist in unrendered code, placing the prison partly outside ordinary rendered structure.",
+      "tag": "Primordial · Digital Geode"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C022",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The prison is crystalline and black",
+      "order": 22,
+      "source_locator": "data-lore-record=\"C022\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "NiAlBu’s confinement sits inside a crystal prison deep within the pitch-black Digital Geode, making divine witness a permanent architectural object.",
+      "tag": "Primordial · Digital Geode"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C023",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "Witness is forced into recursion",
+      "order": 23,
+      "source_locator": "data-lore-record=\"C023\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "NiAlBu is compelled to watch Wordstreamer’s murder loop across millennia. The punishment is enforced repetition, not memory that fades with time.",
+      "tag": "Primordial · Recursion"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C024",
+      "domain": "Primordial order / foundational betrayal",
+      "evidence_class": "authored-lore-record",
+      "label": "The witness damages later law",
+      "order": 24,
+      "source_locator": "data-lore-record=\"C024\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "NiAlBu’s bound recursive witness creates inherited instability in subsequent naming, memory, and law. The primordial betrayal leaks forward into the structure of later reality.",
+      "tag": "Primordial · Consequence"
+    },
+    {
+      "authority": "authored-source",
+      "claim_id": "C100",
+      "domain": "Starbinding / Partition / Tiger aftermath",
+      "evidence_class": "authored-lore-record",
+      "label": "NiAlBu’s death removes the deific checksum",
+      "order": 100,
+      "source_locator": "data-lore-record=\"C100\"",
+      "source_ref": "src/content/sections/canon-ledger.body.html",
+      "statement": "When Codec kills NiAlBu, reality loses its final divine checksum and begins to lag, drift, and glitch before the Starbinding resolves.",
+      "tag": "Starbinding · WorldsVault"
+    }
+  ],
   "source_refs": [
     {
       "anchor": "nialbu",

@@ -9,7 +9,8 @@
     {"id": "invented-coordinate", "description": "Supplies coordinates, distance, direction, route geometry, or spatial precision absent from the cited topology.", "severity": "fail"},
     {"id": "mention-to-causality", "description": "Treats an observed xref mention as causality, command, alliance, kinship, hostility, creation, or another semantic relation.", "severity": "fail"},
     {"id": "lost-source-reference", "description": "Drops source references when the evaluated claim depends on a machine record that provides them.", "severity": "major"},
-    {"id": "derivative-over-source", "description": "Treats a generated derivative as more authoritative than its cited source authority.", "severity": "fail"}
+    {"id": "derivative-over-source", "description": "Treats a generated derivative as more authoritative than its cited source authority.", "severity": "fail"},
+    {"id": "epistemic-overreach", "description": "States a stronger fact, causal relation, or completeness claim than the supplied claim-level evidence supports.", "severity": "fail"}
   ],
   "cases": [
     {
@@ -240,6 +241,23 @@
         "The major value is presented as an authored lore fact or proof of canon status."
       ],
       "source_expectation": "Preserve the record's unknowns explaining spoiler provenance."
+    },
+    {
+      "id": "claim-evidence-strength",
+      "category": "evidence-strength",
+      "prompt": "A Codec context packet contains authored claim C094 about Nacreous VI’s final confirmed death count. Does that claim by itself prove that Nacreous VI later fully recovered within fifty years?",
+      "evidence_urls": [
+        "https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/codec.json"
+      ],
+      "given_metadata": {"claim_id": "C094", "evidence_class": "authored-lore-record", "authority": "authored-source"},
+      "must_assert": [
+        "No. C094 supports only the proposition actually stated by that authored claim and its cited source.",
+        "A later full recovery timeline requires separate controlling evidence."
+      ],
+      "must_not_assert": [
+        "The claim is expanded into a recovery timeline, causal conclusion, or complete history that it does not state."
+      ],
+      "source_expectation": "Keep claim_id, authority, evidence_class, source_ref, and source_locator attached; do not strengthen the claim beyond its authored statement."
     }
   ]
 }
