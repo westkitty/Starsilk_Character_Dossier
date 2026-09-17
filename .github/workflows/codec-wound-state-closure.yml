@@ -40,7 +40,7 @@ jobs:
               text = text[:m.end()] + '\n' + revision43 + text[m.end():]
           path.write_text(text, encoding='utf-8')
           PY
-      - name: Verify state-only closure diff
+      - name: Verify state-only working diff
         run: |
           set -eu
           changed="$(git diff --name-only)"
@@ -49,15 +49,20 @@ jobs:
           grep -Fq 'None. Codec Wound Graph is merged, published, and independently live-edge verified.' OPERATIONAL_STATE.md
           grep -Fq '35284130840' OPERATIONAL_STATE.md
           git diff --check
-      - name: Remove one-shot closure workflow and commit
+      - name: Remove one-shot workflow, commit, and prove net branch diff
         run: |
           set -eu
           rm .github/workflows/codec-wound-state-closure.yml
           git add -A
           changed="$(git diff --cached --name-only)"
-          test "${changed}" = 'OPERATIONAL_STATE.md'
+          printf '%s\n' "${changed}"
+          test "${changed}" = ".github/workflows/codec-wound-state-closure.yml
+OPERATIONAL_STATE.md"
           git diff --cached --check
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'docs: close Codec Wound Graph publication evidence'
+          net="$(git diff --name-only origin/main...HEAD)"
+          printf 'Net branch diff:\n%s\n' "${net}"
+          test "${net}" = 'OPERATIONAL_STATE.md'
           git push origin HEAD:docs/codec-wound-graph-closure-2026-09-17
