@@ -40,6 +40,7 @@ MANIFEST_FILE = DOCS_DIR / "asset-manifest.json"
 VISUAL_COVERAGE_FILE = CONTENT_DIR / "visual-coverage.json"
 CANON_DIR = ROOT / "src" / "canon"
 CHRONOLOGY_FILE = ROOT / "src" / "chronology" / "events.json"
+ROOT_TOOL_ASSETS = ("wound-graph.js", "wound-graph.css")
 
 CANONICAL_URL = "https://westkitty.github.io/Starsilk_Character_Dossier/"
 
@@ -501,11 +502,22 @@ def main() -> int:
             if not rights_docs.exists() or rights_docs.read_text(encoding="utf-8") != rights_src.read_text(encoding="utf-8"):
                 print("ERROR: docs/RIGHTS.md does not match RIGHTS.md.", file=sys.stderr)
                 return 1
-        print("OK: docs/index.html matches generator output.")
+        for relative in ROOT_TOOL_ASSETS:
+            source = TEMPLATES_DIR / relative
+            target = DOCS_DIR / relative
+            if not target.exists() or target.read_text(encoding="utf-8") != source.read_text(encoding="utf-8"):
+                print(f"ERROR: root tool asset differs from source: docs/{relative}", file=sys.stderr)
+                return 1
+        print("OK: docs/index.html and root tool assets match generator output.")
         return 0
 
     index_file.write_text(html, encoding="utf-8")
     print(f"Wrote {index_file} ({len(html):,} bytes)")
+    for relative in ROOT_TOOL_ASSETS:
+        source = TEMPLATES_DIR / relative
+        target = DOCS_DIR / relative
+        shutil.copy2(source, target)
+        print(f"Wrote {target} ({target.stat().st_size:,} bytes)")
 
     rights_src = ROOT / "RIGHTS.md"
     if rights_src.exists():

@@ -172,3 +172,20 @@ def test_revision_chamber_speculative_journey(page: Page, local_server):
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
     page.keyboard.press("Escape")
     expect(page.locator("#revisionChamber")).to_be_hidden()
+
+
+def test_codec_wound_graph_evidence_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/index.html#codec")
+    page.locator("#readerWorkbenchToggle").click()
+    page.locator("#readerToWoundGraph").click()
+    expect(page.locator("#woundGraph")).to_be_visible()
+    expect(page.locator("#woundGraph")).to_contain_text("Evidence network, not causal authority")
+    page.locator('[data-claim-id="C095"]').click()
+    expect(page.locator("#woundRipple")).to_contain_text("Not proof of causation")
+    page.locator("#woundOpenEvidence").click()
+    expect(page.locator("#woundEvidence")).to_contain_text("authored-lore-record")
+    page.keyboard.press("Escape")
+    page.keyboard.press("Escape")
+    expect(page.locator("#readerToWoundGraph")).to_be_focused()
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
