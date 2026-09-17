@@ -24,6 +24,9 @@ AI context packet register: https://westkitty.github.io/Starsilk_Character_Dossi
 AI context packet pattern: https://westkitty.github.io/Starsilk_Character_Dossier/discover/packets/<stable-id>.json
 Human curated tours and local library: https://westkitty.github.io/Starsilk_Character_Dossier/tours/
 Curated tour JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json
+Human Administration Educational Film Vault: https://westkitty.github.io/Starsilk_Character_Dossier/films/
+Film Vault JSON catalog: https://westkitty.github.io/Starsilk_Character_Dossier/films/films.json
+- Film Vault reels are curated diegetic media. Institutional framing never outranks cited Compendium canon, and planned reels are not completed artifacts.
 Agent reference guide: https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md
 Vendor-neutral agent evaluation fixtures: https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json
 Final integration certificate: https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json

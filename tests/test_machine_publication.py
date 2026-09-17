@@ -24,6 +24,7 @@ SCHEMAS = {
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
     "agent-evaluation.schema.json",
+    "administration-film-vault.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -216,6 +217,10 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "worldsvault/worldsvault.md",
         "worldsvault/schema.json",
         "worldsvault/AUTHORITY.md",
+        "films/",
+        "films/films.json",
+        "films/schema.json",
+        "films/AUTHORITY.md",
         "agents/AGENT_GUIDE.md",
         "agents/evaluation.json",
         "agents/evaluation.md",

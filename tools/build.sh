@@ -10,6 +10,7 @@ set -euo pipefail
 #     -> build/canon_publication.py     (machine-enforced canon lock inspector)
 #     -> build/discovery_publication.py (faceted discovery + AI context packets)
 #     -> build/tour_publication.py      (curated tours + browser-local library shell)
+#     -> build/film_publication.py      (Administration Educational Film Vault)
 #     -> build/chronology_publication.py (source-backed chronology explorer)
 #     -> build/worldsvault_publication.py (source-backed cosmic topology explorer)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
@@ -19,7 +20,7 @@ set -euo pipefail
 #     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
-# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/chronology/, docs/worldsvault/, docs/entities/, docs/objects/, and the root offline shell files are
+# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/films/, docs/chronology/, docs/worldsvault/, docs/entities/, docs/objects/, and the root offline shell files are
 # disposable generated output. Every run rebuilds them from declared source
 # authority; none may become a second canon source of truth.
 #
@@ -107,6 +108,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/discovery_publication.py --check
     echo "-> Generating (in-memory) and checking curated tours + local library shell..."
     "$PY" build/tour_publication.py --check
+    echo "-> Generating (in-memory) and checking Administration Educational Film Vault..."
+    "$PY" build/film_publication.py --check
     echo "-> Generating (in-memory) and checking source-backed chronology explorer..."
     "$PY" build/chronology_publication.py --check
     echo "-> Generating (in-memory) and checking source-backed WorldsVault topology explorer..."
@@ -132,6 +135,8 @@ else
     "$PY" build/discovery_publication.py
     echo "-> Generating curated stable-ID tours + local library shell..."
     "$PY" build/tour_publication.py
+    echo "-> Generating Administration Educational Film Vault..."
+    "$PY" build/film_publication.py
     echo "-> Generating source-backed chronology explorer..."
     "$PY" build/chronology_publication.py
     echo "-> Generating source-backed WorldsVault topology explorer..."
@@ -150,7 +155,7 @@ echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/films docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"

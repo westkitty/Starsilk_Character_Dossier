@@ -31,6 +31,10 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/tours/tours.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/tours/schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/tours/AUTHORITY.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/films/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/films/films.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/films/schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/films/AUTHORITY.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/chronology/chronology.md</loc></url>
@@ -56,6 +60,7 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/context-packet-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/tour-index.schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/administration-film-vault.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/agent-evaluation.schema.json</loc></url>
