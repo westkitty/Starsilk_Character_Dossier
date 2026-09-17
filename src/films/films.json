@@ -1,0 +1,176 @@
+{
+  "schema": "starsilk-administration-film-source/1",
+  "project_id": "starsilk-character-dossier",
+  "authority": "curated-diegetic-media",
+  "issuer": "Administration",
+  "slogan": "Your fate is in our hands.",
+  "films": [
+    {
+      "film_id": "reel-001",
+      "title": "When a Star Becomes a Lock",
+      "status": "production-treatment",
+      "documentary_subtype": "civil defence",
+      "department": "Administration Office of Approved Scientific Instruction",
+      "audience": "civilian classrooms and continuity briefings",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "A collapsed star may continue serving civic continuity as part of an approved containment structure.",
+      "actual_event": "Tiger's heliocide response to Drakken Starsilk use collapsed stars into the Siege Wall black-hole lattice, costing thousands of stars and trillions of lives.",
+      "institutional_function": "Normalize mass sacrifice as an orderly continuity procedure and teach viewers to interpret containment efficiency as civic protection.",
+      "source_stable_ids": [
+        "codec",
+        "blood-rings",
+        "beyond-wall"
+      ],
+      "scenes": [
+        {
+          "scene": 1,
+          "title": "Administration seal",
+          "visual": "A clean 4:3 cream field. The Administration seal resolves from registration marks. A classroom projector jitters once and settles.",
+          "narration": "The Administration presents an approved lesson in stellar continuity. Today, we will learn what happens when a star can no longer be permitted to remain merely a star."
+        },
+        {
+          "scene": 2,
+          "title": "The ordinary star",
+          "visual": "A simple yellow star diagram with three inhabited orbital rings represented as small civic icons. Everything is calm and diagrammatic.",
+          "narration": "Most stars perform familiar work. They provide heat, light, gravity, timekeeping, agriculture, navigation, and the pleasant illusion that their continued existence is guaranteed."
+        },
+        {
+          "scene": 3,
+          "title": "The strategic inconvenience",
+          "visual": "The same diagram receives a neat red bracket labeled CONTAINMENT CONDITION. No enemy anatomy is shown. The star remains centered and visually ordinary.",
+          "narration": "During exceptional containment conditions, continued stellar operation may create an unacceptable strategic opening. This is not a moral category. It is a systems condition."
+        },
+        {
+          "scene": 4,
+          "title": "Collapse sequence",
+          "visual": "Three instructional frames: stellar core, Starsilk intervention marker, immediate collapse into a black disk. Neighboring orbital icons disappear between frames without spectacle.",
+          "narration": "Once the approved collapse sequence begins, evacuation assumptions are replaced by containment requirements. The star contracts. Local orbital continuity ends. The resulting singularity is stable enough to perform a new civic function."
+        },
+        {
+          "scene": 5,
+          "title": "From star to lock",
+          "visual": "Several black disks appear as evenly spaced nodes around a simplified sector diagram. Thin drafting lines connect them into a boundary. The interior is left as pure black absence.",
+          "narration": "A single collapsed star is a loss. A coordinated lattice of collapsed stars is a boundary. In the correct arrangement, the former star becomes a lock."
+        },
+        {
+          "scene": 6,
+          "title": "The arithmetic of continuity",
+          "visual": "A chalkboard-like tally simplifies worlds into counters. A large column marked CONTINUITY remains while smaller columns vanish behind a sliding mask.",
+          "narration": "Continuity planning is not a promise that everyone will continue. It is the disciplined preservation of what can still be preserved. Mature citizens understand the difference."
+        },
+        {
+          "scene": 7,
+          "title": "Approved remembrance",
+          "visual": "Children and adults stand before a civic observation window. Beyond it is only a black circular region with no decorative stars. Their expressions are restrained.",
+          "narration": "You may remember what occupied the systems that became the boundary. You may grieve privately. Publicly, remember also what the boundary prevents."
+        },
+        {
+          "scene": 8,
+          "title": "Closing card",
+          "visual": "Full-frame Administration seal. Small registration marks drift at the edge. No other imagery.",
+          "narration": "The Administration thanks you for your attention. Your fate is in our hands."
+        }
+      ],
+      "teacher_questions": [
+        "Why does the film distinguish a moral category from a systems condition?",
+        "What civic function does the film assign to a collapsed star?",
+        "Why are evacuation assumptions described as replaceable?",
+        "How does the film ask citizens to separate private grief from public interpretation?",
+        "What does the phrase continuity planning conceal by reducing lives to preserved and unpreserved quantities?"
+      ]
+    },
+    {
+      "film_id": "reel-002",
+      "title": "Blood Rings: Recognition and Safe Viewing",
+      "status": "planned",
+      "documentary_subtype": "classroom science",
+      "department": "Administration Office of Public Observation",
+      "audience": "civilian classrooms",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "Recognize Blood Rings and follow approved viewing guidance.",
+      "actual_event": "Blood Rings are atrocity artifacts produced from destroyed populations and environments.",
+      "institutional_function": "Convert horror into observation protocol and approved vocabulary.",
+      "source_stable_ids": [
+        "blood-rings",
+        "codec"
+      ],
+      "scenes": [],
+      "teacher_questions": []
+    },
+    {
+      "film_id": "reel-003",
+      "title": "Your Remnant World and You",
+      "status": "planned",
+      "documentary_subtype": "social adjustment",
+      "department": "Administration Civilian Adjustment Directorate",
+      "audience": "remnant-world civilians",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "Adapt to permanent planetary damage without assuming restoration to a prior state.",
+      "actual_event": "Administration countermeasures could preserve sectors while permanently damaging inhabited worlds.",
+      "institutional_function": "Redirect loss into compliance, adaptation, and continuity language.",
+      "source_stable_ids": [
+        "codec"
+      ],
+      "scenes": [],
+      "teacher_questions": []
+    },
+    {
+      "film_id": "reel-004",
+      "title": "Why the Siege Wall Is Dark",
+      "status": "planned",
+      "documentary_subtype": "public outreach",
+      "department": "Administration Office of Public Observation",
+      "audience": "general civilian audiences",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "Understand the visible absence associated with the Siege Wall without treating missing signals as an invitation to speculate.",
+      "actual_event": "The Siege Wall is a black-hole containment lattice around the Drakken domain.",
+      "institutional_function": "Normalize absence, lost contact, and inaccessible regions as managed containment.",
+      "source_stable_ids": [
+        "beyond-wall",
+        "codec"
+      ],
+      "scenes": [],
+      "teacher_questions": []
+    },
+    {
+      "film_id": "reel-005",
+      "title": "The Drakken: Please Do Not Improvise",
+      "status": "planned",
+      "documentary_subtype": "civic preparedness",
+      "department": "Administration Civic Preparedness Bureau",
+      "audience": "civilian observers and local responders",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "Follow approved reporting and observation procedure around Drakken activity.",
+      "actual_event": "Drakken are reality-altering terraforming entities whose effects cannot be safely generalized into ordinary disaster response.",
+      "institutional_function": "Discourage unsanctioned intervention while preserving useful witness evidence.",
+      "source_stable_ids": [
+        "drakken-registry"
+      ],
+      "scenes": [],
+      "teacher_questions": []
+    },
+    {
+      "film_id": "reel-006",
+      "title": "Necessity",
+      "status": "planned",
+      "documentary_subtype": "civil defence",
+      "department": "Administration Department of Planetary Continuity",
+      "audience": "continuity officers and senior civic classrooms",
+      "archive_date": "unknown",
+      "presentation_aesthetic": "mid-century classroom projector film",
+      "official_lesson": "Understand allocation decisions made under catastrophic constraint.",
+      "actual_event": "Administration survival policy repeatedly required selecting which lives and worlds would be sacrificed for others.",
+      "institutional_function": "Reduce moral catastrophe to legible allocation procedure and institutional necessity.",
+      "source_stable_ids": [
+        "codec"
+      ],
+      "scenes": [],
+      "teacher_questions": []
+    }
+  ]
+}

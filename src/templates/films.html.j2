@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administration Educational Film Vault · {{ project_name }}</title>
+<meta name="description" content="Recovered and reconstructed Administration educational-film treatments from the Starsilk Compendium.">
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="alternate" type="application/json" href="films.json">
+<link rel="stylesheet" href="films.css">
+</head>
+<body class="film-vault-shell">
+<a class="skip-link" href="#main">Skip to Film Vault</a>
+{% set nav_root = '../' %}{% set nav_current = 'films' %}{% include "_museum_nav.html.j2" %}
+<main id="main" class="film-vault-main">
+<header class="vault-hero">
+  <div class="vault-kicker">Administration Audio-Visual Instruction Archive</div>
+  <h1>Educational Film Vault</h1>
+  <p class="vault-lede">Recovered and reconstructed civic-instruction reels in which catastrophe becomes procedure, grief becomes conduct, and the Administration remains extremely pleased with the clarity of its diagrams.</p>
+  <p class="authority-note"><strong>Archive boundary:</strong> these are diegetic production artifacts. Institutional framing is not objective canon authority. Source facts remain governed by the cited Compendium records.</p>
+</header>
+<section class="vault-index" aria-labelledby="vault-index-heading">
+  <div class="section-heading"><div><div class="eyebrow">Film cans</div><h2 id="vault-index-heading">Catalogued reels</h2></div><a href="AUTHORITY.md">Authority rules</a></div>
+  <div class="reel-grid">
+  {% for film in films %}
+    <article class="reel-card" id="{{ film.film_id }}">
+      <div class="reel-number">{{ film.film_id|upper }}</div>
+      <h3>{{ film.title }}</h3>
+      <dl><div><dt>Status</dt><dd>{{ film.status }}</dd></div><div><dt>Type</dt><dd>{{ film.documentary_subtype }}</dd></div><div><dt>Archive date</dt><dd>{{ film.archive_date }}</dd></div></dl>
+      <p>{{ film.official_lesson }}</p>
+      <a href="#screen-{{ film.film_id }}">Open record</a>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+{% for film in films %}
+<section class="film-record" id="screen-{{ film.film_id }}" aria-labelledby="title-{{ film.film_id }}">
+  <header class="film-record-head"><div><div class="eyebrow">{{ film.film_id }} · {{ film.status }}</div><h2 id="title-{{ film.film_id }}">{{ film.title }}</h2></div><a href="#{{ film.film_id }}">Back to can</a></header>
+  <div class="film-meta"><p><strong>Issuer:</strong> Administration · {{ film.department }}</p><p><strong>Audience:</strong> {{ film.audience }}</p><p><strong>Archive date:</strong> {{ film.archive_date }}</p></div>
+  <div class="three-layer">
+    <article><span>Official lesson</span><p>{{ film.official_lesson }}</p></article>
+    <article><span>Actual event</span><p>{{ film.actual_event }}</p></article>
+    <article><span>Institutional function</span><p>{{ film.institutional_function }}</p></article>
+  </div>
+  {% if film.scenes %}
+  <div class="projector-shell" aria-label="4 by 3 projector treatment for {{ film.title }}">
+    <div class="projector-screen">
+      <div class="leader-mark" aria-hidden="true">A/V</div>
+      <p class="screen-dept">{{ film.department }}</p>
+      <h3>{{ film.title }}</h3>
+      <p class="screen-sub">AN APPROVED ADMINISTRATION INSTRUCTIONAL FILM</p>
+      <p class="screen-slogan">{{ slogan }}</p>
+    </div>
+  </div>
+  <h3>Scene treatment and narration</h3>
+  <ol class="scene-list">
+  {% for scene in film.scenes %}
+    <li><div class="scene-heading"><span>Scene {{ scene.scene }}</span><strong>{{ scene.title }}</strong></div><p class="visual"><b>Picture:</b> {{ scene.visual }}</p><p class="narration"><b>Narrator:</b> “{{ scene.narration }}”</p></li>
+  {% endfor %}
+  </ol>
+  <section class="teacher-guide" aria-labelledby="questions-{{ film.film_id }}"><div class="teacher-stamp">INSTRUCTOR COPY</div><h3 id="questions-{{ film.film_id }}">Teacher's discussion questions</h3><ol>{% for q in film.teacher_questions %}<li>{{ q }}</li>{% endfor %}</ol></section>
+  {% else %}
+  <div class="planned-slate"><strong>REEL NOT YET PRODUCED</strong><p>This can is catalogued as a future Administration production. No scene transcript or rendered film is being claimed.</p></div>
+  {% endif %}
+  <footer class="source-strip"><span>Source records:</span>{% for sid in film.source_stable_ids %}<a href="../entities/{{ sid }}/">{{ sid }}</a>{% endfor %}</footer>
+</section>
+{% endfor %}
+<footer class="vault-footer"><p>Administration Educational Film Vault · <a href="films.json">JSON catalog</a> · <a href="schema.json">Schema</a> · <a href="AUTHORITY.md">Authority</a></p><p class="closing-slogan">{{ slogan }}</p></footer>
+</main>
+</body>
+</html>

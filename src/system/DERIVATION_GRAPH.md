@@ -16,7 +16,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon` | authoritative | source | `src/canon/AUTHORITY.md`<br>`src/canon/invariants.json` | canon |
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
-| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**` | subsystems |
+| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/films/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**` | subsystems |
 | `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md`<br>`src/system/operational-state-invariants.json` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
@@ -26,6 +26,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon_gen` | authoritative | generator | `build/canon_publication.py` | canon_gen |
 | `discovery_gen` | authoritative | generator | `build/discovery_publication.py` | discovery_gen |
 | `tours_gen` | authoritative | generator | `build/tour_publication.py` | tours_gen |
+| `films_gen` | authoritative | generator | `build/film_publication.py` | films_gen |
 | `chronology_gen` | authoritative | generator | `build/chronology_publication.py` | chronology_gen |
 | `worldsvault_gen` | authoritative | generator | `build/worldsvault_publication.py` | worldsvault_gen |
 | `entities_gen` | authoritative | generator | `build/entity_publication.py` | entities_gen |
@@ -43,6 +44,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon_out` | generated | output | `docs/canon/**` | canon_out |
 | `discovery_out` | generated | output | `docs/discover/**` | discovery_out |
 | `tours_out` | generated | output | `docs/tours/**` | tours_out |
+| `films_out` | generated | output | `docs/films/**` | films_out |
 | `chronology_out` | generated | output | `docs/chronology/**` | chronology_out |
 | `worldsvault_out` | generated | output | `docs/worldsvault/**` | worldsvault_out |
 | `entities_out` | generated | output | `docs/entities/**` | entities_out |
@@ -73,6 +75,7 @@ flowchart LR
     canon_gen["canon_gen\nauthoritative / generator"]
     discovery_gen["discovery_gen\nauthoritative / generator"]
     tours_gen["tours_gen\nauthoritative / generator"]
+    films_gen["films_gen\nauthoritative / generator"]
     chronology_gen["chronology_gen\nauthoritative / generator"]
     worldsvault_gen["worldsvault_gen\nauthoritative / generator"]
     entities_gen["entities_gen\nauthoritative / generator"]
@@ -90,6 +93,7 @@ flowchart LR
     canon_out["canon_out\ngenerated / output"]
     discovery_out["discovery_out\ngenerated / output"]
     tours_out["tours_out\ngenerated / output"]
+    films_out["films_out\ngenerated / output"]
     chronology_out["chronology_out\ngenerated / output"]
     worldsvault_out["worldsvault_out\ngenerated / output"]
     entities_out["entities_out\ngenerated / output"]
@@ -135,6 +139,9 @@ flowchart LR
     schemas -->|input_to| tours_gen
     subsystems -->|input_to| tours_gen
     tours_gen -->|generates| tours_out
+    schemas -->|input_to| films_gen
+    subsystems -->|input_to| films_gen
+    films_gen -->|generates| films_out
     schemas -->|input_to| chronology_gen
     subsystems -->|input_to| chronology_gen
     chronology_gen -->|generates| chronology_out
@@ -183,6 +190,7 @@ flowchart LR
     canon_out -->|validates| boundary
     discovery_out -->|validates| boundary
     tours_out -->|validates| boundary
+    films_out -->|validates| boundary
     chronology_out -->|validates| boundary
     worldsvault_out -->|validates| boundary
     entities_out -->|validates| boundary
@@ -199,8 +207,8 @@ flowchart LR
 - **content** -> agents_out, canon_out, discovery_out, entities_out, machine_out, offline_out, relationships_out, root_out, tours_out
 - **canon** -> agents_out, canon_out, machine_out, offline_out, relationships_out, root_out
 - **media** -> agents_out, discovery_out, entities_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out
-- **schemas** -> agents_out, canon_out, chronology_out, discovery_out, machine_out, museum_out, offline_out, tours_out, worldsvault_out
-- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out, worldsvault_out
+- **schemas** -> agents_out, canon_out, chronology_out, discovery_out, films_out, machine_out, museum_out, offline_out, tours_out, worldsvault_out
+- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, films_out, machine_out, museum_out, offline_out, relationships_out, root_out, tours_out, worldsvault_out
 - **topology** -> graph_out
 - **media_originals** -> agents_out, discovery_out, entities_out, machine_out, media_out, museum_out, offline_out, relationships_out, root_out, tours_out
 

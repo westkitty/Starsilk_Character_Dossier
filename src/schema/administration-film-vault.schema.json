@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/administration-film-vault.schema.json",
+  "title": "Starsilk Administration Educational Film Vault",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "project_id",
+    "authority",
+    "issuer",
+    "slogan",
+    "films"
+  ],
+  "properties": {
+    "schema": {
+      "const": "starsilk-administration-film-source/1"
+    },
+    "project_id": {
+      "const": "starsilk-character-dossier"
+    },
+    "authority": {
+      "const": "curated-diegetic-media"
+    },
+    "issuer": {
+      "const": "Administration"
+    },
+    "slogan": {
+      "const": "Your fate is in our hands."
+    },
+    "films": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "film_id",
+          "title",
+          "status",
+          "documentary_subtype",
+          "department",
+          "audience",
+          "archive_date",
+          "presentation_aesthetic",
+          "official_lesson",
+          "actual_event",
+          "institutional_function",
+          "source_stable_ids",
+          "scenes",
+          "teacher_questions"
+        ],
+        "properties": {
+          "film_id": {
+            "type": "string",
+            "pattern": "^reel-[0-9]{3}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "production-treatment",
+              "produced"
+            ]
+          },
+          "source_stable_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scenes": {
+            "type": "array"
+          },
+          "teacher_questions": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}
