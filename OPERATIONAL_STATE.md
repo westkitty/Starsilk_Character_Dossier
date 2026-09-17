@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 40
+revision: 42
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -762,6 +762,17 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - GitHub Pages deployment run `35161144356` completed successfully. Legacy Pages build `1220076563` reported `built` for the exact merge SHA. Publish workflow run `35161131998` initially observed an earlier transient errored Pages build for the same merge during the deployment race; attempt 2 then observed the exact built commit and passed live-edge proof on its first content probe.
 - Independent cache-busted edge verification compared live root HTML, `service-worker.js`, and the Codec context packet byte-for-byte with `origin/main`. Root SHA-256 is `8ae0ca7bffe7f0f269525de815eaadb4af9563e3940738b7952d37fc4889c536`; service-worker SHA-256 is `caae6c6a91b4d0a936815574ff591717e90f6d7218ab08a1a70912b699a4bc73`. Live Revision data contains 126 stable records, 16 machine locks, 27 authored chronology events, compact `claim_numeric_facts` including `C094=[786000000]`, and no duplicated `claims` corpus. Live Codec packet carries C094 with `authority=authored-source` / `evidence_class=authored-lore-record`; live agent evaluation exposes `epistemic-overreach` and `claim-evidence-strength`; root exposes `Why Is This Canon?`, `What Breaks If This Changes?`, and `Earliest Proven Divergence`.
 
+
+## Codec Wound Graph — IMPLEMENTED / BUILD-VERIFIED
+
+- Branch: `feature/codec-wound-graph`, based on protected `main` commit `c27409aa8453eef651545b9d4226e4f1c34292c2`.
+- Adds a Codec-only Wound Graph with six explicitly analytical lanes: EVENT, ACTION, CONSEQUENCE, BELIEF / IDEOLOGICAL TURN, CONTRADICTION / TENSION, and LATER CANON. Every node resolves at runtime from the already-rendered authored Canon Ledger claim; lane assignment and path order are editorial reading lenses, never new canon or causal authority.
+- Adds a Dual Truth panel whose authority/type/era fields begin `UNSET`, remain browser-memory-only, and never persist or promote a local interpretation into canon. Allowed local analysis values include LOCKED / PROVISIONAL / INFERRED / CONTRADICTED / DEPRECATED and WORLD FACT / OBSERVATION / CHARACTER BELIEF / INSTITUTIONAL CLAIM / PROPAGANDA / INTERPRETATION / SYMBOLIC LANGUAGE.
+- Adds Evidence Mode exposing exact authored proposition, claim ID, domain, tag, source path, source locator, `authored-source` authority, `authored-lore-record` evidence class, and explicit xref IDs.
+- Adds a canon-ripple review neighborhood that shows later-authored pilot evidence plus observed-xref touchpoints while explicitly stating that Canon Ledger order is evidence order, not guaranteed chronology, and that the ripple is not proof of causation.
+- The feature has no global graph, morality score, unsourced canonical summary, backend, telemetry, repository-write path, automatic persistence, or canon-promotion action. Wound behavior/style are generated as separate root assets so the large implementation does not inflate the existing offline precache shell; the root only adds the small same-origin script reference and gracefully remains usable if that optional asset is unavailable offline.
+- Focused Wound Graph and existing Revision Chamber browser journeys, deterministic build/check, public-boundary validation, and full protected PR CI remain the completion gates before merge; live Pages proof remains required after merge. This is post-program capability work, not Phase 13.
+
 ## Known limitations
 
 - The durable cold-start gate proves that required recovery evidence remains present and source-linked in the repository; it does not claim that every external AI model will reason correctly from that evidence or that external services are reachable without fresh probes.
@@ -781,7 +792,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- None. Canon Loom is merged, published, and independently live-edge verified. Museum + AI remains complete at Phase 12 of 12; Canon Loom is post-program capability work, not Phase 13.
+- Codec Wound Graph is implemented on `feature/codec-wound-graph`; protected PR CI, protected merge, and exact live Pages proof remain pending. Museum + AI remains complete at Phase 12 of 12; Wound Graph is post-program capability work, not Phase 13.
 
 ## Revision log
 
@@ -836,3 +847,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 40: introduced the Administration Educational Film Vault as curated diegetic media with six bounded reel identities, a complete `When a Star Becomes a Lock` treatment, explicit planned-vs-produced status boundaries, deterministic publication/machine discovery, unified-shell integration, derivation-map coverage, and focused regression tests. Local source/browser verification is complete: Film Vault 6/6, unified shell 15/15, all deterministic publication checks pass, derivation graph 44/96 passes, strict source-only canon/manifest validation passes, and the 581-file public-boundary gate is clean. Protected PR CI, merge, and live publication remain pending until proven.
 
 - Revision 41: repaired the Administration Film Vault PR #72 CI contract after the first protected run exposed four integration-only regressions: the finite machine-publication schema/URL expectations had not been extended for the new Film Vault surfaces, and the shared navigation addition intentionally changed two pinned Chromium screenshot geometries by one pixel. The machine expectations now include the Administration Film Vault schema and four public Film Vault URLs; only the two CI-produced affected visual references were promoted as the deliberate new baselines. Focused machine/Film Vault verification passes 16/16 locally with `git diff --check` clean. Protected CI rerun, merge, and live publication remain pending until proven.
+- Revision 42: introduced the Codec-first Wound Graph as a source-backed browser analysis lens over authored Canon Loom claims, with six editorial evidence lanes, an explicitly non-authoritative Dual Truth panel, exact-source Evidence Mode, and a canon-ripple review neighborhood that refuses to infer causation from claim order or observed xrefs. The feature remains Codec-only, browser-memory-only, and read-only; no global graph, morality score, unsourced canon summary, semantic relationship authority, backend, telemetry, automatic persistence, repository-write path, canon promotion, or Phase 13 was introduced. Protected PR CI, merge, and live publication proof remain pending.
