@@ -1,0 +1,110 @@
+name: Codec Wound Graph materializer
+
+on:
+  push:
+    branches: [feature/codec-wound-graph]
+    paths:
+      - '.github/workflows/codec-wound-graph-materialize.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright/python:v1.62.0-noble
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/codec-wound-graph
+          fetch-depth: 0
+      - name: Trust worktree
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Patch bounded integration surfaces
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          shell = Path('src/templates/shell.html.j2')
+          text = shell.read_text(encoding='utf-8')
+          marker = '<script src="offline-client.js"></script>'
+          addition = '<script src="wound-graph.js"></script>\n' + marker
+          if 'src="wound-graph.js"' not in text:
+              if marker not in text:
+                  raise SystemExit('shell offline-client marker missing')
+              text = text.replace(marker, addition, 1)
+              shell.write_text(text, encoding='utf-8')
+
+          gen = Path('build/generate.py')
+          text = gen.read_text(encoding='utf-8')
+          const_marker = 'CHRONOLOGY_FILE = ROOT / "src" / "chronology" / "events.json"\n'
+          if 'ROOT_TOOL_ASSETS' not in text:
+              text = text.replace(const_marker, const_marker + 'ROOT_TOOL_ASSETS = ("wound-graph.js", "wound-graph.css")\n', 1)
+          check_marker = '        print("OK: docs/index.html matches generator output.")\n        return 0\n'
+          if 'root tool asset differs' not in text:
+              replacement = '''        for relative in ROOT_TOOL_ASSETS:\n            source = TEMPLATES_DIR / relative\n            target = DOCS_DIR / relative\n            if not target.exists() or target.read_text(encoding="utf-8") != source.read_text(encoding="utf-8"):\n                print(f"ERROR: root tool asset differs from source: docs/{relative}", file=sys.stderr)\n                return 1\n        print("OK: docs/index.html and root tool assets match generator output.")\n        return 0\n'''
+              if check_marker not in text:
+                  raise SystemExit('generate check marker missing')
+              text = text.replace(check_marker, replacement, 1)
+          write_marker = '    print(f"Wrote {index_file} ({len(html):,} bytes)")\n\n    rights_src = ROOT / "RIGHTS.md"\n'
+          if 'Wrote {target}' not in text:
+              replacement = '''    print(f"Wrote {index_file} ({len(html):,} bytes)")\n    for relative in ROOT_TOOL_ASSETS:\n        source = TEMPLATES_DIR / relative\n        target = DOCS_DIR / relative\n        shutil.copy2(source, target)\n        print(f"Wrote {target} ({target.stat().st_size:,} bytes)")\n\n    rights_src = ROOT / "RIGHTS.md"\n'''
+              if write_marker not in text:
+                  raise SystemExit('generate write marker missing')
+              text = text.replace(write_marker, replacement, 1)
+          gen.write_text(text, encoding='utf-8')
+
+          css = Path('src/templates/wound-graph.css')
+          text = css.read_text(encoding='utf-8')
+          text = text.replace('.wound-ripple-list button{min-height:0!important;padding:.2rem 0!important;', '.wound-ripple-list button{min-height:44px!important;padding:.55rem .15rem!important;')
+          css.write_text(text, encoding='utf-8')
+
+          cross = Path('tests/test_cross_browser.py')
+          text = cross.read_text(encoding='utf-8').rstrip() + '\n'
+          if 'test_codec_wound_graph_evidence_journey' not in text:
+              text += '''\n\ndef test_codec_wound_graph_evidence_journey(page: Page, local_server):\n    page.set_viewport_size({"width": 375, "height": 812})\n    page.goto(f"{local_server}/index.html#codec")\n    page.locator("#readerWorkbenchToggle").click()\n    page.locator("#readerToWoundGraph").click()\n    expect(page.locator("#woundGraph")).to_be_visible()\n    expect(page.locator("#woundGraph")).to_contain_text("Evidence network, not causal authority")\n    page.locator('[data-claim-id="C095"]').click()\n    expect(page.locator("#woundRipple")).to_contain_text("Not proof of causation")\n    page.locator("#woundOpenEvidence").click()\n    expect(page.locator("#woundEvidence")).to_contain_text("authored-lore-record")\n    page.keyboard.press("Escape")\n    page.keyboard.press("Escape")\n    expect(page.locator("#readerToWoundGraph")).to_be_focused()\n    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")\n'''
+          cross.write_text(text, encoding='utf-8')
+
+          state = Path('OPERATIONAL_STATE.md')
+          text = state.read_text(encoding='utf-8')
+          text = re.sub(r'^revision: \d+$', 'revision: 42', text, count=1, flags=re.M)
+          feature_section = '''\n## Codec Wound Graph — IMPLEMENTED / BUILD-VERIFIED\n\n- Branch: `feature/codec-wound-graph`, based on protected `main` commit `c27409aa8453eef651545b9d4226e4f1c34292c2`.\n- Adds a Codec-only Wound Graph with six explicitly analytical lanes: EVENT, ACTION, CONSEQUENCE, BELIEF / IDEOLOGICAL TURN, CONTRADICTION / TENSION, and LATER CANON. Every node resolves at runtime from the already-rendered authored Canon Ledger claim; lane assignment and path order are editorial reading lenses, never new canon or causal authority.\n- Adds a Dual Truth panel whose authority/type/era fields begin `UNSET`, remain browser-memory-only, and never persist or promote a local interpretation into canon. Allowed local analysis values include LOCKED / PROVISIONAL / INFERRED / CONTRADICTED / DEPRECATED and WORLD FACT / OBSERVATION / CHARACTER BELIEF / INSTITUTIONAL CLAIM / PROPAGANDA / INTERPRETATION / SYMBOLIC LANGUAGE.\n- Adds Evidence Mode exposing exact authored proposition, claim ID, domain, tag, source path, source locator, `authored-source` authority, `authored-lore-record` evidence class, and explicit xref IDs.\n- Adds a canon-ripple review neighborhood that shows later-authored pilot evidence plus observed-xref touchpoints while explicitly stating that Canon Ledger order is evidence order, not guaranteed chronology, and that the ripple is not proof of causation.\n- The feature has no global graph, morality score, unsourced canonical summary, backend, telemetry, repository-write path, automatic persistence, or canon-promotion action. Wound behavior/style are generated as separate root assets so the large implementation does not inflate the existing offline precache shell; the root only adds the small same-origin script reference and gracefully remains usable if that optional asset is unavailable offline.\n- Focused Wound Graph and existing Revision Chamber browser journeys, deterministic build/check, public-boundary validation, and full protected PR CI remain the completion gates before merge; live Pages proof remains required after merge. This is post-program capability work, not Phase 13.\n\n'''
+          if '## Codec Wound Graph — IMPLEMENTED / BUILD-VERIFIED' not in text:
+              if '## Known limitations' not in text:
+                  raise SystemExit('Operational State known-limitations marker missing')
+              text = text.replace('## Known limitations', feature_section + '## Known limitations', 1)
+          old_pending = '- None. Canon Loom is merged, published, and independently live-edge verified. Museum + AI remains complete at Phase 12 of 12; Canon Loom is post-program capability work, not Phase 13.'
+          new_pending = '- Codec Wound Graph is implemented on `feature/codec-wound-graph`; protected PR CI, protected merge, and exact live Pages proof remain pending. Museum + AI remains complete at Phase 12 of 12; Wound Graph is post-program capability work, not Phase 13.'
+          if old_pending in text:
+              text = text.replace(old_pending, new_pending, 1)
+          revision42 = '- Revision 42: introduced the Codec-first Wound Graph as a source-backed browser analysis lens over authored Canon Loom claims, with six editorial evidence lanes, an explicitly non-authoritative Dual Truth panel, exact-source Evidence Mode, and a canon-ripple review neighborhood that refuses to infer causation from claim order or observed xrefs. The feature remains Codec-only, browser-memory-only, and read-only; no global graph, morality score, unsourced canon summary, semantic relationship authority, backend, telemetry, automatic persistence, repository-write path, canon promotion, or Phase 13 was introduced. Protected PR CI, merge, and live publication proof remain pending.'
+          if revision42 not in text:
+              matches = list(re.finditer(r'^- Revision 41:.*$', text, flags=re.M))
+              if not matches:
+                  raise SystemExit('Revision 41 anchor missing')
+              m = matches[-1]
+              text = text[:m.end()] + '\n' + revision42 + text[m.end():]
+          state.write_text(text, encoding='utf-8')
+          PY
+      - name: Deterministic build and focused browser proof
+        run: |
+          set -euo pipefail
+          ./tools/build.sh
+          ./tools/build.sh --check
+          python3 -m pytest tests/test_wound_graph.py tests/test_revision_chamber.py -q
+          python3 -m pytest tests/test_cross_browser.py -q
+          git diff --check
+      - name: Materialize permanent feature commit
+        run: |
+          set -euo pipefail
+          rm .github/workflows/codec-wound-graph-materialize.yml
+          git restore docs/qa-report.txt 2>/dev/null || true
+          git add -A
+          git diff --cached --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: add Codec Wound Graph'
+          git push origin HEAD:feature/codec-wound-graph
