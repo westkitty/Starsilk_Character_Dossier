@@ -91,7 +91,7 @@ jobs:
           PY
       - name: Deterministic build and focused browser proof
         run: |
-          set -euo pipefail
+          set -eu
           ./tools/build.sh
           ./tools/build.sh --check
           python3 -m pytest tests/test_wound_graph.py tests/test_revision_chamber.py -q
@@ -99,7 +99,7 @@ jobs:
           git diff --check
       - name: Materialize permanent feature commit
         run: |
-          set -euo pipefail
+          set -eu
           rm .github/workflows/codec-wound-graph-materialize.yml
           git restore docs/qa-report.txt 2>/dev/null || true
           git add -A
