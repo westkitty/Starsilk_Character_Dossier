@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 42
+revision: 43
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -792,7 +792,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Codec Wound Graph is implemented on `feature/codec-wound-graph`; protected PR CI, protected merge, and exact live Pages proof remain pending. Museum + AI remains complete at Phase 12 of 12; Wound Graph is post-program capability work, not Phase 13.
+- None. Codec Wound Graph is merged, published, and independently live-edge verified. Museum + AI remains complete at Phase 12 of 12; Wound Graph is post-program capability work, not Phase 13.
 
 ## Revision log
 
@@ -848,3 +848,4 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 - Revision 41: repaired the Administration Film Vault PR #72 CI contract after the first protected run exposed four integration-only regressions: the finite machine-publication schema/URL expectations had not been extended for the new Film Vault surfaces, and the shared navigation addition intentionally changed two pinned Chromium screenshot geometries by one pixel. The machine expectations now include the Administration Film Vault schema and four public Film Vault URLs; only the two CI-produced affected visual references were promoted as the deliberate new baselines. Focused machine/Film Vault verification passes 16/16 locally with `git diff --check` clean. Protected CI rerun, merge, and live publication remain pending until proven.
 - Revision 42: introduced the Codec-first Wound Graph as a source-backed browser analysis lens over authored Canon Loom claims, with six editorial evidence lanes, an explicitly non-authoritative Dual Truth panel, exact-source Evidence Mode, and a canon-ripple review neighborhood that refuses to infer causation from claim order or observed xrefs. The feature remains Codec-only, browser-memory-only, and read-only; no global graph, morality score, unsourced canon summary, semantic relationship authority, backend, telemetry, automatic persistence, repository-write path, canon promotion, or Phase 13 was introduced. Protected PR CI, merge, and live publication proof remain pending.
+- Revision 43: closed Codec Wound Graph publication evidence after protected PR #73. PR CI run `35283805702` passed the full pinned Chromium suite plus representative Firefox/WebKit journeys; the feature merged through protected `main` at `62d638143db4b2117a570920c8251b3d2bae37ac`. Pages run `35284047801` verified the exact legacy Pages source commit and live publication. Independent live-proof run `35284130840` then fetched the public root, `wound-graph.js`, and `wound-graph.css` cache-busted and proved byte-for-byte parity with the exact merge checkout: root SHA-256 `77b22ee0d3d05235327b0ad8ad7a17a1417dc5042ce6229b9649078631e3ded2`, Wound JS SHA-256 `7456b072c962460cc4da5bf2660ac5158e5ad50bd08ad1db4f3d0e4177ea9ce5`, and Wound CSS SHA-256 `d877a175f185e5fd1be22a037b5227b381a961f68776bba2569f50256cd59a9c`. The live JS exposes the exact boundaries `Evidence network, not causal authority.`, `LOCAL ANALYSIS · ZERO CANON AUTHORITY`, `Not proof of causation.`, and `Canon Ledger order is evidence order, not guaranteed chronology.`, contains no `localStorage` reference, and the live CSS retains the 44px interactive-target floor. The independent proof workflow existed only on the already-merged feature branch and was removed after proof; it never entered `main`. No canon prose, machine canon locks, semantic relationship authority, media provenance, dependency, backend, telemetry, automatic persistence, repository-write path, canon-promotion path, global graph, morality score, or Phase 13 was added by this closure. Pending work for Codec Wound Graph is none.
