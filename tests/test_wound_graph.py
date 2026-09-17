@@ -5,8 +5,10 @@ from playwright.sync_api import Page, expect
 
 
 def open_wound_graph(page: Page) -> None:
-    page.locator("#readerWorkbenchToggle").click()
-    expect(page.locator("#readerWorkbench")).to_be_visible()
+    reader = page.locator("#readerWorkbench")
+    if not reader.is_visible():
+        page.locator("#readerWorkbenchToggle").click()
+    expect(reader).to_be_visible()
     expect(page.locator("#readerToWoundGraph")).to_be_visible()
     page.locator("#readerToWoundGraph").click()
     expect(page.locator("#woundGraph")).to_be_visible()
@@ -41,8 +43,7 @@ def test_dual_truth_starts_unset_and_never_persists_analysis(page: Page, local_s
     keys = page.evaluate("Object.keys(localStorage).filter(k => /wound|dual.?truth/i.test(k))")
     assert keys == []
     page.reload()
-    page.locator("#readerWorkbenchToggle").click()
-    page.locator("#readerToWoundGraph").click()
+    open_wound_graph(page)
     page.locator('[data-claim-id="C095"]').click()
     expect(page.locator("#woundAuthority")).to_have_value("UNSET")
     expect(page.locator("#woundStatementType")).to_have_value("UNSET")
@@ -92,7 +93,7 @@ def test_wound_graph_mobile_keyboard_focus_and_network_boundary(page: Page, loca
     expect(page.locator("#woundGraph")).to_be_visible()
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
     undersized = page.locator("#woundGraph button").evaluate_all(
-        "nodes => nodes.filter(n => !n.disabled && n.getBoundingClientRect().height < 43.5).map(n => [n.textContent.trim(), n.getBoundingClientRect().height])"
+        "nodes => nodes.filter(n => !n.disabled && n.getClientRects().length && n.getBoundingClientRect().height < 43.5).map(n => [n.textContent.trim(), n.getBoundingClientRect().height])"
     )
     assert undersized == []
     page.keyboard.press("Escape")
