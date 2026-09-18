@@ -57,6 +57,7 @@ SCHEMA_FILES = (
     "administration-film-vault.schema.json",
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
+    "cross-surface-record-index.schema.json",
     "agent-evaluation.schema.json",
 )
 
@@ -387,6 +388,10 @@ def public_urls(records: list[dict]) -> list[str]:
         "worldsvault/worldsvault.md",
         "worldsvault/schema.json",
         "worldsvault/AUTHORITY.md",
+        "records/",
+        "records/records.json",
+        "records/schema.json",
+        "records/AUTHORITY.md",
         "agents/AGENT_GUIDE.md",
         "agents/evaluation.json",
         "agents/evaluation.md",
@@ -433,6 +438,8 @@ def build_project_index(records: list[dict], relationship_count: int) -> dict:
             "chronology_index": canonical("chronology/chronology.json"),
             "worldsvault": canonical("worldsvault/"),
             "worldsvault_topology": canonical("worldsvault/worldsvault.json"),
+            "record_explorer": canonical("records/"),
+            "cross_surface_record_index": canonical("records/records.json"),
             "agent_guide": canonical("agents/AGENT_GUIDE.md"),
             "agent_evaluation": canonical("agents/evaluation.json"),
             "agent_integration": canonical("agents/integration.json"),
@@ -457,6 +464,7 @@ def build_project_index(records: list[dict], relationship_count: int) -> dict:
             "src/films/films.json",
             "src/chronology/events.json",
             "src/worldsvault/topology.json",
+            "src/records/AUTHORITY.md",
             "docs/asset-manifest.json",
         ],
         "unknowns": [
@@ -530,7 +538,7 @@ def render_outputs() -> dict[str, str]:
         "machine/compendium.md": build_compendium_markdown(sections, records),
         "machine/entities.md": build_entities_markdown(records),
         "machine/AUTHORITY.md": (MACHINE_SOURCE_DIR / "AUTHORITY.md").read_text(encoding="utf-8").rstrip() + "\n",
-        "llms.txt": build_llms_text(index).rstrip() + f"\nHuman interactive chronology: {index['endpoints']['chronology']}\nChronology JSON index: {index['endpoints']['chronology_index']}\n- Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.\nHuman WorldsVault cosmic topology explorer: {index['endpoints']['worldsvault']}\nWorldsVault topology JSON: {index['endpoints']['worldsvault_topology']}\n- WorldsVault publication IDs are deterministic source-label derivatives, not authored permanent identities. Topology layout is non-canonical rendering order only; coordinates, distances, directions, route geometry, and unsupported semantic relations remain unknown.\n",
+        "llms.txt": build_llms_text(index).rstrip() + f"\nHuman interactive chronology: {index['endpoints']['chronology']}\nChronology JSON index: {index['endpoints']['chronology_index']}\n- Chronology event IDs are source-backed publication identifiers. Exact authored markers remain in their authored system; null absolute dates, unknown canon status, and unknown spoiler level must not be filled by filters or inference.\nHuman WorldsVault cosmic topology explorer: {index['endpoints']['worldsvault']}\nWorldsVault topology JSON: {index['endpoints']['worldsvault_topology']}\n- WorldsVault publication IDs are deterministic source-label derivatives, not authored permanent identities. Topology layout is non-canonical rendering order only; coordinates, distances, directions, route geometry, and unsupported semantic relations remain unknown.\nCross-surface record explorer: {index['endpoints']['record_explorer']}\nCross-surface record index JSON: {index['endpoints']['cross_surface_record_index']}\n- Record explorer references remain evidence-classified derivatives; they never create stronger relationship, chronology, canon, media, world, or film claims.\n",
         "sitemap.xml": build_sitemap(index["public_urls"]),
     }
     for section, record in zip(sections, records):

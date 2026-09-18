@@ -16,7 +16,6 @@
     "asset-manifest.json",
     "machine/index.json",
     "machine/entities.json",
-    "machine/relationships.json",
     "relationships/relationships.json",
     "canon/canon-locks.json",
     "discover/discovery.json",
@@ -24,6 +23,10 @@
     "tours/tours.json",
     "chronology/chronology.json",
     "worldsvault/worldsvault.json",
-    "objects/objects.json"
+    "objects/objects.json",
+    "records/index.html",
+    "records/records.css",
+    "records/records.js",
+    "records/search.json"
   ]
 }

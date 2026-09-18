@@ -13,6 +13,7 @@ set -euo pipefail
 #     -> build/film_publication.py      (Administration Educational Film Vault)
 #     -> build/chronology_publication.py (source-backed chronology explorer)
 #     -> build/worldsvault_publication.py (source-backed cosmic topology explorer)
+#     -> build/record_explorer.py      (cross-surface stable-record evidence explorer)
 #     -> build/entity_publication.py    (deterministic stable entity permalink pages)
 #     -> build/museum_publication.py    (manifest-derived museum object model/viewer)
 #     -> build/offline_publication.py   (narrow installable shell + metadata cache)
@@ -20,7 +21,7 @@ set -euo pipefail
 #     -> tools/check_public_boundary.py (public derivative privacy/locality gate)
 #     -> GitHub Pages (main / docs)
 #
-# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/films/, docs/chronology/, docs/worldsvault/, docs/entities/, docs/objects/, and the root offline shell files are
+# docs/index.html, docs/machine/, docs/relationships/, docs/canon/, docs/discover/, docs/tours/, docs/films/, docs/chronology/, docs/worldsvault/, docs/records/, docs/entities/, docs/objects/, and the root offline shell files are
 # disposable generated output. Every run rebuilds them from declared source
 # authority; none may become a second canon source of truth.
 #
@@ -114,6 +115,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/chronology_publication.py --check
     echo "-> Generating (in-memory) and checking source-backed WorldsVault topology explorer..."
     "$PY" build/worldsvault_publication.py --check
+    echo "-> Generating (in-memory) and checking cross-surface record explorer..."
+    "$PY" build/record_explorer.py --check
     echo "-> Generating (in-memory) and checking stable entity permalinks..."
     "$PY" build/entity_publication.py --check
     echo "-> Generating (in-memory) and checking museum object publication..."
@@ -141,6 +144,8 @@ else
     "$PY" build/chronology_publication.py
     echo "-> Generating source-backed WorldsVault topology explorer..."
     "$PY" build/worldsvault_publication.py
+    echo "-> Generating cross-surface record explorer from classified evidence..."
+    "$PY" build/record_explorer.py
     echo "-> Generating stable entity permalinks from declared authority..."
     "$PY" build/entity_publication.py
     echo "-> Generating museum object model/viewer from published media provenance..."
@@ -155,7 +160,7 @@ echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/films docs/chronology docs/worldsvault docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/films docs/chronology docs/worldsvault docs/records docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"

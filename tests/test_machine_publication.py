@@ -23,6 +23,7 @@ SCHEMAS = {
     "tour-index.schema.json",
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
+    "cross-surface-record-index.schema.json",
     "agent-evaluation.schema.json",
     "administration-film-vault.schema.json",
 }
@@ -217,6 +218,10 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "worldsvault/worldsvault.md",
         "worldsvault/schema.json",
         "worldsvault/AUTHORITY.md",
+        "records/",
+        "records/records.json",
+        "records/schema.json",
+        "records/AUTHORITY.md",
         "films/",
         "films/films.json",
         "films/schema.json",
@@ -262,6 +267,8 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
     assert index["endpoints"]["chronology_index"] == SITE_BASE + "chronology/chronology.json"
     assert index["endpoints"]["worldsvault"] == SITE_BASE + "worldsvault/"
     assert index["endpoints"]["worldsvault_topology"] == SITE_BASE + "worldsvault/worldsvault.json"
+    assert index["endpoints"]["record_explorer"] == SITE_BASE + "records/"
+    assert index["endpoints"]["cross_surface_record_index"] == SITE_BASE + "records/records.json"
     assert SITE_BASE + "chronology/" in llms
     assert SITE_BASE + "worldsvault/" in llms
     assert index["endpoints"]["agent_guide"] == SITE_BASE + "agents/AGENT_GUIDE.md"

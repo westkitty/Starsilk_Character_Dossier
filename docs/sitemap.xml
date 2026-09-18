@@ -45,6 +45,10 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/AUTHORITY.md</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/records/</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/records/records.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/records/schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/records/AUTHORITY.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.md</loc></url>
@@ -63,6 +67,7 @@
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/administration-film-vault.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/chronology-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/worldsvault-topology.schema.json</loc></url>
+  <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/cross-surface-record-index.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/agent-evaluation.schema.json</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/</loc></url>
   <url><loc>https://westkitty.github.io/Starsilk_Character_Dossier/entities/cover/</loc></url>
