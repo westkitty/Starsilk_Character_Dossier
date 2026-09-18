@@ -40,7 +40,7 @@ MANIFEST_FILE = DOCS_DIR / "asset-manifest.json"
 VISUAL_COVERAGE_FILE = CONTENT_DIR / "visual-coverage.json"
 CANON_DIR = ROOT / "src" / "canon"
 CHRONOLOGY_FILE = ROOT / "src" / "chronology" / "events.json"
-ROOT_TOOL_ASSETS = ("wound-graph.js", "wound-graph.css")
+ROOT_TOOL_ASSETS = ("wound-graph.js", "wound-graph.css", "truth-lab.js", "truth-lab.css")
 
 CANONICAL_URL = "https://westkitty.github.io/Starsilk_Character_Dossier/"
 
