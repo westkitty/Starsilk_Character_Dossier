@@ -902,3 +902,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Repair removes executable global-tools injection from the shared static navigation. The palette remains on root and opt-in interactive surfaces (Discover, Objects, Tours, Chronology, WorldsVault, Records), while all static surfaces retain navigation to Records without executable additions.
 - Palette shortcut is Ctrl/Cmd+Shift+K. Existing root Ctrl+K remains Reader Workbench authority.
 - The exact four failing legacy tests plus the dedicated Deep Systems palette browser journey pass 5/5 locally after repair. No canon, source registry, semantic edge, causality, media, offline-cache, or stable-ID behavior changed.
+
+### Deep Systems deterministic parity closure
+- Protected CI run 36185640205 stopped before tests because committed generated `docs/` differed from the final trimmed shared-navigation source by one newline per generated secondary/entity page; the offline service-worker cache hash consequently differed as well.
+- Re-running the deterministic build from current source regenerated those derivatives only. `./tools/build.sh --check`, `git diff --check`, and the five compatibility/palette browser tests pass after regeneration. No behavior or authority changed in this closure.
