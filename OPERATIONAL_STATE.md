@@ -891,3 +891,8 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
   - `git diff --check`: PASS.
 - Playwright Chromium v1234 was installed locally because the repository virtualenv had been updated without the matching browser binary. This is development tooling only and does not alter repository dependencies.
 - Protected CI, merge to `main`, Pages publication, and live-edge verification are not yet claimed in this record.
+
+### Deep Systems bounded CI repair
+- PR #75 CI run 36184745762 exposed one Firefox/Linux-only mobile overflow in `/records/`: the Drakken morphology comparison table was allowed to contribute intrinsic width to the page root. Chromium local proof had not reproduced it.
+- Bounded repair confines `#morphCompare` to its own horizontal scroll lane and keeps deep-grid children shrinkable. No data, authority, functionality, canon, or offline cache contract changed.
+- The exact failing Firefox representative test passes locally after repair. A new protected CI run is required before merge.
