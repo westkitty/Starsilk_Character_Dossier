@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cross-Surface Record Explorer · Starsilk Compendium</title>
+<meta name="description" content="Search source-backed Starsilk records across canon, chronology, relationships, media, contradiction, causality, morphology, and research trails.">
+<link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/records/"><link rel="alternate" type="application/json" href="records.json"><link rel="stylesheet" href="records.css"><link rel="stylesheet" href="records-deep.css">
+</head>
+<body class="record-explorer-shell"><a class="skip-link" href="#main">Skip to records</a>
+
+<style>
+.museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
+.museum-nav-brand em{font-style:normal;color:#55dfff}
+.museum-nav-mark{color:#55dfff;font-size:.9em}
+.museum-nav>nav{flex:1 1 auto;min-width:0}
+.museum-nav-links{display:flex;flex-wrap:wrap;gap:.05rem 1.1rem;list-style:none;margin:0;padding:0}
+.museum-nav-links a{display:inline-flex;padding:.4rem .1rem;color:#9fb1bf;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;min-height:44px;align-items:center}
+.museum-nav-links a:hover,.museum-nav-links a:focus-visible{color:#fff;border-bottom-color:#55dfff;outline:none}
+.museum-nav-links a[aria-current="page"]{color:#55dfff;border-bottom-color:#55dfff}
+.museum-nav-data{position:relative;font-size:.74rem}
+.museum-nav-data>summary{cursor:pointer;list-style:none;padding:.4rem .75rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;font:700 .7rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+.museum-nav-data>summary::-webkit-details-marker{display:none}
+.museum-nav-data[open]>summary{color:#55dfff;border-color:#55dfff}
+.museum-nav-data-panel{position:absolute;right:0;top:calc(100% + .4rem);display:flex;flex-direction:column;gap:.3rem;padding:.6rem;background:#0d1320;border:1px solid #27374b;border-radius:6px;min-width:11rem;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.museum-nav-data-panel a{color:#9fb1bf;text-decoration:none;font-size:.78rem;padding:.25rem 0}
+.museum-nav-data-panel a:hover,.museum-nav-data-panel a:focus-visible{color:#fff}
+@media(max-width:700px){
+.museum-nav{gap:.5rem .8rem;padding:.65rem .9rem}
+.museum-nav>nav{flex-basis:100%;order:3;min-width:100%}
+.museum-nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0 .9rem;padding-bottom:.15rem}
+.museum-nav-links a{flex:0 0 auto}
+.museum-nav-data{order:2;margin-left:auto}
+}
+</style>
+<header class="museum-nav" data-museum-shell="unified">
+
+<a class="museum-nav-brand" href="../"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Compendium</em></a>
+<nav aria-label="Unified Starsilk Compendium navigation">
+<ul class="museum-nav-links">
+<li><a href="../">Home</a></li>
+<li><a href="../#mainContent">Compendium</a></li>
+<li><a href="../discover/">Discover</a></li>
+<li><a href="../entities/">Entities</a></li>
+<li><a href="../records/" aria-current="page">Records</a></li>
+<li><a href="../objects/">Objects</a></li>
+<li><a href="../relationships/">Relationships</a></li>
+<li><a href="../canon/">Canon Inspector</a></li>
+<li><a href="../tours/">Tours</a></li>
+<li><a href="../films/">Film Vault</a></li>
+<li><a href="../chronology/">Chronology</a></li>
+<li><a href="../worldsvault/">WorldsVault</a></li>
+</ul>
+</nav>
+<details class="museum-nav-data">
+<summary>Data / AI</summary>
+<div class="museum-nav-data-panel">
+<a href="../agents/AGENT_GUIDE.md">Agent guide</a>
+<a href="../machine/index.json">Machine index</a>
+<a href="../llms.txt">llms.txt</a>
+</div>
+</details>
+</header>
+<link rel="stylesheet" href="../global-tools.css"><script src="../global-tools.js" data-global-root="../" defer></script>
+<main id="main" class="record-main">
+<header class="record-hero"><div class="record-kicker">Evidence-indexed museum navigation</div><h1>Cross-Surface Record Explorer</h1><p>Stable records joined across evidence that already exists. Observed mentions stay mentions. Causality must be sourced. Unknown stays unknown.</p></header>
+<section class="record-controls" aria-label="Record search and filters"><label>Search records<input id="recordQuery" type="search" autocomplete="off" placeholder="Name, stable ID, type…"></label><label>Record type<select id="recordType"><option value="">All types</option><option value="archive-section">archive-section</option><option value="character-section">character-section</option><option value="chronology-section">chronology-section</option><option value="material-section">material-section</option><option value="media-vault-section">media-vault-section</option><option value="section">section</option><option value="source-section">source-section</option></select></label><div class="record-facets" role="group" aria-label="Evidence presence filters"><label><input type="checkbox" data-record-facet="hasChronology"> Timeline</label><label><input type="checkbox" data-record-facet="hasRelationships"> Mentions</label><label><input type="checkbox" data-record-facet="hasMedia"> Media</label><label><input type="checkbox" data-record-facet="hasCanonLocks"> Canon locks</label><label><input type="checkbox" data-record-facet="hasTours"> Tours</label><label><input type="checkbox" data-record-facet="hasWorlds"> WorldsVault</label><label><input type="checkbox" data-record-facet="hasFilms"> Films</label><label><input type="checkbox" data-record-facet="hasSemantic"> Semantic</label><label><input type="checkbox" data-record-facet="hasContradictions"> Tensions</label><label><input type="checkbox" data-record-facet="hasHistory"> History</label><label><input type="checkbox" data-record-facet="hasCausality"> Causality</label></div><div class="record-control-foot"><span id="recordStatus" class="record-status" aria-live="polite">Loading records…</span><button id="recordReset" type="button">Reset filters</button></div></section>
+
+<section class="deep-systems" aria-labelledby="deepHeading"><div class="record-kicker">Deep systems</div><h2 id="deepHeading">Canon mechanics, exposed without pretending certainty.</h2><div class="deep-grid">
+<article><h3>Contradiction Observatory</h3><div id="contradictionList"></div></article>
+<article><h3>Authored Semantic Edges</h3><div id="semanticList"></div></article>
+<article><h3>Canon Change History</h3><div id="historyList"></div></article>
+<article><h3>Causality Loom</h3><div id="causalityList"></div></article>
+</div></section>
+
+<section class="morphology-atlas" aria-labelledby="morphHeading"><div class="record-kicker">Drakken comparative morphology</div><h2 id="morphHeading">Compare what is authored. Leave the rest unknown.</h2><div class="morph-controls"><label>Left strain<select id="morphLeft"></select></label><label>Right strain<select id="morphRight"></select></label></div><div id="morphCompare"></div></section>
+
+<section class="trail-workbench" aria-labelledby="trailHeading"><div class="record-kicker">Portable research trail</div><h2 id="trailHeading">Follow a question through the archive.</h2><label>Research question<input id="trailQuestion" type="text" maxlength="300" placeholder="What are you trying to establish?"></label><div id="trailList"></div><div class="trail-actions"><button id="trailExportJson" type="button">Export JSON</button><button id="trailExportMd" type="button">Export Markdown</button><button id="trailClear" type="button">Clear trail</button></div><p class="record-note">Stored only in this browser. Exports contain stable IDs and evidence references; they do not become canon.</p></section>
+
+<ol class="record-grid" id="recordGrid" aria-label="Stable records"></ol><p id="recordLoadError" hidden>The local record search index could not be loaded.</p>
+</main><script src="records.js" defer></script><script src="records-deep.js" defer></script></body></html>

@@ -190,3 +190,106 @@ An additive root Reader Workbench was added through the existing template/genera
 Pre-delivery proof now exists outside the coding sandbox: the focused Chromium Workbench suite passed 6/6, representative Firefox and WebKit journeys passed 12/12 each, and a CI-like copy excluding only the intentionally uncommitted `media/source/` passed deterministic build/check, strict validation, public-boundary validation across 576 files, and the 42-node / 92-edge derivation map. Strict validation held 16 canon locks at zero violations and all 36 Drakken art assertions. Authoritative GitHub Actions run `35031504532` then passed pinned Linux Chromium at 242 passed / 1 skipped plus Firefox 12/12 and WebKit 12/12, with exact-base Operational State freshness and deterministic docs parity. No visual baseline was changed. Protected merge and live Pages proof remain the final closure gates. There is no Phase 13.
 
 Closure evidence: PR #64 merged at `1828b0f1cff57b9107cc548b5fa49deba6139839`. Exact-state PR CI `35031829035` and main CI `35032076500` passed; Pages publish `35032076495`, Pages deployment `35032090194`, and Build Provenance succeeded. Cache-busted live proof matched `docs/index.html` byte-for-byte at SHA-256 `c0eea9e3a0412ed0f9c5f78e08cf1061ec10d2d861d1fb9925209dd187380811` and `docs/service-worker.js` at SHA-256 `c87b3dd810d93256296c265872048904cffa4d5357988e7008f3c7cfeb74c304`, with the Reader Workbench and Thread Atlas markers present on the live root. The 100-item uplift plus WOW-01 is closed; no Phase 13 was created.
+
+
+## 2026-09-18 — Cross-Surface Record Explorer implementation and local verification
+
+Implementation commit: `a7f6f17db45c285ff1aaf3fd2472392a8a049203` (`feat: add cross-surface record explorer`).
+
+Summary:
+- Added a deterministic Cross-Surface Record Explorer keyed only by the 127 existing stable top-level Compendium record IDs.
+- Added `/records/` human search/facet UI, full `records.json` evidence index, compact offline `search.json`, versioned schema and explicit derivative-only authority contract.
+- Added an `Explore this record` context map plus accessible text equivalent to every entity permalink.
+- Integrated the explorer into machine orientation, sitemap, shared museum navigation, offline publication, derivation topology, README and regression coverage.
+- Preserved evidence classes rather than collapsing them into a semantic graph. Existing `observed-xref` edges remain `mentions`; chronology, canon locks, WorldsVault references and Film Vault references appear only where their owning source explicitly supports the stable record.
+
+Reason / Intent:
+- Make existing Starsilk records navigable across already-published evidence surfaces without inventing a second canon, stronger relationship semantics, unsupported chronology or new object identities.
+- Keep the result static, deterministic, privacy-preserving and within the established offline-shell budget.
+
+Files Changed:
+- New authoritative/implementation surfaces: `src/records/AUTHORITY.md`, `src/schema/cross-surface-record-index.schema.json`, `build/record_explorer.py`, `src/templates/records.{html.j2,css,js}`.
+- Existing integration surfaces: `build/entity_publication.py`, `build/machine_publication.py`, `src/templates/entity.html.j2`, `src/templates/entity.css`, `src/templates/_museum_nav.html.j2`, `src/offline/config.json`, `src/system/derivation-map.json`, `tools/build.sh`, `README.md`, `OPERATIONAL_STATE.md`.
+- Tests: `tests/test_cross_surface_record_explorer.py`, `tests/test_cross_browser.py`, `tests/test_machine_publication.py`.
+- Generated public derivatives: `docs/records/**`, versioned machine schema, machine index/orientation/sitemap, service worker, shared-nav pages and all 127 generated entity permalinks.
+
+Commands Run:
+```sh
+git fetch origin --prune
+git merge-base --is-ancestor feature/administration-film-vault origin/main
+git switch -c feature/cross-surface-record-explorer origin/main
+./tools/build.sh --check
+.venv/bin/python3 -m pytest tests/test_cross_surface_record_explorer.py tests/test_machine_publication.py tests/test_derivation_map.py tests/test_entity_permalinks.py -q
+.venv/bin/python3 -m pytest tests/test_offline_museum.py --browser chromium -q
+.venv/bin/python3 -m pytest tests/test_cross_browser.py --browser chromium -q
+.venv/bin/python3 -m pytest tests/test_cross_browser.py --browser firefox -q
+.venv/bin/python3 -m pytest tests/test_cross_browser.py --browser webkit -q
+.venv/bin/python3 tools/validate_derivation_map.py --write
+.venv/bin/python3 tools/check_operational_state_freshness.py --base-ref origin/main
+git diff --check
+git commit -m "feat: add cross-surface record explorer"
+```
+
+Command Intent:
+- Prove the previous Film Vault branch was already incorporated before branching from current `origin/main`.
+- Verify deterministic publication parity, strict canon/media/public-boundary invariants, evidence-class behavior, entity integration, offline behavior and representative browser journeys.
+- Keep Git delivery limited to the bounded explorer change set.
+
+Outputs Generated:
+- `docs/records/index.html`
+- `docs/records/records.json`
+- `docs/records/search.json`
+- `docs/records/schema.json`
+- `docs/records/AUTHORITY.md`
+- `docs/records/records.css`
+- `docs/records/records.js`
+- `docs/machine/schema/v1/cross-surface-record-index.schema.json`
+- Regenerated entity permalinks and shared-navigation/public machine derivatives.
+
+Decisions:
+- The full evidence index remains published but is not eagerly precached. Only the small explorer shell and compact 127-record search projection are precached, keeping the established offline ceiling below 2 MB.
+- Unsupported evidence categories are omitted rather than filled with guesses.
+- No canon prose, stable ID, semantic relationship authority, authored chronology, canonical media binary, backend, account, analytics, remote search service or Phase 13 was added.
+- Runner-dependent `docs/qa-report.txt` telemetry was restored to its pre-task tracked bytes rather than committed as unrelated churn.
+
+Verification:
+- Normal `./tools/build.sh --check`: PASS with 278 machine outputs, 7 record-explorer outputs, 129 entity outputs, strict validation clean and public-boundary validation clean across 587 files.
+- Strict validation: 0 duplicate IDs, 0 broken anchors, 0 missing local assets, 0 external runtime dependencies, 16 canon locks / 0 violations, 36 Drakken art assertions / 0 failures, 0 manifest invariant errors.
+- Focused explorer/machine/derivation/entity suite: 34/34 PASS.
+- Offline Chromium suite: 4/4 PASS.
+- Representative Chromium: 15/15 PASS.
+- Representative WebKit: 15/15 PASS.
+- Representative Firefox: first long run produced one transient existing unified-shell visibility failure; the exact failing journey passed 1/1 alone and a clean full rerun passed 15/15. No unrelated navigation repair was made.
+- `git diff --check`: PASS.
+- DEX//REACH pre-commit checkpoint: `2026-09-18T22-56-42-443Z-a2e1a9`.
+
+Bugs / Blockers:
+- At the task baseline, strict validation showed 47 local PNGs in `media/source/` that were not represented in `docs/asset-manifest.json`.
+- During source-only validation the local `media/source/` directory later became absent. The repository-authoritative 213-file canonical original set was reconstructed exactly from historical commit `97ae39c745933a024791ed75924f2a5d1d7844a5` using the documented recovery path and independently verified 213/213 with `tools/media_source_archive.py verify --json`.
+- The 47 pre-existing nonmanifest PNGs remain unrecovered. Bounded exact-copy recovery checked ordinary Mac user folders, Google Drive filename search and several hundred recent ChatGPT Library images by SHA-256 filename prefix with no matches. They were outside repository/manifest authority, but their loss is still a local-work preservation gap and must not be described as recovered.
+
+Correction:
+- An early Firefox failure was initially ambiguous. Isolation proved the same unified-shell journey passed, and the clean full Firefox rerun passed 15/15; it is recorded as transient rather than “fixed.”
+- An early offline Chromium timeout occurred only while Chromium, Firefox and WebKit suites competed concurrently; the same offline suite passed 4/4 when rerun serially.
+
+State After Completion:
+- Branch: `feature/cross-surface-record-explorer`.
+- Implementation commit: `a7f6f17db45c285ff1aaf3fd2472392a8a049203`.
+- Tracked explorer implementation is locally verified.
+- Canonical manifest-backed media authority is restored and verified at 213/213.
+- The 47 baseline nonmanifest local PNGs remain an explicit unresolved recovery issue.
+- Protected PR CI, merge, Pages deployment and live-edge publication are not yet claimed.
+
+Next Step / Handoff:
+- Commit this additive Bible entry as the documentation follow-up, push both commits to `origin/feature/cross-surface-record-explorer`, then use protected PR CI before any merge/publication claim.
+- Do not infer successful recovery of the 47 nonmanifest PNGs unless exact bytes are later found and verified against their SHA-256-derived filenames.
+
+## 2026-09-25 — Deep Systems integration
+
+The Compendium’s Cross-Surface Record Explorer is now the integration seam for ten evidence-aware capabilities rather than ten disconnected subsystems: contradiction/tension records, authored semantic edges, a universal command palette, global temporal lens, canon delta history, claim-level evidence traces, source-backed causal edges, visual generation packets, a conservative Drakken morphology comparison atlas, and portable browser-local Research Trails.
+
+Authority remains deliberately split. Observed xrefs remain mentions. Semantic edges and causal edges require authored evidence. Chronological proximity does not imply causation. The contradiction registry is incomplete by design. Unknown dates and morphology remain unknown. Visual packets expose only existing sources/media/locks and may not invent physical canon. Reader-created trails never become canon.
+
+The implementation is deterministic under `build/record_explorer.py`, with `src/records/deep-systems.json` plus `src/schema/deep-systems.schema.json` as the new structured source/schema pair. Global palette assets are generated root tools. Advanced record-analysis assets remain optional outside the offline precache so the established under-2-MB offline contract survives unchanged.
+
+Local proof: strict build/validator and public-boundary PASS; 48 focused/source/machine/offline/unified-shell tests PASS; 15 representative Chromium cross-browser journeys PASS; deep-systems browser journey PASS; offline precache 1,996,773 bytes; derivation topology 46/105 PASS. CI/merge/live publication remain separate proof states until actually observed.

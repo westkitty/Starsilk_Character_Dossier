@@ -52,3 +52,6 @@ Chronology JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/ch
 Human WorldsVault cosmic topology explorer: https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/
 WorldsVault topology JSON: https://westkitty.github.io/Starsilk_Character_Dossier/worldsvault/worldsvault.json
 - WorldsVault publication IDs are deterministic source-label derivatives, not authored permanent identities. Topology layout is non-canonical rendering order only; coordinates, distances, directions, route geometry, and unsupported semantic relations remain unknown.
+Cross-surface record explorer: https://westkitty.github.io/Starsilk_Character_Dossier/records/
+Cross-surface record index JSON: https://westkitty.github.io/Starsilk_Character_Dossier/records/records.json
+- Record explorer references remain evidence-classified derivatives; they never create stronger relationship, chronology, canon, media, world, or film claims.

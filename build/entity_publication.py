@@ -32,6 +32,7 @@ PROJECT_NAME = "Starsilk Compendium"
 sys.path.insert(0, str(ROOT / "build"))
 import generate  # noqa: E402
 import machine_publication as machine  # noqa: E402
+import record_explorer  # noqa: E402
 
 
 def is_external_or_special(url: str) -> bool:
@@ -184,6 +185,8 @@ def render_outputs() -> dict[str, str]:
     record_by_id = {record["stable_id"]: record for record in records}
     assets = manifest_assets(manifest)
     stable_ids = set(record_by_id)
+    explorer_index = record_explorer.build_index()
+    explorer_by_id = {item["stable_id"]: item for item in explorer_index["records"]}
 
     env = jinja2.Environment(
         loader=jinja2.FileSystemLoader(str(TEMPLATES_DIR)),
@@ -222,6 +225,7 @@ def render_outputs() -> dict[str, str]:
             media=related_media(record, assets),
             outgoing=relationship_items(section.id, graph, labels, "outgoing"),
             incoming=relationship_items(section.id, graph, labels, "incoming"),
+            explorer_record=explorer_by_id[section.id],
             jsonld=page_jsonld(record),
         )
     return outputs

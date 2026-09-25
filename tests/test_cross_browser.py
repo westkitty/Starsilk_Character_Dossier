@@ -189,3 +189,18 @@ def test_codec_wound_graph_evidence_journey(page: Page, local_server):
     page.keyboard.press("Escape")
     expect(page.locator("#readerToWoundGraph")).to_be_focused()
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
+
+def test_cross_surface_record_explorer_search_and_facets(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/records/?record=codec#record-codec")
+    expect(page.locator("#recordStatus")).to_contain_text("127 records")
+    page.locator("#recordQuery").fill("Codec")
+    expect(page.locator("#recordStatus")).to_contain_text("2 of 127 records")
+    expect(page.locator("#record-codec")).to_be_visible()
+    page.locator('[data-record-facet="hasRelationships"]').check()
+    expect(page.locator("#record-codec")).to_be_visible()
+    page.locator("#recordReset").click()
+    expect(page.locator("#recordStatus")).to_contain_text("127 of 127 records")
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    assert page.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches") is False or True

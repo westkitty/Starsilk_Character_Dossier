@@ -14,6 +14,7 @@
 <body>
 <a class="skip-link" href="#results">Skip to results</a>
 {% set nav_root = '../' %}{% set nav_current = 'discover' %}{% include "_museum_nav.html.j2" %}
+{% set global_root = nav_root %}{% include "_global_tools.html.j2" %}
 <header class="topbar">
   <a class="brand" href="../">{{ project_name }}</a>
   <nav aria-label="Discovery publication formats">

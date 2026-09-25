@@ -80,6 +80,16 @@ from. It's intentionally excluded from Git for the same reason. Nothing in
 the normal build reads it; `build/migrate_legacy.py` did, once, to bootstrap
 `src/content/` and is not part of ordinary builds.
 
+## Cross-Surface Record Explorer
+
+`/records/` is a generated, offline-capable search surface over the existing stable record IDs. It joins only classified evidence already owned by the canon-lock, chronology, observed-xref, media, tour, WorldsVault, Film Vault, discovery, and machine-publication systems. Its JSON index is generated at `/records/records.json`; it is navigation/evidence infrastructure, not a second canon or relationship database.
+
+## Deep systems integration
+
+The public `/records/` explorer also acts as the Compendium's evidence-aware integration layer. It exposes explicit contradiction/tension records, authored semantic and causal edges, canon-delta history, claim-level evidence traces, visual-generation packets, conservative Drakken morphology comparison, and browser-local research trails. Ctrl/Cmd+K opens a shared command palette, and a session-scoped temporal lens can constrain explicitly tagged evidence without hiding unknown temporal state.
+
+These surfaces do **not** replace canon authority. Observed xrefs remain mentions; chronology order is not causation; unknown fields stay unknown; reader trails are non-canonical. The structured source is `src/records/deep-systems.json` and its schema is `src/schema/deep-systems.schema.json`.
+
 ## Build
 
 ```bash

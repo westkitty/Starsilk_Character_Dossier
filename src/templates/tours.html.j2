@@ -13,6 +13,7 @@
 <body class="tour-shell">
 <a class="skip-link" href="#main">Skip to tours</a>
 {% set nav_root = '../' %}{% set nav_current = 'tours' %}{% include "_museum_nav.html.j2" %}
+{% set global_root = nav_root %}{% include "_global_tools.html.j2" %}
 <header class="tour-bar">
   <a class="tour-brand" href="../">{{ project_name }}</a>
   <nav aria-label="Tour publication formats">

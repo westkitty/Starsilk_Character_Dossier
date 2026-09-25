@@ -13,6 +13,7 @@
 <body class="museum-shell">
 <a class="skip-link" href="#main">Skip to museum collection</a>
 {% set nav_root = '../' %}{% set nav_current = 'objects' %}{% include "_museum_nav.html.j2" %}
+{% set global_root = nav_root %}{% include "_global_tools.html.j2" %}
 <header class="museum-bar">
   <a class="museum-brand" href="../">{{ project_name|e }}</a>
   <nav aria-label="Museum object publication formats">

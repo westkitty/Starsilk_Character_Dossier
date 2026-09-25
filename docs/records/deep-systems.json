@@ -1,0 +1,223 @@
+{
+  "schema": "starsilk-deep-systems-source/1",
+  "authority_note": "This registry records only explicitly source-backed tensions, semantic relationships, canon deltas, and causal claims selected for cross-surface analysis. It is incomplete by design. Absence is not negative canon.",
+  "contradiction_records": [
+    {
+      "contradiction_id": "codec-solidarity-unilateral-authority",
+      "status": "intentional-tension",
+      "label": "Codec's solidarity principle and unilateral authority",
+      "affected_stable_ids": [
+        "codec",
+        "starbinding"
+      ],
+      "claims": [
+        {
+          "claim": "Codec states that it should be solidarity, not supplication.",
+          "source": {
+            "path": "src/content/sections/codec.body.html",
+            "stable_id": "codec",
+            "locator": "Core read / quote"
+          }
+        },
+        {
+          "claim": "Codec opposes Tiger's moral logic while reproducing a smaller form of unilateral authority through the Starbinding.",
+          "source": {
+            "path": "src/content/sections/codec.body.html",
+            "stable_id": "codec",
+            "locator": "Core read"
+          }
+        }
+      ],
+      "resolution": null,
+      "history": []
+    }
+  ],
+  "semantic_edges": [
+    {
+      "edge_id": "opposes--codec--shard-god",
+      "source": "codec",
+      "target": "shard-god",
+      "kind": "opposes",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "temporal": {
+        "era": "modern",
+        "start": null,
+        "end": null
+      },
+      "qualifiers": [
+        "moral logic"
+      ],
+      "source_evidence": {
+        "path": "src/content/sections/codec.body.html",
+        "stable_id": "codec",
+        "locator": "Core read"
+      }
+    },
+    {
+      "edge_id": "defeats--codec--dao",
+      "source": "codec",
+      "target": "dao",
+      "kind": "defeats",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "temporal": {
+        "era": "modern",
+        "start": "WorldsVault breach",
+        "end": null
+      },
+      "qualifiers": [],
+      "source_evidence": {
+        "path": "src/content/sections/codec.body.html",
+        "stable_id": "codec",
+        "locator": "History and pressure"
+      }
+    },
+    {
+      "edge_id": "defeats--codec--kail",
+      "source": "codec",
+      "target": "kail",
+      "kind": "defeats",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "temporal": {
+        "era": "modern",
+        "start": "WorldsVault breach",
+        "end": null
+      },
+      "qualifiers": [],
+      "source_evidence": {
+        "path": "src/content/sections/codec.body.html",
+        "stable_id": "codec",
+        "locator": "History and pressure"
+      }
+    },
+    {
+      "edge_id": "kills--codec--nialbu",
+      "source": "codec",
+      "target": "nialbu",
+      "kind": "kills",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "temporal": {
+        "era": "modern",
+        "start": "WorldsVault breach",
+        "end": null
+      },
+      "qualifiers": [
+        "deleting reality's final deific checksum"
+      ],
+      "source_evidence": {
+        "path": "src/content/sections/codec.body.html",
+        "stable_id": "codec",
+        "locator": "History and pressure"
+      }
+    }
+  ],
+  "canon_deltas": [
+    {
+      "delta_id": "lock-syrin-spelling",
+      "stable_ids": [
+        "world"
+      ],
+      "delta_class": "terminology-lock",
+      "label": "Syrin spelling is locked",
+      "summary": "The active machine-enforced canon forbids the stale spelling “Seren” and preserves “Syrin”.",
+      "recorded_at": null,
+      "source_evidence": {
+        "path": "src/canon/invariants.json",
+        "locator": "forbidden global terminology / Syrin"
+      }
+    },
+    {
+      "delta_id": "lock-war-duration-170",
+      "stable_ids": [
+        "world",
+        "chronology"
+      ],
+      "delta_class": "correction",
+      "label": "Blood Eclipse War duration is one hundred seventy years",
+      "summary": "Current authored chronology and world overview agree on a 170-year war. The structured delta does not preserve a date for when this correction was adopted.",
+      "recorded_at": null,
+      "source_evidence": {
+        "path": "src/chronology/events.json",
+        "locator": "blood-eclipse-war duration"
+      }
+    }
+  ],
+  "causal_edges": [
+    {
+      "edge_id": "provoked--collapse-aureal-gate--halven-heliocide",
+      "source_event": "collapse-aureal-gate",
+      "target_event": "halven-heliocide",
+      "kind": "provoked",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "source_claim_ids": [
+        "C045",
+        "C046",
+        "C047"
+      ],
+      "source_evidence": {
+        "path": "src/content/sections/canon-ledger.body.html",
+        "stable_id": "canon-ledger",
+        "locator": "C045-C047"
+      }
+    },
+    {
+      "edge_id": "enabled--halven-heliocide--locking-siege-wall",
+      "source_event": "halven-heliocide",
+      "target_event": "locking-siege-wall",
+      "kind": "enabled",
+      "status": "authored",
+      "certainty": "direct-authored",
+      "source_claim_ids": [
+        "C047",
+        "C048"
+      ],
+      "source_evidence": {
+        "path": "src/content/sections/canon-ledger.body.html",
+        "stable_id": "canon-ledger",
+        "locator": "C047-C048"
+      }
+    }
+  ],
+  "temporal_lenses": [
+    {
+      "id": "all",
+      "label": "All eras"
+    },
+    {
+      "id": "primordial",
+      "label": "Primordial"
+    },
+    {
+      "id": "pre-war",
+      "label": "Pre-War"
+    },
+    {
+      "id": "blood-eclipse-war",
+      "label": "Blood Eclipse War"
+    },
+    {
+      "id": "post-war",
+      "label": "Post-War"
+    },
+    {
+      "id": "modern",
+      "label": "Modern"
+    },
+    {
+      "id": "beyond-wall",
+      "label": "Beyond the Wall"
+    }
+  ],
+  "rules": [
+    "Observed xrefs are never promoted into semantic edges.",
+    "Chronological adjacency is never sufficient evidence of causation.",
+    "A temporal lens filters only evidence carrying explicit temporal metadata; unknown evidence remains visible and labeled unknown.",
+    "Machine locks are validation authority, not the entirety of canon.",
+    "Canon delta history is incomplete; unknown adoption dates remain null.",
+    "Visual generation packets may expose only existing media, source records, and applicable machine locks. They must not invent anatomy, palette, costume, topology, or continuity rules."
+  ]
+}
