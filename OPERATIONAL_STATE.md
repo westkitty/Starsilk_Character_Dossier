@@ -896,3 +896,9 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - PR #75 CI run 36184745762 exposed one Firefox/Linux-only mobile overflow in `/records/`: the Drakken morphology comparison table was allowed to contribute intrinsic width to the page root. Chromium local proof had not reproduced it.
 - Bounded repair confines `#morphCompare` to its own horizontal scroll lane and keeps deep-grid children shrinkable. No data, authority, functionality, canon, or offline cache contract changed.
 - The exact failing Firefox representative test passes locally after repair. A new protected CI run is required before merge.
+
+### Deep Systems full-suite compatibility repair
+- Protected CI run 36185083043 passed Firefox and WebKit but the full Chromium suite exposed four preserved-contract regressions: the shared-nav palette script violated three deliberately script-free publication surfaces, and root Ctrl+K collided with the pre-existing Reader Workbench shortcut/focus contract.
+- Repair removes executable global-tools injection from the shared static navigation. The palette remains on root and opt-in interactive surfaces (Discover, Objects, Tours, Chronology, WorldsVault, Records), while all static surfaces retain navigation to Records without executable additions.
+- Palette shortcut is Ctrl/Cmd+Shift+K. Existing root Ctrl+K remains Reader Workbench authority.
+- The exact four failing legacy tests plus the dedicated Deep Systems palette browser journey pass 5/5 locally after repair. No canon, source registry, semantic edge, causality, media, offline-cache, or stable-ID behavior changed.

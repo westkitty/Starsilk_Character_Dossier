@@ -53,6 +53,7 @@ def test_r3_global_command_palette_is_shared_and_keyboard_addressable():
     assert 'global-tools.js' in partial
     assert 'id="ssCommandDialog"' in global_js
     assert 'e.ctrlKey||e.metaKey' in global_js
+    assert 'e.shiftKey' in global_js
     assert 'e.key.toLowerCase()==="k"' in global_js
     for label in ("Discover","Records / Deep Systems","Relationships","Canon Inspector","Chronology","WorldsVault","Film Vault","Witness Engine","Revision Chamber"):
         assert label in global_js
@@ -147,7 +148,7 @@ def test_generated_deep_source_is_exact_derivative():
 def test_browser_command_palette_temporal_lens_and_deep_tools(page, local_server):
     page.set_viewport_size({"width": 1280, "height": 900})
     page.goto(f"{local_server}/index.html")
-    page.keyboard.press("Control+K")
+    page.keyboard.press("Control+Shift+K")
     dialog = page.locator("#ssCommandDialog")
     assert dialog.evaluate("el => el.open")
     page.locator("#ssCommandQuery").fill("Codec")
