@@ -22,7 +22,9 @@ OUT = DOCS / "records"
 SRC = ROOT / "src"
 TEMPLATES = SRC / "templates"
 SCHEMA = SRC / "schema" / "cross-surface-record-index.schema.json"
+DEEP_SCHEMA = SRC / "schema" / "deep-systems.schema.json"
 AUTHORITY = SRC / "records" / "AUTHORITY.md"
+DEEP_SOURCE = SRC / "records" / "deep-systems.json"
 SITE_BASE = "https://westkitty.github.io/Starsilk_Character_Dossier/"
 PROJECT_ID = "starsilk-character-dossier"
 SCHEMA_ID = "starsilk-cross-surface-record-index/1"
@@ -42,6 +44,10 @@ EVIDENCE_CLASSES = (
     "authored-worldsvault-reference",
     "authored-film-source-reference",
     "machine-alternative",
+    "authored-semantic-edge",
+    "contradiction-record",
+    "canon-delta",
+    "authored-causality",
 )
 
 CATEGORY_ORDER = (
@@ -52,6 +58,10 @@ CATEGORY_ORDER = (
     "Tours",
     "Worlds",
     "Films",
+    "Semantic Relationships",
+    "Contradictions / Tensions",
+    "Canon History",
+    "Causality",
     "Machine / Source",
 )
 
@@ -63,6 +73,10 @@ FACET_LABELS = (
     ("hasTours", "Tours"),
     ("hasWorlds", "WorldsVault"),
     ("hasFilms", "Films"),
+    ("hasSemantic", "Semantic"),
+    ("hasContradictions", "Tensions"),
+    ("hasHistory", "History"),
+    ("hasCausality", "Causality"),
 )
 
 
@@ -213,11 +227,73 @@ def build_relationship_refs(labels: dict[str, str]) -> dict[str, list[dict]]:
     return refs
 
 
+def build_deep_indexes(labels: dict[str, str]) -> tuple[dict[str, list[dict]], dict[str, list[dict]], dict[str, list[dict]], dict[str, list[dict]], dict]:
+    deep = load_json(DEEP_SOURCE)
+    semantic: dict[str, list[dict]] = defaultdict(list)
+    contradictions: dict[str, list[dict]] = defaultdict(list)
+    history: dict[str, list[dict]] = defaultdict(list)
+    causality: dict[str, list[dict]] = defaultdict(list)
+
+    for edge in deep.get("semantic_edges", []):
+        source, target = edge.get("source"), edge.get("target")
+        if source in labels and target in labels:
+            for stable_id, direction, other in ((source, "outgoing", target), (target, "incoming", source)):
+                semantic[stable_id].append(ref(
+                    f"{edge.get('kind', 'related')} · {labels.get(other, other)}",
+                    f"{SITE_BASE}records/#semantic-{edge['edge_id']}",
+                    "authored-semantic-edge",
+                    edge.get("source_evidence", {}).get("path", "src/records/deep-systems.json"),
+                    edge_id=edge["edge_id"], direction=direction, relation=edge.get("kind"),
+                    temporal=edge.get("temporal", {}), qualifiers=edge.get("qualifiers", []),
+                ))
+
+    for item in deep.get("contradiction_records", []):
+        for stable_id in item.get("affected_stable_ids", []):
+            if stable_id in labels:
+                contradictions[stable_id].append(ref(
+                    f"{item.get('status', 'unresolved')} · {item['label']}",
+                    f"{SITE_BASE}records/#contradiction-{item['contradiction_id']}",
+                    "contradiction-record",
+                    "src/records/deep-systems.json",
+                    contradiction_id=item["contradiction_id"], status=item.get("status"),
+                ))
+
+    for item in deep.get("canon_deltas", []):
+        for stable_id in item.get("stable_ids", []):
+            if stable_id in labels:
+                history[stable_id].append(ref(
+                    f"{item.get('delta_class', 'change')} · {item['label']}",
+                    f"{SITE_BASE}records/#delta-{item['delta_id']}",
+                    "canon-delta",
+                    item.get("source_evidence", {}).get("path", "src/records/deep-systems.json"),
+                    delta_id=item["delta_id"], delta_class=item.get("delta_class"),
+                    recorded_at=item.get("recorded_at"),
+                ))
+
+    # Causality is event-level evidence. Attach it to the authored chronology
+    # and Canon Ledger records without pretending event IDs are entity IDs.
+    for edge in deep.get("causal_edges", []):
+        for stable_id in ("chronology", "canon-ledger"):
+            if stable_id in labels:
+                causality[stable_id].append(ref(
+                    f"{edge.get('kind', 'causal')} · {edge.get('source_event')} → {edge.get('target_event')}",
+                    f"{SITE_BASE}records/#causal-{edge['edge_id']}",
+                    "authored-causality",
+                    edge.get("source_evidence", {}).get("path", "src/records/deep-systems.json"),
+                    causal_edge_id=edge["edge_id"], relation=edge.get("kind"),
+                    source_event=edge.get("source_event"), target_event=edge.get("target_event"),
+                    source_claim_ids=edge.get("source_claim_ids", []),
+                ))
+    return semantic, contradictions, history, causality, deep
+
+
 def build_index() -> dict:
     sections = generate.load_sections(generate.load_media_rename_map())
     manifest = machine.load_manifest()
     records = machine.build_entity_records(sections, manifest)
     labels = {record["stable_id"]: record["display_label"] for record in records}
+    section_meta = {item["id"]: item for item in load_json(SRC / "content" / "sections.json").get("sections", [])}
+    semantic, contradictions, history, causality, deep = build_deep_indexes(labels)
 
     relations = build_relationship_refs(labels)
     chronology = build_chronology_refs(labels)
@@ -256,6 +332,14 @@ def build_index() -> dict:
             categories["Worlds"] = worlds[stable_id]
         if films.get(stable_id):
             categories["Films"] = films[stable_id]
+        if semantic.get(stable_id):
+            categories["Semantic Relationships"] = semantic[stable_id]
+        if contradictions.get(stable_id):
+            categories["Contradictions / Tensions"] = contradictions[stable_id]
+        if history.get(stable_id):
+            categories["Canon History"] = history[stable_id]
+        if causality.get(stable_id):
+            categories["Causality"] = causality[stable_id]
 
         source_refs = record.get("source_refs", [])
         source_pointer = next((s.get("path") for s in source_refs if s.get("path", "").endswith(".body.html")), f"src/content/sections/{stable_id}.body.html")
@@ -276,6 +360,10 @@ def build_index() -> dict:
             "hasTours": bool(tours.get(stable_id)),
             "hasWorlds": bool(worlds.get(stable_id)),
             "hasFilms": bool(films.get(stable_id)),
+            "hasSemantic": bool(semantic.get(stable_id)),
+            "hasContradictions": bool(contradictions.get(stable_id)),
+            "hasHistory": bool(history.get(stable_id)),
+            "hasCausality": bool(causality.get(stable_id)),
         }
         search_terms = [stable_id, record["display_label"], record["object_type"]]
         for name, items in categories.items():
@@ -283,6 +371,36 @@ def build_index() -> dict:
             search_terms.extend(item["label"] for item in items)
             search_terms.extend(item["evidence_class"] for item in items)
 
+        meta = section_meta.get(stable_id, {})
+        classes = meta.get("classes", "")
+        archetype = (meta.get("attrs") or {}).get("data-archetype")
+        temporal_tags = sorted({
+            str(item.get("temporal", {}).get("era"))
+            for item in deep.get("semantic_edges", [])
+            if stable_id in (item.get("source"), item.get("target")) and item.get("temporal", {}).get("era")
+        })
+        visual_packet = {
+            "schema": "starsilk-visual-generation-packet/1",
+            "stable_id": stable_id,
+            "display_label": record["display_label"],
+            "source": source_pointer,
+            "related_media_ids": list(record.get("related_media_ids", [])),
+            "machine_locks": [item.get("lock_id") for item in locks.get(stable_id, [])],
+            "authored_archetype": archetype,
+            "immutable_or_locked": [item.get("label") for item in locks.get(stable_id, [])],
+            "unknown_fields": ["anatomy/topology", "proportions", "palette", "materials", "costume/accessories", "silhouette"] if not locks.get(stable_id) else [],
+            "rule": "Do not infer visual properties not established by source, media, or applicable machine locks.",
+        }
+        drakken = None
+        if "drakken-page" in classes.split():
+            drakken = {
+                "archetype": archetype or "unknown",
+                "body_topology": "unknown",
+                "locomotion": "unknown",
+                "scale": "unknown",
+                "environmental_mechanism": "unknown",
+                "source_status": "Only authored archetype metadata is structurally classified; other morphology axes remain unknown unless a reader follows the source record.",
+            }
         compiled.append({
             "stable_id": stable_id,
             "display_label": record["display_label"],
@@ -298,6 +416,9 @@ def build_index() -> dict:
             "reference_count": sum(len(items) for items in categories.values()),
             "search_text": " ".join(search_terms),
             "unknowns": list(record.get("unknowns", [])),
+            "temporal_tags": temporal_tags,
+            "visual_packet": visual_packet,
+            "drakken_morphology": drakken,
         })
 
     return {
@@ -319,6 +440,14 @@ def build_index() -> dict:
             "Machine-lock presence exposes an applicable validator lock and does not create canon approval.",
             "Unknown and unsupported categories remain absent rather than inferred.",
         ],
+        "deep_systems": {
+            "source": "src/records/deep-systems.json",
+            "contradiction_count": len(deep.get("contradiction_records", [])),
+            "semantic_edge_count": len(deep.get("semantic_edges", [])),
+            "canon_delta_count": len(deep.get("canon_deltas", [])),
+            "causal_edge_count": len(deep.get("causal_edges", [])),
+            "rules": deep.get("rules", []),
+        },
         "records": compiled,
     }
 
@@ -337,7 +466,7 @@ def render_outputs() -> dict[str, str]:
         "schema": "starsilk-cross-surface-record-search/1",
         "facet_keys": facet_keys,
         "records": [
-            [r["stable_id"], r["display_label"], r["object_type"], sum((1 << i) for i, key in enumerate(facet_keys) if r["facets"][key]), r["reference_count"]]
+            [r["stable_id"], r["display_label"], r["object_type"], sum((1 << i) for i, key in enumerate(facet_keys) if r["facets"][key]), r["reference_count"], (r.get("drakken_morphology") or {}).get("archetype", ""), r.get("temporal_tags", [])]
             for r in index["records"]
         ],
     }
@@ -349,10 +478,14 @@ def render_outputs() -> dict[str, str]:
         ),
         "records.css": (TEMPLATES / "records.css").read_text(encoding="utf-8"),
         "records.js": (TEMPLATES / "records.js").read_text(encoding="utf-8"),
+        "records-deep.css": (TEMPLATES / "records-deep.css").read_text(encoding="utf-8"),
+        "records-deep.js": (TEMPLATES / "records-deep.js").read_text(encoding="utf-8"),
         "search.json": json_text(search_index),
         "records.json": json_text(index),
         "schema.json": SCHEMA.read_text(encoding="utf-8").rstrip() + "\n",
         "AUTHORITY.md": AUTHORITY.read_text(encoding="utf-8").rstrip() + "\n",
+        "deep-systems.json": DEEP_SOURCE.read_text(encoding="utf-8").rstrip() + "\n",
+        "deep-systems.schema.json": DEEP_SCHEMA.read_text(encoding="utf-8").rstrip() + "\n",
     }
 
 

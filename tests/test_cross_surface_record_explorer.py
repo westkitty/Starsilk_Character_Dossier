@@ -70,7 +70,7 @@ def test_entity_pages_expose_map_and_accessible_text_equivalent():
 def test_search_surface_and_offline_shell_are_local_and_small():
     soup=BeautifulSoup((DOCS/'records/index.html').read_text(encoding='utf-8'),'html.parser')
     assert soup.select_one('#recordQuery') and soup.select_one('#recordType')
-    assert len(soup.select('[data-record-facet]'))==7
+    assert len(soup.select('[data-record-facet]'))==11
     js=(DOCS/'records/records.js').read_text(encoding='utf-8')
     assert 'fetch("search.json")' in js
     assert 'http://' not in js and 'https://' not in js

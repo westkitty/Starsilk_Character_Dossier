@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/deep-systems.schema.json",
+  "title": "Starsilk Deep Systems Evidence Registry",
+  "type": "object",
+  "required": [
+    "schema",
+    "authority_note",
+    "contradiction_records",
+    "semantic_edges",
+    "canon_deltas",
+    "causal_edges",
+    "temporal_lenses",
+    "rules"
+  ],
+  "properties": {
+    "schema": {
+      "const": "starsilk-deep-systems-source/1"
+    },
+    "authority_note": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contradiction_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "contradiction_id",
+          "status",
+          "label",
+          "affected_stable_ids",
+          "claims"
+        ],
+        "properties": {
+          "contradiction_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "unresolved",
+              "intentional-tension",
+              "superseded",
+              "perspective-conflict",
+              "source-conflict",
+              "resolved"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "affected_stable_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "claims": {
+            "type": "array",
+            "minItems": 1
+          },
+          "resolution": {},
+          "history": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "semantic_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "edge_id",
+          "source",
+          "target",
+          "kind",
+          "status",
+          "certainty",
+          "source_evidence"
+        ]
+      }
+    },
+    "canon_deltas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "delta_id",
+          "stable_ids",
+          "delta_class",
+          "label",
+          "summary",
+          "recorded_at",
+          "source_evidence"
+        ],
+        "properties": {
+          "delta_class": {
+            "enum": [
+              "added-fact",
+              "correction",
+              "retcon",
+              "terminology-lock",
+              "visual-lock-change",
+              "relationship-change",
+              "superseded"
+            ]
+          }
+        }
+      }
+    },
+    "causal_edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "edge_id",
+          "source_event",
+          "target_event",
+          "kind",
+          "status",
+          "certainty",
+          "source_claim_ids",
+          "source_evidence"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "required",
+              "triggered",
+              "enabled",
+              "provoked",
+              "contributed-to",
+              "contested"
+            ]
+          }
+        }
+      }
+    },
+    "temporal_lenses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label"
+        ]
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -6,7 +6,11 @@
     "hasCanonLocks",
     "hasTours",
     "hasWorlds",
-    "hasFilms"
+    "hasFilms",
+    "hasSemantic",
+    "hasContradictions",
+    "hasHistory",
+    "hasCausality"
   ],
   "records": [
     [
@@ -14,889 +18,1153 @@
       "Starsilk Compendium",
       "section",
       22,
-      13
+      13,
+      "",
+      []
     ],
     [
       "world",
       "The All is programmable. Meaning is not optional.",
       "section",
-      18,
-      6
+      530,
+      8,
+      "",
+      []
     ],
     [
       "chronology",
       "Reality begins as betrayal. The future is built by exclusion.",
       "chronology-section",
-      51,
-      47
+      1587,
+      50,
+      "",
+      []
     ],
     [
       "shard-god",
       "Shard-God Tiger",
       "character-section",
-      30,
-      16
+      158,
+      17,
+      "",
+      [
+        "modern"
+      ]
     ],
     [
       "codec",
       "Codec",
       "character-section",
-      86,
-      34
+      470,
+      39,
+      "",
+      [
+        "modern"
+      ]
     ],
     [
       "dao",
       "Dao",
       "character-section",
-      30,
-      19
+      158,
+      20,
+      "",
+      [
+        "modern"
+      ]
     ],
     [
       "kail",
       "Kail",
       "character-section",
-      30,
-      24
+      158,
+      25,
+      "",
+      [
+        "modern"
+      ]
     ],
     [
       "marcel",
       "Marcel",
       "character-section",
       30,
-      25
+      25,
+      "",
+      []
     ],
     [
       "jazen",
       "Jazen",
       "character-section",
       18,
-      14
+      14,
+      "",
+      []
     ],
     [
       "starsilk-material",
       "Starsilk",
       "material-section",
       28,
-      11
+      11,
+      "",
+      []
     ],
     [
       "gorevault",
       "Gorevault",
       "character-section",
       22,
-      10
+      10,
+      "unknown",
+      []
     ],
     [
       "ringthroat",
       "Ringthroat",
       "character-section",
       22,
-      10
+      10,
+      "unknown",
+      []
     ],
     [
       "lyriboris",
       "Lyriboris",
       "character-section",
       22,
-      11
+      11,
+      "unknown",
+      []
     ],
     [
       "drakken-registry",
       "The full field register.",
       "section",
       80,
-      6
+      6,
+      "",
+      []
     ],
     [
       "mother",
       "Mother",
       "character-section",
       18,
-      6
+      6,
+      "genesis",
+      []
     ],
     [
       "drk-the-egg",
       "The Egg",
       "character-section",
       20,
-      6
+      6,
+      "genesis",
+      []
     ],
     [
       "drk-magma-pleuron",
       "Magma Pleuron",
       "character-section",
       20,
-      6
+      6,
+      "crust-binder",
+      []
     ],
     [
       "drk-granithelion",
       "Granithelion",
       "character-section",
       22,
-      7
+      7,
+      "crust-binder",
+      []
     ],
     [
       "drk-fault-tongue",
       "Fault-Tongue",
       "character-section",
       22,
-      9
+      9,
+      "crust-binder",
+      []
     ],
     [
       "drk-obsidian-gul",
       "Obsidian Gul",
       "character-section",
       22,
-      9
+      9,
+      "crust-binder",
+      []
     ],
     [
       "drk-tremorhound",
       "Tremorhound",
       "character-section",
       20,
-      6
+      6,
+      "crust-binder",
+      []
     ],
     [
       "drk-glassspine",
       "Glassspine",
       "character-section",
       20,
-      6
+      6,
+      "crust-binder",
+      []
     ],
     [
       "drk-quarrymind",
       "Quarrymind",
       "character-section",
       22,
-      7
+      7,
+      "crust-binder",
+      []
     ],
     [
       "drk-aerokarst",
       "Aerokarst",
       "character-section",
       20,
-      6
+      6,
+      "atmos-engine",
+      []
     ],
     [
       "drk-cloudmaw",
       "Cloudmaw",
       "character-section",
       22,
-      8
+      8,
+      "atmos-engine",
+      []
     ],
     [
       "drk-atmantid",
       "Atmantid",
       "character-section",
       20,
-      6
+      6,
+      "atmos-engine",
+      []
     ],
     [
       "drk-weathernode",
       "Weathernode",
       "character-section",
       20,
-      6
+      6,
+      "atmos-engine",
+      []
     ],
     [
       "drk-vortenbray",
       "Vortenbray",
       "character-section",
       22,
-      8
+      8,
+      "atmos-engine",
+      []
     ],
     [
       "drk-fumericus",
       "Fumericus",
       "character-section",
       20,
-      6
+      6,
+      "atmos-engine",
+      []
     ],
     [
       "drk-skymourn",
       "Skymourn",
       "character-section",
       20,
-      6
+      6,
+      "atmos-engine",
+      []
     ],
     [
       "drk-verdgorge",
       "Verdgorge",
       "character-section",
       20,
-      6
+      6,
+      "seedcarrier",
+      []
     ],
     [
       "drk-pollenvault",
       "Pollenvault",
       "character-section",
       22,
-      7
+      7,
+      "seedcarrier",
+      []
     ],
     [
       "drk-mycethron",
       "Mycethron",
       "character-section",
       20,
-      6
+      6,
+      "seedcarrier",
+      []
     ],
     [
       "drk-raintaster",
       "Raintaster",
       "character-section",
       22,
-      7
+      7,
+      "seedcarrier",
+      []
     ],
     [
       "drk-terragullet",
       "Terragullet",
       "character-section",
       22,
-      8
+      8,
+      "seedcarrier",
+      []
     ],
     [
       "drk-petalnest",
       "Petalnest",
       "character-section",
       20,
-      6
+      6,
+      "seedcarrier",
+      []
     ],
     [
       "drk-feralseed",
       "Feralseed",
       "character-section",
       20,
-      6
+      6,
+      "seedcarrier",
+      []
     ],
     [
       "drk-abyssoriel",
       "Abyssoriel",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-brinechoir",
       "Brinechoir",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-currenthalo",
       "Currenthalo",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-shelfcarver",
       "Shelfcarver",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-glacierthroat",
       "Glacierthroat",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-veilcurrent",
       "Veilcurrent",
       "character-section",
       20,
-      6
+      6,
+      "fluxborne",
+      []
     ],
     [
       "drk-coronaxis",
       "Coronaxis",
       "character-section",
       22,
-      7
+      7,
+      "fluxborne",
+      []
     ],
     [
       "drk-solnexus",
       "Solnexus",
       "character-section",
       22,
-      9
+      9,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-nullthorn",
       "Nullthorn",
       "character-section",
       20,
-      6
+      6,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-helionth",
       "Helionth",
       "character-section",
       20,
-      6
+      6,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-umbrakrael",
       "Umbrakrael",
       "character-section",
       22,
-      7
+      7,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-cinderverge",
       "Cinderverge",
       "character-section",
       22,
-      7
+      7,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-singularch",
       "Singularch",
       "character-section",
       20,
-      6
+      6,
+      "orbital-wyrm",
+      []
     ],
     [
       "drk-ironcant",
       "Ironcant",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-gridsaint",
       "Gridsaint",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-spiremolt",
       "Spiremolt",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-roadthorn",
       "Roadthorn",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-habitarch",
       "Habitarch",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-archivore",
       "Archivore",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-harborhex",
       "Harborhex",
       "character-section",
       20,
-      6
+      6,
+      "civiformer",
+      []
     ],
     [
       "drk-lexiclast",
       "Lexiclast",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-calendarion",
       "Calendarion",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-dreamtaxon",
       "Dreamtaxon",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-crownmute",
       "Crownmute",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-hymnlock",
       "Hymnlock",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-memorialvein",
       "Memorialvein",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-shrinehunger",
       "Shrinehunger",
       "character-section",
       20,
-      6
+      6,
+      "noosphere-cantor",
+      []
     ],
     [
       "drk-redacted-grin",
       "Redacted Grin",
       "character-section",
       20,
-      6
+      6,
+      "glitch-touched",
+      []
     ],
     [
       "drk-spinal-loop",
       "Spinal Loop",
       "character-section",
       20,
-      6
+      6,
+      "glitch-touched",
+      []
     ],
     [
       "cradle-exe",
       "Cradle.exe",
       "character-section",
       16,
-      5
+      5,
+      "glitch-touched",
+      []
     ],
     [
       "foldhowl",
       "Foldhowl",
       "character-section",
       18,
-      6
+      6,
+      "glitch-touched",
+      []
     ],
     [
       "manifest-discord",
       "Manifest.discord",
       "character-section",
       16,
-      5
+      5,
+      "glitch-touched",
+      []
     ],
     [
       "drk-gloryfail",
       "Gloryfail",
       "character-section",
       20,
-      6
+      6,
+      "glitch-touched",
+      []
     ],
     [
       "drk-viral-bastion",
       "Viral Bastion",
       "character-section",
       20,
-      6
+      6,
+      "glitch-touched",
+      []
     ],
     [
       "blood-rings",
       "Blood Rings",
       "section",
       82,
-      9
+      9,
+      "",
+      []
     ],
     [
       "starbinding",
       "The universe executes the partition.",
       "section",
-      18,
-      11
+      274,
+      12,
+      "",
+      []
     ],
     [
       "canon-ledger",
       "The universe keeps receipts.",
       "section",
-      18,
-      21
+      1042,
+      23,
+      "",
+      []
     ],
     [
       "beyond-wall",
       "Beyond the Siege Wall",
       "section",
       90,
-      15
+      15,
+      "",
+      []
     ],
     [
       "systems",
       "What the characters are standing inside.",
       "section",
       50,
-      20
+      20,
+      "",
+      []
     ],
     [
       "peripheral-index",
       "The universe is not only its leads.",
       "section",
       16,
-      5
+      5,
+      "",
+      []
     ],
     [
       "wordstreamer",
       "Wordstreamer",
       "character-section",
       18,
-      16
+      16,
+      "",
+      []
     ],
     [
       "nialbu",
       "NiAlBu",
       "character-section",
-      18,
-      16
+      146,
+      17,
+      "",
+      [
+        "modern"
+      ]
     ],
     [
       "anika",
       "Anika",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "jory",
       "Jory",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "selim",
       "Selim",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "vessa",
       "Vessa",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "orin",
       "Orin",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "mael",
       "Mael",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "sera-inventory",
       "Sera",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "hesh",
       "Hesh",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "mara",
       "Mara",
       "character-section",
       2,
-      8
+      8,
+      "",
+      []
     ],
     [
       "rin",
       "Rin",
       "character-section",
       2,
-      7
+      7,
+      "",
+      []
     ],
     [
       "kira",
       "Kira",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "jalen",
       "Jalen",
       "character-section",
       2,
-      7
+      7,
+      "",
+      []
     ],
     [
       "safi",
       "Safi",
       "character-section",
       2,
-      7
+      7,
+      "",
+      []
     ],
     [
       "kaelen",
       "Kaelen",
       "character-section",
       2,
-      6
+      6,
+      "",
+      []
     ],
     [
       "lyra",
       "Lyra",
       "character-section",
       2,
-      6
+      6,
+      "",
+      []
     ],
     [
       "rhys",
       "Rhys",
       "character-section",
       2,
-      6
+      6,
+      "",
+      []
     ],
     [
       "anya",
       "Anya",
       "character-section",
       2,
-      6
+      6,
+      "",
+      []
     ],
     [
       "sela-orrin",
       "Sela Orrin",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "marn",
       "Marn",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "joss",
       "Joss",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "reth",
       "Reth",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "iven",
       "Iven",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "khar-venn-child",
       "Unnamed Child",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "nyle-quarth",
       "Archivist Nyle Quarth",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "shardlings",
       "The Shardlings",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "allkept",
       "Allkept",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "little-king",
       "The Little King",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "marshal-venn",
       "Marshal Venn",
       "character-section",
       2,
-      6
+      6,
+      "",
+      []
     ],
     [
       "administrator-pell",
       "Administrator Pell",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "technician-naresh",
       "Technician Naresh",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "captain-serr",
       "Captain Serr",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "harold",
       "Harold",
       "character-section",
       2,
-      7
+      7,
+      "",
+      []
     ],
     [
       "mara-syrin4",
       "Mara — Syrin-4",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "tomas",
       "Tomas",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "jonah",
       "Jonah",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "clara",
       "Clara",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "eli",
       "Eli",
       "character-section",
       0,
-      4
+      4,
+      "",
+      []
     ],
     [
       "ruth-syrin4",
       "Ruth",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "kails-mother",
       "Kail’s Mother",
       "character-section",
       2,
-      5
+      5,
+      "",
+      []
     ],
     [
       "cosmic-architecture",
       "Prisons, repositories, scars and places that remember.",
       "section",
       50,
-      13
+      13,
+      "",
+      []
     ],
     [
       "worldsvault-templates",
       "Thirty templates. Twenty-one currently named.",
       "section",
       16,
-      5
+      5,
+      "",
+      []
     ],
     [
       "ontology-horror",
       "The operating system has moral consequences.",
       "section",
       26,
-      10
+      10,
+      "",
+      []
     ],
     [
       "artifacts-factions",
       "Tools remember what systems ask them to do.",
       "section",
       18,
-      9
+      9,
+      "",
+      []
     ],
     [
       "trio-gallery",
       "Three protagonists under impossible pressure.",
       "section",
       22,
-      20
+      20,
+      "",
+      []
     ],
     [
       "history-media",
       "The ledger has pictures. The text still governs.",
       "section",
       20,
-      7
+      7,
+      "",
+      []
     ],
     [
       "media-vault",
       "Media Vault",
       "media-vault-section",
       22,
-      83
+      83,
+      "",
+      []
     ],
     [
       "archive",
       "Reference art belongs beside the canon it can contradict.",
       "archive-section",
       18,
-      9
+      9,
+      "",
+      []
     ],
     [
       "source",
       "Codec: the architecture of necessary harm.",
       "source-section",
       18,
-      8
+      8,
+      "",
+      []
     ]
   ],
   "schema": "starsilk-cross-surface-record-search/1"

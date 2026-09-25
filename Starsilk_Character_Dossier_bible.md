@@ -283,3 +283,13 @@ State After Completion:
 Next Step / Handoff:
 - Commit this additive Bible entry as the documentation follow-up, push both commits to `origin/feature/cross-surface-record-explorer`, then use protected PR CI before any merge/publication claim.
 - Do not infer successful recovery of the 47 nonmanifest PNGs unless exact bytes are later found and verified against their SHA-256-derived filenames.
+
+## 2026-09-25 — Deep Systems integration
+
+The Compendium’s Cross-Surface Record Explorer is now the integration seam for ten evidence-aware capabilities rather than ten disconnected subsystems: contradiction/tension records, authored semantic edges, a universal command palette, global temporal lens, canon delta history, claim-level evidence traces, source-backed causal edges, visual generation packets, a conservative Drakken morphology comparison atlas, and portable browser-local Research Trails.
+
+Authority remains deliberately split. Observed xrefs remain mentions. Semantic edges and causal edges require authored evidence. Chronological proximity does not imply causation. The contradiction registry is incomplete by design. Unknown dates and morphology remain unknown. Visual packets expose only existing sources/media/locks and may not invent physical canon. Reader-created trails never become canon.
+
+The implementation is deterministic under `build/record_explorer.py`, with `src/records/deep-systems.json` plus `src/schema/deep-systems.schema.json` as the new structured source/schema pair. Global palette assets are generated root tools. Advanced record-analysis assets remain optional outside the offline precache so the established under-2-MB offline contract survives unchanged.
+
+Local proof: strict build/validator and public-boundary PASS; 48 focused/source/machine/offline/unified-shell tests PASS; 15 representative Chromium cross-browser journeys PASS; deep-systems browser journey PASS; offline precache 1,996,773 bytes; derivation topology 46/105 PASS. CI/merge/live publication remain separate proof states until actually observed.

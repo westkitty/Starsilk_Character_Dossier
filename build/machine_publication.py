@@ -58,6 +58,7 @@ SCHEMA_FILES = (
     "chronology-index.schema.json",
     "worldsvault-topology.schema.json",
     "cross-surface-record-index.schema.json",
+    "deep-systems.schema.json",
     "agent-evaluation.schema.json",
 )
 
