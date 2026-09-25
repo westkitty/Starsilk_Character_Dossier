@@ -906,3 +906,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 ### Deep Systems deterministic parity closure
 - Protected CI run 36185640205 stopped before tests because committed generated `docs/` differed from the final trimmed shared-navigation source by one newline per generated secondary/entity page; the offline service-worker cache hash consequently differed as well.
 - Re-running the deterministic build from current source regenerated those derivatives only. `./tools/build.sh --check`, `git diff --check`, and the five compatibility/palette browser tests pass after regeneration. No behavior or authority changed in this closure.
+
+### Deep Systems stale-test repair
+- Protected CI run 36186042106 passed deterministic build parity plus Firefox/WebKit and reached 287 passed / 1 skipped in Chromium; its sole failure was the new Deep Systems source-contract test still expecting palette injection through the shared static navigation after the compatibility repair intentionally removed it.
+- The test now asserts the actual preserved contract: shared static navigation has no global-tools executable include, while root plus interactive Discover/Objects/Tours/Chronology/WorldsVault/Records surfaces opt in. Source test plus browser palette journey pass locally.

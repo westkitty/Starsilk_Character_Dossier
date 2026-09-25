@@ -58,7 +58,10 @@ def test_r3_global_command_palette_is_shared_and_keyboard_addressable():
     for label in ("Discover","Records / Deep Systems","Relationships","Canon Inspector","Chronology","WorldsVault","Film Vault","Witness Engine","Revision Chamber"):
         assert label in global_js
     assert '_global_tools.html.j2' in root
-    assert '_global_tools.html.j2' in nav
+    assert '_global_tools.html.j2' not in nav
+    for name in ('discovery','museum','tours','chronology','worldsvault','records'):
+        surface = (SRC / 'templates' / f'{name}.html.j2').read_text(encoding='utf-8')
+        assert '_global_tools.html.j2' in surface
 
 
 def test_r4_temporal_lens_preserves_unknown_state():
