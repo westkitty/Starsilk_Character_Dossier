@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 44
+revision: 45
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -804,7 +804,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Cross-Surface Record Explorer is implemented on `feature/cross-surface-record-explorer`; protected PR CI, merge, Pages deployment, and live-edge proof remain pending until proven. Local canonical media authority is restored and verified at 213/213, while the 47 pre-existing nonmanifest local PNGs described above remain an unresolved recovery issue. Museum + AI remains complete at Phase 12 of 12; this is ordinary post-program maintenance, not Phase 13.
+- None for Dossier Deep Systems publication. The previously disclosed 47 pre-existing nonmanifest local PNG recovery gap remains separate from tracked repository/publication correctness. Museum + AI remains complete at Phase 12 of 12; Deep Systems is ordinary post-program capability work, not Phase 13.
 
 ## Revision log
 
@@ -910,3 +910,18 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 ### Deep Systems stale-test repair
 - Protected CI run 36186042106 passed deterministic build parity plus Firefox/WebKit and reached 287 passed / 1 skipped in Chromium; its sole failure was the new Deep Systems source-contract test still expecting palette injection through the shared static navigation after the compatibility repair intentionally removed it.
 - The test now asserts the actual preserved contract: shared static navigation has no global-tools executable include, while root plus interactive Discover/Objects/Tours/Chronology/WorldsVault/Records surfaces opt in. Source test plus browser palette journey pass locally.
+## Dossier Deep Systems — MERGED / PUBLISHED / LIVE VERIFIED
+
+- Implementation PR **#75** merged to protected `main` at exact merge commit `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`.
+- Final PR CI run **36186442540** / run number **363** passed the full Chromium suite plus representative Firefox and WebKit matrices after the bounded compatibility/parity repairs.
+- Post-merge `main` CI run **36186776729** / run number **364** passed Chromium, Firefox, and WebKit on the exact merge commit.
+- GitHub Pages publish run **36186776707** / run number **48** passed; Pages build/deployment run **36186799045** / run number **120** passed; Build Provenance run **36186861866** / run number **85** passed.
+- Independent cache-busted live proof compared exact merge-commit bytes against the public GitHub Pages site and matched all sampled Deep Systems publication surfaces byte-for-byte:
+  - `docs/index.html` / live root SHA-256 `4968af5a3501ba1c002525d15819df06ee41a3bc8d3a208ebd7f43ce54078cc8`
+  - `docs/records/index.html` SHA-256 `6ef737dedf2f826e4719d53e97efcef1aa9aa9757f4ef764a04a3adfed3f86e7`
+  - `docs/global-tools.js` SHA-256 `f92e20e8a12f4e7dd0d5c8b1d4b0fc5aebd6b49bdf7a564955133f0e6925527a`
+  - `docs/records/deep-systems.json` SHA-256 `e9ad115e5165986a02827f4baa722b6b2b6b479589e1fd7650a599b52938576a`
+- All ten requested dossier capabilities are therefore implemented, merged, deployed, and independently live-edge verified. Existing authority boundaries remain intact: observed xrefs are not semantic facts; chronology is not causality; unknown remains unknown; script-free publication surfaces remain script-free; Reader Workbench retains root Ctrl+K while the new palette uses Ctrl/Cmd+Shift+K.
+- Pending work for this Deep Systems implementation: **none**.
+
+- Revision 45: closed Dossier Deep Systems after PR #75, protected PR CI 363, protected main CI 364, Pages publish/deploy, Build Provenance, and cache-busted byte-parity live verification all passed. Ten requested capabilities are live without changing canon prose, canonical media, existing stable IDs, observed-xref semantics, or the established script-free surfaces.

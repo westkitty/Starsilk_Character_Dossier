@@ -293,3 +293,9 @@ Authority remains deliberately split. Observed xrefs remain mentions. Semantic e
 The implementation is deterministic under `build/record_explorer.py`, with `src/records/deep-systems.json` plus `src/schema/deep-systems.schema.json` as the new structured source/schema pair. Global palette assets are generated root tools. Advanced record-analysis assets remain optional outside the offline precache so the established under-2-MB offline contract survives unchanged.
 
 Local proof: strict build/validator and public-boundary PASS; 48 focused/source/machine/offline/unified-shell tests PASS; 15 representative Chromium cross-browser journeys PASS; deep-systems browser journey PASS; offline precache 1,996,773 bytes; derivation topology 46/105 PASS. CI/merge/live publication remain separate proof states until actually observed.
+
+## 2026-09-25 — Deep Systems publication closure
+
+Dossier Deep Systems shipped through PR #75 and merged at `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`. Final PR CI run 36186442540 and post-merge main CI run 36186776729 passed Chromium plus representative Firefox/WebKit. Pages publish 36186776707, Pages deployment 36186799045, and Build Provenance 36186861866 passed.
+
+Independent cache-busted live comparison proved exact merge-byte parity for the public root, `/records/`, `global-tools.js`, and `records/deep-systems.json`. The ten-capability program is closed: contradiction observatory, authored semantic edges, command palette, temporal lens, canon history, evidence traces, causality loom, visual generation packets, Drakken morphology comparison, and Research Trails are live. Preserved boundaries remain controlling: mentions are not semantic relationships; temporal adjacency is not causation; unknowns remain unknown; static surfaces remain script-free; Reader Workbench keeps Ctrl+K and the new palette uses Ctrl/Cmd+Shift+K.
