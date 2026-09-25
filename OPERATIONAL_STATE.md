@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 46
+revision: 47
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -915,3 +915,18 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 45: introduced **Starsilk: Palimpsest** on `feature/palimpsest-first-contact`, a source-backed interactive first-contact route at `/palimpsest/`. The experience teaches the star-dive law through an irreversible extraction interaction, progressively resolves Blood Ring materiality, separates a visitor's Nacreous VI choice from Codec's authored decision, turns Siege Wall containment into a repeated action whose language becomes increasingly administrative, advances roughly 8,560 years into the post-Mother first-contact aid sequence, and returns the visitor to the original editorial proposition with an evidence-bounded word inspector plus an explicit Starbinding spoiler mirror. Orchestration lives in `src/palimpsest/experience.json`; generated `docs/palimpsest/` remains derivative. Session state uses `sessionStorage`, optional sound uses native Web Audio, and all meaningful interactions have DOM/text controls. No canon prose authority, semantic relationship authority, media provenance, backend, account, analytics, telemetry, external runtime package, morality/personality score, automatic canon promotion, or Phase 13 was introduced. Deterministic build integration, shared navigation, machine orientation, public-boundary ownership, derivation topology, and focused/cross-browser tests are included. Protected PR CI, merge, Pages publication, and live-edge verification remain pending.
 
 - Revision 46: closed **Starsilk: Palimpsest** publication evidence after protected PR #77. Final PR CI run `36364919030` passed at head `afb6991cb55eca6a99a27537bf96c86eff86605a`: Chromium `293 passed, 1 skipped`, Firefox representative journeys green, and WebKit representative journeys green; strict validation reported 16 canon locks / 0 violations, 36 Drakken identity assertions / 0 failures, and the 595-file public-boundary gate clean. PR #77 merged to protected `main` at `49a94fc019834c66024c1e1e8c07dff2819640ee`; main CI run `36365178023` passed the same three required browser jobs. Publish run `36365178062` observed legacy Pages source `main /docs`, requested the exact rebuild, and received `status=built` for the merge SHA on attempt 6 before its live-edge checks passed. Independent proof-only run `36374089649` then fetched the public `/palimpsest/` HTML, runtime JS, CSS, and experience manifest cache-busted and proved byte-for-byte parity with merged `docs/` on its first attempt: HTML SHA-256 `a990179e0fc37792502defdf3fce8fe4da18db76ecaf16d802916fc0e8e591a2`; JS `a08c817d7d5efff1d9a86fe8f89117b8781195bdc3a18cec93d117b4199ec4db`; CSS `cdcbbb062e7d6989b9db2ff85229f94e7de6bb75d77455fe992b4cbe052184d2`; experience JSON `57948f2db2a1a9c990bd8d3abac23bf4c6d143e208553c8c3deb468ec0240871`. The temporary proof workflow existed only on `verify/palimpsest-live` and was removed after proof; it never entered `main`. Palimpsest is now merged, browser-verified, and live-published. No canon prose authority, semantic relationship authority, media provenance, backend, account, analytics, telemetry, remote runtime dependency, morality/personality scoring, automatic canon promotion, or Phase 13 was introduced. Pending work for Palimpsest is none.
+## Dossier Deep Systems — MERGED / PUBLISHED / LIVE VERIFIED
+
+- Implementation PR **#75** merged to protected `main` at exact merge commit `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`.
+- Final PR CI run **36186442540** / run number **363** passed the full Chromium suite plus representative Firefox and WebKit matrices after bounded compatibility/parity repairs.
+- Post-merge `main` CI run **36186776729** / run number **364** passed Chromium, Firefox, and WebKit on the exact merge commit.
+- GitHub Pages publish run **36186776707** / run number **48** passed; Pages build/deployment run **36186799045** / run number **120** passed; Build Provenance run **36186861866** / run number **85** passed.
+- Independent cache-busted live proof matched exact merge-commit bytes for the public root, `/records/`, `global-tools.js`, and `records/deep-systems.json`:
+  - root SHA-256 `4968af5a3501ba1c002525d15819df06ee41a3bc8d3a208ebd7f43ce54078cc8`
+  - records SHA-256 `6ef737dedf2f826e4719d53e97efcef1aa9aa9757f4ef764a04a3adfed3f86e7`
+  - global-tools.js SHA-256 `f92e20e8a12f4e7dd0d5c8b1d4b0fc5aebd6b49bdf7a564955133f0e6925527a`
+  - deep-systems.json SHA-256 `e9ad115e5165986a02827f4baa722b6b2b6b479589e1fd7650a599b52938576a`
+- All ten requested dossier capabilities are implemented, merged, deployed, and independently live-edge verified. Existing authority boundaries remain intact: observed xrefs are not semantic facts; chronology is not causality; unknown remains unknown; script-free publication surfaces remain script-free; Reader Workbench retains root Ctrl+K while the new palette uses Ctrl/Cmd+Shift+K.
+- Pending work for this Deep Systems implementation: **none**.
+
+- Revision 47: closed Dossier Deep Systems publication evidence after PR #75, protected PR CI 363, protected main CI 364, Pages publish/deploy, Build Provenance, and cache-busted byte-parity live verification all passed. This closure is additive and preserves the later Palimpsest Revision 45/46 history.
