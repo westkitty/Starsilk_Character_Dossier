@@ -21,7 +21,7 @@ DOCS = ROOT / "docs"
 
 MAJOR_SYSTEMS = [
     "discover", "entities", "objects", "relationships",
-    "canon", "tours", "films", "chronology", "worldsvault",
+    "canon", "tours", "films", "palimpsest", "chronology", "worldsvault",
 ]
 
 

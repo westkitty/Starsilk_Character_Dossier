@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/palimpsest-experience.schema.json",
+  "title":"Starsilk Palimpsest Experience",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema","experience_id","title","editorial_claim","state_policy","phases"],
+  "properties":{
+    "schema":{"const":"starsilk-palimpsest-experience/1"},
+    "experience_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9-]*$"},
+    "title":{"type":"string","minLength":1},
+    "editorial_claim":{"type":"string","minLength":1},
+    "state_policy":{"const":"session-only-noncanonical"},
+    "phases":{"type":"array","minItems":1,"items":{
+      "type":"object","additionalProperties":false,
+      "required":["phase_id","label","interaction","spoiler_gate","source_stable_ids"],
+      "properties":{
+        "phase_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9-]*$"},
+        "label":{"type":"string","minLength":1},
+        "interaction":{"enum":["verify","extract","resolve","authorize","contain","receive","inspect","support"]},
+        "spoiler_gate":{"enum":["none","minor","major","explicit-major"]},
+        "source_stable_ids":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","pattern":"^[a-z0-9][a-z0-9-]*$"}}
+      }
+    }}
+  }
+}

@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 44
+revision: 45
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -28,6 +28,7 @@ freshness_policy: src/system/operational-state-policy.json
 - Build-provenance PR #53 merged at `c91bfa0231982314edfb241ca10c38b94807ed51`; main CI run `33043525693` passed and Build Provenance run `33043645726` generated, reverified, boundary-checked, and uploaded the first exact-commit attestation for that merge.
 - Operational State freshness sentinel PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` compared exact previous main `c91bfa0231982314edfb241ca10c38b94807ed51`, classified 15 state-relevant paths, reported `state_update=closed`, passed deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys. Build Provenance run `33045915082` then succeeded for the exact merge commit.
 - Cold-start recovery protection is defined by `src/system/COLD_START_RECOVERY.md` and `src/system/cold-start-recovery-contract.json`, with `tests/test_cold_start_recovery.py` enforcing repository-only recoverability of project purpose, current baseline, authority/architecture, active paths, build/test/preview, environment/publication, protected invariants, known limitations/dependencies, pending work, and anti-inference boundaries. It is repository-resumption guidance only and creates no lore, canon, relationship, chronology, media-identity, or publication authority.
+- Palimpsest first-contact experience is implemented on `feature/palimpsest-first-contact` as a deterministic `/palimpsest/` derivative. `src/palimpsest/experience.json` owns only experience orchestration and stable source pointers; existing Compendium records remain lore authority. Visitor choices are session-local learning state, not canon, and the feature adds no backend, telemetry, morality score, external runtime dependency, or repository-write path. Protected PR CI, merge, Pages publication, and live proof remain pending until independently observed.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -910,3 +911,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 ### Deep Systems stale-test repair
 - Protected CI run 36186042106 passed deterministic build parity plus Firefox/WebKit and reached 287 passed / 1 skipped in Chromium; its sole failure was the new Deep Systems source-contract test still expecting palette injection through the shared static navigation after the compatibility repair intentionally removed it.
 - The test now asserts the actual preserved contract: shared static navigation has no global-tools executable include, while root plus interactive Discover/Objects/Tours/Chronology/WorldsVault/Records surfaces opt in. Source test plus browser palette journey pass locally.
+
+- Revision 45: introduced **Starsilk: Palimpsest** on `feature/palimpsest-first-contact`, a source-backed interactive first-contact route at `/palimpsest/`. The experience teaches the star-dive law through an irreversible extraction interaction, progressively resolves Blood Ring materiality, separates a visitor's Nacreous VI choice from Codec's authored decision, turns Siege Wall containment into a repeated action whose language becomes increasingly administrative, advances roughly 8,560 years into the post-Mother first-contact aid sequence, and returns the visitor to the original editorial proposition with an evidence-bounded word inspector plus an explicit Starbinding spoiler mirror. Orchestration lives in `src/palimpsest/experience.json`; generated `docs/palimpsest/` remains derivative. Session state uses `sessionStorage`, optional sound uses native Web Audio, and all meaningful interactions have DOM/text controls. No canon prose authority, semantic relationship authority, media provenance, backend, account, analytics, telemetry, external runtime package, morality/personality score, automatic canon promotion, or Phase 13 was introduced. Deterministic build integration, shared navigation, machine orientation, public-boundary ownership, derivation topology, and focused/cross-browser tests are included. Protected PR CI, merge, Pages publication, and live-edge verification remain pending.

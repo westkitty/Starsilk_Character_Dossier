@@ -293,3 +293,14 @@ Authority remains deliberately split. Observed xrefs remain mentions. Semantic e
 The implementation is deterministic under `build/record_explorer.py`, with `src/records/deep-systems.json` plus `src/schema/deep-systems.schema.json` as the new structured source/schema pair. Global palette assets are generated root tools. Advanced record-analysis assets remain optional outside the offline precache so the established under-2-MB offline contract survives unchanged.
 
 Local proof: strict build/validator and public-boundary PASS; 48 focused/source/machine/offline/unified-shell tests PASS; 15 representative Chromium cross-browser journeys PASS; deep-systems browser journey PASS; offline precache 1,996,773 bytes; derivation topology 46/105 PASS. CI/merge/live publication remain separate proof states until actually observed.
+
+## 2026-09-27 — Palimpsest first-contact experience
+
+- Added **Starsilk: Palimpsest** as a newcomer-facing interactive route at `/palimpsest/`, distinct from the existing Witness Engine canon compiler.
+- The route is intentionally experiential rather than glossary-first: star-law extraction, Blood Ring resolution, Nacreous VI decision framing, Siege Wall containment, post-Wall first contact, bounded claim inspection, and an explicit Starbinding spoiler mirror.
+- `src/palimpsest/experience.json` is orchestration authority only. It references existing stable records and never duplicates or outranks their canon prose.
+- Visitor decisions are browser-session learning state only. They never alter canon, produce morality/personality scores, or write to the repository.
+- The implementation remains static/same-origin and adds no remote runtime dependency, account, analytics, telemetry, or backend. Native Canvas and optional Web Audio are progressive presentation layers with DOM/text equivalents for meaning.
+- The public surface is integrated into the deterministic build, shared navigation, machine orientation/sitemap, public-boundary gate, derivation graph, and regression/cross-browser coverage.
+- Status at this entry: implementation on `feature/palimpsest-first-contact`; protected PR CI, merge, Pages deployment, and live-edge proof are not yet claimed.
+

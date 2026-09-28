@@ -84,6 +84,8 @@ the normal build reads it; `build/migrate_legacy.py` did, once, to bootstrap
 
 `/records/` is a generated, offline-capable search surface over the existing stable record IDs. It joins only classified evidence already owned by the canon-lock, chronology, observed-xref, media, tour, WorldsVault, Film Vault, discovery, and machine-publication systems. Its JSON index is generated at `/records/records.json`; it is navigation/evidence infrastructure, not a second canon or relationship database.
 
+`/palimpsest/` is the generated newcomer first-contact experience. It teaches a bounded set of established Starsilk rules through interaction while citing the existing stable source records; its visitor choices are session-local presentation state and never canon authority.
+
 ## Deep systems integration
 
 The public `/records/` explorer also acts as the Compendium's evidence-aware integration layer. It exposes explicit contradiction/tension records, authored semantic and causal edges, canon-delta history, claim-level evidence traces, visual-generation packets, conservative Drakken morphology comparison, and browser-local research trails. Ctrl/Cmd+K opens a shared command palette, and a session-scoped temporal lens can constrain explicitly tagged evidence without hiding unknown temporal state.

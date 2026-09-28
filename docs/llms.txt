@@ -27,6 +27,9 @@ Curated tour JSON index: https://westkitty.github.io/Starsilk_Character_Dossier/
 Human Administration Educational Film Vault: https://westkitty.github.io/Starsilk_Character_Dossier/films/
 Film Vault JSON catalog: https://westkitty.github.io/Starsilk_Character_Dossier/films/films.json
 - Film Vault reels are curated diegetic media. Institutional framing never outranks cited Compendium canon, and planned reels are not completed artifacts.
+Human interactive first contact: https://westkitty.github.io/Starsilk_Character_Dossier/palimpsest/
+Palimpsest experience manifest: https://westkitty.github.io/Starsilk_Character_Dossier/palimpsest/experience.json
+- Palimpsest is editorial presentation over cited source records. Visitor choices are session-local learning state and never canon evidence.
 Agent reference guide: https://westkitty.github.io/Starsilk_Character_Dossier/agents/AGENT_GUIDE.md
 Vendor-neutral agent evaluation fixtures: https://westkitty.github.io/Starsilk_Character_Dossier/agents/evaluation.json
 Final integration certificate: https://westkitty.github.io/Starsilk_Character_Dossier/agents/integration.json
