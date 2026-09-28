@@ -1,0 +1,17 @@
+{
+  "schema": "starsilk-palimpsest-experience/1",
+  "experience_id": "palimpsest-first-contact",
+  "title": "Starsilk: Palimpsest",
+  "editorial_claim": "Tiger saved us from the Drakken.",
+  "state_policy": "session-only-noncanonical",
+  "phases": [
+    {"phase_id":"claim","label":"The Claim","interaction":"verify","spoiler_gate":"none","source_stable_ids":["shard-god","blood-rings","codec","beyond-wall"]},
+    {"phase_id":"star-law","label":"The First Irreversible Thing","interaction":"extract","spoiler_gate":"minor","source_stable_ids":["starsilk-material"]},
+    {"phase_id":"blood-ring","label":"The Blood Ring","interaction":"resolve","spoiler_gate":"major","source_stable_ids":["blood-rings"]},
+    {"phase_id":"nacreous","label":"Necessity","interaction":"authorize","spoiler_gate":"major","source_stable_ids":["codec"]},
+    {"phase_id":"siege-wall","label":"The Wall","interaction":"contain","spoiler_gate":"major","source_stable_ids":["shard-god","codec"]},
+    {"phase_id":"beyond-wall","label":"The Long Silence","interaction":"receive","spoiler_gate":"major","source_stable_ids":["beyond-wall"]},
+    {"phase_id":"witness-record","label":"Witness Record","interaction":"inspect","spoiler_gate":"major","source_stable_ids":["shard-god","blood-rings","codec","beyond-wall"]},
+    {"phase_id":"starbinding-mirror","label":"Mirror the Gesture","interaction":"extract","spoiler_gate":"explicit-major","source_stable_ids":["starbinding","codec","starsilk-material"]}
+  ]
+}
