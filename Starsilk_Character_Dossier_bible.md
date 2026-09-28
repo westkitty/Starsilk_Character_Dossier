@@ -317,3 +317,12 @@ Local proof: strict build/validator and public-boundary PASS; 48 focused/source/
 Dossier Deep Systems shipped through PR #75 and merged at `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`. Final PR CI run 36186442540 and post-merge main CI run 36186776729 passed Chromium plus representative Firefox/WebKit. Pages publish 36186776707, Pages deployment 36186799045, and Build Provenance 36186861866 passed.
 
 Independent cache-busted live comparison proved exact merge-byte parity for the public root, `/records/`, `global-tools.js`, and `records/deep-systems.json`. The ten-capability program is closed: contradiction observatory, authored semantic edges, command palette, temporal lens, canon history, evidence traces, causality loom, visual generation packets, Drakken morphology comparison, and Research Trails are live. Preserved boundaries remain controlling: mentions are not semantic relationships; temporal adjacency is not causation; unknowns remain unknown; static surfaces remain script-free; Reader Workbench keeps Ctrl+K and the new palette uses Ctrl/Cmd+Shift+K.
+
+
+## 2026-09-28 — Palimpsest tactile systems upgrade
+
+Branch `feature/palimpsest-tactile-systems` upgrades the published Palimpsest first-contact route without changing canon authority. The bounded pass adds spring-based two-dimensional Starsilk extraction, staged stellar collapse, continuous Blood Ring material exposure, visitor/history separation at Nacreous VI, normalized node-driven Siege Wall input with progressive administrative language, seven Long Silence presentation states, staged conceptual hail, evidence-state treatment of the final claim, a staged Starbinding scale cascade, richer native Web Audio feedback, and browser-lifecycle cleanup.
+
+Protected PR #81 CI run `36384225486` / run number `395` passed at branch head `7b8b77f956b26a6d547055e1eb9c5b9df79597f7`: deterministic build parity and public-boundary gates passed; Chromium full suite reported `301 passed, 1 skipped`; representative Firefox and WebKit journeys passed. Two CI-discovered regressions were repaired before that pass: current-but-unwitnessed Witness Rail steps are no longer navigable, and Palimpsest component CSS now preserves native `hidden` semantics.
+
+Authority boundaries remain unchanged: visitor state is session-local/noncanonical; no backend, account, telemetry, remote runtime dependency, morality/personality scoring, or automatic canon promotion was introduced. Merge, Pages publication, and live-edge proof are still separate evidence states at this entry.
