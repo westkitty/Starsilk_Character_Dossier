@@ -10,10 +10,10 @@
 <link rel="canonical" href="{{ canonical_url }}"/>
 <link rel="stylesheet" href="palimpsest.css"/>
 </head>
-<body data-museum-shell="unified" data-palimpsest="first-contact">
+<body data-museum-shell="unified" data-palimpsest="first-contact" data-palimpsest-phase="claim">
 {% set nav_root = '../' %}{% set nav_current = 'palimpsest' %}{% include "_museum_nav.html.j2" %}
 <a class="skip-link" href="#palimpsestMain">Skip to experience</a>
-<main id="palimpsestMain" class="palimpsest-shell" tabindex="-1">
+<main id="palimpsestMain" class="palimpsest-shell" tabindex="-1" data-current-phase="claim">
   <section class="palimpsest-intro" id="phase-claim" data-phase="claim" aria-labelledby="claimHeading">
     <div class="palimpsest-kicker">First contact / source-backed interactive</div>
     <h1 id="claimHeading">{{ experience.title }}</h1>
@@ -30,7 +30,7 @@
     </div>
     <div class="intro-actions">
       <button class="primary-action" type="button" id="beginWitness">Verify claim</button>
-      <button type="button" id="soundToggle" aria-pressed="false">Enable generative score</button>
+      <button type="button" id="soundToggle" aria-pressed="false">Enable sound</button>
       <a href="../">Open archive instead</a>
     </div>
     <p class="boundary-note">Palimpsest is editorial presentation over existing source records. Your choices are local learning state, never canon. <a href="AUTHORITY.md">Read the authority boundary.</a></p>
@@ -39,7 +39,12 @@
   <div class="witness-rail" id="witnessRail" hidden>
     <div><span class="rail-label">Witness state</span><strong id="railPhase">01 / 06</strong></div>
     <ol id="railMarks" aria-label="Witnessed phases">
-      <li data-rail="star-law">Star</li><li data-rail="blood-ring">Ring</li><li data-rail="nacreous">Necessity</li><li data-rail="siege-wall">Wall</li><li data-rail="beyond-wall">Beyond</li><li data-rail="witness-record">Record</li>
+      <li><button type="button" data-rail="star-law" disabled>Star</button></li>
+      <li><button type="button" data-rail="blood-ring" disabled>Ring</button></li>
+      <li><button type="button" data-rail="nacreous" disabled>Necessity</button></li>
+      <li><button type="button" data-rail="siege-wall" disabled>Wall</button></li>
+      <li><button type="button" data-rail="beyond-wall" disabled>Beyond</button></li>
+      <li><button type="button" data-rail="witness-record" disabled>Record</button></li>
     </ol>
     <button type="button" id="restartWitness">Restart session</button>
   </div>
@@ -50,7 +55,7 @@
       <canvas id="starCanvas" width="1200" height="640" aria-hidden="true"></canvas>
       <div class="scene-overlay">
         <p class="scene-label" id="starSceneLabel">UNKNOWN STELLAR MECHANISM</p>
-        <p id="starInstruction">Drag the azure filament away from the star, or use the accessible extraction control.</p>
+        <p id="starInstruction">Drag the azure filament in any direction and feel it resist, or use the accessible extraction control.</p>
       </div>
     </div>
     <div class="phase-controls">
@@ -69,11 +74,14 @@
   <section class="experience-phase" id="phase-blood-ring" data-phase="blood-ring" hidden aria-labelledby="ringHeading">
     <header class="phase-header"><span>02 / Resolution</span><h2 id="ringHeading">A clean red circle is easier to teach.</h2><p>Reduce the visualization filter. The structure will stop behaving like a symbol.</p></header>
     <div class="ring-layout">
-      <div class="ring-viz" id="ringViz" aria-hidden="true"><div class="ring-orbit"></div><div class="ring-world"></div><div class="ring-noise"></div></div>
+      <div class="ring-viz" id="ringViz" aria-hidden="true" style="--exposure:0;--integrity:1;--material:0">
+        <div class="ring-orbit"></div><div class="ring-strata ring-strata-a"></div><div class="ring-strata ring-strata-b"></div><div class="ring-world"></div><div class="ring-noise"></div>
+      </div>
       <div class="ring-console">
         <div class="console-readout"><span>Administration visualization filter</span><strong id="filterReadout">100%</strong></div>
         <label for="ringFilter">Resolution / source material exposure</label>
-        <input id="ringFilter" type="range" min="0" max="100" value="100"/>
+        <input id="ringFilter" type="range" min="0" max="100" value="100" aria-describedby="ringInterpretation ringThresholds"/>
+        <div class="ring-thresholds" id="ringThresholds" aria-hidden="true"><span>symbol</span><span>material emerging</span><span>classification fails</span></div>
         <p id="ringInterpretation">At this resolution, the Ring remains legible as an orbital symbol.</p>
         <ul class="material-ledger" id="materialLedger" aria-label="Blood Ring material categories">
           <li>blood matter</li><li>bone ash</li><li>ocean fats</li><li>biosphere oils</li><li>mineral residue</li><li>terraforming compounds</li>
@@ -92,13 +100,13 @@
   <section class="experience-phase" id="phase-nacreous" data-phase="nacreous" hidden aria-labelledby="nacreousHeading">
     <header class="phase-header"><span>03 / Necessity</span><h2 id="nacreousHeading">Select the wound.</h2><p>You are not Codec. The archive is giving you the shape of the decision he occupied.</p></header>
     <div class="decision-grid" aria-label="Nacreous VI modeled outcomes">
-      <article><span>INACTION</span><strong>19 billion dead</strong><p>Pyric titan takes the weather lattice.</p></article>
-      <article><span>FAILED ORBITAL STERILIZATION</span><strong>11 billion dead</strong><p>A narrower catastrophe that still fails.</p></article>
-      <article class="decision-selected"><span>CORPSE-BURN FIREWALL</span><strong>740 million projected</strong><p>786 million confirmed after execution.</p></article>
+      <article><span>INACTION · MODELED</span><strong>19 billion dead</strong><p>Pyric titan takes the weather lattice.</p></article>
+      <article><span>FAILED ORBITAL STERILIZATION · MODELED</span><strong>11 billion dead</strong><p>A narrower catastrophe that still fails.</p></article>
+      <article class="decision-selected"><span>CORPSE-BURN FIREWALL · PROJECTED / HISTORICAL</span><strong>740 million projected</strong><p>786 million confirmed after execution.</p></article>
     </div>
     <div class="decision-console">
       <p>Choose with the information available. There is no morality score.</p>
-      <div class="decision-actions"><button type="button" data-nacreous-choice="authorize" class="primary-action">Authorize firewall</button><button type="button" data-nacreous-choice="withhold">Withhold authorization</button></div>
+      <div class="decision-actions"><button type="button" data-nacreous-choice="authorize" class="primary-action" aria-pressed="false">Authorize firewall</button><button type="button" data-nacreous-choice="withhold" aria-pressed="false">Withhold authorization</button></div>
       <div id="nacreousResult" class="decision-result" role="status" aria-live="polite" hidden></div>
     </div>
     <aside class="evidence-reveal" id="nacreousEvidence" hidden>
@@ -115,9 +123,9 @@
     <header class="phase-header"><span>04 / Containment</span><h2 id="wallHeading">A god discovers a valid damage state.</h2><p>The Drakken have learned enough Starsilk to injure what should not have been injurable.</p></header>
     <div class="wall-console">
       <div class="wall-field" id="wallField" aria-label="A field of star systems waiting to be converted into containment nodes"></div>
-      <div class="wall-metrics"><div><span>Containment</span><strong id="containmentMetric">0%</strong></div><div><span>Reachable systems</span><strong id="reachMetric">100%</strong></div><div><span>Language</span><strong id="wallLanguage">STAR LOST</strong></div></div>
-      <button type="button" class="contain-button primary-action" id="containButton">Hold or tap to contain</button>
-      <p class="control-hint">Press and hold with pointer, hold Space/Enter while focused, or tap repeatedly. The accessible outcome is identical.</p>
+      <div class="wall-metrics"><div><span>Containment</span><strong id="containmentMetric">0%</strong></div><div><span>Reachable systems</span><strong id="reachMetric">100%</strong></div><div><span>Interface language</span><strong id="wallLanguage">STAR LOST</strong></div></div>
+      <button type="button" class="contain-button primary-action" id="containButton">Hold or activate to contain</button>
+      <p class="control-hint">Pointer users may hold to accelerate containment. Keyboard users can activate repeatedly. Both routes change the same forty-node state and reach the same outcome.</p>
     </div>
     <aside class="evidence-reveal" id="wallEvidence" hidden>
       <span class="evidence-label">Containment result</span>
@@ -131,18 +139,20 @@
 
   <section class="experience-phase" id="phase-beyond-wall" data-phase="beyond-wall" hidden aria-labelledby="beyondHeading">
     <header class="phase-header"><span>05 / The long silence</span><h2 id="beyondHeading">History does not owe you a clean sequel.</h2><p>Move time forward. The Wall remains geography while whatever survived behind it has to become something else.</p></header>
+    <div class="silence-field" id="silenceField" data-era="0" style="--era:0" aria-hidden="true"><span class="silence-wall"></span><span class="silence-drift drift-a"></span><span class="silence-drift drift-b"></span><span class="silence-signal"></span></div>
     <div class="time-console">
       <div class="time-readout"><span>Elapsed since the Blood Eclipse War era</span><strong id="timeValue">+10 years</strong></div>
-      <input id="timeSlider" type="range" min="0" max="6" step="1" value="0" aria-label="Advance time behind the Siege Wall"/>
+      <input id="timeSlider" type="range" min="0" max="6" step="1" value="0" aria-label="Advance time behind the Siege Wall" aria-describedby="timeSignal"/>
       <div class="time-marks" aria-hidden="true"><span>10</span><span>100</span><span>500</span><span>2,000</span><span>4,000</span><span>6,000</span><span>~8,560</span></div>
+      <p class="time-signal" id="timeSignal">Ten years. The Wall remains the dominant horizon. Palimpsest asserts no new encounter here.</p>
       <button type="button" id="continueWaiting">Continue waiting</button>
     </div>
     <div class="contact-frame" id="contactFrame" hidden>
-      <div class="dead-titan-vessel" aria-hidden="true"><span class="bone spine-a"></span><span class="bone spine-b"></span><span class="limb"></span><span class="machine-core"></span></div>
+      <div class="dead-titan-vessel" aria-hidden="true"><span class="hull-rib rib-a"></span><span class="hull-rib rib-b"></span><span class="hull-rib rib-c"></span><span class="bone spine-a"></span><span class="bone spine-b"></span><span class="limb"></span><span class="machine-core"></span><span class="care-light"></span></div>
       <div class="contact-copy"><span class="evidence-label">Foreign matter detected</span><h3>A vessel made from the dead approaches your damaged ship.</h3><p>The silhouette is horrifying by Blood Eclipse standards. Its actual gesture is careful assistance.</p><button class="primary-action" type="button" id="receiveHail">Receive conceptual hail</button></div>
     </div>
     <div class="wordstream-message" id="wordstreamMessage" hidden aria-live="polite">
-      <span>YOU</span><span>HARMED</span><span>NEED</span><span>AID?</span>
+      <span style="--word-index:0">YOU</span><span style="--word-index:1">HARMED</span><span style="--word-index:2">NEED</span><span style="--word-index:3">AID?</span>
       <p>Concept received through wordstreaming. This is not presented as a conventional universal translation.</p>
     </div>
     <aside class="evidence-reveal" id="beyondEvidence" hidden>
@@ -160,6 +170,7 @@
     <div class="final-claim" role="group" aria-label="Inspect the opening claim word by word">
       <button type="button" data-final-word="tiger">Tiger</button><button type="button" data-final-word="saved">saved</button><button type="button" data-final-word="us">us</button><button type="button" data-final-word="from">from</button><button type="button" data-final-word="drakken">the Drakken.</button>
     </div>
+    <div class="claim-state-key" aria-label="Evidence-state key"><span data-key="supported">source-supported</span><span data-key="contested">contested meaning</span><span data-key="unknown">unresolved</span><span data-key="bounded">bounded causal</span><span data-key="temporal">temporal complication</span></div>
     <div class="claim-inspector" id="claimInspector" aria-live="polite">
       <span class="evidence-label">Claim status</span><h3>FACTUALLY LEGIBLE. MORALLY UNRESOLVED.</h3><p>Select a word. Palimpsest will show only the bounded evidence this route has established.</p>
     </div>
@@ -172,6 +183,7 @@
         <h3>The first thing you learned was how to kill one star.</h3>
         <p>Starbinding weaponizes the same physical law at catastrophic scale: billions of concurrent star dives collapse billions of stars, and their stellar data becomes material for the Partition.</p>
         <div class="mirror-field" id="mirrorField" aria-hidden="true"></div>
+        <p class="mirror-scale" id="mirrorScale">VISUAL SAMPLE: 120 STARS · SOURCE SCALE NOT YET APPLIED</p>
         <button type="button" id="mirrorPull" class="primary-action">Pull again</button>
         <p id="mirrorResult" role="status" aria-live="polite"></p>
         <p><a href="../entities/starbinding/">Open source record: Starbinding</a></p>
