@@ -212,5 +212,9 @@ def test_palimpsest_first_contact_journey(page: Page, local_server):
     page.locator("#beginWitness").click()
     page.locator("#extractStar").click()
     expect(page.locator("#starEvidence")).to_be_visible()
-    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+    overflow = page.evaluate("""() => Array.from(document.querySelectorAll('*')).map(el => {
+        const r = el.getBoundingClientRect();
+        return {tag: el.tagName, id: el.id || '', cls: el.className || '', left: r.left, right: r.right, width: r.width};
+    }).filter(x => x.width > 0 && (x.left < -1 || x.right > window.innerWidth + 1)).slice(0, 20)""")
+    assert not overflow, overflow
 
