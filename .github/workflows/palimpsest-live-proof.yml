@@ -1,0 +1,45 @@
+name: Palimpsest live proof
+
+on:
+  push:
+    branches:
+      - verify/palimpsest-live
+
+permissions:
+  contents: read
+
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare live Palimpsest to merged docs
+        run: |
+          set -euo pipefail
+          base='https://westkitty.github.io/Starsilk_Character_Dossier/palimpsest'
+          for attempt in $(seq 1 24); do
+            ok=1
+            curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' "${base}/?proof=${GITHUB_SHA}&attempt=${attempt}" -o /tmp/pal-index.html || ok=0
+            curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' "${base}/palimpsest.js?proof=${GITHUB_SHA}&attempt=${attempt}" -o /tmp/pal.js || ok=0
+            curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' "${base}/palimpsest.css?proof=${GITHUB_SHA}&attempt=${attempt}" -o /tmp/pal.css || ok=0
+            curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' "${base}/experience.json?proof=${GITHUB_SHA}&attempt=${attempt}" -o /tmp/pal-experience.json || ok=0
+            if [ "${ok}" = 1 ] \
+              && cmp --silent /tmp/pal-index.html docs/palimpsest/index.html \
+              && cmp --silent /tmp/pal.js docs/palimpsest/palimpsest.js \
+              && cmp --silent /tmp/pal.css docs/palimpsest/palimpsest.css \
+              && cmp --silent /tmp/pal-experience.json docs/palimpsest/experience.json \
+              && grep -Fq 'data-palimpsest="first-contact"' /tmp/pal-index.html \
+              && grep -Fq 'Starsilk: Palimpsest' /tmp/pal-index.html \
+              && grep -Fq 'starsilk-palimpsest-session-v1' /tmp/pal.js \
+              && grep -Fq 'starsilk-palimpsest-experience/1' /tmp/pal-experience.json; then
+              echo 'PALIMPSEST_LIVE_PROOF_OK'
+              sha256sum /tmp/pal-index.html /tmp/pal.js /tmp/pal.css /tmp/pal-experience.json
+              exit 0
+            fi
+            echo "Live Palimpsest proof attempt ${attempt} did not yet match merged docs."
+            sleep 5
+          done
+          echo '::error::Live Palimpsest never matched merged docs exactly.'
+          sha256sum docs/palimpsest/index.html docs/palimpsest/palimpsest.js docs/palimpsest/palimpsest.css docs/palimpsest/experience.json || true
+          exit 1
