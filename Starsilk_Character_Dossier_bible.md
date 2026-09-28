@@ -312,4 +312,8 @@ Local proof: strict build/validator and public-boundary PASS; 48 focused/source/
 - Published SHA-256 receipts: HTML `a990179e0fc37792502defdf3fce8fe4da18db76ecaf16d802916fc0e8e591a2`; JS `a08c817d7d5efff1d9a86fe8f89117b8781195bdc3a18cec93d117b4199ec4db`; CSS `cdcbbb062e7d6989b9db2ff85229f94e7de6bb75d77455fe992b4cbe052184d2`; experience JSON `57948f2db2a1a9c990bd8d3abac23bf4c6d143e208553c8c3deb468ec0240871`.
 - The temporary live-proof workflow was removed from its proof branch after success and never entered production.
 - Palimpsest is therefore a closed, published capability with no pending merge or deployment work.
+## 2026-09-25 — Deep Systems publication closure
 
+Dossier Deep Systems shipped through PR #75 and merged at `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`. Final PR CI run 36186442540 and post-merge main CI run 36186776729 passed Chromium plus representative Firefox/WebKit. Pages publish 36186776707, Pages deployment 36186799045, and Build Provenance 36186861866 passed.
+
+Independent cache-busted live comparison proved exact merge-byte parity for the public root, `/records/`, `global-tools.js`, and `records/deep-systems.json`. The ten-capability program is closed: contradiction observatory, authored semantic edges, command palette, temporal lens, canon history, evidence traces, causality loom, visual generation packets, Drakken morphology comparison, and Research Trails are live. Preserved boundaries remain controlling: mentions are not semantic relationships; temporal adjacency is not causation; unknowns remain unknown; static surfaces remain script-free; Reader Workbench keeps Ctrl+K and the new palette uses Ctrl/Cmd+Shift+K.
