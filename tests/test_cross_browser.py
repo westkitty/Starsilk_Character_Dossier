@@ -204,3 +204,13 @@ def test_cross_surface_record_explorer_search_and_facets(page: Page, local_serve
     expect(page.locator("#recordStatus")).to_contain_text("127 of 127 records")
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
     assert page.evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches") is False or True
+
+def test_palimpsest_first_contact_journey(page: Page, local_server):
+    page.set_viewport_size({"width": 375, "height": 812})
+    page.goto(f"{local_server}/palimpsest/")
+    expect(page.locator("h1")).to_have_text("Starsilk: Palimpsest")
+    page.locator("#beginWitness").click()
+    page.locator("#extractStar").click()
+    expect(page.locator("#starEvidence")).to_be_visible()
+    assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
