@@ -304,3 +304,10 @@ Local proof: strict build/validator and public-boundary PASS; 48 focused/source/
 - The public surface is integrated into the deterministic build, shared navigation, machine orientation/sitemap, public-boundary gate, derivation graph, and regression/cross-browser coverage.
 - Status at this entry: implementation on `feature/palimpsest-first-contact`; protected PR CI, merge, Pages deployment, and live-edge proof are not yet claimed.
 
+### Palimpsest closure proof
+
+- PR #77 merged to `main` at `49a94fc019834c66024c1e1e8c07dff2819640ee`.
+- Final protected CI run `36364919030` passed deterministic build/docs parity, Operational State freshness, whitespace checks, the full Chromium suite, and representative Firefox/WebKit journeys.
+- Pages publication run `36365178062` verified the exact merged commit at the live edge after the repository's legacy Pages-source synchronization gate.
+- `/palimpsest/` is therefore no longer pending: implementation, merge, publication, and live-edge verification are closed.
+
