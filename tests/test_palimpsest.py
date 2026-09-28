@@ -107,3 +107,15 @@ def test_palimpsest_restart_clears_session_witness_state(page: Page, local_serve
     state = page.evaluate("JSON.parse(sessionStorage.getItem('starsilk-palimpsest-session-v1'))")
     assert state["witnessed"] == []
     assert state["phase"] == "claim"
+
+def test_palimpsest_forbidden_observatory_layers_remain_source_backed():
+    html = (DOCS / "palimpsest/index.html").read_text(encoding="utf-8")
+    soup = BeautifulSoup(html, "html.parser")
+    assert soup.find("div", class_="threshold-strip") is not None
+    assert soup.find("input", id="warYear", attrs={"max": "170"}) is not None
+    assert soup.find("div", id="warScaleField") is not None
+    assert soup.find("section", class_="knowledge-horizon") is not None
+    assert "OBSERVATION IS NOT COMPREHENSION." in html
+    assert "They were not symbols." in html
+    assert "not a luminous fence" in html
+
