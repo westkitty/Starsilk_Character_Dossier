@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 47
+revision: 48
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -930,3 +930,6 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Pending work for this Deep Systems implementation: **none**.
 
 - Revision 47: closed Dossier Deep Systems publication evidence after PR #75, protected PR CI 363, protected main CI 364, Pages publish/deploy, Build Provenance, and cache-busted byte-parity live verification all passed. This closure is additive and preserves the later Palimpsest Revision 45/46 history.
+
+
+- Revision 48: implemented the **Forbidden Observatory escalation** over the existing source-backed `/palimpsest/` experience on branch `feature/palimpsest-forbidden-observatory`. Implementation commit `2fb5997a55726526081f3b56fa1d8b3a9eeb858a`; PR #80. The change preserves all existing phase IDs and the established newcomer journey while adding an observation-aperture threshold, Codec's source-backed Blood Ring testimony ("They were not symbols."), an interactive one-hundred-seventy-year Blood Eclipse War duration lens, explicit Siege Wall physical-space treatment as irregular starless absence rather than a luminous fence, a final knowledge-horizon visualization contrasting six witnessed evidence states with the much larger unresolved archive, and a deliberately quieter final generative-score state. No canon prose, stable IDs, semantic relationship authority, chronology authority, media provenance, backend, account, analytics, telemetry, external runtime dependency, or visitor-to-canon promotion was added or changed. A focused regression test now locks the new Observatory surfaces. Connector diff evidence shows exactly seven implementation/test files changed in the first commit, with 75 additions and 21 deletions; branch was one commit ahead and zero behind `main` at that proof point. Local runtime execution was unavailable because the connected Mac did not contain this repository checkout and the isolated container could not reach GitHub; protected PR CI remains the required execution proof. Merge, Pages publication, and live-edge verification are **pending and must not be claimed** until observed.

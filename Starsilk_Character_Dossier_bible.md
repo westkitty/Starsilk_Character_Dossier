@@ -317,3 +317,20 @@ Local proof: strict build/validator and public-boundary PASS; 48 focused/source/
 Dossier Deep Systems shipped through PR #75 and merged at `73f7775fe3d03b16d9dfa8430cfd67acea03b46a`. Final PR CI run 36186442540 and post-merge main CI run 36186776729 passed Chromium plus representative Firefox/WebKit. Pages publish 36186776707, Pages deployment 36186799045, and Build Provenance 36186861866 passed.
 
 Independent cache-busted live comparison proved exact merge-byte parity for the public root, `/records/`, `global-tools.js`, and `records/deep-systems.json`. The ten-capability program is closed: contradiction observatory, authored semantic edges, command palette, temporal lens, canon history, evidence traces, causality loom, visual generation packets, Drakken morphology comparison, and Research Trails are live. Preserved boundaries remain controlling: mentions are not semantic relationships; temporal adjacency is not causation; unknowns remain unknown; static surfaces remain script-free; Reader Workbench keeps Ctrl+K and the new palette uses Ctrl/Cmd+Shift+K.
+
+
+## 2026-09-28 — Palimpsest Forbidden Observatory escalation
+
+- Upgraded the already-published **Starsilk: Palimpsest** route instead of creating a competing immersive subsystem.
+- The opening now behaves as an observation aperture into an already-existing universe, while retaining the explicit local/noncanonical witness boundary.
+- Blood Ring escalation now incorporates Codec's source-backed wartime framing — including "They were not symbols." — so the horror intensifies through comprehension rather than added gore.
+- Added an interactive **170-year Blood Eclipse War duration lens** before the Siege Wall sequence. It makes duration experiential while preserving the canonical Y0–Y170 structure and without inventing intermediate events.
+- Reinforced the Siege Wall's physical-space law: it reads as irregular starless absence, never as a luminous sci-fi fence or decorative grid.
+- Added the terminal **Knowledge Horizon**: six witnessed states form a small illuminated knot inside a much larger unresolved field, ending on **OBSERVATION IS NOT COMPREHENSION.**
+- Reduced the optional generative score at the final witness state so the strongest consequence is carried by quiet rather than escalating volume.
+- Existing phase IDs, tested journey, session-only state, static same-origin runtime, reduced-motion behavior, accessibility equivalents, source authority, and no-telemetry contract remain intact.
+- Added focused regression coverage for the aperture, 170-year lens, knowledge horizon, Blood Ring testimony, and Siege Wall absence law.
+- Implementation branch: `feature/palimpsest-forbidden-observatory`.
+- Implementation commit: `2fb5997a55726526081f3b56fa1d8b3a9eeb858a`.
+- Pull request: **#80**.
+- Current proof state: repository diff inspected; protected Chromium/Firefox/WebKit CI, merge, Pages publication, and live-edge parity are still pending. Do not describe this escalation as production-published until those states are observed.
