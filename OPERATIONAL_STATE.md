@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 49
+revision: 50
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -805,7 +805,7 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **implemented-unverified**. Static syntax/DOM/CSS compatibility checks passed in the implementation environment; browser runtime execution there was blocked by sandbox policy before page load. Required next proof is the repository's Palimpsest Playwright/build/cross-browser CI on this branch before merge.
+- Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **PR-verified / publication-pending**. Protected PR #81 CI run `36384225486` / run number `395` passed at branch head `7b8b77f956b26a6d547055e1eb9c5b9df79597f7`: deterministic build parity, strict/public-boundary validation, Chromium full suite (`301 passed, 1 skipped`), Firefox representative journeys, and WebKit representative journeys all passed. Merge, Pages publication, and live-edge proof remain pending.
 
 - Cross-Surface Record Explorer is implemented on `feature/cross-surface-record-explorer`; protected PR CI, merge, Pages deployment, and live-edge proof remain pending until proven. Local canonical media authority is restored and verified at 213/213, while the 47 pre-existing nonmanifest local PNGs described above remain an unresolved recovery issue. Museum + AI remains complete at Phase 12 of 12; this is ordinary post-program maintenance, not Phase 13.
 
@@ -936,3 +936,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 48: Palimpsest tactile systems upgrade entered implemented-unverified state on `feature/palimpsest-tactile-systems`; source templates and focused regression coverage changed, while protected browser/build CI, merge, Pages publication, and live-edge proof remain pending.
 
 - Revision 49: protected Chromium CI exposed two Palimpsest interaction-state regressions in the new polish layer: the active-but-unwitnessed Witness Rail step remained enabled, and component display CSS overrode the native `hidden` state for the future first-contact frame. Both were repaired at the source-template boundary and synchronized to generated publication. Evidence state remains implemented-unverified until the replacement protected CI run passes and publication is merged/live-proven.
+
+- Revision 50: protected PR #81 CI run `36384225486` / run number `395` passed on `feature/palimpsest-tactile-systems` with deterministic publication parity, strict/public-boundary gates, Chromium `301 passed, 1 skipped`, and representative Firefox/WebKit journeys green. Palimpsest tactile systems are therefore PR-verified; merge, Pages publication, and live-edge parity remain pending.
