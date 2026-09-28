@@ -4,7 +4,6 @@ invokes this file once per `--browser` flag. tests/test_dossier.py is the
 broader Chromium-only suite (item 20: "a smaller representative
 cross-browser matrix plus a broader Chromium suite").
 """
-import json
 import re
 
 from playwright.sync_api import Page, expect
@@ -213,32 +212,6 @@ def test_palimpsest_first_contact_journey(page: Page, local_server):
     page.locator("#beginWitness").click()
     page.locator("#extractStar").click()
     expect(page.locator("#starEvidence")).to_be_visible()
-    metrics = page.evaluate("""() => {
-        const box = sel => {
-            const el = document.querySelector(sel);
-            if (!el) return null;
-            const r = el.getBoundingClientRect();
-            return {left: r.left, right: r.right, width: r.width, scrollWidth: el.scrollWidth, clientWidth: el.clientWidth};
-        };
-        return {
-            innerWidth: window.innerWidth,
-            scrollX: window.scrollX,
-            docScrollWidth: document.documentElement.scrollWidth,
-            bodyScrollWidth: document.body.scrollWidth,
-            shell: box('.palimpsest-shell'),
-            rail: box('#witnessRail'),
-            railList: box('#railMarks'),
-            scene: box('#starScene'),
-            phase: box('#phase-star-law'),
-            phaseHeader: box('#phase-star-law .phase-header'),
-            phaseControls: box('#phase-star-law .phase-controls'),
-            evidence: box('#starEvidence'),
-            evidenceHeading: box('#starEvidence h3'),
-            evidenceLink: box('#starEvidence a'),
-            evidenceButton: box('#starEvidence button'),
-            museumNav: box('.museum-nav')
-        };
-    }""")
-    print("PALIMPSEST_METRICS=" + json.dumps(metrics, sort_keys=True), flush=True)
+    metrics = page.evaluate("() => ({innerWidth: window.innerWidth, docScrollWidth: document.documentElement.scrollWidth})")
     assert metrics["docScrollWidth"] <= metrics["innerWidth"], metrics
 
