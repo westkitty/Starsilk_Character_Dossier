@@ -304,3 +304,12 @@ Local proof: strict build/validator and public-boundary PASS; 48 focused/source/
 - The public surface is integrated into the deterministic build, shared navigation, machine orientation/sitemap, public-boundary gate, derivation graph, and regression/cross-browser coverage.
 - Status at this entry: implementation on `feature/palimpsest-first-contact`; protected PR CI, merge, Pages deployment, and live-edge proof are not yet claimed.
 
+## 2026-09-27 — Palimpsest publication closure
+
+- PR #77 passed protected Chromium/Firefox/WebKit CI and merged to `main` at `49a94fc019834c66024c1e1e8c07dff2819640ee`.
+- Main CI remained green after merge, and the Pages publisher reported the exact merge SHA as `built` from legacy `main /docs`.
+- Independent proof-only run `36374089649` compared the public Palimpsest HTML, JS, CSS, and experience manifest byte-for-byte against merged `docs/`; all four matched on the first attempt.
+- Published SHA-256 receipts: HTML `a990179e0fc37792502defdf3fce8fe4da18db76ecaf16d802916fc0e8e591a2`; JS `a08c817d7d5efff1d9a86fe8f89117b8781195bdc3a18cec93d117b4199ec4db`; CSS `cdcbbb062e7d6989b9db2ff85229f94e7de6bb75d77455fe992b4cbe052184d2`; experience JSON `57948f2db2a1a9c990bd8d3abac23bf4c6d143e208553c8c3deb468ec0240871`.
+- The temporary live-proof workflow was removed from its proof branch after success and never entered production.
+- Palimpsest is therefore a closed, published capability with no pending merge or deployment work.
+
