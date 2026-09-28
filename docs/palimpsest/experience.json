@@ -1,0 +1,90 @@
+{
+  "editorial_claim": "Tiger saved us from the Drakken.",
+  "experience_id": "palimpsest-first-contact",
+  "phases": [
+    {
+      "interaction": "verify",
+      "label": "The Claim",
+      "phase_id": "claim",
+      "source_stable_ids": [
+        "shard-god",
+        "blood-rings",
+        "codec",
+        "beyond-wall"
+      ],
+      "spoiler_gate": "none"
+    },
+    {
+      "interaction": "extract",
+      "label": "The First Irreversible Thing",
+      "phase_id": "star-law",
+      "source_stable_ids": [
+        "starsilk-material"
+      ],
+      "spoiler_gate": "minor"
+    },
+    {
+      "interaction": "resolve",
+      "label": "The Blood Ring",
+      "phase_id": "blood-ring",
+      "source_stable_ids": [
+        "blood-rings"
+      ],
+      "spoiler_gate": "major"
+    },
+    {
+      "interaction": "authorize",
+      "label": "Necessity",
+      "phase_id": "nacreous",
+      "source_stable_ids": [
+        "codec"
+      ],
+      "spoiler_gate": "major"
+    },
+    {
+      "interaction": "contain",
+      "label": "The Wall",
+      "phase_id": "siege-wall",
+      "source_stable_ids": [
+        "shard-god",
+        "codec"
+      ],
+      "spoiler_gate": "major"
+    },
+    {
+      "interaction": "receive",
+      "label": "The Long Silence",
+      "phase_id": "beyond-wall",
+      "source_stable_ids": [
+        "beyond-wall"
+      ],
+      "spoiler_gate": "major"
+    },
+    {
+      "interaction": "inspect",
+      "label": "Witness Record",
+      "phase_id": "witness-record",
+      "source_stable_ids": [
+        "shard-god",
+        "blood-rings",
+        "codec",
+        "beyond-wall"
+      ],
+      "spoiler_gate": "major"
+    },
+    {
+      "interaction": "extract",
+      "label": "Mirror the Gesture",
+      "phase_id": "starbinding-mirror",
+      "source_stable_ids": [
+        "starbinding",
+        "codec",
+        "starsilk-material"
+      ],
+      "spoiler_gate": "explicit-major"
+    }
+  ],
+  "schema": "starsilk-palimpsest-experience/1",
+  "state_policy": "session-only-noncanonical",
+  "title": "Starsilk: Palimpsest"
+}

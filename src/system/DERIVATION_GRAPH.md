@@ -16,7 +16,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon` | authoritative | source | `src/canon/AUTHORITY.md`<br>`src/canon/invariants.json` | canon |
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
-| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/films/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**`<br>`src/records/**` | subsystems |
+| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/films/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**`<br>`src/records/**`<br>`src/palimpsest/**` | subsystems |
 | `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md`<br>`src/system/operational-state-invariants.json` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
@@ -57,6 +57,8 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `operational_state` | authoritative | source | `OPERATIONAL_STATE.md` | operational_state |
 | `ci` | authoritative | orchestrator | `.github/workflows/ci.yml` | ci |
 | `state_freshness` | authoritative | validator | `tools/check_operational_state_freshness.py` | state_freshness |
+| `palimpsest_gen` | authoritative | generator | `build/palimpsest_publication.py` | palimpsest_gen |
+| `palimpsest_out` | generated | output | `docs/palimpsest/**` | palimpsest_out |
 
 ## Mermaid
 
@@ -108,6 +110,8 @@ flowchart LR
     operational_state["operational_state\nauthoritative / source"]
     ci["ci\nauthoritative / orchestrator"]
     state_freshness["state_freshness\nauthoritative / validator"]
+    palimpsest_gen["palimpsest_gen\nauthoritative / generator"]
+    palimpsest_out["palimpsest_out\ngenerated / output"]
     foundation -->|governs| topology
     media_originals -->|input_to| media_gen
     media_gen -->|generates| media_out
@@ -213,6 +217,10 @@ flowchart LR
     records_gen -->|input_to| entities_gen
     records_out -->|input_to| offline_gen
     records_out -->|validates| boundary
+    schemas -->|input_to| palimpsest_gen
+    subsystems -->|input_to| palimpsest_gen
+    palimpsest_gen -->|generates| palimpsest_out
+    palimpsest_out -->|validates| boundary
 ```
 
 ## Stale-risk summary
@@ -220,8 +228,8 @@ flowchart LR
 - **content** -> agents_out, canon_out, discovery_out, entities_out, machine_out, offline_out, records_out, relationships_out, root_out, tours_out
 - **canon** -> agents_out, canon_out, entities_out, machine_out, offline_out, records_out, relationships_out, root_out
 - **media** -> agents_out, discovery_out, entities_out, machine_out, museum_out, offline_out, records_out, relationships_out, root_out, tours_out
-- **schemas** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, records_out, tours_out, worldsvault_out
-- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, records_out, relationships_out, root_out, tours_out, worldsvault_out
+- **schemas** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, tours_out, worldsvault_out
+- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, relationships_out, root_out, tours_out, worldsvault_out
 - **topology** -> graph_out
 - **media_originals** -> agents_out, discovery_out, entities_out, machine_out, media_out, museum_out, offline_out, records_out, relationships_out, root_out, tours_out
 

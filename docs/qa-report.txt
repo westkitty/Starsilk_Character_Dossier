@@ -6,7 +6,7 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [2] BROKEN ANCHORS: 0 (of 128 unique #hash hrefs)
 
-[3] LOCAL ASSET PATHS: 223 checked, 0 missing
+[3] LOCAL ASSET PATHS: 224 checked, 0 missing
 
 [4] REMAINING DATA URIS: 0
 
@@ -25,8 +25,8 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 [12] JAVASCRIPT SYNTAX: 6 script block(s), 0 syntax error(s)
 
 [13] SIZE REPORT
-    Generated docs/index.html: 841,448 bytes
-    Total docs/ directory: 80,849,606 bytes
+    Generated docs/index.html: 841,661 bytes
+    Total docs/ directory: 80,911,580 bytes
     Total published media: 73,201,453 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken

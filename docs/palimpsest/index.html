@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="theme-color" content="#05070d"/>
+<title>Starsilk: Palimpsest</title>
+<meta name="description" content="A source-backed interactive first contact with Starsilk: learn the world by causing its rules to reveal themselves."/>
+<link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/palimpsest/"/>
+<link rel="stylesheet" href="palimpsest.css"/>
+</head>
+<body data-museum-shell="unified" data-palimpsest="first-contact">
+
+<style>
+.museum-nav{position:relative;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.4rem;padding:.85rem clamp(1rem,3vw,2rem);background:rgba(5,7,13,.96);border-bottom:1px solid #213145;font:16px/1.4 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.museum-nav-brand{display:inline-flex;align-items:baseline;gap:.4rem;font:800 .95rem/1.1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.01em;color:#eef3f6;text-decoration:none;white-space:nowrap}
+.museum-nav-brand em{font-style:normal;color:#55dfff}
+.museum-nav-mark{color:#55dfff;font-size:.9em}
+.museum-nav>nav{flex:1 1 auto;min-width:0}
+.museum-nav-links{display:flex;flex-wrap:wrap;gap:.05rem 1.1rem;list-style:none;margin:0;padding:0}
+.museum-nav-links a{display:inline-flex;padding:.4rem .1rem;color:#9fb1bf;text-decoration:none;font:700 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid transparent;min-height:44px;align-items:center}
+.museum-nav-links a:hover,.museum-nav-links a:focus-visible{color:#fff;border-bottom-color:#55dfff;outline:none}
+.museum-nav-links a[aria-current="page"]{color:#55dfff;border-bottom-color:#55dfff}
+.museum-nav-data{position:relative;font-size:.74rem}
+.museum-nav-data>summary{cursor:pointer;list-style:none;padding:.4rem .75rem;border:1px solid #2b4966;border-radius:4px;color:#c9d5df;font:700 .7rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.06em;min-height:44px;display:inline-flex;align-items:center}
+.museum-nav-data>summary::-webkit-details-marker{display:none}
+.museum-nav-data[open]>summary{color:#55dfff;border-color:#55dfff}
+.museum-nav-data-panel{position:absolute;right:0;top:calc(100% + .4rem);display:flex;flex-direction:column;gap:.3rem;padding:.6rem;background:#0d1320;border:1px solid #27374b;border-radius:6px;min-width:11rem;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.museum-nav-data-panel a{color:#9fb1bf;text-decoration:none;font-size:.78rem;padding:.25rem 0}
+.museum-nav-data-panel a:hover,.museum-nav-data-panel a:focus-visible{color:#fff}
+@media(max-width:700px){
+.museum-nav{gap:.5rem .8rem;padding:.65rem .9rem}
+.museum-nav>nav{flex-basis:100%;order:3;min-width:100%}
+.museum-nav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0 .9rem;padding-bottom:.15rem}
+.museum-nav-links a{flex:0 0 auto}
+.museum-nav-data{order:2;margin-left:auto}
+}
+</style>
+<header class="museum-nav" data-museum-shell="unified">
+
+<a class="museum-nav-brand" href="../"><span class="museum-nav-mark" aria-hidden="true">&#10022;</span>Starsilk <em>Compendium</em></a>
+<nav aria-label="Unified Starsilk Compendium navigation">
+<ul class="museum-nav-links">
+<li><a href="../">Home</a></li>
+<li><a href="../#mainContent">Compendium</a></li>
+<li><a href="../palimpsest/" aria-current="page">Palimpsest</a></li>
+<li><a href="../discover/">Discover</a></li>
+<li><a href="../entities/">Entities</a></li>
+<li><a href="../records/">Records</a></li>
+<li><a href="../objects/">Objects</a></li>
+<li><a href="../relationships/">Relationships</a></li>
+<li><a href="../canon/">Canon Inspector</a></li>
+<li><a href="../tours/">Tours</a></li>
+<li><a href="../films/">Film Vault</a></li>
+<li><a href="../chronology/">Chronology</a></li>
+<li><a href="../worldsvault/">WorldsVault</a></li>
+</ul>
+</nav>
+<details class="museum-nav-data">
+<summary>Data / AI</summary>
+<div class="museum-nav-data-panel">
+<a href="../agents/AGENT_GUIDE.md">Agent guide</a>
+<a href="../machine/index.json">Machine index</a>
+<a href="../llms.txt">llms.txt</a>
+</div>
+</details>
+</header>
+<a class="skip-link" href="#palimpsestMain">Skip to experience</a>
+<main id="palimpsestMain" class="palimpsest-shell" tabindex="-1">
+  <section class="palimpsest-intro" id="phase-claim" data-phase="claim" aria-labelledby="claimHeading">
+    <div class="palimpsest-kicker">First contact / source-backed interactive</div>
+    <h1 id="claimHeading">Starsilk: Palimpsest</h1>
+    <p class="intro-deck">The archive will not explain itself first. Cause a rule. Inspect what survives it. Then decide what the sentence can actually bear.</p>
+    <div class="claim-machine" aria-label="Opening proposition">
+      <p class="claim-line" id="claimLine">
+        <button type="button" data-claim-word="tiger">Tiger</button>
+        <button type="button" data-claim-word="saved">saved</button>
+        <button type="button" data-claim-word="us">us</button>
+        <button type="button" data-claim-word="from">from</button>
+        <button type="button" data-claim-word="drakken">the Drakken.</button>
+      </p>
+      <div class="claim-status" id="claimStatus" aria-live="polite">INSUFFICIENT EVIDENCE</div>
+    </div>
+    <div class="intro-actions">
+      <button class="primary-action" type="button" id="beginWitness">Verify claim</button>
+      <button type="button" id="soundToggle" aria-pressed="false">Enable generative score</button>
+      <a href="../">Open archive instead</a>
+    </div>
+    <p class="boundary-note">Palimpsest is editorial presentation over existing source records. Your choices are local learning state, never canon. <a href="AUTHORITY.md">Read the authority boundary.</a></p>
+  </section>
+
+  <div class="witness-rail" id="witnessRail" hidden>
+    <div><span class="rail-label">Witness state</span><strong id="railPhase">01 / 06</strong></div>
+    <ol id="railMarks" aria-label="Witnessed phases">
+      <li data-rail="star-law">Star</li><li data-rail="blood-ring">Ring</li><li data-rail="nacreous">Necessity</li><li data-rail="siege-wall">Wall</li><li data-rail="beyond-wall">Beyond</li><li data-rail="witness-record">Record</li>
+    </ol>
+    <button type="button" id="restartWitness">Restart session</button>
+  </div>
+
+  <section class="experience-phase" id="phase-star-law" data-phase="star-law" hidden aria-labelledby="starHeading">
+    <header class="phase-header"><span>01 / The first irreversible thing</span><h2 id="starHeading">Pull one thread.</h2><p>No glossary. No definition. There is a star and something under tension inside it.</p></header>
+    <div class="scene-frame scene-star" id="starScene">
+      <canvas id="starCanvas" width="1200" height="640" aria-hidden="true"></canvas>
+      <div class="scene-overlay">
+        <p class="scene-label" id="starSceneLabel">UNKNOWN STELLAR MECHANISM</p>
+        <p id="starInstruction">Drag the azure filament away from the star, or use the accessible extraction control.</p>
+      </div>
+    </div>
+    <div class="phase-controls">
+      <button class="primary-action" type="button" id="extractStar">Extract Starsilk</button>
+      <span id="starStatus" role="status" aria-live="polite">The strand is intact.</span>
+    </div>
+    <aside class="evidence-reveal" id="starEvidence" hidden>
+      <span class="evidence-label">Observed law</span>
+      <h3>STARSILK REMOVED → STELLAR EQUILIBRIUM LOST → SYSTEM DEATH</h3>
+      <p>The source record defines successful star extraction as immediately collapsing the star toward a black hole and destroying the system.</p>
+      <p><a href="../entities/starsilk-material/">Open source record: Starsilk material</a></p>
+      <button type="button" class="continue-action" data-next="blood-ring">Carry the consequence forward</button>
+    </aside>
+  </section>
+
+  <section class="experience-phase" id="phase-blood-ring" data-phase="blood-ring" hidden aria-labelledby="ringHeading">
+    <header class="phase-header"><span>02 / Resolution</span><h2 id="ringHeading">A clean red circle is easier to teach.</h2><p>Reduce the visualization filter. The structure will stop behaving like a symbol.</p></header>
+    <div class="ring-layout">
+      <div class="ring-viz" id="ringViz" aria-hidden="true"><div class="ring-orbit"></div><div class="ring-world"></div><div class="ring-noise"></div></div>
+      <div class="ring-console">
+        <div class="console-readout"><span>Administration visualization filter</span><strong id="filterReadout">100%</strong></div>
+        <label for="ringFilter">Resolution / source material exposure</label>
+        <input id="ringFilter" type="range" min="0" max="100" value="100"/>
+        <p id="ringInterpretation">At this resolution, the Ring remains legible as an orbital symbol.</p>
+        <ul class="material-ledger" id="materialLedger" aria-label="Blood Ring material categories">
+          <li>blood matter</li><li>bone ash</li><li>ocean fats</li><li>biosphere oils</li><li>mineral residue</li><li>terraforming compounds</li>
+        </ul>
+      </div>
+    </div>
+    <aside class="evidence-reveal" id="ringEvidence" hidden>
+      <span class="evidence-label">Classification updated</span>
+      <h3>VITRIFIED BIOSPHERIC ATROCITY-STRUCTURE</h3>
+      <p>The canonical record rejects the clean-ring reading: the structure is rendered population and biosphere, extruded into orbit and macro-stabilized.</p>
+      <p><a href="../entities/blood-rings/">Open source record: Blood Rings</a></p>
+      <button type="button" class="continue-action" data-next="nacreous">Keep the word “Drakken” intact</button>
+    </aside>
+  </section>
+
+  <section class="experience-phase" id="phase-nacreous" data-phase="nacreous" hidden aria-labelledby="nacreousHeading">
+    <header class="phase-header"><span>03 / Necessity</span><h2 id="nacreousHeading">Select the wound.</h2><p>You are not Codec. The archive is giving you the shape of the decision he occupied.</p></header>
+    <div class="decision-grid" aria-label="Nacreous VI modeled outcomes">
+      <article><span>INACTION</span><strong>19 billion dead</strong><p>Pyric titan takes the weather lattice.</p></article>
+      <article><span>FAILED ORBITAL STERILIZATION</span><strong>11 billion dead</strong><p>A narrower catastrophe that still fails.</p></article>
+      <article class="decision-selected"><span>CORPSE-BURN FIREWALL</span><strong>740 million projected</strong><p>786 million confirmed after execution.</p></article>
+    </div>
+    <div class="decision-console">
+      <p>Choose with the information available. There is no morality score.</p>
+      <div class="decision-actions"><button type="button" data-nacreous-choice="authorize" class="primary-action">Authorize firewall</button><button type="button" data-nacreous-choice="withhold">Withhold authorization</button></div>
+      <div id="nacreousResult" class="decision-result" role="status" aria-live="polite" hidden></div>
+    </div>
+    <aside class="evidence-reveal" id="nacreousEvidence" hidden>
+      <span class="evidence-label">Historical record</span>
+      <h3>CODEC AUTHORIZED THE FIREWALL.</h3>
+      <p>The wider sector chain survived. Nacreous VI remained a Level 3 remnant. Confirmed deaths: 786 million.</p>
+      <blockquote>“I made the choice the system was designed to require.”</blockquote>
+      <p><a href="../entities/codec/">Open source record: Codec</a></p>
+      <button type="button" class="continue-action" data-next="siege-wall">Now scale the argument up</button>
+    </aside>
+  </section>
+
+  <section class="experience-phase" id="phase-siege-wall" data-phase="siege-wall" hidden aria-labelledby="wallHeading">
+    <header class="phase-header"><span>04 / Containment</span><h2 id="wallHeading">A god discovers a valid damage state.</h2><p>The Drakken have learned enough Starsilk to injure what should not have been injurable.</p></header>
+    <div class="wall-console">
+      <div class="wall-field" id="wallField" aria-label="A field of star systems waiting to be converted into containment nodes"></div>
+      <div class="wall-metrics"><div><span>Containment</span><strong id="containmentMetric">0%</strong></div><div><span>Reachable systems</span><strong id="reachMetric">100%</strong></div><div><span>Language</span><strong id="wallLanguage">STAR LOST</strong></div></div>
+      <button type="button" class="contain-button primary-action" id="containButton">Hold or tap to contain</button>
+      <p class="control-hint">Press and hold with pointer, hold Space/Enter while focused, or tap repeatedly. The accessible outcome is identical.</p>
+    </div>
+    <aside class="evidence-reveal" id="wallEvidence" hidden>
+      <span class="evidence-label">Containment result</span>
+      <h3>IT WORKED.</h3>
+      <p>The Hal’Ven collapses became the foundation of the Siege Wall. Drakken expansion was contained. Thousands of stars and trillions of lives were the cost recorded by the source.</p>
+      <blockquote>“stars don't burn, they surrender”</blockquote>
+      <p><a href="../entities/shard-god/">Open source record: Shard-God</a> · <a href="../entities/codec/">Codec’s wartime record</a></p>
+      <button type="button" class="continue-action" data-next="beyond-wall">Wait behind what you built</button>
+    </aside>
+  </section>
+
+  <section class="experience-phase" id="phase-beyond-wall" data-phase="beyond-wall" hidden aria-labelledby="beyondHeading">
+    <header class="phase-header"><span>05 / The long silence</span><h2 id="beyondHeading">History does not owe you a clean sequel.</h2><p>Move time forward. The Wall remains geography while whatever survived behind it has to become something else.</p></header>
+    <div class="time-console">
+      <div class="time-readout"><span>Elapsed since the Blood Eclipse War era</span><strong id="timeValue">+10 years</strong></div>
+      <input id="timeSlider" type="range" min="0" max="6" step="1" value="0" aria-label="Advance time behind the Siege Wall"/>
+      <div class="time-marks" aria-hidden="true"><span>10</span><span>100</span><span>500</span><span>2,000</span><span>4,000</span><span>6,000</span><span>~8,560</span></div>
+      <button type="button" id="continueWaiting">Continue waiting</button>
+    </div>
+    <div class="contact-frame" id="contactFrame" hidden>
+      <div class="dead-titan-vessel" aria-hidden="true"><span class="bone spine-a"></span><span class="bone spine-b"></span><span class="limb"></span><span class="machine-core"></span></div>
+      <div class="contact-copy"><span class="evidence-label">Foreign matter detected</span><h3>A vessel made from the dead approaches your damaged ship.</h3><p>The silhouette is horrifying by Blood Eclipse standards. Its actual gesture is careful assistance.</p><button class="primary-action" type="button" id="receiveHail">Receive conceptual hail</button></div>
+    </div>
+    <div class="wordstream-message" id="wordstreamMessage" hidden aria-live="polite">
+      <span>YOU</span><span>HARMED</span><span>NEED</span><span>AID?</span>
+      <p>Concept received through wordstreaming. This is not presented as a conventional universal translation.</p>
+    </div>
+    <aside class="evidence-reveal" id="beyondEvidence" hidden>
+      <span class="evidence-label">Classification cannot remain singular</span>
+      <h3>THE DRAKKEN RECORD NOW CONTAINS MORE THAN ONE TIME.</h3>
+      <p>Blood Rings remain true. So does a later post-Mother civilization whose first substantive contact begins by asking a damaged stranger whether aid is needed.</p>
+      <blockquote>“Their sky is built from their dead.”</blockquote>
+      <p><a href="../entities/beyond-wall/">Open source record: Beyond the Wall</a></p>
+      <button type="button" class="continue-action" data-next="witness-record">Return to the sentence</button>
+    </aside>
+  </section>
+
+  <section class="experience-phase witness-record" id="phase-witness-record" data-phase="witness-record" hidden aria-labelledby="recordHeading">
+    <header class="phase-header"><span>06 / Witness record</span><h2 id="recordHeading">The sentence has not changed.</h2><p>Its terms have become expensive.</p></header>
+    <div class="final-claim" role="group" aria-label="Inspect the opening claim word by word">
+      <button type="button" data-final-word="tiger">Tiger</button><button type="button" data-final-word="saved">saved</button><button type="button" data-final-word="us">us</button><button type="button" data-final-word="from">from</button><button type="button" data-final-word="drakken">the Drakken.</button>
+    </div>
+    <div class="claim-inspector" id="claimInspector" aria-live="polite">
+      <span class="evidence-label">Claim status</span><h3>FACTUALLY LEGIBLE. MORALLY UNRESOLVED.</h3><p>Select a word. Palimpsest will show only the bounded evidence this route has established.</p>
+    </div>
+    <dl class="witness-ledger" id="witnessLedger"></dl>
+    <section class="archive-routes" aria-labelledby="routesHeading"><span class="evidence-label">Continue without starting over</span><h3 id="routesHeading">Choose what you want to understand next.</h3><div><a href="../entities/blood-rings/">The War</a><a href="../entities/shard-god/">The Gods</a><a href="../entities/codec/">The Argument</a><a href="../">Open the full archive</a></div></section>
+    <details class="spoiler-door" id="starbindingDoor">
+      <summary>Major spoiler: show me how the gesture returns</summary>
+      <div class="spoiler-inner">
+        <span class="evidence-label">Mirror the gesture / Starbinding</span>
+        <h3>The first thing you learned was how to kill one star.</h3>
+        <p>Starbinding weaponizes the same physical law at catastrophic scale: billions of concurrent star dives collapse billions of stars, and their stellar data becomes material for the Partition.</p>
+        <div class="mirror-field" id="mirrorField" aria-hidden="true"></div>
+        <button type="button" id="mirrorPull" class="primary-action">Pull again</button>
+        <p id="mirrorResult" role="status" aria-live="polite"></p>
+        <p><a href="../entities/starbinding/">Open source record: Starbinding</a></p>
+      </div>
+    </details>
+  </section>
+</main>
+<div id="palimpsestStatus" class="visually-hidden" role="status" aria-live="polite"></div>
+<script>window.STARSILK_PALIMPSEST={"editorial_claim": "Tiger saved us from the Drakken.", "experience_id": "palimpsest-first-contact", "phases": [{"interaction": "verify", "label": "The Claim", "phase_id": "claim", "source_stable_ids": ["shard-god", "blood-rings", "codec", "beyond-wall"], "spoiler_gate": "none"}, {"interaction": "extract", "label": "The First Irreversible Thing", "phase_id": "star-law", "source_stable_ids": ["starsilk-material"], "spoiler_gate": "minor"}, {"interaction": "resolve", "label": "The Blood Ring", "phase_id": "blood-ring", "source_stable_ids": ["blood-rings"], "spoiler_gate": "major"}, {"interaction": "authorize", "label": "Necessity", "phase_id": "nacreous", "source_stable_ids": ["codec"], "spoiler_gate": "major"}, {"interaction": "contain", "label": "The Wall", "phase_id": "siege-wall", "source_stable_ids": ["shard-god", "codec"], "spoiler_gate": "major"}, {"interaction": "receive", "label": "The Long Silence", "phase_id": "beyond-wall", "source_stable_ids": ["beyond-wall"], "spoiler_gate": "major"}, {"interaction": "inspect", "label": "Witness Record", "phase_id": "witness-record", "source_stable_ids": ["shard-god", "blood-rings", "codec", "beyond-wall"], "spoiler_gate": "major"}, {"interaction": "extract", "label": "Mirror the Gesture", "phase_id": "starbinding-mirror", "source_stable_ids": ["starbinding", "codec", "starsilk-material"], "spoiler_gate": "explicit-major"}], "schema": "starsilk-palimpsest-experience/1", "state_policy": "session-only-noncanonical", "title": "Starsilk: Palimpsest"};</script>
+<script src="palimpsest.js"></script>
+</body>
+</html>
