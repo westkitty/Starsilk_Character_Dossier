@@ -63,7 +63,7 @@ function renderRail(){
     var done=state.witnessed.indexOf(id)>=0;
     button.classList.toggle('is-witnessed',done);
     button.classList.toggle('is-current',state.phase===id);
-    button.disabled=!done&&state.phase!==id;
+    button.disabled=!done;
     button.setAttribute('aria-current',state.phase===id?'step':'false');
   });
 }
