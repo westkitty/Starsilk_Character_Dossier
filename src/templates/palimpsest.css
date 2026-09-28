@@ -43,7 +43,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 
 .skip-link{position:absolute;left:-9999px;top:.5rem;z-index:100;background:#fff;color:#000;padding:.6rem}
 .skip-link:focus{left:.5rem}
-.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.palimpsest-shell [hidden]{display:none!important}\n.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 
 .palimpsest-shell{width:min(1120px,calc(100% - 2rem));margin:0 auto;padding:clamp(2rem,6vw,5rem) 0 7rem;view-transition-name:palimpsest-shell}
 .palimpsest-shell>*{min-width:0}
