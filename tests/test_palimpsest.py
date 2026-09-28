@@ -77,6 +77,8 @@ def test_palimpsest_browser_journey_has_no_morality_score(page: Page, local_serv
     page.locator("#nacreousEvidence [data-next='siege-wall']").click()
 
     for _ in range(9):
+        if page.locator("#wallEvidence").is_visible():
+            break
         page.locator("#containButton").click()
     expect(page.locator("#wallEvidence")).to_be_visible()
     page.locator("#wallEvidence [data-next='beyond-wall']").click()
