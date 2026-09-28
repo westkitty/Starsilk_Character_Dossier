@@ -11,7 +11,7 @@ set -euo pipefail
 #     -> build/discovery_publication.py (faceted discovery + AI context packets)
 #     -> build/tour_publication.py      (curated tours + browser-local library shell)
 #     -> build/film_publication.py      (Administration Educational Film Vault)
-     -> build/palimpsest_publication.py (source-backed interactive first contact)
+#     -> build/palimpsest_publication.py (source-backed interactive first contact)
 #     -> build/chronology_publication.py (source-backed chronology explorer)
 #     -> build/worldsvault_publication.py (source-backed cosmic topology explorer)
 #     -> build/record_explorer.py      (cross-surface stable-record evidence explorer)
