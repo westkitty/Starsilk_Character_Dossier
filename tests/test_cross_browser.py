@@ -229,6 +229,13 @@ def test_palimpsest_first_contact_journey(page: Page, local_server):
             rail: box('#witnessRail'),
             railList: box('#railMarks'),
             scene: box('#starScene'),
+            phase: box('#phase-star-law'),
+            phaseHeader: box('#phase-star-law .phase-header'),
+            phaseControls: box('#phase-star-law .phase-controls'),
+            evidence: box('#starEvidence'),
+            evidenceHeading: box('#starEvidence h3'),
+            evidenceLink: box('#starEvidence a'),
+            evidenceButton: box('#starEvidence button'),
             museumNav: box('.museum-nav')
         };
     }""")
