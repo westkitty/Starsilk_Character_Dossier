@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 48
+revision: 49
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -934,3 +934,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 47: closed Dossier Deep Systems publication evidence after PR #75, protected PR CI 363, protected main CI 364, Pages publish/deploy, Build Provenance, and cache-busted byte-parity live verification all passed. This closure is additive and preserves the later Palimpsest Revision 45/46 history.
 
 - Revision 48: Palimpsest tactile systems upgrade entered implemented-unverified state on `feature/palimpsest-tactile-systems`; source templates and focused regression coverage changed, while protected browser/build CI, merge, Pages publication, and live-edge proof remain pending.
+
+- Revision 49: protected Chromium CI exposed two Palimpsest interaction-state regressions in the new polish layer: the active-but-unwitnessed Witness Rail step remained enabled, and component display CSS overrode the native `hidden` state for the future first-contact frame. Both were repaired at the source-template boundary and synchronized to generated publication. Evidence state remains implemented-unverified until the replacement protected CI run passes and publication is merged/live-proven.
