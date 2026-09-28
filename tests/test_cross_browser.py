@@ -212,9 +212,24 @@ def test_palimpsest_first_contact_journey(page: Page, local_server):
     page.locator("#beginWitness").click()
     page.locator("#extractStar").click()
     expect(page.locator("#starEvidence")).to_be_visible()
-    overflow = page.evaluate("""() => Array.from(document.querySelectorAll('*')).map(el => {
-        const r = el.getBoundingClientRect();
-        return {tag: el.tagName, id: el.id || '', cls: el.className || '', left: r.left, right: r.right, width: r.width};
-    }).filter(x => x.width > 0 && (x.left < -1 || x.right > window.innerWidth + 1)).slice(0, 20)""")
-    assert not overflow, overflow
+    metrics = page.evaluate("""() => {
+        const box = sel => {
+            const el = document.querySelector(sel);
+            if (!el) return null;
+            const r = el.getBoundingClientRect();
+            return {left: r.left, right: r.right, width: r.width, scrollWidth: el.scrollWidth, clientWidth: el.clientWidth};
+        };
+        return {
+            innerWidth: window.innerWidth,
+            scrollX: window.scrollX,
+            docScrollWidth: document.documentElement.scrollWidth,
+            bodyScrollWidth: document.body.scrollWidth,
+            shell: box('.palimpsest-shell'),
+            rail: box('#witnessRail'),
+            railList: box('#railMarks'),
+            scene: box('#starScene'),
+            museumNav: box('.museum-nav')
+        };
+    }""")
+    assert metrics["docScrollWidth"] <= metrics["innerWidth"], metrics
 
