@@ -27,6 +27,7 @@ SCHEMAS = {
     "deep-systems.schema.json",
     "agent-evaluation.schema.json",
     "administration-film-vault.schema.json",
+    "palimpsest-experience.schema.json",
 }
 CORE_MACHINE_FILES = {
     "machine/index.json",
@@ -227,6 +228,10 @@ def test_project_index_orients_to_human_permalinks_and_machine_surfaces():
         "films/films.json",
         "films/schema.json",
         "films/AUTHORITY.md",
+        "palimpsest/",
+        "palimpsest/experience.json",
+        "palimpsest/schema.json",
+        "palimpsest/AUTHORITY.md",
         "agents/AGENT_GUIDE.md",
         "agents/evaluation.json",
         "agents/evaluation.md",
