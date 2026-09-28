@@ -28,8 +28,8 @@ jobs:
 
       - name: Regenerate derivation projection and public output
         run: |
-          python3 tools/validate_derivation_map.py --write-projection
           ./tools/build.sh
+          python3 tools/validate_derivation_map.py --write-projection
           ./tools/build.sh --check
           git diff --check
 
