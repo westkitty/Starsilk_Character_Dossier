@@ -59,7 +59,6 @@ def test_palimpsest_browser_journey_has_no_morality_score(page: Page, local_serv
     page.set_viewport_size({"width": 375, "height": 812})
     page.goto(f"{local_server}/palimpsest/")
     expect(page.locator("h1")).to_have_text("Starsilk: Palimpsest")
-    assert "morality score" in page.locator("body").inner_text().lower()
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
 
     page.locator("#beginWitness").click()
@@ -71,6 +70,7 @@ def test_palimpsest_browser_journey_has_no_morality_score(page: Page, local_serv
     page.locator("#ringFilter").fill("0")
     expect(page.locator("#ringEvidence")).to_be_visible()
     page.locator("#ringEvidence [data-next='nacreous']").click()
+    expect(page.locator("#phase-nacreous")).to_contain_text("There is no morality score.")
 
     page.locator("[data-nacreous-choice='withhold']").click()
     expect(page.locator("#nacreousEvidence")).to_contain_text("CODEC AUTHORIZED")
