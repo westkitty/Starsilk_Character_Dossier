@@ -4,6 +4,7 @@ invokes this file once per `--browser` flag. tests/test_dossier.py is the
 broader Chromium-only suite (item 20: "a smaller representative
 cross-browser matrix plus a broader Chromium suite").
 """
+import json
 import re
 
 from playwright.sync_api import Page, expect
@@ -231,5 +232,6 @@ def test_palimpsest_first_contact_journey(page: Page, local_server):
             museumNav: box('.museum-nav')
         };
     }""")
+    print("PALIMPSEST_METRICS=" + json.dumps(metrics, sort_keys=True), flush=True)
     assert metrics["docScrollWidth"] <= metrics["innerWidth"], metrics
 
