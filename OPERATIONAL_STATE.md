@@ -805,6 +805,8 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
+- Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **implemented-unverified**. Static syntax/DOM/CSS compatibility checks passed in the implementation environment; browser runtime execution there was blocked by sandbox policy before page load. Required next proof is the repository's Palimpsest Playwright/build/cross-browser CI on this branch before merge.
+
 - Cross-Surface Record Explorer is implemented on `feature/cross-surface-record-explorer`; protected PR CI, merge, Pages deployment, and live-edge proof remain pending until proven. Local canonical media authority is restored and verified at 213/213, while the 47 pre-existing nonmanifest local PNGs described above remain an unresolved recovery issue. Museum + AI remains complete at Phase 12 of 12; this is ordinary post-program maintenance, not Phase 13.
 
 ## Revision log
