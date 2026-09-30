@@ -120,3 +120,29 @@ def test_palimpsest_polish_mobile_has_no_horizontal_overflow(page: Page, local_s
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
     _reach_wall(page, local_server)
     assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth")
+
+def test_palimpsest_defers_hidden_heavy_visual_nodes_until_needed(page: Page, local_server):
+    page.goto(f"{local_server}/palimpsest/")
+    expect(page.locator("#wallField .wall-node")).to_have_count(0)
+    expect(page.locator("#mirrorField .mirror-star")).to_have_count(0)
+
+    _reach_wall(page, local_server)
+    expect(page.locator("#wallField .wall-node")).to_have_count(40)
+    expect(page.locator("#mirrorField .mirror-star")).to_have_count(0)
+
+    for _ in range(8):
+        page.locator("#containButton").click()
+    page.locator("#wallEvidence [data-next='beyond-wall']").click()
+    page.locator("#timeSlider").fill("6")
+    page.locator("#receiveHail").click()
+    expect(page.locator("#beyondEvidence")).to_be_visible()
+    page.locator("#beyondEvidence [data-next='witness-record']").click()
+    expect(page.locator("#mirrorField .mirror-star")).to_have_count(120)
+
+
+def test_witnessed_state_update_is_idempotent_in_runtime_source():
+    runtime = (ROOT / "src/templates/palimpsest.js").read_text(encoding="utf-8")
+    assert "if(state.witnessed.indexOf(id)>=0)return false" in runtime
+    assert "if(id==='siege-wall'&&!document.getElementById('wallField').children.length)wall();" in runtime
+    assert "function ledger(){\n  ensureMirror();" in runtime
+    assert "lastRingBand=null;ring();time();" in runtime

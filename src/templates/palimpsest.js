@@ -42,7 +42,7 @@ function load(){
     }
   }catch(e){}
 }
-function witnessed(id){if(state.witnessed.indexOf(id)<0)state.witnessed.push(id);save();renderRail()}
+function witnessed(id){if(state.witnessed.indexOf(id)>=0)return false;state.witnessed.push(id);save();renderRail();return true}
 function phaseNo(id){return({'star-law':1,'blood-ring':2,nacreous:3,'siege-wall':4,'beyond-wall':5,'witness-record':6})[id]||0}
 function currentPhaseElement(){return document.getElementById('phase-'+state.phase)}
 function canVisit(id){return id===state.phase||state.witnessed.indexOf(id)>=0}
@@ -90,6 +90,7 @@ function show(id,focus){
   }else mutate();
   state.phase=id;
   save();
+  if(id==='siege-wall'&&!document.getElementById('wallField').children.length)wall();
   renderRail();
   score(id);
   if(transition&&transition.updateCallbackDone){
@@ -412,6 +413,7 @@ function applyClaimStates(){
 }
 function inspect(word){var e=evidence[word];if(!e)return;document.getElementById('claimInspector').innerHTML='<span class="evidence-label">'+e.label+' · '+e.stateLabel+'</span><h3>'+e.text+'</h3>'}
 function ledger(){
+  ensureMirror();
   var rows=[
     ['STAR LAW',state.witnessed.indexOf('star-law')>=0?'experienced':'unwitnessed','star-law'],
     ['BLOOD RING','unfiltered '+(100-state.ringResolution)+'%','blood-ring'],
@@ -448,7 +450,7 @@ function startMirror(){if(state.mirrorPulled)return;state.mirrorPulled=true;save
 // Restore, event binding, visibility lifecycle.
 // ---------------------------------------------------------------------
 function restore(){
-  lastRingBand=null;ring();wall();time();ensureMirror();
+  lastRingBand=null;ring();time();
   if(state.nacreousChoice)nacreous(state.nacreousChoice,true);
   if(state.hailReceived)hail(true);
   if(state.witnessed.indexOf('star-law')>=0)restoreStarFinal();

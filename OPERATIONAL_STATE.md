@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 50
+revision: 51
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -29,6 +29,7 @@ freshness_policy: src/system/operational-state-policy.json
 - Operational State freshness sentinel PR #54 merged at `1c321fcbcad81f0e0116ee6748febe7e647703fe`. Main CI run `33045765364` compared exact previous main `c91bfa0231982314edfb241ca10c38b94807ed51`, classified 15 state-relevant paths, reported `state_update=closed`, passed deterministic build/docs parity, `223 passed, 1 skipped` Chromium coverage, and green Firefox/WebKit journeys. Build Provenance run `33045915082` then succeeded for the exact merge commit.
 - Cold-start recovery protection is defined by `src/system/COLD_START_RECOVERY.md` and `src/system/cold-start-recovery-contract.json`, with `tests/test_cold_start_recovery.py` enforcing repository-only recoverability of project purpose, current baseline, authority/architecture, active paths, build/test/preview, environment/publication, protected invariants, known limitations/dependencies, pending work, and anti-inference boundaries. It is repository-resumption guidance only and creates no lore, canon, relationship, chronology, media-identity, or publication authority.
 - **Starsilk: Palimpsest is merged and published.** PR #77 merged through protected `main` at `49a94fc019834c66024c1e1e8c07dff2819640ee`. `src/palimpsest/experience.json` owns only experience orchestration and stable source pointers; existing Compendium records remain lore authority. Visitor choices are session-local learning state, not canon, and the feature adds no backend, telemetry, morality score, external runtime dependency, or repository-write path. Exact live byte parity is independently proven for the Palimpsest HTML, JS, CSS, and experience manifest.
+- Palimpsest tactile systems PR #81 merged through protected `main` at `21625d363d0ef02f7dce5d5d5bb8864a215ab255` after protected PR CI run `36384225486` passed deterministic publication parity, strict/public-boundary validation, Chromium `301 passed, 1 skipped`, and representative Firefox/WebKit journeys. Merge is verified from GitHub PR/commit state; post-merge Pages/live-edge parity for this tactile upgrade is not yet independently proven in this ledger.
 - Publication architecture remains `src/content/` + `src/templates/` -> `build/generate.py` -> `docs/index.html` -> `build/validate.py`.
 - `docs/index.html` is generated output and must not be hand-edited as an authority.
 - `src/canon/invariants.json` is the machine-readable canon-lock authority.
@@ -805,7 +806,9 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
-- Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **PR-verified / publication-pending**. Protected PR #81 CI run `36384225486` / run number `395` passed at branch head `7b8b77f956b26a6d547055e1eb9c5b9df79597f7`: deterministic build parity, strict/public-boundary validation, Chromium full suite (`301 passed, 1 skipped`), Firefox representative journeys, and WebKit representative journeys all passed. Merge, Pages publication, and live-edge proof remain pending.
+- Palimpsest tactile systems upgrade is merged on `main` at `21625d363d0ef02f7dce5d5d5bb8864a215ab255` via PR #81 after protected CI passed. Pages/live-edge parity for that exact merge remains **UNVERIFIED in this ledger** and must not be inferred from merge state alone.
+
+- Palimpsest performance/awe repair is implemented on `repair/palimpsest-awe-performance`: hidden Siege Wall and Starbinding visual node construction is deferred until those phases are actually entered, and repeated already-witnessed state updates short-circuit instead of rewriting session state/rail UI. Source and generated derivative remain synchronized, with regression coverage asserting 0 heavy visual nodes at initial load, 40 Wall nodes only on Wall entry, and 120 Starbinding nodes only on the final witness record. Protected PR CI, merge, Pages publication, and matched runtime performance measurement remain pending.
 
 - Cross-Surface Record Explorer is implemented on `feature/cross-surface-record-explorer`; protected PR CI, merge, Pages deployment, and live-edge proof remain pending until proven. Local canonical media authority is restored and verified at 213/213, while the 47 pre-existing nonmanifest local PNGs described above remain an unresolved recovery issue. Museum + AI remains complete at Phase 12 of 12; this is ordinary post-program maintenance, not Phase 13.
 
@@ -938,3 +941,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 49: protected Chromium CI exposed two Palimpsest interaction-state regressions in the new polish layer: the active-but-unwitnessed Witness Rail step remained enabled, and component display CSS overrode the native `hidden` state for the future first-contact frame. Both were repaired at the source-template boundary and synchronized to generated publication. Evidence state remains implemented-unverified until the replacement protected CI run passes and publication is merged/live-proven.
 
 - Revision 50: protected PR #81 CI run `36384225486` / run number `395` passed on `feature/palimpsest-tactile-systems` with deterministic publication parity, strict/public-boundary gates, Chromium `301 passed, 1 skipped`, and representative Firefox/WebKit journeys green. Palimpsest tactile systems are therefore PR-verified; merge, Pages publication, and live-edge parity remain pending.
+
+- Revision 51: reconciled PR #81 from stale pre-merge state to observed merged state at `21625d363d0ef02f7dce5d5d5bb8864a215ab255` without claiming unproven live publication, and introduced the bounded Palimpsest performance/awe repair on `repair/palimpsest-awe-performance`. The repair defers hidden 40-node Siege Wall and 120-node Starbinding DOM construction until their phases are entered and makes witnessed-state persistence idempotent; source/generated parity and focused regression protection are included. Protected CI, merge, live-edge proof, and matched runtime measurements remain pending.
