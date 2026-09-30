@@ -80,7 +80,33 @@ following their verified archival plates.
 | 31 | `31_the_triarchic_order.png` | The Triarchic Order — the original Triumvirate before the fall: Wordstreamer mid-creation, NiAlBu dreaming the record, and the only stillness and only shadow in the scene standing apart. | Chronology Phase I |
 | 32 | `32_epilogue_the_last_original.png` | Epilogue: The Last Original — Kail steps through the closing seam into the Partition, the only original in either universe, and walks down toward the lanterns of the unaware. | Chronology Phase V; Kail folio; records C105–C108 |
 
-Set 4 continues to ten images (through `40_`) in subsequent additions.
+Set 4 continues to ten images (through `40_`) in subsequent additions;
+numbers 33–40 are reserved for it.
+
+## Set 5 — cel-shaded flat animation style (41–50)
+
+An independent parallel session also illustrated ten canon moments in the
+same cel-shaded language. To avoid colliding with Sets 3–4 numbering, its
+images are numbered 41–50. Images 41–47 are alternate compositions of
+events also depicted in Set 3 (a second take, not a replacement); images
+48–50 extend the post-Wall first-contact sequence.
+
+| # | File | Moment | Canon source |
+|---|------|--------|--------------|
+| 41 | `41_the_forging_of_starsilk.png` | Alternate take: The Forging of Starsilk — Tiger spools the azure filament star-to-star like beads on wire while secretly braiding the betrayal-knot into a held segment. | Chronology Phase I; record C016 |
+| 42 | `42_the_siege_of_the_ruby_eclipse.png` | The Siege of the Ruby Eclipse, Year 121 — Codified Waves of latched Administration ships bridge blink gates across the ruby Pharos Nebula against the golden-fractured Drakken node; attrition, not victory. | Chronology Phase III; record C043 |
+| 43 | `43_the_burning_of_triune_crown.png` | Alternate take: The Burning of Triune Crown — Solnexus braids three suns to ember-dark beneath the circuit-skinned fourth warning-sun. | Chronology Phase III; Solnexus folio |
+| 44 | `44_the_airwars_of_sector_te.png` | Alternate take: The Airwars of Sector Te — Vortenbray inverts the sky; vacuum blossoms delete fleeing ships as quiet subtraction. | Chronology Phase III; Vortenbray folio |
+| 45 | `45_the_threshing_of_hadran.png` | Alternate take: The Threshing of Hadran's Ring — wheat grows in the figures of the dead; survivors stand at the field's edge. | Chronology Phase III; Terragullet folio |
+| 46 | `46_the_locking_of_the_siege_wall.png` | Alternate take: The Locking of the Siege Wall — the sky sealed as a jagged starless absence; the last azure threads snap from Tiger's closing fist. | Chronology Phase IV; Siege Wall visual law |
+| 47 | `47_the_anti_fascist_coup.png` | Alternate take: The Coup Against Mother — Drakken workers sever the data-veins and pull down the hive-mind. | Mother folio; record C111 |
+| 48 | `48_the_dead_become_infrastructure.png` | The Dead Become Infrastructure — ribcage halls, spinal aqueducts, tendon gondolas and whisker-coaxed tissue interfaces: the post-Wall civilization at day. | Record C114; beyond-wall continuity |
+| 49 | `49_the_damaged_strangers.png` | The Damaged Strangers — Codec's scorched craft enters the closed system; a wary, non-predatory patrol raises a lamp, not a weapon, while the first-contact vessel waits. | Records C115, C117 |
+| 50 | `50_we_do.png` | "We Do" — the wordstream question hangs overhead; Codec answers, Marcel's glyphs thread into the Drakken channel, the Buster and the katana lie down, and the claw closes the last distance without grabbing. | Record C120; beyond-wall continuity |
+
+Set 5 obeys the same character locks (cape-less Codec, right-arm buster and
+left-eye eyepatch, Kail's mouth-covering scarf, non-magical staff, single
+katana) and the same Drakken and Siege-Wall visual laws as the other sets.
 
 ## Character visual locks respected (all sets)
 
