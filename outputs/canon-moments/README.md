@@ -1,13 +1,20 @@
-# Canon Moments — Ten Full-Size Illustrations
+# Canon Moments — Twenty Full-Size Illustrations
 
-Ten separate full-size illustrations depicting the most incredible moments from
-the Starsilk canon, generated using the canonical character art in
-`docs/assets/media/` as direct visual references. Each moment is cited to the
-chronology in `src/content/sections/chronology.body.html` and the relevant
-character folios.
+Twenty separate full-size illustrations depicting the most incredible and
+important moments from the Starsilk canon, generated using the canonical
+character art in `docs/assets/media/` as direct visual references. Each moment
+is cited to the chronology in `src/content/sections/chronology.body.html` and
+the relevant character folios.
+
+- **Images 01–10** — painted/cinematic rendering style.
+- **Images 11–20** — unified **cel-shaded flat-animation style** (bold
+  outlines, flat color planes, hard two-step shadows), matching the flat
+  animation language named in the character visual locks.
 
 All images are AI-generated illustrative material, not canonical media. They
 depict canon events; they do not add canon.
+
+## Set 1 — painted cinematic style (01–10)
 
 | # | File | Moment | Canon source |
 |---|------|--------|--------------|
@@ -22,7 +29,31 @@ depict canon events; they do not add canon.
 | 09 | `09_the_breach_at_zentrum.png` | The Breach at Zentrum — Marcel wordstreams while Dao's buster cracks the sword Torture; Kail reforms mouthless after 256 years, the black hole in his throat hidden behind the starlight-adjacent red scarf. | Chronology Phase V; Kail, Dao, Marcel folios |
 | 10 | `10_the_starbinding.png` | The Starbinding — Codec releases the macro across billions of concurrent star dives; billions of stars collapse into black holes and the stellar data forges the Partition. | Chronology Phase V; Codec folio |
 
-## Character visual locks respected
+## Set 2 — cel-shaded flat animation style (11–20)
+
+| # | File | Moment | Canon source |
+|---|------|--------|--------------|
+| 11 | `11_the_imprisonment_of_nialbu.png` | The Imprisonment of NiAlBu — Tiger wraps the Recursive Dreamer in unrendered code inside a crystal of the pitch-black Digital Geode, the murder-loop haloed above as an enforced witness-state. | Chronology Phase I; NiAlBu folio |
+| 12 | `12_the_growth_of_mother.png` | The Growth of Mother — a fixed living homeworld with bioluminescent data-veins compiles the ring of dark-iron Drakken Eggs while its overwrite already rewrites a young biosphere into hive geometry. | Chronology Phase II; Mother folio |
+| 13 | `13_the_first_dirt.png` | The First Dirt — 31 days post-war, Codec backs down and Marcel stands stricken as Tiger's single halting gesture forbids the grove: the war's conclusions are structural. | Chronology Phase IV; Codec folio |
+| 14 | `14_the_spire_event.png` | The Spire Event — Obsidian Armor consumes Jazen; his essence streams into a nearby star while Codec, wearing Jazen's blood, watches grief become knowledge. | Chronology Phase V; Jazen folio; systems record |
+| 15 | `15_the_accidental_dive_of_kail.png` | The Accidental Dive of Kail — the tricked dive pulls the azure filament; the star executes immediate collapse as the trap springs. | Chronology Phase V; Kail folio; star-law records C006–C008 |
+| 16 | `16_the_syrin_genocide.png` | The Syrin Genocide — Tiger deletes Syrin 4 block by block as administration, not rage; the child initiate who will be the last of the lineage runs. | Chronology Phase IV; Kail folio; record C011 |
+| 17 | `17_the_worldsvault_breach.png` | The WorldsVault Breach — Codec vapors Starsilk past the defenses over defeated Dao and Kail and murders NiAlBu, deleting reality's final deific checksum. | Chronology Phase V; Codec folio; records C099–C100 |
+| 18 | `18_first_contact_beyond_the_wall.png` | First Contact Beyond the Siege Wall — on a landscape built from dead Titans, the Drakken vessel offers a stabilizing limb while Codec asks aid, Marcel answers in Wordstream, Dao offers the removed Buster, and Kail lays down his single katana. | Chronology Phase V (post-Wall); records C114–C120 |
+| 19 | `19_the_decompilation_of_codec.png` | The Decompilation of Codec — Kail, mouth repaired with old-universe data, is sent through the threshold; Codec de-renders in the between-space, purging his footprint rather than becoming the new world's tyrant. | Chronology Phase V; record C108 |
+| 20 | `20_the_reconstruction_of_the_thirty.png` | The Reconstruction of the Thirty — data-born townsfolk live template lives under inert Starsilk wires and unfinished geometry, unaware they are reconstructions, while their unseen builder departs the hills. | Chronology Phase V; records C105–C107 |
+
+Set 2 respects the same visual locks as set 1, with Codec drawn cape-less
+per the current lock, Dao's buster on the right arm and eyepatch on the
+left, Kail's scarf covering his mouth in every panel (his repaired mouth
+appears only in 19, where the canon itself requires the repair to be
+visible), and Marcel's staff kept plainly non-magical. In 18, Dao's
+detached buster follows the explicit canon direction "directs Dao to
+remove the Buster" (record C120); Kail carries exactly one katana, laid
+down per the sword-count lock.
+
+## Character visual locks respected (both sets)
 
 - **Shard-God Tiger** (01, 08): single long tail; digitigrade; obsidian body
   with luminous cyan-blue fissures and crystalline dorsal spines; cold cyan
