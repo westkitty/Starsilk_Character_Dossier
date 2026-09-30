@@ -1,13 +1,13 @@
-# Canon Moments — Thirty Full-Size Illustrations
+# Canon Moments — Forty Full-Size Illustrations
 
-Thirty separate full-size illustrations depicting the most incredible and
+Forty separate full-size illustrations depicting the most incredible and
 important moments from the Starsilk canon, generated using the canonical
 character art in `docs/assets/media/` as direct visual references. Each moment
 is cited to the chronology in `src/content/sections/chronology.body.html` and
 the relevant character folios.
 
 - **Images 01–10** — painted/cinematic rendering style.
-- **Images 11–30** — unified **cel-shaded flat-animation style** (bold
+- **Images 11–40** — unified **cel-shaded flat-animation style** (bold
   outlines, flat color planes, hard two-step shadows), matching the flat
   animation language named in the character visual locks.
 
@@ -72,6 +72,15 @@ Set 3 continues the same visual locks: Tiger's single tail, obsidian body and
 composed posture; Marcel's staff present but plainly non-magical and unused;
 Drakken strains (Solnexus, Obsidian Gul, Vortenbray, Terragullet) and Mother
 following their verified archival plates.
+
+## Set 4 — cel-shaded flat animation style (31–40, in progress)
+
+| # | File | Moment | Canon source |
+|---|------|--------|--------------|
+| 31 | `31_the_triarchic_order.png` | The Triarchic Order — the original Triumvirate before the fall: Wordstreamer mid-creation, NiAlBu dreaming the record, and the only stillness and only shadow in the scene standing apart. | Chronology Phase I |
+| 32 | `32_epilogue_the_last_original.png` | Epilogue: The Last Original — Kail steps through the closing seam into the Partition, the only original in either universe, and walks down toward the lanterns of the unaware. | Chronology Phase V; Kail folio; records C105–C108 |
+
+Set 4 continues to ten images (through `40_`) in subsequent additions.
 
 ## Character visual locks respected (all sets)
 
