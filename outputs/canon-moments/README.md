@@ -1,13 +1,13 @@
-# Canon Moments — Twenty Full-Size Illustrations
+# Canon Moments — Thirty Full-Size Illustrations
 
-Twenty separate full-size illustrations depicting the most incredible and
+Thirty separate full-size illustrations depicting the most incredible and
 important moments from the Starsilk canon, generated using the canonical
 character art in `docs/assets/media/` as direct visual references. Each moment
 is cited to the chronology in `src/content/sections/chronology.body.html` and
 the relevant character folios.
 
 - **Images 01–10** — painted/cinematic rendering style.
-- **Images 11–20** — unified **cel-shaded flat-animation style** (bold
+- **Images 11–30** — unified **cel-shaded flat-animation style** (bold
   outlines, flat color planes, hard two-step shadows), matching the flat
   animation language named in the character visual locks.
 
@@ -53,7 +53,27 @@ detached buster follows the explicit canon direction "directs Dao to
 remove the Buster" (record C120); Kail carries exactly one katana, laid
 down per the sword-count lock.
 
-## Character visual locks respected (both sets)
+## Set 3 — cel-shaded flat animation style (21–30)
+
+| # | File | Moment | Canon source |
+|---|------|--------|--------------|
+| 21 | `21_the_initialization_of_reality.png` | The Initialization of Reality — the Notebook Program writes the universe into existence, rendered regions igniting off the page into real stars while Tiger reviews the first draft. | Chronology Phase I; record C001 |
+| 22 | `22_the_forging_of_starsilk.png` | The Forging of Starsilk — Tiger threads the programmable filament through the stellar centers, the betrayal already hard-coded as a knot in the material before its first use. | Chronology Phase I; records C004, C016 |
+| 23 | `23_the_forgotten_magnitude.png` | The Forgotten Magnitude — war-Marcel takes down titans with words alone, staff abandoned behind him; the devastating chapter his memory edits removed. | Marcel folio, "War and erased magnitude" |
+| 24 | `24_the_locking_of_the_siege_wall.png` | The Locking of the Siege Wall — the heliocide singularities chained into a permanent black-hole quarantine; trillions sealed inside, the sky marked by a pitch-black void streak. | Chronology Phase IV |
+| 25 | `25_the_burning_of_triune_crown.png` | The Burning of Triune Crown — Solnexus braids and extinguishes three suns while a fourth, code-bearing star is born unwanted. | Chronology Phase III, localized campaigns |
+| 26 | `26_the_glassfall_incident.png` | The Glassfall Incident — three Obsidian Gul strains vitrify Sector Delta-1 into razor volcanic glass and leave the finished landscape behind. | Chronology Phase III, localized campaigns |
+| 27 | `27_the_airwars_of_sector_te.png` | The Airwars of Sector Te — Vortenbray inverts sky architecture and deletes fleeing ships through vacuum blossoms. | Chronology Phase III, localized campaigns |
+| 28 | `28_the_threshing_of_hadrans_ring.png` | The Threshing of Hadran's Ring — Terragullet rewrites post-genocide soil so wild wheat grows in the natural shapes of the lost inhabitants. | Chronology Phase III, localized campaigns |
+| 29 | `29_the_overthrow_of_mother.png` | The Overthrow of Mother — two millennia behind the Wall, the scarcity-adapted surviving Drakken break the hive-mind in an anti-fascist coup and carry one re-programmed egg out of the dark. | Post-Wall records C110–C112; Mother folio |
+| 30 | `30_the_realization_at_zentrum.png` | Tiger's Realization over ruined Zentrum — the god mistakes the synchronized star failures for his own Siege Wall grammar, then sees there is no front: an instruction completing from within, starred by billions of Codec projections. | Chronology Phase V; records C102–C104 |
+
+Set 3 continues the same visual locks: Tiger's single tail, obsidian body and
+composed posture; Marcel's staff present but plainly non-magical and unused;
+Drakken strains (Solnexus, Obsidian Gul, Vortenbray, Terragullet) and Mother
+following their verified archival plates.
+
+## Character visual locks respected (all sets)
 
 - **Shard-God Tiger** (01, 08): single long tail; digitigrade; obsidian body
   with luminous cyan-blue fissures and crystalline dorsal spines; cold cyan
