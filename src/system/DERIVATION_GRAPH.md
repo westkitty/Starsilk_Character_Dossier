@@ -39,7 +39,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `boundary` | authoritative | validator | `tools/check_public_boundary.py` | boundary |
 | `graph_validator` | authoritative | validator | `tools/validate_derivation_map.py` | graph_validator |
 | `media_out` | generated | output | `docs/assets/media/**` | media_out |
-| `root_out` | generated | output | `docs/index.html` | root_out |
+| `root_out` | generated | output | `docs/index.html`<br>`docs/musical/**` | root_out |
 | `machine_out` | generated | output | `docs/machine/**`<br>`docs/llms.txt`<br>`docs/sitemap.xml` | machine_out |
 | `relationships_out` | generated | output | `docs/relationships/**` | relationships_out |
 | `canon_out` | generated | output | `docs/canon/**` | canon_out |

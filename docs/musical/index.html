@@ -1,0 +1,2881 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Starsilk — The Musical | Canon & Score Dossier</title><meta name="description" content="An interactive Starsilk musical dossier: canon laws, cast, chronology, relationships, events, score proposals, drafts, and archive evidence."><style>/*
+  1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+  2. Remove default margins and padding
+  3. Reset all borders.
+*/
+
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
+  box-sizing: border-box; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 2 */
+  border: 0 solid; /* 3 */
+}
+
+/*
+  1. Use a consistent sensible line-height in all browsers.
+  2. Prevent adjustments of font size after orientation changes in iOS.
+  3. Use a more readable tab size.
+  4. Use the user's configured `sans` font-family by default.
+  5. Use the user's configured `sans` font-feature-settings by default.
+  6. Use the user's configured `sans` font-variation-settings by default.
+  7. Disable tap highlights on iOS.
+*/
+
+html,
+:host {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  tab-size: 4; /* 3 */
+  font-family: --theme(
+    --default-font-family,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji'
+  ); /* 4 */
+  font-feature-settings: --theme(--default-font-feature-settings, normal); /* 5 */
+  font-variation-settings: --theme(--default-font-variation-settings, normal); /* 6 */
+  -webkit-tap-highlight-color: transparent; /* 7 */
+}
+
+/*
+  1. Add the correct height in Firefox.
+  2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+  3. Reset the default border style to a 1px solid border.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+  Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted;
+}
+
+/*
+  Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+  Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+}
+
+/*
+  Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+  1. Use the user's configured `mono` font-family by default.
+  2. Use the user's configured `mono` font-feature-settings by default.
+  3. Use the user's configured `mono` font-variation-settings by default.
+  4. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: --theme(
+    --default-mono-font-family,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Liberation Mono',
+    'Courier New',
+    monospace
+  ); /* 1 */
+  font-feature-settings: --theme(--default-mono-font-feature-settings, normal); /* 2 */
+  font-variation-settings: --theme(--default-mono-font-variation-settings, normal); /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+  Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+  Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+  1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+  2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+  3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+  Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+  Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+  Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+  Make lists unstyled by default.
+*/
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/*
+  1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+  2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+      This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+  Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  1. Inherit font styles in all browsers.
+  2. Remove border radius in all browsers.
+  3. Remove background color in all browsers.
+  4. Ensure consistent opacity for disabled states in all browsers.
+*/
+
+button,
+input,
+select,
+optgroup,
+textarea,
+::file-selector-button {
+  font: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  border-radius: 0; /* 2 */
+  background-color: transparent; /* 3 */
+  opacity: 1; /* 4 */
+}
+
+/*
+  Restore default font weight.
+*/
+
+:where(select:is([multiple], [size])) optgroup {
+  font-weight: bolder;
+}
+
+/*
+  Restore indentation.
+*/
+
+:where(select:is([multiple], [size])) optgroup option {
+  padding-inline-start: 20px;
+}
+
+/*
+  Restore space after button.
+*/
+
+::file-selector-button {
+  margin-inline-end: 4px;
+}
+
+/*
+  Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+*/
+
+::placeholder {
+  opacity: 1;
+}
+
+/*
+  Set the default placeholder color to a semi-transparent version of the current text color in browsers that do not
+  crash when using `color-mix(…)` with `currentcolor`. (https://github.com/tailwindlabs/tailwindcss/issues/17194)
+*/
+
+@supports (not (-webkit-appearance: -apple-pay-button)) /* Not Safari */ or
+  (contain-intrinsic-size: 1px) /* Safari 17+ */ {
+  ::placeholder {
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+  }
+}
+
+/*
+  Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+  Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+  1. Ensure date/time inputs have the same height when empty in iOS Safari.
+  2. Ensure text alignment can be changed on date/time inputs in iOS Safari.
+*/
+
+::-webkit-date-and-time-value {
+  min-height: 1lh; /* 1 */
+  text-align: inherit; /* 2 */
+}
+
+/*
+  Prevent height from changing on date/time inputs in macOS Safari when the input is set to `display: block`.
+*/
+
+::-webkit-datetime-edit {
+  display: inline-flex;
+}
+
+/*
+  Remove excess padding from pseudo-elements in date/time inputs to ensure consistent height across browsers.
+*/
+
+::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+::-webkit-datetime-edit,
+::-webkit-datetime-edit-year-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-minute-field,
+::-webkit-datetime-edit-second-field,
+::-webkit-datetime-edit-millisecond-field,
+::-webkit-datetime-edit-meridiem-field {
+  padding-block: 0;
+}
+
+/*
+  Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+  Correct the inability to style the border radius in iOS Safari.
+*/
+
+button,
+input:where([type='button'], [type='reset'], [type='submit']),
+::file-selector-button {
+  appearance: button;
+}
+
+/*
+  Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+  Make elements with the HTML hidden attribute stay hidden by default.
+*/
+
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none !important;
+}
+
+/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer properties;
+:root, :host {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  --color-red-200: oklch(88.5% 0.062 18.334);
+  --color-red-300: oklch(80.8% 0.114 19.571);
+  --color-red-400: oklch(70.4% 0.191 22.216);
+  --color-red-500: oklch(63.7% 0.237 25.331);
+  --color-red-800: oklch(44.4% 0.177 26.899);
+  --color-red-900: oklch(39.6% 0.141 25.723);
+  --color-red-950: oklch(25.8% 0.092 26.042);
+  --color-amber-200: oklch(92.4% 0.12 95.746);
+  --color-amber-300: oklch(87.9% 0.169 91.605);
+  --color-amber-400: oklch(82.8% 0.189 84.429);
+  --color-amber-500: oklch(76.9% 0.188 70.08);
+  --color-amber-800: oklch(47.3% 0.137 46.201);
+  --color-amber-900: oklch(41.4% 0.112 45.904);
+  --color-amber-950: oklch(27.9% 0.077 45.635);
+  --color-yellow-300: oklch(90.5% 0.182 98.111);
+  --color-yellow-400: oklch(85.2% 0.199 91.936);
+  --color-yellow-800: oklch(47.6% 0.114 61.907);
+  --color-yellow-950: oklch(28.6% 0.066 53.813);
+  --color-emerald-300: oklch(84.5% 0.143 164.978);
+  --color-emerald-400: oklch(76.5% 0.177 163.223);
+  --color-emerald-500: oklch(69.6% 0.17 162.48);
+  --color-emerald-800: oklch(43.2% 0.095 166.913);
+  --color-emerald-950: oklch(26.2% 0.051 172.552);
+  --color-cyan-200: oklch(91.7% 0.08 205.041);
+  --color-cyan-300: oklch(86.5% 0.127 207.078);
+  --color-cyan-400: oklch(78.9% 0.154 211.53);
+  --color-cyan-500: oklch(71.5% 0.143 215.221);
+  --color-cyan-800: oklch(45% 0.085 224.283);
+  --color-cyan-900: oklch(39.8% 0.07 227.392);
+  --color-cyan-950: oklch(30.2% 0.056 229.695);
+  --color-blue-200: oklch(88.2% 0.059 254.128);
+  --color-blue-300: oklch(80.9% 0.105 251.813);
+  --color-blue-400: oklch(70.7% 0.165 254.624);
+  --color-blue-500: oklch(62.3% 0.214 259.815);
+  --color-blue-800: oklch(42.4% 0.199 265.638);
+  --color-blue-900: oklch(37.9% 0.146 265.522);
+  --color-blue-950: oklch(28.2% 0.091 267.935);
+  --color-indigo-300: oklch(78.5% 0.115 274.713);
+  --color-indigo-400: oklch(67.3% 0.182 276.935);
+  --color-indigo-800: oklch(39.8% 0.195 277.366);
+  --color-indigo-950: oklch(25.7% 0.09 281.288);
+  --color-violet-300: oklch(81.1% 0.111 293.571);
+  --color-violet-400: oklch(70.2% 0.183 293.541);
+  --color-violet-500: oklch(60.6% 0.25 292.717);
+  --color-violet-800: oklch(43.2% 0.232 292.759);
+  --color-violet-950: oklch(28.3% 0.141 291.089);
+  --color-purple-300: oklch(82.7% 0.119 306.383);
+  --color-purple-400: oklch(71.4% 0.203 305.504);
+  --color-purple-500: oklch(62.7% 0.265 303.9);
+  --color-purple-800: oklch(43.8% 0.218 303.724);
+  --color-purple-900: oklch(38.1% 0.176 304.987);
+  --color-purple-950: oklch(29.1% 0.149 302.717);
+  --color-rose-300: oklch(81% 0.117 11.638);
+  --color-rose-400: oklch(71.2% 0.194 13.428);
+  --color-rose-500: oklch(64.5% 0.246 16.439);
+  --color-rose-800: oklch(45.5% 0.188 13.697);
+  --color-rose-950: oklch(27.1% 0.105 12.094);
+  --color-zinc-100: oklch(96.7% 0.001 286.375);
+  --color-zinc-200: oklch(92% 0.004 286.32);
+  --color-zinc-300: oklch(87.1% 0.006 286.286);
+  --color-zinc-400: oklch(70.5% 0.015 286.067);
+  --color-zinc-500: oklch(55.2% 0.016 285.938);
+  --color-zinc-600: oklch(44.2% 0.017 285.786);
+  --color-zinc-700: oklch(37% 0.013 285.805);
+  --color-zinc-800: oklch(27.4% 0.006 286.033);
+  --color-zinc-900: oklch(21% 0.006 285.885);
+  --color-zinc-950: oklch(14.1% 0.005 285.823);
+  --color-white: #fff;
+  --spacing: 0.25rem;
+  --container-2xl: 42rem;
+  --container-5xl: 64rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: calc(1 / 0.75);
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+  --text-base: 1rem;
+  --text-base--line-height: calc(1.5 / 1);
+  --text-lg: 1.125rem;
+  --text-lg--line-height: calc(1.75 / 1.125);
+  --text-xl: 1.25rem;
+  --text-xl--line-height: calc(1.75 / 1.25);
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: calc(2 / 1.5);
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --leading-relaxed: 1.625;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.top-1\.5 {
+  top: calc(var(--spacing) * 1.5);
+}
+.top-1\/2 {
+  top: calc(1/2 * 100%);
+}
+.left-3 {
+  left: calc(var(--spacing) * 3);
+}
+.-mx-5 {
+  margin-inline: calc(var(--spacing) * -5);
+}
+.mt-0\.5 {
+  margin-top: calc(var(--spacing) * 0.5);
+}
+.mt-1 {
+  margin-top: calc(var(--spacing) * 1);
+}
+.-mb-5 {
+  margin-bottom: calc(var(--spacing) * -5);
+}
+.mb-0\.5 {
+  margin-bottom: calc(var(--spacing) * 0.5);
+}
+.mb-1 {
+  margin-bottom: calc(var(--spacing) * 1);
+}
+.mb-2 {
+  margin-bottom: calc(var(--spacing) * 2);
+}
+.mb-3 {
+  margin-bottom: calc(var(--spacing) * 3);
+}
+.mb-4 {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+.mb-6 {
+  margin-bottom: calc(var(--spacing) * 6);
+}
+.ml-2 {
+  margin-left: calc(var(--spacing) * 2);
+}
+.block {
+  display: block;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.h-2 {
+  height: calc(var(--spacing) * 2);
+}
+.h-2\.5 {
+  height: calc(var(--spacing) * 2.5);
+}
+.h-3 {
+  height: calc(var(--spacing) * 3);
+}
+.h-4 {
+  height: calc(var(--spacing) * 4);
+}
+.h-5 {
+  height: calc(var(--spacing) * 5);
+}
+.h-12 {
+  height: calc(var(--spacing) * 12);
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-2 {
+  width: calc(var(--spacing) * 2);
+}
+.w-2\.5 {
+  width: calc(var(--spacing) * 2.5);
+}
+.w-3 {
+  width: calc(var(--spacing) * 3);
+}
+.w-4 {
+  width: calc(var(--spacing) * 4);
+}
+.w-5 {
+  width: calc(var(--spacing) * 5);
+}
+.w-12 {
+  width: calc(var(--spacing) * 12);
+}
+.w-full {
+  width: 100%;
+}
+.max-w-2xl {
+  max-width: var(--container-2xl);
+}
+.max-w-5xl {
+  max-width: var(--container-5xl);
+}
+.flex-1 {
+  flex: 1;
+}
+.shrink-0 {
+  flex-shrink: 0;
+}
+.list-disc {
+  list-style-type: disc;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.gap-1 {
+  gap: calc(var(--spacing) * 1);
+}
+.gap-2 {
+  gap: calc(var(--spacing) * 2);
+}
+.gap-2\.5 {
+  gap: calc(var(--spacing) * 2.5);
+}
+.gap-3 {
+  gap: calc(var(--spacing) * 3);
+}
+.gap-4 {
+  gap: calc(var(--spacing) * 4);
+}
+.gap-6 {
+  gap: calc(var(--spacing) * 6);
+}
+.space-y-1 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-1\.5 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-2 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-3 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-4 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.space-y-8 {
+  :where(& > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
+  }
+}
+.self-start {
+  align-self: flex-start;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+.rounded-b-xl {
+  border-bottom-right-radius: var(--radius-xl);
+  border-bottom-left-radius: var(--radius-xl);
+}
+.border {
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+}
+.border-t {
+  border-top-style: var(--tw-border-style);
+  border-top-width: 1px;
+}
+.border-b {
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+}
+.border-l-2 {
+  border-left-style: var(--tw-border-style);
+  border-left-width: 2px;
+}
+.border-amber-500\/40 {
+  border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-500) 40%, transparent);
+  }
+}
+.border-amber-800 {
+  border-color: var(--color-amber-800);
+}
+.border-amber-800\/60 {
+  border-color: color-mix(in srgb, oklch(47.3% 0.137 46.201) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-800) 60%, transparent);
+  }
+}
+.border-amber-900\/30 {
+  border-color: color-mix(in srgb, oklch(41.4% 0.112 45.904) 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-900) 30%, transparent);
+  }
+}
+.border-amber-900\/40 {
+  border-color: color-mix(in srgb, oklch(41.4% 0.112 45.904) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-amber-900) 40%, transparent);
+  }
+}
+.border-blue-500\/40 {
+  border-color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-blue-500) 40%, transparent);
+  }
+}
+.border-blue-800 {
+  border-color: var(--color-blue-800);
+}
+.border-blue-900\/50 {
+  border-color: color-mix(in srgb, oklch(37.9% 0.146 265.522) 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-blue-900) 50%, transparent);
+  }
+}
+.border-cyan-800 {
+  border-color: var(--color-cyan-800);
+}
+.border-cyan-800\/60 {
+  border-color: color-mix(in srgb, oklch(45% 0.085 224.283) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-cyan-800) 60%, transparent);
+  }
+}
+.border-cyan-900\/30 {
+  border-color: color-mix(in srgb, oklch(39.8% 0.07 227.392) 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-cyan-900) 30%, transparent);
+  }
+}
+.border-cyan-900\/40 {
+  border-color: color-mix(in srgb, oklch(39.8% 0.07 227.392) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-cyan-900) 40%, transparent);
+  }
+}
+.border-emerald-500\/40 {
+  border-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-emerald-500) 40%, transparent);
+  }
+}
+.border-emerald-800 {
+  border-color: var(--color-emerald-800);
+}
+.border-emerald-800\/60 {
+  border-color: color-mix(in srgb, oklch(43.2% 0.095 166.913) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-emerald-800) 60%, transparent);
+  }
+}
+.border-indigo-800 {
+  border-color: var(--color-indigo-800);
+}
+.border-indigo-800\/60 {
+  border-color: color-mix(in srgb, oklch(39.8% 0.195 277.366) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-indigo-800) 60%, transparent);
+  }
+}
+.border-purple-500\/40 {
+  border-color: color-mix(in srgb, oklch(62.7% 0.265 303.9) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-purple-500) 40%, transparent);
+  }
+}
+.border-purple-800 {
+  border-color: var(--color-purple-800);
+}
+.border-purple-800\/60 {
+  border-color: color-mix(in srgb, oklch(43.8% 0.218 303.724) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-purple-800) 60%, transparent);
+  }
+}
+.border-purple-900\/50 {
+  border-color: color-mix(in srgb, oklch(38.1% 0.176 304.987) 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-purple-900) 50%, transparent);
+  }
+}
+.border-red-500\/40 {
+  border-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-red-500) 40%, transparent);
+  }
+}
+.border-red-800 {
+  border-color: var(--color-red-800);
+}
+.border-red-800\/60 {
+  border-color: color-mix(in srgb, oklch(44.4% 0.177 26.899) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-red-800) 60%, transparent);
+  }
+}
+.border-red-900\/40 {
+  border-color: color-mix(in srgb, oklch(39.6% 0.141 25.723) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-red-900) 40%, transparent);
+  }
+}
+.border-red-900\/50 {
+  border-color: color-mix(in srgb, oklch(39.6% 0.141 25.723) 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-red-900) 50%, transparent);
+  }
+}
+.border-red-900\/60 {
+  border-color: color-mix(in srgb, oklch(39.6% 0.141 25.723) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-red-900) 60%, transparent);
+  }
+}
+.border-rose-800 {
+  border-color: var(--color-rose-800);
+}
+.border-rose-800\/60 {
+  border-color: color-mix(in srgb, oklch(45.5% 0.188 13.697) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-rose-800) 60%, transparent);
+  }
+}
+.border-violet-800 {
+  border-color: var(--color-violet-800);
+}
+.border-violet-800\/60 {
+  border-color: color-mix(in srgb, oklch(43.2% 0.232 292.759) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-violet-800) 60%, transparent);
+  }
+}
+.border-yellow-800 {
+  border-color: var(--color-yellow-800);
+}
+.border-zinc-300\/40 {
+  border-color: color-mix(in srgb, oklch(87.1% 0.006 286.286) 40%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-zinc-300) 40%, transparent);
+  }
+}
+.border-zinc-700 {
+  border-color: var(--color-zinc-700);
+}
+.border-zinc-800 {
+  border-color: var(--color-zinc-800);
+}
+.border-zinc-800\/60 {
+  border-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-zinc-800) 60%, transparent);
+  }
+}
+.border-zinc-800\/70 {
+  border-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 70%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-zinc-800) 70%, transparent);
+  }
+}
+.border-zinc-800\/80 {
+  border-color: color-mix(in srgb, oklch(27.4% 0.006 286.033) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    border-color: color-mix(in oklab, var(--color-zinc-800) 80%, transparent);
+  }
+}
+.bg-amber-400 {
+  background-color: var(--color-amber-400);
+}
+.bg-amber-500 {
+  background-color: var(--color-amber-500);
+}
+.bg-amber-500\/20 {
+  background-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+  }
+}
+.bg-amber-950 {
+  background-color: var(--color-amber-950);
+}
+.bg-amber-950\/20 {
+  background-color: color-mix(in srgb, oklch(27.9% 0.077 45.635) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-amber-950) 20%, transparent);
+  }
+}
+.bg-amber-950\/80 {
+  background-color: color-mix(in srgb, oklch(27.9% 0.077 45.635) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-amber-950) 80%, transparent);
+  }
+}
+.bg-blue-400 {
+  background-color: var(--color-blue-400);
+}
+.bg-blue-500\/20 {
+  background-color: color-mix(in srgb, oklch(62.3% 0.214 259.815) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-blue-500) 20%, transparent);
+  }
+}
+.bg-blue-950 {
+  background-color: var(--color-blue-950);
+}
+.bg-blue-950\/20 {
+  background-color: color-mix(in srgb, oklch(28.2% 0.091 267.935) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-blue-950) 20%, transparent);
+  }
+}
+.bg-cyan-400 {
+  background-color: var(--color-cyan-400);
+}
+.bg-cyan-500 {
+  background-color: var(--color-cyan-500);
+}
+.bg-cyan-950 {
+  background-color: var(--color-cyan-950);
+}
+.bg-cyan-950\/20 {
+  background-color: color-mix(in srgb, oklch(30.2% 0.056 229.695) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-cyan-950) 20%, transparent);
+  }
+}
+.bg-emerald-400 {
+  background-color: var(--color-emerald-400);
+}
+.bg-emerald-500\/20 {
+  background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+  }
+}
+.bg-emerald-950 {
+  background-color: var(--color-emerald-950);
+}
+.bg-emerald-950\/20 {
+  background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-emerald-950) 20%, transparent);
+  }
+}
+.bg-emerald-950\/80 {
+  background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-emerald-950) 80%, transparent);
+  }
+}
+.bg-indigo-400 {
+  background-color: var(--color-indigo-400);
+}
+.bg-indigo-950 {
+  background-color: var(--color-indigo-950);
+}
+.bg-indigo-950\/20 {
+  background-color: color-mix(in srgb, oklch(25.7% 0.09 281.288) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-indigo-950) 20%, transparent);
+  }
+}
+.bg-purple-500\/20 {
+  background-color: color-mix(in srgb, oklch(62.7% 0.265 303.9) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-purple-500) 20%, transparent);
+  }
+}
+.bg-purple-950 {
+  background-color: var(--color-purple-950);
+}
+.bg-purple-950\/20 {
+  background-color: color-mix(in srgb, oklch(29.1% 0.149 302.717) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-purple-950) 20%, transparent);
+  }
+}
+.bg-purple-950\/80 {
+  background-color: color-mix(in srgb, oklch(29.1% 0.149 302.717) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-purple-950) 80%, transparent);
+  }
+}
+.bg-red-400 {
+  background-color: var(--color-red-400);
+}
+.bg-red-500 {
+  background-color: var(--color-red-500);
+}
+.bg-red-500\/20 {
+  background-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-red-500) 20%, transparent);
+  }
+}
+.bg-red-950 {
+  background-color: var(--color-red-950);
+}
+.bg-red-950\/20 {
+  background-color: color-mix(in srgb, oklch(25.8% 0.092 26.042) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-red-950) 20%, transparent);
+  }
+}
+.bg-red-950\/25 {
+  background-color: color-mix(in srgb, oklch(25.8% 0.092 26.042) 25%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-red-950) 25%, transparent);
+  }
+}
+.bg-red-950\/30 {
+  background-color: color-mix(in srgb, oklch(25.8% 0.092 26.042) 30%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-red-950) 30%, transparent);
+  }
+}
+.bg-red-950\/80 {
+  background-color: color-mix(in srgb, oklch(25.8% 0.092 26.042) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-red-950) 80%, transparent);
+  }
+}
+.bg-rose-500 {
+  background-color: var(--color-rose-500);
+}
+.bg-rose-950 {
+  background-color: var(--color-rose-950);
+}
+.bg-rose-950\/20 {
+  background-color: color-mix(in srgb, oklch(27.1% 0.105 12.094) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-rose-950) 20%, transparent);
+  }
+}
+.bg-rose-950\/80 {
+  background-color: color-mix(in srgb, oklch(27.1% 0.105 12.094) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-rose-950) 80%, transparent);
+  }
+}
+.bg-violet-400 {
+  background-color: var(--color-violet-400);
+}
+.bg-violet-500 {
+  background-color: var(--color-violet-500);
+}
+.bg-violet-950 {
+  background-color: var(--color-violet-950);
+}
+.bg-violet-950\/20 {
+  background-color: color-mix(in srgb, oklch(28.3% 0.141 291.089) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-violet-950) 20%, transparent);
+  }
+}
+.bg-yellow-950 {
+  background-color: var(--color-yellow-950);
+}
+.bg-yellow-950\/80 {
+  background-color: color-mix(in srgb, oklch(28.6% 0.066 53.813) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-yellow-950) 80%, transparent);
+  }
+}
+.bg-zinc-500\/20 {
+  background-color: color-mix(in srgb, oklch(55.2% 0.016 285.938) 20%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-500) 20%, transparent);
+  }
+}
+.bg-zinc-800 {
+  background-color: var(--color-zinc-800);
+}
+.bg-zinc-900 {
+  background-color: var(--color-zinc-900);
+}
+.bg-zinc-900\/50 {
+  background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 50%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-900) 50%, transparent);
+  }
+}
+.bg-zinc-900\/60 {
+  background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-900) 60%, transparent);
+  }
+}
+.bg-zinc-900\/70 {
+  background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 70%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-900) 70%, transparent);
+  }
+}
+.bg-zinc-900\/80 {
+  background-color: color-mix(in srgb, oklch(21% 0.006 285.885) 80%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-900) 80%, transparent);
+  }
+}
+.bg-zinc-950 {
+  background-color: var(--color-zinc-950);
+}
+.bg-zinc-950\/60 {
+  background-color: color-mix(in srgb, oklch(14.1% 0.005 285.823) 60%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    background-color: color-mix(in oklab, var(--color-zinc-950) 60%, transparent);
+  }
+}
+.p-1 {
+  padding: calc(var(--spacing) * 1);
+}
+.p-2\.5 {
+  padding: calc(var(--spacing) * 2.5);
+}
+.p-3 {
+  padding: calc(var(--spacing) * 3);
+}
+.p-4 {
+  padding: calc(var(--spacing) * 4);
+}
+.p-5 {
+  padding: calc(var(--spacing) * 5);
+}
+.p-6 {
+  padding: calc(var(--spacing) * 6);
+}
+.px-2 {
+  padding-inline: calc(var(--spacing) * 2);
+}
+.px-2\.5 {
+  padding-inline: calc(var(--spacing) * 2.5);
+}
+.px-3 {
+  padding-inline: calc(var(--spacing) * 3);
+}
+.py-0\.5 {
+  padding-block: calc(var(--spacing) * 0.5);
+}
+.py-1 {
+  padding-block: calc(var(--spacing) * 1);
+}
+.py-1\.5 {
+  padding-block: calc(var(--spacing) * 1.5);
+}
+.py-2 {
+  padding-block: calc(var(--spacing) * 2);
+}
+.pt-2 {
+  padding-top: calc(var(--spacing) * 2);
+}
+.pt-3 {
+  padding-top: calc(var(--spacing) * 3);
+}
+.pr-4 {
+  padding-right: calc(var(--spacing) * 4);
+}
+.pb-4 {
+  padding-bottom: calc(var(--spacing) * 4);
+}
+.pb-6 {
+  padding-bottom: calc(var(--spacing) * 6);
+}
+.pl-4 {
+  padding-left: calc(var(--spacing) * 4);
+}
+.pl-6 {
+  padding-left: calc(var(--spacing) * 6);
+}
+.pl-9 {
+  padding-left: calc(var(--spacing) * 9);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.font-sans {
+  font-family: var(--font-sans);
+}
+.text-2xl {
+  font-size: var(--text-2xl);
+  line-height: var(--tw-leading, var(--text-2xl--line-height));
+}
+.text-3xl {
+  font-size: var(--text-3xl);
+  line-height: var(--tw-leading, var(--text-3xl--line-height));
+}
+.text-base {
+  font-size: var(--text-base);
+  line-height: var(--tw-leading, var(--text-base--line-height));
+}
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
+}
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+.text-xl {
+  font-size: var(--text-xl);
+  line-height: var(--tw-leading, var(--text-xl--line-height));
+}
+.text-xs {
+  font-size: var(--text-xs);
+  line-height: var(--tw-leading, var(--text-xs--line-height));
+}
+.text-\[10px\] {
+  font-size: 10px;
+}
+.text-\[11px\] {
+  font-size: 11px;
+}
+.leading-relaxed {
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.font-bold {
+  --tw-font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
+}
+.font-extrabold {
+  --tw-font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-extrabold);
+}
+.font-medium {
+  --tw-font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-medium);
+}
+.font-normal {
+  --tw-font-weight: var(--font-weight-normal);
+  font-weight: var(--font-weight-normal);
+}
+.font-semibold {
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+}
+.tracking-tight {
+  --tw-tracking: var(--tracking-tight);
+  letter-spacing: var(--tracking-tight);
+}
+.tracking-wide {
+  --tw-tracking: var(--tracking-wide);
+  letter-spacing: var(--tracking-wide);
+}
+.tracking-wider {
+  --tw-tracking: var(--tracking-wider);
+  letter-spacing: var(--tracking-wider);
+}
+.tracking-widest {
+  --tw-tracking: var(--tracking-widest);
+  letter-spacing: var(--tracking-widest);
+}
+.text-amber-200 {
+  color: var(--color-amber-200);
+}
+.text-amber-300 {
+  color: var(--color-amber-300);
+}
+.text-amber-300\/90 {
+  color: color-mix(in srgb, oklch(87.9% 0.169 91.605) 90%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-amber-300) 90%, transparent);
+  }
+}
+.text-amber-400 {
+  color: var(--color-amber-400);
+}
+.text-blue-200 {
+  color: var(--color-blue-200);
+}
+.text-blue-300 {
+  color: var(--color-blue-300);
+}
+.text-cyan-200 {
+  color: var(--color-cyan-200);
+}
+.text-cyan-300 {
+  color: var(--color-cyan-300);
+}
+.text-cyan-300\/90 {
+  color: color-mix(in srgb, oklch(86.5% 0.127 207.078) 90%, transparent);
+  @supports (color: color-mix(in lab, red, red)) {
+    color: color-mix(in oklab, var(--color-cyan-300) 90%, transparent);
+  }
+}
+.text-cyan-400 {
+  color: var(--color-cyan-400);
+}
+.text-cyan-500 {
+  color: var(--color-cyan-500);
+}
+.text-emerald-300 {
+  color: var(--color-emerald-300);
+}
+.text-emerald-400 {
+  color: var(--color-emerald-400);
+}
+.text-indigo-300 {
+  color: var(--color-indigo-300);
+}
+.text-indigo-400 {
+  color: var(--color-indigo-400);
+}
+.text-purple-300 {
+  color: var(--color-purple-300);
+}
+.text-purple-400 {
+  color: var(--color-purple-400);
+}
+.text-red-200 {
+  color: var(--color-red-200);
+}
+.text-red-300 {
+  color: var(--color-red-300);
+}
+.text-red-400 {
+  color: var(--color-red-400);
+}
+.text-red-500 {
+  color: var(--color-red-500);
+}
+.text-rose-300 {
+  color: var(--color-rose-300);
+}
+.text-rose-400 {
+  color: var(--color-rose-400);
+}
+.text-violet-300 {
+  color: var(--color-violet-300);
+}
+.text-violet-400 {
+  color: var(--color-violet-400);
+}
+.text-white {
+  color: var(--color-white);
+}
+.text-yellow-300 {
+  color: var(--color-yellow-300);
+}
+.text-yellow-400 {
+  color: var(--color-yellow-400);
+}
+.text-zinc-100 {
+  color: var(--color-zinc-100);
+}
+.text-zinc-200 {
+  color: var(--color-zinc-200);
+}
+.text-zinc-300 {
+  color: var(--color-zinc-300);
+}
+.text-zinc-400 {
+  color: var(--color-zinc-400);
+}
+.text-zinc-500 {
+  color: var(--color-zinc-500);
+}
+.text-zinc-600 {
+  color: var(--color-zinc-600);
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.underline {
+  text-decoration-line: underline;
+}
+.decoration-red-500 {
+  text-decoration-color: var(--color-red-500);
+}
+.underline-offset-2 {
+  text-underline-offset: 2px;
+}
+.placeholder-zinc-500 {
+  &::placeholder {
+    color: var(--color-zinc-500);
+  }
+}
+.opacity-75 {
+  opacity: 75%;
+}
+.shadow-sm {
+  --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.ring-4 {
+  --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.ring-zinc-950 {
+  --tw-ring-color: var(--color-zinc-950);
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.selection\:bg-cyan-500\/30 {
+  & *::selection {
+    background-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-cyan-500) 30%, transparent);
+    }
+  }
+  &::selection {
+    background-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-cyan-500) 30%, transparent);
+    }
+  }
+}
+.hover\:border-zinc-700 {
+  &:hover {
+    @media (hover: hover) {
+      border-color: var(--color-zinc-700);
+    }
+  }
+}
+.hover\:text-zinc-200 {
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-zinc-200);
+    }
+  }
+}
+.focus\:border-cyan-500\/60 {
+  &:focus {
+    border-color: color-mix(in srgb, oklch(71.5% 0.143 215.221) 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-cyan-500) 60%, transparent);
+    }
+  }
+}
+.md\:grid-cols-2 {
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.md\:grid-cols-3 {
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.md\:flex-row {
+  @media (width >= 48rem) {
+    flex-direction: row;
+  }
+}
+.md\:items-center {
+  @media (width >= 48rem) {
+    align-items: center;
+  }
+}
+.md\:items-end {
+  @media (width >= 48rem) {
+    align-items: flex-end;
+  }
+}
+.md\:self-auto {
+  @media (width >= 48rem) {
+    align-self: auto;
+  }
+}
+.md\:p-8 {
+  @media (width >= 48rem) {
+    padding: calc(var(--spacing) * 8);
+  }
+}
+.md\:text-4xl {
+  @media (width >= 48rem) {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+}
+.md\:text-base {
+  @media (width >= 48rem) {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+}
+.md\:text-sm {
+  @media (width >= 48rem) {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+    }
+  }
+}
+
+
+:root{color-scheme:dark;--ink:#e4e4e7;--paper:#09090b;--glow:#67e8f9}html{scroll-behavior:smooth}body{min-width:300px;background:var(--paper);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}.icon-token{display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0;font-style:normal}button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid #67e8f9;outline-offset:3px}#app>.min-h-screen{padding-top:1.1rem}#app .max-w-5xl{max-width:84rem}#app header{display:flex;flex-direction:column;align-items:stretch;gap:1.25rem;position:relative}#app header>div:last-child{display:flex;flex-wrap:nowrap;gap:.35rem;overflow-x:auto;overflow-y:hidden;max-width:100%;padding:.45rem;scrollbar-width:thin;scrollbar-color:#52525b #18181b;position:relative}#app header>div:last-child button{white-space:nowrap;flex:0 0 auto;min-height:37px}#app .text-xs{font-size:.835rem;line-height:1.55}#app .text-\[11px\]{font-size:.765rem;line-height:1.5}#app .text-\[10px\]{font-size:.705rem}#app [class*="rounded-xl"]{box-shadow:0 1px 0 rgba(255,255,255,.025) inset}#app p,#app li{overflow-wrap:anywhere}#app header h1{letter-spacing:-.045em}#app header:before{content:"";position:absolute;top:-1.15rem;left:0;width:13rem;height:2px;background:linear-gradient(90deg,#67e8f9,transparent)}.source-review{margin:1.25rem auto 0;max-width:84rem;padding:0 1.5rem;color:#a1a1aa;font-family:ui-sans-serif,system-ui,sans-serif}.source-review details{border:1px solid #334155;border-radius:.75rem;background:#10141a}.source-review summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.7rem;padding:.7rem .95rem;font-size:.8rem}.source-review summary::-webkit-details-marker{display:none}.source-review summary .marker{color:#fbbf24;font-weight:700}.source-review summary .chev{margin-left:auto;color:#94a3b8}.source-review details[open] .chev{transform:rotate(90deg)}.source-review .review-body{padding:.1rem 1.15rem 1rem;font-size:.84rem;line-height:1.55;max-width:90ch}.source-review .review-body p{margin:.6rem 0}.source-review strong{color:#e4e4e7}#app header button[aria-selected="true"]{box-shadow:inset 0 -2px 0 #67e8f9}.artifact-foot{max-width:84rem;margin:.5rem auto 2rem;padding:0 1.5rem;text-align:right;color:#71717a;font-size:.72rem;font-family:ui-monospace,monospace}@media(max-width:640px){#app>.min-h-screen{padding:1rem .75rem}#app .max-w-5xl>header{gap:.85rem;padding-bottom:.7rem}#app header h1{font-size:1.8rem}#app header>div:last-child{margin:0 -.25rem}#app .text-xs{font-size:.87rem}#app .grid-cols-1{min-width:0}.source-review{padding:0 .75rem;margin-top:.75rem}.artifact-foot{padding:0 .75rem}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+<style id="compendium-musical-frame">
+.musical-compendium-nav{position:relative;z-index:10;display:flex;gap:.65rem 1.25rem;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.8rem clamp(1rem,3vw,2rem);background:#07111c;color:#d6e8f1;border-bottom:1px solid #254358;font:600 .78rem/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.musical-compendium-nav a{color:#83dbfa;text-decoration:none;border-bottom:1px solid transparent;min-height:35px;display:inline-flex;align-items:center}
+.musical-compendium-nav a:hover,.musical-compendium-nav a:focus-visible{color:#fff;border-bottom-color:currentColor;outline:2px solid #79d6ed;outline-offset:3px}
+.musical-compendium-nav .musical-lane{color:#d7c8e4;letter-spacing:.065em;text-transform:uppercase;font-size:.72rem}
+.musical-compendium-nav .musical-links{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.musical-compendium-context{padding:.45rem clamp(1rem,3vw,2rem);background:#111827;color:#bbc9d7;font:400 .74rem/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid #263647}
+@media(max-width:640px){.musical-compendium-nav{gap:.3rem .8rem}.musical-compendium-nav .musical-links{gap:.6rem}}
+</style>
+<link rel="canonical" href="https://westkitty.github.io/Starsilk_Character_Dossier/musical/">
+</head>
+<body>
+<nav class="musical-compendium-nav" aria-label="Compendium and musical navigation"><a href="../" aria-label="Return to Starsilk Compendium">&#10022; Starsilk Compendium</a><span class="musical-lane">The Musical / Score Room</span><div class="musical-links"><a href="../canon/">Canon inspector</a><a href="../records/">Evidence records</a><a href="AUTHORITY.md">Authority note</a></div></nav><p class="musical-compendium-context">A production notebook: established canon, proposed staging, lyric drafts, and archive leads have different evidentiary standing. The Compendium remains the controlling record.</p>
+<aside class="source-review" aria-label="Source integrity"><details><summary><span class="marker">⚠</span> Source review · two continuity conflicts and archive provenance <span class="chev" aria-hidden="true">›</span></summary><div class="review-body"><p><strong>Kail / Kyle:</strong> The Overview claims “Kyle” is a phonetic alternate for Kail, while the Cast and Events sections distinguish Kyle (the Syrin child) from Kail (the workshop protagonist). Both source statements are preserved; the identity conflict requires a creator decision.</p><p><strong>Shardlings’ emergence:</strong> The Timeline associates their emergence directly with the Aureal Gate fracture. Event E04 instead separates that fracture from Tiger’s later failed use of WordStreamer’s creation power. The later-cause distinction is also stated in the Machinery section. This page preserves the conflicting passages for review.</p><p><strong>Archive provenance:</strong> The audio inventory in the Archive tab is reproduced from the supplied dossier. The actual recordings and manifest were not part of this paste and have not been independently inspected by this page.</p></div></details></aside>
+<main id="app" aria-label="Starsilk musical dossier"></main><footer class="artifact-foot">CANON / SCORE / PROVENANCE · 27 OCT 2026</footer><script>
+const TAB_KEYS=['overview','rules','machinery','characters','relationships','timeline','events','score','drafts','archive','authority'];
+const state=[];let hookCursor=0, scheduled=false, lastTab=null;
+const React={
+  createElement(type, props, ...children){
+    const p=props||{};
+    if(typeof type==='function') return type({...p,children});
+    return {type,props:p,children};
+  },
+  useState(init){
+    const i=hookCursor++;
+    if(!(i in state))state[i]=i===0&&TAB_KEYS.includes(location.hash.substring(1))?location.hash.substring(1):init;
+    return [state[i], val=>{
+      const next=typeof val==='function'?val(state[i]):val;
+      state[i]=next;
+      if(i===0&&TAB_KEYS.includes(next)){try{history.pushState(null,'','#'+next)}catch(e){location.hash=next}}
+      queuePaint();
+    }];
+  }
+};
+const useState=React.useState;
+const symbols={BookOpen:'▤',ShieldAlert:'⚠',Scale:'⚖',Flame:'✦',Sparkles:'✧',CheckCircle2:'✓',Layers:'▥',Search:'⌕',ExternalLink:'↗',ChevronRight:'›',User:'◇',Cpu:'▦',Sword:'⚔',Clock:'◷',Ghost:'◈',Music:'♫'};
+function Icon(name){return function(props){return React.createElement('span',{'aria-hidden':'true',className:'icon-token '+(props.className||'')},symbols[name]||'◆')}}
+const BookOpen=Icon('BookOpen'),ShieldAlert=Icon('ShieldAlert'),Scale=Icon('Scale'),Flame=Icon('Flame'),Sparkles=Icon('Sparkles'),CheckCircle2=Icon('CheckCircle2'),Layers=Icon('Layers'),Search=Icon('Search'),ExternalLink=Icon('ExternalLink'),ChevronRight=Icon('ChevronRight'),User=Icon('User'),Cpu=Icon('Cpu'),Sword=Icon('Sword'),Clock=Icon('Clock'),Ghost=Icon('Ghost'),Music=Icon('Music');
+function node(v){
+  if(v===null||v===undefined||typeof v==='boolean')return document.createTextNode('');
+  if(Array.isArray(v)){const f=document.createDocumentFragment();for(const z of v)f.appendChild(node(z));return f}
+  if(typeof v==='string'||typeof v==='number')return document.createTextNode(String(v));
+  const el=document.createElement(v.type);
+  for(const [k,val] of Object.entries(v.props||{})){
+    if(k==='key'||k==='ref'||k==='children'||val===undefined||val===null)continue;
+    if(k==='className'){el.className=val;continue}
+    if(k==='htmlFor'){el.setAttribute('for',val);continue}
+    if(k==='onClick'&&typeof val==='function'){el.addEventListener('click',val);continue}
+    if(k==='onChange'&&typeof val==='function'){el.addEventListener('input',e=>val({target:e.target}));continue}
+    if(k==='value'&&v.type==='input'){el.value=val;continue}
+    if(typeof val==='boolean'){if(val)el.setAttribute(k,'');continue}
+    el.setAttribute(k,String(val));
+  }
+  for(const child of v.children||[])el.appendChild(node(child));
+  return el;
+}
+function queuePaint(){if(scheduled)return;scheduled=true;queueMicrotask(()=>{scheduled=false;paint()})}
+function paint(){
+  const root=document.getElementById('app');const active=document.activeElement;
+  const isFilter=active&&active.tagName==='INPUT'&&active.getAttribute('type')==='text';
+  const oldFocus=!!active&&active.tagName==='BUTTON'&&active.closest('header');
+  const selection=isFilter?{start:active.selectionStart,end:active.selectionEnd}:null;
+  const beforeTab=lastTab;hookCursor=0;const tree=Component();root.replaceChildren(node(tree));
+  const tab=state[0];lastTab=tab;
+  const header=root.querySelector('header');
+  if(header){const nav=header.lastElementChild;
+    if(nav){nav.setAttribute('role','tablist');nav.setAttribute('aria-label','Dossier sections');
+      const buttons=[...nav.querySelectorAll('button')];
+      const current=TAB_KEYS.indexOf(tab);
+      buttons.forEach((b,i)=>{b.setAttribute('role','tab');b.setAttribute('aria-selected',i===current?'true':'false');b.setAttribute('aria-controls','section-panel');b.tabIndex=i===current?0:-1});
+      nav.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return; e.preventDefault();const ix=TAB_KEYS.indexOf(state[0]);const dest=e.key==='Home'?0:e.key==='End'?TAB_KEYS.length-1:(ix+(e.key==='ArrowRight'?1:-1)+TAB_KEYS.length)%TAB_KEYS.length;buttons[dest].click();});
+      if(beforeTab!==null&&beforeTab!==tab){const panel=root.querySelector('header + div');if(panel){panel.id='section-panel';panel.setAttribute('role','tabpanel')} const target=buttons[current];if(target)target.focus({preventScroll:true}); if(window.scrollY>window.innerHeight*.7)header.scrollIntoView({block:'start'})}
+      else{const panel=root.querySelector('header + div');if(panel){panel.id='section-panel';panel.setAttribute('role','tabpanel')}}
+      if(oldFocus&&beforeTab===tab&&buttons[current])buttons[current].focus({preventScroll:true});
+    }
+  }
+  if(isFilter){const replacement=root.querySelector('input[type="text"]');if(replacement){replacement.focus({preventScroll:true});try{replacement.setSelectionRange(selection.start,selection.end)}catch(e){}}}
+}
+window.addEventListener('popstate',()=>{const key=location.hash.substring(1);if(TAB_KEYS.includes(key)){state[0]=key;queuePaint()}});
+window.addEventListener('hashchange',()=>{const key=location.hash.substring(1);if(TAB_KEYS.includes(key)&&state[0]!==key){state[0]=key;queuePaint()}});
+
+const HARD_RULES = [
+    {
+        rule: "Reality-Code",
+        meaning: "Starsilk is a literal programmable cosmological substrate; Macros are repeatable action-loops, not figurative computer metaphors.",
+        consequence: "Machinery, ritual, language, and cosmic operations may align, but cannot be arbitrary magic."
+    },
+    {
+        rule: "Designed Betrayal",
+        meaning: "Tiger created Starsilk as a weapon against NiAlBu and WordStreamer.",
+        consequence: "Reject early claims that it pre-existed gods or possessed independent sentience."
+    },
+    {
+        rule: "Death Is Final",
+        meaning: "Stellar cores preserve records/data of the dead, not living consciousness in an afterlife.",
+        consequence: "A stored voice/recording is not a soul suffering forever; no resurrection through an archive without explicit new canon."
+    },
+    {
+        rule: "Harvest Consequence",
+        meaning: "Extracting the silk from a star causes immediate collapse into a black hole and destruction of its system.",
+        consequence: "A successful star dive cannot be a harmless fuel collection."
+    },
+    {
+        rule: "Only Three Safe Channels",
+        meaning: "1) Tiger's immunity; 2) Syrin blood neutralization; 3) Codec's Syrin-blood vapor workaround.",
+        consequence: "No fourth safe access method is canonized; Drakken manipulation is not automatically 'safe'."
+    },
+    {
+        rule: "Time Is Immutable",
+        meaning: "Time travel and actual timeline editing do not exist in Starsilk's causal framework.",
+        consequence: "Tiger distorts subjective time perception, synchronizing his own interaction with the victim; he cannot rewind time."
+    },
+    {
+        rule: "Heliocide ≠ Starbinding",
+        meaning: "Tiger extinguished thousands of suns to enclose the Drakken; Codec knowingly extinguishes all stars and living beings in the known universe.",
+        consequence: "These events rhyme visually but must remain distinct in magnitude, intent, and outcome."
+    },
+    {
+        rule: "Partition's Meaning",
+        meaning: "Starbinding produces the Partition; beyond it new worlds form.",
+        consequence: "New world formation is not the survival or return of the killed population."
+    },
+    {
+        rule: "Codec's Last Boundary",
+        meaning: "Codec depends physically on Starsilk and could not survive the crossing; he would refuse to enter even if he could.",
+        consequence: "His decision to dissolve is voluntary, principled, and non-redemptive."
+    },
+    {
+        rule: "Tiger's Shardlings",
+        meaning: "Failed exercise of WordStreamer's creation power produces glitches erupting from fractures in Tiger's body.",
+        consequence: "Beings touched by a Shardling are instantly replaced by another Shardling; not merely persuaded."
+    },
+    {
+        rule: "No Over-Explaining Gods",
+        meaning: "WordStreamer and NiAlBu retain deliberately withheld histories.",
+        consequence: "Do not fill in private divine biography to create false neatness."
+    },
+    {
+        rule: "Contradictions Stay Visible",
+        meaning: "Earlier source claims that conflict with later locks remain in provenance, marked superseded.",
+        consequence: "Fix stages and captions, not the historical record by silently deleting it."
+    }
+];
+const EVIDENCE_KEYS = [
+    { mark: "LOCKED", badge: "bg-red-500/20 text-red-300 border-red-500/40", desc: "Explicit creator-approved canon (October 2026 delta). Hard continuity lock." },
+    { mark: "ESTABLISHED", badge: "bg-amber-500/20 text-amber-300 border-amber-500/40", desc: "Explicit fact from SV00–SV03 or active locks, compatible with newer instructions." },
+    { mark: "WORKSHOP", badge: "bg-blue-500/20 text-blue-300 border-blue-500/40", desc: "Structural recommendations (e.g., Score Room). Proposed musical production choices." },
+    { mark: "DRAFT", badge: "bg-purple-500/20 text-purple-300 border-purple-500/40", desc: "Previously authored lyrics/treatments or experiments. Not locked." },
+    { mark: "ARCHIVED", badge: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40", desc: "Physical audio/manifest items. Proof of asset, not approved placement." },
+    { mark: "UNKNOWN / CONFLICT", badge: "bg-zinc-500/20 text-zinc-300 border-zinc-300/40", desc: "Preserve as unknown; request creator decision before locking." }
+];
+function Component() {
+    const [activeTab, setActiveTab] = useState("overview");
+    const [search, setSearch] = useState("");
+    const filteredRules = HARD_RULES.filter((r) => r.rule.toLowerCase().includes(search.toLowerCase()) ||
+        r.meaning.toLowerCase().includes(search.toLowerCase()) ||
+        r.consequence.toLowerCase().includes(search.toLowerCase()));
+    return (React.createElement("div", { className: "min-h-screen w-full flex flex-col items-center justify-start bg-zinc-950 text-zinc-100 p-4 md:p-8 font-sans selection:bg-cyan-500/30" },
+        React.createElement("div", { className: "w-full max-w-5xl flex flex-col gap-6" },
+            React.createElement("header", { className: "flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-800 pb-6 gap-4" },
+                React.createElement("div", null,
+                    React.createElement("div", { className: "flex items-center gap-2 mb-2" },
+                        React.createElement("span", { className: "px-2.5 py-0.5 rounded text-xs font-mono font-semibold bg-cyan-950 text-cyan-400 border border-cyan-800/60 uppercase tracking-widest" }, "Canon Cut: 27 Oct 2026"),
+                        React.createElement("span", { className: "px-2.5 py-0.5 rounded text-xs font-mono font-semibold bg-red-950/80 text-red-400 border border-red-800/60" }, "Oct 22 Delta Locked")),
+                    React.createElement("h1", { className: "text-3xl md:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3" }, "Starsilk \u2014 The Musical"),
+                    React.createElement("p", { className: "text-sm md:text-base text-zinc-400 mt-1 max-w-2xl font-normal leading-relaxed" }, "Master Canon, Systems Architect dossier, Metaphysics, and Musical Architecture.")),
+                React.createElement("div", { className: "flex flex-wrap items-center gap-1 bg-zinc-900 border border-zinc-800 p-1 rounded-lg" },
+                    React.createElement("button", { onClick: () => setActiveTab("overview"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "overview"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Overview"),
+                    React.createElement("button", { onClick: () => setActiveTab("rules"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "rules"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` },
+                        "Laws (",
+                        HARD_RULES.length,
+                        ")"),
+                    React.createElement("button", { onClick: () => setActiveTab("machinery"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "machinery"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Machinery & Terror"),
+                    React.createElement("button", { onClick: () => setActiveTab("characters"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "characters"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` },
+                        "Cast (",
+                        12,
+                        ")"),
+                    React.createElement("button", { onClick: () => setActiveTab("relationships"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "relationships"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Relationship Map"),
+                    React.createElement("button", { onClick: () => setActiveTab("timeline"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "timeline"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Timeline"),
+                    React.createElement("button", { onClick: () => setActiveTab("events"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "events"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Events & Tragedies"),
+                    React.createElement("button", { onClick: () => setActiveTab("score"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "score"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "The Score"),
+                    React.createElement("button", { onClick: () => setActiveTab("drafts"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "drafts"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Drafts & Lyrics"),
+                    React.createElement("button", { onClick: () => setActiveTab("archive"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "archive"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Archive & Audio"),
+                    React.createElement("button", { onClick: () => setActiveTab("authority"), className: `px-3 py-1.5 rounded-md text-xs md:text-sm font-medium transition-all ${activeTab === "authority"
+                            ? "bg-zinc-800 text-white shadow-sm"
+                            : "text-zinc-400 hover:text-zinc-200"}` }, "Authority"))),
+            activeTab === "overview" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-red-950/30 border border-red-900/60 rounded-xl p-5 text-red-200" },
+                    React.createElement("div", { className: "flex items-center gap-2 font-bold text-red-400 mb-2" },
+                        React.createElement(ShieldAlert, { className: "w-5 h-5 text-red-400 shrink-0" }),
+                        React.createElement("span", { className: "uppercase tracking-wider text-xs font-mono" }, "Critical Reading Order & Irreversible Ending")),
+                    React.createElement("p", { className: "text-sm leading-relaxed text-zinc-300" },
+                        React.createElement("strong", { className: "text-red-300" }, "The 22 October 2026 creator-confirmed canon delta supersedes all earlier endings."),
+                        " ",
+                        "Codec knowingly extinguishes every star and living person in the known universe during Starbinding. The Partition brings ",
+                        React.createElement("em", null, "new worlds"),
+                        ", not the return of those killed. He dissolves at its threshold by choice to prevent reintroducing godhood. His death is ",
+                        React.createElement("span", { className: "underline decoration-red-500 underline-offset-2" }, "not"),
+                        " atonement. Rebuilding narratives featuring Kail, Marcel, or Dao after Starbinding are strictly obsolete.")),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4" },
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center gap-2 text-cyan-400 font-semibold mb-2 text-sm uppercase tracking-wider font-mono" },
+                                React.createElement(Layers, { className: "w-4 h-4" }),
+                                " Lens 1: Ground Experience"),
+                            React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "Lived Experience"),
+                            React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg" },
+                                React.createElement("h4", { className: "font-semibold text-zinc-200 mb-2 flex items-center gap-2" },
+                                    React.createElement(User, { className: "w-4 h-4 text-cyan-400" }),
+                                    " Ground-Level Perspective: Kail"),
+                                React.createElement("p", { className: "text-xs text-zinc-400 leading-relaxed" },
+                                    React.createElement("strong", null, "Kail"),
+                                    " is the canon character (the phonetic spelling \"Kyle\" was only used for generation pronunciation). He experiences the Syrin catastrophe, the star dive, the loss of voice/scarf, and navigates the accounts of Codec, Marcel, Dao, and Tiger.")))),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center gap-2 text-amber-400 font-semibold mb-2 text-sm uppercase tracking-wider font-mono" },
+                                React.createElement(Scale, { className: "w-4 h-4" }),
+                                " Lens 2: Machinery of Power"),
+                            React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "Machinery & State"),
+                            React.createElement("p", { className: "text-sm text-zinc-400 leading-relaxed" }, "Shard-God Tiger, the Administration, the Blood Rings, the Siege Wall of dead suns, war, ideology, and the strict Ward/Partition operational logic."))),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center gap-2 text-purple-400 font-semibold mb-2 text-sm uppercase tracking-wider font-mono" },
+                                React.createElement(Flame, { className: "w-4 h-4" }),
+                                " Lens 3: Codec's Choice"),
+                            React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "Irreversible Decision"),
+                            React.createElement("p", { className: "text-sm text-zinc-400 leading-relaxed" }, "Jazen, the Spire, WorldsVault, NiAlBu, the catastrophic Starbinding, and Codec's voluntary dissolution at the threshold of the Partition.")))),
+                React.createElement("div", { className: "bg-zinc-900/50 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h3", { className: "text-base font-bold text-zinc-200 mb-3 flex items-center gap-2" },
+                        React.createElement(Sparkles, { className: "w-4 h-4 text-cyan-400" }),
+                        " Theatrical Ethics & Musical Treatment"),
+                    React.createElement("ul", { className: "space-y-3 text-sm text-zinc-300" },
+                        React.createElement("li", { className: "flex items-start gap-2" },
+                            React.createElement(ChevronRight, { className: "w-4 h-4 text-cyan-500 shrink-0 mt-0.5" }),
+                            React.createElement("span", null,
+                                React.createElement("strong", null, "Death is final:"),
+                                " Stellar cores log historical records, not an eternal afterlife of suffering souls. Cruelty produces systemic consequences.")),
+                        React.createElement("li", { className: "flex items-start gap-2" },
+                            React.createElement(ChevronRight, { className: "w-4 h-4 text-cyan-500 shrink-0 mt-0.5" }),
+                            React.createElement("span", null,
+                                React.createElement("strong", null, "Tiger's horror:"),
+                                " Intelligent, targeted, and theatrically exact\u2014not mindless cartoon evil. Reality itself is coerced through executable Macros.")),
+                        React.createElement("li", { className: "flex items-start gap-2" },
+                            React.createElement(ChevronRight, { className: "w-4 h-4 text-cyan-500 shrink-0 mt-0.5" }),
+                            React.createElement("span", null,
+                                React.createElement("strong", null, "Propaganda sounds beautiful:"),
+                                " Institutional deception can sound melodic, pure, and hopeful (e.g. Marcel) even as harmonic friction exposes the machinery of atrocity.")),
+                        React.createElement("li", { className: "flex items-start gap-2" },
+                            React.createElement(ChevronRight, { className: "w-4 h-4 text-cyan-500 shrink-0 mt-0.5" }),
+                            React.createElement("span", null,
+                                React.createElement("strong", null, "Dual spine distinction:"),
+                                " Kail serves as an emotional workshop protagonist; Codec as the consequential protagonist. Does not erase Kyle (Syrin child).")))))),
+            activeTab === "rules" && (React.createElement("div", { className: "flex flex-col gap-4" },
+                React.createElement("div", { className: "flex items-center justify-between gap-4" },
+                    React.createElement("div", { className: "relative flex-1" },
+                        React.createElement(Search, { className: "w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2" }),
+                        React.createElement("input", { type: "text", placeholder: "Filter hard rules (e.g., Tiger, Partition, Harvest, Shardlings)...", value: search, onChange: (e) => setSearch(e.target.value), className: "w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-9 pr-4 py-2 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-cyan-500/60" })),
+                    React.createElement("span", { className: "text-xs font-mono text-zinc-500 shrink-0" },
+                        filteredRules.length,
+                        " of ",
+                        HARD_RULES.length,
+                        " rules")),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" }, filteredRules.map((rule, idx) => (React.createElement("div", { key: idx, className: "bg-zinc-900/60 border border-zinc-800/80 rounded-xl p-5 flex flex-col justify-between hover:border-zinc-700 transition-colors" },
+                    React.createElement("div", null,
+                        React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                            React.createElement("h4", { className: "font-bold text-white text-base tracking-wide flex items-center gap-2" },
+                                React.createElement("span", { className: "w-2 h-2 rounded-full bg-cyan-400" }),
+                                rule.rule),
+                            React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 uppercase" }, "Hard Law")),
+                        React.createElement("p", { className: "text-sm text-zinc-300 font-medium mb-3" }, rule.meaning)),
+                    React.createElement("div", { className: "pt-3 border-t border-zinc-800/70 text-xs text-amber-300/90 bg-amber-950/20 -mx-5 -mb-5 p-4 rounded-b-xl" },
+                        React.createElement("strong", { className: "text-amber-200 font-semibold block mb-1" }, "Consequence for Writing / Score:"),
+                        rule.consequence))))))),
+            activeTab === "machinery" && (React.createElement("div", { className: "flex flex-col gap-4" },
+                React.createElement("div", { className: "bg-zinc-900/60 border border-zinc-800 rounded-xl p-5" },
+                    React.createElement("div", { className: "flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase mb-2" },
+                        React.createElement(Sword, { className: "w-4 h-4" }),
+                        " 2.1 Stars, Archives & The Sword Torture"),
+                    React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "Intercepting the Data Footprint"),
+                    React.createElement("p", { className: "text-sm text-zinc-300 leading-relaxed mb-3" },
+                        "Living beings leave a data footprint at death transferred to stellar storage. ",
+                        React.createElement("strong", null, "Torture"),
+                        " was designed by Codec to intercept that data at death, packing it as mass inside the blade rather than allowing normal stellar archival. Obsidian Armor later obtains the weapon."),
+                    React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 p-3 rounded-lg text-xs text-zinc-400 space-y-2" },
+                        React.createElement("p", null,
+                            React.createElement("strong", { className: "text-red-400" }, "Canon Revision Lock:"),
+                            " Any older phrase like ",
+                            React.createElement("em", null, "\"millions of souls screaming in steel\""),
+                            " violates the \"Death Is Final\" hard law. It must describe captured informational footprint or living perceptual simulation, never sustained postmortem suffering."),
+                        React.createElement("p", null,
+                            React.createElement("strong", { className: "text-amber-300" }, "Obsidian Armor vs. Tiger's Scarf:"),
+                            " Obsidian Armor is an autonomous, non-sentient stabilization mechanism that erases reality tears (not Tiger's puppet bodyguard). ",
+                            React.createElement("strong", null, "Tiger's scarf"),
+                            " is distinct: it holds Kyle's tiny black-hole mouth and enables Tiger's root override of Kyle's speech. Kyle (Syrin child) \u2260 Kail."))),
+                React.createElement("div", { className: "bg-zinc-900/60 border border-zinc-800 rounded-xl p-5" },
+                    React.createElement("div", { className: "flex items-center gap-2 text-amber-400 font-mono text-xs uppercase mb-2" },
+                        React.createElement(Clock, { className: "w-4 h-4" }),
+                        " 2.2 Shard-God & Subjective Duration"),
+                    React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "Perceptual Distortion vs. No Time Loops"),
+                    React.createElement("p", { className: "text-sm text-zinc-300 leading-relaxed mb-3" }, "Tiger can make a single moment feel immeasurably long or compress dread while external causality remains untouched. He remains synchronized with the victim to compel them."),
+                    React.createElement("div", { className: "bg-amber-950/20 border border-amber-900/40 p-3 rounded-lg text-xs text-amber-200" },
+                        React.createElement("strong", null, "Staging Note (e.g. \"You Always Die on Three\"):"),
+                        " Staged as an imposed recording, memory playback, or procedural horror refrain\u2014",
+                        React.createElement("strong", null, "never"),
+                        " a literal time rewind. Time travel does not exist.")),
+                React.createElement("div", { className: "bg-zinc-900/60 border border-zinc-800 rounded-xl p-5" },
+                    React.createElement("div", { className: "flex items-center gap-2 text-purple-400 font-mono text-xs uppercase mb-2" },
+                        React.createElement(Ghost, { className: "w-4 h-4" }),
+                        " 2.3 Shardlings as Interventionist Horror"),
+                    React.createElement("h3", { className: "text-lg font-bold text-white mb-2" }, "The Failed Creation & Instant Replacement"),
+                    React.createElement("p", { className: "text-sm text-zinc-300 leading-relaxed mb-3" }, "When Drakken used Starsilk at Aureal Gate, Tiger's body fractured. Their cause is his later \"single indulgence\": attempting to wield WordStreamer's creative faculty. Glitches erupt from his fractures."),
+                    React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 p-3 rounded-lg text-xs text-zinc-300 space-y-1" },
+                        React.createElement("p", null,
+                            React.createElement("strong", null, "Replacement Mechanics:"),
+                            " Shardlings sincerely believe they are helping. Any aware being touched by a Shardling is almost instantly replaced by another Shardling."),
+                        React.createElement("p", null,
+                            React.createElement("strong", null, "Tiger's Attitude:"),
+                            " He swats them away like annoying pests."),
+                        React.createElement("p", { className: "text-zinc-500 italic" }, "Creator thematic reading: Tiger/fascism vs Shardlings/neoliberalism (never broken to the audience as literal in-universe dialogue)."))))),
+            activeTab === "characters" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", { className: "flex items-center gap-3" },
+                            React.createElement("div", { className: "w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-800 flex items-center justify-center text-purple-300 font-mono font-bold text-lg" }, "[C]"),
+                            React.createElement("div", null,
+                                React.createElement("h2", { className: "text-2xl font-bold text-white" }, "Codec"),
+                                React.createElement("span", { className: "text-xs font-mono text-purple-400 uppercase tracking-wider" }, "Systems Architect | Consequential Protagonist"))),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-red-950 text-red-300 text-xs font-mono border border-red-800" }, "LOCKED FINAL ARC")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4" },
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg" },
+                            React.createElement("h4", { className: "font-semibold text-zinc-200 mb-2 flex items-center gap-2" },
+                                React.createElement(Cpu, { className: "w-4 h-4 text-cyan-400" }),
+                                " Tactical & Administrative History"),
+                            React.createElement("ul", { className: "text-xs text-zinc-400 space-y-1.5 list-disc pl-4" },
+                                React.createElement("li", null, "Former Administration data-intelligence authority during Blood Eclipse War."),
+                                React.createElement("li", null, "Authored Draxis Archive Compendium; developed counter-Drakken logistics."),
+                                React.createElement("li", null, "Authorized Tier-S Corpse-Burn Firewall Macro at Nacreous VI (leaving storm scars)."),
+                                React.createElement("li", null, "Centuries of study crystallize at Spire: sees dead data stream into a star."))),
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg" },
+                            React.createElement("h4", { className: "font-semibold text-zinc-200 mb-2 flex items-center gap-2" },
+                                React.createElement(User, { className: "w-4 h-4 text-amber-400" }),
+                                " Psychology & Relationships"),
+                            React.createElement("ul", { className: "text-xs text-zinc-400 space-y-1.5 list-disc pl-4" },
+                                React.createElement("li", null, "Coldly analytical, pragmatic, deeply capable of care; artificial life matters to him."),
+                                React.createElement("li", null, "Revolted by Tiger's divine self-justification."),
+                                React.createElement("li", null, "Jazen is his partner (must be dramatized before becoming a symbol)."),
+                                React.createElement("li", null, "Complex bond with Marcel: genuine affection, but strained by Marcel's compliance.")))),
+                    React.createElement("div", { className: "bg-red-950/20 border border-red-900/50 p-4 rounded-lg text-xs leading-relaxed space-y-2 mb-4" },
+                        React.createElement("h4", { className: "font-bold text-red-300 text-sm uppercase font-mono" }, "Locked Trajectory (October 22 Delta)"),
+                        React.createElement("p", { className: "text-zinc-300" },
+                            React.createElement("strong", null, "At WorldsVault:"),
+                            " Seizes planetary templates. Defines his conviction: ",
+                            React.createElement("em", { className: "text-white" }, "\"It should be solidarity, not supplication...\"")),
+                        React.createElement("p", { className: "text-zinc-300" },
+                            React.createElement("strong", null, "Meeting NiAlBu:"),
+                            " Sees a way to hurt Tiger by killing the god Tiger preserved. Foreshadowing: Codec starts resembling Tiger without realizing it yet."),
+                        React.createElement("p", { className: "text-zinc-300" },
+                            React.createElement("strong", null, "The Starbinding:"),
+                            " Knowingly commits total cosmic extinction. During execution, he feels the seductive thrill of the unanswerable throne\u2014and recognizes the monster he's become. Holds firm: ",
+                            React.createElement("em", { className: "text-white" }, "\"Do the right thing, even if it's the wrong thing to do.\"")),
+                        React.createElement("p", { className: "text-zinc-300" },
+                            React.createElement("strong", null, "The Dissolution:"),
+                            " Sees new worlds emerge beyond the Partition. Knowing someone capable of this atrocity cannot be permitted to reign as god, he steps to the threshold and dissolves. Not atonement; structural necessity.")),
+                    React.createElement("div", { className: "bg-blue-950/20 border border-blue-900/50 p-4 rounded-lg text-xs text-blue-200" },
+                        React.createElement("strong", { className: "text-blue-300 block mb-1 font-mono uppercase" }, "Workshop Musical Assignment (The Score Room):"),
+                        "Introduce Codec through technical competence and relational friction, not a preachy manifesto. Move his motif from razor-sharp rhythmic calculation into an agonizing decision song, ending in catastrophic structural rupture. Never frame Starbinding as an accidental glitch or macro bug\u2014it is deliberate.")),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", { className: "flex items-center gap-3" },
+                            React.createElement("div", { className: "w-12 h-12 rounded-xl bg-amber-950/80 border border-amber-800 flex items-center justify-center text-amber-300 font-mono font-bold text-lg" }, "[T]"),
+                            React.createElement("div", null,
+                                React.createElement("h2", { className: "text-2xl font-bold text-white" }, "Shard-God Tiger"),
+                                React.createElement("span", { className: "text-xs font-mono text-amber-400 uppercase tracking-wider" }, "Divine Antagonist | Author of Coercion"))),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-amber-950 text-amber-300 text-xs font-mono border border-amber-800" }, "ESTABLISHED / LOCKED")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4" },
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-amber-300 block mb-1" }, "Cosmic Origin & Atrocity:"),
+                            React.createElement("p", null, "Created Starsilk deliberately to destroy other gods; killed WordStreamer before NiAlBu."),
+                            React.createElement("p", null, "Enacted the containment Heliocide during Blood Eclipse War (killing trillions; creating Siege Wall)."),
+                            React.createElement("p", null, "Engineered Syrin genocide as removal of a defect; zero ethical crisis."),
+                            React.createElement("p", null, "Fractured at Aureal Gate; spawned Shardlings from failed attempt to wield WordStreamer's creation power.")),
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-amber-300 block mb-1" }, "Temperament & Dynamics:"),
+                            React.createElement("p", null, "Measured, strategic, precise, theatrical, socially cruel. Not a chaotic rage beast."),
+                            React.createElement("p", null, "Enjoys engineering impossible dilemmas and destroying the conditions for consent."),
+                            React.createElement("p", null, "Kept NiAlBu alive deliberately; despises Shardlings as pests."),
+                            React.createElement("p", null,
+                                "Locked response to Codec: ",
+                                React.createElement("em", { className: "text-amber-200" }, "\"Stars don't burn, they surrender.\"")))),
+                    React.createElement("div", { className: "bg-blue-950/20 border border-blue-900/50 p-3 rounded-lg text-xs text-blue-200" },
+                        React.createElement("strong", null, "Workshop Musical Assignment:"),
+                        " Audible first in others' fearful vocabulary. Consolidate spectacle song families into one focused encounter where his choices shift reality. Commands cadences and beats; others refusing his beat is a musical challenge.")),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", { className: "flex items-center gap-3" },
+                            React.createElement("div", { className: "w-12 h-12 rounded-xl bg-yellow-950/80 border border-yellow-800 flex items-center justify-center text-yellow-300 font-mono font-bold text-lg" }, "[D]"),
+                            React.createElement("div", null,
+                                React.createElement("h2", { className: "text-2xl font-bold text-white" }, "Dao"),
+                                React.createElement("span", { className: "text-xs font-mono text-yellow-400 uppercase tracking-wider" }, "Code-Reader | Reluctant Technomancer | Skeptical Mediator"))),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-yellow-950 text-yellow-300 text-xs font-mono border border-yellow-800" }, "ESTABLISHED / WORKSHOP")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-3" },
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-yellow-300 block mb-1" }, "Traits & Identity:"),
+                            React.createElement("p", null, "Innately fluent in ambient code; dislikes the \"technomancer\" label. Skeptical, cautious mediator."),
+                            React.createElement("p", null, "Signature visual accent: Yellow jackets / highlights."),
+                            React.createElement("p", null, "Zentrum's denial architecture: \"See No Evil\" sensory masking."),
+                            React.createElement("p", null, "Participates alongside Marcel in Kyle's recovery in the older pilot.")),
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-yellow-300 block mb-1" }, "Workshop Arc & Constraint:"),
+                            React.createElement("p", null, "Correctness about danger \u2260 an ethical choice. Must translate knowledge into moral action rather than remaining an advisory chorus of caveats."),
+                            React.createElement("p", null,
+                                React.createElement("strong", { className: "text-red-400" }, "ENDING LOCK:"),
+                                " Dies in Starbinding along with all other living persons in the known universe.")))),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", { className: "flex items-center gap-3" },
+                            React.createElement("div", { className: "w-12 h-12 rounded-xl bg-rose-950/80 border border-rose-800 flex items-center justify-center text-rose-300 font-mono font-bold text-lg" }, "[J]"),
+                            React.createElement("div", null,
+                                React.createElement("h2", { className: "text-2xl font-bold text-white" }, "Jazen"),
+                                React.createElement("span", { className: "text-xs font-mono text-rose-400 uppercase tracking-wider" }, "Codec's Partner | A Person Before a Consequence"))),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-rose-950 text-rose-300 text-xs font-mono border border-rose-800" }, "ESTABLISHED / WORKSHOP CRITICAL")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-3" },
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-rose-300 block mb-1" }, "Established Lore & Obsidian Tragedy:"),
+                            React.createElement("p", null, "Codec's partner, bound to the Obsidian tragedy. Legacy text describes him trapped within Obsidian Armor, pain harvested, Codec bearing his blood, and the massacre at the Spire sparking Codec's core realization."),
+                            React.createElement("p", null,
+                                React.createElement("strong", { className: "text-red-400" }, "Metaphysical sync:"),
+                                " Cannot be framed as \"souls screaming for eternity\"\u2014death is final; must describe pre-death trauma or data capture.")),
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-rose-300 block mb-1" }, "Score Room Theatrical Mandate:"),
+                            React.createElement("p", null, "Must dramatize at least one pre-catastrophe relationship moment where Jazen laughs, jokes, chooses, or disagrees as a living partner."),
+                            React.createElement("p", null, "Without this, Jazen is reduced to mechanical plot fuel / grief-device rather than an authentic human stake.")))),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" },
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("h3", { className: "text-lg font-bold text-white flex items-center gap-2" },
+                                    React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-indigo-400" }),
+                                    " NiAlBu"),
+                                React.createElement("span", { className: "px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-950 text-indigo-300 border border-indigo-800" }, "LOCKED / WITHHELD")),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mb-3" }, "Preserved divine witness; later instrumentalized by Codec."),
+                            React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1.5 list-disc pl-4" },
+                                React.createElement("li", null, "Tiger deliberately kept NiAlBu alive after murdering WordStreamer."),
+                                React.createElement("li", null, "Codec decides to hurt Tiger by killing NiAlBu\u2014mirroring Tiger's cold utility before realizing it."),
+                                React.createElement("li", null, "Visual loops of WordStreamer's death are perceptual simulations/recordings, not time loops."),
+                                React.createElement("li", null,
+                                    React.createElement("strong", null, "Rule:"),
+                                    " Keep history deliberately obscure; no over-explaining solo.")))),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("h3", { className: "text-lg font-bold text-white flex items-center gap-2" },
+                                    React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-violet-400" }),
+                                    " WordStreamer"),
+                                React.createElement("span", { className: "px-2 py-0.5 rounded text-[10px] font-mono bg-violet-950 text-violet-300 border border-violet-800" }, "LOCKED / WITHHELD")),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mb-3" }, "Slain divine creator; the withheld voice and source of ancient code."),
+                            React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1.5 list-disc pl-4" },
+                                React.createElement("li", null, "Murdered by Tiger before NiAlBu. Wordstreaming uses an ancient dead language tied to her."),
+                                React.createElement("li", null, "Tiger's failed attempt to copy her creative power spawned the Shardlings."),
+                                React.createElement("li", null, "Identity and backstory remain deliberately withheld from audience."),
+                                React.createElement("li", null, "Any archival female voice in staging is a recorded artifact, not proof of living consciousness."))))),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-5" },
+                    React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                        React.createElement("h3", { className: "text-lg font-bold text-white flex items-center gap-2" },
+                            React.createElement(Ghost, { className: "w-4 h-4 text-purple-400" }),
+                            " Shardlings"),
+                        React.createElement("span", { className: "px-2 py-0.5 rounded text-[10px] font-mono bg-purple-950 text-purple-300 border border-purple-800" }, "LOCKED")),
+                    React.createElement("p", { className: "text-xs text-zinc-300 mb-2" },
+                        "Glitches emerging from Tiger's body cracks due to his failed attempt to wield WordStreamer's creation power. Context-blind, genuinely helpful in disposition, yet horrifying: ",
+                        React.createElement("strong", null, "touching any alert sentient being causes near-instant replacement"),
+                        "."),
+                    React.createElement("div", { className: "text-[11px] text-zinc-400 bg-zinc-950 p-2.5 rounded border border-zinc-800" }, "Their chorus sounds sweetly obliging and helpful. They must never be staged as having an evil villainous conspiracy. Tiger swats them away as bothersome pests.")),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" },
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5" },
+                        React.createElement("h3", { className: "text-base font-bold text-white mb-2 flex items-center gap-2" },
+                            React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-red-400" }),
+                            " Drakken & Mother"),
+                        React.createElement("p", { className: "text-xs text-zinc-400 mb-2" }, "World-rewriting elemental titans hatched from Notebook Program Eggs, customized by Macros."),
+                        React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1 list-disc pl-4" },
+                            React.createElement("li", null, "37-entry compendium: 1 Egg, 35 strains, 1 Mother."),
+                            React.createElement("li", null, "Weaponized Starsilk against gods, provoking Tiger's containment Heliocide."),
+                            React.createElement("li", null, "Not extinct\u2014trapped behind the Siege Wall of dead stars."),
+                            React.createElement("li", null, "Eiskalt'polarity (magnetic ley-line Drakken) is a legacy/optional motif."))),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5" },
+                        React.createElement("h3", { className: "text-base font-bold text-white mb-2 flex items-center gap-2" },
+                            React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-emerald-400" }),
+                            " The Administration"),
+                        React.createElement("p", { className: "text-xs text-zinc-400 mb-2" }, "Remnants of an older pantheon with militant branches and bureaucratic apparatus."),
+                        React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1 list-disc pl-4" },
+                            React.createElement("li", null, "Institutionally powerful but blind to Tiger's initial Starsilk design."),
+                            React.createElement("li", null, "Opposed Drakken and enforced genocidal containment disguised in clean bureaucratic language."),
+                            React.createElement("li", null, "Chorus functions as bureaucratic clean-up, protocols, and institutional security.")))),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" },
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5" },
+                        React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                            React.createElement("h3", { className: "text-base font-bold text-white flex items-center gap-2" },
+                                React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-amber-400" }),
+                                " Harold & The Village Ensemble"),
+                            React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 uppercase" }, "Obsidian Pilot / Folk")),
+                        React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-2" }, "Established in the Obsidian Armor bluegrass number: community teases Harold's warnings. The repeating chorus starts as cheerful communal entertainment, shifting into dread, recognition, and slaughter."),
+                        React.createElement("div", { className: "text-[11px] text-amber-300/90 bg-amber-950/20 p-2.5 rounded border border-amber-900/30" },
+                            "Ground-level protagonist here is ",
+                            React.createElement("strong", null, "Kyle"),
+                            " (the Syrin child); distinguished from the workshop musical frame involving Kail.")),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5" },
+                        React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                            React.createElement("h3", { className: "text-base font-bold text-white flex items-center gap-2" },
+                                React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-cyan-400" }),
+                                " Meridian Witness (Orbital Tomb)"),
+                            React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 uppercase" }, "Human Scale")),
+                        React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-2" }, "Unnamed human survivor witnessing Shard-God Tiger's 6-month surgical dismantling of Meridian station above Virgil. Dead bodies become orbital navigation markers, not conscious actors."),
+                        React.createElement("div", { className: "text-[11px] text-cyan-300/90 bg-cyan-950/20 p-2.5 rounded border border-cyan-900/30" }, "Brings visceral human scale to Act II. Preserves that death is final; the dead are physical landmarks, not ghostly choirs."))),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" },
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("h3", { className: "text-xl font-bold text-white flex items-center gap-2" },
+                                    React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-cyan-400" }),
+                                    " Kyle"),
+                                React.createElement("span", { className: "px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-950 text-cyan-300 border border-cyan-800" }, "PILOT / SYRIN CHILD")),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mb-3" }, "Last Syrin; child victim from Syrin 4 star dive. Mouth replaced by a miniature black hole; voice overridden via Tiger's starlight scarf."),
+                            React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1.5 list-disc pl-4 mb-3" },
+                                React.createElement("li", null,
+                                    "Data packed in ",
+                                    React.createElement("em", null, "Torture"),
+                                    " for ~300 years after mother killed by Obsidian Armor."),
+                                React.createElement("li", null, "Reformed at Zentrum by Marcel (gravity) and Dao."),
+                                React.createElement("li", null, "Cannot speak or sing freely post-scarf (Tiger holds root voice override)."),
+                                React.createElement("li", null,
+                                    React.createElement("strong", { className: "text-red-400" }, "HARD IDENTITY LOCK:"),
+                                    " Kyle is NOT Kail.")))),
+                    React.createElement("div", { className: "bg-zinc-900/70 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("h3", { className: "text-xl font-bold text-white flex items-center gap-2" },
+                                    React.createElement("span", { className: "w-2.5 h-2.5 rounded-full bg-blue-400" }),
+                                    " Kail"),
+                                React.createElement("span", { className: "px-2 py-0.5 rounded text-[10px] font-mono bg-blue-950 text-blue-300 border border-blue-800" }, "WORKSHOP PROTAGONIST")),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mb-3" }, "Excited, unnerved initiate; proposed emotional protagonist of the musical. Signature scarf (suggested red, not locked)."),
+                            React.createElement("ul", { className: "text-xs text-zinc-300 space-y-1.5 list-disc pl-4 mb-3" },
+                                React.createElement("li", null, "Not Syrin, not mouthless, not a victim of Torture."),
+                                React.createElement("li", null, "Emotional conduit for catastrophe; navigates accounts of Codec, Marcel, Dao, Tiger."),
+                                React.createElement("li", null,
+                                    React.createElement("strong", { className: "text-red-400" }, "ENDING LOCK:"),
+                                    " Kail CANNOT sing a post-Starbinding survivor finale. Dies with the universe in Starbinding."))))),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", { className: "flex items-center gap-3" },
+                            React.createElement("div", { className: "w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-800 flex items-center justify-center text-emerald-300 font-mono font-bold text-lg" }, "[M]"),
+                            React.createElement("div", null,
+                                React.createElement("h2", { className: "text-2xl font-bold text-white" }, "Marcel"),
+                                React.createElement("span", { className: "text-xs font-mono text-emerald-400 uppercase tracking-wider" }, "Warm Loyalist | Wordstreamer | Institutional Faith"))),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-mono border border-emerald-800" }, "ESTABLISHED / WORKSHOP")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4" },
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-emerald-300 block mb-1" }, "Profile & Background:"),
+                            React.createElement("p", null, "Joyful, friendly, generous gravity-specialist wordstreamer using a dead ancient language associated with WordStreamer."),
+                            React.createElement("p", null, "Persistent visual palette: Green cloak / hoodie."),
+                            React.createElement("p", null, "Deep historical friendship with Codec dating back to the Blood Eclipse War."),
+                            React.createElement("p", null, "Zentrum's denial architecture associates Marcel with \"Hear No Evil\" and wordstream containment.")),
+                        React.createElement("div", { className: "bg-zinc-950/60 border border-zinc-800 p-4 rounded-lg text-xs text-zinc-300 space-y-1.5" },
+                            React.createElement("strong", { className: "text-emerald-300 block mb-1" }, "Dramatic & Musical Arc:"),
+                            React.createElement("p", null, "His faith initially sounds warm, beautiful, and reliable."),
+                            React.createElement("p", null, "Harmonic tension gradually reveals the machinery of atrocity underneath."),
+                            React.createElement("p", null, "Loyalty to Codec collides with loyalty to the Administration."),
+                            React.createElement("p", null,
+                                React.createElement("strong", { className: "text-red-400" }, "ENDING LOCK:"),
+                                " Dies in Starbinding like all living beings in the known universe.")))))),
+            activeTab === "relationships" && (React.createElement("div", { className: "flex flex-col gap-4" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h2", { className: "text-xl font-bold text-white mb-1 flex items-center gap-2" },
+                        React.createElement(Scale, { className: "w-5 h-5 text-cyan-400" }),
+                        " Dynamics & Musical Pressures"),
+                    React.createElement("p", { className: "text-xs text-zinc-400 mb-6" }, "How underlying dramatic truths translate directly into musical tension and score composition."),
+                    React.createElement("div", { className: "space-y-4" }, [
+                        {
+                            rel: "Codec ↔ Tiger",
+                            origin: "Freedom vs divine authorship. Codec later experiences the seductive allure of an unanswerable throne.",
+                            pressure: "Shared quotes or cadences can be contaminated; however, Codec must never be reduced to 'just another Tiger'.",
+                            color: "border-purple-800/60 bg-purple-950/20 text-purple-300"
+                        },
+                        {
+                            rel: "Codec ↔ Marcel",
+                            origin: "Wartime friendship turned ideological estrangement over institutional loyalty vs moral reality.",
+                            pressure: "Remembered harmonic warmth must fracture as loyalty reveals itself as complicity.",
+                            color: "border-emerald-800/60 bg-emerald-950/20 text-emerald-300"
+                        },
+                        {
+                            rel: "Codec ↔ Jazen",
+                            origin: "Intimate partnership implicated directly in the Obsidian catastrophe at the Spire.",
+                            pressure: "Genuine human affection must precede the cosmic moral calculus, or Jazen is merely plot fuel.",
+                            color: "border-rose-800/60 bg-rose-950/20 text-rose-300"
+                        },
+                        {
+                            rel: "Tiger ↔ NiAlBu",
+                            origin: "Tiger intentionally preserves NiAlBu as witness; Codec targets him precisely because Tiger values that preservation.",
+                            pressure: "Audience sees the disturbing mirror between them long before Codec can consciously admit it.",
+                            color: "border-indigo-800/60 bg-indigo-950/20 text-indigo-300"
+                        },
+                        {
+                            rel: "Tiger ↔ WordStreamer",
+                            origin: "Tiger murdered WordStreamer; subsequently fails when attempting to wield her generative creation power.",
+                            pressure: "Absence, archival echoes, and an abortive creative attempt—never a sentimental love-hate reconciliation.",
+                            color: "border-violet-800/60 bg-violet-950/20 text-violet-300"
+                        },
+                        {
+                            rel: "Tiger ↔ Kyle",
+                            origin: "Holds the last Syrin's physical voice through the starlight scarf and black-hole void.",
+                            pressure: "Stolen speech and vocal puppetry must be audibly dramatized, not treated as mere wardrobe detail.",
+                            color: "border-cyan-800/60 bg-cyan-950/20 text-cyan-300"
+                        },
+                        {
+                            rel: "Kail ↔ Marcel ↔ Dao",
+                            origin: "Proposed moving present-tense triangle of innocence, institutional faith, and analytical skepticism.",
+                            pressure: "Relational decisions and moral rifts must resolve before the finality of the Starbinding.",
+                            color: "border-amber-800/60 bg-amber-950/20 text-amber-300"
+                        },
+                        {
+                            rel: "Drakken ↔ Administration",
+                            origin: "Terraforming war, catastrophic containment, and enduring imprisonment behind the Siege Wall.",
+                            pressure: "Institutional triumph marches scored against hollow planetary destruction.",
+                            color: "border-red-800/60 bg-red-950/20 text-red-300"
+                        },
+                        {
+                            rel: "Civilian Witnesses ↔ Cosmic Powers",
+                            origin: "Ordinary lives reduced to operational material for choices made in divine corridors.",
+                            pressure: "The musical score must allow people to be living humans before reducing them to casualty figures.",
+                            color: "border-zinc-700 bg-zinc-900/50 text-zinc-300"
+                        }
+                    ].map((item, idx) => (React.createElement("div", { key: idx, className: `p-4 rounded-xl border ${item.color}` },
+                        React.createElement("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2" },
+                            React.createElement("h4", { className: "font-bold text-white text-sm tracking-wide" }, item.rel),
+                            React.createElement("span", { className: "text-[10px] font-mono uppercase opacity-75" }, "Musical Tension")),
+                        React.createElement("p", { className: "text-xs text-zinc-300 mb-2 leading-relaxed" },
+                            React.createElement("strong", { className: "text-white" }, "Truth:"),
+                            " ",
+                            item.origin),
+                        React.createElement("p", { className: "text-xs text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-2" },
+                            React.createElement("strong", { className: "text-cyan-300" }, "Musical Pressure:"),
+                            " ",
+                            item.pressure)))))))),
+            activeTab === "timeline" && (React.createElement("div", { className: "flex flex-col gap-4" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h2", { className: "text-xl font-bold text-white mb-2 flex items-center gap-2" },
+                        React.createElement(Clock, { className: "w-5 h-5 text-amber-400" }),
+                        " Chronological Canon Sequence"),
+                    React.createElement("p", { className: "text-xs text-zinc-400 mb-6" }, "Master chronological alignment across deep history, the Blood Eclipse War, and Codec's final choice."),
+                    React.createElement("div", { className: "relative border-l-2 border-zinc-800 pl-6 space-y-8 ml-2" },
+                        React.createElement("div", { className: "relative" },
+                            React.createElement("div", { className: "absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-violet-500 ring-4 ring-zinc-950" }),
+                            React.createElement("div", { className: "flex items-center gap-2 mb-1" },
+                                React.createElement("span", { className: "text-xs font-mono px-2 py-0.5 rounded bg-violet-950 text-violet-300 border border-violet-800" }, "Era I: Divine Foundation & Creation")),
+                            React.createElement("h3", { className: "text-base font-bold text-white" }, "Starsilk Designed as Divine Weapon"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 mt-1 leading-relaxed" }, "Tiger creates Starsilk as an executable cosmological substrate designed to destroy WordStreamer and NiAlBu. He murders WordStreamer first, taking her ancient creative code, and intentionally preserves NiAlBu as a bound divine witness.")),
+                        React.createElement("div", { className: "relative" },
+                            React.createElement("div", { className: "absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-500 ring-4 ring-zinc-950" }),
+                            React.createElement("div", { className: "flex items-center gap-2 mb-1" },
+                                React.createElement("span", { className: "text-xs font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800" }, "Era II: Blood Eclipse War")),
+                            React.createElement("h3", { className: "text-base font-bold text-white" }, "Aureal Gate, Heliocide & Siege Wall"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 mt-1 leading-relaxed" }, "Drakken weaponize Starsilk at Aureal Gate. Tiger's body fractures during the strain, spawning the Shardlings from his failed attempt to wield WordStreamer's creation power. To contain the Drakken, Tiger enacts the Heliocide\u2014extinguishing thousands of suns and building the Siege Wall of dead stars.")),
+                        React.createElement("div", { className: "relative" },
+                            React.createElement("div", { className: "absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-red-500 ring-4 ring-zinc-950" }),
+                            React.createElement("div", { className: "flex items-center gap-2 mb-1" },
+                                React.createElement("span", { className: "text-xs font-mono px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-800" }, "Era III: Syrin Genocide & Administration Rise")),
+                            React.createElement("h3", { className: "text-base font-bold text-white" }, "Syrin 4 Star Dive & The Weapon \"Torture\""),
+                            React.createElement("p", { className: "text-xs text-zinc-300 mt-1 leading-relaxed" },
+                                "Tiger orders the systematic genocide of the Syrin race as an administrative cleanup. During the Syrin 4 star dive, Codec constructs ",
+                                React.createElement("em", null, "Torture"),
+                                "\u2014a blade designed to intercept dying data footprints and pack them into mass. Kyle's mother is killed by Obsidian Armor; Kyle's voice is imprisoned in Tiger's starlight scarf.")),
+                        React.createElement("div", { className: "relative" },
+                            React.createElement("div", { className: "absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-rose-500 ring-4 ring-zinc-950" }),
+                            React.createElement("div", { className: "flex items-center gap-2 mb-1" },
+                                React.createElement("span", { className: "text-xs font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800" }, "Era IV: The Spire Tragedy")),
+                            React.createElement("h3", { className: "text-base font-bold text-white" }, "Loss of Jazen & Codec's Epiphany"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 mt-1 leading-relaxed" }, "At the Spire, Jazen falls victim to the Obsidian machinery. Witnessing the dead data stream into stellar storage, Codec realizes the horror of the cosmological system. He breaks with the Administration and spends centuries calculating counter-measures.")),
+                        React.createElement("div", { className: "relative" },
+                            React.createElement("div", { className: "absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-cyan-500 ring-4 ring-zinc-950" }),
+                            React.createElement("div", { className: "flex items-center gap-2 mb-1" },
+                                React.createElement("span", { className: "text-xs font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800" }, "Era V: The Irreversible Ending (Oct 22 Delta)")),
+                            React.createElement("h3", { className: "text-base font-bold text-white" }, "Total Cosmic Extinction & Dissolution"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 mt-1 leading-relaxed" },
+                                "Codec reaches WorldsVault, seizes planetary templates, and kills NiAlBu to break Tiger's leverage. He knowingly executes ",
+                                React.createElement("strong", null, "Starbinding"),
+                                ", extinguishing every star and living being in the universe. At the Partition threshold, seeing new ungodded worlds form, Codec voluntarily dissolves to prevent any god from ruling again.")))))),
+            activeTab === "events" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h2", { className: "text-xl font-bold text-white mb-2 flex items-center gap-2" },
+                        React.createElement(Flame, { className: "w-5 h-5 text-red-400" }),
+                        " Pivotal Events & Dramatist Reconstructions"),
+                    React.createElement("p", { className: "text-xs text-zinc-400 mb-6" }, "Underlying cause, character impact, consequences, and musical staging leverage."),
+                    React.createElement("div", { className: "space-y-4" },
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-violet-400" }, "E01"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-violet-950 text-violet-300 border border-violet-800" }, "ESTABLISHED + OCT 22 LOCKED")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Tiger's Original Betrayal & WordStreamer's Murder"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Tiger engineers Starsilk as a weapon against fellow divine powers, murdering WordStreamer with NiAlBu forced into witnesshood. Establishes Tiger's surgical cruelty and weaponization of witness perception. NiAlBu is kept alive deliberately by Tiger."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Musical / Staging Leverage:"),
+                                " ",
+                                React.createElement("em", null, "You Always Die on Three"),
+                                " drafts a waltz/counting ritual with archival female voice. Time is immutable: eternal-replay must mean recorded/perceived repetition, never physical timeline resetting. Divine backstories remain strictly withheld.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-cyan-400" }, "E02"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Syrin Blood, Engineered Genocide & Kyle's Existence"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Syrin blood renders Starsilk inert. Tiger treats this as a mechanical flaw and executes systematic genocide\u2014devoid of moral hesitation or philosophical angst. Kyle survives as personal evidence that divine maintenance policies mean family annihilation."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Staging Rule:"),
+                                " Never convert this into Drakken being Syrin or an incidental wartime casualty. It was calculated divine defect removal.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-red-400" }, "E03"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Drakken Terraforming & Orbital Blood Rings"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" },
+                                "Notebook Program spawns terraforming titans. Civilizations are reduced to biomass. Drakken fabricate orbital crimson-glass Blood Rings from pulverized populations and biospheres. Exact source line: ",
+                                React.createElement("em", { className: "text-red-300" }, "\"Your sky is built from your dead.\"")),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Musical Leverage:"),
+                                " Catchy bureaucratic security tunes (e.g. ",
+                                React.createElement("em", null, "Citizen's Guide"),
+                                ", ",
+                                React.createElement("em", null, "The Sky Is Secure"),
+                                ") make atrocity mundane and discussable without grieving.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-amber-400" }, "E04"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800" }, "LOCKED + ESTABLISHED")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Aureal Gate: Starsilk Weaponized Against Gods"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Drakken weaponize Starsilk against the divine system, proving Tiger's vulnerability. Tiger's body fractures. In later locked canon, Shardlings emerge later when Tiger attempts his \"single indulgence\" wielding WordStreamer's creation power."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Dramatic Separation:"),
+                                " The physical fracture at Aureal Gate and the subsequent failed creation attempt that spawns Shardlings must remain causally and narratively distinct.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-amber-400" }, "E05"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "The Siege Wall & The Cost of Containment"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Tiger extinguishes thousands of suns, creating a black-hole lattice around Drakken territory. Trillions die; the cosmos bears a permanent starless scar. The Administration announces this as a glorious victory; physics dictates it is a prison cage."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Scoring Contrast:"),
+                                " Bureaucratic cheerfulness counterbalanced by the catastrophic void of annihilated star systems. Distinct from the later all-universe Starbinding.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-cyan-400" }, "E06"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Codec in the Administration & Nacreous VI"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Codec was an insider tactical data authority, not an innocent bystander. He cataloged Blood Rings, analyzed Drakken, and authorized the Tier-S Corpse-Burn Firewall Macro at Nacreous VI with horrific planetary consequences."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Dramatic Core:"),
+                                " Grounded in his professional partnership with Marcel. Marcel finds institutional service honorable; Codec sees the complicity of the machinery.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-amber-400" }, "E07"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800" }, "ESTABLISHED PILOT")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Kyle's Star Dive & Harold's Bluegrass Funeral Song"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" },
+                                "Young Kyle is tricked into harvesting silk on Syrin 4; the star collapses. Simultaneously, a folk/bluegrass village mocks Harold's warnings about Obsidian Armor. Kyle crashes; Obsidian Armor descends, slaughters his mother, and strikes Kyle with ",
+                                React.createElement("em", null, "Torture"),
+                                "."),
+                            React.createElement("div", { className: "bg-zinc-950 border border-zinc-800/80 p-3 rounded-lg text-xs text-amber-300/90 border-amber-900/40" },
+                                React.createElement("strong", { className: "text-amber-200" }, "Key Stage Lyre / Closing Line:"),
+                                " ",
+                                React.createElement("em", { className: "text-white" }, "\"He warned us. We made it rhyme.\""),
+                                " Chorus transforms word-for-word from back-porch humor to witnessed massacre.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-emerald-400" }, "E08"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800" }, "ESTABLISHED PILOT / WORKSHOP")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "The Breakage of Torture & Zentrum's Denial Triad"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" },
+                                "After ~300 years, Dao and Marcel crack ",
+                                React.createElement("em", null, "Torture"),
+                                " at Zentrum. Kyle reforms with a miniature black hole mouth. Marcel's wordstream gravity and Tiger's scarf stabilize the void\u2014giving Tiger permanent voice override."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Zentrum Denial Triad:"),
+                                " Dao (See No Evil), Marcel (Hear No Evil), Tiger (Speak No Evil). Do not present the Score Room's \"resurrection trio with Kail\" as replacing Kyle's canon event.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-cyan-400" }, "E09"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800" }, "ESTABLISHED LORE / BIBLE")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Orbital Tomb: Six Months of Applied Contempt"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Tiger methodically dismantles Meridian station above gas giant Virgil over six months. Corpses become silent orbital navigation landmarks witnessed by a single survivor."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Theatrical Scale:"),
+                                " Contrasts slow, methodical cosmic terror with cheap pop-villain bombast. The dead are silent physical debris, never singing ghosts.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-rose-400" }, "E10"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Jazen, Obsidian & Codec's Spire Revelation"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Jazen's death in the Obsidian catastrophe and the Spire massacre shatter Codec's system mindset. Seeing the dead's data flowing into a star reveals stellar cores as cold data repositories."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-rose-300" }, "Emotional Law:"),
+                                " Jazen must be staged as an authentic, living partner beforehand. The Spire epiphany caps centuries of inquiry, not a random whim.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-purple-400" }, "E11"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-800" }, "ESTABLISHED CANON")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "WorldsVault Breach: The Idea & The Theft"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" },
+                                "Codec breaches WorldsVault, seizing planetary templates wrapped in Starsilk. Delivers his defining axiom: ",
+                                React.createElement("em", { className: "text-white" }, "\"It should be solidarity, not supplication...\"")),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-purple-300" }, "Dramatic Friction:"),
+                                " He preaches solidarity while unilaterally seizing foundational cosmic code. The taking is not absolved by the nobility of the phrase.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-indigo-400" }, "E12"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800" }, "OCT 22 LOCKED")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Codec Instrumentalizes NiAlBu: The Seed of Resemblance"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Codec finds NiAlBu alive and realizes Tiger spared him deliberately. Codec targets NiAlBu to hurt Tiger\u2014using a living god as a disposable message."),
+                            React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800/80 p-3 rounded-lg text-xs text-zinc-400" },
+                                React.createElement("strong", { className: "text-indigo-300" }, "Audience Irony:"),
+                                " The audience sees Codec adopting Tiger's cold transactional calculus long before Codec recognizes the parallel himself.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-red-500" }, "E13"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-800" }, "OCT 22 LOCKED DELTA")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "Starbinding: Known, Total, Universal Extermination"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "Codec knowingly executes the Starbinding macro: every star and every living being in the known universe is ended. As the universe dies, Codec tastes the intoxicating thrill of absolute divine power and recognizes his horrifying likeness to Tiger."),
+                            React.createElement("div", { className: "bg-red-950/20 border border-red-900/40 p-3 rounded-lg text-xs text-red-200" },
+                                React.createElement("strong", { className: "text-red-300" }, "Core Conviction:"),
+                                " ",
+                                React.createElement("em", { className: "text-white" }, "\"Do the right thing, even if it's the wrong thing to do.\""),
+                                " The score must NEVER provide a cheering chorus of the dead.")),
+                        React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-5" },
+                            React.createElement("div", { className: "flex items-center justify-between mb-2" },
+                                React.createElement("span", { className: "text-xs font-mono font-bold text-cyan-400" }, "E14"),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800" }, "OCT 22 LOCKED DELTA")),
+                            React.createElement("h3", { className: "text-base font-bold text-white mb-2" }, "The Partition: New Worlds & Chosen Dissolution"),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mb-3" }, "The Partition reveals brand-new worlds forming beyond. Codec cannot survive crossing (Starsilk physical dependency), but refuses to cross even hypothetically to prevent reintroducing a tyrant god. He willingly dissolves."),
+                            React.createElement("div", { className: "bg-cyan-950/20 border border-cyan-900/40 p-3 rounded-lg text-xs text-cyan-200" },
+                                React.createElement("strong", { className: "text-cyan-300" }, "Final Musical Breath:"),
+                                " Not redemption or atonement\u2014unresolved conviction and refusal of godhood. The finale cannot feature Kail, Marcel, or Dao singing after death.")))),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h3", { className: "text-lg font-bold text-white mb-2 flex items-center gap-2" },
+                        React.createElement(ShieldAlert, { className: "w-4 h-4 text-amber-400" }),
+                        " 4.1 Named Wartime Tragedies (Archive Preserved)"),
+                    React.createElement("p", { className: "text-xs text-zinc-400 mb-4" }, "Specific historical incidents from the archive. Names and mechanisms are locked; no generic new Drakken strains authorized without sources."),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3 text-xs" }, [
+                        { name: "The Singing Crack of Tholus Fort", strain: "Fault-Tongue", effect: "Splits fortress in six directions in one sunrise." },
+                        { name: "The Glassfall Incident (Delta-1)", strain: "Obsidian Gul", effect: "Leaves razored volcanic glass plains." },
+                        { name: "The Shiverdog Hunts on Gransh IV", strain: "Tremorhounds", effect: "Herds resistance into tunnels, collapses into magma." },
+                        { name: "The Drowning of Zuul Kai", strain: "Cloudmaw", effect: "Raises ocean over sealed air-domes, turning library to coral-stone." },
+                        { name: "The Airwars of Sector Te", strain: "Vortenbray", effect: "Inverts sky architecture; deletes ships via vacuum blossoms." },
+                        { name: "The Threshing of Hadran's Ring", strain: "Terragullet", effect: "Regrows wheat resembling lost inhabitants after genocide." },
+                        { name: "The Burning of Triune Crown", strain: "Solnexus", effect: "Sequentially extinguishes three suns; leaves 4th encoded warning." },
+                        { name: "The Hushing of Shail-9", strain: "Lyriboris", effect: "Makes AI scream music until silence and defenses open." }
+                    ].map((item, idx) => (React.createElement("div", { key: idx, className: "p-3 rounded-lg bg-zinc-950 border border-zinc-800" },
+                        React.createElement("span", { className: "font-bold text-zinc-200 block mb-0.5" }, item.name),
+                        React.createElement("span", { className: "text-[11px] font-mono text-amber-400 block mb-1" },
+                            "Strain: ",
+                            item.strain),
+                        React.createElement("p", { className: "text-[11px] text-zinc-400" }, item.effect)))))))),
+            activeTab === "score" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 border-b border-zinc-800 pb-4" },
+                        React.createElement("div", null,
+                            React.createElement("h2", { className: "text-xl font-bold text-white flex items-center gap-2" },
+                                React.createElement(Music, { className: "w-5 h-5 text-cyan-400" }),
+                                " Workshop Score Architecture (16 Cues)"),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mt-1" },
+                                "Based on ",
+                                React.createElement("em", null, "The Score Room (2026)"),
+                                ". Dual-spine tragedy: Kail explores/questions; Codec executes consequential intervention.")),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-amber-950 text-amber-300 text-xs font-mono border border-amber-800 self-start" }, "WORKSHOP PROPOSAL (Not Final Book)")),
+                    React.createElement("div", { className: "bg-red-950/25 border border-red-900/50 rounded-xl p-4 mb-6 text-xs text-zinc-300 leading-relaxed" },
+                        React.createElement("div", { className: "flex items-center gap-2 font-bold text-red-400 mb-2" },
+                            React.createElement(ShieldAlert, { className: "w-4 h-4 text-red-400 shrink-0" }),
+                            React.createElement("span", { className: "uppercase tracking-wider font-mono" }, "Critical Revision: Endgame Overlay (Oct 22 Delta)")),
+                        React.createElement("p", null,
+                            "The original workshop proposed a quiet survivor reconstruction finale (",
+                            React.createElement("em", null, "The First Dirt"),
+                            ") with Kail, Marcel, and Dao rebuilding. ",
+                            React.createElement("strong", { className: "text-red-300" }, "That ending is chronologically incompatible with locked canon."),
+                            " The final sequence must reflect total extinction, Codec's internal throne reckoning, and his voluntary dissolution at the Partition threshold.")),
+                    React.createElement("div", { className: "space-y-3" }, [
+                        {
+                            num: "01",
+                            act: "Act I",
+                            title: "Obsidian Armor",
+                            desc: "Village mockery becomes terror as Obsidian Armor descends. (Pilot canon places Kyle here, not Kail; rewrite needed to resolve identity).",
+                            badge: "REWRITE / PILOT SYNC"
+                        },
+                        {
+                            num: "02",
+                            act: "Act I",
+                            title: "Resurrection Trio",
+                            desc: "Kail, Marcel, Dao: shock transforms into ongoing relationship. Kyle/Kail identity question to resolve.",
+                            badge: "NEW DRAFT NEEDED"
+                        },
+                        {
+                            num: "03",
+                            act: "Act I",
+                            title: "He Is the Shard-God",
+                            desc: "Witnesses introduce Tiger as a terrifying social and cosmic fact before he personally appears.",
+                            badge: "REWRITE"
+                        },
+                        {
+                            num: "04",
+                            act: "Act I",
+                            title: "Marcel's Faith Song",
+                            desc: "Earnest institutional warmth and wordstream devotion develops harmonic friction and subtle denial.",
+                            badge: "ESSENTIAL HOLE / NEW"
+                        },
+                        {
+                            num: "05",
+                            act: "Act I",
+                            title: "The Why It Is — Fragment I",
+                            desc: "Interrupted historical broadcast after people already matter, rather than an unbroken cosmogony lecture.",
+                            badge: "REPRISE / ADAPT"
+                        },
+                        {
+                            num: "06",
+                            act: "Act I",
+                            title: "Planetary Templates / WorldsVault",
+                            desc: "Codec and ensemble contest unilateral access to foundational world templates wrapped in silk.",
+                            badge: "MERGE"
+                        },
+                        {
+                            num: "07",
+                            act: "Act I",
+                            title: "NOT YOUR'S TO TAKE",
+                            desc: "Codec / Kail / Marcel / Dao collide over whether catastrophic necessity licenses absolute authority. Act I climax.",
+                            badge: "ACT I TURN / REWRITE"
+                        },
+                        {
+                            num: "08",
+                            act: "Act II",
+                            title: "A Citizen's Guide to the Blood Rings",
+                            desc: "Marcel / Administration cheerfully explain planetary slaughter as civic security. (Matches draft 'The Sky Is Secure').",
+                            badge: "MERGE / CHORUS"
+                        },
+                        {
+                            num: "09",
+                            act: "Act II",
+                            title: "Orbital Tomb",
+                            desc: "Lone witness watches Tiger surgically dismantle Meridian station over Virgil; corpses as silent orbital navigation points.",
+                            badge: "EXISTING PROJECT"
+                        },
+                        {
+                            num: "10",
+                            act: "Act II",
+                            title: "The Shard-God's Game",
+                            desc: "Tiger's command game; merges redundant villain numbers (Gallows, Interrogation, Rigged Game, Atrocity) into one decisive encounter.",
+                            badge: "CONSOLIDATED MERGE"
+                        },
+                        {
+                            num: "11",
+                            act: "Act II",
+                            title: "Other Side of the Wall",
+                            desc: "Shows ordinary lives before extinction; deepens the tragic human cost of Codec's upcoming unilateral choice.",
+                            badge: "CONDITIONAL PRE-STARBINDING"
+                        },
+                        {
+                            num: "12",
+                            act: "Act II",
+                            title: "Kail / Marcel Rupture",
+                            desc: "Two sympathetic companions disagree irreparably. May include a pre-catastrophe fragment of 'The First Dirt'.",
+                            badge: "EMOTIONAL RIFT / NEW"
+                        },
+                        {
+                            num: "13",
+                            act: "Act II",
+                            title: "What's Starsilk For / NiAlBu Deicide",
+                            desc: "Codec instrumentalizes NiAlBu to hurt Tiger and makes the conscious calculation to extinguish all stars.",
+                            badge: "DECISION POINT / REWRITE"
+                        },
+                        {
+                            num: "14",
+                            act: "Act II",
+                            title: "STARBINDING",
+                            desc: "Total irreversible universal extinction. Company fragments, silences, disappearances. Every star and living person dies.",
+                            badge: "LOCKED DELTA EVENT"
+                        },
+                        {
+                            num: "15",
+                            act: "Act II",
+                            title: "Recognition / The Unanswerable Throne",
+                            desc: "Internal moral reckoning: Codec tastes godlike power, realizes his horrifying resemblance to Tiger, and detests it.",
+                            badge: "INTERNAL RECKONING"
+                        },
+                        {
+                            num: "16",
+                            act: "Act II",
+                            title: "The Partition / Voluntary Dissolution",
+                            desc: "New worlds appear beyond the Partition. Codec voluntarily dissolves at the threshold so no god can rule. Non-redemptive coda.",
+                            badge: "NEW CODA / LOCKED CANON"
+                        }
+                    ].map((cue, idx) => (React.createElement("div", { key: idx, className: "p-4 rounded-xl bg-zinc-950 border border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-3" },
+                        React.createElement("div", { className: "flex items-start gap-3" },
+                            React.createElement("span", { className: "px-2.5 py-1 rounded bg-zinc-900 border border-zinc-700 font-mono font-bold text-cyan-400 text-xs shrink-0" }, cue.num),
+                            React.createElement("div", null,
+                                React.createElement("div", { className: "flex items-center gap-2" },
+                                    React.createElement("span", { className: "text-[11px] font-mono uppercase text-zinc-500" }, cue.act),
+                                    React.createElement("span", { className: "text-zinc-600" }, "\u2022"),
+                                    React.createElement("h4", { className: "font-bold text-white text-sm" }, cue.title)),
+                                React.createElement("p", { className: "text-xs text-zinc-400 mt-1" }, cue.desc))),
+                        React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800 self-start md:self-auto shrink-0" }, cue.badge)))))),
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("h3", { className: "text-base font-bold text-white mb-2 flex items-center gap-2" },
+                        React.createElement(CheckCircle2, { className: "w-4 h-4 text-cyan-400" }),
+                        " 6.3 Missing Dramatic Functions to Author"),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-zinc-300" },
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-rose-400 block mb-1" }, "1. Jazen Alive Before Loss"),
+                            "A specific, intimate pre-catastrophe scene where Jazen jokes, disagrees, or works\u2014establishing real human love before grief."),
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-emerald-400 block mb-1" }, "2. Marcel's Earned Faith"),
+                            "Make Marcel lovable and deeply sincere before his institutional loyalty fractures into complicity."),
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-cyan-400 block mb-1" }, "3. Resolved Resurrection Identity"),
+                            "Clarify whether the recovery scene belongs to Kyle (the Syrin child of pilot lore) or Kail's workshop frame."),
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-amber-400 block mb-1" }, "4. Relational Rupture with Real Choice"),
+                            "A true moral choice and parting between companions, not just simultaneous intellectual monologue."),
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-purple-400 block mb-1" }, "5. Ordinary Lives in the Last Minutes"),
+                            "Stage ground-level people immediately before Starbinding so extinction is felt in lives, not numbers."),
+                        React.createElement("div", { className: "p-3 bg-zinc-950 rounded-lg border border-zinc-800" },
+                            React.createElement("strong", { className: "text-red-400 block mb-1" }, "6. Post-Starbinding Extinction Coda"),
+                            "Partition and chosen dissolution, strictly excluding any cheering or surviving dead."))))),
+            activeTab === "drafts" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", null,
+                            React.createElement("h2", { className: "text-xl font-bold text-white flex items-center gap-2" },
+                                React.createElement(Sparkles, { className: "w-5 h-5 text-purple-400" }),
+                                " Documented Lyric Drafts & Written Refrains"),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mt-1" },
+                                "Prior-chat songwriting records and planned numbers. Status: ",
+                                React.createElement("strong", null, "DRAFT"),
+                                " (cannot overwrite locked canon).")),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-purple-950 text-purple-300 text-xs font-mono border border-purple-800" }, "DRAFT / CREATIVE MEMORY")),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" }, [
+                        {
+                            title: "The Sky Is Secure",
+                            meta: "Locked Oct 1 session draft (~4,769 chars)",
+                            desc: "Golden-age 3/4 civic waltz. Announcer, official, adult survivor, Administration chorus. Opens: 'THE SKY IS SECURE' / 'SAFE, SAFE, SAFELY SEALED AWAY'. People reply: 'OUR SKY IS BUILT FROM OUR DEAD!'. Ends in a thunderclap. Child removed in Oct 1 revision.",
+                            tag: "Act II Blood Ring Propaganda"
+                        },
+                        {
+                            title: "Starbinding (Codec Solo Draft)",
+                            meta: "First-person lyric draft (~3,683 chars)",
+                            desc: "Refrain: 'I bound the stars. I did this.' Total foreknowledge of universal extinction. Not identical to the 2-item archive title without ID match. Strictly avoids self-exculpation.",
+                            tag: "Act II Terminal Solo"
+                        },
+                        {
+                            title: "Across the Partition",
+                            meta: "Coda concept / Transformed phrase",
+                            desc: "Proposed phrase: 'I made this. I do not own it.' Expresses non-governance; Codec's dissolution—not a cheering new ensemble—is the locked ending.",
+                            tag: "Act II Dissolution Coda"
+                        },
+                        {
+                            title: "Count Around the Dark",
+                            meta: "Civilian 6/8 counting lullaby (celesta/bowed glass)",
+                            desc: "Post-Blood Eclipse War civilian counting song. 'Count the lights / Leave the dark unnumbered' answering 'Count the dark... one by one.' Refers to earlier Siege Wall, not post-Starbinding.",
+                            tag: "Pre-Starbinding Folk/Chamber"
+                        },
+                        {
+                            title: "We Keep Each Other",
+                            meta: "Secular mutual-aid / survival song",
+                            desc: "'We are not saved. / We are still here. / Those are different things.' Must occur while speakers are alive or as archival echo; not post-Starbinding.",
+                            tag: "Ground-Level Resistance"
+                        },
+                        {
+                            title: "You Always Die on Three",
+                            meta: "Full horror-waltz draft in 3/4",
+                            desc: "Archival WordStreamer, NiAlBu witness, Tiger's spoken 'Again'. Counting: 'One — you say my name...' to 'Three — you die exactly once.' Procedural horror recording, never actual time rewind.",
+                            tag: "Divine Betrayal Staging"
+                        },
+                        {
+                            title: "Please Reconcile / Write Both Columns",
+                            meta: "Chamber-operetta; clerical normalization",
+                            desc: "Clerks, Junior Clerk, Witness, Recordkeeper with literal stamping/glass motif. 'Please reconcile' / 'Write both columns'. Contrasts bureaucratic accounting with slaughter.",
+                            tag: "Institutional Satire"
+                        },
+                        {
+                            title: "Please Explain Your Choice",
+                            meta: "Tiger 7-round game show draft",
+                            desc: "Rounds include oxygen, fake anesthetic, breath estimation, memory matching, audience vote. Hook: 'PICK! A! WINNER!'. Adversarial close: 'I built the game. / You gave the answer.'",
+                            tag: "Tiger Cruelty Suite"
+                        },
+                        {
+                            title: "Mercy Sold Separately",
+                            meta: "Tiger coerced bargains dialogue family",
+                            desc: "Lines: 'You purchased the dirt. Not mercy.' and 'There was another way. You just didn't pick it.' Exposes the illusion of divine mercy.",
+                            tag: "Tiger Dialogue Motif"
+                        },
+                        {
+                            title: "Pull the Star",
+                            meta: "Commissioned rock-opera harvesting material",
+                            desc: "Scored for live drums, piano, strings, brass, guitars, mixed choir (no generic EDM). Highlights mechanical law: every successful silk extraction collapses the star into a black hole.",
+                            tag: "Star Dive Rock Opera"
+                        }
+                    ].map((item, idx) => (React.createElement("div", { key: idx, className: "p-4 bg-zinc-950 border border-zinc-800 rounded-xl flex flex-col justify-between" },
+                        React.createElement("div", null,
+                            React.createElement("div", { className: "flex items-center justify-between mb-1" },
+                                React.createElement("h4", { className: "font-bold text-white text-sm" }, item.title),
+                                React.createElement("span", { className: "text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-purple-300 border border-purple-900/50" }, item.tag)),
+                            React.createElement("span", { className: "text-[11px] font-mono text-zinc-500 block mb-2" }, item.meta),
+                            React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed" }, item.desc))))))))),
+            activeTab === "archive" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/80 border border-zinc-800 rounded-xl p-6" },
+                    React.createElement("div", { className: "flex items-center justify-between border-b border-zinc-800 pb-4 mb-4" },
+                        React.createElement("div", null,
+                            React.createElement("h2", { className: "text-xl font-bold text-white flex items-center gap-2" },
+                                React.createElement(BookOpen, { className: "w-5 h-5 text-emerald-400" }),
+                                " Drive Audio Files & Manifest Evidence"),
+                            React.createElement("p", { className: "text-xs text-zinc-400 mt-1" }, "Verified physical files (27 Oct 2026). Existence of an audio file \u2260 approved lyrics or final stage placement.")),
+                        React.createElement("span", { className: "px-3 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-mono border border-emerald-800" }, "ARCHIVED / PROVENANCE")),
+                    React.createElement("h3", { className: "text-sm font-bold text-zinc-200 mb-3 flex items-center gap-2" },
+                        React.createElement(CheckCircle2, { className: "w-4 h-4 text-emerald-400" }),
+                        " Verified Drive Audio Artifacts"),
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-3 mb-6" }, [
+                        { file: "Aureal Gate Is Holding.mp3", status: "Named MP3 exists. Speaker/lyrics uninspected." },
+                        { file: "Confrontation at the WorldsVault.mp3", status: "Named MP3 exists. Vault argument relevance unconfirmed." },
+                        { file: "Legends Carved in Dying Stars.mp3", status: "Named MP3 exists. Legend perspective unknown." },
+                        { file: "SCRIPTURE OF DUST.mp3", status: "Named MP3 exists. Show relevance unclassified." },
+                        { file: "Arrival.mp3", status: "Named MP3 exists. Actor/plot placement unassigned." },
+                        { file: "Burning Bridge.mp3", status: "Named MP3 exists; remixes/variants in archive." },
+                        { file: "The Drakken Aren't Defeated.mp3", status: "Title ≠ canon outcome (contained, not annihilated)." },
+                        { file: "Polarity.mp3", status: "Named MP3 exists. Eiskalt connection unverified." },
+                        { file: "NOT YOUR'S TO TAKE — Final Stems (148 BPM).zip", status: "Named stem bundle exists. 148 BPM in filename only." },
+                        { file: "The Shard-God and the Blood Rings.m4a", status: "Media file exists. Likely narration/media track." },
+                        { file: "Starsilk — The Vault City FREE.mp3", status: "Separate recording, distinct from main score slots." }
+                    ].map((item, idx) => (React.createElement("div", { key: idx, className: "p-3 bg-zinc-950 border border-zinc-800 rounded-lg flex items-start gap-2.5" },
+                        React.createElement(Music, { className: "w-4 h-4 text-emerald-400 shrink-0 mt-0.5" }),
+                        React.createElement("div", null,
+                            React.createElement("span", { className: "font-mono text-xs text-white font-semibold block" }, item.file),
+                            React.createElement("span", { className: "text-[11px] text-zinc-400" }, item.status)))))),
+                    React.createElement("div", { className: "bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-xs text-zinc-300 leading-relaxed space-y-3" },
+                        React.createElement("h4", { className: "font-bold text-white text-sm flex items-center gap-2" },
+                            React.createElement(Cpu, { className: "w-4 h-4 text-cyan-400" }),
+                            " September Suno Manifest Analysis (6,648 Records)"),
+                        React.createElement("p", null,
+                            React.createElement("code", null, "MANIFEST_FINAL.tsv"),
+                            " was parsed locally (6,648 clip rows with timestamp, id, title, filename, duration_s, created_at, tags). This is a multi-project catalog, not 6,648 distinct stage songs. Repeated titles represent generation takes."),
+                        React.createElement("div", { className: "p-3 bg-zinc-900/60 rounded border border-zinc-800/80" },
+                            React.createElement("strong", { className: "text-amber-300 block mb-1" }, "Key Manifest Discoveries:"),
+                            React.createElement("ul", { className: "list-disc pl-4 space-y-1 text-zinc-400" },
+                                React.createElement("li", null,
+                                    "Huge clip counts for ",
+                                    React.createElement("em", null, "NOT YOUR'S TO TAKE"),
+                                    ", ",
+                                    React.createElement("em", null, "Obsidian Armor"),
+                                    ", ",
+                                    React.createElement("em", null, "The Smiling Gallows"),
+                                    ", ",
+                                    React.createElement("em", null, "Final Index"),
+                                    ", and ",
+                                    React.createElement("em", null, "What's Starsilk For"),
+                                    " across multiple revisions."),
+                                React.createElement("li", null,
+                                    "Two rows titled ",
+                                    React.createElement("code", null, "Across the Partition "),
+                                    " exist in metadata, but lack verified lyrics reflecting the Oct 22 ending."),
+                                React.createElement("li", null,
+                                    React.createElement("em", null, "The Sky Is Secure"),
+                                    ", ",
+                                    React.createElement("em", null, "Count Around the Dark"),
+                                    ", ",
+                                    React.createElement("em", null, "We Keep Each Other"),
+                                    ", ",
+                                    React.createElement("em", null, "You Always Die on Three"),
+                                    ", and ",
+                                    React.createElement("em", null, "Please Reconcile"),
+                                    " are later chat drafts not present in the September manifest."))))))),
+            activeTab === "authority" && (React.createElement("div", { className: "flex flex-col gap-6" },
+                React.createElement("div", { className: "bg-zinc-900/60 border border-zinc-800 rounded-xl p-5" },
+                    React.createElement("h3", { className: "text-base font-bold text-white mb-2 flex items-center gap-2" },
+                        React.createElement(Scale, { className: "w-4 h-4 text-cyan-400" }),
+                        " Authority Hierarchy Chain"),
+                    React.createElement("p", { className: "text-sm text-zinc-400 mb-4" }, "Earlier drafts never override newer canon simply because they are polished or possess existing Suno audio clips."),
+                    React.createElement("div", { className: "flex flex-wrap items-center gap-2 text-xs font-mono" },
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-red-950 text-red-300 border border-red-800 font-bold" }, "1. Oct 22 Delta [A01]"),
+                        React.createElement("span", { className: "text-zinc-600" }, "\u2192"),
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700" }, "2. Direct Creator Choices"),
+                        React.createElement("span", { className: "text-zinc-600" }, "\u2192"),
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700" }, "3. SV00\u2013SV03 Canon [A02\u2013A06]"),
+                        React.createElement("span", { className: "text-zinc-600" }, "\u2192"),
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700" }, "4. Active Canon Locks [A07]"),
+                        React.createElement("span", { className: "text-zinc-600" }, "\u2192"),
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-blue-950 text-blue-300 border border-blue-800" }, "5. Score Room Proposals [A08]"),
+                        React.createElement("span", { className: "text-zinc-600" }, "\u2192"),
+                        React.createElement("span", { className: "px-3 py-1.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800" }, "6. Legacy Codex / Drafts"))),
+                React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4" }, EVIDENCE_KEYS.map((k, i) => (React.createElement("div", { key: i, className: "bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 flex flex-col gap-2" },
+                    React.createElement("div", { className: "flex items-center justify-between" },
+                        React.createElement("span", { className: `px-2.5 py-0.5 rounded text-xs font-mono font-bold border ${k.badge}` }, k.mark)),
+                    React.createElement("p", { className: "text-xs text-zinc-300 leading-relaxed mt-1" }, k.desc))))))))));
+}
+
+paint();</script></body></html>
