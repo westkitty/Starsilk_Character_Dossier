@@ -487,6 +487,17 @@ def main() -> int:
         return 1
 
     index_file = DOCS_DIR / "index.html"
+    musical_source = CONTENT_DIR / "musical"
+    musical_output = DOCS_DIR / "musical"
+    try:
+        musical_files = {
+            name: (musical_source / name).read_text(encoding="utf-8")
+            for name in ("index.html", "AUTHORITY.md")
+        }
+    except OSError as exc:
+        print(f"ERROR: musical publication source unavailable: {exc}", file=sys.stderr)
+        return 1
+
     if args.check:
         if not index_file.exists():
             print(f"ERROR: {index_file} does not exist; nothing to check against.", file=sys.stderr)
@@ -508,11 +519,21 @@ def main() -> int:
             if not target.exists() or target.read_text(encoding="utf-8") != source.read_text(encoding="utf-8"):
                 print(f"ERROR: root tool asset differs from source: docs/{relative}", file=sys.stderr)
                 return 1
-        print("OK: docs/index.html and root tool assets match generator output.")
+        for name, expected in musical_files.items():
+            published = musical_output / name
+            if not published.is_file() or published.read_text(encoding="utf-8") != expected:
+                print(f"ERROR: docs/musical/{name} differs from authored source.", file=sys.stderr)
+                return 1
+        print("OK: docs/index.html, musical publication, and root tool assets match generator output.")
         return 0
 
     index_file.write_text(html, encoding="utf-8")
     print(f"Wrote {index_file} ({len(html):,} bytes)")
+    musical_output.mkdir(parents=True, exist_ok=True)
+    for name, payload in musical_files.items():
+        published = musical_output / name
+        published.write_text(payload, encoding="utf-8")
+        print(f"Wrote {published} ({len(payload):,} bytes)")
     for relative in ROOT_TOOL_ASSETS:
         source = TEMPLATES_DIR / relative
         target = DOCS_DIR / relative

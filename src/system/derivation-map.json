@@ -15,6 +15,7 @@
       "docs/tours",
       "docs/films",
       "docs/palimpsest",
+      "docs/musical",
       "docs/chronology",
       "docs/worldsvault",
       "docs/records",
@@ -336,11 +337,13 @@
       "role": "generated",
       "node_type": "output",
       "paths": [
-        "docs/index.html"
+        "docs/index.html",
+        "docs/musical/**"
       ],
       "scope": "root_out",
       "roots": [
-        "docs/index.html"
+        "docs/index.html",
+        "docs/musical"
       ]
     },
     {

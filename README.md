@@ -80,6 +80,14 @@ from. It's intentionally excluded from Git for the same reason. Nothing in
 the normal build reads it; `build/migrate_legacy.py` did, once, to bootstrap
 `src/content/` and is not part of ordinary builds.
 
+## The Musical / Score Room
+
+The [Musical / Score Room](https://westkitty.github.io/Starsilk_Character_Dossier/musical/) is a separately navigable production notebook linked from the main Compendium exploration hub. It brings together musical canon summaries, character studies, relationships, events, 16 workshop cues, lyric drafts, and explicitly source-reported archive leads.
+
+Its content is **not a second canon database**: stable character records remain in `src/content/sections/` and checked canon locks in `src/canon/invariants.json`. The notebook's internal LOCKED/DRAFT/WORKSHOP status markers preserve its source history but do not amend the repository's authority. See [musical authority](src/content/musical/AUTHORITY.md).
+
+The authored standalone HTML is `src/content/musical/index.html`; `build/generate.py` copies it deterministically into `docs/musical/` and checks byte-for-byte parity. The page has no external runtime dependencies and is readable when saved offline.
+
 ## Cross-Surface Record Explorer
 
 `/records/` is a generated, offline-capable search surface over the existing stable record IDs. It joins only classified evidence already owned by the canon-lock, chronology, observed-xref, media, tour, WorldsVault, Film Vault, discovery, and machine-publication systems. Its JSON index is generated at `/records/records.json`; it is navigation/evidence infrastructure, not a second canon or relationship database.
