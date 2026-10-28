@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 51
+revision: 52
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -803,9 +803,16 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Phase 7 faceted discovery and AI context packets likewise cover only those 127 authored top-level stable records. They do not manufacture WorldsVault IDs, semantic relationships, dates, or coordinates.
 - Phase 8 browser-local bookmarks/history/progress/collections are intentionally per browser origin/profile and do not sync through an account or server; this privacy/locality constraint is deliberate, not missing canon infrastructure.
 
-## Pending
+## Musical / Score Room — MERGED / PUBLISHED / LIVE VERIFIED
 
-- Musical / Score Room integration is staged on `feature/musical-score-room-20261027`: authored standalone notebook, explicit non-canon authority boundary, root exploration entry point, generator parity, public-boundary/derivation ownership, and focused tests. This entry records implementation intent and source changes only. **PR CI, merge, GitHub Pages publication, and live-edge proof are not yet verified.** Preserve all existing stable entity IDs, canon locks, record links, visual assets, and offline-cache limits.
+- Supplemental `/musical/` workshop notebook integrated through `src/content/musical/index.html` and `src/content/musical/AUTHORITY.md`; deterministic `build/generate.py` publishes `docs/musical/index.html` and `docs/musical/AUTHORITY.md`. The main Compendium exploration area links to the separate route.
+- Protected PR **#83** merged at exact `main` commit `f797fc2dbcbdd3904e05a1f8f3cc85d88ee104d9`. The required branch CI run **40621510878** passed; post-merge `main` CI run **40622939146** passed.
+- GitHub Pages publication workflow **40622939244**, Pages build/deployment **40622960703**, and Build Provenance **40623046379** succeeded for the same merged source commit.
+- Independent live proof workflow **40623308270** fetched cache-busted `/musical/` HTML and `/musical/AUTHORITY.md` and compared each byte-for-byte with the corresponding merged `docs/musical/` file. Both passed, and the live Compendium root exposed its `href="musical/"` entry. The temporary proof workflow retired itself on success.
+- Status: **merge verified; Pages deployment verified; live Musical route and authority bytes verified**. This does not promote musical drafts into canonical character prose, assert independently verified audio artifacts, or resolve Kyle/Kail and Shardling timing editorial conflicts.
+- All existing stable records, identities, canon locks, media provenance, generated publication ownership, accessibility journeys, and offline-cache budget remain governed by their prior authorities and regression tests.
+
+## Pending
 
 
 - Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **PR-verified / publication-pending**. Protected PR #81 CI run `36384225486` / run number `395` passed at branch head `7b8b77f956b26a6d547055e1eb9c5b9df79597f7`: deterministic build parity, strict/public-boundary validation, Chromium full suite (`301 passed, 1 skipped`), Firefox representative journeys, and WebKit representative journeys all passed. Merge, Pages publication, and live-edge proof remain pending.
@@ -943,3 +950,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 50: protected PR #81 CI run `36384225486` / run number `395` passed on `feature/palimpsest-tactile-systems` with deterministic publication parity, strict/public-boundary gates, Chromium `301 passed, 1 skipped`, and representative Firefox/WebKit journeys green. Palimpsest tactile systems are therefore PR-verified; merge, Pages publication, and live-edge parity remain pending.
 
 - Revision 51: added an additive Musical / Score Room companion to the Compendium on `feature/musical-score-room-20261027`. Declared workshop-versus-canon authority, deterministic authored-to-published HTML/authority parity, main-site discoverability, public-boundary/derivation-graph coverage, and focused regression assertions. This revision does not claim CI, merge, Pages deployment, or browser/live verification.
+
+- Revision 52: closed Musical / Score Room integration after PR #83 merged to protected `main` at `f797fc2`, passing required branch and post-merge CI, Pages publication and deployment, build provenance, and independent cache-busted exact-byte live checks for the musical HTML and authority file. Removed only the now-obsolete Musical pending item; unrelated project pending/history remains untouched.
