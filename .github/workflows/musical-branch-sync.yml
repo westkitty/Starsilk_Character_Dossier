@@ -26,8 +26,8 @@ jobs:
           set -euo pipefail
           python3 build/generate.py
           python3 tools/validate_derivation_map.py --write-projection
-          ./tools/build.sh
-          ./tools/build.sh --check
+          bash tools/build.sh
+          bash tools/build.sh --check
           python3 -m pytest tests/test_musical_publication.py -q
       - name: Commit publication and retire one-shot workflow
         run: |
