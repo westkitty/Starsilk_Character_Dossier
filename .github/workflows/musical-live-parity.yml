@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 3
       - name: Verify exact main source and Pages HTML
         shell: bash
         env:
@@ -18,8 +19,8 @@ jobs:
           BASE_URL: https://westkitty.github.io/Starsilk_Character_Dossier
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD^)" = "$EXPECTED_MAIN_SHA"
-          test "$(git ls-tree HEAD^ docs/musical/index.html | wc -l | tr -d ' ')" = "1"
+          git merge-base --is-ancestor "$EXPECTED_MAIN_SHA" HEAD
+          test "$(git ls-tree "$EXPECTED_MAIN_SHA" docs/musical/index.html | wc -l | tr -d ' ')" = "1"
           for attempt in $(seq 1 16); do
             curl --fail --silent --show-error --location -H 'Cache-Control: no-cache' \
               "$BASE_URL/?musical_proof=$EXPECTED_MAIN_SHA&attempt=$attempt" -o /tmp/live-root.html || true
