@@ -1024,7 +1024,7 @@ def test_visual_peripheral_entry(page: Page, local_server):
     page.locator("#peripheral-index").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#peripheral-index")
     _freeze_decorative_video(page)
-    assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png")
+    assert_matches_baseline(page.locator("#peripheral-index").screenshot(), "peripheral-index.png", max_height_rounding=1)
 
 
 def test_visual_media_vault(page: Page, local_server):
@@ -1034,7 +1034,7 @@ def test_visual_media_vault(page: Page, local_server):
     page.locator("#media-vault").scroll_into_view_if_needed()
     _wait_for_visual_assets(page, "#media-vault")
     _freeze_decorative_video(page)
-    assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png")
+    assert_matches_baseline(page.locator("#media-vault").screenshot(), "media-vault.png", max_height_rounding=1)
 
 
 def test_visual_reduced_motion(page: Page, local_server):

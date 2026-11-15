@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 53
+revision: 54
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -957,3 +957,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 52: closed Musical / Score Room integration after PR #83 merged to protected `main` at `f797fc2`, passing required branch and post-merge CI, Pages publication and deployment, build provenance, and independent cache-busted exact-byte live checks for the musical HTML and authority file. Removed only the now-obsolete Musical pending item; unrelated project pending/history remains untouched.
 
 - Revision 53: implemented the seven bounded Impeccable UX findings on a clean feature checkout, retained the source-to-generated publication contract, upgraded legacy navigation journey checks, and added targeted Playwright tests for focus, touch geometry, responsive folios, recovery feedback, and disclosure. Verification is local and bounded until protected CI and publication evidence exist.
+
+- Revision 54: PR #85 protected CI run 43661841665 failed four checks after 314 Chromium tests passed: two 1px element screenshot height differences (pixel differences within the existing 5% threshold) and two assertions on the offline 2 MB precache budget (2,003,896 bytes). The correction keeps the 2,000,000-byte limit, removes only leading horizontal indentation from generated inline app JS, and narrowly permits exactly 1px height rounding for the two identified long screenshot fixtures while retaining their existing 5% content-difference threshold. Regenerate/docs parity, cross-browser CI recheck, merge, Pages publication, and live-edge proof remain separately pending until observed.

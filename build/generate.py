@@ -428,6 +428,15 @@ def render_site() -> str:
     nav = json.loads((CONTENT_DIR / "nav.json").read_text(encoding="utf-8"))
     style_css = (TEMPLATES_DIR / "style.css").read_text(encoding="utf-8")
     app_js = build_app_js(rename_map)
+    # This script is inlined into the precached root HTML. Trim only leading
+    # indentation, preserving newlines/ASIs and keeping the authored JS readable.
+    # Refuse future template literals or multiline escaped strings that could
+    # give leading spaces semantic meaning.
+    if any(chr(96) in line and not line.lstrip().startswith("//") for line in app_js.splitlines()):
+        raise RuntimeError("app.js inline compaction requires template literal review")
+    if any(line.endswith("\\") for line in app_js.splitlines()):
+        raise RuntimeError("app.js inline compaction requires line-continuation review")
+    app_js = "\n".join(line.lstrip(" \t") for line in app_js.split("\n"))
     reader_workbench_js = (TEMPLATES_DIR / "reader-workbench.js").read_text(encoding="utf-8")
     witness_engine_js = (TEMPLATES_DIR / "witness-engine.js").read_text(encoding="utf-8")
     witness_data_b64 = base64.b64encode(json.dumps(build_witness_data(sections), ensure_ascii=False, separators=(",", ":")).encode("utf-8")).decode("ascii")
