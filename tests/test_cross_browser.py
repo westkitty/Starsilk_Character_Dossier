@@ -13,6 +13,7 @@ def test_unified_museum_shell_journey(page: Page, local_server):
     page.set_viewport_size({"width": 1280, "height": 900})
     page.goto(f"{local_server}/index.html")
     expect(page.locator('body[data-museum-shell="unified"]')).to_be_visible()
+    page.locator(".archive-lenses-more > summary").click()
     expect(page.locator("a.museum-module[href='objects/']")).to_be_visible()
     page.locator("a.museum-module[href='objects/']").click()
     expect(page.locator('header.museum-nav[data-museum-shell="unified"]')).to_be_visible()

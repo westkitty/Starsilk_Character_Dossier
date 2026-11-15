@@ -34,6 +34,13 @@
 @media(max-width:1150px){.revision-grid{grid-template-columns:minmax(15rem,.72fr) 1.28fr}.revision-consequence-pane{grid-column:1/-1}}
 @media(max-width:700px){.revision-chamber{padding:0 .75rem 1rem}.revision-head{align-items:flex-start}.revision-grid{grid-template-columns:1fr}.revision-consequence-pane{grid-column:auto}.revision-chamber textarea{min-height:38vh}.revision-counts{grid-template-columns:1fr 1fr}.revision-compare-row>div{grid-template-columns:1fr}.revision-actions>*{flex:1 1 10rem}}
 @media print{.revision-chamber{display:none!important}}
+/* Native modal dialogs contain keyboard focus and inert the background automatically. */
+dialog.witness-engine,dialog.revision-chamber{
+  margin:0;width:100%;height:100dvh;max-width:none;max-height:none;
+  border:0;box-sizing:border-box
+}
+dialog.witness-engine:not([open]),dialog.revision-chamber:not([open]){display:none!important}
+dialog.witness-engine::backdrop,dialog.revision-chamber::backdrop{background:rgba(0,0,0,.85)}
 /* Preserve the HTML hidden contract even when component CSS sets display. */
 [hidden]{display:none!important}
 </style>
@@ -53,9 +60,12 @@
 <div class="archive-junction-copy"><div class="eyebrow">Archive access</div><h2 id="museum-hero-heading">Choose a lens.</h2><p>The Compendium remains one canon record. These views expose the same material by identity, chronology, relation, media, and topology without inventing what the source does not say.</p></div>
 <div class="museum-module-grid archive-lens-grid">
 <a class="museum-module archive-lens" href="palimpsest/"><span class="museum-module-eyebrow">Palimpsest</span><h3>Enter through consequence</h3><p>Learn Starsilk by causing its rules to reveal themselves.</p></a>
-<a class="museum-module archive-lens" href="musical/"><span class="museum-module-eyebrow">The Musical</span><h3>Follow the score</h3><p>Cast, canon rules, lyric drafts, and a sixteen-cue workshop map.</p></a>
 <a class="museum-module archive-lens" href="discover/"><span class="museum-module-eyebrow">Discover</span><h3>Search the record</h3><p>Filter stable records and source-backed excerpts.</p></a>
 <a class="museum-module archive-lens" href="entities/"><span class="museum-module-eyebrow">Entities</span><h3>Open a folio</h3><p>Stable permalinks for every authored top-level record.</p></a>
+<details class="archive-lenses-more">
+<summary>Eight more ways to explore</summary>
+<div class="museum-module-grid archive-lens-grid archive-lens-secondary">
+<a class="museum-module archive-lens" href="musical/"><span class="museum-module-eyebrow">The Musical</span><h3>Follow the score</h3><p>Cast, canon rules, lyric drafts, and a sixteen-cue workshop map.</p></a>
 <a class="museum-module archive-lens" href="objects/"><span class="museum-module-eyebrow">Objects</span><h3>See the evidence</h3><p>Published visual and media objects with provenance.</p></a>
 <a class="museum-module archive-lens" href="relationships/"><span class="museum-module-eyebrow">Relationships</span><h3>Follow the references</h3><p>Only the cross-links the Compendium actually contains.</p></a>
 <a class="museum-module archive-lens" href="canon/"><span class="museum-module-eyebrow">Canon</span><h3>Inspect the locks</h3><p>Machine-enforced protections for selected established facts.</p></a>
@@ -63,6 +73,8 @@
 <a class="museum-module archive-lens" href="films/"><span class="museum-module-eyebrow">Film Vault</span><h3>Attend the lesson</h3><p>Administration instructional reels where catastrophe becomes procedure.</p></a>
 <a class="museum-module archive-lens" href="chronology/"><span class="museum-module-eyebrow">Chronology</span><h3>Trace what happened</h3><p>Authored events, durations, and explicit unknowns.</p></a>
 <a class="museum-module archive-lens" href="worldsvault/"><span class="museum-module-eyebrow">WorldsVault</span><h3>Read the topology</h3><p>Directly sourced cosmic relations without invented geography.</p></a>
+</div>
+</details>
 </div>
 <section class="museum-data-strip archive-machine-row" aria-labelledby="museum-data-heading"><div><div class="eyebrow">Machine access</div><h2 id="museum-data-heading">The same record, structured.</h2><p>Deterministic derivatives and orientation files for tools that need the Compendium without a visual interface.</p></div><div class="museum-data-links"><a href="agents/AGENT_GUIDE.md">Agent guide</a><a href="machine/index.json">Machine index</a><a href="llms.txt">llms.txt</a><a href="sitemap.xml">Sitemap</a></div></section>
 <details class="archive-stats"><summary>Collection statistics</summary><dl class="museum-hero-stats" aria-label="Collection totals"><div><dt>Compendium records</dt><dd>{{ museum_stats.record_count }}</dd></div><div><dt>Published media objects</dt><dd>{{ museum_stats.object_count }}</dd></div><div><dt>Cross-referenced links</dt><dd>MUSEUM_LINK_COUNT_PLACEHOLDER</dd></div><div><dt>Chronology events</dt><dd>{{ museum_stats.event_count }}</dd></div><div><dt>Curated tours</dt><dd>{{ museum_stats.tour_count }}</dd></div><div><dt>Machine-enforced canon locks</dt><dd>{{ museum_stats.canon_lock_count }}</dd></div></dl></details>
@@ -82,7 +94,7 @@
 <script>
 {{ reader_workbench_js }}
 </script>
-<aside id="witnessEngine" class="witness-engine" aria-labelledby="witnessEngineHeading" aria-describedby="witnessEngineBoundary" hidden>
+<dialog id="witnessEngine" class="witness-engine" aria-labelledby="witnessEngineHeading" aria-describedby="witnessEngineBoundary">
 <header class="witness-engine-head"><div><span class="eyebrow">Canon compile desk</span><h2 id="witnessEngineHeading">Witness Engine</h2></div><div class="witness-engine-head-actions"><button type="button" id="witnessToRevision">Fork into Revision Chamber</button><button type="button" id="witnessEngineClose" aria-label="Close Witness Engine">Close</button></div></header>
 <p id="witnessEngineBoundary" class="witness-boundary">Draft text stays in browser memory. The compiler may point to existing records and machine-enforced locks; it cannot promote a sentence into canon, invent missing evidence, or turn an absent lock into a negative fact.</p>
 <div id="witnessStatus" class="witness-status" role="status" aria-live="polite"></div>
@@ -91,12 +103,12 @@
 <section class="witness-pane witness-report-pane" aria-labelledby="witnessReportHeading"><span class="eyebrow">02 / Compile report</span><h3 id="witnessReportHeading">What the archive can actually establish</h3><div id="witnessReport"><p class="witness-empty">Nothing compiled yet.</p></div></section>
 <section class="witness-pane witness-trace-pane" aria-labelledby="witnessTraceHeading"><span class="eyebrow">03 / Witness trace</span><h3 id="witnessTraceHeading">Why did it say that?</h3><div id="witnessTrace"><div class="witness-trace-empty"><p>Select a diagnostic after compiling.</p></div></div><div class="witness-actions witness-export-actions"><button type="button" id="witnessCopyPack">Copy context pack</button><button type="button" id="witnessDownloadReport">Export report</button></div></section>
 </div>
-</aside>
+</dialog>
 <script>window.STARSILK_WITNESS_DATA=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob("{{ witness_data_b64 }}"),function(c){return c.charCodeAt(0);})));</script>
 <script>
 {{ witness_engine_js }}
 </script>
-<aside id="revisionChamber" class="revision-chamber" aria-labelledby="revisionChamberHeading" aria-describedby="revisionChamberBoundary" hidden>
+<dialog id="revisionChamber" class="revision-chamber" aria-labelledby="revisionChamberHeading" aria-describedby="revisionChamberBoundary">
 <header class="revision-head"><div><span class="eyebrow">Speculative canon planning</span><h2 id="revisionChamberHeading">Revision Chamber</h2></div><button type="button" id="revisionChamberClose" aria-label="Close Revision Chamber">Close</button></header>
 <p id="revisionChamberBoundary" class="revision-boundary"><strong>Plan the rewrite. Do not touch reality.</strong> Speculative branches exist only in browser memory. The Chamber can expose machine-lock collisions and source-backed review surfaces; it cannot prove complete canon compatibility, create semantic relationships, write the repository, or promote anything into canon.</p>
 <div id="revisionStatus" class="revision-status" role="status" aria-live="polite"></div>
@@ -106,7 +118,7 @@
 <section class="revision-pane revision-consequence-pane" aria-labelledby="revisionConsequencesHeading"><span class="eyebrow">03 / Consequences</span><h3 id="revisionConsequencesHeading">Known blast radius</h3><div id="revisionConsequences"><div class="revision-empty"><p>Analyze a speculative reality to map only the evidence the archive can prove is touched.</p></div></div><div class="revision-actions"><button type="button" id="revisionCopyPacket">Copy change packet</button></div></section>
 </div>
 <section id="revisionComparison" class="revision-comparison" aria-label="Reality comparison" hidden></section>
-</aside>
+</dialog>
 <script>window.STARSILK_REVISION_DATA=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob("{{ revision_data_b64 }}"),function(c){return c.charCodeAt(0);})));</script>
 <script>
 {{ revision_chamber_js }}

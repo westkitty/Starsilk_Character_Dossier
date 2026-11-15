@@ -134,7 +134,7 @@ def stabilize_visual_test_assets(request):
 VISUAL_BASELINES = Path(__file__).resolve().parent / "visual_baselines"
 
 
-def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float = 0.05):
+def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float = 0.05, max_height_rounding: int = 0):
     """Hand-rolled screenshot-regression comparison.
 
     Set UPDATE_VISUAL_BASELINES=1 only in the pinned baseline-rendering
@@ -161,13 +161,25 @@ def assert_matches_baseline(png_bytes: bytes, name: str, max_diff_ratio: float =
 
     baseline = Image.open(baseline_path).convert("RGB")
     if baseline.size != current.size:
-        diff_path = VISUAL_BASELINES / f"FAILED-{name}"
-        current.save(diff_path)
-        raise AssertionError(
-            f"{name}: baseline size {baseline.size} != current size {current.size} "
-            f"(viewport/layout changed -- update the baseline deliberately if intended). "
-            f"Current render saved to {diff_path} for inspection."
-        )
+        if (
+            max_height_rounding == 1
+            and baseline.width == current.width
+            and abs(baseline.height - current.height) == 1
+        ):
+            # Long element screenshots can round the same fractional CSS
+            # boundary to adjacent device pixels. Compare all shared rows;
+            # keep the usual strict pixel-difference threshold unchanged.
+            common_height = min(baseline.height, current.height)
+            baseline = baseline.crop((0, 0, baseline.width, common_height))
+            current = current.crop((0, 0, current.width, common_height))
+        else:
+            diff_path = VISUAL_BASELINES / f"FAILED-{name}"
+            current.save(diff_path)
+            raise AssertionError(
+                f"{name}: baseline size {baseline.size} != current size {current.size} "
+                f"(viewport/layout changed -- update the baseline deliberately if intended). "
+                f"Current render saved to {diff_path} for inspection."
+            )
 
     diff = ImageChops.difference(baseline, current)
     bbox = diff.getbbox()
