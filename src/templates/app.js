@@ -181,6 +181,18 @@
         panel.__anim.onfinish = function(){ index.classList.remove('open'); panel.style.height=''; panel.style.overflow=''; };
       }
     });
+    // Closed navigation must not retain keyboard focus; Escape restores the opener.
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape' && index.classList.contains('open')){
+        event.preventDefault();
+        if(document.querySelector('.index-panel').__anim){
+          document.querySelector('.index-panel').__anim.cancel();
+        }
+        index.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.focus();
+      }
+    });
   }
   if(index){
     index.querySelectorAll('a[href^="#"]').forEach(function(a){

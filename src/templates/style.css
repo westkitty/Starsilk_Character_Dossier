@@ -389,3 +389,28 @@ html.sidebar-collapsed .museum-entrance{padding-left:var(--page-pad)!important}
 @media(max-width:700px){.cover-entry-paths{grid-template-columns:1fr}.cover-entry-paths a{min-height:0}.archive-junction .museum-hero{padding-left:var(--page-pad);padding-right:var(--page-pad)}.cover-title.is-canon-intrusion{font-size:clamp(.82rem,3.7vw,1rem);letter-spacing:.02em;white-space:normal;overflow-wrap:anywhere;max-width:100%}}
 @media(prefers-reduced-motion: reduce){.cover .cover-thesis,.cover .cover-consequence,.cover .cover-entry-paths{animation:none;opacity:1;transform:none}.cover-title.is-canon-intrusion{text-shadow:none}}
 @media print{.cover .cover-thesis,.cover .cover-consequence,.cover .cover-entry-paths{animation:none;opacity:1;transform:none}.archive-junction{display:none!important}}
+
+/* Impeccable gauntlet: accessible targets, explicit focus, mobile folio geometry. */
+.index a,.museum-data-links a{min-height:44px}
+.archive-stats>summary{display:inline-flex;align-items:center;min-height:44px;padding:.65rem .4rem}
+.image-empty em{color:#8fa8b8}
+.page-controls button:focus-visible,.asset-toolbar button:focus-visible,
+.museum-module:focus-visible,.museum-data-links a:focus-visible,
+.peripheral-index-grid a:focus-visible,.archive-stats>summary:focus-visible{
+  outline:3px solid var(--thread);outline-offset:3px
+}
+.archive-lenses-more{grid-column:1/-1;min-width:0;border-top:1px solid #294055}
+.archive-lenses-more>summary{display:flex;align-items:center;min-height:44px;padding:.85rem 1rem;cursor:pointer;color:var(--thread2);font-weight:700}
+.archive-lenses-more>summary:focus-visible{outline:3px solid var(--thread);outline-offset:-3px}
+.archive-lenses-more[open]>.archive-lens-secondary{margin-top:.5rem}
+@media(max-width:950px){
+  .index:not(.open) .index-panel{visibility:hidden}
+  .index.open .index-panel{visibility:visible}
+}
+@media(max-width:760px){
+  .dossier-grid,.grid-2{grid-template-columns:minmax(0,1fr)}
+  .page-title{grid-template-columns:minmax(0,1fr);gap:.75rem}
+  .page-title .role{text-align:left;max-width:none}
+}
+
+.index a:focus-visible,.nav-group>summary:focus-visible,.media-shelf>summary:focus-visible{outline:3px solid var(--thread);outline-offset:2px}

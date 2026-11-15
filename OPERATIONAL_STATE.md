@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 52
+revision: 53
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -814,6 +814,9 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
+- Impeccable UI/UX Gauntlet QW-01..SU-02 is implemented on feature/impeccable-ux-gauntlet-20261114 from protected main 5b147c4e9d4b1c23de7502a7d98cd16f02120781. Work is limited to touch targets, focus indicators/contrast, 375px dossier stacking, mobile navigation keyboard closure, Record Explorer empty/failure/retry feedback, native focused Witness/Revision dialogs, and disclosure of eight secondary archive routes. The pre-existing objects navigation journey now opens the secondary archive disclosure first. Source and generated publication must be committed together; stable IDs, canon data, offline media, and publication rules are unchanged. Local build and targeted Playwright checks passed, but protected CI/PR acceptance, merge, Pages deployment, and live-edge parity remain separate pending proof.
+
+
 
 - Palimpsest tactile systems upgrade is implemented on branch `feature/palimpsest-tactile-systems` from audited main `76ff3ff1fd14812dff9e3793a1709ba43bbec5b7`: spring-based 2D Starsilk extraction, staged collapse, continuous Blood Ring material exposure, separated visitor/history Nacreous states, normalized node-driven Siege Wall input and language drift, Long Silence atmosphere, staged hail, evidence-state final claim, Starbinding cascade, richer native Web Audio feedback, lifecycle cleanup, and focused regression tests. Current evidence state: **PR-verified / publication-pending**. Protected PR #81 CI run `36384225486` / run number `395` passed at branch head `7b8b77f956b26a6d547055e1eb9c5b9df79597f7`: deterministic build parity, strict/public-boundary validation, Chromium full suite (`301 passed, 1 skipped`), Firefox representative journeys, and WebKit representative journeys all passed. Merge, Pages publication, and live-edge proof remain pending.
 
@@ -952,3 +955,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 51: added an additive Musical / Score Room companion to the Compendium on `feature/musical-score-room-20261027`. Declared workshop-versus-canon authority, deterministic authored-to-published HTML/authority parity, main-site discoverability, public-boundary/derivation-graph coverage, and focused regression assertions. This revision does not claim CI, merge, Pages deployment, or browser/live verification.
 
 - Revision 52: closed Musical / Score Room integration after PR #83 merged to protected `main` at `f797fc2`, passing required branch and post-merge CI, Pages publication and deployment, build provenance, and independent cache-busted exact-byte live checks for the musical HTML and authority file. Removed only the now-obsolete Musical pending item; unrelated project pending/history remains untouched.
+
+- Revision 53: implemented the seven bounded Impeccable UX findings on a clean feature checkout, retained the source-to-generated publication contract, upgraded legacy navigation journey checks, and added targeted Playwright tests for focus, touch geometry, responsive folios, recovery feedback, and disclosure. Verification is local and bounded until protected CI and publication evidence exist.

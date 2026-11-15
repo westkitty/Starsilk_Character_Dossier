@@ -249,3 +249,8 @@ h3{font-size:clamp(1.25rem,2.5vw,2rem);line-height:1.15}
   .scene-frame{min-height:12rem}
   .silence-field{display:none!important}
 }
+/* Preserve keyboard contrast and full-sized witnessed-stage navigation. */
+.claim-line button.is-witnessed:focus-visible,.final-claim button:focus-visible{
+  outline:3px solid var(--phase-accent);outline-offset:3px
+}
+.witness-rail li>button{min-height:44px;padding:.55rem .65rem;font-size:.75rem}

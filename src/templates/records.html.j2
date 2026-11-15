@@ -24,5 +24,7 @@
 
 <section class="trail-workbench" aria-labelledby="trailHeading"><div class="record-kicker">Portable research trail</div><h2 id="trailHeading">Follow a question through the archive.</h2><label>Research question<input id="trailQuestion" type="text" maxlength="300" placeholder="What are you trying to establish?"></label><div id="trailList"></div><div class="trail-actions"><button id="trailExportJson" type="button">Export JSON</button><button id="trailExportMd" type="button">Export Markdown</button><button id="trailClear" type="button">Clear trail</button></div><p class="record-note">Stored only in this browser. Exports contain stable IDs and evidence references; they do not become canon.</p></section>
 
-<ol class="record-grid" id="recordGrid" aria-label="Stable records"></ol><p id="recordLoadError" hidden>The local record search index could not be loaded.</p>
+<ol class="record-grid" id="recordGrid" aria-label="Stable records"></ol>
+<p id="recordEmptyState" role="status" hidden>No records match these filters. <button type="button" id="recordClearFilters">Clear filters</button></p>
+<p id="recordLoadError" role="alert" hidden>The record index could not be loaded. <button type="button" id="recordRetry">Reload record index</button></p>
 </main><script src="records.js" defer></script><script src="records-deep.js" defer></script></body></html>

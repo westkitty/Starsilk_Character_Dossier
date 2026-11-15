@@ -85,9 +85,42 @@
   function exportBranch(){syncFields();var b=activeBranch();if(!b)return;download('starsilk-revision-'+b.id+'.json',{schema:'starsilk-revision-branch/2',name:b.name,proposal:b.proposal,result:b.result,canon_delta:canonDelta(b)});announce('Active speculative reality and exploratory Canon Delta exported. Nothing was canonized.');}
   function exportWorkspace(){syncFields();download('starsilk-revision-workspace.json',{schema:'starsilk-revision-workspace/1',exported_at:new Date().toISOString(),branches:branches.map(function(b){return {name:b.name,proposal:b.proposal,result:b.result};})});announce('Speculative workspace exported. No canon state was included or changed.');}
   function importWorkspace(file){if(!file)return;if(file.size>4000000){announce('Workspace file is too large.');importInput.value='';return;}file.text().then(function(text){var data=JSON.parse(text),items=[];if(data.schema==='starsilk-revision-workspace/1'&&Array.isArray(data.branches))items=data.branches;else if(data.schema==='starsilk-revision-branch/1'||data.schema==='starsilk-revision-branch/2')items=[data];else throw new Error('schema');if(!items.length||items.length>12)throw new Error('count');var imported=[];items.forEach(function(item){var text=String(item.proposal||'');if(text.length>300000)throw new Error('proposal');branchCounter+=1;imported.push({id:'reality-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7),name:safeName(item.name||nextBranchName()),proposal:text,result:null});});branches=imported;activeId=branches[0].id;renderAll();announce('Imported '+branches.length+' speculative realit'+(branches.length===1?'y':'ies')+'. Results will be recomputed from the current archive.');}).catch(function(){announce('That file is not a valid Revision Chamber workspace.');}).finally(function(){importInput.value='';});}
-  function setOpen(open,focus){panel.hidden=!open;if(open){if(!activeBranch())createBranch('',nextBranchName());if(focus)proposal.focus();}else if(focus&&lastOpener&&typeof lastOpener.focus==='function')lastOpener.focus();}
+  var restoreFocusOnClose=true;
+  function setOpen(open,focus){
+    if(open){
+      if(!activeBranch())createBranch('',nextBranchName());
+      if(!panel.open)panel.showModal();
+      if(focus)proposal.focus();
+    }else if(panel.open){
+      restoreFocusOnClose=!!focus;
+      panel.close();
+    }
+  }
+  panel.addEventListener('cancel',syncFields);
+  // Keep tab focus inside the active full-screen authoring workspace.
+  panel.addEventListener('keydown',function(event){
+    if(event.key!=='Tab')return;
+    var focusables=Array.prototype.slice.call(panel.querySelectorAll(
+      'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'
+    )).filter(function(el){
+      return el.tabIndex>=0 && el.getClientRects().length>0 && window.getComputedStyle(el).visibility!=='hidden';
+    });
+    if(!focusables.length){event.preventDefault();panel.focus();return;}
+    var first=focusables[0],last=focusables[focusables.length-1];
+    if(event.shiftKey && (document.activeElement===first||document.activeElement===panel)){
+      event.preventDefault();last.focus();
+    } else if(!event.shiftKey && document.activeElement===last){
+      event.preventDefault();first.focus();
+    }
+  });
+
+  panel.addEventListener('close',function(){
+    syncFields();
+    if(restoreFocusOnClose&&lastOpener&&typeof lastOpener.focus==='function')lastOpener.focus();
+    restoreFocusOnClose=true;
+  });
   function openFromReader(){lastOpener=document.getElementById('readerWorkbenchToggle')||readerBridge;var readerClose=document.getElementById('readerWorkbenchClose');if(readerClose)readerClose.click();if(!activeBranch())createBranch('',nextBranchName());setOpen(true,true);}
-  function openFromWitness(){lastOpener=document.getElementById('witnessEngineToggle')||witnessBridge;var witnessDraft=document.getElementById('witnessDraft'),text=witnessDraft?witnessDraft.value:'';var witnessClose=document.getElementById('witnessEngineClose');if(witnessClose)witnessClose.click();var b=activeBranch();if(branches.length===1&&b&&!b.proposal.trim()&&!b.result){b.proposal=text;renderAll();}else createBranch(text,nextBranchName());setOpen(true,true);announce(text.trim()?'Forked the Witness draft into a speculative reality. Nothing was canonized.':'Created a blank speculative reality.');}
+  function openFromWitness(){lastOpener=document.getElementById('witnessEngineToggle')||witnessBridge;var witnessDraft=document.getElementById('witnessDraft'),text=witnessDraft?witnessDraft.value:'';var witnessPanel=document.getElementById('witnessEngine');if(witnessPanel&&witnessPanel.open)witnessPanel.dispatchEvent(new Event('starsilk:handoff-close'));var b=activeBranch();if(branches.length===1&&b&&!b.proposal.trim()&&!b.result){b.proposal=text;renderAll();}else createBranch(text,nextBranchName());setOpen(true,true);announce(text.trim()?'Forked the Witness draft into a speculative reality. Nothing was canonized.':'Created a blank speculative reality.');}
 
   branchList.addEventListener('click',function(event){var button=event.target.closest('[data-branch-id]');if(button)selectBranch(button.dataset.branchId);});
   newBtn.addEventListener('click',function(){syncFields();createBranch('',nextBranchName());announce('New speculative reality forked in browser memory.');proposal.focus();});
@@ -105,7 +138,7 @@
   close.addEventListener('click',function(){syncFields();setOpen(false,true);});
   if(readerBridge)readerBridge.addEventListener('click',openFromReader);
   if(witnessBridge)witnessBridge.addEventListener('click',openFromWitness);
-  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!panel.hidden){event.preventDefault();syncFields();setOpen(false,true);return;}if((event.ctrlKey||event.metaKey)&&event.shiftKey&&event.key.toLowerCase()==='r'){event.preventDefault();lastOpener=document.getElementById('readerWorkbenchToggle')||readerBridge||close;if(panel.hidden){if(!activeBranch())createBranch('',nextBranchName());setOpen(true,true);}else setOpen(false,true);}});
+  document.addEventListener('keydown',function(event){if((event.ctrlKey||event.metaKey)&&event.shiftKey&&event.key.toLowerCase()==='r'){event.preventDefault();lastOpener=document.getElementById('readerWorkbenchToggle')||readerBridge||close;setOpen(!panel.open,true);}});
 
   createBranch('',nextBranchName());
 })();

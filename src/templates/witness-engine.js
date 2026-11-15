@@ -75,9 +75,43 @@
   function copy(text){if(!text){announce('Compile a draft first.');return;}if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(function(){announce('Context pack copied.');}).catch(function(){announce('Clipboard copy was blocked by this browser.');});else announce('Clipboard access is unavailable in this browser.');}
   function downloadReport(){if(!lastResult){announce('Compile a draft first.');return;}var blob=new Blob([JSON.stringify(lastResult,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='starsilk-witness-report.json';a.click();setTimeout(function(){URL.revokeObjectURL(url);},0);announce('Witness report exported.');}
   function visibleOpener(){var candidate=lastOpener||toggle;if(candidate&&window.getComputedStyle(candidate).display!=='none')return candidate;return document.getElementById('readerWorkbenchToggle')||toggle;}
-  function setOpen(open,focus){panel.hidden=!open;toggle.setAttribute('aria-expanded',String(open));if(open&&focus)draft.focus();if(!open&&focus)visibleOpener().focus();}
+  var restoreFocusOnClose=true;
+  function setOpen(open,focus){
+    if(open){
+      if(!panel.open) panel.showModal();
+      toggle.setAttribute('aria-expanded','true');
+      if(focus) draft.focus();
+    }else if(panel.open){
+      restoreFocusOnClose=!!focus;
+      panel.close();
+    }
+  }
+  panel.addEventListener('close',function(){
+    toggle.setAttribute('aria-expanded','false');
+    if(restoreFocusOnClose) visibleOpener().focus();
+    restoreFocusOnClose=true;
+  });
+  // A native-dialog handoff closes without stealing focus from the destination.
+  panel.addEventListener('starsilk:handoff-close',function(){setOpen(false,false);});
+  // Keep tab focus inside the active full-screen authoring workspace.
+  panel.addEventListener('keydown',function(event){
+    if(event.key!=='Tab')return;
+    var focusables=Array.prototype.slice.call(panel.querySelectorAll(
+      'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'
+    )).filter(function(el){
+      return el.tabIndex>=0 && el.getClientRects().length>0 && window.getComputedStyle(el).visibility!=='hidden';
+    });
+    if(!focusables.length){event.preventDefault();panel.focus();return;}
+    var first=focusables[0],last=focusables[focusables.length-1];
+    if(event.shiftKey && (document.activeElement===first||document.activeElement===panel)){
+      event.preventDefault();last.focus();
+    } else if(!event.shiftKey && document.activeElement===last){
+      event.preventDefault();first.focus();
+    }
+  });
 
-  toggle.addEventListener('click',function(){lastOpener=toggle;setOpen(panel.hidden,true);});
+
+  toggle.addEventListener('click',function(){lastOpener=toggle;setOpen(!panel.open,true);});
   close.addEventListener('click',function(){setOpen(false,true);});
   if(readerBridge)readerBridge.addEventListener('click',function(){lastOpener=document.getElementById('readerWorkbenchToggle')||toggle;var readerClose=document.getElementById('readerWorkbenchClose');if(readerClose)readerClose.click();setOpen(true,true);});
   compileBtn.addEventListener('click',compile);
@@ -86,5 +120,5 @@
   downloadBtn.addEventListener('click',downloadReport);
   fileInput.addEventListener('change',function(){var file=fileInput.files&&fileInput.files[0];if(!file)return;if(file.size>300000){announce('File is too large. Keep imported drafts under 300 KB.');fileInput.value='';return;}file.text().then(function(text){draft.value=text;announce('Imported '+file.name+'. Draft remains local to this browser.');}).catch(function(){announce('This browser could not read that file.');});});
   report.addEventListener('click',function(event){var button=event.target.closest('[data-witness-id]');if(!button||!lastResult)return;var item=lastResult.diagnostics.find(function(d){return d.id===button.dataset.witnessId;});if(item)showTrace(item);});
-  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!panel.hidden){event.preventDefault();setOpen(false,true);}if((event.ctrlKey||event.metaKey)&&event.shiftKey&&event.key.toLowerCase()==='k'){event.preventDefault();lastOpener=window.getComputedStyle(toggle).display==='none'?(document.getElementById('readerWorkbenchToggle')||toggle):toggle;setOpen(panel.hidden,true);}});
+  document.addEventListener('keydown',function(event){if((event.ctrlKey||event.metaKey)&&event.shiftKey&&event.key.toLowerCase()==='k'&&!document.getElementById('ssCommandDialog')){event.preventDefault();lastOpener=window.getComputedStyle(toggle).display==='none'?(document.getElementById('readerWorkbenchToggle')||toggle):toggle;setOpen(!panel.open,true);}});
 })();
