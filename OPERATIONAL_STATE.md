@@ -2,7 +2,7 @@
 
 project_id: starsilk-character-dossier
 project_name: Starsilk Compendium
-revision: 54
+revision: 55
 freshness_policy: src/system/operational-state-policy.json
 
 ## Current baseline
@@ -814,6 +814,8 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 
 ## Pending
 
+- Shard-God Tiger approved-reference propagation: branch feature/tiger-approved-visual-reference-20261119 based on 8a3403be32736c3d0cd628cd1413583256c1187c. Authored dossier text now records exactly nine feet (2.74 m), original compact angular wedge-shaped head/short projecting muzzle, solid cyan pupil-free eyes, and one tail. Four previously published studies remain provisional and are explicitly not primary references. Three machine-enforced section locks and focused regression tests were added; authoritative generators refreshed affected docs output. Source/build parity, strict canon validation (19 locks, zero violations), public-boundary validation (597 files), git diff --check, and 25 focused non-browser tests passed locally. One browser test was deselected because the existing MacBook Playwright cache lacks the required Chromium binary; no new browsers or dependencies were installed. GitHub PR review and protected Chromium/Firefox/WebKit CI remain required; no merge or Pages publication is authorized. The approved original artwork and its private registry/approval metadata remain outside this public repository.
+
 - Impeccable UI/UX Gauntlet QW-01..SU-02 is implemented on feature/impeccable-ux-gauntlet-20261114 from protected main 5b147c4e9d4b1c23de7502a7d98cd16f02120781. Work is limited to touch targets, focus indicators/contrast, 375px dossier stacking, mobile navigation keyboard closure, Record Explorer empty/failure/retry feedback, native focused Witness/Revision dialogs, and disclosure of eight secondary archive routes. The pre-existing objects navigation journey now opens the secondary archive disclosure first. Source and generated publication must be committed together; stable IDs, canon data, offline media, and publication rules are unchanged. Local build and targeted Playwright checks passed, but protected CI/PR acceptance, merge, Pages deployment, and live-edge parity remain separate pending proof.
 
 
@@ -959,3 +961,5 @@ GitHub Actions run `32634313313` verified the Archive-mode implementation handof
 - Revision 53: implemented the seven bounded Impeccable UX findings on a clean feature checkout, retained the source-to-generated publication contract, upgraded legacy navigation journey checks, and added targeted Playwright tests for focus, touch geometry, responsive folios, recovery feedback, and disclosure. Verification is local and bounded until protected CI and publication evidence exist.
 
 - Revision 54: PR #85 protected CI run 43661841665 failed four checks after 314 Chromium tests passed: two 1px element screenshot height differences (pixel differences within the existing 5% threshold) and two assertions on the offline 2 MB precache budget (2,003,896 bytes). The correction keeps the 2,000,000-byte limit, removes only leading horizontal indentation from generated inline app JS, and narrowly permits exactly 1px height rounding for the two identified long screenshot fixtures while retaining their existing 5% content-difference threshold. Regenerate/docs parity, cross-browser CI recheck, merge, Pages publication, and live-edge proof remain separately pending until observed.
+
+- Revision 55: staged the bounded approved Tiger visual-reference correction from main 8a3403be on a dedicated temporary worktree/feature branch. Refined only Tiger's authored visual description and private-primary/provisional-study hierarchy, added three section-scoped machine canon locks plus new focused regression coverage, and regenerated dependent static publications. Local full deterministic build and check, 19/19 canon locks, 597-file public-boundary check, and 25 focused non-browser tests passed; browser CI, PR review, merge and live publication are not claimed. Preserved all 213 existing published media and did not expose the approved original's private file, locator, digest, or ledger metadata.

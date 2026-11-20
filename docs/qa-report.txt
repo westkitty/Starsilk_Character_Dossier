@@ -20,13 +20,13 @@ STARSILK COMPENDIUM — WEB EDITION QA REPORT (parsed-DOM validator)
 
 [9] MEDIA COUNTS: image_refs=288, video_refs=7
 
-[10-11] CANON INVARIANTS: 16 lock(s) checked, 0 violation(s)
+[10-11] CANON INVARIANTS: 19 lock(s) checked, 0 violation(s)
 
 [12] JAVASCRIPT SYNTAX: 6 script block(s), 0 syntax error(s)
 
 [13] SIZE REPORT
-    Generated docs/index.html: 846,833 bytes
-    Total docs/ directory: 81,157,032 bytes
+    Generated docs/index.html: 844,285 bytes
+    Total docs/ directory: 81,169,600 bytes
     Total published media: 73,201,453 bytes across 213 files
 
 [14] DRAKKEN ART IDENTITY ASSERTIONS: 36 checked, 0 missing/broken

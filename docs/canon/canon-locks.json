@@ -61,7 +61,7 @@
   ],
   "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/",
   "document_lock_count": 3,
-  "lock_count": 16,
+  "lock_count": 19,
   "locks": [
     {
       "authority": {
@@ -363,6 +363,94 @@
         "machine_validation": "src/canon/invariants.json",
         "public_derivative": "generated /canon/ publication"
       },
+      "description": "Shard-God Tiger's exact height is nine feet (2.74 m).",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-exact-height",
+      "positive_requirements": [
+        "(?i)exactly nine feet \\(2\\.74 m\\)"
+      ],
+      "prohibitions": [
+        "(?i)at or below roughly nine feet"
+      ],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Tiger retains the original compact angular wedge-shaped head and short projecting muzzle.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-compact-head",
+      "positive_requirements": [
+        "(?i)compact angular wedge[- ]shaped head",
+        "(?i)short projecting muzzle"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
+      "description": "Tiger's eyes are a solid cyan glow without pupils.",
+      "enforcement": {
+        "scope_semantics": "Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.",
+        "status": "enforced-on-generated-compendium-validation",
+        "validator": "build/validate.py --strict"
+      },
+      "lock_id": "shard-god-pupil-free-eyes",
+      "positive_requirements": [
+        "(?i)eyes glow solid cyan",
+        "(?i)no pupils"
+      ],
+      "prohibitions": [],
+      "scope": "section",
+      "target": {
+        "canonical_url": "https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/",
+        "kind": "published-section",
+        "source_refs": [
+          "src/content/sections.json",
+          "src/content/sections/shard-god.body.html"
+        ],
+        "stable_id": "shard-god"
+      }
+    },
+    {
+      "authority": {
+        "canon_content": "authored dossier content in the target source references",
+        "machine_validation": "src/canon/invariants.json",
+        "public_derivative": "generated /canon/ publication"
+      },
       "description": "Starsilk's material identity remains cyan/azure luminous edges.",
       "enforcement": {
         "scope_semantics": "Applied only to generated section #starsilk-material; positive requirements and prohibitions are evaluated inside that section.",
@@ -529,6 +617,6 @@
   "project_id": "starsilk-character-dossier",
   "schema": "starsilk-canon-lock-register/1",
   "schema_url": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/canon-lock-register.schema.json",
-  "section_lock_count": 13,
+  "section_lock_count": 16,
   "source_invariants": "src/canon/invariants.json"
 }

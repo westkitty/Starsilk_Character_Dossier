@@ -79,6 +79,25 @@
       "must_match": ["(?i)obsidian"]
     },
     {
+      "id": "shard-god-exact-height",
+      "section": "shard-god",
+      "description": "Shard-God Tiger's exact height is nine feet (2.74 m).",
+      "must_match": ["(?i)exactly nine feet \\(2\\.74 m\\)"],
+      "must_not_match": ["(?i)at or below roughly nine feet"]
+    },
+    {
+      "id": "shard-god-compact-head",
+      "section": "shard-god",
+      "description": "Tiger retains the original compact angular wedge-shaped head and short projecting muzzle.",
+      "must_match": ["(?i)compact angular wedge[- ]shaped head", "(?i)short projecting muzzle"]
+    },
+    {
+      "id": "shard-god-pupil-free-eyes",
+      "section": "shard-god",
+      "description": "Tiger's eyes are a solid cyan glow without pupils.",
+      "must_match": ["(?i)eyes glow solid cyan", "(?i)no pupils"]
+    },
+    {
       "id": "starsilk-material-azure",
       "section": "starsilk-material",
       "description": "Starsilk's material identity remains cyan/azure luminous edges.",

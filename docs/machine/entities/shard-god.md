@@ -50,20 +50,21 @@ Tiger creates Starsilk from the beginning as a betrayal mechanism against the ot
 - He is not a generic devil. He is a divine optimization problem wearing a body.
 ### Visual identity lock
 - Single long tail. Never add a second tail.
-- Digitigrade, predatory humanoid silhouette; imposing but not an unbounded kaiju. Current scale lock remains at or below roughly nine feet.
+- Digitigrade, predatory humanoid silhouette; imposing but not an unbounded kaiju. Tiger stands exactly nine feet (2.74 m) tall.
 - Obsidian-black skin/scales with luminous cyan-blue fissures and crystalline dorsal spines/mane.
-- Eyes read as cold cyan glow without ordinary visible pupils.
+- His original compact angular wedge-shaped head has a short projecting muzzle; never substitute an elongated dragon-like head.
+- Eyes glow solid cyan with no pupils or irises.
 - No cape.
 - Sharp crystalline geometry, controlled posture and deliberate motion. The design should feel engineered by recursion, not feral accident.
 void obsidian cyan crystal
-### Reference-art caution
-These sheets are visual anchors, not independent canon generators. Effect labels such as ice breath, glowing hand fields, exact height marks, or other sheet annotations do not create new powers or measurements unless supported by current canon. Current text locks win.
+### Reference hierarchy
+Tiger has an approved primary visual reference: the original user-supplied image retained in the private canonical artwork library. It is not reproduced or linked in this public dossier. The four images below are provisional studies, not approved identity references or independent canon generators. Their effect labels, height marks, and uncertain anatomy cannot add powers, measurements, or design locks. The approved original and current written canon govern identity.
 ### Do not flatten
 - Do not convert ordered cruelty into simple anger.
 - Do not make the Siege Wall a clean rescue.
 - Do not make Starsilk itself conscious or suffering.
 - Do not sentimentalize his relationship to witnesses, victims or the dead.
-*Media note: Shard-God — pose and silhouette study Primary silhouette anchor: single tail, obsidian body, cyan crystalline dorsal structure and deliberate predatory posture.*
-*Media note: Shard-God Tiger — material and turnaround study Useful for surface language and dorsal crystal placement. Text labels on the sheet remain subordinate to current canon.*
-*Media note: Shard-God — rotation and expression study Facial and pose continuity reference. Preserve the cold cyan eye read and one-tail silhouette.*
-*Media note: Shard-God — turnaround and gesture library Broad visual vocabulary. Any unconfirmed effect callout is study material, not a canon power lock.*
+*Media note: Provisional — pose and silhouette study Secondary study only; not the approved primary identity anchor: single tail, obsidian body, cyan crystalline dorsal structure and deliberate predatory posture.*
+*Media note: Provisional — material and turnaround study Useful for surface language and dorsal crystal placement. Text labels on the sheet remain subordinate to current canon.*
+*Media note: Provisional — rotation and expression study Facial and pose continuity reference. Preserve the cold cyan eye read and one-tail silhouette.*
+*Media note: Provisional — turnaround and gesture library Broad visual vocabulary. Any unconfirmed effect callout is study material, not a canon power lock.*
