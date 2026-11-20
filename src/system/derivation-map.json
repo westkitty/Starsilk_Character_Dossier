@@ -15,6 +15,7 @@
       "docs/tours",
       "docs/films",
       "docs/palimpsest",
+      "docs/experiences",
       "docs/musical",
       "docs/chronology",
       "docs/worldsvault",
@@ -99,7 +100,8 @@
         "src/offline/**",
         "src/agents/**",
         "src/records/**",
-        "src/palimpsest/**"
+        "src/palimpsest/**",
+        "src/experiences/**"
       ],
       "scope": "subsystems"
     },
@@ -593,6 +595,29 @@
       "scope": "palimpsest_out",
       "roots": [
         "docs/palimpsest"
+      ]
+    },
+    {
+      "id": "experiences_gen",
+      "label": "Living Archive metadata generator",
+      "role": "authoritative",
+      "node_type": "generator",
+      "paths": [
+        "build/experiences_publication.py"
+      ],
+      "scope": "experiences_gen"
+    },
+    {
+      "id": "experiences_out",
+      "label": "Living Archive metadata publication",
+      "role": "generated",
+      "node_type": "output",
+      "paths": [
+        "docs/experiences/**"
+      ],
+      "scope": "experiences_out",
+      "roots": [
+        "docs/experiences"
       ]
     }
   ],
@@ -1610,6 +1635,47 @@
     {
       "id": "boundary_palimpsest_out",
       "from": "palimpsest_out",
+      "to": "boundary",
+      "kind": "validates",
+      "evidence": [
+        "tools/check_public_boundary.py",
+        "tools/build.sh"
+      ]
+    },
+    {
+      "id": "schemas_experiences_gen",
+      "from": "schemas",
+      "to": "experiences_gen",
+      "kind": "input_to",
+      "evidence": [
+        "src/schema/guest-exhibit-registry.schema.json",
+        "build/experiences_publication.py"
+      ]
+    },
+    {
+      "id": "subsystems_experiences_gen",
+      "from": "subsystems",
+      "to": "experiences_gen",
+      "kind": "input_to",
+      "evidence": [
+        "src/experiences/AUTHORITY.md",
+        "src/experiences/registry.json",
+        "build/experiences_publication.py"
+      ]
+    },
+    {
+      "id": "experiences_gen_output",
+      "from": "experiences_gen",
+      "to": "experiences_out",
+      "kind": "generates",
+      "evidence": [
+        "build/experiences_publication.py",
+        "tools/build.sh"
+      ]
+    },
+    {
+      "id": "boundary_experiences_out",
+      "from": "experiences_out",
       "to": "boundary",
       "kind": "validates",
       "evidence": [

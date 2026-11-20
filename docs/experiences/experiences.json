@@ -1,0 +1,208 @@
+{
+  "exhibits": [
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "cosmology",
+      "evidence_run_id": 41824442261,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Needs direct live-edge/revision and embedding review.",
+      "id": "Starsilk_Map_of_the_All",
+      "live_edge": "unverified",
+      "source_commit": "f776e6182a7fc0fe27ef9e573be83eaa1ca0bbd3",
+      "source_url": "https://github.com/westkitty/Starsilk_Map_of_the_All/commit/f776e6182a7fc0fe27ef9e573be83eaa1ca0bbd3",
+      "spoiler_level": "major",
+      "title": "Map of the All",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "drakken",
+      "evidence_run_id": 35659766877,
+      "evidence_state": "older-commit-deploy",
+      "hold_reason": "Pages-to-HEAD mismatch and roster/canon reconciliation.",
+      "id": "Drakken_Lineage",
+      "live_edge": "unverified",
+      "source_commit": "3b4091664ef3acf6c7e9ac92f9a4f61ef9439340",
+      "source_url": "https://github.com/westkitty/Drakken_Lineage/commit/3b4091664ef3acf6c7e9ac92f9a4f61ef9439340",
+      "spoiler_level": "major",
+      "title": "Drakken Lineage",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "historical",
+      "collection": "historical",
+      "evidence_run_id": 43580885382,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Confirm live-edge parity, source status and permission for inclusion.",
+      "id": "Palimpsest",
+      "live_edge": "unverified",
+      "source_commit": "d4fab1eb8bc45d20359db77080e7fb0c870d5077",
+      "source_url": "https://github.com/westkitty/Palimpsest/commit/d4fab1eb8bc45d20359db77080e7fb0c870d5077",
+      "spoiler_level": "major",
+      "title": "Palimpsest (standalone)",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "historical",
+      "evidence_run_id": null,
+      "evidence_state": "not-proven",
+      "hold_reason": "Requires a real release/browser check and visual-canon reconciliation.",
+      "id": "Heliocide_Viewer",
+      "live_edge": "unverified",
+      "source_commit": "77199d62445f038b8eacad85639067bb0e609a37",
+      "source_url": "https://github.com/westkitty/Heliocide_Viewer/commit/77199d62445f038b8eacad85639067bb0e609a37",
+      "spoiler_level": "major",
+      "title": "Heliocide Viewer",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "historical",
+      "collection": "historical",
+      "evidence_run_id": 43613210488,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Check live URL, third-party crew-asset rights and mobile runtime.",
+      "id": "the-sixth-month-orbital-tomb",
+      "live_edge": "unverified",
+      "source_commit": "083ab8b8544fde06cc93867749e0e2b25916d3c1",
+      "source_url": "https://github.com/westkitty/the-sixth-month-orbital-tomb/commit/083ab8b8544fde06cc93867749e0e2b25916d3c1",
+      "spoiler_level": "major",
+      "title": "The Sixth Month — Orbital Tomb",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "operations",
+      "evidence_run_id": 41200555495,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Check live build, persistence/storage isolation and visitor safety.",
+      "id": "Starsilk_Command",
+      "live_edge": "unverified",
+      "source_commit": "b3def11d64c0fc0e75d13fb59415e06a16f70120",
+      "source_url": "https://github.com/westkitty/Starsilk_Command/commit/b3def11d64c0fc0e75d13fb59415e06a16f70120",
+      "spoiler_level": "major",
+      "title": "Starsilk Command",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "speculative",
+      "collection": "cosmology",
+      "evidence_run_id": 42968933941,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Confirm live-edge URL, runtime and status label.",
+      "id": "Chorus_of_Dying_Stars",
+      "live_edge": "unverified",
+      "source_commit": "dd6b278e8c493b9322d47de70f3bf89a1d0f6fa5",
+      "source_url": "https://github.com/westkitty/Chorus_of_Dying_Stars/commit/dd6b278e8c493b9322d47de70f3bf89a1d0f6fa5",
+      "spoiler_level": "major",
+      "title": "Chorus of Dying Stars",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "drakken",
+      "evidence_run_id": null,
+      "evidence_state": "not-proven",
+      "hold_reason": "Needs packaged public release and roster/scope reconciliation.",
+      "id": "The-Drakken-Terraforming-Laboratory",
+      "live_edge": "unverified",
+      "source_commit": "77bb47b320d22514448fefe85946ff43aec37ee2",
+      "source_url": "https://github.com/westkitty/The-Drakken-Terraforming-Laboratory/commit/77bb47b320d22514448fefe85946ff43aec37ee2",
+      "spoiler_level": "major",
+      "title": "The Drakken Terraforming Laboratory",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "speculative",
+      "collection": "cosmology",
+      "evidence_run_id": 39687136932,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Check live-edge parity and interaction accessibility.",
+      "id": "STARSILK-_Unmaking",
+      "live_edge": "unverified",
+      "source_commit": "df3f55a0d6ec74999c62ba7d667d21eac2ffb25c",
+      "source_url": "https://github.com/westkitty/STARSILK-_Unmaking/commit/df3f55a0d6ec74999c62ba7d667d21eac2ffb25c",
+      "spoiler_level": "major",
+      "title": "STARSILK Unmaking",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    },
+    {
+      "admission": "hold",
+      "canon_status": "development",
+      "collection": "language",
+      "evidence_run_id": 43330336091,
+      "evidence_state": "matched-head-deploy",
+      "hold_reason": "Check boundary between separate intellectual properties and live release.",
+      "id": "AZURAVEL",
+      "live_edge": "unverified",
+      "source_commit": "552475abc02ac00327051882981aa89a2561cba5",
+      "source_url": "https://github.com/westkitty/AZURAVEL/commit/552475abc02ac00327051882981aa89a2561cba5",
+      "spoiler_level": "major",
+      "title": "AZURAVEL",
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "guest_count": 10,
+  "release_policy": "metadata-only; no exhibit launches or embeds",
+  "schema": "starsilk-guest-exhibit-index/1",
+  "stage": "phase-1-source-metadata"
+}

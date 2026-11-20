@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westkitty.github.io/Starsilk_Character_Dossier/machine/schema/v1/guest-exhibit-registry.schema.json",
+  "title": "Living Archive Guest Exhibit Registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "project_id",
+    "policy",
+    "exhibits"
+  ],
+  "properties": {
+    "schema": {
+      "const": "starsilk-guest-exhibits/1"
+    },
+    "project_id": {
+      "const": "starsilk-character-dossier"
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "display",
+        "launches",
+        "authority"
+      ],
+      "properties": {
+        "stage": {
+          "const": "phase-1-source-metadata"
+        },
+        "display": {
+          "const": "metadata-only"
+        },
+        "launches": {
+          "const": "disabled"
+        },
+        "authority": {
+          "const": "curatorial-not-canonical"
+        }
+      }
+    },
+    "exhibits": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "collection",
+          "visibility",
+          "canon_status",
+          "spoiler_level",
+          "source",
+          "evidence",
+          "release",
+          "admission",
+          "unknowns"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "collection": {
+            "enum": [
+              "cosmology",
+              "drakken",
+              "historical",
+              "operations",
+              "language"
+            ]
+          },
+          "visibility": {
+            "enum": [
+              "public",
+              "private"
+            ]
+          },
+          "canon_status": {
+            "enum": [
+              "canon",
+              "development",
+              "historical",
+              "speculative",
+              "unknown"
+            ]
+          },
+          "spoiler_level": {
+            "enum": [
+              "none",
+              "minor",
+              "major"
+            ]
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "repository",
+              "revision",
+              "url"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "github",
+                  "private-drive"
+                ]
+              },
+              "repository": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^westkitty/[A-Za-z0-9._-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "revision": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{40}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^https://github[.]com/westkitty/[A-Za-z0-9._-]+/commit/[a-f0-9]{40}$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "checked_on",
+              "head_verified",
+              "pages_deployment",
+              "pages_run_id",
+              "context"
+            ],
+            "properties": {
+              "checked_on": {
+                "type": "string",
+                "pattern": "^20[0-9]{2}-[0-9]{2}-[0-9]{2}$"
+              },
+              "head_verified": {
+                "type": "boolean"
+              },
+              "pages_deployment": {
+                "enum": [
+                  "matched-head-deploy",
+                  "older-commit-deploy",
+                  "not-proven",
+                  "private-unreleased"
+                ]
+              },
+              "pages_run_id": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "context": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "release": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "live_edge",
+              "rights",
+              "embed"
+            ],
+            "properties": {
+              "live_edge": {
+                "const": "unverified"
+              },
+              "rights": {
+                "const": "review-required"
+              },
+              "embed": {
+                "const": "not-tested"
+              }
+            }
+          },
+          "admission": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "show_public_metadata",
+              "launch_enabled",
+              "hold_reason"
+            ],
+            "properties": {
+              "status": {
+                "const": "hold"
+              },
+              "show_public_metadata": {
+                "type": "boolean"
+              },
+              "launch_enabled": {
+                "const": false
+              },
+              "hold_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "visibility": {
+                  "const": "private"
+                }
+              },
+              "required": [
+                "visibility"
+              ]
+            },
+            "then": {
+              "properties": {
+                "admission": {
+                  "properties": {
+                    "show_public_metadata": {
+                      "const": false
+                    }
+                  }
+                },
+                "source": {
+                  "properties": {
+                    "kind": {
+                      "const": "private-drive"
+                    },
+                    "repository": {
+                      "type": "null"
+                    },
+                    "revision": {
+                      "type": "null"
+                    },
+                    "url": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "visibility": {
+                  "const": "public"
+                }
+              },
+              "required": [
+                "visibility"
+              ]
+            },
+            "then": {
+              "properties": {
+                "source": {
+                  "properties": {
+                    "kind": {
+                      "const": "github"
+                    },
+                    "repository": {
+                      "type": "string"
+                    },
+                    "revision": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

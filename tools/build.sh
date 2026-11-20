@@ -114,6 +114,8 @@ if [ "$CHECK_ONLY" = true ]; then
     "$PY" build/film_publication.py --check
     echo "-> Generating (in-memory) and checking Starsilk: Palimpsest..."
     "$PY" build/palimpsest_publication.py --check
+    echo "-> Checking Living Archive guest-source metadata..."
+    "$PY" build/experiences_publication.py --check
     echo "-> Generating (in-memory) and checking source-backed chronology explorer..."
     "$PY" build/chronology_publication.py --check
     echo "-> Generating (in-memory) and checking source-backed WorldsVault topology explorer..."
@@ -145,6 +147,8 @@ else
     "$PY" build/film_publication.py
     echo "-> Generating Starsilk: Palimpsest interactive first contact..."
     "$PY" build/palimpsest_publication.py
+    echo "-> Generating Living Archive guest-source metadata..."
+    "$PY" build/experiences_publication.py
     echo "-> Generating source-backed chronology explorer..."
     "$PY" build/chronology_publication.py
     echo "-> Generating source-backed WorldsVault topology explorer..."
@@ -165,7 +169,7 @@ echo "-> Running strict validation gate..."
 "$PY" build/validate.py --strict
 
 echo "-> Running public derivative boundary gate..."
-"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/films docs/palimpsest docs/musical docs/chronology docs/worldsvault docs/records docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
+"$PY" tools/check_public_boundary.py docs/machine docs/llms.txt docs/sitemap.xml docs/relationships docs/canon docs/discover docs/tours docs/films docs/palimpsest docs/experiences docs/musical docs/chronology docs/worldsvault docs/records docs/entities docs/objects docs/manifest.webmanifest docs/service-worker.js docs/offline-client.js docs/offline.html docs/offline.css docs/agents
 
 echo "======================================================================"
 echo "BUILD COMPLETED SUCCESSFULLY"

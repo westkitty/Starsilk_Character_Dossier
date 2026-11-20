@@ -1,0 +1,458 @@
+{
+  "schema": "starsilk-guest-exhibits/1",
+  "project_id": "starsilk-character-dossier",
+  "policy": {
+    "stage": "phase-1-source-metadata",
+    "display": "metadata-only",
+    "launches": "disabled",
+    "authority": "curatorial-not-canonical"
+  },
+  "exhibits": [
+    {
+      "id": "Starsilk_Map_of_the_All",
+      "title": "Map of the All",
+      "collection": "cosmology",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Starsilk_Map_of_the_All",
+        "revision": "f776e6182a7fc0fe27ef9e573be83eaa1ca0bbd3",
+        "url": "https://github.com/westkitty/Starsilk_Map_of_the_All/commit/f776e6182a7fc0fe27ef9e573be83eaa1ca0bbd3"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 41824442261,
+        "context": "Independent map project; no canon coordinates or paths may be inferred from its rendered topology."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Needs direct live-edge/revision and embedding review."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "Drakken_Lineage",
+      "title": "Drakken Lineage",
+      "collection": "drakken",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Drakken_Lineage",
+        "revision": "3b4091664ef3acf6c7e9ac92f9a4f61ef9439340",
+        "url": "https://github.com/westkitty/Drakken_Lineage/commit/3b4091664ef3acf6c7e9ac92f9a4f61ef9439340"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "older-commit-deploy",
+        "pages_run_id": 35659766877,
+        "context": "58 labels include provisional expansions; latest known Pages deployment predates current source HEAD."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Pages-to-HEAD mismatch and roster/canon reconciliation."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "Palimpsest",
+      "title": "Palimpsest (standalone)",
+      "collection": "historical",
+      "visibility": "public",
+      "canon_status": "historical",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Palimpsest",
+        "revision": "d4fab1eb8bc45d20359db77080e7fb0c870d5077",
+        "url": "https://github.com/westkitty/Palimpsest/commit/d4fab1eb8bc45d20359db77080e7fb0c870d5077"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 43580885382,
+        "context": "External twelve-folio instructional art; distinct from the Compendium's existing /palimpsest/ route."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Confirm live-edge parity, source status and permission for inclusion."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "Heliocide_Viewer",
+      "title": "Heliocide Viewer",
+      "collection": "historical",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Heliocide_Viewer",
+        "revision": "77199d62445f038b8eacad85639067bb0e609a37",
+        "url": "https://github.com/westkitty/Heliocide_Viewer/commit/77199d62445f038b8eacad85639067bb0e609a37"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "not-proven",
+        "pages_run_id": null,
+        "context": "No confirmed public Pages deployment; source character portrayal conflicts with current visual-canon requirements."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Requires a real release/browser check and visual-canon reconciliation."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "the-sixth-month-orbital-tomb",
+      "title": "The Sixth Month — Orbital Tomb",
+      "collection": "historical",
+      "visibility": "public",
+      "canon_status": "historical",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/the-sixth-month-orbital-tomb",
+        "revision": "083ab8b8544fde06cc93867749e0e2b25916d3c1",
+        "url": "https://github.com/westkitty/the-sixth-month-orbital-tomb/commit/083ab8b8544fde06cc93867749e0e2b25916d3c1"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 43613210488,
+        "context": "Seven Month 0–6 reconstructions portray deliberate dismantling; monthly details are not independent canon."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Check live URL, third-party crew-asset rights and mobile runtime."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "Starsilk_Command",
+      "title": "Starsilk Command",
+      "collection": "operations",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Starsilk_Command",
+        "revision": "b3def11d64c0fc0e75d13fb59415e06a16f70120",
+        "url": "https://github.com/westkitty/Starsilk_Command/commit/b3def11d64c0fc0e75d13fb59415e06a16f70120"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 41200555495,
+        "context": "Browser crisis-command simulation, not proof of canonical incidents, crew or numerical rules."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Check live build, persistence/storage isolation and visitor safety."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "DRAXIS_105_Drive",
+      "title": "DRAXIS 105 archive",
+      "collection": "drakken",
+      "visibility": "private",
+      "canon_status": "unknown",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "private-drive",
+        "repository": null,
+        "revision": null,
+        "url": null
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": false,
+        "pages_deployment": "private-unreleased",
+        "pages_run_id": null,
+        "context": "Owner-only Drive archive. Contains 105 illustrated plates across documented, genesis, historical-proposal and contextual groups; images are not canon approved merely by being stored."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": false,
+        "launch_enabled": false,
+        "hold_reason": "Private Drive, individual rights/approval, source hashes and public-release decision."
+      },
+      "unknowns": [
+        "public-release",
+        "approved-assets",
+        "source-hash-verification",
+        "browser-runtime"
+      ]
+    },
+    {
+      "id": "Chorus_of_Dying_Stars",
+      "title": "Chorus of Dying Stars",
+      "collection": "cosmology",
+      "visibility": "public",
+      "canon_status": "speculative",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/Chorus_of_Dying_Stars",
+        "revision": "dd6b278e8c493b9322d47de70f3bf89a1d0f6fa5",
+        "url": "https://github.com/westkitty/Chorus_of_Dying_Stars/commit/dd6b278e8c493b9322d47de70f3bf89a1d0f6fa5"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 42968933941,
+        "context": "Twelve synthetic stars; no canonical astronomical positions or star-system identities."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Confirm live-edge URL, runtime and status label."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "The-Drakken-Terraforming-Laboratory",
+      "title": "The Drakken Terraforming Laboratory",
+      "collection": "drakken",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/The-Drakken-Terraforming-Laboratory",
+        "revision": "77bb47b320d22514448fefe85946ff43aec37ee2",
+        "url": "https://github.com/westkitty/The-Drakken-Terraforming-Laboratory/commit/77bb47b320d22514448fefe85946ff43aec37ee2"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "not-proven",
+        "pages_run_id": null,
+        "context": "Simulation of Fault-Tongue, Cloudmaw, Gorevault and Ringthroat; model coefficients and older 35-strain scope are not current canon."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Needs packaged public release and roster/scope reconciliation."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "STARSILK-_Unmaking",
+      "title": "STARSILK Unmaking",
+      "collection": "cosmology",
+      "visibility": "public",
+      "canon_status": "speculative",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/STARSILK-_Unmaking",
+        "revision": "df3f55a0d6ec74999c62ba7d667d21eac2ffb25c",
+        "url": "https://github.com/westkitty/STARSILK-_Unmaking/commit/df3f55a0d6ec74999c62ba7d667d21eac2ffb25c"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 39687136932,
+        "context": "Five synthetic star systems are explicitly noncanonical."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Check live-edge parity and interaction accessibility."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "AZURAVEL",
+      "title": "AZURAVEL",
+      "collection": "language",
+      "visibility": "public",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "github",
+        "repository": "westkitty/AZURAVEL",
+        "revision": "552475abc02ac00327051882981aa89a2561cba5",
+        "url": "https://github.com/westkitty/AZURAVEL/commit/552475abc02ac00327051882981aa89a2561cba5"
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": true,
+        "pages_deployment": "matched-head-deploy",
+        "pages_run_id": 43330336091,
+        "context": "AZ1 language is independent; any Starsilk testimony is interpretive, not canon translation."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": true,
+        "launch_enabled": false,
+        "hold_reason": "Check boundary between separate intellectual properties and live release."
+      },
+      "unknowns": [
+        "live-edge-parity",
+        "embed-security",
+        "inclusion-rights"
+      ]
+    },
+    {
+      "id": "The_Machine_That_Eats_Worlds_Drive",
+      "title": "The Machine That Eats Worlds",
+      "collection": "operations",
+      "visibility": "private",
+      "canon_status": "development",
+      "spoiler_level": "major",
+      "source": {
+        "kind": "private-drive",
+        "repository": null,
+        "revision": null,
+        "url": null
+      },
+      "evidence": {
+        "checked_on": "2026-11-19",
+        "head_verified": false,
+        "pages_deployment": "private-unreleased",
+        "pages_run_id": null,
+        "context": "Owner-only Drive V05 build sources; earlier package reported Node unit-test success but TypeScript bundle/WebGL release was unproven."
+      },
+      "release": {
+        "live_edge": "unverified",
+        "rights": "review-required",
+        "embed": "not-tested"
+      },
+      "admission": {
+        "status": "hold",
+        "show_public_metadata": false,
+        "launch_enabled": false,
+        "hold_reason": "Requires public build, release QA, owner approval and third-party rights review."
+      },
+      "unknowns": [
+        "public-release",
+        "approved-assets",
+        "source-hash-verification",
+        "browser-runtime"
+      ]
+    }
+  ]
+}

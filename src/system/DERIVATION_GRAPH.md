@@ -16,7 +16,7 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `canon` | authoritative | source | `src/canon/AUTHORITY.md`<br>`src/canon/invariants.json` | canon |
 | `media` | evidence | source | `docs/asset-manifest.json` | media |
 | `schemas` | authoritative | source | `src/schema/*.schema.json` | schemas |
-| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/films/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**`<br>`src/records/**`<br>`src/palimpsest/**` | subsystems |
+| `subsystems` | authoritative | source | `src/machine/AUTHORITY.md`<br>`src/relationships/AUTHORITY.md`<br>`src/discovery/AUTHORITY.md`<br>`src/tours/**`<br>`src/films/**`<br>`src/chronology/**`<br>`src/worldsvault/**`<br>`src/museum/AUTHORITY.md`<br>`src/offline/**`<br>`src/agents/**`<br>`src/records/**`<br>`src/palimpsest/**`<br>`src/experiences/**` | subsystems |
 | `topology` | authoritative | source | `src/system/AUTHORITY.md`<br>`src/system/derivation-map.json`<br>`src/system/operational-state-policy.json`<br>`src/system/OPERATIONAL_STATE_FRESHNESS.md`<br>`src/system/operational-state-invariants.json` | topology |
 | `media_originals` | authoritative | external | `media/source/` | media_originals |
 | `media_gen` | authoritative | generator | `build/media_pipeline.py` | media_gen |
@@ -59,6 +59,8 @@ Major authority/evidence groups, every Python generator in tools/build.sh, gener
 | `state_freshness` | authoritative | validator | `tools/check_operational_state_freshness.py` | state_freshness |
 | `palimpsest_gen` | authoritative | generator | `build/palimpsest_publication.py` | palimpsest_gen |
 | `palimpsest_out` | generated | output | `docs/palimpsest/**` | palimpsest_out |
+| `experiences_gen` | authoritative | generator | `build/experiences_publication.py` | experiences_gen |
+| `experiences_out` | generated | output | `docs/experiences/**` | experiences_out |
 
 ## Mermaid
 
@@ -112,6 +114,8 @@ flowchart LR
     state_freshness["state_freshness\nauthoritative / validator"]
     palimpsest_gen["palimpsest_gen\nauthoritative / generator"]
     palimpsest_out["palimpsest_out\ngenerated / output"]
+    experiences_gen["Living Archive metadata generator\nauthoritative / generator"]
+    experiences_out["Living Archive metadata publication\ngenerated / output"]
     foundation -->|governs| topology
     media_originals -->|input_to| media_gen
     media_gen -->|generates| media_out
@@ -221,6 +225,10 @@ flowchart LR
     subsystems -->|input_to| palimpsest_gen
     palimpsest_gen -->|generates| palimpsest_out
     palimpsest_out -->|validates| boundary
+    schemas -->|input_to| experiences_gen
+    subsystems -->|input_to| experiences_gen
+    experiences_gen -->|generates| experiences_out
+    experiences_out -->|validates| boundary
 ```
 
 ## Stale-risk summary
@@ -228,8 +236,8 @@ flowchart LR
 - **content** -> agents_out, canon_out, discovery_out, entities_out, machine_out, offline_out, records_out, relationships_out, root_out, tours_out
 - **canon** -> agents_out, canon_out, entities_out, machine_out, offline_out, records_out, relationships_out, root_out
 - **media** -> agents_out, discovery_out, entities_out, machine_out, museum_out, offline_out, records_out, relationships_out, root_out, tours_out
-- **schemas** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, tours_out, worldsvault_out
-- **subsystems** -> agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, relationships_out, root_out, tours_out, worldsvault_out
+- **schemas** -> Living Archive metadata publication, agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, tours_out, worldsvault_out
+- **subsystems** -> Living Archive metadata publication, agents_out, canon_out, chronology_out, discovery_out, entities_out, films_out, machine_out, museum_out, offline_out, palimpsest_out, records_out, relationships_out, root_out, tours_out, worldsvault_out
 - **topology** -> graph_out
 - **media_originals** -> agents_out, discovery_out, entities_out, machine_out, media_out, museum_out, offline_out, records_out, relationships_out, root_out, tours_out
 
