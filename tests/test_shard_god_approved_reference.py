@@ -107,3 +107,18 @@ def test_generated_published_pages_and_machine_lock_register_match_authority():
         assert published[lock_id]["scope"] == "section"
         assert published[lock_id]["target"]["stable_id"] == "shard-god"
     assert model["lock_count"] == 19
+
+def test_compact_canon_lock_register_preserves_values_and_offline_budget():
+    import sys
+    sys.path.insert(0, str(ROOT / "build"))
+    import canon_publication
+
+    model = canon_publication.build_model()
+    published = (ROOT / "docs/canon/canon-locks.json").read_text(encoding="utf-8")
+    assert json.loads(published) == model
+    assert published == canon_publication.json_text(model)
+    assert published.endswith("\n") and published.count("\n") == 1
+    config = json.loads((ROOT / "src/offline/config.json").read_text(encoding="utf-8"))
+    assert "canon/canon-locks.json" in config["precache"]
+    paths = [("index.html" if x == "." else x) for x in config["precache"]]
+    assert sum((ROOT / "docs" / path).stat().st_size for path in paths) < 2_000_000
