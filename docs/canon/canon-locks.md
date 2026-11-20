@@ -8,9 +8,9 @@ Authority: https://westkitty.github.io/Starsilk_Character_Dossier/canon/AUTHORIT
 These are machine-enforced validation locks protecting selected established facts. They are not the complete Starsilk canon.
 Absence from this register does not imply non-canon status.
 
-- Total locks: 16
+- Total locks: 19
 - Document locks: 3
-- Section locks: 13
+- Section locks: 16
 
 ## blood-eclipse-war-170-years
 
@@ -232,6 +232,74 @@ These raw patterns are technical evidence, not canon prose.
 #### Positive requirements
 
 - `(?i)obsidian`
+
+#### Prohibitions
+
+- None.
+
+## shard-god-exact-height
+
+Shard-God Tiger's exact height is nine feet (2.74 m).
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `(?i)exactly nine feet \(2\.74 m\)`
+
+#### Prohibitions
+
+- `(?i)at or below roughly nine feet`
+
+## shard-god-compact-head
+
+Tiger retains the original compact angular wedge-shaped head and short projecting muzzle.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `(?i)compact angular wedge[- ]shaped head`
+- `(?i)short projecting muzzle`
+
+#### Prohibitions
+
+- None.
+
+## shard-god-pupil-free-eyes
+
+Tiger's eyes are a solid cyan glow without pupils.
+
+- Scope: `section`
+- Target: [published-section](https://westkitty.github.io/Starsilk_Character_Dossier/entities/shard-god/) (`shard-god`)
+- Machine validation authority: `src/canon/invariants.json`
+- Enforcement: `build/validate.py --strict` — `enforced-on-generated-compendium-validation`
+- Scope semantics: Applied only to generated section #shard-god; positive requirements and prohibitions are evaluated inside that section.
+
+### Machine validation patterns
+
+These raw patterns are technical evidence, not canon prose.
+
+#### Positive requirements
+
+- `(?i)eyes glow solid cyan`
+- `(?i)no pupils`
 
 #### Prohibitions
 

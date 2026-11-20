@@ -1115,6 +1115,27 @@
             "lock_id": "shard-god-obsidian",
             "source_pointer": "src/canon/invariants.json",
             "url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/#lock-shard-god-obsidian"
+          },
+          {
+            "evidence_class": "machine-lock-reference",
+            "label": "Canon lock: Shard-God Tiger's exact height is nine feet (2.74 m).",
+            "lock_id": "shard-god-exact-height",
+            "source_pointer": "src/canon/invariants.json",
+            "url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/#lock-shard-god-exact-height"
+          },
+          {
+            "evidence_class": "machine-lock-reference",
+            "label": "Canon lock: Tiger retains the original compact angular wedge-shaped head and short projecting muzzle.",
+            "lock_id": "shard-god-compact-head",
+            "source_pointer": "src/canon/invariants.json",
+            "url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/#lock-shard-god-compact-head"
+          },
+          {
+            "evidence_class": "machine-lock-reference",
+            "label": "Canon lock: Tiger's eyes are a solid cyan glow without pupils.",
+            "lock_id": "shard-god-pupil-free-eyes",
+            "source_pointer": "src/canon/invariants.json",
+            "url": "https://westkitty.github.io/Starsilk_Character_Dossier/canon/#lock-shard-god-pupil-free-eyes"
           }
         ],
         "Machine / Source": [
@@ -1268,8 +1289,8 @@
         "hasWorlds": false
       },
       "object_type": "character-section",
-      "reference_count": 17,
-      "search_text": "shard-god Shard-God Tiger character-section Canon Canon lock: Shard-God Tiger has exactly one tail. Canon lock: Shard-God Tiger is digitigrade. Canon lock: Shard-God Tiger's body identity remains obsidian. machine-lock-reference machine-lock-reference machine-lock-reference Mentions Mentioned by Starsilk Compendium Mentions Kail Mentions NiAlBu Mentions Wordstreamer observed-xref observed-xref observed-xref observed-xref Media / Objects Museum object: 0cb9f2fd4623694ffca06f45.webp Museum object: 7c7d87d4b3c4ebdf26105e88.webp Museum object: a551049aaf868d58772975ad.webp Museum object: b8d2878fc5065ecb2bb262e2.webp manifest-related-media manifest-related-media manifest-related-media manifest-related-media Tours Tour: Principal characters curated-tour-membership Semantic Relationships opposes · Codec authored-semantic-edge Machine / Source Published source record Context packet Record JSON Record Markdown authored-record derived-context-packet machine-alternative machine-alternative",
+      "reference_count": 20,
+      "search_text": "shard-god Shard-God Tiger character-section Canon Canon lock: Shard-God Tiger has exactly one tail. Canon lock: Shard-God Tiger is digitigrade. Canon lock: Shard-God Tiger's body identity remains obsidian. Canon lock: Shard-God Tiger's exact height is nine feet (2.74 m). Canon lock: Tiger retains the original compact angular wedge-shaped head and short projecting muzzle. Canon lock: Tiger's eyes are a solid cyan glow without pupils. machine-lock-reference machine-lock-reference machine-lock-reference machine-lock-reference machine-lock-reference machine-lock-reference Mentions Mentioned by Starsilk Compendium Mentions Kail Mentions NiAlBu Mentions Wordstreamer observed-xref observed-xref observed-xref observed-xref Media / Objects Museum object: 0cb9f2fd4623694ffca06f45.webp Museum object: 7c7d87d4b3c4ebdf26105e88.webp Museum object: a551049aaf868d58772975ad.webp Museum object: b8d2878fc5065ecb2bb262e2.webp manifest-related-media manifest-related-media manifest-related-media manifest-related-media Tours Tour: Principal characters curated-tour-membership Semantic Relationships opposes · Codec authored-semantic-edge Machine / Source Published source record Context packet Record JSON Record Markdown authored-record derived-context-packet machine-alternative machine-alternative",
       "source": {
         "anchor": "shard-god",
         "legacy_url": "https://westkitty.github.io/Starsilk_Character_Dossier/#shard-god",
@@ -1290,12 +1311,18 @@
         "immutable_or_locked": [
           "Canon lock: Shard-God Tiger has exactly one tail.",
           "Canon lock: Shard-God Tiger is digitigrade.",
-          "Canon lock: Shard-God Tiger's body identity remains obsidian."
+          "Canon lock: Shard-God Tiger's body identity remains obsidian.",
+          "Canon lock: Shard-God Tiger's exact height is nine feet (2.74 m).",
+          "Canon lock: Tiger retains the original compact angular wedge-shaped head and short projecting muzzle.",
+          "Canon lock: Tiger's eyes are a solid cyan glow without pupils."
         ],
         "machine_locks": [
           "shard-god-single-tail",
           "shard-god-digitigrade",
-          "shard-god-obsidian"
+          "shard-god-obsidian",
+          "shard-god-exact-height",
+          "shard-god-compact-head",
+          "shard-god-pupil-free-eyes"
         ],
         "related_media_ids": [
           "0cb9f2fd4623694ffca06f45.webp",

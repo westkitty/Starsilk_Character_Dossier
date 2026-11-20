@@ -32,7 +32,8 @@ import machine_publication as machine  # noqa: E402
 
 
 def json_text(value: object) -> str:
-    return json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    # Keep the complete canon register in the offline precache without changing its JSON semantics.
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n"
 
 
 def clean_text(value: str) -> str:
